@@ -1,0 +1,16 @@
+{
+    "name": "aoe2-de-tools",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "pete",
+    "contributors": [],
+    "dependencies": {
+        "express": "4.17.1"
+    }
+}

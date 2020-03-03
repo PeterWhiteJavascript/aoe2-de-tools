@@ -1,0 +1,3003 @@
+{
+    "civilizations":[
+        {
+            "name":"generic",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name": "aztecs",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name": "britons",
+            "ageUpgrade":[
+                {},
+                {
+                    "town center": {
+                        "bonus":{
+                            "cost": ["wood", -137]
+                        }
+                    }
+                },
+                {}
+            ],
+            "bonus":{
+                "villager":{
+                    "gatherRate": ["shepherd", 0.25]
+                }
+            },
+            "teamBonus":{
+                "archery range": {
+                    "workRate": 0.2
+                }
+            },
+            "locked":[
+                "eagle scout", "eagle warrior", "elite eagle warrior",
+                "hand cannoneer", "thumb ring", "partian tactics",
+                "hussar", "bloodlines", "paladin", "camel rider", "heavy camel rider", "battle elephant", "elite battle elephant", "steppe lancer", "elite steppe lancer",
+                "siege ram", "siege onager", "bombard cannon",
+                "elite cannon galleon",
+                "bombard tower",
+                "redemption", "atonement", "heresy",
+                "bombard tower upgrade", "treadmill crane",
+                "stone shaft mining",
+                "crop rotation"
+            ],
+            "unique":{
+                "unit":["longbowman"],
+                "tech":["yeomen", "warwolf"]
+            }
+        },
+        {
+            "name" : "byzantines",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "celts",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "chinese",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "franks",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "goths",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "japanese",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        },
+        {
+            "name" : "mongols",
+            "ageUpgrade":[],
+            "bonus":{},
+            "teamBonus":{},
+            "locked":[],
+            "unique":[]
+        }
+    ],
+    "units":[
+        {
+            "name": "villager",
+            "ageReq": 1,
+            "mAtk": 3,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 25,
+            "range": 0,
+            "speed": 0.8,
+            "rateOfFire": 2.03,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 50
+            },
+            "armorClasses": [],
+            "bonus":[[13, 6], [11, 3]],
+            "damageTechs":["loom", "meleeAttack", "infantryDefense", "sappers"],
+            "otherTechs":["villagerMovement", "villagerWood", "villagerStone", "villagerGold", "heavy plow", "treadmill crane"],
+            "uniqueDamageTechs":["supremacy"],
+            "uniqueOtherTechs":[],
+            "trainTime": 25,
+            "constructionSpeed": 1,
+            "gathering":{
+                "farmer":{
+                    "carryCapacity": 10,
+                    "gatherRate": 0.32
+                },
+                "fisherman": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.43
+                },
+                "hunter": {
+                    "carryCapacity": 35,
+                    "gatherRate": 0.41
+                },
+                "shepherd": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.33
+                },
+                "forager": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.31
+                },
+                "lumberjack": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.41
+                },
+                "gold miner": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.38
+                },
+                "stone miner": {
+                    "carryCapacity": 10,
+                    "gatherRate": 0.36
+                }
+            }
+        },
+        {
+            "name": "militia",
+            "ageReq": 1,
+            "mAtk": 4,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 40,
+            "range": 0,
+            "speed": 0.9,
+            "rateOfFire": 2.03,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 60,
+                "gold": 20
+            },
+            "armorClasses": [[1, 0]],
+            "bonus":[[21, 0]],
+            "damageTechs":["militia", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs": ["supplies", "squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans", "bagains"],
+            "uniqueOtherTechs":["perfusion", "forced levy"],
+            "trainTime": 21
+        },
+        {
+            "name": "spearman",
+            "ageReq": 2,
+            "mAtk": 3,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 45,
+            "range": 0,
+            "speed": 1,
+            "rateOfFire": 3.05,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 35,
+                "wood": 25
+            },
+            "armorClasses": [[1, 0], [27, 0]],
+            "bonus":[[8, 15], [5, 15], [30, 12], [16, 9], [32, 9], [35, 4], [29, 1], [21, 1]],
+            "damageTechs":["spearman", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs": ["squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans", "tower shields"],
+            "uniqueOtherTechs":["perfusion"],
+            "trainTime": 22
+        },
+        {
+            "name": "eagle scout",
+            "ageReq": 2,
+            "mAtk": 4,
+            "mDef": 0,
+            "pDef": 2,
+            "hp": 50,
+            "range": 0,
+            "speed": 1.1,
+            "rateOfFire": 2.03,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 20,
+                "gold": 50
+            },
+            "armorClasses": [[1, 0], [29, 0]],
+            "bonus":[[25, 8], [20, 3], [8, 0], [30, 0], [16, 0], [34, 0]],
+            "damageTechs":["eagle scout", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars", "couriers", "el dorado"],
+            "uniqueOtherTechs":[],
+            "trainTime": 60,
+            "ageUpgrade":[
+                {
+                    "lineOfSight": 3
+                },
+                {
+                    "atk": 3,
+                    "bonus": [[8, 2], [30, 1], [16, 1]],
+                    "trainTime": -25
+                },
+                {}
+            ]
+        },
+        {
+            "name": "condottiero",
+            "ageReq": 4,
+            "mAtk": 9,
+            "mDef": 1,
+            "pDef": 0,
+            "hp": 80,
+            "range": 0,
+            "speed": 1.2,
+            "rateOfFire": 1.93,
+            "lineOfSight": 6,
+            "cost":{
+                "food": 50,
+                "gold": 35
+            },
+            "armorClasses": [[1, 0], [19, 0], [32, 0]],
+            "bonus":[[23, 10], [11, 2]],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans"],
+            "uniqueOtherTechs":["perfusion"],
+            
+            "trainTime": 18
+        },
+        {
+            "name": "archer",
+            "ageReq": 2,
+            "pAtk": 4,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 30,
+            "frameDelay": 5,
+            "accuracy": 0.8,
+            "range": 4,
+            "speed": 0.96,
+            "rateOfFire": 2.03,
+            "projSpeed": 7,
+            "lineOfSight": 6,
+            "cost":{
+                "wood": 25,
+                "gold": 45
+            },
+            "armorClasses": [[15, 0]],
+            "bonus":[[27, 3]],
+            "damageTechs":["archer", "archerAttack", "archerDefense", "chemistry"],
+            "otherTechs":["thumb ring", "ballistics", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["obsidian arrows", "pavise"],
+            "uniqueOtherTechs":["yeomen", "kamandaran"],
+            "trainTime": 35
+        },
+        {
+            "name": "skirmisher",
+            "ageReq": 2,
+            "pAtk": 2,
+            "mDef": 0,
+            "pDef": 3,
+            "hp": 30,
+            "frameDelay": 5,
+            "accuracy": 0.9,
+            "range": 4,
+            "minimumRange": 1,
+            "speed": 0.96,
+            "rateOfFire": 3.05,
+            "projSpeed": 7,
+            "lineOfSight": 6,
+            "cost":{
+                "food": 25,
+                "wood": 35
+            },
+            "armorClasses": [[15, 0]],
+            "bonus":[[15, 3], [27, 3], [28, 0]],
+            "damageTechs":["skirmisher", "archerAttack", "archerDefense", "chemistry"],
+            "otherTechs":["thumb ring", "ballistics", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["atlatl", "pavise", "tower shields"],
+            "uniqueOtherTechs":["yeomen", "andean sling"],
+            "trainTime": 22
+        },
+        {
+            "name": "cavalry archer",
+            "ageReq": 3,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 50,
+            "frameDelay": 10,
+            "accuracy": 0.5,
+            "range": 4,
+            "speed": 1.4,
+            "rateOfFire": 2.03,
+            "projSpeed": 7,
+            "lineOfSight": 5,
+            "cost":{
+                "wood": 40,
+                "gold": 60
+            },
+            "armorClasses": [[15, 0], [28, 0], [8, 0]],
+            "bonus":[[27, 2]],
+            "damageTechs":["heavy cavalry archer", "archerAttack", "archerDefense", "bloodlines", "parthian tactics", "chemistry"],
+            "otherTechs":["thumb ring", "ballistics", "husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["sipahi", "recurve bow", "silk armor"],
+            "uniqueOtherTechs":["steppe husbandry"],
+            "trainTime": 34
+        },
+        {
+            "name": "hand cannoneer",
+            "ageReq": 4,
+            "pAtk": 17,
+            "mDef": 1,
+            "pDef": 0,
+            "hp": 35,
+            "frameDelay": 15,
+            "accuracy": 0.65,
+            "range": 7,
+            "speed": 0.96,
+            "rateOfFire": 3.45,
+            "projSpeed": 5.5,
+            "lineOfSight": 9,
+            "cost":{
+                "food": 45,
+                "gold": 50
+            },
+            "armorClasses": [[15, 0], [23, 0]],
+            "bonus":[[1, 10], [17, 2], [27, 1]],
+            "damageTechs":["archerDefense"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["shatagni", "arquebus"],
+            "trainTime": 34
+        },
+        {
+            "name": "slinger",
+            "ageReq": 3,
+            "pAtk": 4,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 40,
+            "frameDelay": 5,
+            "accuracy": 0.9,
+            "range": 5,
+            "minimumRange": 1,
+            "speed": 0.96,
+            "rateOfFire": 2.03,
+            "projSpeed": 5.5,
+            "lineOfSight": 7,
+            "cost":{
+                "food": 30,
+                "gold": 40
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[1, 10], [32, 10], [17, 3], [27, 1]],
+            "damageTechs":["archerAttack", "archerDefense"],
+            "otherTechs":["ballisitcs", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["couriers"],
+            "uniqueOtherTechs":["andean sling"],
+            "trainTime": 25
+        },
+        {
+            "name": "genitour",
+            "ageReq": 3,
+            "pAtk": 3,
+            "mDef": 0,
+            "pDef": 3,
+            "hp": 50,
+            "frameDelay": 4,
+            "accuracy": 0.9,
+            "range": 4,
+            "minimumRange": 1,
+            "speed": 1.35,
+            "rateOfFire": 3.05,
+            "projSpeed": 7,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 50,
+                "wood": 35
+            },
+            "armorClasses": [[8, 0], [15, 0], [19, 0], [28, 1]],
+            "bonus":[[15, 4], [27, 2], [28, 0]],
+            "damageTechs":["genitour", "archerAttack", "archerDefense", "bloodlines", "chemistry"],
+            "otherTechs":["husbandry", "ballisitcs", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["sipahi", "atlatl", "silk armor"],
+            "uniqueOtherTechs":["andean sling"],
+            "trainTime": 25
+        },
+        
+        
+        {
+            "name": "scout cavalry",
+            "ageReq": 2,
+            "mAtk": 3,
+            "mDef": 0,
+            "pDef": 2,
+            "hp": 45,
+            "range": 0,
+            "speed": 1.2,
+            "rateOfFire": 2.03,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 80
+            },
+            "armorClasses": [[8, 0]],
+            "bonus":[[25, 6]],
+            "damageTechs":["scout cavalry", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["farimba", "manipur cavalry", "silk armor"],
+            "uniqueOtherTechs":["stirrups", "chivalry", "steppe husbandry"],
+            "trainTime": 30,
+            "ageUpgrade":[
+                {
+                    "atk": 2,
+                    "lineOfSight": 2,
+                    "speed": 0.35
+                },
+                {
+                    "lineOfSight": 2
+                },
+                {
+                    "lineOfSight": 2
+                }
+                
+            ]
+        },
+        {
+            "name": "knight",
+            "ageReq": 3,
+            "mAtk": 10,
+            "mDef": 2,
+            "pDef": 2,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.35,
+            "rateOfFire": 1.83,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 60,
+                "gold": 75
+            },
+            "armorClasses": [[8, 0]],
+            "bonus":[],
+            "damageTechs":["knight", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["farimba", "manipur cavalry"],
+            "uniqueOtherTechs":["chivalry"],
+            "trainTime": 30
+        },
+        {
+            "name": "camel rider",
+            "ageReq": 3,
+            "mAtk": 6,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.45,
+            "rateOfFire": 2.03,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 55,
+                "gold": 60
+            },
+            "armorClasses": [[30, 0]],
+            "bonus":[[8, 9], [30, 5], [16, 5], [34, 5], [35, 0], [11, 0]],
+            "damageTechs":["camel rider", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["farimba", "zealotry"],
+            "uniqueOtherTechs":["maghrabi camels"],
+            "trainTime": 22
+        },
+        {
+            "name": "battle elephant",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 1,
+            "pDef": 2,
+            "hp": 250,
+            "range": 0,
+            "speed": 0.85,
+            "rateOfFire": 2.03,
+            "blastRadius": 0.4,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 120,
+                "gold": 70
+            },
+            "armorClasses": [[5, 0], [8, 0]],
+            "bonus":[[11, 7], [13, 7]],
+            "damageTechs":["battle elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["chatras", "manipur cavalry", "tusk swords", "howdah"],
+            "uniqueOtherTechs":[],
+            "trainTime": 24
+        },
+        {
+            "name": "steppe lancer",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 60,
+            "range": 1,
+            "speed": 1.45,
+            "rateOfFire": 2.3,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 70,
+                "gold": 45
+            },
+            "armorClasses": [8],
+            "bonus":[],
+            "damageTechs":["steppe lancer", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["steppe husbandry"],
+            "trainTime": 24
+        },
+        {
+            "name": "battering ram",
+            "ageReq": 3,
+            "mAtk": 2,
+            "mDef": -3,
+            "pDef": 180,
+            "hp": 175,
+            "range": 1,
+            "speed": 0.5,
+            "garrison": 4,
+            "rateOfFire": 5,
+            "lineOfSight": 3,
+            "blastRadius": 1,
+            "cost":{
+                "wood": 160,
+                "gold": 75
+            },
+            "armorClasses": [[20, 0], [17, 0]],
+            "bonus":[[11, 125], [20, 40]],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["ram", "siege engineers"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["furor celtica", "ironclad"],
+            "uniqueOtherTechs":["drill"],
+            "trainTime": 36
+        },
+        {
+            "name": "mangonel",
+            "ageReq": 3,
+            "mAtk": 40,
+            "extraAttack": 5, 
+            "mDef": 0,
+            "pDef": 6,
+            "hp": 50,
+            "range": 7,
+            "minimumRange": 3,
+            "speed": 0.6,
+            "rateOfFire": 6,
+            "projSpeed": 3.5,
+            "frameDelay": 0,
+            "accuracy": 0.9,
+            "lineOfSight": 9,
+            "blastRadius": 1,
+            "cost":{
+                "wood": 160,
+                "gold": 135
+            },
+            "armorClasses": [[20, 0]],
+            "bonus":[[11, 35], [20, 12]],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["mangonel", "siege engineers", "chemistry"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["furor celtica", "ironclad"],
+            "uniqueOtherTechs":["drill"],
+            "trainTime": 46
+        },
+        {
+            "name": "scorpion",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 7,
+            "mDef": 0,
+            "pDef": 7,
+            "hp": 40,
+            "range": 7,
+            "minimumRange": 2,
+            "speed": 0.65,
+            "rateOfFire": 3.6,
+            "projSpeed": 3.5,
+            "frameDelay": 7,
+            "accuracy": 1,
+            "lineOfSight": 9,
+            "cost":{
+                "wood": 75,
+                "gold": 75
+            },
+            "armorClasses": [[20, 0]],
+            "bonus":[[5, 6], [11, 2], [17, 1]],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["scorpion", "siege engineers", "chemistry"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["furor celtica", "ironclad", "rocketry", "double crossbow"],
+            "uniqueOtherTechs":["drill", "torsion engines"],
+            "trainTime": 30
+        },
+        
+        {
+            "name": "siege tower",
+            "ageReq": 3,
+            "mDef": -2,
+            "pDef": 100,
+            "hp": 220,
+            "range": 0,
+            "speed": 0.8,
+            "lineOfSight": 8,
+            "cost":{
+                "wood": 200,
+                "gold": 160
+            },
+            "armorClasses": [[20, 0], [17, 0]],
+            "damageTechs":[],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["furor celtica", "ironclad"],
+            "uniqueOtherTechs":["drill"],
+            "trainTime": 36
+        },
+        {
+            "name": "bombard cannon",
+            "ageReq": 4,
+            "mAtk": 40,
+            "pAtk": 0,
+            "mDef": 2,
+            "pDef": 5,
+            "hp": 80,
+            "range": 12,
+            "minimumRange": 5,
+            "speed": 0.7,
+            "rateOfFire": 6.5,
+            "projSpeed": 4,
+            "frameDelay": 7,
+            "accuracy": 0.92,
+            "lineOfSight": 14,
+            "blastRadius": 0.5,
+            "cost":{
+                "wood": 225,
+                "gold": 225
+            },
+            "armorClasses": [[20, 0], [23, 0]],
+            "bonus":[[11, 200], [16, 40], [34, 40], [13, 40], [20, 20]],
+            "damageTechs":["siege engineers"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["ironclad"],
+            "uniqueOtherTechs":["torsion engines", "arquebus", "artillery"],
+            "trainTime": 56
+        },
+        {
+            "name": "trebuchet",
+            "ageReq": 4,
+            "mDef": 2,
+            "pDef": 8,
+            "hp": 150,
+            "lineOfSight": 19,
+            "speed": 0.8,
+            "cost":{
+                "wood": 200,
+                "gold": 200
+            },
+            "armorClasses": [[20, 0]],
+            "damageTechs":[],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["ironclad"],
+            "uniqueOtherTechs":[],
+            "trainTime": 50
+        },
+        {
+            "name": "trebuchet unpacked",
+            "ageReq": 4,
+            "pAtk": 200,
+            "mDef": 1,
+            "pDef": 150,
+            "hp": 150,
+            "rateOfFire": 10,
+            "minimumRange": 4,
+            "projSpeed": 3.5,
+            "frameDelay": 6,
+            "accuracy": 0.15,
+            "accuracyVsBuilings": 0.8,
+            "lineOfSight": 19,
+            "blastRadius": 0,
+            "range": 16,
+            "speed": 0,
+            "cost":{
+                "wood": 200,
+                "gold": 200
+            },
+            "armorClasses": [[20, 0], [17, 0]],
+            "bonus":[[11, 250]],
+            "damageTechs":["siege engineers", "chemistry"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["ironclad"],
+            "uniqueOtherTechs":["timurid siegecraft", "katapuruto", "warwolf"],
+            "trainTime": 50
+        },
+        {
+            "name": "petard",
+            "ageReq": 4,
+            "mAtk": 25,
+            "mDef": 0,
+            "pDef": 2,
+            "hp": 50,
+            "speed": 0.8,
+            "lineOfSight": 4,
+            "blastRadius": 0.5,
+            "cost":{
+                "food": 65,
+                "gold": 20
+            },
+            "armorClasses": [],
+            "bonus":[[22, 900], [11, 500], [26, 100], [20, 60]],
+            "damageTechs":["siege engineers"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 25
+        },
+        {
+            "name": "monk",
+            "ageReq": 3,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 30,
+            "speed": 0.7,
+            "lineOfSight": 11,
+            "range": 9,
+            "rateOfFire": 62,
+            "rangeHealing": 4,
+            "cost":{
+                "gold": 100
+            },
+            "armorClasses": [[25, 0]],
+            "bonus":[],
+            "damageTechs":["sanctity", "redemption", "atonement", "illumination", "theocracy", "block printing", "fervor", "faith", "heresy", "herbal medicine"],
+            "otherTechs":[],
+            "uniqueDamageTechs":["orthodoxy"],
+            "uniqueOtherTechs":["madrasah", "inquisition"],
+            "trainTime": 51
+        },
+        {
+            "name": "missionary",
+            "ageReq": 3,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 30,
+            "speed": 1.1,
+            "lineOfSight": 9,
+            "range": 7,
+            "rateOfFire": 62,
+            "rangeHealing": 4,
+            "cost":{
+                "gold": 100
+            },
+            "armorClasses": [[25, 0]],
+            "bonus":[],
+            "damageTechs":["sanctity", "bloodlines"],
+            "otherTechs":["block printing", "fervor", "husbandry", "redemption", "atonement", "illumination", "theocracy", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["inquisition"],
+            "trainTime": 51
+        },
+        {
+            "name": "fishing ship",
+            "ageReq": 1,
+            "mDef": 0,
+            "pDef": 4,
+            "hp": 60,
+            "speed": 1.26,
+            "lineOfSight": 5,
+            "cost":{
+                "wood": 75
+            },
+            "armorClasses": [[34, 0]],
+            "bonus":[],
+            "damageTechs":["careening"],
+            "otherTechs":["shipwright", "gillnets","faith", "heresy"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
+        },
+        {
+            "name": "fire galley",
+            "ageReq": 2,
+            "mAtk": 0,
+            "pAtk": 1,
+            "mDef": 0,
+            "pDef": 4,
+            "hp": 100,
+            "speed": 1.3,
+            "lineOfSight": 5,
+            "rateOfFire": 0.25,
+            "projSpeed": 3,
+            "frameDelay": 0,
+            "accuracy": 1,
+            "range": 2.49,
+            "cost":{
+                "wood": 75,
+                "gold": 45
+            },
+            "armorClasses": [[16, 6]],
+            "bonus":[[16, 3], [2, 1], [11, 1], [34, 1]],
+            "damageTechs":["fire ship", "careening"],
+            "otherTechs":["shipwright", "faith", "heresy"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":["greek fire"],
+            "trainTime": 60
+        },
+        {
+            "name": "galley",
+            "ageReq": 2,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 6,
+            "hp": 120,
+            "speed": 1.43,
+            "lineOfSight": 7,
+            "rateOfFire": 3.05,
+            "projSpeed": 6,
+            "frameDelay": 0,
+            "accuracy": 1,
+            "range": 5,
+            "cost":{
+                "wood": 90,
+                "gold": 30
+            },
+            "armorClasses": [[16, 0]],
+            "bonus":[[16, 8], [34, 8], [11, 6], [17, 3]],
+            "damageTechs":["war galley", "archerAttack", "chemistry", "careening"],
+            "otherTechs":["shipwright", "ballistics", "faith", "heresy"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":[],
+            "trainTime": 60
+        },
+        {
+            "name": "demolition raft",
+            "ageReq": 2,
+            "mAtk": 90,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 2,
+            "hp": 45,
+            "speed": 1.5,
+            "lineOfSight": 6,
+            "blastRadius": 2.5,
+            "cost":{
+                "wood": 70,
+                "gold": 50
+            },
+            "armorClasses": [[16, 1]],
+            "bonus":[[11, 180]],
+            "damageTechs":["demolition raft", "careening"],
+            "otherTechs":["shipwright", "faith", "heresy"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":[],
+            "trainTime": 45
+        },
+        {
+            "name": "cannon galleon",
+            "ageReq": 4,
+            "mAtk": 35,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 6,
+            "hp": 120,
+            "speed": 1.1,
+            "lineOfSight": 15,
+            "rateOfFire": 10,
+            "projSpeed": 1.95,
+            "accuracy": 0.5,
+            "range": 13,
+            "frameDelay": 0,
+            "cost":{
+                "wood": 200,
+                "gold": 150
+            },
+            "armorClasses": [[16, 0], [23, 0]],
+            "bonus":[[11, 200], [20, 40], [1, 15], [15, 15], [8, 15], [35, 4]],
+            "damageTechs":["cannon galleon", "careening"],
+            "otherTechs":["shipwright", "faith", "heresy"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":["artillery", "arquebus"],
+            "trainTime": 46
+        },
+        {
+            "name": "house",
+            "ageReq": 1,
+            "cost":{
+                "wood": 25
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 550,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 2,
+            "ageUpgrade":[
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 150,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["building defense"],
+            "otherTechs":["building sight", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["nomads"],
+            "trainTime": 25
+        },
+        {
+            "name": "monastery",
+            "ageReq": 3,
+            "cost":{
+                "wood": 175
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 2100,
+            "mDef": 2,
+            "pDef": 9,
+            "lineOfSight": 6,
+            "ageUpgrade":[
+                {},
+                {},
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["building defense"],
+            "otherTechs":["building sight", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["sultans"],
+            "trainTime": 40
+        },
+        {
+            "name": "wonder",
+            "ageReq": 4,
+            "cost":{
+                "wood": 1000,
+                "gold": 1000,
+                "stone": 1000
+            },
+            "armorClasses": [11],
+            "hp": 2100,
+            "mDef": 3,
+            "pDef": 10,
+            "lineOfSight": 8,
+            "damageTechs":["building defense"],
+            "otherTechs":["building sight"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["atheism"],
+            "trainTime": 3500
+        },
+        {
+            "name": "town center",
+            "ageReq": 1,
+            "cost":{
+                "wood": 275,
+                "stone": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 2400,
+            "mDef": 3,
+            "pDef": 5,
+            "pAtk": 5,
+            "rateOfFire": 2.03,
+            "projSpeed": 7,
+            "accuracy": 1,
+            "range": 6,
+            "bonus":[[16, 5], [11, 5], [30, 1]],
+            "arrows": 0,
+            "lineOfSight": 8,
+            "garrison": 15,
+            "ageUpgrade":[
+                {
+                    
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                
+                    "mDef": 1,
+                    "pDef": 1,
+                    "trainTime": -120
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["archerAttack", "chemistry", "building defense"],
+            "otherTechs":["ballistics", "building sight", "herbal medicine"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["tigui", "hill forts", "crenellations"],
+            "trainTime": 270
+        },
+        {
+            "name": "palisade wall",
+            "ageReq": 1,
+            "cost":{
+                "wood": 2
+            },
+            "armorClasses": [[11, 0], [21, 0], [22, 0]],
+            "hp": 250,
+            "mDef": 2,
+            "pDef": 5,
+            "lineOfSight": 2,
+            "damageTechs":[],
+            "otherTechs":["treadmill crane"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":[],
+            "trainTime": 6
+        },
+        {
+            "name": "palisade gate",
+            "ageReq": 1,
+            "cost":{
+                "wood": 30
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 400,
+            "mDef": 2,
+            "pDef": 2,
+            "lineOfSight": 6,
+            "damageTechs":[],
+            "otherTechs":["treadmill crane"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":[],
+            "trainTime": 30
+        },
+        {
+            "name": "stone wall",
+            "ageReq": 2,
+            "cost":{
+                "stone": 5
+            },
+            "armorClasses": [[11, 16], [21, 0], [13, 0], [22, 0]],
+            "hp": 900,
+            "mDef": 8,
+            "pDef": 10,
+            "lineOfSight": 6,
+            "damageTechs":["stone wall upgrade"],
+            "otherTechs":["treadmill crane"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":[],
+            "trainTime": 30,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 900
+                },
+                {}
+            ]
+        },
+        {
+            "name": "gate",
+            "ageReq": 2,
+            "cost":{
+                "stone": 30
+            },
+            "armorClasses": [[11, 20], [21, 0], [13, 0], [22, 0]],
+            "hp": 1375,
+            "mDef": 6,
+            "pDef": 6,
+            "lineOfSight": 6,
+            "damageTechs":["stone wall upgrade"],
+            "otherTechs":["treadmill crane"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":[],
+            "trainTime": 70,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 1375
+                },
+                {}
+            ]
+        },
+        {
+            "name": "watch tower",
+            "ageReq": 2,
+            "cost":{
+                "wood": 50,
+                "stone": 125
+            },
+            "armorClasses": [[11, 0], [13, 0], [21, 0]],
+            "hp": 700,
+            "mDef": 1,
+            "pDef": 7,
+            "pAtk": 5,
+            "rateOfFire": 2.03,
+            "projSpeed": 7,
+            "accuracy": 1,
+            "range": 8,
+            "minimumRange": 1,
+            "bonus":[[16, 7], [34, 7], [27, 2], [30, 1]],
+            "arrows": 1,
+            "lineOfSight": 10,
+            "garrison": 5,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 320
+                },
+                {}
+            ],
+            "reloadUpgrade":["arrowslits"],
+            "damageTechs":["watch tower", "archerAttack", "chemistry", "building defense", "arrowslits", "heated shot"],
+            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
+            "uniqueDamageTechs":["yasama", "great wall"],
+            "uniqueOtherTechs":["yeomen", "stronghold", "crenellations"],
+            "trainTime": 80
+        },
+        {
+            "name": "bombard tower",
+            "ageReq": 4,
+            "cost":{
+                "gold": 100,
+                "stone": 125
+            },
+            "armorClasses": [[23, 0],[11, 0], [13, 0], [21, 0]],
+            "hp": 2200,
+            "mDef": 3,
+            "pDef": 9,
+            "pAtk": 120,
+            "rateOfFire": 6,
+            "projSpeed": 3,
+            "accuracy": 0.92,
+            "range": 8,
+            "minimumRange": 1,
+            "bonus":[[16, 40], [34, 40], [30, 1]],
+            "arrows": 1,
+            "lineOfSight": 10,
+            "garrison": 5,
+            "damageTechs":["archerAttack", "chemistry", "building defense", "heated shot"],
+            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":["arquebus"],
+            "trainTime": 80
+        },
+        {
+            "name": "outpost",
+            "ageReq": 1,
+            "cost":{
+                "wood": 25,
+                "stone": 5
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 500,
+            "mDef": 0,
+            "pDef": 0,
+            "lineOfSight": 6,
+            "damageTechs":["building defense"],
+            "otherTechs":["treadmill crane", "building sight", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 15,
+            "ageUpgrade":[
+                {
+                    "lineOfSight": 2
+                },
+                {
+                    "lineOfSight": 2
+                },
+                {
+                    "lineOfSight": 2
+                }
+            ]
+        }
+    ],
+    "unitGrid":[
+        [
+            "villager"
+        ],
+        [
+            "militia", "man at arms", "long swordsman", "two handed swordsman", "champion"
+        ],
+        [
+            "spearman" ,"pikeman", "halberdier"
+        ],
+        [
+            "eagle scout","eagle warrior", "elite eagle warrior"
+        ],
+        [
+            "condottiero"
+        ],
+        [
+            "archer", "crossbowman", "arbalester"
+        ],
+        [
+            "skirmisher", "elite skirmisher", "imperial skirmisher"
+        ],
+        [
+            "cavalry archer", "heavy cavalry archer"
+        ],
+        [
+            "hand cannoneer"
+        ],
+        [
+            "slinger"
+        ],
+        [
+            "genitour", "elite genitour"
+        ],
+        [
+            "scout cavalry", "light cavalry", "hussar"
+        ],
+        [
+            "knight", "cavalier", "paladin"
+        ],
+        [
+            "camel rider", "heavy camel rider", "imperial camel rider"
+        ],
+        [
+            "battle elephant", "elite battle elephant"
+        ],
+        [
+            "steppe lancer", "elite steppe lancer"
+        ],
+        [
+            "battering ram", "capped ram", "siege ram"
+        ],
+        [
+            "mangonel", "onager", "siege onager"
+        ],
+        [
+            "scorpion", "heavy scorpion"
+        ],
+        [
+            "siege tower"
+        ],
+        [
+            "bombard cannon"
+        ],
+        [
+            "fire galley", "fire ship", "fast fire ship"
+        ],
+        [
+            "galley", "war galley", "galleon"
+        ],
+        [
+            "demolition raft", "demolition ship", "heavy demolition ship"
+        ],
+        [
+            "cannon galleon", "elite cannon galleon"
+        ],
+        [
+            "monk"
+        ],
+        [
+            "missionary"
+        ],
+        [
+            "petard"
+        ],
+        [
+            "trebuchet"
+        ],
+        [
+            "trebuchet unpacked"
+        ],
+        [
+            "house"
+        ],
+        [
+            "town center"
+        ],
+        [
+            "monastery"
+        ],
+        [
+            "wonder"
+        ],
+        [
+            "palisade wall"
+        ],
+        [
+            "palisade gate"
+        ],
+        [
+            "outpost"
+        ],
+        [
+            "stone wall", "fortified wall"
+        ],
+        [
+            "gate"
+        ],
+        [
+            "watch tower", "guard tower", "keep"
+        ],
+        [
+            "bombard tower"
+        ]
+    ],
+    
+    "upgradeGroups":{
+        "villagerMovement": ["wheelbarrow", "hand cart"],
+        "villagerWood": ["double-bit axe", "bow saw", "two man saw"],
+        "villagerStone": ["stone mining", "stone shaft mining"],
+        "villagerGold": ["gold mining", "gold shaft mining"],
+        
+        "meleeAttack":["forging", "iron casting", "blast furnace"],
+        "infantryDefense":["scale mail armor", "chain mail armor", "plate mail armor"],
+        "cavalryDefense":["scale barding armor", "chain barding armor", "plate barding armor"],
+        "archerAttack":["fletching", "bodkin arrow", "bracer"],
+        "archerDefense":["padded archer armor", "leather archer armor", "ring archer armor"],
+        
+        "militia":["man at arms", "long swordsman", "two handed swordsman", "champion"],
+        "spearman":["pikeman", "halberdier"],
+        "eagle scout":["eagle warrior", "elite eagle warrior"],
+        
+        "archer":["crossbowman", "arbalester"],
+        "skirmisher": ["elite skirmisher", "imperial skirmisher"],
+        "genitour":["elite genitour"],
+        
+        "scout cavalry":["light cavalry", "hussar"],
+        "knight":["cavalier", "paladin"],
+        "camel rider":["heavy camel rider", "imperial camel rider"],
+        "battle elephant":["elite battle elephant"],
+        "steppe lancer":["elite steppe lancer"],
+        
+        "ram":["capped ram", "siege ram"],
+        "mangonel":["onager", "siege onager"],
+        "scorpion":["heavy scorpion"],
+        
+        "fire galley":["fire ship", "fast fire ship"],
+        "careening":["dry dock"],
+        "galley":["war galley", "galleon"],
+        "demolition raft":["demolition ship", "heavy demolition ship"],
+        "cannon galleon":["elite cannon galleon"],
+        
+        "stone wall upgrade":["fortified wall"],
+        "watch tower":["guard tower", "keep"],
+        "building defense": ["masonry", "architecture"],
+        "chemistry university":["bombard tower"],
+        "building sight":["town patrol"],
+        "mill":["heavy plow", "crop rotation"],
+        "send resource rate": ["banking"]
+        
+        
+    },
+    "armorClasses":{
+        "1": "infantry",
+        "2": "turtle ship",
+        "3": "base pierce",
+        "4": "base melee",
+        "5": "war elephant",
+        "8": "cavalry",
+        "11": "building",
+        "13": "stone defense",
+        "14": "predator animals",
+        "15": "archer",
+        "16": "ship",
+        "17": "ram",
+        "18": "tree",
+        "19": "unique unit",
+        "20": "siege weapon",
+        "21": "standard building",
+        "22": "wall and gate",
+        "23": "gunpowder unit",
+        "24": "boar",
+        "25": "monk",
+        "26": "castle",
+        "27": "spearman",
+        "28": "cavalry archer",
+        "29": "eagle warrior",
+        "30": "camel",
+        "31": "anti leitis",
+        "32": "condottiero",
+        "34": "fishing ship",
+        "35": "mameluke",
+        "36": "hero and king"
+    },
+    "upgrades":[
+        {
+            "name": "man at arms",
+            "ageReq": 2,
+            "cost":{
+                "food": 100,
+                "gold": 50
+            },
+            "effects":{
+                "hp": 5,
+                "mAtk": 2,
+                "bonus":[[29, 2], [21, 2]]
+            },
+            "time": 40,
+            "classChange": true
+        },
+        {
+            "name": "long swordsman",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "gold": 65
+            },
+            "effects":{
+                "hp": 15,
+                "mAtk": 3,
+                "bonus":[[29, 4], [21, 1]]
+            },
+            "time": 40,
+            "classChange": true
+        },
+        {
+            "name": "two handed swordsman",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 100
+            },
+            "effects":{
+                "mAtk": 3,
+                "lineOfSight": 1,
+                "bonus":[[29, 2], [21, 1]]
+            },
+            "time": 75,
+            "classChange": true
+        },
+        {
+            "name": "champion",
+            "ageReq": 4,
+            "cost":{
+                "food": 750,
+                "gold": 350
+            },
+            "effects":{
+                "hp": 10,
+                "mAtk": 1
+            },
+            "time": 100,
+            "classChange": true
+        },
+        {
+            "name": "pikeman",
+            "ageReq": 3,
+            "cost":{
+                "food": 215,
+                "gold": 90
+            },
+            "effects":{
+                "hp": 10,
+                "mAtk": 1,
+                "bonus":[[5, 10], [8, 7], [30, 6], [16, 7], [32, 7], [35, 7]]
+            },
+            "time": 45,
+            "classChange": true
+        },
+        
+        {
+            "name": "halberdier",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 600
+            },
+            "effects":{
+                "hp": 5,
+                "mAtk": 2,
+                "bonus":[[8, 10], [5, 3], [30, 8], [16, 1], [32, 1]]
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "eagle warrior",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "gold": 200
+            },
+            "effects":{
+                "hp": 5,
+                "speed": 0.05,
+                "pDef": 1,
+                "bonus":[[8, 1], [30, 1], [34, 1]],
+                "lineOfSight": 1
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "elite eagle warrior",
+            "ageReq": 4,
+            "cost":{
+                "food": 800,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 5,
+                "mAtk": 2,
+                "speed": 0.15,
+                "pDef": 1,
+                "bonus":[[25, 2], [20, 2], [8, 1], [30, 1], [34, 1]],
+                "lineOfSight": 1,
+                "trainTime": -15
+            },
+            "time": 50,
+            "classChange": true
+        },
+        
+        {
+            "name": "crossbowman",
+            "ageReq": 3,
+            "cost":{
+                "food": 125,
+                "gold": 75
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 1,
+                "range": 1,
+                "accuracy": 0.05,
+                "lineOfSight": 1,
+                "trainTime": -8
+            },
+            "time": 35,
+            "classChange": true
+        },
+        
+        
+        
+        {
+            "name": "arbalester",
+            "ageReq": 4,
+            "cost":{
+                "food": 350,
+                "gold": 300
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 1,
+                "accuracy": 0.05
+            },
+            "time": 50,
+            "classChange": true
+        },
+        
+        {
+            "name": "elite skirmisher",
+            "ageReq": 3,
+            "cost":{
+                "wood": 200,
+                "gold": 100
+            },
+            "effects":{
+                "hp": 5,
+                "pDef": 1,
+                "range": 1,
+                "lineOfSight": 1,
+                "bonus":[[15, 1], [28, 2]]
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "imperial skirmisher",
+            "ageReq": 4,
+            "cost":{
+                "wood": 300,
+                "gold": 450
+            },
+            "effects":{
+                "pDef": 1,
+                "accuracy": 0.05,
+                "bonus":[[15, 1], [28, 1]]
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "heavy cavalry archer",
+            "ageReq": 4,
+            "cost":{
+                "food": 900,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 10,
+                "pAtk": 1,
+                "mDef": 1,
+                "trainTime": -7,
+                "lineOfSight": 1
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "elite genitour",
+            "ageReq": 3,
+            "cost":{
+                "food": 500,
+                "wood": 450
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 1,
+                "pDef": 1,
+                "lineOfSight": 1,
+                "bonus":[[15, 1], [28, 2]]
+            },
+            "time": 60,
+            "classChange": true
+        },
+        
+        
+        {
+            "name": "light cavalry",
+            "ageReq": 3,
+            "cost":{
+                "food": 150,
+                "gold": 50
+            },
+            "effects":{
+                "mAtk": 2,
+                "hp": 15,
+                "bonus":[[25, 4]],
+                "speed": 0.3
+            },
+            "time": 45,
+            "classChange": true
+            
+        },
+        {
+            "name": "hussar",
+            "ageReq": 4,
+            "cost":{
+                "food": 500,
+                "gold": 600
+            },
+            "effects":{
+                "hp": 15,
+                "bonus":[[25, 2]],
+                "rateOfFire": -0.1
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "cavalier",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 300
+            },
+            "effects":{
+                "hp": 20,
+                "mAtk": 2
+            },
+            "time": 100,
+            "classChange": true
+        },
+        {
+            "name": "paladin",
+            "ageReq": 4,
+            "cost":{
+                "food": 1300,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 40,
+                "mAtk": 2,
+                "pDef": 1,
+                "lineOfSight": 1
+            },
+            "time": 170,
+            "classChange": true
+        },
+        {
+            "name": "heavy camel rider",
+            "ageReq": 4,
+            "cost":{
+                "food": 325,
+                "gold": 365
+            },
+            "effects":{
+                "hp": 20,
+                "mAtk": 1,
+                "lineOfSight": 1,
+                "bonus":[[8, 9], [30, 4], [16, 4], [34, 4], [35, 7]]
+            },
+            "time": 105,
+            "classChange": true
+        },
+        {
+            "name": "imperial camel rider",
+            "ageReq": 4,
+            "cost":{
+                "food": 1200,
+                "gold": 600
+            },
+            "effects":{
+                "hp": 20,
+                "mAtk": 2,
+                "pDef": 1,
+                "trainTime": -2,
+                "bonus":[[11, 6]]
+            },
+            "time": 125,
+            "classChange": true,
+            "NOTE": "Indian Civ Bonus Gives them +6 building attack and +1 pierce armor. Other civs do not benefit (they can't train them anyways)"
+        },
+        
+        {
+            "name": "elite battle elephant",
+            "ageReq": 4,
+            "cost":{
+                "food": 1200,
+                "gold": 900
+            },
+            "effects":{
+                "hp": 50,
+                "mAtk": 2,
+                "pDef": 1,
+                "lineOfSight": 1,
+                "bonus":[[11, 3], [13, 3]]
+            },
+            "time": 100,
+            "classChange": true
+        },
+        
+        {
+            "name": "elite steppe lancer",
+            "ageReq": 4,
+            "cost":{
+                "food": 900,
+                "gold": 550
+            },
+            "effects":{
+                "hp": 20,
+                "mAtk": 2,
+                "trainTime": -4
+            },
+            "time": 100,
+            "classChange": true,
+            "NOTE": "ageofempiresfandom doesn't have the time listed"
+        },
+        {
+            "name": "capped ram",
+            "ageReq": 4,
+            "cost":{
+                "food": 300
+            },
+            "effects":{
+                "hp": 25,
+                "mAtk": 1,
+                "pDef": 10,
+                "bonus": [[11, 25], [20, 10]],
+                "armorClasses":[[20, 1]],
+                "blastRadius": 0.5,
+                "garrison": 1
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "siege ram",
+            "ageReq": 4,
+            "cost":{
+                "food": 1000
+            },
+            "effects":{
+                "hp": 70,
+                "mAtk": 1,
+                "pDef": 5,
+                "bonus": [[11, 50], [20, 10]],
+                "armorClasses":[[20, 1]],
+                "blastRadius": 0.5,
+                "garrison": 1,
+                "speed": 0.1    
+            },
+            "time": 75,
+            "classChange": true
+        },
+        {
+            "name": "onager",
+            "ageReq": 4,
+            "cost":{
+                "food": 800,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 10,
+                "mAtk": 10,
+                "extraAttack": 3,
+                "pDef": 1,
+                "bonus": [[11, 10]],
+                "blastRadius": 0.25,
+                "lineOfSight": 1,
+                "range": 1
+            },
+            "time": 75,
+            "classChange": true
+        },
+        {
+            "name": "siege onager",
+            "ageReq": 4,
+            "cost":{
+                "food": 1450,
+                "gold": 1000
+            },
+            "effects":{
+                "hp": 10,
+                "mAtk": 25,
+                "extraAttack": 2,
+                "pDef": 1,
+                "bonus": [[11, 10]],
+                "blastRadius": 0.25
+            },
+            "time": 150,
+            "classChange": true
+        },
+        {
+            "name": "heavy scorpion",
+            "ageReq": 4,
+            "cost":{
+                "food": 1000,
+                "wood": 1100
+            },
+            "effects":{
+                "hp": 10,
+                "pAtk": 4,
+                "bonus":[[5, 2], [11, 2], [17, 1]]
+            },
+            "time": 50,
+            "classChange": true
+        },
+        
+        {
+            "name": "supplies",
+            "ageReq": 2,
+            "cost":{
+                "food": 150,
+                "gold": 100
+            },
+            "effects":{
+                "cost": ["food", -15]
+            },
+            "time": 35
+        },
+        
+        {
+            "name": "arson",
+            "ageReq": 3,
+            "cost":{
+                "food": 150,
+                "gold": 50
+            },
+            "effects":{
+                "bonus": [[21, 2]]
+            },
+            "time": 25
+        },
+        {
+            "name": "thumb ring",
+            "ageReq": 3,
+            "cost":{
+                "food": 300,
+                "wood": 250
+            },
+            "effects":{
+                "unitSpec":{
+                    "archer":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "skirmisher":{
+                        "accuracy": 1
+                    },
+                    "cavalry archer":{
+                        "rateOfFire":"*1.11",
+                        "accuracy": 1
+                    },
+                    "longbowman":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "chu ko nu":{
+                        "rateOfFire":"*1.25",
+                        "accuracy": 1
+                    },
+                    "mangudai":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "war wagon":{
+                        "rateOfFire":"*1.11"
+                    },
+                    "plumed archer":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "slinger":{
+                        "accuracy": 1
+                    },
+                    "elephant archer":{
+                        "rateOfFire":"*1.18"
+                    },
+                    "genoese crossbowman":{
+                        "rateOfFire":"*1.18"
+                    },
+                    "camel archer":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "genitour":{
+                        "accuracy": 1
+                    },
+                    "rattan archer":{
+                        "rateOfFire":"*1.18",
+                        "accuracy": 1
+                    },
+                    "kipchak":{
+                        "rateOfFire":"*1.11",
+                        "accuracy": 1
+                    }
+                }
+            },
+            "time": 45
+        },
+        
+        {
+            "name": "parthian tactics",
+            "ageReq": 4,
+            "cost":{
+                "food": 200,
+                "gold": 250
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2,
+                "unitSpec":{
+                    "cavalry archer":{
+                        "bonus": [[27, 4]]
+                    },
+                    "mangudai":{
+                        "bonus": [[27, 2]]
+                    },
+                    "elephant archer":{
+                        "bonus": [[27, 2]]
+                    },
+                    "camel archer":{
+                        "bonus": [[27, 2]]
+                    },
+                    "kipchak":{
+                        "bonus": [[27, 2]]
+                    }
+                }
+            },
+            "time": 65
+            
+        },
+        
+        
+        {
+            "name": "bloodlines",
+            "ageReq": 2,
+            "cost":{
+                "food": 150,
+                "gold": 100
+            },
+            "effects":{
+                "hp": 20
+            },
+            "time": 50
+            
+        },
+        {
+            "name": "husbandry",
+            "ageReq": 3,
+            "cost":{
+                "food": 150
+            },
+            "effects":{
+                "speed": "x1.1"
+            },
+            "time": 40
+        },
+        {
+            "name": "fire ship",
+            "ageReq": 3,
+            "cost":{
+                "food": 230,
+                "gold": 100
+            },
+            "effects":{
+                "hp": 20,
+                "pDef": 2,
+                "pAtk": 2,
+                "mAtk": 1,
+                "bonus":[[2, 1], [11, 1], [34, 2]],
+                "trainTime": -24
+                
+            },
+            "time": 50
+        },
+        {
+            "name": "fast fire ship",
+            "ageReq": 4,
+            "cost":{
+                "food": 280,
+                "gold": 250
+            },
+            "effects":{
+                "hp": 20,
+                "pDef": 2,
+                "pAtk": 1,
+                "bonus":[[16, 1], [2, 1], [11, 1], [34, 1]],
+                "armorClasses": [[16, 3]],
+                "speed": 0.08,
+                "lineOfSight": 1
+                
+            },
+            "time": 50
+        },
+        {
+            "name": "war galley",
+            "ageReq": 3,
+            "cost":{
+                "food": 230,
+                "gold": 100
+            },
+            "effects":{
+                "hp": 15,
+                "trainTime": -24,
+                "pAtk": 1,
+                "lineOfSight": 1,
+                "bonus":[[16, 1], [34, 1], [11, 1], [17, 1]]
+            },
+            "time": 50
+        },
+        {
+            "name": "galleon",
+            "ageReq": 4,
+            "cost":{
+                "food": 400,
+                "wood": 315
+            },
+            "effects":{
+                "hp": 30,
+                "pAtk": 1,
+                "lineOfSight": 1,
+                "pDef": 2,
+                "bonus": [[16, 2], [34, 2], [11, 1]]
+            },
+            "time": 65
+        },
+        {
+            "name": "demolition ship",
+            "ageReq": 3,
+            "cost":{
+                "food": 230,
+                "gold": 100
+            },
+            "effects":{
+                "hp": 15,
+                "trainTime": -14,
+                "mAtk": 20,
+                "blastRadius": 0.5,
+                "armorClasses": [[16, 2]],
+                "bonus":[[11, 40]],
+                "speed": 0.1,
+                "pDef": 1
+                
+            },
+            "time": 50
+        },
+        {
+            "name": "heavy demolition ship",
+            "ageReq": 4,
+            "cost":{
+                "wood": 200,
+                "gold": 300
+            },
+            "effects":{
+                "hp": 10,
+                "mAtk": 30,
+                "blastRadius": 0.5,
+                "armorClasses": [[16, 2]],
+                "bonus":[[11, 60]]
+            },
+            "time": 50
+        },
+        {
+            "name": "elite cannon galleon",
+            "ageReq": 4,
+            "cost":{
+                "wood": 525,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 30,
+                "mAtk": 10,
+                "bonus":[[11, 75]],
+                "range": 2,
+                "lineOfSight": 2
+            },
+            "time": 30
+        },
+        
+        {
+            "name": "careening",
+            "ageReq": 3,
+            "cost":{
+                "food": 250,
+                "gold": 150
+            },
+            "effects":{
+                "pDef": 1
+            },
+            "time": 50
+        },
+        {
+            "name": "dry dock",
+            "ageReq": 4,
+            "cost":{
+                "food": 600,
+                "gold": 400
+            },
+            "effects":{
+                "speed": 1.15,
+                "garrison": 10
+            },
+            "time": 60
+        },
+        {
+            "name": "shipwright",
+            "ageReq": 4,
+            "cost":{
+                "food": 1000,
+                "gold": 300
+            },
+            "effects":{
+                "cost": 1.2,
+                "costPercent": true,
+                "trainTime": 1.54,
+                "trainTimePercent": true
+            },
+            "time": 60
+        },
+        
+        {
+            "name": "sappers",
+            "ageReq": 4,
+            "cost":{
+                "food": 400,
+                "gold": 200
+            },
+            "effects":{
+                "bonus": [[11, 15], [13, 15]]
+            },
+            "time": 10
+        },
+        
+        {
+            "name": "heavy plow",
+            "ageReq": 2,
+            "cost":{
+                "food": 125,
+                "wood": 125
+            },
+            "effects":{
+                "carryCapacity": ["farmer", 1]
+            },
+            "time": 40
+        },
+        
+        
+        {
+            "name": "double-bit axe",
+            "ageReq": 2,
+            "cost":{
+                "food": 100,
+                "wood": 50
+            },
+            "effects":{
+                "gatherRate": ["lumberjack", "*1.2"]
+            },
+            "time": 25
+        },
+        
+        {
+            "name": "bow saw",
+            "ageReq": 3,
+            "cost":{
+                "food": 150,
+                "wood": 100
+            },
+            "effects":{
+                "gatherRate": ["lumberjack", "*1.2"]
+            },
+            "time": 50
+        },
+        
+        {
+            "name": "two-man saw",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "wood": 200
+            },
+            "effects":{
+                "gatherRate": ["lumberjack", "*1.1"]
+            },
+            "time": 100
+        },
+        
+        {
+            "name": "gold mining",
+            "ageReq": 2,
+            "cost":{
+                "food": 100,
+                "wood": 75
+            },
+            "effects":{
+                "gatherRate": ["gold miner", "*1.15"]
+            },
+            "time": 30
+        },
+        
+        {
+            "name": "gold shaft mining",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "wood": 150
+            },
+            "effects":{
+                "gatherRate": ["gold miner", "*1.15"]
+            },
+            "time": 75
+        },
+        
+        {
+            "name": "stone mining",
+            "ageReq": 2,
+            "cost":{
+                "food": 100,
+                "wood": 75
+            },
+            "effects":{
+                "gatherRate": ["stone miner", "*1.15"]
+            },
+            "time": 30
+        },
+        
+        {
+            "name": "stone shaft mining",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "wood": 150
+            },
+            "effects":{
+                "gatherRate": ["stone miner", "*1.15"]
+            },
+            "time": 75
+        },
+        
+        {
+            "name": "town watch",
+            "ageReq": 2,
+            "cost":{
+                "food": 75
+            },
+            "effects":{
+                "lineOfSight": 4
+            },
+            "time": 25
+        },
+        {
+            "name": "town patrol",
+            "ageReq": 3,
+            "cost":{
+                "food": 300,
+                "gold": 100
+            },
+            "effects":{
+                "lineOfSight": 4
+            },
+            "time": 40
+        },
+        {
+            "name": "wheelbarrow",
+            "ageReq": 2,
+            "cost":{
+                "food": 175,
+                "wood": 50
+            },
+            "effects":{
+                "carryCapacity": 3,
+                "gatherRate": 0.05,
+                "speed": "*1.1"
+            },
+            "time": 75
+        },
+        {
+            "name": "hand cart",
+            "ageReq": 3,
+            "cost":{
+                "food": 300,
+                "wood": 200
+            },
+            "effects":{
+                "carryCapacity": 7,
+                "gatherRate": 0.03,
+                "speed": "*1.1"
+            },
+            "time": 55
+        },
+        {
+            "name": "loom",
+            "ageReq": 1,
+            "cost":{
+                "gold": 50
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2,
+                "hp": 15
+            },
+            "time": 25
+        },
+        
+        
+        {
+            "name": "ballistics",
+            "ageReq": 3,
+            "cost":{
+                "wood": 300,
+                "gold": 175
+            },
+            "effects":{
+                "ballistics": true
+            },
+            "time": 60
+        },
+        {
+            "name": "chemistry",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 200
+            },
+            "effects":{
+                "atk": 1
+            },
+            "time": 100
+        },
+        {
+            "name": "masonry",
+            "ageReq": 3,
+            "cost":{
+                "food": 150,
+                "wood": 175
+            },
+            "effects":{
+                "hp": "*1.1",
+                "mDef": 1,
+                "pDef": 1,
+                "armorClasses": [[11, 3]]
+            },
+            "time": 50
+        },
+        {
+            "name": "architecture",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "wood": 200
+            },
+            "effects":{
+                "hp": "*1.1",
+                "mDef": 1,
+                "pDef": 1,
+                "armorClasses": [[11, 3]]
+            },
+            "time": 70
+        },
+        
+        
+        {
+            "name": "treadmill crane",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "wood": 200
+            },
+            "effects":{
+                "constructionSpeed": "*1.2"
+            },
+            "time": 50
+        },
+        
+        {
+            "name": "siege engineers",
+            "ageReq": 4,
+            "cost":{
+                "food": 500,
+                "wood": 600
+            },
+            "effects":{
+                "unitSpec":{
+                    "petard":{
+                        "bonus":[[11, 200]]
+                    },
+                    "trebuchet unpacked":{
+                        "bonus":[[11, 50]],
+                        "range": 1
+                    },
+                    "bombard cannon":{
+                        "bonus":[[11, 40]],
+                        "range": 1
+                    },
+                    "siege ram":{
+                        "bonus":[[11, 40]]
+                    },
+                    "capped ram":{
+                        "bonus":[[11, 30]]
+                    },
+                    "battering ram":{
+                        "bonus":[[11, 25]]
+                    },
+                    "siege onager":{
+                        "bonus":[[11, 12]],
+                        "range": 1
+                    },
+                    "onager":{
+                        "bonus":[[11, 9]],
+                        "range": 1
+                    },
+                    "mangonel":{
+                        "bonus":[[11, 7]],
+                        "range": 1
+                    },
+                    "heavy scorpion":{
+                        "bonus":[[11, 1]],
+                        "range": 1
+                    },
+                    "elite ballista elephant":{
+                        "bonus":[[11, 25]],
+                        "range": 1
+                    },
+                    "scorpion":{
+                        "range": 1
+                    }
+                }
+            },
+            "time": 45
+        },
+        
+        {
+            "name": "fortified wall",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "wood": 100
+            },
+            "effects":{
+                "unitSpec":{
+                    "stone wall":{
+                        "bonus":[[11, 8]],
+                        "hp": 1200
+                    },
+                    "gate":{
+                        "hp": 1250
+                    }
+                }
+            },
+            "time": 50
+        },
+        {
+            "name": "guard tower",
+            "ageReq": 3,
+            "cost":{
+                "food": 100,
+                "wood": 250
+            },
+            "effects":{
+                "hp": 480,
+                "mDef": 1,
+                "pDef": 1,
+                "pAtk": 2,
+                "bonus":[[16, 2], [34, 2]]
+            },
+            "time": 30,
+            "classChange": true
+        },
+        {
+            "name": "keep",
+            "ageReq": 4,
+            "cost":{
+                "food": 500,
+                "wood": 350
+            },
+            "effects":{
+                "hp": 750,
+                "mDef": 1,
+                "pDef": 1,
+                "pAtk": 1,
+                "bonus":[[16, 1], [34, 1]]
+            },
+            "time": 75,
+            "classChange": true
+        },
+        {
+            "name": "arrowslits",
+            "ageReq": 4,
+            "cost":{
+                "food": 250,
+                "wood": 250
+            },
+            "effects":{
+                "unitSpec":{
+                    "watch tower":{
+                        "pAtk": 1
+                    },
+                    "guard tower":{
+                        "pAtk": 2
+                    },
+                    "keep":{
+                        "pAtk": 3
+                    }
+                }
+            },
+            "time": 25
+        },
+        {
+            "name": "heated shot",
+            "ageReq": 4,
+            "cost":{
+                "food": 350,
+                "gold": 100
+            },
+            "effects":{
+                "unitSpec":{
+                    "watch tower":{
+                        "bonus": [[16, 9]]
+                    },
+                    "guard tower":{
+                        "bonus": [[16, 2]]
+                    },
+                    "keep":{
+                        "bonus": [[16, 2]]
+                    },
+                    "bombard tower":{
+                        "bonus": [[16, 50]]
+                    },
+                    "castle":{
+                        "bonus": [[16, 4]]
+                    },
+                    "krepost":{
+                        "bonus": [[16, 4]]
+                    },
+                    "harbor":{
+                        "bonus": [[16, 4]]
+                    }
+                }
+            },
+            "time": 30
+        },
+        
+        
+        
+        {
+            "name": "heresy",
+            "ageReq": 3,
+            "cost":{
+                "gold": 1000
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "heresy": true
+            },
+            "time": 60
+        },
+        {
+            "name": "redemption",
+            "ageReq": 3,
+            "cost":{
+                "gold": 475
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "redemption": true
+            },
+            "time": 50
+        },
+        {
+            "name": "illumination",
+            "ageReq": 4,
+            "cost":{
+                "gold": 120
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "illumination": true
+            },
+            "time": 65
+        },
+        {
+            "name": "atonement",
+            "ageReq": 3,
+            "cost":{
+                "gold": 325
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "atonement": true
+            },
+            "time": 40
+        },
+        {
+            "name": "block printing",
+            "ageReq": 4,
+            "cost":{
+                "gold": 200
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "range": 3,
+                "lineOfSight": 3
+            },
+            "time": 55
+        },
+        {
+            "name": "faith",
+            "ageReq": 4,
+            "cost":{
+                "food": 750,
+                "gold": 1000
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "faith": true
+            },
+            "time": 60
+        },
+        {
+            "name": "herbal medicine",
+            "ageReq": 3,
+            "cost":{
+                "gold": 350
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "herbal medicine": true
+            },
+            "time": 60
+        },
+        {
+            "name": "theocracy",
+            "ageReq": 4,
+            "cost":{
+                "gold": 200
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "herbal medicine": true
+            },
+            "time": 75
+        },
+        
+        {
+            "name": "sanctity",
+            "ageReq": 3,
+            "cost":{
+                "gold": 120
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "hp": 15
+            },
+            "time": 60
+        },
+        
+        
+        {
+            "name": "fervor",
+            "ageReq": 3,
+            "cost":{
+                "gold": 140
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                },
+                "speed": "x1.15"
+            },
+            "time": 50
+        },
+        
+        
+        
+        
+        
+        {
+            "name": "forging",
+            "ageReq": 2,
+            "cost":{
+                "food": 150
+            },
+            "effects":{
+                "mAtk": 1
+            },
+            "time": 50
+            
+        },
+        {
+            "name": "iron casting",
+            "ageReq": 3,
+            "cost":{
+                "food": 220,
+                "gold": 120
+            },
+            "effects":{
+                "mAtk": 1
+            },
+            "time": 75
+            
+        },
+        {
+            "name": "blast furnace",
+            "ageReq": 4,
+            "cost":{
+                "food": 275,
+                "gold": 225
+            },
+            "effects":{
+                "mAtk": 2
+            },
+            "time": 100
+            
+        },
+        {
+            "name": "scale mail armor",
+            "ageReq": 2,
+            "cost":{
+                "food": 100
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 40
+            
+        },
+        {
+            "name": "chain mail armor",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "gold": 100
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 55
+            
+        },
+        {
+            "name": "plate mail armor",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 150
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2
+            },
+            "time": 70
+            
+        },
+        {
+            "name": "scale barding armor",
+            "ageReq": 2,
+            "cost":{
+                "food": 150
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 45
+            
+        },
+        {
+            "name": "chain barding armor",
+            "ageReq": 3,
+            "cost":{
+                "food": 250,
+                "gold": 150
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 60
+            
+        },
+        {
+            "name": "plate barding armor",
+            "ageReq": 4,
+            "cost":{
+                "food": 350,
+                "gold": 200
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2
+            },
+            "time": 75
+            
+        },
+        {
+            "name": "fletching",
+            "ageReq": 2,
+            "cost":{
+                "food": 100,
+                "gold": 50
+            },
+            "effects":{
+                "pAtk": 1,
+                "range": 1
+            },
+            "time": 30
+            
+        },
+        {
+            "name": "bodkin arrow",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "gold": 100
+            },
+            "effects":{
+                "pAtk": 1,
+                "range": 1
+            },
+            "time": 35
+            
+        },
+        {
+            "name": "bracer",
+            "ageReq": 4,
+            "cost":{
+                "food": 300,
+                "gold": 200
+            },
+            "effects":{
+                "pAtk": 1,
+                "range": 1
+            },
+            "time": 40
+            
+        },
+        {
+            "name": "padded archer armor",
+            "ageReq": 2,
+            "cost":{
+                "food": 100
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 40
+            
+        },
+        {
+            "name": "leather archer armor",
+            "ageReq": 3,
+            "cost":{
+                "food": 150,
+                "gold": 150
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 55
+            
+        },
+        {
+            "name": "ring archer armor",
+            "ageReq": 4,
+            "cost":{
+                "food": 250,
+                "gold": 250
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2
+            },
+            "time": 70
+            
+        }
+    ]   
+}

@@ -1,0 +1,137 @@
+body{
+    margin-bottom: 200px;
+}
+h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#econ-civ-bonus > div {
+    padding: 5px;
+}
+
+#choose-units, #choose-res{
+    display: flex;
+    flex-wrap: wrap;
+}
+.unit-show-img, .res-show-img{
+    padding: 5px;
+    filter: brightness(50%);
+    cursor: pointer;
+}
+.res-show-img > div{
+    text-align: center;
+}
+.showing-img{
+    filter: brightness(100%);
+}
+.unit-container{
+    width: 49.90%;
+    max-width: 100%;
+    display: flex;
+    padding-top: 35px;
+    background-color: rgba(255, 255, 255, 0.3);
+    flex-grow: 1;
+}
+.unit{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100px;
+}
+.unit > div{
+    margin-bottom: 10px;
+}
+.unit select{
+    width: 90%;
+}
+.unit-desc-cont{
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.25;
+    text-indent: 15px;
+    height: 300px;
+    overflow-y: auto;
+}
+.res-cont{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.res-cont > img {
+    width: auto;
+    height: 20px;
+}
+.multiplier-cont{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    width: 80%;
+    background-color: #CCC;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.multiplier-cont div{
+    flex-grow:1;
+    padding: 5px;
+}
+.multiplier-cont div:nth-child(1){
+    cursor: pointer;
+    border-right: 1px solid black;
+}
+.multiplier-cont div:nth-child(3){
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+
+.res-desc-cont{
+    width: 85%;
+    flex-grow: 1;
+}
+#gather-rates{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.resources-cont{
+    display: flex;
+    align-items: center;
+}
+.upgrades-cont{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.upgrades-cont > div{
+    padding: 5px;
+}
+.resource{
+    width: 80px;
+    height: 84px;
+}
+.resource .icon-big{
+    filter: brightness(80%);
+    position: absolute;
+}
+.resource-num{
+    position: absolute;
+    font-size: 40px;
+    color: #EEE;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    transform:translate(0, -28px);
+}
+.resource-num div{
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #111;
+}
