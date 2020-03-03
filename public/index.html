@@ -9,8 +9,50 @@ and open the template in the editor.
         <title>AOE 2: DE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/css/style.css" />
+        <style>
+        .container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .links{
+            width: 75%;
+        }
+        .main-link{
+            padding: 10px;
+            background-color: #EEE;
+            text-align: center;
+        }
+        .main-link:hover{
+            background-color: #DDD;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        </style>
     </head>
     <body>
-        <h1>Choose what you'd like to do</h1>
+        <div class='container'>
+            <h1>Choose what you'd like to do</h1>
+            <div class='links'>
+                <a href="villagers-required.html">
+                    <div class='main-link'>
+                        Check villagers required to maintain constant unit production
+                    </div>
+                </a>
+                <a href="unit-comparison.html">
+                    <div class='main-link'>
+                        See how units stack up against each other in 1v1 combat (Work in Progress)
+                    </div>
+                </a>
+            </div>
+        </div>
     </body>
 </html>
