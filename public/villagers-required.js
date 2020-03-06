@@ -193,7 +193,8 @@ $(function(){
                             return $(this).attr("resource") === res;
                         })[0];
                         $(resCont).toggle();
-                    });
+                    }); 
+                    calculateVilTotals();
                 });
             }
         }
@@ -1013,9 +1014,51 @@ $(function(){
                 }
             }
         };
-        
-        let vilsRequired = {};
-        
+        //Figure out how many villagers are needed to keep all of the units selected producing.
+        function calculateVilTotals(){
+            let unitsBeingCreated = {};
+            let vilsReq = {};
+            //Get all visible unit conatiners.
+            $("#gather-rates").children(".unit-container:visible").each(function(){
+                let unitName = $(this).children(".unit").children(".unit-class").children("img").attr("title");
+                unitsBeingCreated[unitName] = {};
+                $(this).children(".unit").children(".res-cont").each(function(){
+                    let res = $(this).attr("title");
+                    unitsBeingCreated[unitName][res] = parseInt($(this).children("div").text());
+                });
+                unitsBeingCreated[unitName].quantity = parseInt($(this).children(".unit").children(".multiplier-cont").children("div:eq(1)").text());
+                $(this).children(".res-desc-cont").children(".resources-cont").children(".resource").each(function(){
+                    let resName = $(this).children(".icon-big").attr("title");
+                    let resVal = parseFloat($(this).children(".resource-num").attr("title"));
+                    if(vilsReq[resName]){
+                        vilsReq[resName] += resVal;
+                    } else {
+                        vilsReq[resName] = resVal;
+                    }
+                });
+            });
+            let resTotals = $("<div class='res-totals'></div>");
+            let resDisplay = $("<div class='resources-cont'></div>");
+            let unitsDisplay = $("<div class='unit-totals'></div>");
+            
+            let hiddenRes = getHiddenRes();
+            for(let i in vilsReq){
+                let resElm = $("<div class='resource' resource='"+i+"'><img class='icon-big' src='img/"+i+".png' title='"+i+"'><div class='resource-num' title='"+vilsReq[i]+"'><div>"+Math.ceil(vilsReq[i])+"</div></div></div>");
+                resDisplay.append(resElm);
+                if(hiddenRes.includes(i)){
+                    $(resElm).hide();
+                }
+            }
+            
+            for(let i in unitsBeingCreated){
+                unitsDisplay.append("<div class='unit-class'><div class='resource-num' title='"+unitsBeingCreated[i].quantity+"'><div>"+Math.ceil(unitsBeingCreated[i].quantity)+"</div></div><img src='img/"+i+".png' title='"+i+"'></div>");
+            }
+            
+            
+            resTotals.append(resDisplay);
+            resTotals.append(unitsDisplay);
+            $("#vil-totals").children(".res-totals").replaceWith(resTotals);
+        }
         function getVilsRequired(trainTime, cost, multiplier){
             function applyCivEcoBonuses(base, res){
                 for(let i = 0 ; i < applyEcoBonuses.length; i++){
@@ -1095,6 +1138,11 @@ $(function(){
             upgradesToApply.forEach(function(upgrade){stats = applyUpgrade(upgrade, stats);});
             return {stats: stats, checkedUpgrades: checkedUpgrades};
         }
+        function getHiddenRes(){
+            return $("#choose-res").children(".res-show-img").filter(function(){
+                    return !$(this).hasClass("showing-img");
+            }).toArray().map(function(item){return $(item).attr("resource");});
+        }
         //When changing a select value, replace the container with a new one with the new values.
         function updateVilsRequired(e){
             let cont = $(e.target).closest(".unit-container");
@@ -1117,6 +1165,7 @@ $(function(){
             if(replacement){
                 cont.replaceWith(replacement);
             }
+            calculateVilTotals();
         }
         function getUnitContainer(name, unitData, multiplier, selectOption, checkedUpgrades){
             if(unitData){
@@ -1127,11 +1176,11 @@ $(function(){
                 let img = unitData.img || name;
                 let res = getVilsRequired(trainTime, cost, multiplier);
                 for(let i in cost){
-                    unitCont.append("<div class='res-cont'><img src='img/"+i+"-icon.png'><div>"+cost[i]+"</div></div>");
+                    unitCont.append("<div class='res-cont' title='"+i+"'><img src='img/"+i+"-icon.png'><div>"+cost[i]+"</div></div>");
                 }
-                unitCont.append("<div class='res-cont'><img src='img/hourglass-icon.png'><div>"+parseFloat( trainTime.toFixed(2) )+"</div></div>");
+                unitCont.append("<div class='time-cont'><img src='img/hourglass-icon.png'><div>"+parseFloat( trainTime.toFixed(2) )+"</div></div>");
                 
-                unitCont.append("<div><img src='img/"+img+".png' title='"+name+"'></div>");
+                unitCont.append("<div class='unit-class'><img src='img/"+img+".png' title='"+name+"'></div>");
                 //Add all relevant upgrades
                 if(unitVariety[name]){
                     let selectCont = $("<div class='upgrade-cont'>Civilization</div>");
@@ -1169,12 +1218,10 @@ $(function(){
                 let resourcesCont = $("<div class='resources-cont'></div>");
                 let upgradesCont = $("<div class='upgrades-cont'></div>");
                 let textCont = $("<div class='unit-desc-cont'>"+(unitDescs[name] || "")+"</div>");
-                let hiddenRes = $("#choose-res").children(".res-show-img").filter(function(){
-                    return !$(this).hasClass("showing-img");
-                }).toArray().map(function(item){return $(item).attr("resource");});
+                let hiddenRes = getHiddenRes();
                 for(let j in res){
                     let img = gatherRates[j].img || j;
-                    let resElm = $("<div class='resource' resource='"+j+"'><img class='icon-big' src='img/"+img+".png' title='"+j+"'><div class='resource-num'><div title='"+res[j]+"'>"+Math.ceil(res[j])+"</div></div></div>");
+                    let resElm = $("<div class='resource' resource='"+j+"'><img class='icon-big' src='img/"+img+".png' title='"+j+"'><div class='resource-num' title='"+res[j]+"'><div>"+Math.ceil(res[j])+"</div></div></div>");
                     resourcesCont.append(resElm);
                     if(hiddenRes.includes(j)){
                         $(resElm).hide();
@@ -1225,6 +1272,7 @@ $(function(){
                 if($(this).hasClass("showing-img")){
                     updateVilsRequired({target:$(cont).children("div").first()});
                 }
+                calculateVilTotals();
             });
         }
         
@@ -1295,7 +1343,7 @@ $(function(){
                 });
             });
             checkCont.append(box);
-            ecoCheckboxes.append(checkCont)
+            ecoCheckboxes.append(checkCont);
         }
 
         for(let i = 0; i < unitsShown.length; i++){
@@ -1311,14 +1359,12 @@ $(function(){
         
         $("#econ-civ-bonus").append(ecoSelect);
         $("#econ-civ-bonus").append(ecoCheckboxes);
+        $("#choose-units").children(".unit-show-img").trigger("click");
         hideAtStart.forEach(function(toHide){
             let cont = $("#choose-res").children(".res-show-img").filter(function(){
                 return $(this).attr("resource") === toHide;
             })[0];
             $(cont).trigger("click");
         });
-        console.log(vilsRequired)
-        console.log(data.units)
-        $("#choose-units").children(".unit-show-img").trigger("click");
     });
 });

@@ -5,6 +5,15 @@ h1{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+.unit-totals{
+    display: flex;
+    padding-top: 20px;
+    
+}
+.res-totals{
+    padding: 10px;
+}
+
 #econ-civ-bonus > div {
     padding: 5px;
 }
@@ -53,14 +62,14 @@ h1{
     height: 300px;
     overflow-y: auto;
 }
-.res-cont{
+.res-cont, .time-cont{
     display: flex;
     justify-content: center;
     padding-top: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
 }
-.res-cont > img {
+.res-cont > img , .time-cont > img{
     width: auto;
     height: 20px;
 }
@@ -127,6 +136,7 @@ h1{
     display: flex;
     justify-content: center;
     transform:translate(0, -28px);
+    cursor: pointer;
 }
 .resource-num div{
     width: 40px;
