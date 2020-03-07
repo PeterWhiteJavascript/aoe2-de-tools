@@ -182,7 +182,7 @@ $(function(){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
                 let imgurl = gatherRates[order[i][j]].img || order[i][j];
                 let img = $("<img src='img/"+imgurl+".png' class='icon-big'>");
-                let num = $("<div>"+gatherRates[order[i][j]].gatherRate+"</div>");
+                let num = $("<div>"+gatherRates[order[i][j]].gatherRate+" - " + (gatherRates[order[i][j]].gatherRate * 60).toFixed(1) + "</div>");
                 imgCont.append(img, num);
                 $("#choose-res").append(imgCont);
                 imgCont.on("click", function(){
@@ -1167,6 +1167,13 @@ $(function(){
             }
             calculateVilTotals();
         }
+        function displayGatherRate(rate, res){
+            $($("#choose-res").children(".res-show-img").filter(function(){
+                return $(this).attr("resource") === res;
+            })[0]).children("div").first().text(
+                rate + " - " + (rate * 60).toFixed(1)
+            );
+        }
         function getUnitContainer(name, unitData, multiplier, selectOption, checkedUpgrades){
             if(unitData){
                 let cont = $("<div class='unit-container' name='"+name+"' ></div>");
@@ -1289,11 +1296,7 @@ $(function(){
             let name = $(this).val();
             //Reset any civ bonus
             for(let j in applyEcoBonuses[0].data){
-                $($("#choose-res").children(".res-show-img").filter(function(){
-                    return $(this).attr("resource") === j;
-                })[0]).children("div").first().text(
-                    gatherRates[j].gatherRate
-                );
+                displayGatherRate(gatherRates[j].gatherRate, j);
             }
             
             
@@ -1303,11 +1306,8 @@ $(function(){
                 updateVilsRequired({target:$(this).children("div").first()});
             });
             for(let j in applyEcoBonuses[0].data){
-                $($("#choose-res").children(".res-show-img").filter(function(){
-                    return $(this).attr("resource") === j;
-                })[0]).children("div").first().text(
-                    parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[0].data[j]).toFixed(2))
-                );
+                let rate = parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[0].data[j]).toFixed(2));
+                displayGatherRate(rate, j);
             }
             
             
@@ -1321,21 +1321,14 @@ $(function(){
                 if($(this).is(':checked')){
                     applyEcoBonuses.push({name: name, data:ecoBonuses["team"][name]});
                     for(let j in applyEcoBonuses[applyEcoBonuses.length - 1].data){
-                        $($("#choose-res").children(".res-show-img").filter(function(){
-                            return $(this).attr("resource") === j;
-                        })[0]).children("div").first().text(
-                            parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[applyEcoBonuses.length - 1].data[j]).toFixed(2))
-                        );
+                        let rate = parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[applyEcoBonuses.length - 1].data[j]).toFixed(2));
+                        displayGatherRate(rate, j);
                     }
                 } else {
                     let idx = applyEcoBonuses.indexOf({name: name, data:ecoBonuses["team"][name]});
                     let oldData = applyEcoBonuses.splice(idx, 1)[0];
                     for(let j in oldData.data){
-                        $($("#choose-res").children(".res-show-img").filter(function(){
-                            return $(this).attr("resource") === j;
-                        })[0]).children("div").first().text(
-                            gatherRates[j].gatherRate
-                        );
+                        displayGatherRate(gatherRates[j].gatherRate, j);
                     }
                 }
                 $("#gather-rates").children(".unit-container").not(":hidden").each(function(){
