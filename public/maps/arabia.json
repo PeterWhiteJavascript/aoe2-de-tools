@@ -1,0 +1,61 @@
+{
+    "name": "Arabia",
+    "startingRes":{
+        "food": 200,
+        "wood": 200,
+        "gold": 100,
+        "stone": 200
+    },
+    "resources": [
+        {
+            "name": "berries",
+            "tiles": 7,
+            "dist": [8, 15]
+        },
+        {
+            "name": "deer",
+            "tiles": 4,
+            "dist": [12, 20]
+        },
+        {
+            "name": "boar",
+            "tiles": 1,
+            "dist": [8, 15]
+        },
+        {
+            "name": "boar",
+            "tiles": 1,
+            "dist": [8, 15]
+        },
+        {
+            "name": "forage",
+            "tiles": 7,
+            "dist": [8, 15]
+        },
+        {
+            "name": "gold",
+            "tiles": 7,
+            "dist": [10, 15]
+        },
+        {
+            "name": "gold",
+            "tiles": 4,
+            "dist": [10, 15]
+        },
+        {
+            "name": "gold",
+            "tiles": 4,
+            "dist": [10, 15]
+        },
+        {
+            "name": "stone",
+            "tiles": 5,
+            "dist": [10, 15]
+        },
+        {
+            "name": "stone",
+            "tiles": 4,
+            "dist": [10, 15]
+        }
+    ]
+}

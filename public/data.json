@@ -190,8 +190,8 @@
             "bonus":[[21, 0]],
             "damageTechs":["militia", "meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["supplies", "squires", "faith", "heresy", "conscription"],
-            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans", "bagains"],
-            "uniqueOtherTechs":["perfusion", "forced levy"],
+            "uniqueDamageTechs":["garland wars", "chieftans", "bagains"],
+            "uniqueOtherTechs":["perfusion", "druzhina", "forced levy"],
             "trainTime": 21
         },
         {
@@ -213,8 +213,8 @@
             "bonus":[[8, 15], [5, 15], [30, 12], [16, 9], [32, 9], [35, 4], [29, 1], [21, 1]],
             "damageTechs":["spearman", "meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["squires", "faith", "heresy", "conscription"],
-            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans", "tower shields"],
-            "uniqueOtherTechs":["perfusion"],
+            "uniqueDamageTechs":["garland wars", "chieftans", "tower shields"],
+            "uniqueOtherTechs":["perfusion", "druzhina"],
             "trainTime": 22
         },
         {
@@ -266,12 +266,12 @@
                 "food": 50,
                 "gold": 35
             },
-            "armorClasses": [[1, 0], [19, 0], [32, 0]],
+            "armorClasses": [[1, 10], [19, 0], [32, 0]],
             "bonus":[[23, 10], [11, 2]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
-            "uniqueDamageTechs":["garland wars", "druzhina", "cheiftans"],
-            "uniqueOtherTechs":["perfusion"],
+            "uniqueDamageTechs":["garland wars", "chieftans"],
+            "uniqueOtherTechs":["perfusion", "druzhina"],
             
             "trainTime": 18
         },
@@ -646,8 +646,8 @@
             "reloadUpgrade":["siege engineers"],
             "damageTechs":["scorpion", "siege engineers", "chemistry"],
             "otherTechs":["faith", "heresy"],
-            "uniqueDamageTechs":["furor celtica", "ironclad", "rocketry", "double crossbow"],
-            "uniqueOtherTechs":["drill", "torsion engines"],
+            "uniqueDamageTechs":["furor celtica", "ironclad", "rocketry"],
+            "uniqueOtherTechs":["drill", "torsion engines", "double crossbow"],
             "trainTime": 30
         },
         
@@ -938,6 +938,55 @@
             "trainTime": 46
         },
         {
+            "name": "jaguar warrior",
+            "ageReq": 3,
+            "mAtk": 10,
+            "pAtk": 0,
+            "mDef": 1,
+            "pDef": 1,
+            "hp": 50,
+            "speed": 1,
+            "lineOfSight": 5,
+            "rateOfFire": 2.03,
+            "cost":{
+                "food": 60,
+                "gold": 30
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[1, 10], [32, 10], [29, 2], [21, 2]],
+            "damageTechs":["elite jaguar warrior", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars"],
+            "uniqueOtherTechs":[],
+            "trainTime": 17
+        },
+        {
+            "name": "cataphract",
+            "ageReq": 3,
+            "mAtk": 9,
+            "pAtk": 0,
+            "mDef": 2,
+            "pDef": 1,
+            "hp": 110,
+            "speed": 1.35,
+            "lineOfSight": 4,
+            "rateOfFire": 1.83,
+            "cost":{
+                "food": 70,
+                "gold": 75
+            },
+            "armorClasses": [[8, 12], [19, 0]],
+            "bonus":[[1, 9], [32, 9]],
+            "damageTechs":["elite cataphract", "meleeAttack", "cavalryDefense"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["logistica"],
+            "uniqueOtherTechs":[],
+            "trainTime": 20
+        },
+        
+        
+        
+        {
             "name": "house",
             "ageReq": 1,
             "cost":{
@@ -1170,8 +1219,8 @@
             "reloadUpgrade":["arrowslits"],
             "damageTechs":["watch tower", "archerAttack", "chemistry", "building defense", "arrowslits", "heated shot"],
             "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
-            "uniqueDamageTechs":["yasama", "great wall"],
-            "uniqueOtherTechs":["yeomen", "stronghold", "crenellations"],
+            "uniqueDamageTechs":["great wall"],
+            "uniqueOtherTechs":["yasama", "yeomen", "stronghold", "crenellations"],
             "trainTime": 80
         },
         {
@@ -1321,6 +1370,12 @@
         ],
         [
             "trebuchet unpacked"
+        ],
+        [
+            "jaguar warrior", "elite jaguar warrior"
+        ],
+        [
+            "cataphract", "elite cataphract"
         ],
         [
             "house"
@@ -2202,6 +2257,475 @@
             },
             "time": 60
         },
+        {
+            "name": "elite jaguar warrior",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 500
+            },
+            "effects":{
+                "mAtk": 2,
+                "hp": 25,
+                "lineOfSight": 2,
+                "bonus":[[1, 1]]
+            },
+            "time": 45
+        },
+        {
+            "name": "atlatl",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 350
+            },
+            "effects":{
+                "pAtk": 1,
+                "range": 1
+            },
+            "time": 40
+        },
+        {
+            "name": "garland wars",
+            "ageReq": 4,
+            "cost": {
+                "food": 450,
+                "gold": 750
+            },
+            "effects":{
+                "mAtk": 4
+            },
+            "time": 60
+        },
+        {
+            "name": "obsidian arrows",
+            "ageReq": 3,
+            "cost": {
+                "food": 300,
+                "gold": 300
+            },
+            "effects":{
+                "bonus": [[21, 6], [13, 6]]
+            },
+            "time": 60
+        },
+        {
+            "name": "el dorado",
+            "ageReq": 4,
+            "cost": {
+                "food": 750,
+                "gold": 450
+            },
+            "effects":{
+                "hp": 40
+            },
+            "time": 50
+        },
+        
+        {
+            "name": "sipahi",
+            "ageReq": 3,
+            "cost": {
+                "food": 350,
+                "gold": 150
+            },
+            "effects":{
+                "hp": 20
+            },
+            "time": 60
+        },
+        
+        {
+            "name": "artillery",
+            "ageReq": 4,
+            "cost": {
+                "gold": 500,
+                "stone": 450
+            },
+            "effects":{
+                "range": 2
+            },
+            "time": 40
+        },
+        
+        {
+            "name": "corvinian army",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "gold": 300
+            },
+            "effects":{
+                "cost": {
+                    "gold": -10
+                }
+            },
+            "time": 40
+        },
+        {
+            "name": "recurve bow",
+            "ageReq": 4,
+            "cost": {
+                "wood": 600,
+                "gold": 400
+            },
+            "effects":{
+                "range": 1,
+                "pAtk": 1
+            },
+            "time": 40
+        },
+        
+        {
+            "name": "madrasah",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "gold": 100
+            },
+            "effects":{
+                
+            },
+            "time": 30
+        },
+        {
+            "name": "zealotry",
+            "ageReq": 4,
+            "cost": {
+                "food": 750,
+                "gold": 800
+            },
+            "effects":{
+                "hp": 30
+            },
+            "time": 50
+        },
+        {
+            "name": "chatras",
+            "ageReq": 3,
+            "cost": {
+                "food": 250,
+                "gold": 250
+            },
+            "effects":{
+                "hp": 50
+            },
+            "time": 40
+        },
+        {
+            "name": "tusk swords",
+            "ageReq": 3,
+            "cost": {
+                "wood": 200,
+                "gold": 300
+            },
+            "effects":{
+                "mAtk": 3
+            },
+            "time": 40
+        },
+        {
+            "name": "stronghold",
+            "ageReq": 3,
+            "cost": {
+                "food": 250,
+                "gold": 200
+            },
+            "effects":{
+                "rateOfFire": "*1.25"
+            },
+            "time": 30
+        },
+        {
+            "name": "furor celtica",
+            "ageReq": 4,
+            "cost": {
+                "food": 750,
+                "gold": 450
+            },
+            "effects":{
+                "hp": "*1.40"
+            },
+            "time": 50
+        },
+        
+        {
+            "name": "ironclad",
+            "ageReq": 3,
+            "cost": {
+                "wood": 400,
+                "gold": 350
+            },
+            "effects":{
+                "mDef": 4
+            },
+            "time": 60
+        },
+        {
+            "name": "crenellations",
+            "ageReq": 4,
+            "cost": {
+                "food": 600,
+                "stone": 400
+            },
+            "effects":{
+                "range": 3
+            },
+            "time": 60
+        },
+        {
+            "name": "great wall",
+            "ageReq": 3,
+            "cost": {
+                "wood": 400,
+                "stone": 200
+            },
+            "effects":{
+                "hp": "*1.30"
+            },
+            "time": 40
+        },
+        {
+            "name": "rocketry",
+            "ageReq": 4,
+            "cost": {
+                "wood": 600,
+                "gold": 600
+            },
+            "effects":{
+                "unitSpec":{
+                    "chu ko nu":{
+                        "pAtk": 2
+                    },
+                    "scorpion":{
+                        "pAtk": 4
+                    }
+                }
+            },
+            "time": 60
+        },
+        
+        {
+            "name": "elite cataphract",
+            "ageReq": 4,
+            "cost": {
+                "food": 1600,
+                "gold": 800
+            },
+            "effects":{
+                "mAtk": 3,
+                "rateOfFire": -0.10,
+                "hp": 40,
+                "lineOfSight": 1,
+                "armorClasses": [[8, 4]],
+                "bonus":[[1, 3], [32, 1]]
+            },
+            "time": 50
+        },
+        {
+            "name": "logistica",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 600
+            },
+            "effects":{
+                "bonus": [[1, 6]]
+            },
+            "time": 50
+        },
+        
+        {
+            "name": "supremacy",
+            "ageReq": 4,
+            "cost": {
+                "food": 400,
+                "gold": 250
+            },
+            "effects":{
+                "mAtk": 6,
+                "mDef": 2,
+                "pDef": 2,
+                "hp": 40
+            },
+            "time": 60  
+        },
+        
+        {
+            "name": "farimba",
+            "ageReq": 4,
+            "cost": {
+                "food": 650,
+                "gold": 400
+            },
+            "effects":{
+                "mAtk": 5
+            },
+            "time": 40  
+        },
+        
+        {
+            "name": "manipur cavalry",
+            "ageReq": 4,
+            "cost": {
+                "food": 650,
+                "gold": 400
+            },
+            "effects":{
+                "bonus": [[11, 3], [21, 3]]
+            },
+            "time": 40  
+        },
+        {
+            "name": "silk armor",
+            "ageReq": 3,
+            "cost": {
+                "wood": 400,
+                "gold": 300
+            },
+            "effects":{
+                "pDef": 1
+            },
+            "time": 40,
+            "NOTE": "ageofempiresfandom doesn't have the time listed"
+        },
+        
+        {
+            "name": "howdah",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "wood": 300
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 40
+        },
+        {
+            "name": "orthodoxy",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "gold": 300
+            },
+            "effects":{
+                "mDef": 3,
+                "pDef": 3
+            },
+            "time": 40  
+        },
+        {
+            "name": "druzhina",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 500
+            },
+            "effects":{
+                "trample": true
+            },
+            "time": 40  
+        },
+        {
+            "name": "chieftans",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 300
+            },
+            "effects":{
+                "bonus": [[8, 5], [30, 4]]
+            },
+            "time": 40  
+        },
+        {
+            "name": "bagains",
+            "ageReq": 4,
+            "cost": {
+                "food": 900,
+                "gold": 450
+            },
+            "effects":{
+                "mDef": 5,
+                "pDef": 5
+            },
+            "time": 40,
+            "NOTE": "ageofempiresfandom doesn't have the time listed"
+        },
+        {
+            "name": "tower shields",
+            "ageReq": 4,
+            "cost": {
+                "food": 800,
+                "gold": 200
+            },
+            "effects":{
+                "pDef": 1
+            },
+            "time": 40,
+            "NOTE": "ageofempiresfandom doesn't have the time listed"
+        },
+        {
+            "name": "couriers",
+            "ageReq": 4,
+            "cost": {
+                "food": 400,
+                "gold": 200
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2
+            },
+            "time": 40
+        },
+        {
+            "name": "andean sling",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "gold": 300
+            },
+            "effects":{
+                "minimumRange": 0
+            },
+            "time": 40
+        },
+        
+        {
+            "name": "pavise",
+            "ageReq": 3,
+            "cost": {
+                "food": 300,
+                "gold": 150
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 40
+        },
+        
+        {
+            "name": "silk road",
+            "ageReq": 4,
+            "cost": {
+                "food": 500,
+                "gold": 250
+            },
+            "effects":{
+                "cost":{
+                    "wood": "*0.5",
+                    "gold": "*0.5"
+                    
+                }
+            },
+            "time": 60
+        },
+        
+        
+        
         
         {
             "name": "sappers",

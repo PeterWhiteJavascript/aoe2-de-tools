@@ -13,8 +13,8 @@ $(function(){
         let agesStrings = ["feudal age", "castle age", "imperial age"];
         for(let i = 0; i < units.length; i++){
             //We're just doing damage test right now, so use damageTechs
-            units[i].techs = units[i].damageTechs;//can go .concat(units[i].otherTechs) for all techs;
-            
+            units[i].techs = units[i].damageTechs.concat(units[i].uniqueDamageTechs);//can go .concat(units[i].otherTechs) for all techs;
+            console.log(units[i].techs)
             let ageUpgrade = units[i].ageUpgrade;
             if(ageUpgrade){
                 for(let j = 0; j < ageUpgrade.length; j++){
@@ -33,9 +33,6 @@ $(function(){
         //Stores the attack/defender stats.
         let combats = [];
         
-        function finder(arr, name){
-            return arr.find((e) => {return e.name === name;});
-        }
         function switchCombatants(){
             let elm = $(this);
             let idxI = $("#combatants").children(".combat-cont").index(elm.closest('.combat-cont')[0]);
@@ -121,11 +118,17 @@ $(function(){
                         });
                     }
                 } else if(key === "bonus" || key === "armorClasses"){
-                    for(let x = 0; x < unitData[key].length; x++){
-                        for(let y = 0; y < data[key].length; y++){
+                    for(let y = 0; y < data[key].length; y++){
+                        let found = false;
+                        for(let x = unitData[key].length - 1; x >= 0; x--){
                             if(unitData[key][x][0] === data[key][y][0]){
                                 unitData[key][x][1] += data[key][y][1] * locked;
+                                found = true;
                             }
+                        }
+                        //Add the armor class if it doesn't exist.
+                        if(!found){
+                            unitData[key].push(Object.assign({}, data[key][y]));
                         }
                     }
                 //Special case for chemistry since it applies to either mAtk or pAtk
@@ -297,24 +300,21 @@ $(function(){
             let elevationBonus = attacker.elevation > defender.elevation ? 1.25 : attacker.elevation < defender.elevation ? 0.75 : 1;// 0.75, 1, or 1.25
             let attackerBonus = attacker.bonus; 
             let defenderArmor = defender.armorClasses;
-            let totalAttackerBonusDamage = 0;
-            let totalDefenderBonusArmor = 0;
+            let totalBonusDamage = 0;
             for(let i = 0; i < attackerBonus.length; i++){
                 for(let j = 0; j < defenderArmor.length; j++){
                     if(attackerBonus[i][0] === defenderArmor[j][0]){
-                        totalAttackerBonusDamage += attackerBonus[i][1];
-                        totalDefenderBonusArmor = defenderArmor[j][1]
+                        totalBonusDamage += Math.max(0, attackerBonus[i][1] - defenderArmor[j][1]);
                     }
                 }
             }
-            let bonusDamage = Math.max(0, totalAttackerBonusDamage - totalDefenderBonusArmor);
+            let bonusDamage = Math.max(0, totalBonusDamage);
             let melee = attacker.mAtk ? Math.max(0, attacker.mAtk - defender.mDef) : 0;
             let pierce = attacker.pAtk ? Math.max(0, attacker.pAtk - defender.pDef) : 0;
             let finalDamagePerHit = Math.max(1, (melee + pierce + bonusDamage) * elevationBonus);
             let numHitsToKill = Math.ceil(defender.hp / finalDamagePerHit);
             let minDamageToKill = finalDamagePerHit * numHitsToKill;
             let overkill = minDamageToKill - defender.hp;
-            
             
             let elm = $('<div class="combat-result">\n\
                     <div class="combatant-title"><h3>Result</h3></div>\n\
@@ -375,6 +375,7 @@ $(function(){
                 if(!upgradeData){
                     upgradeData = upgradeGroups[data.techs[i]];
                     let group = [];
+                    console.log(upgradeData, data.techs[i])
                     for(let j = 0; j < upgradeData.length; j++){
                         group.push(finder(upgrades, upgradeData[j]));
                     }
@@ -494,8 +495,8 @@ $(function(){
             let combat = [];
             let cont = $("<div class='combat-cont'><div class='combat-remove'>X</div></div>");
             cont.children(".combat-remove").click(function(){$(this).parent().remove();});
-            let attacker = createCombatant("Attacker", units[11]);
-            let defender = createCombatant("Defender", units[0]);
+            let attacker = createCombatant("Attacker", units[5]);
+            let defender = createCombatant("Defender", units[33]);
             combat.push(attacker.data, defender.data);
             let result = generateResult(attacker.data, defender.data);
             cont.append(attacker.element, result, defender.element);
