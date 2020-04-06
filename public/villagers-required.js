@@ -155,6 +155,7 @@ $(function(){
                             "<p>They should never make up most of your army, but once both you and your opponent have 10+ fire galleys, it's generally worth it to add in some demolition rafts.</p>",
             "cannon galleon":"<p>Cannon galleons are quite a bit more expensive than any other ship.</p>",
             "house":"<p>You won't usually be building houses constantly throughout the dark age, but if you are going for a 3 or 4 tc boom, you should have a single villager dedicated to constantly building houses.</p>",
+            "farm":"<p>Farms are usually not something that you build constantly, so I've included an 'upgrade' that allows you to set the farm's build time to 25 seconds (as fast as a villager), which will tell you how many villagers you need on wood to build farms with the next villagers that you'll be building out of the town center.</p>",
             "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>"
             
         };
@@ -200,7 +201,19 @@ $(function(){
             },
             "militia":{
                 "civs":{
-                    "Goths Civ Bonus": {
+                    "Goths - Dark Age": {
+                        "cost": {"food": 0.2, "gold": 0.2},
+                        "costPercent": true
+                    },
+                    "Goths - Feudal Age": {
+                        "cost": {"food": 0.25, "gold": 0.25},
+                        "costPercent": true
+                    },
+                    "Goths - Castle Age": {
+                        "cost": {"food": 0.3, "gold": 0.3},
+                        "costPercent": true
+                    },
+                    "Goths - Imperial Age": {
                         "cost": {"food": 0.35, "gold": 0.35},
                         "costPercent": true
                     },
@@ -885,6 +898,27 @@ $(function(){
                     }
                 }
             },
+            "farm":{
+                "civs":{
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    },
+                    "Teutons Civ Bonus":{
+                        "cost": {"wood": 0.4},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    },
+                    "25 Second Build Time":{
+                        "trainTime": 25
+                    }
+                }
+            },
             "watch tower":{
                 "civs":{
                     "Malians Civ Bonus":{
@@ -1180,7 +1214,7 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "watch tower"];
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");

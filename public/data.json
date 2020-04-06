@@ -1020,6 +1020,25 @@
             "trainTime": 25
         },
         {
+            "name": "farm",
+            "ageReq": 1,
+            "cost":{
+                "wood": 60
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 480,
+            "mDef": 0,
+            "pDef": 0,
+            "lineOfSight": 1,
+            "ageUpgrade":[],
+            "damageTechs":[],
+            "otherTechs":["horse collar", "heavy plow", "crop rotation"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 15
+            
+        },
+        {
             "name": "monastery",
             "ageReq": 3,
             "cost":{
