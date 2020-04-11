@@ -983,6 +983,31 @@
             "uniqueOtherTechs":[],
             "trainTime": 20
         },
+        {
+            "name": "karambit warrior",
+            "ageReq": 3,
+            "mAtk": 6,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 30,
+            "speed": 1.2,
+            "lineOfSight": 3,
+            "rateOfFire": 2.03,
+            "cost":{
+                "food": 30,
+                "gold": 15
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 2]],
+            "damageTechs":["elite karambit warrior", "meleeAttack", "meleeDefense", "arson"],
+            "otherTechs":["squires","husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 6,
+            "population": 0.5
+        },
+        
         
         
         
@@ -2743,6 +2768,20 @@
             "time": 60
         },
         
+        {
+            "name": "elite karambit warrior",
+            "ageReq": 4,
+            "cost": {
+                "food": 900,
+                "gold": 600
+            },
+            "effects":{
+                "mAtk": 1,
+                "hp": 10,
+                "bonus":[[21, 1]]
+            },
+            "time": 40
+        },
         
         
         

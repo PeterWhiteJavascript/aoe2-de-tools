@@ -142,7 +142,7 @@ $(function(){
             "scout cavalry": "<p>Cumans with steppe husbandry train scouts in 6 seconds (4.5 with conscription as well). Since steppe husbandry only costs 200f/300w, you could theoretically have a single stable work as fast as 5 stables to produce light cavalry throughout the Castle Age if you go for kipchaks.</p>",
             "knight":"<p>Knights are a very strong unit that crushes anything that can be made in the Feudal Age, even spearmen. It's difficult to go for early knights since they are so expensive, and also require food, which you need for villager production as well. For 2 stable play in caslte age, you'll probably want 2 mining camps so that your villagers work more efficiently. The gold mining upgrade is worth consideration as well.</p>",
             "camel rider":"<p>Camels are a good counter to knights since they train much faster and cost a bit less. Since they train faster, you'll actually need more villagers on food and gold to maintain production.</p>",
-            "battle elephant":"<p>Battle elephants are extremely expensive and are a very situational unit, since they are slow and weak to conversions. They train fairly quickly and get deter entire Feudal Age armies by themselves, so they can be useful defensively.</p>",
+            "battle elephant":"<p>Battle elephants are extremely expensive and are a very situational unit, since they are slow and weak to conversions. They train fairly quickly and can deter entire Feudal Age armies by themselves, so they can be useful defensively.</p>",
             "monk": "<p>Monks train fairly slow, which means that even though they cost 100 gold, you only need around 5 gold miners to maintain constant production. They are commonly built with mangonels, which require 8 on gold, so having 13 on gold for your siege/monk push is necessary.</p>",
             "battering ram":"<p></p>",
             "mangonel":"<p></p>",
@@ -156,7 +156,10 @@ $(function(){
             "cannon galleon":"<p>Cannon galleons are quite a bit more expensive than any other ship.</p>",
             "house":"<p>You won't usually be building houses constantly throughout the dark age, but if you are going for a 3 or 4 tc boom, you should have a single villager dedicated to constantly building houses.</p>",
             "farm":"<p>Farms are usually not something that you build constantly, so I've included an 'upgrade' that allows you to set the farm's build time to 25 seconds (as fast as a villager), which will tell you how many villagers you need on wood to build farms with the next villagers that you'll be building out of the town center.</p>",
-            "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>"
+            "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>",
+            "cataphract":"<p></p>",
+            "jaguar warrior":"<p></p>",
+            "karambit warrior":"<p></p>"
             
         };
         let unitVariety = {
@@ -964,6 +967,32 @@ $(function(){
                         "trainTimePercent": true
                     }
                 }
+            },
+            "cataphract":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    
+                }
+            },
+            "jaguar warrior":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    
+                }
+                
+            },
+            "karambit warrior":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    
+                }
+                
             }
         };
         //Figure out how many villagers are needed to keep all of the units selected producing.
@@ -1214,7 +1243,7 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower"];
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
