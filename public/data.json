@@ -1000,7 +1000,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2]],
-            "damageTechs":["elite karambit warrior", "meleeAttack", "meleeDefense", "arson"],
+            "damageTechs":["elite karambit warrior", "meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],

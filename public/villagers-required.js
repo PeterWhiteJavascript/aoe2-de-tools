@@ -79,7 +79,7 @@ $(function(){
         },
         "team":{
             "Aztec Relics": {
-                "relic": 0.33
+                "relic": 0.3333
             }
         }
     };

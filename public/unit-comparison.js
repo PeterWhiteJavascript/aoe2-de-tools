@@ -375,7 +375,7 @@ $(function(){
                 if(!upgradeData){
                     upgradeData = upgradeGroups[data.techs[i]];
                     let group = [];
-                    console.log(upgradeData, data.techs[i])
+                    console.log(upgradeGroups, data.techs[i])
                     for(let j = 0; j < upgradeData.length; j++){
                         group.push(finder(upgrades, upgradeData[j]));
                     }
