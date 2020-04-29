@@ -438,10 +438,10 @@ $(function(){
                         </div>\n\
                     </div>');
             let ages = $('<div>\n\
-                            <img class="icon upgrade-icon upgrade-locked" src="img/dark age.png">\n\
-                            <img class="icon upgrade-icon upgrade-locked" src="img/feudal age.png" upgrade="feudal age '+combatantData.name+'">\n\
-                            <img class="icon upgrade-icon upgrade-locked" src="img/castle age.png" upgrade="castle age '+combatantData.name+'">\n\
-                            <img class="icon upgrade-icon upgrade-locked" src="img/imperial age.png" upgrade="imperial age '+combatantData.name+'">\n\
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="img/dark age.png">\n\
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="img/feudal age.png" upgrade="feudal age '+combatantData.name+'">\n\
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="img/castle age.png" upgrade="castle age '+combatantData.name+'">\n\
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="img/imperial age.png" upgrade="imperial age '+combatantData.name+'">\n\
                         </div>');
             ages.children(".icon").click(changeAge);
             

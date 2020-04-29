@@ -81,5 +81,18 @@ function setUpGatherRates(data){
             ).toFixed(2)
             )
     };
+    gatherRates["feitoria food"] = {
+        gatherRate: 1.6
+    };
+    gatherRates["feitoria wood"] = {
+        gatherRate: 1
+    };
+    gatherRates["feitoria gold"] = {
+        gatherRate: 0.7
+    };
+    gatherRates["feitoria stone"] = {
+        gatherRate: 0.3
+    };
+    
     return gatherRates;
 }

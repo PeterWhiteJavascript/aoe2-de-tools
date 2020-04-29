@@ -89,12 +89,12 @@ $(function(){
         let gatherRatesCont = $("<div id='gather-rates'></div>");
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
-            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets"],
-            ["lumberjack", "double-bit axe", "bow saw","two-man saw"],
-            ["gold miner", "gold mining", "gold shaft mining", "relic"],
-            ["stone miner", "stone mining", "stone shaft mining"]
+            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "feitoria food"],
+            ["lumberjack", "double-bit axe", "bow saw","two-man saw", "feitoria wood"],
+            ["gold miner", "gold mining", "gold shaft mining", "relic", "feitoria gold"],
+            ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "relic"];
+        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
@@ -158,7 +158,7 @@ $(function(){
             "farm":"<p>Farms are usually not something that you build constantly, so I've included an 'upgrade' that allows you to set the farm's build time to 25 seconds (as fast as a villager), which will tell you how many villagers you need on wood to build farms with the next villagers that you'll be building out of the town center.</p>",
             "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>",
             "cataphract":"<p></p>",
-            "jaguar warrior":"<p></p>",
+            "jaguar warrior":"<p>The train time for jaguar warriors is 20, but it is always reduced to 17 by the Aztec's civ bonus.</p>",
             "karambit warrior":"<p></p>"
             
         };
@@ -973,7 +973,14 @@ $(function(){
                     
                 },
                 "upgrades":{
-                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
                 }
             },
             "jaguar warrior":{
@@ -981,7 +988,14 @@ $(function(){
                     
                 },
                 "upgrades":{
-                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
                 }
                 
             },
@@ -990,9 +1004,36 @@ $(function(){
                     
                 },
                 "upgrades":{
-                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
                 }
                 
+            },
+            "conquistador": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
             }
         };
         //Figure out how many villagers are needed to keep all of the units selected producing.
@@ -1243,7 +1284,7 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior"];
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior", "conquistador"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");

@@ -140,6 +140,9 @@
     display: flex;
     flex-direction: column;
 }
+.age-icon {
+    height: 40px;
+}
 .upgrade-icon{
     margin-bottom: 8px;
     margin-right: 5px;
