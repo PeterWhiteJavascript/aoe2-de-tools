@@ -2338,6 +2338,19 @@
             "time": 60
         },
         {
+            "name": "carrack",
+            "ageReq": 3,
+            "cost":{
+                "wood": 200,
+                "gold": 300
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 1
+            },
+            "time": 40
+        },
+        {
             "name": "elite jaguar warrior",
             "ageReq": 4,
             "cost": {
