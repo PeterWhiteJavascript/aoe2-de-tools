@@ -80,6 +80,14 @@ $(function(){
         "team":{
             "Aztec Relics": {
                 "relic": 0.3333
+            },
+            "Sultans": {
+                "gold miner": 0.1,
+                "gold mining": 0.1,
+                "gold shaft mining": 0.1,
+                "relic": 0.1,
+                "trade cart": 0.1
+                
             }
         }
     };
@@ -91,16 +99,18 @@ $(function(){
         let order = [
             ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "feitoria food"],
             ["lumberjack", "double-bit axe", "bow saw","two-man saw", "feitoria wood"],
-            ["gold miner", "gold mining", "gold shaft mining", "relic", "feitoria gold"],
+            ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone"];
+        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
                 let imgurl = gatherRates[order[i][j]].img || order[i][j];
                 let img = $("<img src='img/"+imgurl+".png' class='icon-big'>");
-                let num = $("<div>"+gatherRates[order[i][j]].gatherRate+" - " + (gatherRates[order[i][j]].gatherRate * 60).toFixed(1) + "</div>");
+                let sec = gatherRates[order[i][j]].gatherRate;
+                let min = (gatherRates[order[i][j]].gatherRate * 60);
+                let num = $("<div sec="+sec+" min="+min+">"+sec+" - " + (min.toFixed(1)) + "</div>");
                 imgCont.append(img, num);
                 $("#choose-res").append(imgCont);
                 imgCont.on("click", function(){
@@ -1189,12 +1199,19 @@ $(function(){
             }
             calculateVilTotals();
         }
-        function displayGatherRate(rate, res){
-            $($("#choose-res").children(".res-show-img").filter(function(){
+        function getResDiv(res){
+            return $($("#choose-res").children(".res-show-img").filter(function(){
                 return $(this).attr("resource") === res;
-            })[0]).children("div").first().text(
-                rate + " - " + (rate * 60).toFixed(1)
+            })[0]).children("div").first();
+        }
+        function displayGatherRate(rate, res){
+            let div = getResDiv(res);
+            let pMin = rate * 60;
+            div.text(
+                rate + " - " + (pMin.toFixed(1))
             );
+            div.attr("sec", rate);
+            div.attr("min", pMin);
         }
         function getUnitContainer(name, unitData, multiplier, selectOption, checkedUpgrades){
             if(unitData){
@@ -1340,18 +1357,37 @@ $(function(){
             let box = $("<input type='checkbox' name='"+j+"'>");
             box.on("change", function(){
                 let name = $(this).attr("name");
+                //First, reset the gather rates.
+                let resetRates = [];
+                for(i in applyEcoBonuses){
+                    resetRates = resetRates.concat(Object.keys(applyEcoBonuses[i].data));
+                }
+                resetRates.forEach((i) => {
+                    displayGatherRate(gatherRates[i].gatherRate, i);
+                });
+                
                 if($(this).is(':checked')){
                     applyEcoBonuses.push({name: name, data:ecoBonuses["team"][name]});
-                    for(let j in applyEcoBonuses[applyEcoBonuses.length - 1].data){
-                        let rate = parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[applyEcoBonuses.length - 1].data[j]).toFixed(2));
-                        displayGatherRate(rate, j);
-                    }
                 } else {
-                    let idx = applyEcoBonuses.indexOf({name: name, data:ecoBonuses["team"][name]});
-                    let oldData = applyEcoBonuses.splice(idx, 1)[0];
-                    for(let j in oldData.data){
-                        displayGatherRate(gatherRates[j].gatherRate, j);
+                    let idx = applyEcoBonuses.indexOf(applyEcoBonuses.filter((bonus) => {return bonus.name === name;})[0]);
+                    applyEcoBonuses.splice(idx, 1);
+                }
+                
+                let applied = {};
+                for(let i = 0; i < applyEcoBonuses.length; i++){
+                    for(let j in applyEcoBonuses[i].data){
+                        if(applied[j] >= 0){
+                            applied[j] = (applied[j] * (1 + applyEcoBonuses[i].data[j]));
+                        } else {
+                            applied[j] = (gatherRates[j].gatherRate * (1 + applyEcoBonuses[i].data[j]));
+                        }
                     }
+                }
+                
+                
+                
+                for(let j in applied){
+                    displayGatherRate(parseFloat(applied[j]).toFixed(2), j);
                 }
                 $("#gather-rates").children(".unit-container").not(":hidden").each(function(){
                     updateVilsRequired({target:$(this).children("div").first()});

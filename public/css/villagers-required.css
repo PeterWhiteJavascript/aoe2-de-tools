@@ -16,6 +16,13 @@ h1{
 
 #econ-civ-bonus > div {
     padding: 5px;
+    display: flex;
+}
+#econ-civ-bonus > div > div{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #choose-units, #choose-res{

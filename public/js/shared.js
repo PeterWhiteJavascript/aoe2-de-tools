@@ -93,6 +93,9 @@ function setUpGatherRates(data){
     gatherRates["feitoria stone"] = {
         gatherRate: 0.3
     };
+    gatherRates["trade cart"] = {
+        gatherRate: 0.4
+    };
     
     return gatherRates;
 }
