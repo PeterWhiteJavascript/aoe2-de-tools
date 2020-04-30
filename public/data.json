@@ -545,14 +545,14 @@
         {
             "name": "steppe lancer",
             "ageReq": 3,
-            "mAtk": 12,
+            "mAtk": 9,
             "mDef": 0,
             "pDef": 1,
             "hp": 60,
             "range": 1,
             "speed": 1.45,
             "rateOfFire": 2.3,
-            "lineOfSight": 4,
+            "lineOfSight": 5,
             "cost":{
                 "food": 70,
                 "gold": 45
@@ -1306,7 +1306,7 @@
             "hp": 2200,
             "mDef": 3,
             "pDef": 9,
-            "pAtk": 120,
+            "pAtk": 121,
             "rateOfFire": 6,
             "projSpeed": 3,
             "accuracy": 0.92,
@@ -1316,7 +1316,7 @@
             "arrows": 1,
             "lineOfSight": 10,
             "garrison": 5,
-            "damageTechs":["archerAttack", "chemistry", "building defense", "heated shot"],
+            "damageTechs":["archerAttack", "building defense", "heated shot"],
             "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
             "uniqueDamageTechs":["great wall"],
             "uniqueOtherTechs":["arquebus"],
@@ -1742,6 +1742,7 @@
             },
             "effects":{
                 "hp": 5,
+                "pAtk": 1,
                 "pDef": 1,
                 "range": 1,
                 "lineOfSight": 1,
@@ -1758,6 +1759,7 @@
                 "gold": 450
             },
             "effects":{
+                "pAtk": 1,
                 "pDef": 1,
                 "accuracy": 0.05,
                 "bonus":[[15, 1], [28, 1]]
