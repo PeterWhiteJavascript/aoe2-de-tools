@@ -1036,8 +1036,61 @@
             "trainTime": 24
         },
         
+        {
+            "name": "plumed archer",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 5,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 50,
+            "speed": 1.2,
+            "lineOfSight": 6,
+            "rateOfFire": 1.9,
+            "projSpeed": 7.0,
+            "accuracy": 0.80,
+            "range": 4,
+            "frameDelay": 5,
+            "cost":{
+                "wood": 55,
+                "gold": 55
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[27, 2], [1, 1], [32, 1]],
+            "damageTechs":["elite plumed archer", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 16
+        },
         
-        
+        {
+            "name": "chu ko nu",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 8,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 45,
+            "speed": 0.96,
+            "lineOfSight": 6,
+            "rateOfFire": 3.0,
+            "projSpeed": 7,
+            "accuracy": 0.85,
+            "range": 4,
+            "frameDelay": 3,
+            "cost":{
+                "wood": 40,
+                "gold": 35
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[27, 2]],
+            "damageTechs":["elite chu ko nu", "archerDefense", "archerAttack", "chemistry", "rocketry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 16
+        },
         
         {
             "name": "house",
@@ -1373,6 +1426,12 @@
         ],
         [
             "skirmisher", "elite skirmisher", "imperial skirmisher"
+        ],
+        [
+            "chu ko nu", "elite chu ko nu"
+        ],
+        [
+            "plumed archer", "elite plumed archer"
         ],
         [
             "cavalry archer", "heavy cavalry archer"
@@ -2849,7 +2908,35 @@
             "time": 60
         },
         
-        
+        {
+            "name": "elite plumed archer",
+            "ageReq": 4,
+            "cost": {
+                "wood": 1000,
+                "food": 700
+            },
+            "effects":{
+                "hp": 15,
+                "bonus":[[1, 1], [32, 1]],
+                "accuracy": 0.10,
+                "pDef": 2,
+                "range": 1
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite chu ko nu",
+            "ageReq": 4,
+            "cost": {
+                "food": 760,
+                "wood": 760
+            },
+            "effects":{
+                "hp": 5
+            },
+            "time": 50
+        },
         
         {
             "name": "sappers",
