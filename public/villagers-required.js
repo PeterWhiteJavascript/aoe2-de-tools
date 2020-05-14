@@ -169,7 +169,9 @@ $(function(){
             "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>",
             "cataphract":"<p></p>",
             "jaguar warrior":"<p>The train time for jaguar warriors is 20, but it is always reduced to 17 by the Aztec's civ bonus.</p>",
-            "karambit warrior":"<p></p>"
+            "karambit warrior":"<p></p>",
+            "plumed archer":"<p>Select appropriate age (Castle or Imperial) to determine the cost of the unit.</p>"
+                            
             
         };
         let unitVariety = {
@@ -190,10 +192,6 @@ $(function(){
                     "Indians - Imperial Age":{
                         "cost": {"food": 0.25},
                         "costPercent": true
-                    },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.10,
@@ -663,10 +661,6 @@ $(function(){
                     "Italians Civ Bonus":{
                         "cost": {"wood": -15}
                     },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
-                    },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
                         "trainTimePercent": true
@@ -702,10 +696,6 @@ $(function(){
                     "Portuguese Civ Bonus":{
                         "cost": {"gold": 0.15},
                         "costPercent": true
-                    },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
@@ -746,10 +736,6 @@ $(function(){
                     "Portuguese Civ Bonus":{
                         "cost": {"gold": 0.15},
                         "costPercent": true
-                    },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
@@ -794,10 +780,6 @@ $(function(){
                     "Portuguese Civ Bonus":{
                         "cost": {"gold": 0.15},
                         "costPercent": true
-                    },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
@@ -850,10 +832,6 @@ $(function(){
                     "Vikings Civ Bonus":{
                         "cost": {"wood": 0.2, "gold": 0.2},
                         "costPercent": true
-                    },
-                    "Persians - Dark Age":{
-                        "trainTime": 1.05,
-                        "trainTimePercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
@@ -1043,6 +1021,50 @@ $(function(){
                         "trainTime": 1.25,
                         "trainTimePercent": true
                     }
+                }
+            },
+            "chu ko nu": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+
+            "plumed archer": {
+                "civs":{
+                    "Mayans - Castle Age":{
+                        "cost": {"wood": 0.19, "gold": 0.19},
+                        "costPercent": true
+                    },
+                    "Mayans - Imperial Age":{
+                        "cost": {"wood": 0.29, "gold": 0.29},
+                        "costPercent": true
+                    }
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
                 }
             }
         };
@@ -1301,7 +1323,7 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior", "conquistador"];
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior", "conquistador", "chu ko nu", "plumed archer"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
