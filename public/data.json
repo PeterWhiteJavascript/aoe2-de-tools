@@ -937,6 +937,7 @@
             "uniqueOtherTechs":["artillery", "arquebus"],
             "trainTime": 46
         },
+
         {
             "name": "jaguar warrior",
             "ageReq": 3,
@@ -959,6 +960,54 @@
             "uniqueDamageTechs":["garland wars"],
             "uniqueOtherTechs":[],
             "trainTime": 17
+        },
+
+        {
+            "name": "kamayuk",
+            "ageReq": 3,
+            "mAtk": 7,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 60,
+            "speed": 1,
+            "lineOfSight": 4,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 60,
+                "gold": 30
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[5, 20], [8, 8], [30, 6]],
+            "damageTechs":["elite kamayuk", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["fabric shields"],
+            "trainTime": 10
+        },
+
+        {
+            "name": "woad raider",
+            "ageReq": 3,
+            "mAtk": 8,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 65,
+            "speed": 1.38,
+            "lineOfSight": 3,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 65,
+                "gold": 25
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 2], [11, 2]],
+            "damageTechs":["elite woad raider", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["garland wars"],
+            "uniqueOtherTechs":[],
+            "trainTime": 10
         },
         {
             "name": "cataphract",
@@ -983,6 +1032,7 @@
             "uniqueOtherTechs":[],
             "trainTime": 20
         },
+
         {
             "name": "karambit warrior",
             "ageReq": 3,
@@ -1008,6 +1058,32 @@
             "population": 0.5
         },
         
+        {
+            "name": "camel archer",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 7,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 55,
+            "speed": 1.4,
+            "lineOfSight": 5,
+            "rateOfFire": 2.0,
+            "projSpeed": 7,
+            "accuracy": 0.95,
+            "cost":{
+                "wood": 50,
+                "gold": 60
+            },
+            "armorClasses": [[15, 0], [28, 0], [30, 0], [19, 0]],
+            "bonus":[[8, 4]],
+            "damageTechs":["elite camel archer", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["maghrabi camels"],
+            "trainTime": 25
+        },
+
         {
             "name": "conquistador",
             "ageReq": 3,
@@ -1065,6 +1141,86 @@
         },
         
         {
+            "name": "mangudai",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 60,
+            "speed": 1.45,
+            "lineOfSight": 6,
+            "rateOfFire": 1.7,
+            "projSpeed": 7.0,
+            "accuracy": 0.95,
+            "range": 4,
+            "frameDelay": 5,
+            "cost":{
+                "wood": 55,
+                "gold": 65
+            },
+            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "bonus":[[27, 1], [20, 3]],
+            "damageTechs":["elite mangudai", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 26
+        },
+
+        {
+            "name": "konnik",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 2,
+            "pDef": 1,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.35,
+            "rateOfFire": 2.4,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 60,
+                "gold": 70
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["elite konnik", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["stirrups"],
+            "uniqueOtherTechs":[],
+            "trainTime": 19
+        },
+
+        {
+            "name": "arambai",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 17,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 60,
+            "speed": 1.3,
+            "lineOfSight": 8,
+            "rateOfFire": 2.0,
+            "projSpeed": 7,
+            "accuracy": 0.20,
+            "range": 5,
+            "frameDelay": 10,
+            "cost":{
+                "wood": 75,
+                "gold": 60
+            },
+            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "bonus":[[17, 2]],
+            "damageTechs":["elite arambai", "archerDefense", "bloodlines"],
+            "otherTechs":["ballistics", "faith", "conscription"],
+            "uniqueDamageTechs":[ "manipur cavalry"],
+            "uniqueOtherTechs":[],
+            "trainTime": 21
+        },
+        
+        {
             "name": "chu ko nu",
             "ageReq": 3,
             "mAtk": 0,
@@ -1085,11 +1241,69 @@
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[27, 2]],
+            "arrows": 3,
             "damageTechs":["elite chu ko nu", "archerDefense", "archerAttack", "chemistry", "rocketry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[ "rocketry"],
+            "uniqueOtherTechs":[],
+            "trainTime": 16
+        },
+
+        {
+            "name": "kipchak",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 4,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 45,
+            "speed": 1.4,
+            "lineOfSight": 6,
+            "rateOfFire": 2.2,
+            "projSpeed": 7,
+            "accuracy": 0.90,
+            "range": 4,
+            "frameDelay": 0,
+            "cost":{
+                "wood": 60,
+                "gold": 35
+            },
+            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "bonus":[[27, 1]],
+            "arrows": 3,
+            "damageTechs":["elite kipchak", "archerDefense", "archerAttack", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 16
+            "trainTime": 20
+        },
+
+        {
+            "name": "longbowman",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 35,
+            "speed": 0.96,
+            "lineOfSight": 7,
+            "rateOfFire": 2.0,
+            "projSpeed": 7,
+            "accuracy": 0.70,
+            "range": 5,
+            "frameDelay": 5,
+            "cost":{
+                "wood": 35,
+                "gold": 40
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[27, 2]],
+            "damageTechs":["elite longbowman", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[ "yeomen" ],
+            "trainTime": 18
         },
         
         {
@@ -1422,6 +1636,9 @@
             "condottiero"
         ],
         [
+            "woad raider", "elite woad raider"
+        ],
+        [
             "archer", "crossbowman", "arbalester"
         ],
         [
@@ -1434,7 +1651,22 @@
             "plumed archer", "elite plumed archer"
         ],
         [
+            "longbowman", "elite longbowman"
+        ],
+        [
+            "arambai", "elite arambai"
+        ],
+        [
+            "kipchak", "elite kipchak"
+        ],
+        [
+            "mangudai", "elite mangudai"
+        ],
+        [
             "cavalry archer", "heavy cavalry archer"
+        ],
+        [   
+            "camel archer", "elite camel archer"
         ],
         [
             "hand cannoneer"
@@ -1450,6 +1682,9 @@
         ],
         [
             "knight", "cavalier", "paladin"
+        ],
+        [
+            "konnik", "elite konnik"
         ],
         [
             "camel rider", "heavy camel rider", "imperial camel rider"
@@ -1504,6 +1739,9 @@
         ],
         [
             "jaguar warrior", "elite jaguar warrior"
+        ],
+        [
+            "kamayuk", "elite kamayuk"
         ],
         [
             "cataphract", "elite cataphract"
@@ -1591,8 +1829,18 @@
         "chemistry university":["bombard tower"],
         "building sight":["town patrol"],
         "mill":["heavy plow", "crop rotation"],
-        "send resource rate": ["banking"]
-        
+        "send resource rate": ["banking"],
+
+        "chu ko nu": ["elite chu ko nu"],
+        "longbowman": ["elite longbowman"],
+        "plumed archer": ["elite plumed archer"],
+        "konnik": ["elite konnik"],
+        "arambai": ["elite arambai"],
+        "woad raider": ["elite woad raider"],
+        "kipchak": ["elite kipchak"],
+        "mangudai": ["elite mangudai"],
+        "jaguar warrior": ["elite jaguar warrior"],
+        "kamayuk": ["elite kamayuk"]
         
     },
     "armorClasses":{
@@ -1774,8 +2022,6 @@
             "classChange": true
         },
         
-        
-        
         {
             "name": "arbalester",
             "ageReq": 4,
@@ -1843,6 +2089,7 @@
             "time": 50,
             "classChange": true
         },
+
         {
             "name": "elite genitour",
             "ageReq": 3,
@@ -1860,8 +2107,7 @@
             "time": 60,
             "classChange": true
         },
-        
-        
+             
         {
             "name": "light cavalry",
             "ageReq": 3,
@@ -1879,6 +2125,7 @@
             "classChange": true
             
         },
+
         {
             "name": "hussar",
             "ageReq": 4,
@@ -1894,6 +2141,7 @@
             "time": 50,
             "classChange": true
         },
+
         {
             "name": "cavalier",
             "ageReq": 4,
@@ -1908,6 +2156,7 @@
             "time": 100,
             "classChange": true
         },
+
         {
             "name": "paladin",
             "ageReq": 4,
@@ -1924,6 +2173,7 @@
             "time": 170,
             "classChange": true
         },
+
         {
             "name": "heavy camel rider",
             "ageReq": 4,
@@ -1940,6 +2190,7 @@
             "time": 105,
             "classChange": true
         },
+
         {
             "name": "imperial camel rider",
             "ageReq": 4,
@@ -1993,6 +2244,7 @@
             "classChange": true,
             "NOTE": "ageofempiresfandom doesn't have the time listed"
         },
+
         {
             "name": "capped ram",
             "ageReq": 4,
@@ -2011,6 +2263,7 @@
             "time": 50,
             "classChange": true
         },
+
         {
             "name": "siege ram",
             "ageReq": 4,
@@ -2030,6 +2283,7 @@
             "time": 75,
             "classChange": true
         },
+
         {
             "name": "onager",
             "ageReq": 4,
@@ -2050,6 +2304,7 @@
             "time": 75,
             "classChange": true
         },
+
         {
             "name": "siege onager",
             "ageReq": 4,
@@ -2068,6 +2323,7 @@
             "time": 150,
             "classChange": true
         },
+
         {
             "name": "heavy scorpion",
             "ageReq": 4,
@@ -2109,6 +2365,7 @@
             },
             "time": 25
         },
+
         {
             "name": "thumb ring",
             "ageReq": 3,
@@ -2209,7 +2466,6 @@
             
         },
         
-        
         {
             "name": "bloodlines",
             "ageReq": 2,
@@ -2234,6 +2490,7 @@
             },
             "time": 40
         },
+
         {
             "name": "fire ship",
             "ageReq": 3,
@@ -2252,6 +2509,7 @@
             },
             "time": 50
         },
+
         {
             "name": "fast fire ship",
             "ageReq": 4,
@@ -2271,6 +2529,7 @@
             },
             "time": 50
         },
+
         {
             "name": "war galley",
             "ageReq": 3,
@@ -2287,6 +2546,7 @@
             },
             "time": 50
         },
+
         {
             "name": "galleon",
             "ageReq": 4,
@@ -2303,6 +2563,7 @@
             },
             "time": 65
         },
+
         {
             "name": "demolition ship",
             "ageReq": 3,
@@ -2323,6 +2584,7 @@
             },
             "time": 50
         },
+
         {
             "name": "heavy demolition ship",
             "ageReq": 4,
@@ -2339,6 +2601,7 @@
             },
             "time": 50
         },
+
         {
             "name": "elite cannon galleon",
             "ageReq": 4,
@@ -2368,6 +2631,7 @@
             },
             "time": 50
         },
+
         {
             "name": "dry dock",
             "ageReq": 4,
@@ -2381,6 +2645,7 @@
             },
             "time": 60
         },
+
         {
             "name": "shipwright",
             "ageReq": 4,
@@ -2396,6 +2661,7 @@
             },
             "time": 60
         },
+
         {
             "name": "carrack",
             "ageReq": 3,
@@ -2409,6 +2675,7 @@
             },
             "time": 40
         },
+
         {
             "name": "elite jaguar warrior",
             "ageReq": 4,
@@ -2424,6 +2691,39 @@
             },
             "time": 45
         },
+
+        {
+            "name": "elite kamayuk",
+            "ageReq": 4,
+            "cost": {
+                "food": 900,
+                "gold": 500
+            },
+            "effects":{
+                "mAtk": 1,
+                "hp": 20,
+                "lineOfSight": 1,
+                "bonus":[[8, 4], [30, 4], [35, 1]]
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite woad raider",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 800
+            },
+            "effects":{
+                "mAtk": 5,
+                "hp": 15,
+                "lineOfSight": 2,
+                "bonus":[[29, 1], [11, 1]]
+            },
+            "time": 45
+        },
+
         {
             "name": "atlatl",
             "ageReq": 3,
@@ -2437,6 +2737,7 @@
             },
             "time": 40
         },
+
         {
             "name": "garland wars",
             "ageReq": 4,
@@ -2449,6 +2750,7 @@
             },
             "time": 60
         },
+
         {
             "name": "obsidian arrows",
             "ageReq": 3,
@@ -2461,6 +2763,7 @@
             },
             "time": 60
         },
+
         {
             "name": "el dorado",
             "ageReq": 4,
@@ -2514,6 +2817,7 @@
             },
             "time": 40
         },
+
         {
             "name": "recurve bow",
             "ageReq": 4,
@@ -2540,6 +2844,7 @@
             },
             "time": 30
         },
+
         {
             "name": "zealotry",
             "ageReq": 4,
@@ -2552,6 +2857,7 @@
             },
             "time": 50
         },
+
         {
             "name": "chatras",
             "ageReq": 3,
@@ -2564,6 +2870,7 @@
             },
             "time": 40
         },
+
         {
             "name": "tusk swords",
             "ageReq": 3,
@@ -2576,6 +2883,7 @@
             },
             "time": 40
         },
+
         {
             "name": "stronghold",
             "ageReq": 3,
@@ -2588,6 +2896,7 @@
             },
             "time": 30
         },
+
         {
             "name": "furor celtica",
             "ageReq": 4,
@@ -2613,6 +2922,7 @@
             },
             "time": 60
         },
+
         {
             "name": "crenellations",
             "ageReq": 4,
@@ -2625,6 +2935,7 @@
             },
             "time": 60
         },
+
         {
             "name": "great wall",
             "ageReq": 3,
@@ -2637,6 +2948,7 @@
             },
             "time": 40
         },
+
         {
             "name": "rocketry",
             "ageReq": 4,
@@ -2674,6 +2986,7 @@
             },
             "time": 50
         },
+
         {
             "name": "logistica",
             "ageReq": 4,
@@ -2728,6 +3041,7 @@
             },
             "time": 40  
         },
+
         {
             "name": "silk armor",
             "ageReq": 3,
@@ -2755,6 +3069,7 @@
             },
             "time": 40
         },
+
         {
             "name": "orthodoxy",
             "ageReq": 3,
@@ -2768,6 +3083,7 @@
             },
             "time": 40  
         },
+
         {
             "name": "druzhina",
             "ageReq": 4,
@@ -2780,6 +3096,7 @@
             },
             "time": 40  
         },
+
         {
             "name": "chieftans",
             "ageReq": 3,
@@ -2792,6 +3109,7 @@
             },
             "time": 40  
         },
+
         {
             "name": "bagains",
             "ageReq": 4,
@@ -2806,6 +3124,7 @@
             "time": 40,
             "NOTE": "ageofempiresfandom doesn't have the time listed"
         },
+
         {
             "name": "tower shields",
             "ageReq": 4,
@@ -2819,6 +3138,7 @@
             "time": 40,
             "NOTE": "ageofempiresfandom doesn't have the time listed"
         },
+
         {
             "name": "couriers",
             "ageReq": 4,
@@ -2832,6 +3152,7 @@
             },
             "time": 40
         },
+
         {
             "name": "andean sling",
             "ageReq": 3,
@@ -2926,6 +3247,52 @@
         },
 
         {
+            "name": "elite mangudai",
+            "ageReq": 4,
+            "cost": {
+                "food": 1100,
+                "gold": 675
+            },
+            "effects":{
+                "bonus":[[20, 2]],
+                "pDef": 1
+            },
+            "time": 50
+        },
+
+        {
+            "name": "elite arambai",
+            "ageReq": 4,
+            "cost": {
+                "food": 1100,
+                "gold": 675
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 2,
+                "accuracy": 0.10,
+                "pDef": 1
+            },
+            "time": 65
+        },
+
+        {
+            "name": "elite longbowman",
+            "ageReq": 4,
+            "cost": {
+                "food": 850,
+                "gold": 850
+            },
+            "effects":{
+                "hp": 5,
+                "accuracy": 0.10,
+                "pDef": 1,
+                "range": 1
+            },
+            "time": 60
+        },
+
+        {
             "name": "elite chu ko nu",
             "ageReq": 4,
             "cost": {
@@ -2933,7 +3300,52 @@
                 "wood": 760
             },
             "effects":{
-                "hp": 5
+                "hp": 5,
+                "arrows": 2
+            },
+            "time": 50
+        },
+
+        {
+            "name": "elite kipchak",
+            "ageReq": 4,
+            "cost": {
+                "food": 1100,
+                "wood": 1000
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 1,
+                "arrows": 1
+            },
+            "time": 65
+        },
+
+        {
+            "name": "elite camel archer",
+            "ageReq": 4,
+            "cost": {
+                "wood": 1000,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 5,
+                "bonus": [[8, 2]],
+                "pdef": 1
+            },
+            "time": 50
+        },
+
+        {
+            "name": "elite konnik",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 20,
+                "pdef": 2
             },
             "time": 50
         },

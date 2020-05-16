@@ -162,7 +162,7 @@ $(function(){
             "fire galley": "<p>The fire galley is the most common naval unit to open with on water maps since galleys are so weak in small numbers. If you have 2 gold miners per dock, then you should have a good time on water in the Feudal Age.</p>",
             "galley":"<p>The galley can usually be added into your navy once you've gained some water control and are able to transition from fire galleys. If you are playing a water map where your docks are far away from you enemy's docks, you may be able to get away with opening galleys. Vikings don't get fire galleys, but their cheaper galleys and docks allow them to more easily mass them early.</p>",
             "demolition raft":"<p>If you are being overrun by enemy fire ships, you can build a demolition raft to make an easy comeback if your opponent doesn't split their ships properly. They create in 45 seconds instead of 60 for both the galley and fire galley, so they can be produced in a pinch more easily.</p>"+
-                            "<p>They should never make up most of your army, but once both you and your opponent have 10+ fire galleys, it's generally worth it to add in some demolition rafts.</p>",
+                              "<p>They should never make up most of your army, but once both you and your opponent have 10+ fire galleys, it's generally worth it to add in some demolition rafts.</p>",
             "cannon galleon":"<p>Cannon galleons are quite a bit more expensive than any other ship.</p>",
             "house":"<p>You won't usually be building houses constantly throughout the dark age, but if you are going for a 3 or 4 tc boom, you should have a single villager dedicated to constantly building houses.</p>",
             "farm":"<p>Farms are usually not something that you build constantly, so I've included an 'upgrade' that allows you to set the farm's build time to 25 seconds (as fast as a villager), which will tell you how many villagers you need on wood to build farms with the next villagers that you'll be building out of the town center.</p>",
@@ -170,7 +170,9 @@ $(function(){
             "cataphract":"<p></p>",
             "jaguar warrior":"<p>The train time for jaguar warriors is 20, but it is always reduced to 17 by the Aztec's civ bonus.</p>",
             "karambit warrior":"<p></p>",
-            "plumed archer":"<p>Select appropriate age (Castle or Imperial) to determine the cost of the unit.</p>"
+            "plumed archer":"<p>Select appropriate age (Castle or Imperial) to determine the cost of the unit.</p>",
+            "condottiero": "<p>Condottiero is restricted to the Imperial Age.</p>"+
+                           "<p>Allies are able to make this unit, but also must be in the Imperial Age.</p>"
                             
             
         };
@@ -1003,6 +1005,33 @@ $(function(){
                 }
                 
             },
+            "condottiero":{
+                "civs":{
+                    "Goths Civ Bonus": {
+                        "cost": {"food": 0.35, "gold": 0.35},
+                        "costPercent": true
+                    },
+                    "Aztec Civ Bonus": {
+                        "trainTime": 1.18,
+                        "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Perfusion":{
+                        "trainTime": 2,
+                        "trainTimePercent": true
+                    },
+                    "Goths Team Bonus":{
+                        "trainTime": 1.20,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
             "conquistador": {
                 "civs":{
                     
@@ -1023,6 +1052,47 @@ $(function(){
                     }
                 }
             },
+            "camel archer": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "slinger": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+
             "chu ko nu": {
                 "civs":{
                     
@@ -1044,6 +1114,108 @@ $(function(){
                 }
             },
 
+            "longbowman": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+
+            "konnik": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "kipchak": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "arambai": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "mangudai": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "kamayuk": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
             "plumed archer": {
                 "civs":{
                     "Mayans - Castle Age":{
@@ -1054,6 +1226,23 @@ $(function(){
                         "cost": {"wood": 0.29, "gold": 0.29},
                         "costPercent": true
                     }
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "woad raider": {
+                "civs":{
+ 
                 },
                 "upgrades": {
                     
@@ -1323,7 +1512,13 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight", "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon" ,"house", "farm", "watch tower", "cataphract", "jaguar warrior", "karambit warrior", "conquistador", "chu ko nu", "plumed archer"];
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
+                          "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
+                          "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
+                          "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
+                          "house", "farm", "watch tower", "cataphract", "jaguar warrior", "woad raider", "karambit warrior", "condottiero",
+                          "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "plumed archer", 
+                          "konnik", "longbowman", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
