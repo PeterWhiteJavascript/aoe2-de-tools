@@ -963,6 +963,78 @@
         },
 
         {
+            "name": "huskarl",
+            "ageReq": 3,
+            "mAtk": 10,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 6,
+            "hp": 60,
+            "speed": 1.05,
+            "lineOfSight": 3,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 52,
+                "gold": 26
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[15, 6], [29, 2], [11, 3]],
+            "damageTechs":["elite huskarl", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["anarchy", "perfusion"],
+            "trainTime": 16
+        },
+
+        {
+            "name": "throwing axeman",
+            "ageReq": 3,
+            "mAtk": 7,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 60,
+            "speed": 1,
+            "lineOfSight": 5,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 55,
+                "gold": 25
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 1], [11, 1]],
+            "damageTechs":["elite throwing axeman", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["bearded axe"],
+            "trainTime": 17
+        },
+
+        {
+            "name": "shotel warrior",
+            "ageReq": 3,
+            "mAtk": 16,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 40,
+            "speed": 1.2,
+            "lineOfSight": 3,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 50,
+                "gold": 35
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 2], [11, 1]],
+            "damageTechs":["elite shotel warrior", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["royal heirs"],
+            "trainTime": 8
+        },
+
+        {
             "name": "kamayuk",
             "ageReq": 3,
             "mAtk": 7,
@@ -1139,7 +1211,35 @@
             "uniqueOtherTechs":[],
             "trainTime": 16
         },
-        
+
+        {
+            "name": "rattan archer",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 4,
+            "hp": 40,
+            "speed": 1.1,
+            "lineOfSight": 6,
+            "rateOfFire": 2.0,
+            "projSpeed": 7.0,
+            "accuracy": 0.80,
+            "range": 4,
+            "frameDelay": 5,
+            "cost":{
+                "wood": 50,
+                "gold": 45
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[27, 2]],
+            "damageTechs":["elite rattan archer", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 16
+        },
+
         {
             "name": "mangudai",
             "ageReq": 3,
@@ -1169,6 +1269,34 @@
         },
 
         {
+            "name": "elephant archer",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 0,
+            "pDef": 3,
+            "hp": 280,
+            "speed": 0.8,
+            "lineOfSight": 7,
+            "rateOfFire": 2.5,
+            "projSpeed": 7.0,
+            "accuracy": 100,
+            "range": 4,
+            "frameDelay": 5,
+            "cost":{
+                "food": 100,
+                "gold": 80
+            },
+            "armorClasses": [[15, 0], [28, -2], [8, 0], [5, 0], [19, 0]],
+            "bonus":[[13, 3], [11, 3]],
+            "damageTechs":["elite elephant archer", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
+            "otherTechs":["ballistics", "thumb ring","faith", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 25
+        },
+
+        {
             "name": "konnik",
             "ageReq": 3,
             "mAtk": 12,
@@ -1190,6 +1318,30 @@
             "uniqueDamageTechs":["stirrups"],
             "uniqueOtherTechs":[],
             "trainTime": 19
+        },
+
+        {
+            "name": "keshik",
+            "ageReq": 3,
+            "mAtk": 9,
+            "mDef": 1,
+            "pDef": 2,
+            "hp": 110,
+            "range": 0,
+            "speed": 1.9,
+            "rateOfFire": 1.9,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 50,
+                "gold": 40
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["elite keshik", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 16
         },
 
         {
@@ -1651,6 +1803,9 @@
             "plumed archer", "elite plumed archer"
         ],
         [
+            "rattan archer", "elite rattan archer"
+        ],
+        [
             "longbowman", "elite longbowman"
         ],
         [
@@ -1661,6 +1816,9 @@
         ],
         [
             "mangudai", "elite mangudai"
+        ],
+        [
+            "elephant archer", "elite elephant archer"
         ],
         [
             "cavalry archer", "heavy cavalry archer"
@@ -1685,6 +1843,9 @@
         ],
         [
             "konnik", "elite konnik"
+        ],
+        [
+            "keshik", "elite keshik"
         ],
         [
             "camel rider", "heavy camel rider", "imperial camel rider"
@@ -1739,6 +1900,15 @@
         ],
         [
             "jaguar warrior", "elite jaguar warrior"
+        ],
+        [
+            "huskarl", "elite huskarl"
+        ],
+        [
+            "throwing axeman", "elite throwing axeman"
+        ],
+        [
+            "shotel warrior", "elite shotel warrior"
         ],
         [
             "kamayuk", "elite kamayuk"
@@ -1834,12 +2004,18 @@
         "chu ko nu": ["elite chu ko nu"],
         "longbowman": ["elite longbowman"],
         "plumed archer": ["elite plumed archer"],
+        "rattan archer": ["elite rattan archer"],
         "konnik": ["elite konnik"],
+        "keshik": ["elite keshik"],
         "arambai": ["elite arambai"],
         "woad raider": ["elite woad raider"],
         "kipchak": ["elite kipchak"],
         "mangudai": ["elite mangudai"],
+        "elephant archer": ["elite elephant archer"],
         "jaguar warrior": ["elite jaguar warrior"],
+        "huskarl": ["elite huskarl"],
+        "throwing axeman": ["elite throwing axeman"],
+        "shotel warrior": ["elite shotel warrior"],
         "kamayuk": ["elite kamayuk"]
         
     },
@@ -2693,6 +2869,52 @@
         },
 
         {
+            "name": "elite huskarl",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 550
+            },
+            "effects":{
+                "mAtk": 2,
+                "hp": 10,
+                "lineOfSight": 2,
+                "bonus":[[15, 4], [29, 1], [11, 1]]
+            },
+            "time": 40
+        },
+
+        {
+            "name": "elite throwing axeman",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 750
+            },
+            "effects":{
+                "mAtk": 1,
+                "hp": 10,
+                "lineOfSight": 1,
+                "bonus":[[29, 1], [11, 1]]
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite shotel warrior",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 550
+            },
+            "effects":{
+                "mAtk": 2,
+                "hp": 10
+            },
+            "time": 45
+        },
+
+        {
             "name": "elite kamayuk",
             "ageReq": 4,
             "cost": {
@@ -3247,6 +3469,23 @@
         },
 
         {
+            "name": "elite rattan archer",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 5,
+                "pAtk": 1,
+                "accuracy": 0.10,
+                "pDef": 2,
+                "range": 1
+            },
+            "time": 45
+        },
+
+        {
             "name": "elite mangudai",
             "ageReq": 4,
             "cost": {
@@ -3258,6 +3497,21 @@
                 "pDef": 1
             },
             "time": 50
+        },
+
+        {
+            "name": "elite elephant archer",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 800
+            },
+            "effects":{
+                "hp":50,
+                "bonus":[[13, 1], [11, 1]],
+                "pAtk": 1
+            },
+            "time": 60
         },
 
         {
@@ -3348,6 +3602,22 @@
                 "pdef": 2
             },
             "time": 50
+        },
+
+        {
+            "name": "elite keshik",
+            "ageReq": 4,
+            "cost": {
+                "food": 700,
+                "gold": 900
+            },
+            "effects":{
+                "hp": 30,
+                "mAtk": 2,
+                "pdef": 1,
+                "trainTime": -2
+            },
+            "time": 40
         },
         
         {
