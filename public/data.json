@@ -381,6 +381,32 @@
             "trainTime": 34
         },
         {
+            "name": "janissary",
+            "ageReq": 3,
+            "pAtk": 17,
+            "mDef": 1,
+            "pDef": 0,
+            "hp": 44,
+            "frameDelay": 4,
+            "accuracy": 0.50,
+            "range": 8,
+            "speed": 0.96,
+            "rateOfFire": 3.49,
+            "projSpeed": 5.5,
+            "lineOfSight": 10,
+            "cost":{
+                "food": 60,
+                "gold": 55
+            },
+            "armorClasses": [[15, 0], [23, 0], [19, 0]],
+            "bonus":[[17, 2]],
+            "damageTechs":["archerDefense"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 17
+        },
+        {
             "name": "slinger",
             "ageReq": 3,
             "pAtk": 4,
@@ -1213,6 +1239,34 @@
         },
 
         {
+            "name": "genoese crossbowman",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 6,
+            "mDef": 1,
+            "pDef": 0,
+            "hp": 45,
+            "speed": 0.96,
+            "lineOfSight": 8,
+            "rateOfFire": 2.0,
+            "projSpeed": 7.0,
+            "accuracy": 1.0,
+            "range": 4,
+            "frameDelay": 5,
+            "cost":{
+                "wood": 45,
+                "gold": 45
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[8, 5], [5, 5], [30, 4], [16, 4], [34, 4]],
+            "damageTechs":["elite genoese crossbowman", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["pavise"],
+            "trainTime": 22
+        },
+
+        {
             "name": "rattan archer",
             "ageReq": 3,
             "mAtk": 0,
@@ -1318,6 +1372,30 @@
             "uniqueDamageTechs":["stirrups"],
             "uniqueOtherTechs":[],
             "trainTime": 19
+        },
+
+        {
+            "name": "magyar huszar",
+            "ageReq": 3,
+            "mAtk": 9,
+            "mDef": 0,
+            "pDef": 2,
+            "hp": 70,
+            "range": 0,
+            "speed": 1.5,
+            "rateOfFire": 1.8,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 80,
+                "gold": 10
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[[20,5], [17, 1]],
+            "damageTechs":["elite magyar huszar", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["corvinian army"],
+            "trainTime": 16
         },
 
         {
@@ -1782,6 +1860,9 @@
             "spearman" ,"pikeman", "halberdier"
         ],
         [
+            "kamayuk", "elite kamayuk"
+        ],
+        [
             "eagle scout","eagle warrior", "elite eagle warrior"
         ],
         [
@@ -1801,6 +1882,9 @@
         ],
         [
             "plumed archer", "elite plumed archer"
+        ],
+        [
+            "genoese crossbowman", "elite genoese crossbowman"
         ],
         [
             "rattan archer", "elite rattan archer"
@@ -1830,6 +1914,9 @@
             "hand cannoneer"
         ],
         [
+            "janissary", "elite janissary"
+        ],
+        [
             "slinger"
         ],
         [
@@ -1837,6 +1924,9 @@
         ],
         [
             "scout cavalry", "light cavalry", "hussar"
+        ],
+        [
+            "magyar huszar", "elite magyar huszar"
         ],
         [
             "knight", "cavalier", "paladin"
@@ -1909,9 +1999,6 @@
         ],
         [
             "shotel warrior", "elite shotel warrior"
-        ],
-        [
-            "kamayuk", "elite kamayuk"
         ],
         [
             "cataphract", "elite cataphract"
@@ -2004,8 +2091,10 @@
         "chu ko nu": ["elite chu ko nu"],
         "longbowman": ["elite longbowman"],
         "plumed archer": ["elite plumed archer"],
+        "genoese crossbowman": ["elite genoese crossbowman"],
         "rattan archer": ["elite rattan archer"],
         "konnik": ["elite konnik"],
+        "magyar huszar": ["elite magyar huszar"],
         "keshik": ["elite keshik"],
         "arambai": ["elite arambai"],
         "woad raider": ["elite woad raider"],
@@ -2016,7 +2105,8 @@
         "huskarl": ["elite huskarl"],
         "throwing axeman": ["elite throwing axeman"],
         "shotel warrior": ["elite shotel warrior"],
-        "kamayuk": ["elite kamayuk"]
+        "kamayuk": ["elite kamayuk"],
+        "janissary": ["elite janissary"]
         
     },
     "armorClasses":{
@@ -3450,6 +3540,21 @@
             },
             "time": 60
         },
+
+        {
+            "name": "elite janissary",
+            "ageReq": 4,
+            "cost": {
+                "food": 850,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 6,
+                "bonus":[[17, 1]],
+                "pAtk": 3
+            },
+            "time": 55
+        },
         
         {
             "name": "elite plumed archer",
@@ -3466,6 +3571,21 @@
                 "range": 1
             },
             "time": 45
+        },
+
+        {
+            "name": "elite genoese crossbowman",
+            "ageReq": 4,
+            "cost": {
+                "food": 900,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 5,
+                "bonus":[[8, 2], [5, 2], [30, 2], [16, 1], [34, 1]],
+                "trainTime": -3
+            },
+            "time": 60
         },
 
         {
@@ -3602,6 +3722,22 @@
                 "pdef": 2
             },
             "time": 50
+        },
+
+        {
+            "name": "elite magyar huszar",
+            "ageReq": 4,
+            "cost": {
+                "food": 800,
+                "gold": 600
+            },
+            "effects":{
+                "hp": 15,
+                "pAtk": 1,
+                "bonus":[[20,3], [17,1]],
+                "lineOfSight": 1
+            },
+            "time": 60
         },
 
         {

@@ -1305,6 +1305,57 @@ $(function(){
                 }
             },
 
+            "genoese crossbowman": {
+                "civs":{
+
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "janissary": {
+                "civs":{
+
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "magyar huszar": {
+                "civs":{
+
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
             "rattan archer": {
                 "civs":{
 
@@ -1615,8 +1666,8 @@ $(function(){
                           "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
                           "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
-                          "house", "farm", "watch tower", "cataphract", "throwing axeman", "shotel warrior", "huskarl", "jaguar warrior", "woad raider", "karambit warrior", "condottiero",
-                          "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "plumed archer", "elephant archer", 
+                          "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "jaguar warrior", "woad raider", "karambit warrior", "condottiero",
+                          "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
                           "konnik", "keshik", "longbowman", "rattan archer", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
