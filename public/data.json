@@ -989,6 +989,134 @@
         },
 
         {
+            "name": "berserk",
+            "ageReq": 3,
+            "mAtk": 9,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 1,
+            "hp": 54,
+            "speed": 1.05,
+            "lineOfSight": 3,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 65,
+                "gold": 25
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 2], [11, 2]],
+            "damageTechs":["elite berserk", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["chieftains"],
+            "uniqueOtherTechs":["beserkergang"],
+            "trainTime": 14
+        },
+
+        {
+            "name": "teutonic knight",
+            "ageReq": 3,
+            "mAtk": 12,
+            "pAtk": 0,
+            "mDef": 5,
+            "pDef": 2,
+            "hp": 80,
+            "speed": 0.8,
+            "lineOfSight": 3,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 85,
+                "gold": 40
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 4], [11, 4]],
+            "damageTechs":["elite teutonic knight", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 12
+        },
+
+        {
+            "name": "gbeto",
+            "ageReq": 3,
+            "mAtk": 10,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 30,
+            "range": 6,
+            "accuracy": 100,
+            "projSpeed": 7,
+            "frameDelay": 10,
+            "speed": 1.25,
+            "lineOfSight": 6,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 50,
+                "gold": 40
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 1]],
+            "damageTechs":["elite gbeto", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 17
+        },
+
+        {
+            "name": "mameluke",
+            "ageReq": 3,
+            "mAtk": 8,
+            "pAtk": 0,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 65,
+            "range": 3,
+            "accuracy": 100,
+            "projSpeed": 7,
+            "frameDelay": 24,
+            "speed": 1.4,
+            "lineOfSight": 5,
+            "rateOfFire": 2.0,
+            "cost":{
+                "food": 55,
+                "gold": 85
+            },
+            "armorClasses": [[15, 0], [35, 0], [30, 0], [19, 0]],
+            "bonus":[[8, 9]],
+            "damageTechs":["elite mameluke", "meleeAttack", "infantryDefense", "arson", "bloodlines"],
+            "otherTechs":["husbandry","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 23
+        },
+
+        {
+            "name": "samurai",
+            "ageReq": 3,
+            "mAtk": 8,
+            "pAtk": 0,
+            "mDef": 1,
+            "pDef": 1,
+            "hp": 60,
+            "speed": 1,
+            "lineOfSight": 4,
+            "rateOfFire": 1.45,
+            "cost":{
+                "food": 60,
+                "gold": 30
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[19, 10], [29, 2], [11, 2]],
+            "damageTechs":["elite samurai", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 9
+        },
+
+        {
             "name": "huskarl",
             "ageReq": 3,
             "mAtk": 10,
@@ -1372,6 +1500,54 @@
             "uniqueDamageTechs":["stirrups"],
             "uniqueOtherTechs":[],
             "trainTime": 19
+        },
+
+        {
+            "name": "leitis",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 1,
+            "pDef": 2,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.4,
+            "rateOfFire": 1.9,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 70,
+                "gold": 50
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["elite leitis", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 20
+        },
+
+        {
+            "name": "boyar",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 4,
+            "pDef": 2,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.3,
+            "rateOfFire": 1.9,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 50,
+                "gold": 80
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["elite boyar", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 15
         },
 
         {
@@ -1935,6 +2111,12 @@
             "konnik", "elite konnik"
         ],
         [
+            "leitis", "elite leitis"
+        ],
+        [
+            "boyar", "elite boyar"
+        ],
+        [
             "keshik", "elite keshik"
         ],
         [
@@ -1990,6 +2172,21 @@
         ],
         [
             "jaguar warrior", "elite jaguar warrior"
+        ],
+        [
+            "berserk", "elite berserk"
+        ],
+        [
+            "teutonic knight", "elite teutonic knight"
+        ],
+        [
+            "gbeto", "elite gbeto"
+        ],
+        [
+            "mameluke", "elite mameluke"
+        ],
+        [
+            "samurai", "elite samurai"
         ],
         [
             "huskarl", "elite huskarl"
@@ -2094,6 +2291,8 @@
         "genoese crossbowman": ["elite genoese crossbowman"],
         "rattan archer": ["elite rattan archer"],
         "konnik": ["elite konnik"],
+        "leitis": ["elite leitis"],
+        "boyar": ["elite boyar"],
         "magyar huszar": ["elite magyar huszar"],
         "keshik": ["elite keshik"],
         "arambai": ["elite arambai"],
@@ -2102,6 +2301,11 @@
         "mangudai": ["elite mangudai"],
         "elephant archer": ["elite elephant archer"],
         "jaguar warrior": ["elite jaguar warrior"],
+        "beserk": ["elite beserk"],
+        "teutonic knight": ["elite teutonic knight"],
+        "gbeto": ["elite gbeto"],
+        "mameluke": ["elite mameluke"],
+        "samurai": ["elite samurai"],
         "huskarl": ["elite huskarl"],
         "throwing axeman": ["elite throwing axeman"],
         "shotel warrior": ["elite shotel warrior"],
@@ -2959,6 +3163,89 @@
         },
 
         {
+            "name": "elite berserk",
+            "ageReq": 4,
+            "cost": {
+                "food": 1300,
+                "gold": 550
+            },
+            "effects":{
+                "mAtk": 5,
+                "mDef": 2,
+                "hp": 8,
+                "lineOfSight": 2,
+                "bonus":[[29, 1], [11, 1]]
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite teutonic knight",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 600
+            },
+            "effects":{
+                "mAtk": 5,
+                "mDef": 5,
+                "hp": 20,
+                "lineOfSight": 2,
+                "bonus":[]
+            },
+            "time": 50
+        },
+
+        {
+            "name": "elite gbeto",
+            "ageReq": 4,
+            "cost": {
+                "food": 900,
+                "gold": 600
+            },
+            "effects":{
+                "mAtk": 3,
+                "hp": 15,
+                "lineOfSight": 1,
+                "range": 1,
+                "bonus":[]
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite mameluke",
+            "ageReq": 4,
+            "cost": {
+                "food": 600,
+                "gold": 500
+            },
+            "effects":{
+                "mAtk": 2,
+                "hp": 15,
+                "mDef": 1,
+                "bonus":[[8, 3], [35, 1]]
+            },
+            "time": 50
+        },
+
+        {
+            "name": "elite samurai",
+            "ageReq": 4,
+            "cost": {
+                "food": 950,
+                "gold": 5875
+            },
+            "effects":{
+                "mAtk": 4,
+                "hp": 20,
+                "lineOfSight": 1,
+                "bonus":[[19, 2], [29, 1], [11, 1]]
+            },
+            "time": 60
+        },
+
+        {
             "name": "elite huskarl",
             "ageReq": 4,
             "cost": {
@@ -3061,6 +3348,19 @@
                 "mAtk": 4
             },
             "time": 60
+        },
+
+        {
+            "name": "chieftains",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 300
+            },
+            "effects":{
+                "bonus": [[8, 5], [30, 4]]
+            },
+            "time": 40
         },
 
         {
@@ -3722,6 +4022,37 @@
                 "pdef": 2
             },
             "time": 50
+        },
+
+        {
+            "name": "elite leitis",
+            "ageReq": 4,
+            "cost": {
+                "food": 750,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 30,
+                "mDef": 1,
+                "trainTime": -2
+            },
+            "time": 45
+        },
+
+        {
+            "name": "elite boyar",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 30,
+                "mAtk": 2,
+                "mDef": 2,
+                "pdef": 1
+            },
+            "time": 60
         },
 
         {
