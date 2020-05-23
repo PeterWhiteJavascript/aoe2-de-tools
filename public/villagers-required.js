@@ -1005,6 +1005,54 @@ $(function(){
                 }
                 
             },
+            "berserk":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
+            "mameluke":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
+            "teutonic knight":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
             "throwing axeman":{
                 "civs":{
                     
@@ -1140,6 +1188,47 @@ $(function(){
                     }
                 }
             },
+            "gbeto": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+
+            "leitis": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
 
             "chu ko nu": {
                 "civs":{
@@ -1176,23 +1265,6 @@ $(function(){
                         "trainTime": 1.25,
                         "trainTimePercent": true
                     }
-                }
-            },
-
-            "konnik": {
-                "civs":{
-                    
-                },
-                "upgrades": {
-                    
-                    "Conscription":{
-                        "trainTime": 1.33,
-                        "trainTimePercent": true
-                    },
-                    "Kasbah":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
-                    },
                 }
             },
 
@@ -1265,6 +1337,40 @@ $(function(){
             },
 
             "kamayuk": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "samurai": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
+            "boyar": {
                 "civs":{
                     
                 },
@@ -1666,9 +1772,9 @@ $(function(){
                           "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
                           "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
-                          "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "jaguar warrior", "woad raider", "karambit warrior", "condottiero",
+                          "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "berserk", "jaguar warrior", "teutonic knight", "samurai", "woad raider", "karambit warrior", "condottiero",
                           "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
-                          "konnik", "keshik", "longbowman", "rattan archer", "arambai"];
+                          "konnik", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
