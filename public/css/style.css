@@ -17,3 +17,7 @@ body{
     height: 84px;
     cursor: pointer;
 }
+#footer {
+    text-align: center;
+    padding: 5px; 
+}
