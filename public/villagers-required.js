@@ -29,8 +29,8 @@ $(function(){
                 "wheelbarrow": 0.0542
             },
             "Khmer (Farms)":{
-                "farmer": 0.0858,
-                "wheelbarrow": 0.0434,
+                "farmer": 0.083226,
+                "wheelbarrow": 0.042098,
                 "hand cart": 0.0028
             },
             "Slavs (Farms)":{
@@ -64,7 +64,7 @@ $(function(){
                 "forager": 0.25
             },
             "Indians (Fishermen)":{
-                "fisherman": 0.15
+                "fisherman": 0.10
             },
             "Koreans (Stone Miners)":{
                 "stone miner": 0.20,
@@ -231,7 +231,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Aztec Civ Bonus": {
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -269,7 +269,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Aztec Civ Bonus": {
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     }
                 },
@@ -291,7 +291,7 @@ $(function(){
             "eagle scout":{
                 "civs":{
                     "Aztec Civ Bonus": {
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     }
                 },
@@ -317,7 +317,7 @@ $(function(){
             "archer":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -362,7 +362,7 @@ $(function(){
             "skirmisher":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Byzantines Civ Bonus":{
@@ -572,7 +572,7 @@ $(function(){
             "battering ram":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -594,7 +594,7 @@ $(function(){
             "mangonel":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -616,7 +616,7 @@ $(function(){
             "scorpion":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -661,7 +661,8 @@ $(function(){
             "fishing ship":{
                 "civs":{
                     "Italians Civ Bonus":{
-                        "cost": {"wood": -15}
+                        "cost": {"wood": -0.15},
+                        "costPercent": true
                     },
                     "Persians - Feudal Age":{
                         "trainTime": 1.1,
@@ -688,7 +689,7 @@ $(function(){
             "fire galley":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Koreans Civ Bonus": {
@@ -728,7 +729,7 @@ $(function(){
             "galley":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Koreans Civ Bonus": {
@@ -776,7 +777,7 @@ $(function(){
             "demolition raft":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -820,7 +821,7 @@ $(function(){
             "cannon galleon":{
                 "civs":{
                     "Aztec Civ Bonus":{
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -1108,7 +1109,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Aztec Civ Bonus": {
-                        "trainTime": 1.18,
+                        "trainTime": 1.11,
                         "trainTimePercent": true
                     }
                 },
