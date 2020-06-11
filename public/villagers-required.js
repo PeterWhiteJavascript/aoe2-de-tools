@@ -1286,6 +1286,23 @@ $(function(){
                 }
             },
 
+            "war elephant": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    },
+                }
+            },
+
             "kipchak": {
                 "civs":{
                     
@@ -1775,7 +1792,7 @@ $(function(){
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
                           "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "berserk", "jaguar warrior", "teutonic knight", "samurai", "woad raider", "karambit warrior", "condottiero",
                           "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
-                          "konnik", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
+                          "konnik", "war elephant", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
