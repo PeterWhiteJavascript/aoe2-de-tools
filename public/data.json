@@ -1503,6 +1503,31 @@
         },
 
         {
+            "name": "war elephant",
+            "ageReq": 3,
+            "mAtk": 15,
+            "mDef": 1,
+            "pDef": 2,
+            "hp": 450,
+            "range": 0,
+            "speed": 0.6,
+            "rateOfFire": 2.0,
+            "lineOfSight": 4,
+            "blastRadius": 0.5,
+            "cost":{
+                "food": 200,
+                "gold": 75
+            },
+            "armorClasses": [[8, 0], [5, 0], [19, 0]],
+            "bonus":[[11, 7], [13, 7]],
+            "damageTechs":["elite war elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["mahouts"],
+            "trainTime": 31
+        },
+
+        {
             "name": "leitis",
             "ageReq": 3,
             "mAtk": 12,
@@ -2036,16 +2061,7 @@
             "spearman" ,"pikeman", "halberdier"
         ],
         [
-            "kamayuk", "elite kamayuk"
-        ],
-        [
             "eagle scout","eagle warrior", "elite eagle warrior"
-        ],
-        [
-            "condottiero"
-        ],
-        [
-            "woad raider", "elite woad raider"
         ],
         [
             "archer", "crossbowman", "arbalester"
@@ -2054,46 +2070,10 @@
             "skirmisher", "elite skirmisher", "imperial skirmisher"
         ],
         [
-            "chu ko nu", "elite chu ko nu"
-        ],
-        [
-            "plumed archer", "elite plumed archer"
-        ],
-        [
-            "genoese crossbowman", "elite genoese crossbowman"
-        ],
-        [
-            "rattan archer", "elite rattan archer"
-        ],
-        [
-            "longbowman", "elite longbowman"
-        ],
-        [
-            "arambai", "elite arambai"
-        ],
-        [
-            "kipchak", "elite kipchak"
-        ],
-        [
-            "mangudai", "elite mangudai"
-        ],
-        [
-            "elephant archer", "elite elephant archer"
-        ],
-        [
             "cavalry archer", "heavy cavalry archer"
-        ],
-        [   
-            "camel archer", "elite camel archer"
         ],
         [
             "hand cannoneer"
-        ],
-        [
-            "janissary", "elite janissary"
-        ],
-        [
-            "slinger"
         ],
         [
             "genitour", "elite genitour"
@@ -2102,22 +2082,7 @@
             "scout cavalry", "light cavalry", "hussar"
         ],
         [
-            "magyar huszar", "elite magyar huszar"
-        ],
-        [
             "knight", "cavalier", "paladin"
-        ],
-        [
-            "konnik", "elite konnik"
-        ],
-        [
-            "leitis", "elite leitis"
-        ],
-        [
-            "boyar", "elite boyar"
-        ],
-        [
-            "keshik", "elite keshik"
         ],
         [
             "camel rider", "heavy camel rider", "imperial camel rider"
@@ -2169,42 +2134,6 @@
         ],
         [
             "trebuchet unpacked"
-        ],
-        [
-            "jaguar warrior", "elite jaguar warrior"
-        ],
-        [
-            "berserk", "elite berserk"
-        ],
-        [
-            "teutonic knight", "elite teutonic knight"
-        ],
-        [
-            "gbeto", "elite gbeto"
-        ],
-        [
-            "mameluke", "elite mameluke"
-        ],
-        [
-            "samurai", "elite samurai"
-        ],
-        [
-            "huskarl", "elite huskarl"
-        ],
-        [
-            "throwing axeman", "elite throwing axeman"
-        ],
-        [
-            "shotel warrior", "elite shotel warrior"
-        ],
-        [
-            "cataphract", "elite cataphract"
-        ],
-        [
-            "karambit warrior", "elite karambit warrior"
-        ],
-        [
-            "conquistador", "elite conquistador"
         ],
         [
             "house"
@@ -2291,6 +2220,7 @@
         "genoese crossbowman": ["elite genoese crossbowman"],
         "rattan archer": ["elite rattan archer"],
         "konnik": ["elite konnik"],
+        "war elephant": ["elite war elephant"],
         "leitis": ["elite leitis"],
         "boyar": ["elite boyar"],
         "magyar huszar": ["elite magyar huszar"],
@@ -4022,6 +3952,22 @@
                 "pdef": 2
             },
             "time": 50
+        },
+
+        {
+            "name": "elite war elephant",
+            "ageReq": 4,
+            "cost": {
+                "food": 1600,
+                "gold": 1200
+            },
+            "effects":{
+                "hp": 150,
+                "pdef": 1,
+                "lineOfSight": 1,
+                "bonus": [[11, 3], [13, 3]]
+            },
+            "time": 75
         },
 
         {
