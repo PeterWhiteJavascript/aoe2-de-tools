@@ -1258,6 +1258,30 @@
             "uniqueOtherTechs":[],
             "trainTime": 20
         },
+        {
+            "name": "tarkan",
+            "ageReq": 3,
+            "mAtk": 8,
+            "pAtk": 0,
+            "mDef": 1,
+            "pDef": 3,
+            "hp": 100,
+            "speed": 1.35,
+            "lineOfSight": 5,
+            "rateOfFire": 2.1,
+            "cost":{
+                "food": 60,
+                "gold": 60
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[[13, 12], [26, 10], [11, 8], [22, 8]],
+            "damageTechs":["elite tarkan", "meleeAttack", "cavalryDefense"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 14
+        },
+
 
         {
             "name": "karambit warrior",
@@ -1309,6 +1333,32 @@
             "uniqueOtherTechs":["maghrabi camels"],
             "trainTime": 25
         },
+        {
+            "name": "war wagon",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 9,
+            "mDef": 0,
+            "pDef": 3,
+            "hp": 150,
+            "speed": 1.2,
+            "lineOfSight": 7,
+            "rateOfFire": 2.5,
+            "projSpeed": 6,
+            "accuracy": 1,
+            "cost":{
+                "wood": 94,
+                "gold": 60
+            },
+            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "bonus":[[21, 5]],
+            "damageTechs":["elite war wagon", "archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 25
+        },
+
 
         {
             "name": "conquistador",
@@ -3753,6 +3803,40 @@
             },
             "time": 40
         },
+        {
+            "name": "elite tarkan",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 500
+            },
+            "effects":{
+                "mAtk": 3,
+                "pDef": 1,
+                "lineOfSight": 2,
+                "hp": 50,
+                "bonus":[[11, 2], [22, 2]]
+            },
+            "time": 45
+        },
+        
+        {
+            "name": "elite war wagon",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 600
+            },
+            "effects":{
+                "range": 1,
+                "pDef": 1,
+                "hp": 50,
+                "lineOfSight": 1
+                
+            },
+            "time": 75
+        },
+
         {
             "name": "elite conquistador",
             "ageReq": 4,

@@ -6,23 +6,27 @@ $(function(){
             },
             "Japanese - Dark Age": {
                 "fishing ship shore":0.05,
-                "fishing ship deep":0.05
+                "fishing ship deep":0.05,
+                "fish trap": 0.05
             },
             "Japanese - Feudal Age": {
                 "fishing ship shore":0.10,
-                "fishing ship deep":0.10
+                "fishing ship deep":0.10,
+                "fish trap": 0.10
             },
             "Japanese - Castle Age": {
                 "fishing ship shore":0.15,
                 "fishing ship deep":0.15,
                 "fishing ship shore gillnets":0.15,
-                "fishing ship deep gillnets":0.15
+                "fishing ship deep gillnets":0.15,
+                "fish trap": 0.15
             },
             "Japanese - Imperial Age": {
                 "fishing ship shore":0.20,
                 "fishing ship deep":0.20,
                 "fishing ship shore gillnets":0.20,
-                "fishing ship deep gillnets":0.20
+                "fishing ship deep gillnets":0.20,
+                "fish trap": 0.20
             },
             "Aztecs (Farms)":{
                 "farmer": 0.1309,
@@ -97,12 +101,12 @@ $(function(){
         let gatherRatesCont = $("<div id='gather-rates'></div>");
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
-            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "feitoria food"],
+            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap","feitoria food"],
             ["lumberjack", "double-bit axe", "bow saw","two-man saw", "feitoria wood"],
             ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
+        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
@@ -385,6 +389,37 @@ $(function(){
                     }
                 }
             },
+            "genitour":{
+                "civs":{
+                    "Aztec Civ Bonus":{
+                        "trainTime": 1.11,
+                        "trainTimePercent": true
+                    },
+                    "Huns - Castle Age":{
+                        "cost": {"food": 0.10, "wood": 0.10},
+                        "costPercent": true
+                    },
+                    "Huns - Imperial Age":{
+                        "cost": {"food": 0.20, "wood": 0.20},
+                        "costPercent": true
+                    },
+                    "Koreans Civ Bonus": {
+                        "cost": {"wood": 0.15},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Britons Team Bonus":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    }
+                }
+                       
+            },
             "cavalry archer":{
                 "civs":{
                     "Koreans Civ Bonus": {
@@ -484,11 +519,11 @@ $(function(){
             "knight":{
                 "civs":{
                     "Berbers - Castle Age":{
-                        "cost": {"food": 0.15},
+                        "cost": {"food": 0.15, "gold": 0.15},
                         "costPercent": true
                     },
                     "Berbers - Imperial Age":{
-                        "cost": {"food": 0.20},
+                        "cost": {"food": 0.20, "gold": 0.20},
                         "costPercent": true
                     },
                     "Portuguese Civ Bonus":{
@@ -514,11 +549,11 @@ $(function(){
             "camel rider":{
                 "civs":{
                     "Berbers - Castle Age":{
-                        "cost": {"food": 0.15},
+                        "cost": {"food": 0.15, "gold": 0.15},
                         "costPercent": true
                     },
                     "Berbers - Imperial Age":{
-                        "cost": {"food": 0.20},
+                        "cost": {"food": 0.20, "gold": 0.20},
                         "costPercent": true
                     },
                     "Byzantines Civ Bonus":{
@@ -1129,6 +1164,22 @@ $(function(){
                 }
                 
             },
+            "war wagon": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "conquistador": {
                 "civs":{
                     
@@ -1144,6 +1195,24 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "tarkan": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    "Stable":{
+                        "trainTime": 21
+                    },
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
                     }
@@ -1786,13 +1855,13 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour",
                           "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
                           "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
                           "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "berserk", "jaguar warrior", "teutonic knight", "samurai", "woad raider", "karambit warrior", "condottiero",
-                          "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
-                          "konnik", "war elephant", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
+                          "war wagon", "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
+                          "tarkan", "konnik", "war elephant", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
