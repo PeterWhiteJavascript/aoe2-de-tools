@@ -407,6 +407,61 @@
             "trainTime": 17
         },
         {
+            "name": "organ gun",
+            "ageReq": 3,
+            "pAtk": 16,
+            "mDef": 2,
+            "pDef": 4,
+            "hp": 60,
+            "frameDelay": 6,
+            "accuracy": 0.50,
+            "range": 7,
+            "speed": 0.85,
+            "rateOfFire": 3.45,
+            "projSpeed": 5.5,
+            "lineOfSight": 9,
+            "cost":{
+                "wood": 80,
+                "gold": 60
+            },
+            "armorClasses": [[20, 0], [23, 0], [19, 0]],
+            "bonus":[[17, 1]],
+            "damageTechs":["siege engineers"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["arquebus"],
+            "trainTime": 21
+        },
+        {
+            "name": "ballista elephant",
+            "ageReq": 3,
+            "pAtk": 8,
+            "mDef": 2,
+            "pDef": 4,
+            "hp": 250,
+            "frameDelay": 4,
+            "accuracy": 1,
+            "range": 5,
+            "speed": 0.8,
+            "rateOfFire": 2.5,
+            "projSpeed": 6,
+            "lineOfSight": 7,
+            "blastRadius": 0.1,
+            "cost":{
+                "food": 100,
+                "gold": 80
+            },
+            "armorClasses": [[8, -2], [5, -2], [20, -2], [19, 0]],
+            "bonus":[[16, 8], [34, 8], [13, 3], [21, 3], [11, 2]],
+            "damageTechs":["siege engineers", "chemistry", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":["double crossbow"],
+            "uniqueOtherTechs":[],
+            "trainTime": 25
+        },
+        
+        
+        {
             "name": "slinger",
             "ageReq": 3,
             "pAtk": 4,
@@ -2290,7 +2345,9 @@
         "throwing axeman": ["elite throwing axeman"],
         "shotel warrior": ["elite shotel warrior"],
         "kamayuk": ["elite kamayuk"],
-        "janissary": ["elite janissary"]
+        "janissary": ["elite janissary"],
+        "organ gun": ["elite organ gun"],
+        "ballista elephant": ["elite ballista elephant"]
         
     },
     "armorClasses":{
@@ -3788,7 +3845,32 @@
             },
             "time": 60
         },
-        
+        {
+            "name": "arquebus",
+            "ageReq": 4,
+            "cost": {
+                "food": 700,
+                "gold": 400
+            },
+            "effects":{
+                "ballistics": true,
+                "projSpeed": -0.2
+            },
+            "time": 40
+        },
+        {
+            "name": "double crossbow",
+            "ageReq": 4,
+            "cost": {
+                "food": 700,
+                "gold": 400
+            },
+            "effects":{
+                "double crossbow": true,
+                "arrows": 1
+            },
+            "time": 40
+        },
         {
             "name": "elite karambit warrior",
             "ageReq": 4,
@@ -3868,6 +3950,34 @@
                 "pAtk": 3
             },
             "time": 55
+        },
+        {
+            "name": "elite ballista elephant",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 40,
+                "pAtk": 1,
+                "bonus":[[13, 1], [21, 1], [11, 2]]
+            },
+            "time": 70
+        },
+        {
+            "name": "elite organ gun",
+            "ageReq": 4,
+            "cost": {
+                "food": 1200,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 10,
+                "pAtk": 4,
+                "pDef": 2
+            },
+            "time": 45
         },
         
         {

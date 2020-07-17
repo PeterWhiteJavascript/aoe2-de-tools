@@ -176,7 +176,8 @@ $(function(){
             "karambit warrior":"<p></p>",
             "plumed archer":"<p>Select appropriate age (Castle or Imperial) to determine the cost of the unit.</p>",
             "condottiero": "<p>Condottiero is restricted to the Imperial Age.</p>"+
-                           "<p>Allies are able to make this unit, but also must be in the Imperial Age.</p>"
+                           "<p>Allies are able to make this unit, but also must be in the Imperial Age.</p>",
+            "huskarl": "<p>Perfusion only affects barracks, so only select this upgrade if you're using the barracks training time. Kasbah only affects the castle time, so only use it when you don't have barracks selected.</p>"
                             
             
         };
@@ -1014,6 +1015,13 @@ $(function(){
                     
                 },
                 "upgrades":{
+                    "Barracks":{
+                        "trainTime": 13
+                    },
+                    "Perfusion":{
+                        "trainTime": 2,
+                        "trainTimePercent": true
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1110,6 +1118,10 @@ $(function(){
                     
                 },
                 "upgrades":{
+                    "Royal Heirs":{
+                        "trainTime": 2,
+                        "trainTimePercent": true
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1351,7 +1363,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1368,7 +1380,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1385,7 +1397,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1402,7 +1414,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1419,7 +1431,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1436,7 +1448,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1453,7 +1465,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1470,7 +1482,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1494,7 +1506,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1511,7 +1523,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1528,16 +1540,15 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
-
-            "magyar huszar": {
+            
+            "organ gun":{
                 "civs":{
 
                 },
                 "upgrades": {
-                    
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1545,7 +1556,42 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
+                    }
+                }
+                
+            },
+            "ballista elephant":{
+                "civs":{
+
+                },
+                "upgrades": {
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
                     },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
+            "magyar huszar": {
+                "civs":{
+
+                },
+                "upgrades": {
+                    "Corvinian Army": {
+                        "cost": {"gold": -10}
+                    },
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
                 }
             },
 
@@ -1860,7 +1906,7 @@ $(function(){
                           "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
                           "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "berserk", "jaguar warrior", "teutonic knight", "samurai", "woad raider", "karambit warrior", "condottiero",
-                          "war wagon", "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "plumed archer", "elephant archer", 
+                          "war wagon", "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "organ gun", "ballista elephant", "plumed archer", "elephant archer", 
                           "tarkan", "konnik", "war elephant", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
