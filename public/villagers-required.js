@@ -240,7 +240,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     }
                 },
@@ -290,6 +290,10 @@ $(function(){
                     "Goths Team Bonus":{
                         "trainTime": 1.20,
                         "trainTimePercent": true
+                    },
+                    "Koreans Civ Bonus": {
+                        "cost": {"wood": 0.2},
+                        "costPercent": true
                     }
                 }
             },
@@ -326,7 +330,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Mayans - Feudal Age":{
@@ -342,7 +346,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     }
                 },
@@ -375,7 +379,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     }
                 },
@@ -405,7 +409,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     }
                 },
@@ -424,7 +428,7 @@ $(function(){
             "cavalry archer":{
                 "civs":{
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     },
                     "Huns - Castle Age":{
@@ -436,7 +440,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     }
                     
@@ -459,7 +463,7 @@ $(function(){
             "hand cannoneer":{
                 "civs":{
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Italians Civ Bonus":{
@@ -528,7 +532,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     }
                 },
@@ -594,7 +598,7 @@ $(function(){
             "monk":{
                 "civs":{
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     }
                 },
@@ -612,7 +616,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Slavs Civ Bonus":{
@@ -634,7 +638,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Slavs Civ Bonus":{
@@ -656,7 +660,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Slavs Civ Bonus":{
@@ -674,7 +678,7 @@ $(function(){
             "bombard cannon":{
                 "civs":{
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Italians Civ Bonus":{
@@ -729,11 +733,11 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Persians - Feudal Age":{
@@ -769,11 +773,11 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.15},
+                        "cost": {"wood": 0.2},
                         "costPercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Persians - Feudal Age":{
@@ -817,7 +821,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Persians - Feudal Age":{
@@ -861,7 +865,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Portuguese Civ Bonus":{
-                        "cost": {"gold": 0.15},
+                        "cost": {"gold": 0.2},
                         "costPercent": true
                     },
                     "Italians Civ Bonus":{

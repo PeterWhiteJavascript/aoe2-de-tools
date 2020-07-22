@@ -254,7 +254,7 @@
         {
             "name": "condottiero",
             "ageReq": 4,
-            "mAtk": 9,
+            "mAtk": 10,
             "mDef": 1,
             "pDef": 0,
             "hp": 80,
@@ -270,7 +270,7 @@
             "bonus":[[23, 10], [11, 2]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
-            "uniqueDamageTechs":["garland wars", "chieftans"],
+            "uniqueDamageTechs":["garland wars", "chieftans", "pavise"],
             "uniqueOtherTechs":["perfusion", "druzhina"],
             
             "trainTime": 18
@@ -611,6 +611,7 @@
             "rateOfFire": 2.03,
             "blastRadius": 0.4,
             "lineOfSight": 4,
+            "trample":0.25,
             "cost":{
                 "food": 120,
                 "gold": 70
@@ -1350,7 +1351,7 @@
             "lineOfSight": 3,
             "rateOfFire": 2.03,
             "cost":{
-                "food": 30,
+                "food": 25,
                 "gold": 15
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -1402,7 +1403,7 @@
             "projSpeed": 6,
             "accuracy": 1,
             "cost":{
-                "wood": 94,
+                "wood": 92,
                 "gold": 60
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
@@ -3622,7 +3623,7 @@
             "name": "elite cataphract",
             "ageReq": 4,
             "cost": {
-                "food": 1600,
+                "food": 1200,
                 "gold": 800
             },
             "effects":{
@@ -3640,7 +3641,7 @@
             "name": "logistica",
             "ageReq": 4,
             "cost": {
-                "food": 1000,
+                "food": 800,
                 "gold": 600
             },
             "effects":{
