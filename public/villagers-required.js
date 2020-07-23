@@ -276,6 +276,10 @@ $(function(){
                     "Aztec Civ Bonus": {
                         "trainTime": 1.11,
                         "trainTimePercent": true
+                    },
+                    "Koreans Civ Bonus": {
+                        "cost": {"wood": 0.2},
+                        "costPercent": true
                     }
                 },
                 "upgrades":{
@@ -290,10 +294,6 @@ $(function(){
                     "Goths Team Bonus":{
                         "trainTime": 1.20,
                         "trainTimePercent": true
-                    },
-                    "Koreans Civ Bonus": {
-                        "cost": {"wood": 0.2},
-                        "costPercent": true
                     }
                 }
             },
