@@ -19,14 +19,16 @@ $(function(){
                 "fishing ship deep":0.15,
                 "fishing ship shore gillnets":0.15,
                 "fishing ship deep gillnets":0.15,
-                "fish trap": 0.15
+                "fish trap": 0.15,
+                "fish trap gillnets": 0.15
             },
             "Japanese - Imperial Age": {
                 "fishing ship shore":0.20,
                 "fishing ship deep":0.20,
                 "fishing ship shore gillnets":0.20,
                 "fishing ship deep gillnets":0.20,
-                "fish trap": 0.20
+                "fish trap": 0.20,
+                "fish trap gillnets": 0.20
             },
             "Aztecs (Farms)":{
                 "farmer": 0.1309,
@@ -101,12 +103,12 @@ $(function(){
         let gatherRatesCont = $("<div id='gather-rates'></div>");
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
-            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap","feitoria food"],
+            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food"],
             ["lumberjack", "double-bit axe", "bow saw","two-man saw", "feitoria wood"],
             ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
+        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");

@@ -11,6 +11,7 @@ function setUpGatherRates(data){
     gatherRates["fishing ship shore gillnets"] = {gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2))};
     gatherRates["fishing ship deep gillnets"] = {gatherRate: parseFloat((0.49 + 0.49 * 0.25).toFixed(2))};
     gatherRates["fish trap"] = {gatherRate: 0.35};
+    gatherRates["fish trap gillnets"] = {gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2))};
     gatherRates["double-bit axe"] = {
         gatherRate: 
             parseFloat(
