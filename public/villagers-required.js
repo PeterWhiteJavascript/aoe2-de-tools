@@ -1249,10 +1249,6 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
-                    "Turks Team Bonus":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
                     }
                 }
             },
@@ -1269,10 +1265,6 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
-                    "Turks Team Bonus":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
                     }
                 }
             },
@@ -1287,10 +1279,6 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Kasbah":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
-                    },
-                    "Turks Team Bonus":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
                     }
@@ -1310,10 +1298,6 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
-                    "Turks Team Bonus":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
                     }
                 }
             },
@@ -1323,7 +1307,6 @@ $(function(){
                     
                 },
                 "upgrades": {
-                    
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1332,9 +1315,9 @@ $(function(){
                         "trainTime": 1.25,
                         "trainTimePercent": true
                     },
-                    "Turks Team Bonus":{
-                        "trainTime": 1.25,
-                        "trainTimePercent": true
+                    "Elite Chu ko Nu":{
+                        "trainTime": 13,
+                        "img": "elite chu ko nu"
                     }
                 }
             },
