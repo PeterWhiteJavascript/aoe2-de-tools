@@ -1,0 +1,22 @@
+#current-resources{
+    display: flex;
+}
+#current-resources > div{
+    display: flex;
+    text-align: center;
+}
+.resource, .population-limit, .idle-villagers{
+    width: 100px;
+    align-items: center;
+}
+.res-icon, .pop-icon, .idle-icon{
+    width: 50px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.res-icon img, .pop-icon img, .idle-icon img{
+    width: 28px;
+    height: auto;
+}

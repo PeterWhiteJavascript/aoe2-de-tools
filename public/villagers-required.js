@@ -703,7 +703,7 @@ $(function(){
             "fishing ship":{
                 "civs":{
                     "Italians Civ Bonus":{
-                        "cost": {"wood": -0.15},
+                        "cost": {"wood": 0.15},
                         "costPercent": true
                     },
                     "Persians - Feudal Age":{
