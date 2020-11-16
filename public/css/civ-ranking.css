@@ -57,23 +57,30 @@ body{
     width: 20%;
 }
 .building{
-    
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.building div:first-child{
+    width:80%;
+}
+.building div:last-child{
+    width:20%;
+}
 .unit-row{
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
 }
 .ages-cont, .unit-div{
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center;
     margin-top: 2px;
     margin-bottom: 2px;
+}
+.ages-cont{
+    width: 80%;
 }
 .ages-cont-spacer, .unit{
     width: 25%;

@@ -17,12 +17,16 @@ $.getJSON('data.json', function(data) {
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
             let row = $("<div class='row'></div>");
-            row.append("<div class='building'>"+"<img src='img/"+buildings[i]+".png'>"+"</div>");
+            row.append("<div class='building'>"+"<div><img src='img/"+buildings[i]+".png'></div>"+"</div>");
             let unitrow = $("<div class='unit-row'></div>");
+            let buildingRanks = [];
             for(let j = 0; j < units.length; j++){
                 let unit = units[j];
                 let ranks = civ.ranks[buildings[i]][units[j]];
-                ranks = ranks.map((r) => {return data.rankConversion[(r + "")];});
+                ranks = ranks.map((r) => {
+                    buildingRanks.push(r);
+                    return data.rankConversion[(r + "")];
+                });
                 while(ranks.length < 4){
                     ranks.unshift("-");
                 }
@@ -33,6 +37,11 @@ $.getJSON('data.json', function(data) {
                 });
                 unitrow.append(unitdiv);
             }
+            let numRanks = buildingRanks.length;
+            //Produce a number that ends in 0 or 0.5
+            let avgRank = Math.round(buildingRanks.reduce((a, b) => a + b, 0) / numRanks * 2) / 2;
+            row.children(".building:last-child").append("<div class='building-rank'>"+data.rankConversion[(avgRank + "")]+"</div>");
+            
             row.append(unitrow);
             $("#tree").append(row);
         }

@@ -46,7 +46,7 @@
             "name":"Aztecs",
             "ranks":{
                 "town center": {
-                    "villager":[3, 3.5, 3.5, 3]
+                    "villager":[3, 3, 3.5, 3]
                 },
                 "barracks":{
                     "champion":[4, 3.5, 3.5, 4],
@@ -103,6 +103,108 @@
             }
         },
         {
+            "name":"Berbers",
+            "ranks":{
+                "town center": {
+                    "villager":[3.5, 3.5, 3.5, 3.5]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3],
+                    "pikeman":[3, 3, 2]
+                },
+                "archery range":{
+                    "arbalester": [3, 3, 2],
+                    "elite skirmisher": [3, 3, 3],
+                    "heavy cavalry archer": [3, 2],
+                    "hand cannoneer":[3],
+                    "elite genitour": [3, 3, 3]
+                },
+                "stable":{
+                    "hussar":[3, 3.5, 3.5],
+                    "cavalier":[3.5, 3.5],
+                    "heavy camel rider":[3.5, 3.5]
+                },
+                "siege workshop":{
+                    "capped ram":[3, 3],
+                    "onager": [3, 3],
+                    "heavy scorpion":[3, 3],
+                    "bombard cannon":[3]
+                },
+                "monastery":{
+                    "monk":[2.5, 2]
+                },
+                "villager":{
+                    "guard tower": [3, 3, 2.5]
+                }
+            }
+        },
+        {
+            "name":"Burmese",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3.5, 3.5, 3.5],
+                    "halberdier":[3.5, 3.5, 3.5]
+                },
+                "archery range":{
+                    "crossbowman": [3, 2, 1],
+                    "elite skirmisher": [3, 2, 1],
+                    "heavy cavalry archer": [2, 2]
+                },
+                "stable":{
+                    "hussar":[3, 3, 3],
+                    "cavalier":[3, 3.5],
+                    "elite battle elephant":[3, 3.5]
+                },
+                "siege workshop":{
+                    "capped ram":[3, 2.5],
+                    "onager": [3, 3],
+                    "heavy scorpion":[3, 3],
+                    "bombard cannon":[3]
+                },
+                "monastery":{
+                    "monk":[3.5, 3.5]
+                },
+                "villager":{
+                    "keep": [3, 3, 2.5]
+                }
+            }
+        },
+        {
+            "name":"Britons",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3.5, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "arbalester": [3, 3.5, 4],
+                    "elite skirmisher": [3, 3, 3.5],
+                    "heavy cavalry archer": [2, 2]
+                },
+                "stable":{
+                    "light cavalry":[2, 2, 2],
+                    "cavalier":[2, 2]
+                },
+                "siege workshop":{
+                    "capped ram":[3, 2.5],
+                    "onager": [3, 3],
+                    "heavy scorpion":[3, 3]
+                },
+                "monastery":{
+                    "monk":[2, 2.5]
+                },
+                "villager":{
+                    "keep": [3, 3, 3.5]
+                }
+            }
+        },
+        {
             "name":"Byzantines",
             "ranks":{
                 "town center": {
@@ -134,6 +236,40 @@
                 },
                 "villager":{
                     "keep": [3.5, 3.5, 3.5]
+                }
+            }
+        },
+        {
+            "name":"Cumans",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3.5, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "crossbowman": [3, 3, 1],
+                    "elite skirmisher": [3, 3, 2],
+                    "heavy cavalry archer": [3, 3]
+                },
+                "stable":{
+                    "hussar":[3.5, 3.5, 4],
+                    "paladin":[3, 3.5],
+                    "camel rider":[3, 2.5],
+                    "elite steppe lancer":[3, 3.5]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 3.5, 2.5],
+                    "onager": [3, 2.5],
+                    "scorpion":[3, 1]
+                },
+                "monastery":{
+                    "monk":[2, 1.5]
+                },
+                "villager":{
+                    "keep": [3, 1, 0.5]
                 }
             }
         }
