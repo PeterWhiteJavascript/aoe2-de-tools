@@ -222,7 +222,7 @@
                 },
                 "stable":{
                     "hussar":[2, 2, 2],
-                    "paladin":[2, 2],
+                    "paladin":[2.5, 2],
                     "heavy camel rider":[3.5, 3]
                 },
                 "siege workshop":{
@@ -262,7 +262,7 @@
                 },
                 "siege workshop":{
                     "siege ram":[3, 3.5, 2.5],
-                    "onager": [3, 2.5],
+                    "siege onager": [3, 2.5],
                     "scorpion":[3, 1]
                 },
                 "monastery":{
@@ -270,6 +270,106 @@
                 },
                 "villager":{
                     "keep": [3, 1, 0.5]
+                }
+            }
+        },
+        {
+            "name":"Chinese",
+            "ranks":{
+                "town center": {
+                    "villager":[3.5, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 2.5, 2.5],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "arbalester": [3, 3, 3],
+                    "elite skirmisher": [3, 3, 3],
+                    "heavy cavalry archer": [3, 2]
+                },
+                "stable":{
+                    "light cavalry":[3, 3, 2.5],
+                    "cavalier":[3, 3],
+                    "camel rider":[3, 3]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 2.5],
+                    "onager": [3, 2],
+                    "heavy scorpion":[3, 3.5]
+                },
+                "monastery":{
+                    "monk":[2, 2.5]
+                },
+                "villager":{
+                    "keep": [3, 3, 3]
+                }
+            }
+        },
+        {
+            "name":"Ethiopians",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3.5, 3, 2],
+                    "halberdier":[3, 3.5, 3]
+                },
+                "archery range":{
+                    "arbalester": [3.5, 3.5, 3.5],
+                    "elite skirmisher": [3, 3, 3],
+                    "heavy cavalry archer": [2.5, 2]
+                },
+                "stable":{
+                    "light cavalry":[2, 2, 1.5],
+                    "cavalier":[2.5, 1.5],
+                    "camel rider":[2.5, 2]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 3.5],
+                    "siege onager": [3, 4],
+                    "heavy scorpion":[3, 4],
+                    "bombard cannon":[3.5]
+                },
+                "monastery":{
+                    "monk":[2, 2]
+                },
+                "villager":{
+                    "keep": [3, 3, 2.5]
+                }
+            }
+        },
+        {
+            "name":"Franks",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3.5, 3.5, 3, 3],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "crossbowman": [3, 3, 1],
+                    "elite skirmisher": [3, 3, 1],
+                    "heavy cavalry archer": [2, 1.5]
+                },
+                "stable":{
+                    "light cavalry":[3.5, 3, 2.5],
+                    "paladin":[3.5, 4]
+                },
+                "siege workshop":{
+                    "capped ram":[3, 3],
+                    "onager": [3, 3],
+                    "heavy scorpion":[3, 3],
+                    "bombard cannon":[3]
+                },
+                "monastery":{
+                    "monk":[2, 2.5]
+                },
+                "villager":{
+                    "guard tower": [3, 3, 1.5]
                 }
             }
         }

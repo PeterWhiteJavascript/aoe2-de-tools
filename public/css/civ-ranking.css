@@ -8,7 +8,7 @@ body{
 #civ-conts{
     width:90%;
     display: flex;
-    
+    flex-wrap: wrap;
 }
 .civ-cont{
     width: 100px;
@@ -134,3 +134,14 @@ body{
         width: 40px !important;
     }
 }
+@media screen and (max-width: 1367px) {
+    #civ-ranks{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #civ-ranks{
+        width: 100%;
+    }
+}
+    
