@@ -1,0 +1,129 @@
+body{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#civ-conts{
+    width:90%;
+    display: flex;
+    
+}
+.civ-cont{
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #999;
+    user-select: none;
+}
+.civ-cont:hover{
+    background-color: #BF7812;
+}
+.selected-civ{
+    background-color: #BF7812;
+}
+.civ-cont img{
+    width: 50%;
+    height: auto;
+}
+
+#civ-ranks{
+    width: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+#ages{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+#tree{
+    
+}
+.ages-row, .row{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.age-spacer, .building{
+    width: 20%;
+}
+.building{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.unit-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ages-cont, .unit-div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.ages-cont-spacer, .unit{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.age, .rank{
+    width: 18%;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.age img, .building img, .unit img, .age-spacer img, .ages-cont img{
+    width: 45px;
+}
+.ages-row, .row{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#civ-title-cont{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+#civ-title-spacer, #civ-title, #civ-emblem{
+    width: 33.33%;
+}
+#civ-emblem{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+#civ-emblem img{
+    width: 80px;
+}
+#civ-title{
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 26pt;
+}
+@media print{
+    @page { size: auto;  margin: 0mm; }
+    #civ-conts{
+        display:none;
+    }
+    #civ-title-cont{
+        margin-bottom: 10px;
+    }
+    .small-img{
+        width: 40px !important;
+    }
+}

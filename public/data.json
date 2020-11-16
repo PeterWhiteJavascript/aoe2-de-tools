@@ -1,116 +1,141 @@
 {
+    "civlist":[
+        "Aztecs",
+        "Bulgarians",
+        "Berbers",
+        "Burmese",
+        "Britons",
+        "Byzantines",
+        "Cumans",
+        "Chinese",
+        "Ethiopians",
+        "Franks",
+        "Goths",
+        "Incas",
+        "Indians",
+        "Italians",
+        "Khmer",
+        "Koreans",
+        "Magyars",
+        "Malay",
+        "Malians",
+        "Mayans",
+        "Mongols",
+        "Persians",  
+        "Portuguese",
+        "Saracens",
+        "Spanish",  
+        "Slavs",
+        "Tatars",
+        "Teutons",
+        "Vietnamese"
+    ],
+    "rankConversion":{
+        "0": "F",
+        "0.5": "C-",
+        "1": "C",
+        "1.5": "C+",
+        "2": "B",
+        "2.5": "B+",
+        "3": "A",
+        "3.5": "A+",
+        "4": "S"
+    },
     "civilizations":[
         {
-            "name":"generic",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name": "aztecs",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name": "britons",
-            "ageUpgrade":[
-                {},
-                {
-                    "town center": {
-                        "bonus":{
-                            "cost": ["wood", -137]
-                        }
-                    }
+            "name":"Aztecs",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3.5, 3.5, 3]
                 },
-                {}
-            ],
-            "bonus":{
+                "barracks":{
+                    "champion":[4, 3.5, 3.5, 4],
+                    "pikeman":[3.5, 3.5, 3],
+                    "elite eagle warrior":[3.5, 3.5, 4]
+                },
+                "archery range":{
+                    "arbalester": [3.5, 3.5, 2.5],
+                    "elite skirmisher": [3.5, 3.5, 3.5]
+                },
+                "siege workshop":{
+                    "siege ram":[3.5, 3.5],
+                    "siege onager": [3.5, 3.5],
+                    "scorpion":[3.5, 2.5]
+                },
+                "monastery":{
+                    "monk":[4, 4]
+                },
                 "villager":{
-                    "gatherRate": ["shepherd", 0.25]
+                    "guard tower": [3, 3, 2]
                 }
-            },
-            "teamBonus":{
-                "archery range": {
-                    "workRate": 0.2
-                }
-            },
-            "locked":[
-                "eagle scout", "eagle warrior", "elite eagle warrior",
-                "hand cannoneer", "thumb ring", "partian tactics",
-                "hussar", "bloodlines", "paladin", "camel rider", "heavy camel rider", "battle elephant", "elite battle elephant", "steppe lancer", "elite steppe lancer",
-                "siege ram", "siege onager", "bombard cannon",
-                "elite cannon galleon",
-                "bombard tower",
-                "redemption", "atonement", "heresy",
-                "bombard tower upgrade", "treadmill crane",
-                "stone shaft mining",
-                "crop rotation"
-            ],
-            "unique":{
-                "unit":["longbowman"],
-                "tech":["yeomen", "warwolf"]
             }
         },
         {
-            "name" : "byzantines",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
+            "name":"Bulgarians",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "two handed swordsman":[3, 3, 3, 3.5],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "archer": [3, 1, 1],
+                    "elite skirmisher": [3, 3, 2],
+                    "heavy cavalry archer": [3, 2.5]
+                },
+                "stable":{
+                    "hussar":[3, 3, 4],
+                    "cavalier":[3, 3.5]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 3],
+                    "siege onager": [3, 3],
+                    "heavy scorpion":[3, 3]
+                },
+                "monastery":{
+                    "monk":[2, 2]
+                },
+                "villager":{
+                    "keep": [3, 3, 2.5]
+                }
+            }
         },
         {
-            "name" : "celts",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name" : "chinese",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name" : "franks",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name" : "goths",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name" : "japanese",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
-        },
-        {
-            "name" : "mongols",
-            "ageUpgrade":[],
-            "bonus":{},
-            "teamBonus":{},
-            "locked":[],
-            "unique":[]
+            "name":"Byzantines",
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 2],
+                    "halberdier":[4, 4, 3.5]
+                },
+                "archery range":{
+                    "arbalester": [3, 3, 3],
+                    "elite skirmisher": [4, 4, 4],
+                    "heavy cavalry archer": [2, 1.5],
+                    "hand cannoneer": [3]
+                },
+                "stable":{
+                    "hussar":[2, 2, 2],
+                    "paladin":[2, 2],
+                    "heavy camel rider":[3.5, 3]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 2.5],
+                    "onager": [3, 2],
+                    "scorpion":[3, 1],
+                    "bombard cannon":[2]
+                },
+                "monastery":{
+                    "monk":[3, 3]
+                },
+                "villager":{
+                    "keep": [3.5, 3.5, 3.5]
+                }
+            }
         }
     ],
     "units":[
