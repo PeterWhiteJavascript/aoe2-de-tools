@@ -133,6 +133,9 @@ body{
     .small-img{
         width: 40px !important;
     }
+    .x-small-img{
+        width: 35px !important;
+    }
 }
 @media screen and (max-width: 1367px) {
     #civ-ranks{

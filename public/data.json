@@ -65,6 +65,10 @@
                 "monastery":{
                     "monk":[4, 4]
                 },
+                "castle":{
+                    "elite jaguar warrior":[2, 3],
+                    "trebuchet":[3, 3]
+                },
                 "villager":{
                     "guard tower": [3, 3, 2]
                 }
@@ -96,6 +100,10 @@
                 },
                 "monastery":{
                     "monk":[2, 2]
+                },
+                "castle":{
+                    "elite konnik":[2, 4],
+                    "trebuchet":[3]
                 },
                 "villager":{
                     "keep": [3, 3, 2.5]
@@ -133,6 +141,10 @@
                 "monastery":{
                     "monk":[2.5, 2]
                 },
+                "castle":{
+                    "elite camel archer":[3.5, 3.5],
+                    "trebuchet":[3]
+                },
                 "villager":{
                     "guard tower": [3, 3, 2.5]
                 }
@@ -167,6 +179,10 @@
                 "monastery":{
                     "monk":[3.5, 3.5]
                 },
+                "castle":{
+                    "elite arambai":[3, 3],
+                    "trebuchet":[3]
+                },
                 "villager":{
                     "keep": [3, 3, 2.5]
                 }
@@ -198,6 +214,10 @@
                 },
                 "monastery":{
                     "monk":[2, 2.5]
+                },
+                "castle":{
+                    "elite longbowman":[2, 4],
+                    "trebuchet":[3]
                 },
                 "villager":{
                     "keep": [3, 3, 3.5]
@@ -234,6 +254,10 @@
                 "monastery":{
                     "monk":[3, 3]
                 },
+                "castle":{
+                    "elite cataphract":[2, 3],
+                    "trebuchet":[2.5]
+                },
                 "villager":{
                     "keep": [3.5, 3.5, 3.5]
                 }
@@ -268,6 +292,10 @@
                 "monastery":{
                     "monk":[2, 1.5]
                 },
+                "castle":{
+                    "elite kipchak":[3, 2.5],
+                    "trebuchet":[2.5]
+                },
                 "villager":{
                     "keep": [3, 1, 0.5]
                 }
@@ -300,6 +328,10 @@
                 },
                 "monastery":{
                     "monk":[2, 2.5]
+                },
+                "castle":{
+                    "elite chu ko nu":[3, 4],
+                    "trebuchet":[2.5]
                 },
                 "villager":{
                     "keep": [3, 3, 3]
@@ -335,6 +367,10 @@
                 "monastery":{
                     "monk":[2, 2]
                 },
+                "castle":{
+                    "elite shotel warrior":[2, 2.5],
+                    "trebuchet":[3]
+                },
                 "villager":{
                     "keep": [3, 3, 2.5]
                 }
@@ -367,6 +403,10 @@
                 },
                 "monastery":{
                     "monk":[2, 2.5]
+                },
+                "castle":{
+                    "elite throwing axeman":[2, 3],
+                    "trebuchet":[3]
                 },
                 "villager":{
                     "guard tower": [3, 3, 1.5]

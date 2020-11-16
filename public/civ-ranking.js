@@ -45,6 +45,7 @@ $.getJSON('data.json', function(data) {
             row.append(unitrow);
             $("#tree").append(row);
         }
+        //Adjust the size of the images (which reduces the size of the rows) for printing.
         let unitNum = $(".unit").length;
         if(unitNum > 15){
             $(".age img").addClass("small-img");
@@ -52,6 +53,13 @@ $.getJSON('data.json', function(data) {
             $(".unit img").addClass("small-img");
             $(".age-spacer img").addClass("small-img");
             $(".ages-cont img").addClass("small-img");
+        }
+        if(unitNum > 17){
+            $(".age img").addClass("x-small-img");
+            $(".building img").addClass("x-small-img");
+            $(".unit img").addClass("x-small-img");
+            $(".age-spacer img").addClass("x-small-img");
+            $(".ages-cont img").addClass("x-small-img");
         }
     });
     $(".civ-cont").first().trigger("click");
