@@ -1890,13 +1890,11 @@ $(function(){
         }
         
         //Which units to show and in what order.
-        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour",
+        let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
                           "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
                           "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
                           "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
-                          "house", "farm", "watch tower", "cataphract", "magyar huszar", "throwing axeman", "shotel warrior", "huskarl", "berserk", "jaguar warrior", "teutonic knight", "samurai", "woad raider", "karambit warrior", "condottiero",
-                          "war wagon", "conquistador", "slinger", "kamayuk", "camel archer", "kipchak", "mangudai", "chu ko nu", "genoese crossbowman", "janissary", "organ gun", "ballista elephant", "plumed archer", "elephant archer", 
-                          "tarkan", "konnik", "war elephant", "leitis", "boyar", "keshik", "mameluke", "gbeto", "longbowman", "rattan archer", "arambai"];
+                          "house", "farm", "watch tower", "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
