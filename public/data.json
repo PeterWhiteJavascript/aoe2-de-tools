@@ -1713,7 +1713,7 @@
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 25
+            "trainTime": 21
         },
 
 
