@@ -4,16 +4,16 @@ function finder(arr, name){
 function setUpGatherRates(data){
     let gatherRates = data.units[0].gathering;
     //Get all of the gather rates with various upgrades applied.
-    gatherRates["wheelbarrow"] = {gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate};
-    gatherRates["hand cart"] = {gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate + finder(data.upgrades, "hand cart").effects.gatherRate};
-    gatherRates["fishing ship shore"] = {gatherRate: 0.28};
-    gatherRates["fishing ship deep"] = {gatherRate: 0.49};
-    gatherRates["fishing ship shore gillnets"] = {gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2))};
-    gatherRates["fishing ship deep gillnets"] = {gatherRate: parseFloat((0.49 + 0.49 * 0.25).toFixed(2))};
-    gatherRates["fish trap"] = {gatherRate: 0.35};
-    gatherRates["fish trap gillnets"] = {gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2))};
+    gatherRates["wheelbarrow"] = {res: "food", gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate};
+    gatherRates["hand cart"] = {res: "food", gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate + finder(data.upgrades, "hand cart").effects.gatherRate};
+    gatherRates["fishing ship shore"] = {res: "food", gatherRate: 0.28};
+    gatherRates["fishing ship deep"] = {res: "food", gatherRate: 0.49};
+    gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2))};
+    gatherRates["fishing ship deep gillnets"] = {res: "food", gatherRate: parseFloat((0.49 + 0.49 * 0.25).toFixed(2))};
+    gatherRates["fish trap"] = {res: "food", gatherRate: 0.35};
+    gatherRates["fish trap gillnets"] = {res: "food", gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2))};
     gatherRates["double-bit axe"] = {
-        gatherRate: 
+        res: "wood", gatherRate: 
             parseFloat(
             (
             gatherRates.lumberjack.gatherRate * 
@@ -22,7 +22,7 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["bow saw"] = {
-        gatherRate: 
+        res: "wood", gatherRate: 
             parseFloat(
             (
             gatherRates.lumberjack.gatherRate * 
@@ -32,7 +32,7 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["two-man saw"] = {
-        gatherRate: 
+        res: "wood", gatherRate: 
             parseFloat(
             (
             gatherRates.lumberjack.gatherRate * 
@@ -43,7 +43,7 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["gold mining"] = {
-        gatherRate: 
+        res: "gold", gatherRate: 
             parseFloat(
             (
             gatherRates["gold miner"].gatherRate * 
@@ -52,7 +52,7 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["gold shaft mining"] = {
-        gatherRate: 
+        res: "gold", gatherRate: 
             parseFloat(
             (
             gatherRates["gold miner"].gatherRate * 
@@ -62,10 +62,10 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["relic"] = {
-        gatherRate: 0.5
+        res: "gold", gatherRate: 0.5
     };
     gatherRates["stone mining"] = {
-        gatherRate: 
+        res: "stone", gatherRate: 
             parseFloat(
             (
             gatherRates["stone miner"].gatherRate * 
@@ -74,7 +74,7 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["stone shaft mining"] = {
-        gatherRate: 
+        res: "stone", gatherRate: 
             parseFloat(
             (
             gatherRates["stone miner"].gatherRate * 
@@ -84,19 +84,19 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["feitoria food"] = {
-        gatherRate: 1.6
+        res: "food", gatherRate: 1.6
     };
     gatherRates["feitoria wood"] = {
-        gatherRate: 1
+        res: "wood", gatherRate: 1
     };
     gatherRates["feitoria gold"] = {
-        gatherRate: 0.7
+        res: "gold", gatherRate: 0.7
     };
     gatherRates["feitoria stone"] = {
-        gatherRate: 0.3
+        res: "stone", gatherRate: 0.3
     };
     gatherRates["trade cart"] = {
-        gatherRate: 0.4
+        res: "gold", gatherRate: 0.4
     };
     
     return gatherRates;

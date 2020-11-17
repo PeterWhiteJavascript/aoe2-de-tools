@@ -58,9 +58,9 @@
                     "elite skirmisher": [3.5, 3.5, 3.5]
                 },
                 "siege workshop":{
-                    "siege ram":[3.5, 3.5],
-                    "siege onager": [3.5, 3.5],
-                    "scorpion":[3.5, 2.5]
+                    "siege ram":[3, 3],
+                    "siege onager": [3, 3],
+                    "scorpion":[3, 2]
                 },
                 "monastery":{
                     "monk":[4, 4]
@@ -440,34 +440,42 @@
             "gathering":{
                 "farmer":{
                     "carryCapacity": 10,
+                    "res": "food",
                     "gatherRate": 0.32
                 },
                 "fisherman": {
                     "carryCapacity": 10,
+                    "res": "food",
                     "gatherRate": 0.43
                 },
                 "hunter": {
                     "carryCapacity": 35,
+                    "res": "food",
                     "gatherRate": 0.41
                 },
                 "shepherd": {
                     "carryCapacity": 10,
+                    "res": "food",
                     "gatherRate": 0.33
                 },
                 "forager": {
                     "carryCapacity": 10,
+                    "res": "food",
                     "gatherRate": 0.31
                 },
                 "lumberjack": {
                     "carryCapacity": 10,
+                    "res": "wood",
                     "gatherRate": 0.41
                 },
                 "gold miner": {
                     "carryCapacity": 10,
+                    "res": "gold",
                     "gatherRate": 0.38
                 },
                 "stone miner": {
                     "carryCapacity": 10,
+                    "res": "stone",
                     "gatherRate": 0.36
                 }
             }

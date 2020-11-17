@@ -47,7 +47,7 @@ h1{
     width: 49.90%;
     max-width: 100%;
     display: flex;
-    padding-top: 35px;
+    padding-top: 25px;
     background-color: rgba(255, 255, 255, 0.3);
     flex-grow: 1;
 }
@@ -110,6 +110,7 @@ h1{
 .res-desc-cont{
     width: 85%;
     flex-grow: 1;
+    margin-left: 10px;
 }
 #gather-rates{
     width: 100%;
@@ -119,13 +120,20 @@ h1{
 }
 .resources-cont{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.res-row{
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
 }
 .upgrades-cont{
     display: flex;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
+    margin-bottom: 35px;
 }
 .upgrades-cont > div{
     padding: 5px;

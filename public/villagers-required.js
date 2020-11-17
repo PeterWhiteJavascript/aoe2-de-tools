@@ -104,11 +104,11 @@ $(function(){
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
             ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food"],
-            ["lumberjack", "double-bit axe", "bow saw","two-man saw", "feitoria wood"],
+            ["lumberjack", "double-bit axe", "bow saw", "two-man saw", "feitoria wood"],
             ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart"];
+        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
@@ -123,7 +123,7 @@ $(function(){
                     $(this).toggleClass("showing-img");
                     let res = $(this).attr("resource");
                     $("#gather-rates").children(".unit-container").each(function(){
-                        let resCont = $(this).children(".res-desc-cont").children(".resources-cont").children(".resource").filter(function(){
+                        let resCont = $(this).children(".res-desc-cont").children(".resources-cont").children(".res-row").children(".resource").filter(function(){
                             return $(this).attr("resource") === res;
                         })[0];
                         $(resCont).toggle();
@@ -133,56 +133,6 @@ $(function(){
             }
         }
         
-        let unitDescs = {
-            "villager": "<p>In the Dark Age, you'll mostly be collecting sheep, hunt(boar/deer), and berries. Conventional wisdom dictates that having 6 on sheep allows for constant villager production throughout the Dark Age, but this is only because you start with 200 food. In the case of the Chinese (start with 0 food), 7 villagers on sheep is preferred.</p>"+
-                      "<p>If you are booming in Castle Age with 3 town centers, you will need a minimum of 19/17/15 farms, otherwise you can buy food from the market to maintain villager production. 4 town centers require 25/22/20 farms.</p>"+
-                      "<p>Indians get cheaper villagers and Persians get faster creation time on their town centers.</p>"+
-                      "<p>Fishermen collect shore and deep fish at the same rate, unlike fishing ships.</p>"+
-                      "<p>The rates for collecting deep fish are a bit high, as under normal circumstances, there is a long travel distance between the fish and your dock. Even though you only need just over 4 fishing ships to maintain villager production, even with 5 ships working in a realistic situation, you may just barely be able to keep your town center producing.</p>",
-            "militia": "<p>Militia are the only military unit available in the Dark Age, so going for a drush (Dark Age rush) is a very common strategy on open maps such as Arabia. You will generally only produce a limited number of them in Dark Age, so being able to maintain production is not important at this point. The most common number to produce in Dark Age is 3.</p>"+
-                       "<p>In Feudal Age, you can upgrade militia to man-at-arms, which makes them much scarier to villagers. You can also get the supplies upgrade, which reduces their food cost to 45 from 60. The cost of supplies is 150f 100g and it takes 35 seconds to research. To make this upgrade worth it (in total resource cost), you must produce at least 17 more militia.</p>"+
-                       "<p>Once your opponent gets walls and archers, your men-at-arms will have a hard time doing damage since the archers will just kite (run and shoot) your units, so adding skirmishers or towers to your push are some good ways to make men-at-arms more viable in Feudal Age.</p>"+
-                       "<p>The Goths get cheaper infantry, which reduces the militia's cost to 39f 13g. They also produce infantry 20% faster in all ages, which reduces their creation time from 21 seconds to 17.5 seconds. After conscription (no perfusion), it's 13.1 seconds. After perfusion (no conscription), they produce in 8.7 seconds.  After conscription and perfusion, it's only 6.5 seconds.</p>",
-               
-            "spearman": "<p>Spearmen are usually built in small quantities in the early gaame to deal with scout rushes. They are very cost effective at this, being able to kill a single unupgraded scout in 3 hits (4 for sc with bloodlines).</p>"+
-                        "<p>Byzantines get 25% cheaper spearmen, so they can afford to train a few extra if the opponent is going scouts. Unupgraded, their combat stats are similar to a loomed villager. In general, it's better to push with man-at-arms or scouts and archers in the early game.</p>"+
-                        "<p>Most of the spearman's damage to cavalry comes from their hidden bonus damage, so upgrading forging is pretty much useless against cavalry. If the opponent has a lot of scouts in Feudal Age (10+) you might want to consider getting scale mail armor on your spearmen as it makes scouts need 12 hits instead of 9 to kill them (9 hits instead of 8 if the sc have forging).</p>"+
-                        "<p>In the late game, siege and halberdier is a common unit composition since the halbs deal with cavalry, and siege onagers deal with everything else.</p>",
-            "eagle scout":"<p>Aztecs, Mayans, and Incas all start with an eagle scout instead of scout cavalry. The eagle scout is slower, but stronger than a scout cavalry, and it has more line of sight.</p>"+
-                            "<p>It might seem like 50 gold per eagle warrior is a lot, but considering that mining gold is faster than farming in the early game, massing eagles early on is very easy while still maintaining a good economy. They take 60 seconds to create in the Feudal Age, so you need multiple barracks if you want to go for eagle scouts (51 seconds for Aztecs). Eagle warriors don't have any good counters early on since they start with 2 pierce armor and they can run away from man-at-arms</p>",
-            "archer": "<p>The archer is a very common unit to build in the Feudal Age since they can easily kill villagers once they have fletching and they can deny rewalling and repairing walls. Going up to Feudal Age with 21-23 villagers and then building 2 archery ranges is a very common strategy.</p>",
-            "skirmisher": "<p>Skirmishers are mostly used to counter a player that is going archers. It is often better to get padded archer armor before fletching if you don't have many skirmishers and you're up against a player who is being aggressive with archers.</p>"+
-                          "<p>In Castle Age, if you still have a lot of skirmishers from Feudal Age, they become effective at killing villagers once you get bodkin arrow and the elite upgrade.</p>",
-            "hand cannoneer":"<p>Hand cannoneers are mainly used to counter infantry in the late game, but if you go for a fast Imperial Age, then they are good against most Castle Age units (cavalry archers being the main counter).</p>",
-            "cavalry archer":"<p>Cavalry archers are expensive, but excel when in large groups that can 1-shot knights and camels. They can be useful for raiding if your opponent isn't able to wall, but they are slower to train and more expensive to train than crossbowmen, and aren't able to fight armies head on until there are a lot of them.</p>",
-            "scout cavalry": "<p>Cumans with steppe husbandry train scouts in 6 seconds (4.5 with conscription as well). Since steppe husbandry only costs 200f/300w, you could theoretically have a single stable work as fast as 5 stables to produce light cavalry throughout the Castle Age if you go for kipchaks.</p>",
-            "knight":"<p>Knights are a very strong unit that crushes anything that can be made in the Feudal Age, even spearmen. It's difficult to go for early knights since they are so expensive, and also require food, which you need for villager production as well. For 2 stable play in caslte age, you'll probably want 2 mining camps so that your villagers work more efficiently. The gold mining upgrade is worth consideration as well.</p>",
-            "camel rider":"<p>Camels are a good counter to knights since they train much faster and cost a bit less. Since they train faster, you'll actually need more villagers on food and gold to maintain production.</p>",
-            "battle elephant":"<p>Battle elephants are extremely expensive and are a very situational unit, since they are slow and weak to conversions. They train fairly quickly and can deter entire Feudal Age armies by themselves, so they can be useful defensively.</p>",
-            "monk": "<p>Monks train fairly slow, which means that even though they cost 100 gold, you only need around 5 gold miners to maintain constant production. They are commonly built with mangonels, which require 8 on gold, so having 13 on gold for your siege/monk push is necessary.</p>",
-            "battering ram":"<p></p>",
-            "mangonel":"<p></p>",
-            "bombard cannon":"<p>Commonly built with hand canonneers in a fast Imperial Age rush, especially when playing Turks. If you have around 14 farms, 10 lumberjacks, and 25 on gold (49 vils), you can maintain 1 bombard cannon and 3 hand canonneer production as Turks.</p>",
-            "scorpion":"<p>Scorpions are the least popular siege workshop unit (apart from the siege tower) because it needs to be massed and have units in front of it to be effective usually. Since their projectile fires faster than the mangonel, they can be used to defeat small raids of archers effectively. It can be argued that 2 scorpions can be more effective than 1 mangonel in this situation.</p>",
-            "fishing ship":"<p>Fishing ships collect food faster than villagers in the Dark Age, so they are almost always worth going for on maps with deep fish.</p>",
-            "fire galley": "<p>The fire galley is the most common naval unit to open with on water maps since galleys are so weak in small numbers. If you have 2 gold miners per dock, then you should have a good time on water in the Feudal Age.</p>",
-            "galley":"<p>The galley can usually be added into your navy once you've gained some water control and are able to transition from fire galleys. If you are playing a water map where your docks are far away from you enemy's docks, you may be able to get away with opening galleys. Vikings don't get fire galleys, but their cheaper galleys and docks allow them to more easily mass them early.</p>",
-            "demolition raft":"<p>If you are being overrun by enemy fire ships, you can build a demolition raft to make an easy comeback if your opponent doesn't split their ships properly. They create in 45 seconds instead of 60 for both the galley and fire galley, so they can be produced in a pinch more easily.</p>"+
-                              "<p>They should never make up most of your army, but once both you and your opponent have 10+ fire galleys, it's generally worth it to add in some demolition rafts.</p>",
-            "cannon galleon":"<p>Cannon galleons are quite a bit more expensive than any other ship.</p>",
-            "house":"<p>You won't usually be building houses constantly throughout the dark age, but if you are going for a 3 or 4 tc boom, you should have a single villager dedicated to constantly building houses.</p>",
-            "farm":"<p>Farms are usually not something that you build constantly, so I've included an 'upgrade' that allows you to set the farm's build time to 25 seconds (as fast as a villager), which will tell you how many villagers you need on wood to build farms with the next villagers that you'll be building out of the town center.</p>",
-            "watch tower":"<p>The numbers for constantly building watch towers are a bit high since there's always some downtime for when your villagers go to the next building location. You will also need stone for repairs, so the numbers on stone are just a guideline. 5 stone miners is probably the maximum you'll need in an actual game for tower rushing.</p>",
-            "cataphract":"<p></p>",
-            "jaguar warrior":"<p>The train time for jaguar warriors is 20, but it is always reduced to 17 by the Aztec's civ bonus.</p>",
-            "karambit warrior":"<p></p>",
-            "plumed archer":"<p>Select appropriate age (Castle or Imperial) to determine the cost of the unit.</p>",
-            "condottiero": "<p>Condottiero is restricted to the Imperial Age.</p>"+
-                           "<p>Allies are able to make this unit, but also must be in the Imperial Age.</p>",
-            "huskarl": "<p>Perfusion only affects barracks, so only select this upgrade if you're using the barracks training time. Kasbah only affects the castle time, so only use it when you don't have barracks selected.</p>"
-                            
-            
-        };
         let unitVariety = {
             "villager":{
                 "civs":{
@@ -579,6 +529,25 @@ $(function(){
                     }
                 }
             },
+            "steppe lancer":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Steppe Husbandry":{
+                        "trainTime": 5,
+                        "trainTimePercent": true
+                    },
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Huns Team Bonus":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "battle elephant":{
                 "civs":{
                     "Malay Civ Bonus":{
@@ -700,6 +669,57 @@ $(function(){
                     }
                 }
             },
+            "siege tower":{
+                "civs":{
+                    "Aztec Civ Bonus":{
+                        "trainTime": 1.11,
+                        "trainTimePercent": true
+                    },
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
+                    
+                },
+                "upgrades":{
+                    "Celts Team Bonus":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "trebuchet":{
+                "civs":{
+                    "Aztec Civ Bonus":{
+                        "trainTime": 1.11,
+                        "trainTimePercent": true
+                    },
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    
+                }
+            },
+            
+            "petard":{
+                "civs":{
+                    "Aztec Civ Bonus":{
+                        "trainTime": 1.11,
+                        "trainTimePercent": true
+                    },
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    
+                }
+            },
+            
             "fishing ship":{
                 "civs":{
                     "Italians Civ Bonus":{
@@ -1425,6 +1445,22 @@ $(function(){
                     }
                 }
             },
+            "keshik": {
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
 
             "kipchak": {
                 "civs":{
@@ -1706,7 +1742,7 @@ $(function(){
                     unitsBeingCreated[unitName][res] = parseInt($(this).children("div").text());
                 });
                 unitsBeingCreated[unitName].quantity = parseInt($(this).children(".unit").children(".multiplier-cont").children("div:eq(1)").text());
-                $(this).children(".res-desc-cont").children(".resources-cont").children(".resource").each(function(){
+                $(this).children(".res-desc-cont").children(".resources-cont").children(".res-row").children(".resource").each(function(){
                     let resName = $(this).children(".icon-big").attr("title");
                     let resVal = parseFloat($(this).children(".resource-num").attr("title"));
                     if(vilsReq[resName]){
@@ -1721,13 +1757,22 @@ $(function(){
             let unitsDisplay = $("<div class='unit-totals'></div>");
             
             let hiddenRes = getHiddenRes();
+            
+            let resRow, curRes;
             for(let i in vilsReq){
+                let res = gatherRates[i].res;
+                if(curRes !== res){
+                    if(resRow) resDisplay.append(resRow);
+                    curRes = res;
+                    resRow = $("<div class='res-row'></div>");
+                }
                 let resElm = $("<div class='resource' resource='"+i+"'><img class='icon-big' src='img/"+i+".png' title='"+i+"'><div class='resource-num' title='"+vilsReq[i]+"'><div>"+Math.ceil(vilsReq[i])+"</div></div></div>");
-                resDisplay.append(resElm);
+                resRow.append(resElm);
                 if(hiddenRes.includes(i)){
                     $(resElm).hide();
                 }
             }
+            resDisplay.append(resRow);
             
             for(let i in unitsBeingCreated){
                 unitsDisplay.append("<div class='unit-class'><div class='resource-num' title='"+unitsBeingCreated[i].quantity+"'><div>"+Math.ceil(unitsBeingCreated[i].quantity)+"</div></div><img src='img/"+i+".png' title='"+i+"'></div>");
@@ -1755,7 +1800,7 @@ $(function(){
                 let vilTypes = order[idx];
                 for(let j = 0; j < vilTypes.length; j++){
                     let gatherRate = applyCivEcoBonuses(gatherRates[vilTypes[j]].gatherRate, vilTypes[j]);
-                    req[vilTypes[j]] = (1 / (gatherRate * trainTime / cost[i]) * multiplier);
+                    req[vilTypes[j]] = [gatherRates[vilTypes[j]].res, (1 / (gatherRate * trainTime / cost[i]) * multiplier)];
                 }
             }
             return req;
@@ -1867,7 +1912,6 @@ $(function(){
                 let cost = unitData.cost;
                 let trainTime = unitData.trainTime;
                 let img = unitData.img || name;
-                let res = getVilsRequired(trainTime, cost, multiplier);
                 for(let i in cost){
                     unitCont.append("<div class='res-cont' title='"+i+"'><img src='img/"+i+"-icon.png'><div>"+cost[i]+"</div></div>");
                 }
@@ -1915,16 +1959,26 @@ $(function(){
                 let resAndTextCont = $("<div class='res-desc-cont'></div>");
                 let resourcesCont = $("<div class='resources-cont'></div>");
                 let upgradesCont = $("<div class='upgrades-cont'></div>");
-                let textCont = $("<div class='unit-desc-cont'>"+(unitDescs[name] || "")+"</div>");
                 let hiddenRes = getHiddenRes();
+                let res = getVilsRequired(trainTime, cost, multiplier);
+                let curRes, resRow;
                 for(let j in res){
+                    if(curRes !== res[j][0]){
+                        if(resRow) resourcesCont.append(resRow);
+                        curRes = res[j][0];
+                        resRow = $("<div class='res-row'></div>");
+                    }
                     let img = gatherRates[j].img || j;
-                    let resElm = $("<div class='resource' resource='"+j+"'><img class='icon-big' src='img/"+img+".png' title='"+j+"'><div class='resource-num' title='"+res[j]+"'><div>"+Math.ceil(res[j])+"</div></div></div>");
-                    resourcesCont.append(resElm);
+                    let resElm = $("<div class='resource' resource='"+j+"'><img class='icon-big' src='img/"+img+".png' title='"+j+"'><div class='resource-num' title='"+res[j][1]+"'><div>"+Math.ceil(res[j][1])+"</div></div></div>");
+                    resRow.append(resElm);
                     if(hiddenRes.includes(j)){
                         $(resElm).hide();
                     }
+                
                 }
+                //Append the last row
+                resourcesCont.append(resRow);
+                
                 if(unitVariety[name]){
                     for(let j in unitVariety[name].upgrades){
                         //Figure out what's checked.
@@ -1946,7 +2000,6 @@ $(function(){
                 
                 resAndTextCont.append(resourcesCont);
                 resAndTextCont.append(upgradesCont);
-                resAndTextCont.append(textCont);;
                 cont.append(resAndTextCont);
                 return cont;
             }
@@ -1954,8 +2007,8 @@ $(function(){
         
         //Which units to show and in what order.
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
-                          "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
-                          "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", 
+                          "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
+                          "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard",
                           "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
         for(let i = 0; i < unitsShown.length; i++){
