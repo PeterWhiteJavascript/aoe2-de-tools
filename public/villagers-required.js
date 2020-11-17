@@ -874,7 +874,7 @@ $(function(){
                         "cost": {"wood": 0.2, "gold": 0.2},
                         "costPercent": true
                     },
-                    "Vikings Civ Bonus":{
+                    "Vikings - Imperial Age":{
                         "cost": {"wood": 0.2, "gold": 0.2},
                         "costPercent": true
                     },
@@ -889,6 +889,55 @@ $(function(){
                     "Persians - Imperial Age":{
                         "trainTime": 1.2,
                         "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Shipwright":{
+                        "cost": {"wood": 0.2},
+                        "costPercent": true,
+                        "trainTime": 1.54,
+                        "trainTimePercent": true
+                    },
+                    "Turks Team Bonus":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "longboat":{
+                "noGeneric": true,
+                "civs":{
+                    "Vikings - Feudal/Castle Age":{
+                        "cost": {"wood": 0.15, "gold": 0.15},
+                        "costPercent": true
+                    },
+                    "Vikings - Imperial Age":{
+                        "cost": {"wood": 0.2, "gold": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    
+                }
+            },
+            "caravel":{
+                "noGeneric": true,
+                "civs":{
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    
+                }
+            },
+            "turtle ship":{
+                "noGeneric": true,
+                "civs":{
+                    "Koreans Civ Bonus": {
+                        "cost": {"wood": 0.2},
+                        "costPercent": true
                     }
                 },
                 "upgrades":{
@@ -1183,8 +1232,12 @@ $(function(){
                 
             },
             "war wagon": {
+                "noGeneric": true,
                 "civs":{
-                    
+                    "Koreans Civ Bonus": {
+                        "cost": {"wood": 0.2},
+                        "costPercent": true
+                    }
                 },
                 "upgrades": {
                     
@@ -1476,6 +1529,7 @@ $(function(){
             },
 
             "plumed archer": {
+                "noGeneric": true,
                 "civs":{
                     "Mayans - Castle Age":{
                         "cost": {"wood": 0.19, "gold": 0.19},
@@ -1534,8 +1588,12 @@ $(function(){
             },
             
             "organ gun":{
+                "noGeneric": true,
                 "civs":{
-
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
                 },
                 "upgrades": {
                     "Conscription":{
@@ -1597,7 +1655,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1614,7 +1672,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             },
 
@@ -1631,7 +1689,7 @@ $(function(){
                     "Kasbah":{
                         "trainTime": 1.25,
                         "trainTimePercent": true
-                    },
+                    }
                 }
             }
         };
@@ -1819,7 +1877,12 @@ $(function(){
                 //Add all relevant upgrades
                 if(unitVariety[name]){
                     let selectCont = $("<div class='upgrade-cont'>Civilization</div>");
-                    let upgradeSelect = $("<select><option>Generic</option></select>");
+                    let upgradeSelect;
+                    if(!unitVariety[name].noGeneric){ 
+                        upgradeSelect = $("<select><option>Generic</option></select>");
+                    } else {
+                        upgradeSelect = $("<select></select>");
+                    }
                     for(let j in unitVariety[name].civs){
                         if(selectOption === j){
                             upgradeSelect.append("<option selected>"+j+"</option>");
@@ -1892,8 +1955,8 @@ $(function(){
         //Which units to show and in what order.
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
                           "cavalry archer", "hand cannoneer", "scout cavalry", "steppe lancer", "knight",
-                          "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion",
-                          "bombard cannon", "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon",
+                          "camel rider", "battle elephant", "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", 
+                          "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
