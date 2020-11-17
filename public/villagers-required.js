@@ -399,7 +399,7 @@ $(function(){
                 },
                 "upgrades":{
                     "Steppe Husbandry":{
-                        "trainTime": 5,
+                        "trainTime": 2,
                         "trainTimePercent": true
                     },
                     "Conscription":{
@@ -460,7 +460,7 @@ $(function(){
                         "trainTimePercent": true
                     },
                     "Steppe Husbandry":{
-                        "trainTime": 5,
+                        "trainTime": 2,
                         "trainTimePercent": true
                     },
                     "Conscription":{
@@ -535,7 +535,7 @@ $(function(){
                 },
                 "upgrades":{
                     "Steppe Husbandry":{
-                        "trainTime": 5,
+                        "trainTime": 2,
                         "trainTimePercent": true
                     },
                     "Conscription":{
