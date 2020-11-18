@@ -124,8 +124,12 @@ body{
     align-items: center;
     justify-content: center;
 }
-.building div:last-child{
+.building-rank{
     width:5%;
+    font-size: 18px;
+    font-family: Consolas, Geneva, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 .unit-row{
     width: 80%;
@@ -153,7 +157,12 @@ body{
 
 .age, .rank{
     width: 18%;
-    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    font-family: Consolas, Geneva, sans-serif;
+}
+.rank{
+    display: flex;
+    justify-content: center;
 }
 
 .age img, .building img, .unit img, .age-spacer img, .ages-cont img{
@@ -174,18 +183,28 @@ body{
 }
 #civ-emblem{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 15px;
+    justify-content: center;
 }
 #civ-emblem img{
     width: 80px;
+    margin-right: 15px;
 }
 #civ-title{
     font-family: "Verdana Black";
     font-size: 26pt;
 }
+
+.high-rank{
+    background-color: gold;
+}
+.low-rank{
+    background-color: #CD5C5C;
+}
 @media print{
     @page { size: auto;  margin: 0mm; }
+    body{
+        background-image: none;
+    }
     #civ-conts{
         display:none;
     }
@@ -195,6 +214,7 @@ body{
     #civ-info{
         width: 100%;
         border-radius: 0px;
+        background: none;
     }
     #civ-ranks-cont{
         width: 60%;
@@ -242,7 +262,9 @@ body{
     #civ-bonuses, #civ-available-techs{
         width: 100%;
     }
-    
+    #civ-emblem{
+        justify-content: flex-end;
+    }
 }
 @media screen and (max-width: 1367px) {
     #civ-ranks-cont{
