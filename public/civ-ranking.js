@@ -47,8 +47,12 @@ $.getJSON('data.json', function(data) {
             }
             let numRanks = buildingRanks.length;
             //Produce a number that ends in 0 or 0.5
-            let avgRank = Math.round(buildingRanks.reduce((a, b) => a + b, 0) / numRanks * 2) / 2;
+            let buildingRank = buildingRanks.reduce((a, b) => a + b, 0);
+            let avgRank = Math.round(buildingRank / numRanks * 2) / 2;
             let rankStr = data.rankConversion[(avgRank + "")];
+            if(buildingRank / buildingRanks.length === 4){
+                rankStr = "X";
+            }
             if(rankStr.length === 2) rankStr = "&nbsp" + rankStr;
             else rankStr = "&nbsp" + rankStr + "&nbsp";
             row.children(".building:last-child").append("<div class='building-rank'><div>"+rankStr+"</div></div>");
@@ -181,7 +185,7 @@ $.getJSON('data.json', function(data) {
         } 
         console.log(descTextSize);
     });
-    $(".civ-cont:eq(9)").trigger("click");
+    $(".civ-cont:eq(6)").trigger("click");
     
 });
 });
