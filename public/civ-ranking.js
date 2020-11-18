@@ -172,10 +172,10 @@ $.getJSON('data.json', function(data) {
             $("#civ-available-techs").append(row);
         });
         
-        if(descTextSize > 950){
+        if(descTextSize > 845){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
-        } else if(descTextSize > 800){
+        } else if(descTextSize > 780){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
         } else if(descTextSize > 750){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
