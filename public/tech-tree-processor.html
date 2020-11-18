@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tool for processing data from aoe fandom</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/shared.js"></script>
+        <script>
+            /*
+            //Code to take tech tree from aoe fandom website (use in the console on the tech tree page).
+            let techTree = {};
+
+            $(".article-table").children("tbody").children("tr").parent().each((i, tbody) => {
+              let building = $(tbody).children("tr").first().children("td").children("a").attr("title");
+              let allTR = $(tbody).children("tr");
+              allTR.splice(0, 2);
+              let unitsAndTechs = [];
+              $(allTR).each((j, tr) => {
+                let items = $(tr).children("td");
+                $(items).each((k, item) => {
+                    let name = $(item).children("a").attr("title");
+                    if(name){
+                        let availStr = $($(item).children("a").children("img")[0]).attr("data-image-name");
+                        let word = "unavailable.png";
+                        let available = !availStr.includes(word);
+                        unitsAndTechs.push({name: name, available: available}); 
+                    }
+                });
+              });
+
+              techTree[building] = unitsAndTechs;
+            });
+            
+            delete techTree.House;
+            delete techTree["Dark Age"];
+            //Fix some specific things
+            if(techTree.Castle[0].name === techTree.Castle[1].name) techTree.Castle[1].name = "Elite " + techTree.Castle[1].name;
+            techTree.Dock.find(elm => elm.name === "Fire Galley (Age of Empires II)").name = "Fire Galley";
+            techTree.University.find(elm => elm.name === "Bombard Tower (technology)").name = "Bombard Tower Upgrade";
+            console.log(techTree);
+            */
+            let gData;
+            let allUnits = {};
+            $.getJSON('data.json', function(data) { 
+                gData = data;
+                //Use the upgrade groups to get all units
+                gData.units.map((unit) => {
+                    //Make sure it's not a building
+                    if(!unit.armorClasses.find((c) => c[0] === 11)){
+                        allUnits[unit.name] = true;
+                        //Figure out if it has upgrades which can be added to the units.
+                        let tech = unit.damageTechs[0];
+                        if(tech){
+                            if(tech === "heavy " + unit.name) allUnits["heavy " + unit.name] = true;
+                            if(tech === "elite " + unit.name) allUnits["elite " + unit.name] = true ;
+                        } 
+                    }
+                });
+                let groups = ["militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour", "scout cavalry", "knight", "camel rider", "battle elephant", "steppe lancer", "ram", "mangonel", "scorpion", "fire galley", "galley", "demolition raft"];
+                groups.forEach((g) => {
+                    let group = gData.upgradeGroups[g];
+                    group.forEach((a) => {
+                        allUnits[a] = true;
+                    });
+                });
+            });
+            
+            function doIt(techTree){
+                let buildings = Object.keys(techTree);
+                let processed = {};
+                buildings.forEach((b) => {
+                    let building = techTree[b];
+                    let sorted = {
+                        units: [],
+                        upgrades: []
+                    };
+                    
+                    for(let i = 0; i < building.length; i++){
+                        building[i].name = building[i].name.toLowerCase();
+                        let found = allUnits[building[i].name];
+                        if(found){
+                            sorted.units.push(building[i]);
+                        } else {
+                            sorted.upgrades.push(building[i]);
+                        }
+                    }
+                    processed[b.toLowerCase()] = sorted;
+                });
+                console.log(processed);
+            
+            }
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

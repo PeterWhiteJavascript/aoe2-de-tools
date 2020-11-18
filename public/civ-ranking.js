@@ -13,7 +13,7 @@ $.getJSON('data.json', function(data) {
         $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
         $("#tree").empty();
-
+        
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
             let row = $("<div class='row'></div>");
@@ -45,7 +45,7 @@ $.getJSON('data.json', function(data) {
             row.append(unitrow);
             $("#tree").append(row);
         }
-        //Adjust the size of the images (which reduces the size of the rows) for printing.
+        //Adjust the size of the images (which reduces the size of the rows) FOR PRINTING ONLY.
         let unitNum = $(".unit").length;
         if(unitNum > 15){
             $(".age img").addClass("small-img");
@@ -61,6 +61,35 @@ $.getJSON('data.json', function(data) {
             $(".age-spacer img").addClass("x-small-img");
             $(".ages-cont img").addClass("x-small-img");
         }
+        
+        $("#civ-bonuses").children(".bonus-desc").empty();
+        //Show tech information
+        civ.bonusDesc.forEach((d) => {
+            $("#civ-bonuses").children(".bonus-desc").append("<p>"+d+"</p>");
+        });
+        // meso: "parthian tactics", "husbandry", "bloodlines"
+        
+        
+        let bsmithUps = [];
+        let bsmithCategories = 5;
+        for(i = 0; i < bsmithCategories; i++){
+            if(civ.techTree["blacksmith"].upgrades[(i * 3) + 2].available){
+                bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3) + 2].name);
+            } else if(civ.techTree["blacksmith"].upgrades[(i * 3) + 1].available){
+                bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3) + 1].name);
+            } else if(civ.techTree["blacksmith"].upgrades[(i * 3)].available){
+                bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3)].name);
+            }
+        }
+        
+        let bsmithdiv = $("<div class='desc-cont'></div>");
+        bsmithUps.forEach((u) => {
+            bsmithdiv.append("<div class='desc-img'><img src='img/"+u+".png'></div>");
+        });
+        $("#civ-available-techs").append(bsmithdiv);
+        
+        console.log(bsmithUps)
+        
     });
     $(".civ-cont").first().trigger("click");
     

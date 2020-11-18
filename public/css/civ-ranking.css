@@ -30,11 +30,64 @@ body{
     width: 50%;
     height: auto;
 }
-
-#civ-ranks{
-    width: 50%;
+#civ-info{
+    display: flex;
+    justify-content: center;
+    width: 80%;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
+    border-top:1px solid;
+}
+
+#civ-ranks-cont{
+    display:flex;
+    justify-content: center;
+    width: 70%;
+    padding: 1em;
+    border-right: 1px dashed;
+}
+#civ-ranks{
+    width:80%;
+}
+#civ-techs{
+    width: 30%;
+    height: 100%;
+}
+#civ-bonuses{
+    margin: 1em;
+}
+.header{
+    font-size: 20px;
+    font-family: "Arial";
+}
+#civ-bonuses p{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+    font-family: "Georgia";
+    line-height: 22px;
+}
+#civ-available-techs{
+    margin: 1em;
+}
+#civ-available-techs > img{
+    width: 60px;
+}
+.desc-cont{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+.desc-img{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.desc-img img{
+    width: 45px;
 }
 
 #ages{
@@ -48,8 +101,6 @@ body{
 .ages-row, .row{
     width: 100%;
     display: flex;
-    text-align: center;
-    align-items: center;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -63,6 +114,9 @@ body{
 }
 .building div:first-child{
     width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .building div:last-child{
     width:20%;
@@ -76,6 +130,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.ages-cont:nth-child(2), .unit-div:nth-child(2){
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -130,21 +186,49 @@ body{
     #civ-title-cont{
         margin-bottom: 10px;
     }
+    #civ-info{
+        width: 95%;
+        border-radius: 0px;
+    }
+    #civ-ranks-cont{
+        width: 60%;
+    }
+    #civ-techs{
+        width: 40%;
+    }
+    #civ-ranks{
+        width: 100%;
+    }
     .small-img{
         width: 40px !important;
     }
     .x-small-img{
         width: 35px !important;
     }
+    
+    .header{
+        font-size: 16px;
+    }
+    #civ-bonuses p{
+        font-size: 12px;
+    }
+    
 }
 @media screen and (max-width: 1367px) {
-    #civ-ranks{
-        width: 80%;
+    #civ-ranks-cont{
+        width: 100%;
+        padding-bottom:1em;
+        border:none;
+        border-bottom: 1px dashed;
     }
-}
-@media screen and (max-width: 1000px) {
-    #civ-ranks{
+    #civ-info{
+        align-items: center;
+        flex-direction: column;
+    }
+    #civ-techs{
         width: 100%;
     }
+        
+
 }
     

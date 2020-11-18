@@ -31,13 +31,8 @@ $(function(){
                 "fish trap gillnets": 0.20
             },
             "Aztecs (Farms)":{
-                "farmer": 0.1309,
-                "wheelbarrow": 0.0542
-            },
-            "Khmer (Farms)":{
-                "farmer": 0.083226,
-                "wheelbarrow": 0.042098,
-                "hand cart": 0.0028
+                "farmer": 0.07854,
+                "wheelbarrow": 0.03252
             },
             "Slavs (Farms)":{
                 "farmer": 0.1063,
@@ -653,7 +648,7 @@ $(function(){
                         "costPercent": true
                     },
                     "Italians Civ Bonus":{
-                        "cost": {"food": 0.2, "gold": 0.2},
+                        "cost": {"wood": 0.2, "gold": 0.2},
                         "costPercent": true
                     }
                     
@@ -872,6 +867,38 @@ $(function(){
                         "trainTime": 31,
                         "img": "demolition ship"
                     },
+                    "Shipwright":{
+                        "cost": {"wood": 0.2},
+                        "costPercent": true,
+                        "trainTime": 1.54,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "transport ship":{
+                "civs":{
+                    "Persians - Feudal Age":{
+                        "trainTime": 1.1,
+                        "trainTimePercent": true
+                    },
+                    "Persians - Castle Age":{
+                        "trainTime": 1.15,
+                        "trainTimePercent": true
+                    },
+                    "Persians - Imperial Age":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    },
+                    "Vikings - Feudal/Castle Age":{
+                        "cost": {"wood": 0.15},
+                        "costPercent": true
+                    },
+                    "Vikings - Imperial Age":{
+                        "cost": {"wood": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
                     "Shipwright":{
                         "cost": {"wood": 0.2},
                         "costPercent": true,
@@ -2009,8 +2036,9 @@ $(function(){
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
                           "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard",
-                          "fishing ship", "fire galley", "galley", "demolition raft", "cannon galleon", "longboat", "caravel", "turtle ship",
-                          "house", "farm", "watch tower", "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
+                          "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
+                          "house", "farm", "watch tower", 
+                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
