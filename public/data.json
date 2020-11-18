@@ -1371,6 +1371,7 @@
             "bonusDesc":[
                 "Bulgarians might not get champions, but the extra 5 melee armor from bagains makes their two-handed swordsmen even stronger.",
                 "The 50 stone discount on town centers helps slightly in castle age, especially if you've built a tower in feudal age.",
+                "Blacksmith and siege workshop food research costs are reduced by 50%, with blacksmiths working 80% faster. This means the Bulgarians can quickly and easily get the technologies required to produce their strong konniks.",
                 "Stirrups and full cavalry upgrades give Bulgarian hussars the highest damage per second out of any hussar in the game.",
                 "With access to the krepost, the Bulgarians can secure parts of the map better than most other civilizations."
             ],
@@ -1393,9 +1394,9 @@
                     "cavalier":[3, 3.5]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 3],
-                    "siege onager": [3, 3],
-                    "heavy scorpion":[3, 3]
+                    "siege ram":[3, 3.5],
+                    "siege onager": [3, 3.5],
+                    "heavy scorpion":[3, 3.5]
                 },
                 "monastery":{
                     "monk":[2, 2]
@@ -2062,7 +2063,7 @@
                 "Maghrabi camels makes camel riders and camel archers passively regenerate hit points, which helps greatly in drawn-out battles.",
                 "Kasbah makes team castles, including your own, work 25% faster. Since it's a castle age technology, it can be researched on the way up to imperial age so you can produce trebuchets faster than your opponent."
             ],
-            "ranksUnique":[["kasbah", "University and Castle"], ["maghrabi camels", "Cavalry"]],
+            "ranksUnique":[["kasbah", "Castle and University"], ["maghrabi camels", "Cavalry"]],
             "ranks":{
                 "town center": {
                     "villager":[3.5, 3.5, 3.5, 3.5]
@@ -2787,6 +2788,644 @@
         },
         {
             "name":"Britons",
+            "techTree":{
+                "barracks": {
+                  "units": [
+                    {
+                      "name": "militia",
+                      "available": true
+                    },
+                    {
+                      "name": "man-at-arms",
+                      "available": true
+                    },
+                    {
+                      "name": "long swordsman",
+                      "available": true
+                    },
+                    {
+                      "name": "two-handed swordsman",
+                      "available": true
+                    },
+                    {
+                      "name": "champion",
+                      "available": true
+                    },
+                    {
+                      "name": "spearman",
+                      "available": true
+                    },
+                    {
+                      "name": "pikeman",
+                      "available": true
+                    },
+                    {
+                      "name": "halberdier",
+                      "available": true
+                    },
+                    {
+                      "name": "eagle scout",
+                      "available": false
+                    },
+                    {
+                      "name": "eagle warrior",
+                      "available": false
+                    },
+                    {
+                      "name": "elite eagle warrior",
+                      "available": false
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "squires",
+                      "available": true
+                    },
+                    {
+                      "name": "arson",
+                      "available": true
+                    }
+                  ]
+                },
+                "archery range": {
+                  "units": [
+                    {
+                      "name": "archer",
+                      "available": true
+                    },
+                    {
+                      "name": "crossbowman",
+                      "available": true
+                    },
+                    {
+                      "name": "arbalester",
+                      "available": true
+                    },
+                    {
+                      "name": "skirmisher",
+                      "available": true
+                    },
+                    {
+                      "name": "elite skirmisher",
+                      "available": true
+                    },
+                    {
+                      "name": "hand cannoneer",
+                      "available": false
+                    },
+                    {
+                      "name": "cavalry archer",
+                      "available": true
+                    },
+                    {
+                      "name": "heavy cavalry archer",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "thumb ring",
+                      "available": false
+                    },
+                    {
+                      "name": "parthian tactics",
+                      "available": false
+                    }
+                  ]
+                },
+                "stable": {
+                  "units": [
+                    {
+                      "name": "scout cavalry",
+                      "available": true
+                    },
+                    {
+                      "name": "light cavalry",
+                      "available": true
+                    },
+                    {
+                      "name": "hussar",
+                      "available": false
+                    },
+                    {
+                      "name": "knight",
+                      "available": true
+                    },
+                    {
+                      "name": "cavalier",
+                      "available": true
+                    },
+                    {
+                      "name": "paladin",
+                      "available": false
+                    },
+                    {
+                      "name": "camel rider",
+                      "available": false
+                    },
+                    {
+                      "name": "heavy camel rider",
+                      "available": false
+                    },
+                    {
+                      "name": "battle elephant",
+                      "available": false
+                    },
+                    {
+                      "name": "elite battle elephant",
+                      "available": false
+                    },
+                    {
+                      "name": "steppe lancer",
+                      "available": false
+                    },
+                    {
+                      "name": "elite steppe lancer",
+                      "available": false
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "bloodlines",
+                      "available": false
+                    },
+                    {
+                      "name": "husbandry",
+                      "available": true
+                    }
+                  ]
+                },
+                "siege workshop": {
+                  "units": [
+                    {
+                      "name": "battering ram",
+                      "available": true
+                    },
+                    {
+                      "name": "capped ram",
+                      "available": true
+                    },
+                    {
+                      "name": "siege ram",
+                      "available": false
+                    },
+                    {
+                      "name": "mangonel",
+                      "available": true
+                    },
+                    {
+                      "name": "onager",
+                      "available": true
+                    },
+                    {
+                      "name": "siege onager",
+                      "available": false
+                    },
+                    {
+                      "name": "scorpion",
+                      "available": true
+                    },
+                    {
+                      "name": "heavy scorpion",
+                      "available": true
+                    },
+                    {
+                      "name": "siege tower",
+                      "available": true
+                    },
+                    {
+                      "name": "bombard cannon",
+                      "available": false
+                    }
+                  ],
+                  "upgrades": []
+                },
+                "castle": {
+                  "units": [
+                    {
+                      "name": "longbowman",
+                      "available": true
+                    },
+                    {
+                      "name": "elite longbowman",
+                      "available": true
+                    },
+                    {
+                      "name": "petard",
+                      "available": true
+                    },
+                    {
+                      "name": "trebuchet",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "yeomen",
+                      "available": true
+                    },
+                    {
+                      "name": "warwolf",
+                      "available": true
+                    },
+                    {
+                      "name": "hoardings",
+                      "available": true
+                    },
+                    {
+                      "name": "sappers",
+                      "available": true
+                    },
+                    {
+                      "name": "conscription",
+                      "available": true
+                    },
+                    {
+                      "name": "spies",
+                      "available": true
+                    }
+                  ]
+                },
+                "dock": {
+                  "units": [
+                    {
+                      "name": "fishing ship",
+                      "available": true
+                    },
+                    {
+                      "name": "fire galley",
+                      "available": true
+                    },
+                    {
+                      "name": "fire ship",
+                      "available": true
+                    },
+                    {
+                      "name": "fast fire ship",
+                      "available": true
+                    },
+                    {
+                      "name": "transport ship",
+                      "available": true
+                    },
+                    {
+                      "name": "trade cog",
+                      "available": true
+                    },
+                    {
+                      "name": "cannon galleon",
+                      "available": true
+                    },
+                    {
+                      "name": "elite cannon galleon",
+                      "available": false
+                    },
+                    {
+                      "name": "demolition raft",
+                      "available": true
+                    },
+                    {
+                      "name": "demolition ship",
+                      "available": true
+                    },
+                    {
+                      "name": "heavy demolition ship",
+                      "available": true
+                    },
+                    {
+                      "name": "galley",
+                      "available": true
+                    },
+                    {
+                      "name": "war galley",
+                      "available": true
+                    },
+                    {
+                      "name": "galleon",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "gillnets",
+                      "available": true
+                    },
+                    {
+                      "name": "careening",
+                      "available": true
+                    },
+                    {
+                      "name": "dry dock",
+                      "available": true
+                    },
+                    {
+                      "name": "shipwright",
+                      "available": true
+                    }
+                  ]
+                },
+                "monastery": {
+                  "units": [
+                    {
+                      "name": "monk",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "faith",
+                      "available": true
+                    },
+                    {
+                      "name": "redemption",
+                      "available": false
+                    },
+                    {
+                      "name": "illumination",
+                      "available": true
+                    },
+                    {
+                      "name": "atonement",
+                      "available": false
+                    },
+                    {
+                      "name": "block printing",
+                      "available": true
+                    },
+                    {
+                      "name": "herbal medicine",
+                      "available": true
+                    },
+                    {
+                      "name": "theocracy",
+                      "available": true
+                    },
+                    {
+                      "name": "heresy",
+                      "available": false
+                    },
+                    {
+                      "name": "sanctity",
+                      "available": true
+                    },
+                    {
+                      "name": "fervor",
+                      "available": true
+                    }
+                  ]
+                },
+                "blacksmith": {
+                  "units": [],
+                  "upgrades": [
+                    {
+                      "name": "padded archer armor",
+                      "available": true
+                    },
+                    {
+                      "name": "leather archer armor",
+                      "available": true
+                    },
+                    {
+                      "name": "ring archer armor",
+                      "available": true
+                    },
+                    {
+                      "name": "fletching",
+                      "available": true
+                    },
+                    {
+                      "name": "bodkin arrow",
+                      "available": true
+                    },
+                    {
+                      "name": "bracer",
+                      "available": true
+                    },
+                    {
+                      "name": "forging",
+                      "available": true
+                    },
+                    {
+                      "name": "iron casting",
+                      "available": true
+                    },
+                    {
+                      "name": "blast furnace",
+                      "available": true
+                    },
+                    {
+                      "name": "scale barding armor",
+                      "available": true
+                    },
+                    {
+                      "name": "chain barding armor",
+                      "available": true
+                    },
+                    {
+                      "name": "plate barding armor",
+                      "available": true
+                    },
+                    {
+                      "name": "scale mail armor",
+                      "available": true
+                    },
+                    {
+                      "name": "chain mail armor",
+                      "available": true
+                    },
+                    {
+                      "name": "plate mail armor",
+                      "available": true
+                    }
+                  ]
+                },
+                "university": {
+                  "units": [],
+                  "upgrades": [
+                    {
+                      "name": "masonry",
+                      "available": true
+                    },
+                    {
+                      "name": "architecture",
+                      "available": true
+                    },
+                    {
+                      "name": "fortified wall",
+                      "available": true
+                    },
+                    {
+                      "name": "chemistry",
+                      "available": true
+                    },
+                    {
+                      "name": "bombard tower upgrade",
+                      "available": false
+                    },
+                    {
+                      "name": "ballistics",
+                      "available": true
+                    },
+                    {
+                      "name": "siege engineers",
+                      "available": true
+                    },
+                    {
+                      "name": "guard tower",
+                      "available": true
+                    },
+                    {
+                      "name": "keep",
+                      "available": true
+                    },
+                    {
+                      "name": "heated shot",
+                      "available": true
+                    },
+                    {
+                      "name": "arrowslits",
+                      "available": true
+                    },
+                    {
+                      "name": "murder holes",
+                      "available": true
+                    },
+                    {
+                      "name": "treadmill crane",
+                      "available": false
+                    }
+                  ]
+                },
+                "town center": {
+                  "units": [
+                    {
+                      "name": "villager",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "town watch",
+                      "available": true
+                    },
+                    {
+                      "name": "town patrol",
+                      "available": true
+                    },
+                    {
+                      "name": "feudal age",
+                      "available": true
+                    },
+                    {
+                      "name": "castle age",
+                      "available": true
+                    },
+                    {
+                      "name": "imperial age",
+                      "available": true
+                    },
+                    {
+                      "name": "loom",
+                      "available": true
+                    },
+                    {
+                      "name": "wheelbarrow",
+                      "available": true
+                    },
+                    {
+                      "name": "hand cart",
+                      "available": true
+                    }
+                  ]
+                },
+                "mining camp": {
+                  "units": [],
+                  "upgrades": [
+                    {
+                      "name": "gold mining",
+                      "available": true
+                    },
+                    {
+                      "name": "gold shaft mining",
+                      "available": true
+                    },
+                    {
+                      "name": "stone mining",
+                      "available": true
+                    },
+                    {
+                      "name": "stone shaft mining",
+                      "available": false
+                    }
+                  ]
+                },
+                "lumber camp": {
+                  "units": [],
+                  "upgrades": [
+                    {
+                      "name": "double-bit axe",
+                      "available": true
+                    },
+                    {
+                      "name": "bow saw",
+                      "available": true
+                    },
+                    {
+                      "name": "two-man saw",
+                      "available": true
+                    }
+                  ]
+                },
+                "mill": {
+                  "units": [],
+                  "upgrades": [
+                    {
+                      "name": "horse collar",
+                      "available": true
+                    },
+                    {
+                      "name": "heavy plow",
+                      "available": true
+                    },
+                    {
+                      "name": "crop rotation",
+                      "available": false
+                    }
+                  ]
+                },
+                "market": {
+                  "units": [
+                    {
+                      "name": "trade cart",
+                      "available": true
+                    }
+                  ],
+                  "upgrades": [
+                    {
+                      "name": "coinage",
+                      "available": true
+                    },
+                    {
+                      "name": "banking",
+                      "available": true
+                    },
+                    {
+                      "name": "caravan",
+                      "available": true
+                    },
+                    {
+                      "name": "guilds",
+                      "available": true
+                    }
+                  ]
+                }
+              },
+            "bonusDesc":[],
+            "ranksUnique":[["yeomen", "Archer"], ["warwolf", "Castle and University"]],
             "ranks":{
                 "town center": {
                     "villager":[3, 3, 3.5, 3]
@@ -2816,8 +3455,9 @@
                     "elite longbowman":[2, 4],
                     "trebuchet":[3]
                 },
-                "villager":{
-                    "keep": [3, 3, 3.5]
+                "university":{
+                    "keep": [3, 3, 3.5],
+                    "defenses": [3, 3, 3, 3]
                 }
             }
         },

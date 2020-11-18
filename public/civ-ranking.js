@@ -76,19 +76,13 @@ $.getJSON('data.json', function(data) {
         $("#civ-bonuses").children(".bonus-desc").empty();
         $("#civ-available-techs").empty();
         //Show tech information
-        let descText = ""
+        let descTextSize = 0;
+        //Each line is maximum (44) characters
+        //Each p adds 1 line of spacing, so (44) characters are added
         civ.bonusDesc.forEach((d) => {
             $("#civ-bonuses").children(".bonus-desc").append("<p>"+d+"</p>");
-            descText += d;
+            descTextSize += d.length + 44;
         });
-        if(descText.length > 530){
-            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
-        } else if(descText.length > 470){
-            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
-        } 
-        console.log(descText.length);
-        // meso: "parthian tactics", "husbandry", "bloodlines"
-        
         
         let bsmithUps = [];
         let bsmithCategories = 5;
@@ -118,13 +112,12 @@ $.getJSON('data.json', function(data) {
             ["thumb ring", "parthian tactics"],
             ["bloodlines", "husbandry"],
             ["sanctity", "redemption", "atonement", "illumination", "block printing"],
-            ["siege engineers", "masonry", "fortified wall", "treadmill crane"],
-            ["arrowslits", "guard tower","bombard tower upgrade", "hoardings"]
+            ["siege engineers", "masonry", "fortified wall", "treadmill crane", "sappers", "arrowslits", "guard tower","bombard tower upgrade", "hoardings"]
         ];
-        if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][1] = "architecture";
-        if(finder(civ.techTree.university.upgrades, "keep").available === true) ups[5][1] = "keep";
-        let titles = ["Infantry", "Archer", "Cavalry", "Monastery", "University and Castle", false];
-        let relevantBuildings = ["barracks", "archery range", "stable", "monastery","university", "castle"];
+        if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][ups[4].indexOf("masonry")] = "architecture";
+        if(finder(civ.techTree.university.upgrades, "keep").available === true) ups[4][ups[4].indexOf("guard tower")] = "keep";
+        let titles = ["Infantry", "Archer", "Cavalry", "Monastery", "Castle and University"];
+        let relevantBuildings = ["barracks", "archery range", "stable", "monastery", "university", "castle"];
         if(missingStable){
             titles.splice(titles.indexOf("Cavalry"), 1);
             ups[1].splice(1, 1);
@@ -148,17 +141,31 @@ $.getJSON('data.json', function(data) {
             upsList = upsList.concat(civ.techTree[b].upgrades);
         });
         ups.forEach((u, i) => {
+            if(titles[i]){
+                $("#civ-available-techs").append("<div class='header'>"+titles[i]+"</div>");
+            }
             let row = $("<div class='desc-cont'></div>");
             u.forEach((a) => {
                 let img = $("<div class='desc-img'><img src='img/"+a+".png'></div>");
                 if(!finder(upsList, a).available) img.children("img").addClass("upgrade-locked");
                 row.append(img);
+                if(row.children(".desc-img").length === 5){
+                    $("#civ-available-techs").append(row);
+                    row = $("<div class='desc-cont'></div>");
+                }
             });
-            if(titles[i]){
-                $("#civ-available-techs").append("<div class='header'>"+titles[i]+"</div>");
-            }
             $("#civ-available-techs").append(row);
         });
+        
+        if(descTextSize > 800){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
+            $(".desc-img img").addClass("x-small-img");
+        } else if(descTextSize > 700){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
+        } else if(descTextSize > 600){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
+        } 
+        //console.log(descTextSize);
     });
     $(".civ-cont:eq(2)").trigger("click");
     
