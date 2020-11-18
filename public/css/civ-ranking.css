@@ -9,6 +9,7 @@ body{
     width:90%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .civ-cont{
     width: 100px;
@@ -49,7 +50,7 @@ body{
 #civ-ranks{
     width:80%;
 }
-#civ-techs{
+#civ-techs-cont{
     width: 30%;
     height: 100%;
 }
@@ -77,17 +78,22 @@ body{
 }
 .desc-cont{
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
+    justify-content: center;
+    margin-top: 0.35em;
+    margin-bottom: 0.7em;
 }
 .desc-img{
     display: flex;
     text-align: center;
     align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .desc-img img{
     width: 45px;
+}
+.upgrade-locked{
+    filter: brightness(50%);
 }
 
 #ages{
@@ -113,13 +119,13 @@ body{
     justify-content: center;
 }
 .building div:first-child{
-    width:80%;
+    width:95%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .building div:last-child{
-    width:20%;
+    width:5%;
 }
 .unit-row{
     width: 80%;
@@ -131,9 +137,9 @@ body{
     align-items: center;
     justify-content: center;
 }
-.ages-cont:nth-child(2), .unit-div:nth-child(2){
-    margin-top: 2px;
-    margin-bottom: 2px;
+.ages-cont:nth-child(even), .unit-div:nth-child(even){
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 .ages-cont{
     width: 80%;
@@ -175,7 +181,7 @@ body{
     width: 80px;
 }
 #civ-title{
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: "Verdana Black";
     font-size: 26pt;
 }
 @media print{
@@ -187,7 +193,7 @@ body{
         margin-bottom: 10px;
     }
     #civ-info{
-        width: 95%;
+        width: 100%;
         border-radius: 0px;
     }
     #civ-ranks-cont{
@@ -205,19 +211,44 @@ body{
     .x-small-img{
         width: 35px !important;
     }
-    
+    .xa-small-img{
+        width: 32.5px !important;
+    }
+    .xx-small-img{
+        width: 31px !important;
+    }
+    .desc-img img{
+        width: 40px;
+    }
+    .desc-img{
+        margin-left: 4px;
+        margin-right: 4px;
+    }
     .header{
         font-size: 16px;
     }
     #civ-bonuses p{
         font-size: 12px;
     }
+    .small-desc-text{
+        font-size: 14px !important;
+        line-height: 18px !important;
+    }
+    .x-small-desc-text{
+        font-size: 12px !important;
+        line-height: 16px !important;
+    }
+    
+    #civ-bonuses, #civ-available-techs{
+        width: 100%;
+    }
     
 }
 @media screen and (max-width: 1367px) {
     #civ-ranks-cont{
         width: 100%;
-        padding-bottom:1em;
+        padding:0;
+        margin-bottom:1em;
         border:none;
         border-bottom: 1px dashed;
     }
@@ -225,10 +256,17 @@ body{
         align-items: center;
         flex-direction: column;
     }
-    #civ-techs{
+    #civ-techs-cont{
         width: 100%;
     }
-        
+    #civ-available-techs{
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    #civ-bonuses{
+        width: 80%;
+        margin: 0 auto;
+    }
 
 }
     

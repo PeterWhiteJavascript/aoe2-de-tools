@@ -47,31 +47,52 @@ $.getJSON('data.json', function(data) {
         }
         //Adjust the size of the images (which reduces the size of the rows) FOR PRINTING ONLY.
         let unitNum = $(".unit").length;
-        if(unitNum > 15){
+        if(unitNum === 21){
+            $(".age img").addClass("xx-small-img");
+            $(".building img").addClass("xx-small-img");
+            $(".unit img").addClass("xx-small-img");
+            $(".age-spacer img").addClass("xx-small-img");
+            $(".ages-cont img").addClass("xx-small-img");
+        } else if(unitNum === 20){
+            $(".age img").addClass("xa-small-img");
+            $(".building img").addClass("x-small-img");
+            $(".unit img").addClass("xa-small-img");
+            $(".age-spacer img").addClass("x-small-img");
+            $(".ages-cont img").addClass("x-small-img");
+        } else if(unitNum >= 18){
+            $(".age img").addClass("x-small-img");
+            $(".building img").addClass("x-small-img");
+            $(".unit img").addClass("x-small-img");
+            $(".age-spacer img").addClass("x-small-img");
+            $(".ages-cont img").addClass("x-small-img");
+        } else if(unitNum >= 16){
             $(".age img").addClass("small-img");
             $(".building img").addClass("small-img");
             $(".unit img").addClass("small-img");
             $(".age-spacer img").addClass("small-img");
             $(".ages-cont img").addClass("small-img");
         }
-        if(unitNum > 17){
-            $(".age img").addClass("x-small-img");
-            $(".building img").addClass("x-small-img");
-            $(".unit img").addClass("x-small-img");
-            $(".age-spacer img").addClass("x-small-img");
-            $(".ages-cont img").addClass("x-small-img");
-        }
         
         $("#civ-bonuses").children(".bonus-desc").empty();
+        $("#civ-available-techs").empty();
         //Show tech information
+        let descText = ""
         civ.bonusDesc.forEach((d) => {
             $("#civ-bonuses").children(".bonus-desc").append("<p>"+d+"</p>");
+            descText += d;
         });
+        if(descText.length > 530){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
+        } else if(descText.length > 470){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
+        } 
+        console.log(descText.length);
         // meso: "parthian tactics", "husbandry", "bloodlines"
         
         
         let bsmithUps = [];
         let bsmithCategories = 5;
+        let missingStable = false;
         for(i = 0; i < bsmithCategories; i++){
             if(civ.techTree["blacksmith"].upgrades[(i * 3) + 2].available){
                 bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3) + 2].name);
@@ -79,19 +100,67 @@ $.getJSON('data.json', function(data) {
                 bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3) + 1].name);
             } else if(civ.techTree["blacksmith"].upgrades[(i * 3)].available){
                 bsmithUps.push(civ.techTree["blacksmith"].upgrades[(i * 3)].name);
+            } else {
+                missingStable = true;
             }
         }
         
+                   
         let bsmithdiv = $("<div class='desc-cont'></div>");
         bsmithUps.forEach((u) => {
             bsmithdiv.append("<div class='desc-img'><img src='img/"+u+".png'></div>");
         });
+        $("#civ-available-techs").append("<div class='header'>Blacksmith</div>");
         $("#civ-available-techs").append(bsmithdiv);
         
-        console.log(bsmithUps)
-        
+        let ups = [
+            ["squires", "supplies", "arson"],
+            ["thumb ring", "parthian tactics"],
+            ["bloodlines", "husbandry"],
+            ["sanctity", "redemption", "atonement", "illumination", "block printing"],
+            ["siege engineers", "masonry", "fortified wall", "treadmill crane"],
+            ["arrowslits", "guard tower","bombard tower upgrade", "hoardings"]
+        ];
+        if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][1] = "architecture";
+        if(finder(civ.techTree.university.upgrades, "keep").available === true) ups[5][1] = "keep";
+        let titles = ["Infantry", "Archer", "Cavalry", "Monastery", "University and Castle", false];
+        let relevantBuildings = ["barracks", "archery range", "stable", "monastery","university", "castle"];
+        if(missingStable){
+            titles.splice(titles.indexOf("Cavalry"), 1);
+            ups[1].splice(1, 1);
+            ups.splice(2, 1);
+            relevantBuildings.splice(2, 1);
+        };
+        let unique = civ.ranksUnique;
+        if(unique){
+            civ.ranksUnique.forEach((r) => {
+                let idx = titles.indexOf(r[1]);
+                if(idx < 0){
+                    ups.push([r[0]]);
+                    titles.push(r[1]);
+                } else {
+                    ups[idx].push(r[0]);
+                }
+            });
+        }
+        let upsList = [];
+        relevantBuildings.forEach((b) => {
+            upsList = upsList.concat(civ.techTree[b].upgrades);
+        });
+        ups.forEach((u, i) => {
+            let row = $("<div class='desc-cont'></div>");
+            u.forEach((a) => {
+                let img = $("<div class='desc-img'><img src='img/"+a+".png'></div>");
+                if(!finder(upsList, a).available) img.children("img").addClass("upgrade-locked");
+                row.append(img);
+            });
+            if(titles[i]){
+                $("#civ-available-techs").append("<div class='header'>"+titles[i]+"</div>");
+            }
+            $("#civ-available-techs").append(row);
+        });
     });
-    $(".civ-cont").first().trigger("click");
+    $(".civ-cont:eq(2)").trigger("click");
     
 });
 });
