@@ -2762,7 +2762,7 @@
                     "heavy cavalry archer": [2, 2]
                 },
                 "stable":{
-                    "hussar":[3, 3, 3],
+                    "hussar":[3, 3, 3.5],
                     "cavalier":[3, 3.5],
                     "elite battle elephant":[3, 3.5]
                 },
