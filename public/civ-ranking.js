@@ -162,6 +162,7 @@ $.getJSON('data.json', function(data) {
             let row = $("<div class='desc-cont'></div>");
             u.forEach((a) => {
                 let img = $("<div class='desc-img'><img src='img/"+a+".png'></div>");
+                console.log(a)
                 if(!finder(upsList, a).available) img.children("img").addClass("upgrade-locked");
                 row.append(img);
                 if(row.children(".desc-img").length === 5){
@@ -185,7 +186,7 @@ $.getJSON('data.json', function(data) {
         } 
         console.log(descTextSize);
     });
-    $(".civ-cont:eq(6)").trigger("click");
+    $(".civ-cont:eq(13)").trigger("click");
     
 });
 });
