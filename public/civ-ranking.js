@@ -188,7 +188,7 @@ $.getJSON('data.json', function(data) {
         } 
         console.log(descTextSize);
     });
-    $(".civ-cont:eq(13)").trigger("click");
+    $(".civ-cont:eq(17)").trigger("click");
     
 });
 });

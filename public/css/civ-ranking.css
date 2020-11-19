@@ -200,6 +200,7 @@ body{
 .low-rank{
     background-color: #CD5C5C;
 }
+
 @media print{
     @page { size: auto;  margin: 0mm; }
     body{
@@ -293,6 +294,11 @@ body{
         width: 80%;
         margin: 0 auto;
     }
-
+}
+@media screen and (min-width: 1368px){
+    .xx-small-desc-text{
+        font-size: 14px !important;
+        line-height: 18px !important;
+    }
 }
     
