@@ -258,6 +258,10 @@ body{
         font-size: 12px !important;
         line-height: 16px !important;
     }
+    .xx-small-desc-text{
+        font-size: 11px !important;
+        line-height: 16px !important;
+    }
     
     #civ-bonuses, #civ-available-techs{
         width: 100%;

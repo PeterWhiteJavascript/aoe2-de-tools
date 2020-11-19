@@ -172,8 +172,10 @@ $.getJSON('data.json', function(data) {
             });
             $("#civ-available-techs").append(row);
         });
-        
-        if(descTextSize > 845){
+        if(descTextSize > 1025){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xx-small-desc-text");
+            $(".desc-img img").addClass("x-small-img");
+        } else if(descTextSize > 845){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
         } else if(descTextSize > 780){
