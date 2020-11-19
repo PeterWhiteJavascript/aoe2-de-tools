@@ -131,7 +131,7 @@ $.getJSON('data.json', function(data) {
         ];
         if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][ups[4].indexOf("masonry")] = "architecture";
         if(finder(civ.techTree.university.upgrades, "keep").available === true) ups[4][ups[4].indexOf("guard tower")] = "keep";
-        let titles = ["Infantry", "Archer", "Cavalry", "Monastery", "Castle and University"];
+        let titles = ["Infantry", "Archers", "Cavalry", "Monks", "Castle and University"];
         let relevantBuildings = ["barracks", "archery range", "stable", "monastery", "university", "castle"];
         if(missingStable){
             titles.splice(titles.indexOf("Cavalry"), 1);
