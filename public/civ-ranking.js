@@ -180,7 +180,7 @@ $.getJSON('data.json', function(data) {
         } else if(descTextSize > 750){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
             $(".desc-img img").addClass("x-small-img");
-        } else if(descTextSize > 700){
+        } else if(descTextSize > 650){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
         console.log(descTextSize);
