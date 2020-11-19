@@ -10255,7 +10255,7 @@
               },
             "bonusDesc":[
                 "Indian villagers have their resource cost progressively reduced each age, which gives them extra food for scouts, which is the strategy of choice for them in feudal age.",
-                "Their cavalry all have 1 extra pierce armor, which gives their scouts base 3 armor in feudal age. After researching scale barding armor, their scouts take only 1 damage from archers with fletching in feudal age.",
+                "Indians get +1 pierce armor on their scouts and camels in castle age an imperial age.",
                 "The imperial camel gives the Indians a very good counter to melee cavalry, though they do have halberdiers as well.",
                 "The elephant archer is generally thought of as too expensive to build early on, and has too many counters later on. With its base 3 pierce armor, it can be very useful against enemy crossbows.",
                 "With shatagni, hand cannoneers get an extra range. This brings them to 8 range, which is the same as janissaries."
@@ -10276,7 +10276,7 @@
                     "hand cannoneer":[3.5]
                 },
                 "stable":{
-                    "hussar":[3.5, 3.5, 3.5],
+                    "hussar":[3, 3.5, 3.5],
                     "imperial camel rider":[3.5, 3.5]
                 },
                 "siege workshop":{
@@ -15439,7 +15439,7 @@
                 "gold": 70
             },
             "armorClasses": [[5, 0], [8, 0]],
-            "bonus":[[11, 7], [13, 7]],
+            "bonus":[[11, 4], [13, 7]],
             "damageTechs":["battle elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["chatras", "manipur cavalry", "tusk swords", "howdah"],
