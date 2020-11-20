@@ -31,6 +31,9 @@ body{
     width: 50%;
     height: auto;
 }
+.civ-cont{
+    font-family: "Georgia";
+}
 #civ-info{
     display: flex;
     justify-content: center;
