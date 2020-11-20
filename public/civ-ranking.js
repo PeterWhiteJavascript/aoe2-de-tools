@@ -127,7 +127,7 @@ $.getJSON('data.json', function(data) {
             ["thumb ring", "parthian tactics"],
             ["bloodlines", "husbandry"],
             ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith","herbal medicine"],
-            ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "treadmill crane","bombard tower upgrade"]
+            ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "treadmill crane", "bombard tower upgrade"]
         ];
         if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][ups[4].indexOf("masonry")] = "architecture";
         civ.ranksUnique.forEach((r) => {
@@ -145,6 +145,10 @@ $.getJSON('data.json', function(data) {
         relevantBuildings.forEach((b) => {
             upsList = upsList.concat(civ.techTree[b].upgrades);
         });
+        if(civ.name === "Goths" || civ.name === "Cumans"){
+            ups[4][ups[4].indexOf("fortified wall")] = "stone wall";
+            upsList.push({name: "stone wall", available: false})
+        }
         ups.forEach((u, i) => {
             if(titles[i]){
                 $("#civ-available-techs").append("<div class='header'>"+titles[i]+"</div>");

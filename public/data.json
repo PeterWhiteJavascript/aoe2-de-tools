@@ -5483,7 +5483,7 @@
                 "With faster moving cavalry in feudal and imperial age, they can more easily run from bad fights. This also can be used to force the enemy to engage before they are ready.",
                 "In the late game, the ultimate Cuman army consists mostly of cavalry, as they are lacking bracer and arbalester."
             ],
-            "ranksUnique":[["steppe husbandry", "Cavalry"]],
+            "ranksUnique":[["steppe husbandry", "Cavalry"], ["cuman mercenaries", "Castle and University"]],
             "ranks":{
                 "town center": {
                     "villager":[3, 4, 3, 3]
