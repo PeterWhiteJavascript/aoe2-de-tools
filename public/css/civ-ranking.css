@@ -284,6 +284,7 @@ body{
         border-bottom: 1px dashed;
     }
     #civ-info{
+        width: 100%;
         align-items: center;
         flex-direction: column;
     }
