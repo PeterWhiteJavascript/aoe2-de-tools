@@ -687,10 +687,10 @@
                 }
               },
             "bonusDesc":[
-                "Aztecs have +3 carry capacity on their villagers as well as 11% faster military production for all military except siege workshop units. This means they collect all resources faster, especially from farms, which allows them to keep up with production of units. This justifiably adds a half rank to each military unit.",
-                "They start with +50 gold, which gives a half rank to their militia opening.",
+                "Aztecs have +3 carry capacity on their villagers as well as 11% faster military production for all military except siege workshop units. This means they collect all resources faster, especially from farms, which allows them to keep up with production of units.",
+                "They start with +50 gold, which gives them a strong militia opening.",
                 "Their monks also gain +5 hp per monastery tech researched and they have access to all monastery techs.",
-                "Since they lack masonry and hoardings, Aztecs have a more difficult time holding positions."
+                "Since they lack masonry and hoardings, Aztecs have a more difficult time holding positions on the map."
             ],
             "ranksUnique":[["atlatl", "Archers"], ["garland wars", "Infantry"]],
             "ranks":{
@@ -21225,7 +21225,8 @@
                 },
                 "castle":{
                     "elite keshik":[3, 3],
-                    "trebuchet":[3]
+                    "trebuchet":[4],
+                    "flaming camel":[0]
                 },
                 "university":{
                     "guard tower": [3, 3, 1.5],

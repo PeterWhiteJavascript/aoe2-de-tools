@@ -207,7 +207,7 @@ body{
     body{
         background-image: none;
     }
-    #civ-conts{
+    #civ-conts, #footer{
         display:none;
     }
     #civ-title-cont{

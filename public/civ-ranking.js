@@ -162,7 +162,6 @@ $.getJSON('data.json', function(data) {
             let row = $("<div class='desc-cont'></div>");
             u.forEach((a) => {
                 let img = $("<div class='desc-img'><img src='img/"+a+".png'></div>");
-                console.log(a)
                 if(!finder(upsList, a).available) img.children("img").addClass("upgrade-locked");
                 row.append(img);
                 if(row.children(".desc-img").length === 5){
@@ -178,17 +177,15 @@ $.getJSON('data.json', function(data) {
         } else if(descTextSize > 845){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
-        } else if(descTextSize > 780){
-            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
         } else if(descTextSize > 750){
-            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
         } else if(descTextSize > 650){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
         console.log(descTextSize);
     });
-    $(".civ-cont:eq(17)").trigger("click");
+    //$(".civ-cont:eq(0)").trigger("click");
     
 });
 });
