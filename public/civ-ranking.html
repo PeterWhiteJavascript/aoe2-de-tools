@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Civilization Unit Ranking</title>
+        <title>Simplified Technology Tree for 1v1 Arabia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -19,7 +19,9 @@ and open the template in the editor.
         <script src="civ-ranking.js"></script>
     </head>
     <body>
-        <div id='civ-conts'></div>
+        <div id='civ-conts'>
+            <div class='civ-cont' page='explanation'><img src='img/logo.png'><div>Explanation</div></div>
+        </div>
         <div id='civ-title-cont'>
             <div id='civ-title-spacer'></div>
             <div id='civ-title'></div>
@@ -38,6 +40,63 @@ and open the template in the editor.
                     <div class='bonus-desc'></div>
                 </div>
                 <div id='civ-available-techs'></div>
+            </div>
+        </div>
+        <div id='explanation'>
+            <div class='explanation-cont'>
+                <h1>Simplified Technology Tree for 1v1 Arabia</h1>
+                <p>
+                    This simplified tech tree helps you to pick out the best units for each stage of the game.
+                    It includes all units and upgrades that are relevant to 1v1 Arabia and each civilization has access to which aren’t shared by all civilizations. 
+                    All civilizations can research ballistics, chemistry, murder holes, and conscription, so they are not listed. 
+                    Naval units and bonuses for water are not listed.
+                </p>
+                <p>
+                    There is also an overview that summarizes bonuses and gives additional insight into how to play each civilization.
+                    The rankings are determined by considering the utility of units at each stage of the game. 
+                    Fully upgraded is “A” rank. Units increase rank from here based on what bonuses and unique upgrades they have, or decrease rank based on upgrades they’re missing. 
+                    More important upgrades are weighted higher. For example, missing blast furnace on cavalier only reduces the rank by a half stage, whereas missing plate barding armor reduces it by a full rank. 
+                    A gold background means that the unit is better than generic fully upgraded.
+                    A red background means that the unit is particularly bad.
+                    The ranking next to the production building is the average of all unit ranks for all ages in that building.
+                </p>
+                <p>
+                    Upgrades are weighted based on the unit they’re applied to. 
+                    This means that missing thumb ring for castle age crossbowmen reduces their rank by a half stage, whereas for cavalry archers, it reduces it by a full stage. 
+                </p>
+                <p>
+                    Combinations of upgrades missing can decrease the rank by more than the usual values. 
+                    For example, in imperial age, missing heavy scorpion reduces their rank by a full stage and missing siege engineers reduces it by a half stage. 
+                    Missing both, however, reduces the rank by two stages.
+                </p>
+                <p>
+                   Some upgrades have no effect on the ranking such as paladin and siege onager. 
+                   Fully upgraded cavaliers and onagers still have “A” rank. 
+                   This is because these upgrades are not as important in 1v1 Arabia. 
+                   Sappers also doesn’t decrease the ranking of villagers if it is missing. 
+                </p>
+                <p>
+                   Since civilization bonuses and technologies are unique to each civilization, they are assessed on a case by case basis. 
+                   The same applies for unique units. 
+                   This leads to rankings that are somewhat subjective. 
+                </p>
+                <h2>Explanations for unclear rankings</h2>
+                <div class='unclear-div'>
+                    <img src='img/villager.png'>
+                    <p>
+                    This is the ranking for how good the civilization’s economy is. 
+                    It also includes bonuses for the villager stats themselves as with Incas benefitting from blacksmith upgrades and Spanish with supremacy. 
+                    A good economy bonus increases the rank by a half stage, but an economy bonus that is very situational or not very effective does not increase the rank.
+                    </p>
+                </div>
+                <div class='unclear-div'>
+                    <img src='img/defenses.png'>
+                    <p>
+                        This is the overall defensive ability of the civilization. 
+                        It takes into account their ability to build walls as well as their building upgrades such as masonry, architecture, and hoardings.
+                    </p>
+                </div>
+                
             </div>
         </div>
         

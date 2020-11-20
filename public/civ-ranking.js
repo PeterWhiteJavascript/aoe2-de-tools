@@ -8,11 +8,26 @@ $.getJSON('data.json', function(data) {
     $(".civ-cont").click((e) => {
         $(".selected-civ").removeClass("selected-civ");
         $(e.currentTarget).addClass("selected-civ");
+        $("#tree").empty();
+        $("#civ-bonuses").children(".bonus-desc").empty();
+        $("#civ-available-techs").empty();
+        
+        if($(e.currentTarget).attr("page") === "explanation"){
+            $("#civ-title-cont").hide();
+            $("#civ-info").hide();
+            $("#explanation").show();
+            
+            return;
+        }
+        
+        $("#civ-title-cont").show();
+        $("#civ-info").show();
+        $("#explanation").hide();
+        
         let civ = data.civilizations[parseInt($(e.currentTarget).attr("civid"))];
         $("#civ-title").text(civ.name);
         $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
-        $("#tree").empty();
         
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
@@ -88,8 +103,6 @@ $.getJSON('data.json', function(data) {
             $(".ages-cont img").addClass("small-img");
         }
         //console.log(unitNum)
-        $("#civ-bonuses").children(".bonus-desc").empty();
-        $("#civ-available-techs").empty();
         //Show tech information
         let descTextSize = 0;
         //Each line is maximum (44) characters

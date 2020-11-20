@@ -4,7 +4,45 @@ body{
     align-items: center;
     flex-direction: column;
 }
-
+#explanation{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: justify;
+    max-width: 1000px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    border-top:1px solid;
+}
+.explanation-cont{
+    width: 90%;
+    margin: 0 auto;
+}
+.explanation-cont h1, .explanation-cont h2{
+    text-align: center;
+    padding: 20px;
+}
+.explanation-cont h2{
+    padding-bottom: 10px;
+}
+.explanation-cont p{
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+    font-family: "Georgia";
+    line-height: 22px;
+}
+.unclear-div{
+    display: flex;
+    align-items: center;
+}
+.unclear-div img{
+    width: 60px;
+    padding-right: 34px;
+}
 #civ-conts{
     width:90%;
     display: flex;
@@ -216,10 +254,17 @@ body{
     #civ-title-cont{
         margin-bottom: 10px;
     }
-    #civ-info{
+    #civ-info, #explanation{
         width: 100%;
         border-radius: 0px;
         background: none;
+    }
+    #explanation{
+        border: none;
+        width: 89%;
+    }
+    .explanation-cont p{
+        font-size: 14px;
     }
     #civ-ranks-cont{
         width: 60%;

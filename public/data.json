@@ -696,7 +696,7 @@
             "ranksUnique":[["atlatl", "Archers"], ["garland wars", "Infantry"]],
             "ranks":{
                 "town center": {
-                    "villager":[3.5, 3.5, 3.5, 3.5]
+                    "villager":[3.5, 3.5, 3.5, 3]
                 },
                 "barracks":{
                     "champion":[4, 3.5, 3.5, 4],
@@ -1386,7 +1386,7 @@
             "ranksUnique":[["stirrups", "Cavalry"], ["bagains", "Infantry"]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3.5, 3]
+                    "villager":[3, 3, 3, 3]
                 },
                 "barracks":{
                     "two-handed swordsman":[3, 3, 3, 3.5],
@@ -2753,7 +2753,7 @@
                 "Burmese get lumber upgrades for free. Though this is helpful, this is not a good enough bonus to increase the rank of villagers.",
                 "Infantry get +1 attack per age, which means that they have +3 for free in imperial age. This really helps their infantry in trash battles in the late game.",
                 "With howdah, Burmese battle elephants become extremely tanky, especially against archers.",
-                "Manipur cavalry gives an attack bonus  against buildings for all stable units as well as arambai. Since the Burmese lack siege ram, this can be good to pick up in the late game, especially for raiding with hussars.",
+                "Manipur cavalry gives an attack bonus  against buildings for all stable units as well as arambai. Since the Burmese lack siege ram, this can be good to pick up in the late game, especially when raiding with hussars.",
                 "Monastery technologies are 50% cheaper."
             ],
             "ranksUnique":[["howdah", "Cavalry"], ["manipur cavalry", "Cavalry"]],
@@ -2768,7 +2768,7 @@
                 "archery range":{
                     "crossbowman": [3, 2, 1],
                     "elite skirmisher": [3, 2, 1],
-                    "heavy cavalry archer": [2, 2]
+                    "heavy cavalry archer": [2, 1.5]
                 },
                 "stable":{
                     "hussar":[3, 3, 3.5],
@@ -3441,7 +3441,7 @@
             "ranksUnique":[["yeomen", "Archers"], ["warwolf", "Castle and University"]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3.5, 3]
+                    "villager":[3.5, 3, 3.5, 3]
                 },
                 "barracks":{
                     "champion":[3, 3, 3, 3],
@@ -3450,7 +3450,7 @@
                 "archery range":{
                     "arbalester": [3.5, 3.5, 4],
                     "elite skirmisher": [3, 3, 3.5],
-                    "heavy cavalry archer": [2, 2]
+                    "heavy cavalry archer": [2, 1.5]
                 },
                 "stable":{
                     "light cavalry":[2, 2, 2],
@@ -4812,7 +4812,7 @@
                     "halberdier":[3.5, 3.5, 3.5]
                 },
                 "archery range":{
-                    "crossbowman": [3, 3, 1],
+                    "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 1.5],
                     "heavy cavalry archer": [1.5, 1]
                 },
@@ -13032,7 +13032,7 @@
                     "monk":[3, 3]
                 },
                 "castle":{
-                    "elite war wagon":[2, 3],
+                    "elite war wagon":[2.5, 3.5],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -17097,7 +17097,7 @@
                 },
                 "barracks":{
                     "champion":[3, 3, 2.5, 2.5],
-                    "halberdier":[3, 3, 2]
+                    "halberdier":[3, 3, 3]
                 },
                 "archery range":{
                     "arbalester": [3, 3, 2.5],
@@ -20525,9 +20525,9 @@
                     "halberdier":[3, 3, 4]
                 },
                 "archery range":{
-                    "crossbowman": [3, 2, 1],
+                    "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 2],
-                    "heavy cavalry archer": [1.5, 1]
+                    "heavy cavalry archer": [2, 1]
                 },
                 "stable":{
                     "hussar":[3, 3, 3.5],
@@ -21890,9 +21890,9 @@
                     "halberdier":[3, 3.5, 3.5]
                 },
                 "archery range":{
-                    "crossbowman": [3, 2, 1],
+                    "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 2.5],
-                    "heavy cavalry archer": []
+                    "cavalry archer": [1.5, 1]
                 },
                 "stable":{
                     "scout cavalry":[3, 2.5, 2],
