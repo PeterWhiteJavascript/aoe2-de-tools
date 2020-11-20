@@ -351,4 +351,8 @@ body{
         line-height: 18px !important;
     }
 }
-    
+@media screen{
+    #explanation{
+        padding-bottom: 30px;
+    }
+}
