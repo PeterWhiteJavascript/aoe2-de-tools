@@ -126,31 +126,21 @@ $.getJSON('data.json', function(data) {
             ["squires", "supplies", "arson"],
             ["thumb ring", "parthian tactics"],
             ["bloodlines", "husbandry"],
-            ["sanctity", "redemption", "atonement", "illumination", "block printing"],
-            ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "guard tower","bombard tower upgrade"]
+            ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith","herbal medicine"],
+            ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "treadmill crane","bombard tower upgrade"]
         ];
         if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][ups[4].indexOf("masonry")] = "architecture";
-        if(finder(civ.techTree.university.upgrades, "keep").available === true) ups[4][ups[4].indexOf("guard tower")] = "keep";
-        let titles = ["Infantry", "Archers", "Cavalry", "Monks", "Castle and University"];
+        civ.ranksUnique.forEach((r) => {
+            ups[4].push(r[0]);
+        });
+        let titles = ["Barracks", "Archery Range", "Stable", "Monastery", "Castle and University"];
         let relevantBuildings = ["barracks", "archery range", "stable", "monastery", "university", "castle"];
         if(missingStable){
-            titles.splice(titles.indexOf("Cavalry"), 1);
+            titles.splice(titles.indexOf("Stable"), 1);
             ups[1].splice(1, 1);
             ups.splice(2, 1);
             relevantBuildings.splice(2, 1);
         };
-        let unique = civ.ranksUnique;
-        if(unique){
-            civ.ranksUnique.forEach((r) => {
-                let idx = titles.indexOf(r[1]);
-                if(idx < 0){
-                    ups.push([r[0]]);
-                    titles.push(r[1]);
-                } else {
-                    ups[idx].push(r[0]);
-                }
-            });
-        }
         let upsList = [];
         relevantBuildings.forEach((b) => {
             upsList = upsList.concat(civ.techTree[b].upgrades);
@@ -171,19 +161,21 @@ $.getJSON('data.json', function(data) {
             });
             $("#civ-available-techs").append(row);
         });
-        if(descTextSize > 1025){
+        if(descTextSize > 950){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xx-small-desc-text");
-            $(".desc-img img").addClass("x-small-img");
-        } else if(descTextSize > 845){
-            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
         } else if(descTextSize > 750){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
         } else if(descTextSize > 650){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
+            $(".desc-img img").addClass("x-small-img");
+        } else if(descTextSize > 550){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
+        console.log(descTextSize)
     });
+    
     $(".civ-cont:eq(0)").trigger("click");
     
 });

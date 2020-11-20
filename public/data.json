@@ -689,8 +689,9 @@
             "bonusDesc":[
                 "Aztecs have +3 carry capacity on their villagers as well as 11% faster military production for all military except siege workshop units. This means they collect all resources faster, especially from farms, which allows them to keep up with production of units.",
                 "They start with +50 gold, which gives them a strong militia opening.",
-                "Their monks also gain +5 hp per monastery tech researched and they have access to all monastery techs.",
-                "Since they lack masonry and hoardings, Aztecs have a more difficult time holding positions on the map."
+                "Their monks also gain +5 hp per monastery tech researched and they have access to all monastery techs. Relics also generate 33% more gold.",
+                "Since they lack masonry and hoardings, Aztecs have a more difficult time holding positions on the map.",
+                "With the +4 attack from garland wars, a mixture of champions, pikemen, eagle warriors, and jaguar warriors can handle almost any army as long as the Aztecs have gold."
             ],
             "ranksUnique":[["atlatl", "Archers"], ["garland wars", "Infantry"]],
             "ranks":{
@@ -10944,7 +10945,7 @@
                 "Italians advance to the next age at a 15% discount. Other than this, they don't get any other bonus that helps them until the late game.",
                 "Though they lack bonuses, their tech tree is completely open until imperial age. This gives them the versatility to go for any unit in the mid game.",
                 "Hand cannoneers and bombard cannons are 20% cheaper.",
-                "Since Italians lack halberdiers, their best counter to cavalry is the genoese crossbowman. They have full upgrades for building defenses, as well as cheap bombard cannons, so they can more easily hold the castles needed to produce genoese crossbowmen.",
+                "Since Italians lack halberdiers, their counter to cavalry is the genoese crossbowman. They have full upgrades for building defenses, as well as cheap bombard cannons, so they can more easily hold the castles needed to produce genoese crossbowmen.",
                 "They also have access to the condottiero. This unit gives the Italians an option for an early imperial age infantry unit without needing to tech into champion.",
                 "With pavise, Italian foot archers and condottiero gain 1 melee and 1 pierce armor."
             ],
@@ -19826,7 +19827,7 @@
             "bonusDesc":[
                 "Spanish villagers build 20% faster from the start of the game. They also have access to supremacy and sappers, so in the late game, they can use villagers to replace siege units when gold needs to be spent elsewhere.",
                 "In addition to having access to all technologies at the blacksmith, the technologies also cost no gold.",
-                "The conquistador is arguably the best unique unit in castle age as it has a great combination of mobility, damage output, and range. Once there are around 10 or more conquistadors out, melee units cannot fight them.",
+                "The conquistador is arguably the best unique unit in castle age as it has a great combination of mobility, damage output, and range.",
                 "Spanish get a full monastery, with access to the missionary as well as the inquisition technology, which reduces the time required to make a successful conversion.",
                 "Though they don't have any unique bonuses for them, Spanish have access to fully upgraded, paladins, halberdiers, elite skirmishers, and hussars."
             ],
