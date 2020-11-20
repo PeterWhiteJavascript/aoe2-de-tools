@@ -21211,7 +21211,7 @@
                     "heavy cavalry archer": [3.5, 4]
                 },
                 "stable":{
-                    "hussar":[3, 3, 3],
+                    "hussar":[3, 3, 3.5],
                     "cavalier":[3, 3],
                     "heavy camel rider":[3, 3],
                     "elite steppe lancer": [3, 3.5]
