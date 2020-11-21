@@ -3453,8 +3453,8 @@
                     "heavy cavalry archer": [2, 1.5]
                 },
                 "stable":{
-                    "light cavalry":[2, 2, 2],
-                    "cavalier":[2, 2]
+                    "light cavalry":[2, 2.5, 2.5],
+                    "cavalier":[2.5, 2.5]
                 },
                 "siege workshop":{
                     "capped ram":[3, 2.5],
@@ -4124,7 +4124,7 @@
                     "villager":[3, 3, 3, 3]
                 },
                 "barracks":{
-                    "champion":[3, 3, 3, 2],
+                    "champion":[3, 3, 3, 2.5],
                     "halberdier":[4, 4, 3.5]
                 },
                 "archery range":{
@@ -4135,7 +4135,7 @@
                 },
                 "stable":{
                     "hussar":[2, 2, 2],
-                    "paladin":[2, 2],
+                    "paladin":[2.5, 2],
                     "heavy camel rider":[3.5, 3]
                 },
                 "siege workshop":{
@@ -7539,7 +7539,7 @@
                 },
                 "archery range":{
                     "crossbowman": [3, 2.5, 1],
-                    "elite skirmisher": [3, 3, 1],
+                    "elite skirmisher": [3, 3, 1.5],
                     "heavy cavalry archer": [2, 1.5]
                 },
                 "stable":{
@@ -8221,7 +8221,7 @@
                 "archery range":{
                     "crossbowman": [3, 2.5, 2],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [2, 2],
+                    "heavy cavalry archer": [2, 1.5],
                     "hand cannoneer":[3]
                 },
                 "stable":{
@@ -8898,7 +8898,7 @@
                 },
                 "barracks":{
                     "two-handed swordsman":[3, 3, 2.5, 1],
-                    "halberdier":[3, 3, 3]
+                    "halberdier":[3, 3, 2]
                 },
                 "archery range":{
                     "crossbowman": [3, 3, 1.5],
@@ -10277,7 +10277,7 @@
                     "hand cannoneer":[3.5]
                 },
                 "stable":{
-                    "hussar":[3, 3.5, 3.5],
+                    "hussar":[3, 3.5, 3],
                     "imperial camel rider":[3.5, 3.5]
                 },
                 "siege workshop":{
@@ -10979,7 +10979,7 @@
                     "monk":[3, 3]
                 },
                 "castle":{
-                    "elite genoese crossbowman":[3, 3.5],
+                    "elite genoese crossbowman":[3.5, 3.5],
                     "trebuchet":[2.5]
                 },
                 "university":{
@@ -13029,7 +13029,7 @@
                     "bombard cannon":[3]
                 },
                 "monastery":{
-                    "monk":[3, 3]
+                    "monk":[1.5, 1.5]
                 },
                 "castle":{
                     "elite war wagon":[2.5, 3.5],
@@ -15753,7 +15753,7 @@
                     "capped ram":[3, 2],
                     "siege onager": [3, 2.5],
                     "scorpion":[3, 1],
-                    "bombard cannon":[3]
+                    "bombard cannon":[2]
                 },
                 "monastery":{
                     "monk":[3, 2.5]
@@ -16424,7 +16424,7 @@
                     "elite eagle warrior": [3, 3, 4]
                 },
                 "archery range":{
-                    "arbalester": [3, 3.5, 3.5],
+                    "arbalester": [3.5, 3.5, 3.5],
                     "elite skirmisher": [3, 3, 3]
                 },
                 "siege workshop":{
@@ -17116,7 +17116,7 @@
                     "heavy scorpion":[3, 3.5]
                 },
                 "monastery":{
-                    "monk":[3, 3]
+                    "monk":[1.5, 1]
                 },
                 "castle":{
                     "elite mangudai":[3, 4],
@@ -20510,7 +20510,7 @@
               },
             "bonusDesc":[
                 "Slav farmers work 10% faster. This means that for every 10 villagers that are farming, Slavs get 11 villager's worth of food as well as another villager doing something else.",
-                "Slavs also get supples for free, so they can more easily add infantry if they need to. One common situations to add long swordsmen is against eagle warriors, though the Slavs also have access to the Boyar which can deal well with these as well.",
+                "Slavs also get supplies for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors, though the Slavs also have access to the Boyar which can deal well with these as well.",
                 "Their siege workshop units are discounted by 15% which really pushes them towards a siege and halberdier unit composition.",
                 "Military buildings provide an extra 5 population space. This is like getting a free house, which is worth 25 wood plus the villager build time. You can think of this as roughly a 35-40 wood discount on military buildings.",
                 "Druzhina gives all infantry an area of effect attack. This makes their champions and halberdiers powerful in large-scale battles."
@@ -20530,7 +20530,7 @@
                     "heavy cavalry archer": [2, 1]
                 },
                 "stable":{
-                    "hussar":[3, 3, 3.5],
+                    "hussar":[3, 3, 3],
                     "cavalier":[3, 3]
                 },
                 "siege workshop":{
@@ -22588,7 +22588,7 @@
                     "bombard cannon":[4]
                 },
                 "monastery":{
-                    "monk":[3, 3]
+                    "monk":[3, 2]
                 },
                 "castle":{
                     "janissary":[3.5, 3.5],
@@ -23270,9 +23270,9 @@
                 },
                 "siege workshop":{
                     "capped ram":[3, 2.5],
-                    "onager": [3, 2],
-                    "scorpion":[3, 1],
-                    "bombard cannon":[2]
+                    "onager": [3, 3],
+                    "scorpion":[3, 2],
+                    "bombard cannon":[3]
                 },
                 "monastery":{
                     "monk":[2, 2]
