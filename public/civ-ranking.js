@@ -25,10 +25,11 @@ $.getJSON('data.json', function(data) {
         $("#explanation").hide();
         
         let civ = data.civilizations[parseInt($(e.currentTarget).attr("civid"))];
+        console.log("You've selected civ #" + (parseInt($(e.currentTarget).attr("civid")) + 1)+", "+civ.name);
         $("#civ-title").text(civ.name);
         $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
-        
+        /*
         let check = [
             {"barracks":[
             ["two-handed swordsman", "champion"],
@@ -71,7 +72,7 @@ $.getJSON('data.json', function(data) {
                 }
             });
         });
-        
+        */
         
         
         for(let i = 0; i < buildings.length; i++){
@@ -237,9 +238,7 @@ $.getJSON('data.json', function(data) {
         } else if(descTextSize > 550){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
-        console.log(descTextSize)
     });
-    
     $(".civ-cont:eq(0)").trigger("click");
     
 });
