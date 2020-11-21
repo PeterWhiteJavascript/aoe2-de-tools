@@ -8910,7 +8910,7 @@
                     "paladin":[3.5, 3.5]
                 },
                 "siege workshop":{
-                    "capped ram":[3, 2],
+                    "siege ram":[3, 2],
                     "mangonel": [3, 1],
                     "scorpion":[3, 1]
                 },
@@ -12334,7 +12334,7 @@
                     "elite battle elephant": [4, 4]
                 },
                 "siege workshop":{
-                    "capped ram":[3, 3],
+                    "siege ram":[3, 3],
                     "onager": [3, 3],
                     "heavy scorpion":[3.5, 4]
                 },

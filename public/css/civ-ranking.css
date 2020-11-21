@@ -33,7 +33,7 @@ body{
     text-justify: inter-word;
     font-size: 16px;
     font-family: "Georgia";
-    line-height: 22px;
+    line-height: 21px;
 }
 .unclear-div{
     display: flex;
@@ -71,6 +71,9 @@ body{
 }
 .civ-cont{
     font-family: "Georgia";
+}
+.update-num{
+    float: right;
 }
 #civ-info{
     display: flex;
