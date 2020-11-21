@@ -6861,7 +6861,7 @@
                     "heavy cavalry archer": [2.5, 2]
                 },
                 "stable":{
-                    "light cavalry":[2, 2, 1.5],
+                    "hussar":[2, 2, 1.5],
                     "cavalier":[2.5, 1.5],
                     "heavy camel rider":[2.5, 2]
                 },
@@ -17097,7 +17097,7 @@
                 },
                 "barracks":{
                     "champion":[3, 3, 2.5, 2.5],
-                    "halberdier":[3, 3, 3]
+                    "pikeman":[3, 3, 3]
                 },
                 "archery range":{
                     "arbalester": [3, 3, 2.5],
@@ -23951,7 +23951,7 @@
                 "archery range":{
                     "arbalester": [3, 3, 3],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [1.5, 0.5]
+                    "cavalry archer": [1.5, 0.5]
                 },
                 "stable":{
                     "light cavalry":[2, 1.5, 1],
@@ -24459,7 +24459,7 @@
             "armorClasses": [[20, 0], [17, 0]],
             "bonus":[[11, 125], [20, 40]],
             "reloadUpgrade":["siege engineers"],
-            "damageTechs":["ram", "siege engineers"],
+            "damageTechs":["battering ram", "siege engineers"],
             "otherTechs":["faith", "heresy"],
             "uniqueDamageTechs":["furor celtica", "ironclad"],
             "uniqueOtherTechs":["drill"],
@@ -26327,7 +26327,7 @@
         "battle elephant":["elite battle elephant"],
         "steppe lancer":["elite steppe lancer"],
         
-        "ram":["capped ram", "siege ram"],
+        "battering ram":["capped ram", "siege ram"],
         "mangonel":["onager", "siege onager"],
         "scorpion":["heavy scorpion"],
         

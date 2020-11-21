@@ -29,14 +29,61 @@ $.getJSON('data.json', function(data) {
         $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
         
+        let check = [
+            {"barracks":[
+            ["two-handed swordsman", "champion"],
+            ["pikeman", "halberdier"]]
+        },
+        {
+        "archery range":[
+            ["crossbowman", "arbalester"],
+            ["cavalry archer", "heavy cavalry archer"]
+        ]},
+    {"stable":[
+            ["light cavalry", "hussar"],
+            ["cavalier", "paladin"]
+        ]},
+    {"siege workshop":[
+            ["capped ram", "siege ram"],
+            ["onager", "siege onager"],
+            ["scorpion", "heavy scorpion"]
+        ]}
+        ];
+        let civHas = check.map((g) => {
+            let building = Object.keys(g)[0];
+            return g[building].map((u) => {
+                let obj = {};
+                if(finder(civ.techTree[building].units, u[1]).available){
+                    return u[1];
+                } else {
+                    return u[0];
+                }
+                
+            });
+        });
+        civHas = [].concat.apply([], civHas);
+        let buildingNames = ["barracks", "archery range", "stable", "siege workshop"];
+        buildingNames.forEach((b) => {
+            let unitKeys = Object.keys(civ.ranks[b]);
+            unitKeys.forEach((u) => {
+                if(!civHas.includes(u)){
+                    console.log("You've maybe made a mistake at: " + u)
+                }
+            });
+        });
+        
+        
+        
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
             let row = $("<div class='row'></div>");
             row.append("<div class='building'>"+"<div><img src='img/"+buildings[i]+".png'></div>"+"</div>");
             let unitrow = $("<div class='unit-row'></div>");
             let buildingRanks = [];
+            
             for(let j = 0; j < units.length; j++){
                 let unit = units[j];
+                
                 let ranks = civ.ranks[buildings[i]][units[j]];
                 let rankValues = [];
                 ranks = ranks.map((r, k) => {
