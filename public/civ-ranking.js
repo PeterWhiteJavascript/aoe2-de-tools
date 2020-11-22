@@ -263,7 +263,10 @@ $.getJSON('data.json', function(data) {
             });
             $("#civ-available-techs").append(row);
         });
-        if(descTextSize > 950){
+        if(descTextSize > 1050){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xxx-small-desc-text");
+            $(".desc-img img").addClass("x-small-img");
+        } else if(descTextSize > 950){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xx-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
         } else if(descTextSize > 750){
@@ -275,8 +278,9 @@ $.getJSON('data.json', function(data) {
         } else if(descTextSize > 550){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
+        console.log(descTextSize)
     });
-    $(".civ-cont:eq(1)").trigger("click");
+    $(".civ-cont:eq(0)").trigger("click");
     
 });
 });

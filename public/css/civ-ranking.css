@@ -315,6 +315,10 @@ body{
         font-size: 11px !important;
         line-height: 15px !important;
     }
+    .xxx-small-desc-text{
+        font-size: 11px !important;
+        line-height: 14px !important;
+    }
     
     #civ-bonuses, #civ-available-techs{
         width: 100%;
@@ -350,6 +354,10 @@ body{
 }
 @media screen and (min-width: 1368px){
     .xx-small-desc-text{
+        font-size: 14px !important;
+        line-height: 18px !important;
+    }
+    .xxx-small-desc-text{
         font-size: 14px !important;
         line-height: 18px !important;
     }
