@@ -1,9 +1,26 @@
 $(function(){
 $.getJSON('data.json', function(data) {
+    /*
+     * Upgrade data formatter
+     * let upgradesList = {};
+    let keys =  Object.keys(data.civilizations[1].techTree);
+    for(let i = 0; i <keys.length; i++){
+        let b = keys[i];
+        for (let j = 0 ;j < data.civilizations[1].techTree[keys[i]].upgrades.length; j++){
+            upgradesList[data.civilizations[1].techTree[keys[i]].upgrades[j].name] = b;
+        }
+    }
+    console.log(upgradesList)
+    */
+    
+    
+    let upgradeGroup = data.unitGroups;
+    let relevantUpgrades = data.relevantUpgrades;
+    
     data.civilizations.forEach((civ, i) => {
         $("#civ-conts").append("<div class='civ-cont' civid='"+i+"'><img src='img/civicon-"+(civ.name.toLowerCase())+".png'><div>"+civ.name+"</div></div>");
+        
     });
-    
     
     $(".civ-cont").click((e) => {
         $(".selected-civ").removeClass("selected-civ");
@@ -29,51 +46,6 @@ $.getJSON('data.json', function(data) {
         $("#civ-title").text(civ.name);
         $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
-        /*
-        let check = [
-            {"barracks":[
-            ["two-handed swordsman", "champion"],
-            ["pikeman", "halberdier"]]
-        },
-        {
-        "archery range":[
-            ["crossbowman", "arbalester"],
-            ["cavalry archer", "heavy cavalry archer"]
-        ]},
-    {"stable":[
-            ["light cavalry", "hussar"],
-            ["cavalier", "paladin"]
-        ]},
-    {"siege workshop":[
-            ["capped ram", "siege ram"],
-            ["onager", "siege onager"],
-            ["scorpion", "heavy scorpion"]
-        ]}
-        ];
-        let civHas = check.map((g) => {
-            let building = Object.keys(g)[0];
-            return g[building].map((u) => {
-                let obj = {};
-                if(finder(civ.techTree[building].units, u[1]).available){
-                    return u[1];
-                } else {
-                    return u[0];
-                }
-                
-            });
-        });
-        civHas = [].concat.apply([], civHas);
-        let buildingNames = ["barracks", "archery range", "stable", "siege workshop"];
-        buildingNames.forEach((b) => {
-            let unitKeys = Object.keys(civ.ranks[b]);
-            unitKeys.forEach((u) => {
-                if(!civHas.includes(u)){
-                    console.log("You've maybe made a mistake at: " + u)
-                }
-            });
-        });
-        */
-        
         
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
@@ -98,8 +70,9 @@ $.getJSON('data.json', function(data) {
                     ranks.unshift(" ");
                     rankValues.unshift("medium");
                 }
-                let unitdiv = $("<div class='unit-div'></div>");
+                let unitdiv = $("<div class='unit-div' unit='"+unit+"'></div>");
                 unitdiv.append("<div class='unit'>"+"<img src='img/"+unit+".png'>"+"</div>");
+                
                 ranks.forEach((r, k) => {
                     let str = r;
                     if(str.length === 2) str = "&nbsp" + str;
@@ -107,6 +80,70 @@ $.getJSON('data.json', function(data) {
                     unitdiv.append(rankDiv);
                 });
                 unitrow.append(unitdiv);
+                unitdiv.mouseenter((e) => {
+                    unitdiv.addClass("hovered-unit");
+                    let upgradesDiv = $("<div class='upgrades-div'><div class='relative-upgrades'></div></div>");
+                    let height = $(e.currentTarget).height();
+                    let width = $(e.currentTarget).width();
+                    upgradesDiv.children(".relative-upgrades").css({
+                        top: -height,
+                        left: width / 4 - width / 8,
+                        height: height + height / 8,
+                        width: width - width / 4
+                    });
+                    let unit = $(e.currentTarget).attr("unit");
+                    if(!relevantUpgrades[unit] && upgradeGroup[unit])  unit = upgradeGroup[unit];
+                    let relevant = relevantUpgrades[unit];
+                    let uniqueUps = civ.ranksUnique.map((u) => {
+                        return u[1].includes(unit);
+                    });
+                    console.log(unit, uniqueUps)
+                    relevant.forEach((u) => {
+                        let up = u;
+                        let locked = false;
+                        if(data.upgradeGroups[u]){
+                            let changed = false;
+                            //Get the best upgrade this civ has in the group.
+                            for(let i = 0; i < data.upgradeGroups[u].length; i++){
+                                let buildingName = data.upgradeBuilding[data.upgradeGroups[u][i]];
+                                if(finder(civ.techTree[buildingName].upgrades, data.upgradeGroups[u][i]).available){
+                                    up = data.upgradeGroups[u][i];
+                                    changed = true;
+                                }
+                            }
+                            if(!changed) up = data.upgradeGroups[u][0];
+                        } else {
+                            locked = !finder(civ.techTree[data.upgradeBuilding[up]].upgrades, up).available;
+                            
+                        }
+                        let img = $("<div class='relevant-img'><img src='img/"+up+".png'></div>");
+                        if(locked) img.addClass("upgrade-locked");
+                        upgradesDiv.children(".relative-upgrades").append(img);
+                    });
+                    uniqueUps.forEach((affectsUnit, i) => {
+                        if(affectsUnit){
+                            upgradesDiv.children(".relative-upgrades").append("<div class='relevant-img'><img src='img/"+civ.ranksUnique[i][0]+".png'></div>");
+                        }
+                    });
+                    if(upgradesDiv.children(".relative-upgrades").children(".relevant-img").length > 7){
+                        upgradesDiv.children(".relative-upgrades").children(".relevant-img").css({
+                            "margin-left": "1px",
+                            "margin-right": "1px"
+                        });
+                    } else if(upgradesDiv.children(".relative-upgrades").children(".relevant-img").length > 5){
+                        upgradesDiv.children(".relative-upgrades").children(".relevant-img").css({
+                            "margin-left": "3px",
+                            "margin-right": "3px"
+                        });
+                    }
+                    
+                    $(e.currentTarget).append(upgradesDiv);
+                    
+                });
+                unitdiv.mouseleave((e) => {
+                    unitdiv.removeClass("hovered-unit");
+                    $(e.currentTarget).children(".upgrades-div").remove();
+                });
             }
             let numRanks = buildingRanks.length;
             //Produce a number that ends in 0 or 0.5
@@ -239,7 +276,7 @@ $.getJSON('data.json', function(data) {
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
     });
-    $(".civ-cont:eq(0)").trigger("click");
+    $(".civ-cont:eq(1)").trigger("click");
     
 });
 });

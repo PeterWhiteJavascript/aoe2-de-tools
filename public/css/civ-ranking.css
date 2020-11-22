@@ -358,4 +358,33 @@ body{
     #explanation{
         padding-bottom: 30px;
     }
+    .hovered-unit{
+        cursor: pointer;
+    }
+    .upgrades-div{
+        position: absolute;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .relative-upgrades{
+        background: rgba(0, 0, 0, 0.7);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+    .relevant-img{
+        width: 45px;
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .relevant-img img{
+        width: 100%;
+    }
 }

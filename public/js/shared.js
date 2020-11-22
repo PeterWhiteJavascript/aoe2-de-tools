@@ -1,6 +1,14 @@
 function finder(arr, name){
     return arr.find((e) => {return e.name === name;});
 }
+function civHasUpgrade(techTree, upgradeName, building){
+    if(building){
+        return finder(techTree[building].upgrades, upgradeName).available;
+    } else {
+        
+    }
+    
+}
 function setUpGatherRates(data){
     let gatherRates = data.units[0].gathering;
     //Get all of the gather rates with various upgrades applied.
