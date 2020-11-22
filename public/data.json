@@ -26451,7 +26451,7 @@
         "guard tower": "keep"
     },
     "relevantUpgrades":{
-        "villager": ["loom", "villagerMovement", "villagerWood", "villagerGold", "villagerStone", "sappers"],
+        "villager": ["loom", "villagerMovement", "villagerWood", "horse collar","villagerGold", "villagerStone", "sappers"],
         "champion": ["squires", "supplies", "arson", "meleeAttack", "infantryDefense"],
         "halberdier":["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite eagle warrior":["squires", "arson", "meleeAttack", "infantryDefense"],
