@@ -9336,7 +9336,7 @@
                     },
                     {
                       "name": "ring archer armor",
-                      "available": false
+                      "available": true
                     },
                     {
                       "name": "fletching",
