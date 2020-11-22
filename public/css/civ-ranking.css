@@ -251,7 +251,7 @@ body{
     body{
         background-image: none;
     }
-    #civ-conts, #footer{
+    #civ-conts, #footer, #download-pdf{
         display:none;
     }
     #civ-title-cont{
