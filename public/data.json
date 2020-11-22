@@ -1507,6 +1507,10 @@
                       "available": true
                     },
                     {
+                      "name": "genitour",
+                      "available": true
+                    },
+                    {
                       "name": "hand cannoneer",
                       "available": true
                     },
@@ -1521,11 +1525,7 @@
                   ],
                   "upgrades": [
                     {
-                      "name": "genitour (mounted)",
-                      "available": true
-                    },
-                    {
-                      "name": "genitour (mounted)",
+                      "name": "elite genitour",
                       "available": true
                     },
                     {
@@ -2085,7 +2085,7 @@
                     "elite skirmisher": [3, 3, 3],
                     "heavy cavalry archer": [3, 2],
                     "hand cannoneer":[3],
-                    "elite genitour": [3, 3, 3]
+                    "elite genitour": [3, 3]
                 },
                 "stable":{
                     "hussar":[3, 3.5, 3.5],
@@ -10947,7 +10947,7 @@
                 "Hand cannoneers and bombard cannons are 20% cheaper.",
                 "Since Italians lack halberdiers, their counter to cavalry is the genoese crossbowman. They have full upgrades for building defenses, as well as cheap bombard cannons, so they can more easily hold the castles needed to produce genoese crossbowmen.",
                 "They also have access to the condottiero. This unit gives the Italians an option for an early imperial age infantry unit without needing to tech into champion.",
-                "With pavise, Italian foot archers and condottiero gain 1 melee and 1 pierce armor."
+                "With pavise, Italian archers, genoese crossbowmen, and condottiero gain 1 melee and 1 pierce armor."
             ],
             "ranksUnique":[["pavise", "Castle and University"], ["silk road", "Castle and University"]],
             "ranks":{
@@ -10961,7 +10961,7 @@
                 },
                 "archery range":{
                     "arbalester": [3, 3.5, 3.5],
-                    "elite skirmisher": [3, 3.5, 3.5],
+                    "elite skirmisher": [3, 3, 3],
                     "cavalry archer": [3, 2],
                     "hand cannoneer": [3.5]
                 },
