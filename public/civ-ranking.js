@@ -97,7 +97,6 @@ $.getJSON('data.json', function(data) {
                     let uniqueUps = civ.ranksUnique.map((u) => {
                         return u[1].includes(unit);
                     });
-                    console.log(unit, uniqueUps)
                     relevant.forEach((u) => {
                         let up = u;
                         let locked = false;
