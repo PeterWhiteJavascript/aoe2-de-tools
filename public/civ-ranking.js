@@ -278,7 +278,6 @@ $.getJSON('data.json', function(data) {
         } else if(descTextSize > 550){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("small-desc-text");
         } 
-        console.log(descTextSize)
     });
     $(".civ-cont:eq(0)").trigger("click");
     
