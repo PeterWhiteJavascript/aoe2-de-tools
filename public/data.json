@@ -717,7 +717,7 @@
                 },
                 "castle":{
                     "elite jaguar warrior":[2, 3],
-                    "trebuchet":[3, 3]
+                    "trebuchet":[3.5]
                 },
                 "university":{
                     "guard tower": [3, 3, 2],
@@ -3466,7 +3466,7 @@
                 },
                 "castle":{
                     "elite longbowman":[2, 4],
-                    "trebuchet":[3]
+                    "trebuchet":[4]
                 },
                 "university":{
                     "keep": [3, 3, 3.5],
@@ -4830,7 +4830,7 @@
                 },
                 "castle":{
                     "elite woad raider":[2, 3.5],
-                    "trebuchet":[3]
+                    "trebuchet":[3.5]
                 },
                 "university":{
                     "watch tower": [3, 3, 2],
@@ -8919,7 +8919,7 @@
                 },
                 "castle":{
                     "elite tarkan":[2, 3],
-                    "trebuchet":[3]
+                    "trebuchet":[3.5]
                 },
                 "university":{
                     "watch tower": [3, 2, 1],
@@ -11661,7 +11661,7 @@
                 },
                 "castle":{
                     "elite samurai":[2, 3],
-                    "trebuchet":[3.5]
+                    "trebuchet":[4]
                 },
                 "university":{
                     "keep": [3, 3.5, 3.5],
@@ -21909,7 +21909,7 @@
                 },
                 "castle":{
                     "elite teutonic knight":[2, 2],
-                    "trebuchet":[3]
+                    "trebuchet":[3.5]
                 },
                 "university":{
                     "keep": [3.5, 3.5, 3],
