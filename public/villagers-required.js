@@ -31,23 +31,39 @@ $(function(){
                 "fish trap gillnets": 0.20
             },
             "Aztecs (Farms)":{
-                "farmer": 0.07854,
-                "wheelbarrow": 0.03252
+                "farmer": "22.46",
+                "farm heavy plow": "22.98",
+                "wheelbarrow": "23.9",
+                "wheelbarrow heavy plow": "24.00",
+                "hand cart": "24.00"
             },
             "Slavs (Farms)":{
-                "farmer": 0.1063,
-                "wheelbarrow": 0.1183,
-                "hand cart": 0.1022
+                "farmer": "22.35",
+                "farm heavy plow": "23.40",
+                "wheelbarrow": "25.63",
+                "wheelbarrow heavy plow": "26.00",
+                "hand cart": "26.8"
             },
             "Berbers (Farms)":{
-                "farmer": 0.0248,
-                "wheelbarrow": 0.0218,
-                "hand cart": 0.001
+                "farmer": "20.88",
+                "farm heavy plow": "21.61",
+                "wheelbarrow": "23.13",
+                "wheelbarrow heavy plow": "23.64",
+                "hand cart": "24.00"
             },
             "Mayans (Farms)":{
-                "farmer": -0.0286,
-                "wheelbarrow": -0.0407,
-                "hand cart": 0.0219
+                "farmer": "19.50",
+                "farm heavy plow": "20.04",
+                "wheelbarrow": "21.59",
+                "wheelbarrow heavy plow": "22.06",
+                "hand cart": "24.12"
+            },
+            "Khmer (Farms)":{
+                "farmer": "21.48",
+                "farm heavy plow": "22.11",
+                "wheelbarrow": "23.56",
+                "wheelbarrow heavy plow": "23.77",
+                "hand cart": "24.00"
             },
             "Mongols (Hunters)":{
                 "hunter": 0.4
@@ -98,12 +114,12 @@ $(function(){
         let gatherRatesCont = $("<div id='gather-rates'></div>");
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
-            ["farmer", "wheelbarrow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food"],
+            ["farmer", "farm heavy plow","wheelbarrow", "wheelbarrow heavy plow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food"],
             ["lumberjack", "double-bit axe", "bow saw", "two-man saw", "feitoria wood"],
             ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
+        let hideAtStart = ["farm heavy plow", "wheelbarrow heavy plow", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
@@ -111,7 +127,7 @@ $(function(){
                 let img = $("<img src='img/"+imgurl+".png' class='icon-big'>");
                 let sec = gatherRates[order[i][j]].gatherRate;
                 let min = (gatherRates[order[i][j]].gatherRate * 60);
-                let num = $("<div sec="+sec+" min="+min+">"+sec+" - " + (min.toFixed(1)) + "</div>");
+                let num = $("<div sec="+sec+" min="+min+">"+(sec.toFixed(2))+" - " + (min.toFixed(1)) + "</div>");
                 imgCont.append(img, num);
                 $("#choose-res").append(imgCont);
                 imgCont.on("click", function(){
@@ -1815,6 +1831,9 @@ $(function(){
                 for(let i = 0 ; i < applyEcoBonuses.length; i++){
                     for(let j in applyEcoBonuses[i].data){
                         if(j === res){
+                            if(typeof applyEcoBonuses[i].data[j] === "string"){
+                                return parseFloat(applyEcoBonuses[i].data[j]) / 60;
+                            }
                             return base + base * applyEcoBonuses[i].data[j];
                         }
                     }
@@ -1927,7 +1946,7 @@ $(function(){
             let div = getResDiv(res);
             let pMin = rate * 60;
             div.text(
-                rate + " - " + (pMin.toFixed(1))
+                (rate.toFixed(2)) + " - " + (pMin.toFixed(1))
             );
             div.attr("sec", rate);
             div.attr("min", pMin);
@@ -2039,6 +2058,7 @@ $(function(){
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", 
                           "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
+                      
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
             let img = $("<img src='img/"+unitsShown[i]+".png'>");
@@ -2081,8 +2101,14 @@ $(function(){
             $("#gather-rates").children(".unit-container").not(":hidden").each(function(){
                 updateVilsRequired({target:$(this).children("div").first()});
             });
+            
             for(let j in applyEcoBonuses[0].data){
-                let rate = parseFloat((gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[0].data[j]).toFixed(2));
+                let rate;
+                if(typeof applyEcoBonuses[0].data[j] === "string"){
+                    rate = parseFloat(applyEcoBonuses[0].data[j]) / 60;
+                } else {
+                    rate = parseFloat(gatherRates[j].gatherRate + gatherRates[j].gatherRate * applyEcoBonuses[0].data[j]);
+                }
                 displayGatherRate(rate, j);
             }
             
@@ -2147,12 +2173,13 @@ $(function(){
         
         $("#econ-civ-bonus").append(ecoSelect);
         $("#econ-civ-bonus").append(ecoCheckboxes);
-        $("#choose-units").children(".unit-show-img").trigger("click");
+        //Hide eco at start
         hideAtStart.forEach(function(toHide){
             let cont = $("#choose-res").children(".res-show-img").filter(function(){
                 return $(this).attr("resource") === toHide;
             })[0];
             $(cont).trigger("click");
         });
+        $("#choose-units").children(".unit-show-img").trigger("click");
     });
 });

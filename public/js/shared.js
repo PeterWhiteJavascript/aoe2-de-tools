@@ -12,8 +12,11 @@ function civHasUpgrade(techTree, upgradeName, building){
 function setUpGatherRates(data){
     let gatherRates = data.units[0].gathering;
     //Get all of the gather rates with various upgrades applied.
-    gatherRates["wheelbarrow"] = {res: "food", gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate};
-    gatherRates["hand cart"] = {res: "food", gatherRate: gatherRates.farmer.gatherRate + finder(data.upgrades, "wheelbarrow").effects.gatherRate + finder(data.upgrades, "hand cart").effects.gatherRate};
+    gatherRates["farm heavy plow"] = {res: "food", gatherRate: 21.2 / 60};
+    gatherRates["wheelbarrow"] = {res: "food", gatherRate: 23.03 / 60};
+    gatherRates["wheelbarrow heavy plow"] = {res: "food", gatherRate: 23.16 / 60};
+    gatherRates["hand cart"] = {res: "food", gatherRate: 24 / 60};
+    
     gatherRates["fishing ship shore"] = {res: "food", gatherRate: 0.28};
     gatherRates["fishing ship deep"] = {res: "food", gatherRate: 0.49};
     gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2))};

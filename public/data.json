@@ -12308,7 +12308,7 @@
                 }
               },
             "bonusDesc":[
-                "Khmer farmers don't have to drop off food. The food goes directly into the stockpile when it is collected. This makes them so efficient that Khmer farmers work 5% slower than other civilizations.",
+                "Khmer farmers don't have to drop off food. The food goes directly into the stockpile when it is collected. This makes them so efficient that Khmer farmers were nerfed to work 5% slower than other civilizations.",
                 "Their villagers can also garrison inside houses, which prevents them from being attacked by enemies. They don't regenerate hit points inside houses though.",
                 "One major bonus for Khmer is that they don't require prerequesite buildings to build any building or advance to the next age. This allows them to click to castle age as soon as they reach feudal age provided they have the resources to do so.",
                 "Khmer battle elephants move 10% faster and with the tusk swords, do 3 extra damage.",
@@ -24080,7 +24080,7 @@
                 "farmer":{
                     "carryCapacity": 10,
                     "res": "food",
-                    "gatherRate": 0.32
+                    "gatherRate": 0.3383
                 },
                 "fisherman": {
                     "carryCapacity": 10,
@@ -28600,7 +28600,6 @@
             },
             "effects":{
                 "carryCapacity": 3,
-                "gatherRate": 0.05,
                 "speed": "*1.1"
             },
             "time": 75
@@ -28614,7 +28613,6 @@
             },
             "effects":{
                 "carryCapacity": 7,
-                "gatherRate": 0.03,
                 "speed": "*1.1"
             },
             "time": 55
