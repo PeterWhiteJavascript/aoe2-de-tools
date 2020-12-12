@@ -1389,7 +1389,7 @@
                     "villager":[3, 3, 3, 3]
                 },
                 "barracks":{
-                    "two-handed swordsman":[3, 3, 3, 3.5],
+                    "two-handed swordsman":[3, 3.5, 3.5, 3.5],
                     "halberdier":[3, 3, 3]
                 },
                 "archery range":{
@@ -3448,7 +3448,7 @@
                     "halberdier":[3, 3, 3]
                 },
                 "archery range":{
-                    "arbalester": [3.5, 3.5, 4],
+                    "arbalester": [4, 4, 4],
                     "elite skirmisher": [3, 3, 3.5],
                     "heavy cavalry archer": [2, 1.5]
                 },
