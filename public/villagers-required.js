@@ -78,7 +78,7 @@ $(function(){
                 "two-man saw": 0.15
             },
             "Franks (Foragers)":{
-                "forager": 0.25
+                "forager": 0.15
             },
             "Indians (Fishermen)":{
                 "fisherman": 0.10

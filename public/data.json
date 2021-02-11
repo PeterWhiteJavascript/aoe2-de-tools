@@ -7394,7 +7394,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -12179,7 +12179,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -12655,7 +12655,7 @@
                     },
                     {
                       "name": "elite cannon galleon",
-                      "available": false
+                      "available": true
                     },
                     {
                       "name": "demolition raft",
@@ -20380,7 +20380,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -24283,7 +24283,8 @@
             "mDef": 0,
             "pDef": 0,
             "hp": 50,
-            "frameDelay": 10,
+            "frameDelay": 35,
+            "attackDelay": 0.9,
             "accuracy": 0.5,
             "range": 4,
             "speed": 1.4,
@@ -25544,7 +25545,7 @@
             "frameDelay": 5,
             "cost":{
                 "wood": 45,
-                "gold": 45
+                "gold": 40
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[8, 5], [5, 5], [30, 4], [16, 4], [34, 4]],
@@ -25772,7 +25773,7 @@
             "rateOfFire": 1.9,
             "lineOfSight": 5,
             "cost":{
-                "food": 50,
+                "food": 60,
                 "gold": 40
             },
             "armorClasses": [[8, 0], [19, 0]],
@@ -25788,13 +25789,13 @@
             "name": "arambai",
             "ageReq": 3,
             "mAtk": 0,
-            "pAtk": 17,
+            "pAtk": 12,
             "mDef": 0,
             "pDef": 1,
             "hp": 60,
             "speed": 1.3,
             "lineOfSight": 8,
-            "rateOfFire": 2.2,
+            "rateOfFire": 2,
             "projSpeed": 7,
             "accuracy": 0.20,
             "range": 5,
@@ -27713,11 +27714,11 @@
             "name": "zealotry",
             "ageReq": 4,
             "cost": {
-                "food": 750,
-                "gold": 700
+                "food": 500,
+                "gold": 450
             },
             "effects":{
-                "hp": 30
+                "hp": 20
             },
             "time": 50
         },
@@ -28290,7 +28291,7 @@
             },
             "effects":{
                 "hp": 5,
-                "pAtk": 2,
+                "pAtk": 3,
                 "accuracy": 0.10,
                 "pDef": 1
             },
