@@ -19132,7 +19132,7 @@
                 },
                 "stable":{
                     "light cavalry":[3, 3, 2.5],
-                    "cavalier":[3, 3.5]
+                    "cavalier":[3.5, 3.5]
                 },
                 "siege workshop":{
                     "capped ram":[3, 2.5],
@@ -26392,6 +26392,30 @@
             "trainTime": 25
         },
         {
+            "name": "coustillier",
+            "ageReq": 3,
+            "mAtk": 8,
+            "atkCharge": 25,
+            "chargeTime": 40,
+            "mDef": 2,
+            "pDef": 2,
+            "hp": 115,
+            "speed": 1.35,
+            "rateOfFire": 1.9,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 55,
+                "gold": 55
+            },
+            "armorClasses": [[8, 0],[19, 0]],
+            "bonus":[],
+            "damageTechs":["elite coustillier", "meleeAttack", "cavalryDefense"],
+            "otherTechs":["husbandry", "faith", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 15
+        },
+        {
             "name": "jaguar warrior",
             "ageReq": 3,
             "mAtk": 10,
@@ -26461,6 +26485,39 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 12
+        },
+        {
+            "name": "serjeant",
+            "ageReq": 3,
+            "mAtk": 5,
+            "mDef": 1,
+            "pDef": 2,
+            "hp": 45,
+            "speed": 0.9,
+            "lineOfSight": 3,
+            "rateOfFire": 2,
+            "cost":{
+                "food": 60,
+                "gold": 35
+            },
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 15,
+                    "mAtk": 3,
+                    "mDef": 2,
+                    "pDef": 2
+                },
+                {}
+            ],
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[[29, 2], [21, 2]],
+            "damageTechs":["elite serjeant", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 12,
+            "trainTimeDonjon": 20
         },
 
         {
@@ -27471,6 +27528,48 @@
             "trainTime": 80
         },
         {
+            "name": "donjon",
+            "ageReq": 2,
+            "cost":{
+                "wood": 75,
+                "stone": 200
+            },
+            "armorClasses": [[11, 0], [13, 0], [21, 0]],
+            "hp": 1000,
+            "mDef": 1,
+            "pDef": 7,
+            "pAtk": 5,
+            "rateOfFire": 2,
+            "projSpeed": 7,
+            "accuracy": 1,
+            "range": 8,
+            "minimumRange": 1,
+            "bonus":[[16, 7], [34, 7], [27, 2], [30, 1]],
+            "bonusExtraArrows":[[13, 5]],
+            "arrows": 1,
+            "lineOfSight": 10,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 500,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 750,
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "reloadUpgrade":["arrowslits"],
+            "damageTechs":["archerAttack", "chemistry", "masonry", "arrowslits", "heated shot"],
+            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 90
+        },
+        {
             "name": "bombard tower",
             "ageReq": 4,
             "cost":{
@@ -27810,6 +27909,7 @@
         "elite war wagon": ["bloodlines", "husbandry", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite leitis": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite magyar huszar": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
+        "elite coustillier":["husbandry", "meleeAttack", "cavalryDefense"],
         "elite karambit warrior": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite gbeto": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite plumed archer": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
@@ -28763,6 +28863,23 @@
             },
             "time": 50
         },
+        {
+            "name": "elite serjeant",
+            "ageReq": 4,
+            "cost": {
+                "food": 1100,
+                "gold": 800
+            },
+            "effects":{
+                "mAtk": 3,
+                "mDef": 1,
+                "pDef": 1,
+                "hp": 15,
+                "lineOfSight": 2,
+                "bonus":[[29, 1], [21, 1]]
+            },
+            "time": 50
+        },
 
         {
             "name": "elite gbeto",
@@ -29504,6 +29621,23 @@
             },
             "time": 70
         },
+        
+        {
+            "name": "elite coustillier",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 800
+            },
+            "effects":{
+                "hp": 30,
+                "mAtk": 3,
+                "trainTime": -1,
+                "atkCharge": 5
+            },
+            "time": 45
+        },
+        
         {
             "name": "elite organ gun",
             "ageReq": 4,
@@ -30145,6 +30279,9 @@
                     },
                     "keep":{
                         "pAtk": 3
+                    },
+                    "donjon":{
+                        "pAtk": 3
                     }
                 }
             },
@@ -30179,6 +30316,9 @@
                     },
                     "harbor":{
                         "bonus": [[16, 4]]
+                    },
+                    "donjon":{
+                        "bonus": [[16, "???"]]
                     }
                 }
             },

@@ -1113,6 +1113,17 @@ $(function(){
                     }
                 }
             },
+            "donjon":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "cataphract":{
                 "civs":{
                     
@@ -1231,6 +1242,25 @@ $(function(){
                 }
                 
             },
+            "serjeant":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Donjon":{
+                        "trainTime": 20
+                    },
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
             "shotel warrior":{
                 "civs":{
                     
@@ -1289,6 +1319,22 @@ $(function(){
                     },
                     "Goths Team Bonus":{
                         "trainTime": 1.20,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
+            "coustillier":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
                         "trainTimePercent": true
                     }
                 }
@@ -2056,8 +2102,8 @@ $(function(){
                           "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
-                          "house", "farm", "watch tower", 
-                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman", "war elephant", "war wagon", "woad raider"];
+                          "house", "farm", "watch tower", "donjon", 
+                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
                       
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
