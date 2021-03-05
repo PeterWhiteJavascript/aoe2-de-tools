@@ -9594,7 +9594,7 @@
                 "archery range":{
                     "crossbowman": [3, 3, 1.5],
                     "elite skirmisher": [3, 3, 2],
-                    "heavy cavalry archer": [3.5, 3.5]
+                    "heavy cavalry archer": [4, 4]
                 },
                 "stable":{
                     "hussar":[3.5, 3.5, 3.5],
@@ -11653,7 +11653,7 @@
                 "archery range":{
                     "arbalester": [3, 3.5, 3.5],
                     "elite skirmisher": [3, 3, 3],
-                    "cavalry archer": [3, 2],
+                    "cavalry archer": [3, 1],
                     "hand cannoneer": [3.5]
                 },
                 "stable":{
@@ -15073,7 +15073,7 @@
                 "archery range":{
                     "arbalester": [3, 3, 3],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [3, 3.5]
+                    "heavy cavalry archer": [3, 4]
                 },
                 "stable":{
                     "hussar":[3.5, 3.5, 3.5],
@@ -20547,12 +20547,12 @@
                     "halberdier":[3, 3, 3]
                 },
                 "archery range":{
-                    "arbalester": [3, 2.5, 2],
+                    "arbalester": [3.5, 2.5, 2],
                     "elite skirmisher": [3, 3, 2],
                     "cavalry archer": [2, 1]
                 },
                 "stable":{
-                    "light cavalry":[3, 3, 3],
+                    "light cavalry":[3.5, 3, 3],
                     "cavalier":[3, 3]
                 },
                 "siege workshop":{
@@ -23284,7 +23284,7 @@
                 "archery range":{
                     "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 2.5],
-                    "cavalry archer": [1.5, 1]
+                    "cavalry archer": [1, 1]
                 },
                 "stable":{
                     "scout cavalry":[3, 2.5, 2],
@@ -25343,7 +25343,7 @@
                 "archery range":{
                     "arbalester": [3, 3, 3],
                     "elite skirmisher": [3, 3, 3],
-                    "cavalry archer": [1.5, 0.5]
+                    "cavalry archer": [2, 1]
                 },
                 "stable":{
                     "light cavalry":[2, 1.5, 1],
