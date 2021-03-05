@@ -8230,7 +8230,8 @@
                 "archery range":{
                     "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 1.5],
-                    "heavy cavalry archer": [2, 1.5]
+                    "heavy cavalry archer": [2, 1.5],
+                    "hand cannoneer":[3]
                 },
                 "stable":{
                     "light cavalry":[3.5, 3, 3],
@@ -13016,7 +13017,8 @@
                 "archery range":{
                     "arbalester": [3, 2.5, 2.5],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [2, 2]
+                    "heavy cavalry archer": [2, 2],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "hussar":[3, 3, 3],
@@ -13706,7 +13708,8 @@
                 "archery range":{
                     "arbalester": [3.5, 3.5, 3.5],
                     "elite skirmisher": [3.5, 3.5, 3.5],
-                    "heavy cavalry archer": [3, 2]
+                    "heavy cavalry archer": [3, 2],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "hussar":[2, 2, 2],
@@ -16432,7 +16435,8 @@
                 "archery range":{
                     "arbalester": [3, 3, 2],
                     "elite skirmisher": [3, 3, 2.5],
-                    "heavy cavalry archer": [3, 1.5]
+                    "heavy cavalry archer": [3, 1.5],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "light cavalry":[3, 3, 3.5],
@@ -18474,7 +18478,8 @@
                 "archery range":{
                     "crossbowman": [3, 3, 3.5],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [3, 2]
+                    "heavy cavalry archer": [3, 2],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "hussar":[3, 3, 3],
@@ -19846,7 +19851,8 @@
                 "archery range":{
                     "arbalester": [3.5, 3.5, 3.5],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [3, 3]
+                    "heavy cavalry archer": [3, 3],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "hussar":[3, 3, 3],
@@ -20526,13 +20532,46 @@
                 }
               },
             "bonusDesc":[
-            
+                "Sicilian land military units take 50% reduced bonus damage from incoming attacks. This greatly increases the performance of their knights versus pikemen.",
+                "They also get double the food increase on farms from farm upgrades. For example heavy plow gives 250 food instead of the usual 125. The carry capacity is still just increased by 1 though.",
+                "The Sicilian unique unit is the serjeant; a slow moving infantry unit with high melee and pierce armor that can also build donjons. Donjons are like a watch tower that can train more serjeants. This means that Sicilians have access to their unique unit in the feudal age.",
+                "Sicilian castles and town centers can be built 100% faster, meaning a faster boom or more deadly castle drops."
             ],
             "ranksUnique":[["first crusade", []], ["scutage", []]],
             "ranks":{
-                
+                "town center": {
+                    "villager":[3, 3, 3, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3],
+                    "halberdier":[3, 3, 3]
+                },
+                "archery range":{
+                    "arbalester": [3, 2.5, 2],
+                    "elite skirmisher": [3, 3, 2],
+                    "cavalry archer": [2, 1]
+                },
+                "stable":{
+                    "light cavalry":[3, 3, 3],
+                    "cavalier":[3, 3]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 3],
+                    "onager": [3, 3],
+                    "heavy scorpion":[3, 3]
+                },
+                "monastery":{
+                    "monk":[2, 1.5]
+                },
+                "castle":{
+                    "elite serjeant":[3, 3],
+                    "trebuchet":[3]
+                },
+                "university":{
+                    "donjon": [3, 3, 3],
+                    "defenses": [3, 3, 3.5, 3.5]
+                }
             }
-            
         },
         {
             "name": "Spanish",
@@ -21196,7 +21235,7 @@
                     "archer": [3, 1.5, 1],
                     "elite skirmisher": [3, 3, 3],
                     "heavy cavalry archer": [3, 2.5],
-                    "hand cannoneer":[3]
+                    "hand cannoneer":[3.5]
                 },
                 "stable":{
                     "hussar":[3, 3, 3],
@@ -22560,7 +22599,8 @@
                 "archery range":{
                     "crossbowman": [3, 3.5, 2],
                     "elite skirmisher": [3, 3, 3],
-                    "heavy cavalry archer": [3.5, 4]
+                    "heavy cavalry archer": [3.5, 4],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
                     "hussar":[3, 3, 3.5],
@@ -27979,6 +28019,7 @@
         "elite war elephant": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite organ gun": ["siege engineers"],
         "elite mameluke": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
+        "elite serjeant": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite conquistador": ["bloodlines", "husbandry", "archerDefense"],
         "elite boyar": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite keshik": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
@@ -27987,6 +28028,7 @@
         "elite janissary": ["archerDefense"],
         "elite rattan archer": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite berserk": ["squires", "arson", "meleeAttack", "infantryDefense"],
+        "donjon":["archerAttack", "arrowslits", "buildingDefense", "treadmill crane", "ballistics", "chemistry"],
         "keep":["archerAttack", "arrowslits", "buildingDefense", "treadmill crane", "ballistics", "chemistry"],
         "defenses": ["buildingDefense", "stoneWall", "hoardings", "murder holes"]
 

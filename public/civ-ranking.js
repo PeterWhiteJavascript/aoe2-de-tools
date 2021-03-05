@@ -110,7 +110,10 @@ $.getJSON('data.json', function(data) {
                                     changed = true;
                                 }
                             }
-                            if(!changed) up = data.upgradeGroups[u][0];
+                            if(!changed){
+                                up = data.upgradeGroups[u][0];
+                                locked = true;
+                            }
                         } else {
                             locked = !finder(civ.techTree[data.upgradeBuilding[up]].upgrades, up).available;
                             
