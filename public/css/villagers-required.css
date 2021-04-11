@@ -6,7 +6,7 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
 }
 #container{
-    
+    margin-bottom: 5rem;
 }
 .unit-totals{
     display: flex;
@@ -32,6 +32,18 @@ h1{
     display: flex;
     flex-wrap: wrap;
 }
+
+#faq h2:hover{
+    cursor: pointer;
+}
+
+#questions{
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 1rem;
+    border-top: 1px solid rgba(0,0,0,1);
+    line-height: 1.5;
+}
+
 .unit-show-img, .res-show-img{
     padding: 5px;
     filter: brightness(50%);
@@ -162,4 +174,14 @@ h1{
     border-radius: 20px;
     text-align: center;
     background-color: #111;
+}
+
+.question{
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.answer{
+    font-size: 1.1rem;
 }
