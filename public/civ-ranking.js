@@ -1,5 +1,8 @@
 $(function(){
 $.getJSON('data.json', function(data) {
+   
+    
+    
     /*
      * Upgrade data formatter
      * let upgradesList = {};

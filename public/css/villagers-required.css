@@ -185,3 +185,29 @@ h1{
 .answer{
     font-size: 1.1rem;
 }
+table{
+    width:100%;
+}
+table td 
+{
+    font-family:"Courier";
+    text-align:center; 
+    vertical-align:middle;
+}
+table td div:first-child{
+    font-size: 10px;
+}
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: pointer;
+}
+table.sortable tbody tr:nth-child(2n) td {
+  background: #ffcccc;
+}
+table.sortable tbody tr:nth-child(2n+1) td {
+  background: #ccffff;
+}
+table.sortable tbody tr:hover { background: yellow !important; }

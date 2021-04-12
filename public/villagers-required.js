@@ -2230,8 +2230,7 @@ $(function(){
     });
 
     $.getJSON("/data/villagers-required-faq.json", function(data){
-        $("#faq").append('<div id="questions"></div>');
-
+        
         data.forEach(function(faq){
             let questionInstance = $('<div></div>');
             let question = $('<p class="question">' + faq.question + '</p>');
