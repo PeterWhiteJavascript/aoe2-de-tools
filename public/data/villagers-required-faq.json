@@ -1,6 +1,0 @@
-[
-    {
-        "question": "How many woodcutters are required to reseed farms after they've depleted?",
-        "answer": "Since farms take so long to deplete, you'll be spending wood income on other things in the meantime, so there's no reason to set aside wood to eventually use to reseed farms. The number of villagers on wood per farm ranges from 0.333 (1 wood villager /3 farms) to 0.077 (1 wood villager /13 farms). These numbers are so small that you wouldn't realistically keep track of them in an actual game."
-    }
-]

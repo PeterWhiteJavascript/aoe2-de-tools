@@ -2215,6 +2215,7 @@ $(function(){
                 }
             }
         }
+        console.log(gatherRates)
         $("#container").append(gatherRatesCont);
         
         $("#econ-civ-bonus").append(ecoSelect);
@@ -2227,17 +2228,5 @@ $(function(){
             $(cont).trigger("click");
         });
         $("#choose-units").children(".unit-show-img").trigger("click");
-    });
-
-    $.getJSON("/data/villagers-required-faq.json", function(data){
-        
-        data.forEach(function(faq){
-            let questionInstance = $('<div></div>');
-            let question = $('<p class="question">' + faq.question + '</p>');
-            let answer = $('<p class="answer">' + faq.answer+ '</p>');
-            questionInstance.append(question);
-            questionInstance.append(answer);
-            $("#faq #questions").append(questionInstance);
-        });
     });
 });
