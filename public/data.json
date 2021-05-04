@@ -2065,9 +2065,9 @@
                 }
               },
             "bonusDesc":[
-                "Burgundians can research economic upgrades one age earlier. This can give them an economic advantage, but can also delay their uptimes.",
-                "Their gunpowder units do 25% more damage, but they lack the final armor for hand canonneers and lack siege engineers for bombard cannons.",
-                "They don't really have much going for them in the current patch. Maybe they'll get buffed."
+                "Burgundians can research economic upgrades one age earlier and at a 50% food discount.",
+                "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
+                "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers."
             ],
             "ranksUnique":[["burgundian vineyards", []], ["flemish revolution", []]],
             "ranks":{
@@ -20089,7 +20089,7 @@
                     },
                     {
                       "name": "siege onager",
-                      "available": false
+                      "available": true
                     },
                     {
                       "name": "heavy scorpion",
@@ -20557,7 +20557,7 @@
                 },
                 "siege workshop":{
                     "siege ram":[3, 3],
-                    "onager": [3, 3],
+                    "siege onager": [3, 3],
                     "heavy scorpion":[3, 3]
                 },
                 "monastery":{
@@ -25922,7 +25922,7 @@
             "lineOfSight": 5,
             "cost":{
                 "food": 70,
-                "gold": 45
+                "gold": 40
             },
             "armorClasses": [8],
             "bonus":[],
@@ -26590,7 +26590,7 @@
             "name": "serjeant",
             "ageReq": 3,
             "mAtk": 5,
-            "mDef": 1,
+            "mDef": 2,
             "pDef": 2,
             "hp": 45,
             "speed": 0.9,
@@ -26603,9 +26603,9 @@
             "ageUpgrade":[
                 {},
                 {
-                    "hp": 15,
+                    "hp": 20,
                     "mAtk": 3,
-                    "mDef": 2,
+                    "mDef": 1,
                     "pDef": 2
                 },
                 {}
@@ -27064,7 +27064,7 @@
             "mDef": 0,
             "pDef": 0,
             "hp": 60,
-            "speed": 1.45,
+            "speed": 1.4,
             "lineOfSight": 6,
             "rateOfFire": 1.7,
             "projSpeed": 7.0,
@@ -27632,7 +27632,7 @@
             "ageReq": 2,
             "cost":{
                 "wood": 75,
-                "stone": 200
+                "stone": 175
             },
             "armorClasses": [[11, 0], [13, 0], [21, 0]],
             "hp": 1000,
@@ -28978,7 +28978,7 @@
                 "mAtk": 3,
                 "mDef": 1,
                 "pDef": 1,
-                "hp": 15,
+                "hp": 20,
                 "lineOfSight": 2,
                 "bonus":[[29, 1], [21, 1]]
             },

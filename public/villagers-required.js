@@ -114,12 +114,12 @@ $(function(){
         let gatherRatesCont = $("<div id='gather-rates'></div>");
         let resOrder = ["food", "wood", "gold", "stone"];
         let order = [
-            ["farmer", "farm heavy plow","wheelbarrow", "wheelbarrow heavy plow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food"],
+            ["farmer", "farm heavy plow","wheelbarrow", "wheelbarrow heavy plow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food", "relic food"],
             ["lumberjack", "double-bit axe", "bow saw", "two-man saw", "feitoria wood"],
             ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["farm heavy plow", "wheelbarrow heavy plow", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
+        let hideAtStart = ["farm heavy plow", "wheelbarrow heavy plow", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "relic food","feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");

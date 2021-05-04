@@ -75,6 +75,9 @@ function setUpGatherRates(data){
     gatherRates["relic"] = {
         res: "gold", gatherRate: 0.5
     };
+    gatherRates["relic food"] = {
+        res: "food", gatherRate: 0.5
+    };
     gatherRates["stone mining"] = {
         res: "stone", gatherRate: 
             parseFloat(
