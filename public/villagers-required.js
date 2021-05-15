@@ -561,8 +561,12 @@ $(function(){
             },
             "battle elephant":{
                 "civs":{
-                    "Malay Civ Bonus":{
+                    "Malay Civ Bonus Castle Age":{
                         "cost": {"food": 0.3, "gold": 0.3},
+                        "costPercent": true
+                    },
+                    "Malay Civ Bonus Imperial Age":{
+                        "cost": {"food": 0.4, "gold": 0.4},
                         "costPercent": true
                     }
                 },
