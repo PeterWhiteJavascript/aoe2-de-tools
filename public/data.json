@@ -3442,7 +3442,8 @@
                 "Burgundians can research economic upgrades one age earlier and at a 50% food discount.",
                 "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
                 "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers.",
-                "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age."
+                "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age.",
+                "Burgundian relics produce food at the same rate as gold."
             ],
             "ranksUnique":[["burgundian vineyards", []], ["flemish revolution", []]],
             "ranks":{
@@ -22584,10 +22585,10 @@
                 }
               },
             "bonusDesc":[
-                "Tatars collect 50% more food from herdable animals, which gives them 400-450 more food in the dark age. They also spawn two additional sheep in feudal age, and two more per new town center constructed.",
+                "Tatars collect 50% more food from herdable animals, which gives them 400-450 more food in the dark age. The also spawn two more per new town center constructed.",
                 "Tatars benefit from a 25% damage increase when attacking from higher elevation on top of the 25% bonus that all civilizations get.",
-                "In castle age, thumb ring is free. This helps crossbowmen as well as cavalry archers. In imperial age, they parthian tactics is free.",
-                "Timurid siegecraft gives trebuchets +2 range. Along with siege engineers, Tatar trebuchets have 19 range.",
+                "In castle age, thumb ring is free. This helps crossbowmen as well as cavalry archers. In imperial age, they get parthian tactics for free.",
+                "Timurid siegecraft gives trebuchets +2 range. Along with siege engineers, Tatar trebuchets have 19 range. Timurid siegecraft also allows for the production of flaming camels, which are made from the castle.",
                 "The silk armor technology increases the scout cavalry line, steppe lancers, and cavalry archers melee and pierce armor by 1."
             ],
             "ranksUnique":[["silk armor", ["hussar", "heavy cavalry archer", "elite steppe lancer"]], ["timurid siegecraft", ["trebuchet"]]],

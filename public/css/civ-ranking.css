@@ -282,13 +282,16 @@ body{
         width: 40px !important;
     }
     .x-small-img{
-        width: 35px !important;
+        width: 34.5px !important;
     }
     .xa-small-img{
         width: 32.5px !important;
     }
     .xx-small-img{
         width: 31px !important;
+    }
+    .xxx-small-img{
+        width: 30px !important;
     }
     .desc-img img{
         width: 40px;
@@ -316,7 +319,7 @@ body{
         line-height: 15px !important;
     }
     .xxx-small-desc-text{
-        font-size: 11px !important;
+        font-size: 10px !important;
         line-height: 14px !important;
     }
     

@@ -173,19 +173,19 @@ $.getJSON('data.json', function(data) {
             $(".unit img").addClass("xx-small-img");
             $(".age-spacer img").addClass("xx-small-img");
             $(".ages-cont img").addClass("xx-small-img");
-        } else if(unitNum === 21){
+        } else if(unitNum >= 20){
             $(".age img").addClass("xa-small-img");
             $(".building img").addClass("x-small-img");
             $(".unit img").addClass("xa-small-img");
             $(".age-spacer img").addClass("x-small-img");
             $(".ages-cont img").addClass("x-small-img");
-        } else if(unitNum >= 19){
+        } else if(unitNum >= 17){
             $(".age img").addClass("x-small-img");
             $(".building img").addClass("x-small-img");
             $(".unit img").addClass("x-small-img");
             $(".age-spacer img").addClass("x-small-img");
             $(".ages-cont img").addClass("x-small-img");
-        } else if(unitNum >= 17){
+        } else {
             $(".age img").addClass("small-img");
             $(".building img").addClass("small-img");
             $(".unit img").addClass("small-img");
@@ -270,13 +270,16 @@ $.getJSON('data.json', function(data) {
         });
         if(descTextSize > 1050){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xxx-small-desc-text");
-            $(".desc-img img").addClass("x-small-img");
+            $(".desc-img img").addClass("xxx-small-img");
         } else if(descTextSize > 950){
+            $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xxx-small-desc-text");
+            $(".desc-img img").addClass("xx-small-img");
+        } else if(descTextSize > 850){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("xx-small-desc-text");
-            $(".desc-img img").addClass("x-small-img");
+            $(".desc-img img").addClass("xx-small-img");
         } else if(descTextSize > 750){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
-            $(".desc-img img").addClass("x-small-img");
+            $(".desc-img img").addClass("xx-small-img");
         } else if(descTextSize > 650){
             $("#civ-bonuses").children(".bonus-desc").children("p").addClass("x-small-desc-text");
             $(".desc-img img").addClass("x-small-img");
