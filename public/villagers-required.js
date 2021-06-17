@@ -222,6 +222,10 @@ $(function(){
                     "Goths Team Bonus":{
                         "trainTime": 1.20,
                         "trainTimePercent": true
+                    },
+                    "Foced Levy":{
+                        "cost": {"food": +20, "gold": -20}
+                        
                     }
                 }
                         
