@@ -104,7 +104,9 @@ $(function(){
                 "gold shaft mining": 0.1,
                 "relic": 0.1,
                 "trade cart": 0.1
-                
+            },
+            "Spanish Trade":{
+                "trade cart": 0.25
             }
         }
     };
@@ -223,7 +225,7 @@ $(function(){
                         "trainTime": 1.20,
                         "trainTimePercent": true
                     },
-                    "Foced Levy":{
+                    "Forced Levy":{
                         "cost": {"food": +20, "gold": -20}
                         
                     }
@@ -719,7 +721,14 @@ $(function(){
                     }
                 },
                 "upgrades":{
-                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
                 }
             },
             
@@ -735,7 +744,29 @@ $(function(){
                     }
                 },
                 "upgrades":{
-                    
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            
+            "trade cart":{
+                "civs":{
+                    "Portuguese Civ Bonus":{
+                        "cost": {"gold": 0.2},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    "Silk Road":{
+                        "cost": {"gold": 0.5, "wood": 0.5},
+                        "costPercent": true
+                    }
                 }
             },
             
@@ -1072,6 +1103,10 @@ $(function(){
                     },
                     "25 Second Build Time":{
                         "trainTime": 25
+                    },
+                    "Incas Team Bonus":{
+                        "trainTime": 2,
+                        "trainTimePercent": true
                     }
                 }
             },
@@ -1129,6 +1164,89 @@ $(function(){
                     "Treadmill Crane":{
                         "trainTime":1.2,
                         "trainTimePercent": true
+                    }
+                }
+            },
+            "palisade wall":{
+                "civs":{
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    },
+                    "Mayans Team Bonus":{
+                        "cost":{"wood": -1}
+                    }
+                }
+            },
+            "palisade gate":{
+                "civs":{
+                    "Malians Civ Bonus":{
+                        "cost": {"wood": 0.15},
+                        "costPercent": true
+                    },
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    },
+                    "Mayans Team Bonus":{
+                        "cost":{"wood": 0.5},
+                        "costPercent": true
+                                
+                    }
+                }
+            },
+            "stone wall":{
+                "civs":{
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    },
+                    "Incas Civ Bonus":{
+                        "cost": {"stone": -1}
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    },
+                    "Mayans Team Bonus":{
+                        "cost":{"stone": -2}
+                    }
+                }
+            },
+            "gate":{
+                "civs":{
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    },
+                    "Incas Civ Bonus":{
+                        "cost": {"stone": 0.15},
+                        "costPercent": true
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    },
+                    "Mayans Team Bonus":{
+                        "cost":{"stone": 0.5},
+                        "costPercent": true
+                                
                     }
                 }
             },
@@ -2108,9 +2226,9 @@ $(function(){
         //Which units to show and in what order.
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
                           "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
-                          "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard",
+                          "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard", "trade cart",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
-                          "house", "farm", "watch tower", "donjon", 
+                          "house", "farm", "watch tower", "donjon", "palisade wall", "palisade gate", "stone wall", "gate",
                           "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
                       
         for(let i = 0; i < unitsShown.length; i++){
@@ -2204,7 +2322,7 @@ $(function(){
                 
                 
                 for(let j in applied){
-                    displayGatherRate(parseFloat(applied[j]).toFixed(2), j);
+                    displayGatherRate(parseFloat(applied[j].toFixed(2)), j+"");
                 }
                 $("#gather-rates").children(".unit-container").not(":hidden").each(function(){
                     updateVilsRequired({target:$(this).children("div").first()});

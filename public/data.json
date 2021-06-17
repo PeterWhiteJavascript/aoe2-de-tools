@@ -27565,7 +27565,7 @@
             "otherTechs":["treadmill crane"],
             "uniqueDamageTechs":["great wall"],
             "uniqueOtherTechs":[],
-            "trainTime": 30,
+            "trainTime": 10,
             "ageUpgrade":[
                 {},
                 {
