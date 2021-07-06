@@ -50,23 +50,28 @@ $(function(){
             defElm.children(".combatant-title").children("h3").text("Attacker");
             atkElm.siblings(".combat-result").replaceWith(generateResult(combats[idxI][0], combats[idxI][1]));
         }
+        
         function getCombatantData(elm){
             let idxI = $("#combatants").children(".combat-cont").index(elm.closest('.combat-cont')[0]);
             let idxJ = $("#combatants").children(".combat-cont:eq("+idxI+")").children(".combatant").index(elm.closest('.combatant')[0]);
             return {combatant: combats[idxI][idxJ], idx: [idxI, idxJ], combatants: combats[idxI]};
         }
+        
         function displayUnitGrid(){
-            function removeGrid(){
-                grid.remove();
-                $(this).unbind('mouseup');
-            }
+            //function removeGrid(){
+            //    modal.remove();
+            //    $(this).unbind('mouseup');
+            //}
             let portrait = $(this);
-            let grid = $("<div class='unit-selection-grid'></div>");
+            let modal_header = $("<div class='modal-header> </div>")
+            let modal_body = $("<div class='modal-body'> </div>");
+            let container = $("<div class='container-fluid'> </div>");
+            let grid = $("<div class='row'> </div>");
             let sectionNum = 0;
             let sectionHeight = 9;
-            let section = $("<div class='unit-selection-grid-section'></div>");
+            let section = $("<div class='col-sm '></div>");
             for(let i = 0; i < unitGrid.length; i++){
-                let row = $("<div></div>");
+                let row = $("<div class='row'></div>");
                 for(let j = 0; j < unitGrid[i].length; j++){
                     let img = $('<img class="icon-big" unit="'+unitGrid[i][j]+'" src="img/'+unitGrid[i][j]+'.png">');
                     img.on("mousedown", function(){
@@ -98,15 +103,20 @@ $(function(){
                 sectionNum++;
                 if(sectionNum === sectionHeight){
                     grid.append(section);
-                    section = $("<div class='unit-selection-grid-section'></div>");
+                    section = $("<div class='col-sm '></div>");
                     sectionNum = 0;
                 }
             }
             grid.append(section);
-            
-            $(document.body).append(grid);
-            $(document.body).mouseup(removeGrid);
+            container.append(grid);
+            modal_body.append(container);
+            $('#unit_modal').append(modal_header);
+            $('#unit_modal').append(modal_body);
+
+            $('#unit_modal').modal('show');//append(modal);
+            //$(document.body).mouseup(removeGrid);
         }
+
         function applyUpgradeEffects(unitData, locked, currentUpgradeData, selectedCiv, elm){
             function applyEffect(key, data, upgradeData){
                 if(key === "cost"){
@@ -477,7 +487,10 @@ $(function(){
                     </div>';
 
             element.children(".combatant-props").children("div:eq(0)").append(ages, img, elevationCont, unitStats);
-            element.children(".combatant-props").children(".combatant-stats").children("div:eq(1)").children(".icon-big").click(displayUnitGrid);
+            element.children(".combatant-props").children(".combatant-stats")
+                                                .children("div:eq(1)")
+                                                .children(".icon-big")
+                                                .click(displayUnitGrid);
             let upgradeData = getUpgrades(data, civ);
             combatantData.upgrades = upgradeData.data;
             element.children(".combatant-props").append(upgradeData.element);
