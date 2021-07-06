@@ -58,10 +58,11 @@ $(function(){
         }
         
         function displayUnitGrid(){
-            //function removeGrid(){
-            //    modal.remove();
-            //    $(this).unbind('mouseup');
-            //}
+            function removeGrid(){
+                modal_header.remove();
+                modal_body.remove();
+                $('#unit_modal').modal('hide');
+            }
             let portrait = $(this);
             let modal_header = $("<div class='modal-header> </div>")
             let modal_body = $("<div class='modal-body'> </div>");
@@ -71,10 +72,11 @@ $(function(){
             let sectionHeight = 9;
             let section = $("<div class='col-sm unit-selection-grid-section'></div>");
             for(let i = 0; i < unitGrid.length; i++){
-                let row = $("<div class='row'></div>");
+                let row = $("<div></div>");
                 for(let j = 0; j < unitGrid[i].length; j++){
                     let img = $('<img class="icon-big" unit="'+unitGrid[i][j]+'" src="img/'+unitGrid[i][j]+'.png">');
                     img.on("mousedown", function(){
+                        console.log(grid.children(".unit-selection-grid-section").children("div"))
                         let unitClassNum = grid.children(".unit-selection-grid-section").children("div").index($(this).parent());
                         console.log(unitClassNum)
                         let unit = units.find((d) => {return d.name === unitGrid[unitClassNum][0];});
@@ -104,7 +106,7 @@ $(function(){
                 sectionNum++;
                 if(sectionNum === sectionHeight){
                     grid.append(section);
-                    section = $("<div class='col-sm '></div>");
+                    section = $("<div class='col-sm unit-selection-grid-section'></div>");
                     sectionNum = 0;
                 }
             }
