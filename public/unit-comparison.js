@@ -69,13 +69,14 @@ $(function(){
             let grid = $("<div class='row'> </div>");
             let sectionNum = 0;
             let sectionHeight = 9;
-            let section = $("<div class='col-sm '></div>");
+            let section = $("<div class='col-sm unit-selection-grid-section'></div>");
             for(let i = 0; i < unitGrid.length; i++){
                 let row = $("<div class='row'></div>");
                 for(let j = 0; j < unitGrid[i].length; j++){
                     let img = $('<img class="icon-big" unit="'+unitGrid[i][j]+'" src="img/'+unitGrid[i][j]+'.png">');
                     img.on("mousedown", function(){
                         let unitClassNum = grid.children(".unit-selection-grid-section").children("div").index($(this).parent());
+                        console.log(unitClassNum)
                         let unit = units.find((d) => {return d.name === unitGrid[unitClassNum][0];});
                         let unitUpgrade = $(this).parent().children("img").index(this);
                         let replacing = portrait.closest(".combatant");
@@ -112,9 +113,7 @@ $(function(){
             modal_body.append(container);
             $('#unit_modal').append(modal_header);
             $('#unit_modal').append(modal_body);
-
-            $('#unit_modal').modal('show');//append(modal);
-            //$(document.body).mouseup(removeGrid);
+            $('#unit_modal').modal('show');
         }
 
         function applyUpgradeEffects(unitData, locked, currentUpgradeData, selectedCiv, elm){
