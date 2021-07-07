@@ -395,6 +395,8 @@ $(function(){
                 let upgradeData = finder(upgrades, data.techs[i]);
                 if(!upgradeData){
                     upgradeData = upgradeGroups[data.techs[i]];
+                    if (!upgradeData) 
+                        continue;
                     let group = [];
                     for(let j = 0; j < upgradeData.length; j++){
                         group.push(finder(upgrades, upgradeData[j]));
