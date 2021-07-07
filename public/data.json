@@ -27848,6 +27848,9 @@
         [
             "cannon galleon", "elite cannon galleon"
         ],
+        [   "longboat", "elite longboat"],
+        [   "caravel", "elite caravel"],
+        [   "turtle ship", "elite turtle ship"],
         [
             "monk"
         ],
@@ -27858,11 +27861,45 @@
             "petard"
         ],
         [
-            "trebuchet"
+            "trebuchet", "trebuchet unpacked"
         ],
-        [
-            "trebuchet unpacked"
-        ],
+        [   "janissary", "elite janissary"],
+        [   "organ gun", "elite organ gun"],
+        [   "ballista elephant", "elite ballista elephant"],
+        [   "coustillier", "elite coustillier"],
+        [   "jaguar warrior", "elite jaguar warrior"],
+        [   "berserk", "elite berserk"],
+        [   "teutonic knight", "elite teutonic knight"],
+        [   "serjeant", "elite serjeant"],
+        [   "gbeto", "elite gbeto"],
+        [   "mameluke", "elite mameluke"],
+        [   "samurai", "elite samurai"],
+        [   "huskarl", "elite huskarl"],
+        [   "throwing axeman", "elite throwing axeman"],
+        [   "shotel warrior", "elite shotel warrior"],
+        [   "kamayuk", "elite kamayuk"],
+        [   "woad raider", "elite woad raider"],
+        [   "cataphract", "elite cataphract"],
+        [   "tarkan", "elite tarkan"],
+        [   "karambit warrior", "elite karambit warrior"],
+        [   "camel archer", "elite camel archer"],
+        [   "war wagon", "elite war wagon"],
+        [   "conquistador", "elite conquistador"],
+        [   "plumed archer", "elite plumed archer"],
+        [   "genoese crossbowman", "elite genoese crossbowman"],
+        [   "rattan archer", "elite rattan archer"],
+        [   "mangudai", "elite mangudai"],
+        [   "elephant archer", "elite elephant archer"],
+        [   "konnik", "elite konnik"],
+        [   "war elephant", "elite war elephant"],
+        [   "leitis", "elite leitis"],
+        [   "boyar", "elite boyar"],
+        [   "magyar huszar", "elite magyar huszar"],
+        [   "keshik", "elite keshik"],
+        [   "arambai", "elite arambai"],
+        [   "chu ko nu", "elite chu ko nu"],
+        [   "kipchak", "elite kipchak"],
+        [   "longbowman", "elite longbowman"],
         [
             "house"
         ],
