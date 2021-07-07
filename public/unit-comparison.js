@@ -63,6 +63,14 @@ $(function(){
                 modal_body.remove();
                 $('#unit_modal').modal('hide');
             }
+            $(function(){                    
+                $('#unit_modal').click(function(e) {
+                    if(!$(e.target).hasClass('icon-big') )
+                    {
+                        removeGrid();          
+                    }
+                });
+            })
             let portrait = $(this);
             let modal_header = $("<div class='modal-header> </div>")
             let modal_body = $("<div class='modal-body'> </div>");
@@ -78,7 +86,6 @@ $(function(){
                     img.on("mousedown", function(){
                         console.log(grid.children(".unit-selection-grid-section").children("div"))
                         let unitClassNum = grid.children(".unit-selection-grid-section").children("div").index($(this).parent());
-                        console.log(unitClassNum)
                         let unit = units.find((d) => {return d.name === unitGrid[unitClassNum][0];});
                         let unitUpgrade = $(this).parent().children("img").index(this);
                         let replacing = portrait.closest(".combatant");
@@ -115,6 +122,9 @@ $(function(){
             modal_body.append(container);
             $('#unit_modal').append(modal_header);
             $('#unit_modal').append(modal_body);
+            $('#unit_modal').modal({
+                keyboard: true
+              });
             $('#unit_modal').modal('show');
         }
 
