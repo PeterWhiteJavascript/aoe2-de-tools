@@ -29,6 +29,7 @@ $(function(){
         }
         
         let unitGrid = data.unitGrid;
+        let buildingList = data.buildingList;
         let upgradeGroups = data.upgradeGroups;
         //Stores the attack/defender stats.
         let combats = [];
@@ -71,55 +72,79 @@ $(function(){
                     }
                 });
             })
+            function show_building_units(unit_list){
+                grid.empty();
+                section = $("<div class='col-sm unit-selection-grid-section '></div>");
+                grid.append(section);
+                sectionNum = 0;
+                for(let i = 0; i < unit_list.length; i++){    
+                    let row = $("<div></div>");
+                    for(let j = 0; j < unit_list[i].length; j++){
+                        let img = $('<img class="icon-big" unit="'+ unit_list[i][j]+'" src="img/'+ unit_list[i][j] +'.png">');
+                        img.on("mousedown", function(){
+                            console.log(grid.children(".unit-selection-grid-section").children("div"))
+                            let unitClassNum = grid.children(".unit-selection-grid-section").children("div").index($(this).parent());
+                            let unit = units.find((d) => {return d.name === unit_list[unitClassNum][0];});
+                            let unitUpgrade = $(this).parent().children("img").index(this);
+                            let replacing = portrait.closest(".combatant");
+                            
+                            let combatant = createCombatant(replacing.children(".combatant-title").children("h3").text(), unit, $(replacing).children(".combatant-props").children(".combatant-upgrades").children(".civilization").children("select").children("option:selected").val());
+                            let combatIdx = $("#combatants").children(".combat-cont").index(replacing.closest(".combat-cont"));
+                            let combatantIdx = replacing.parent().children(".combatant").index(replacing);
+                            combats[combatIdx][combatantIdx] = combatant.data;
+                            replacing.siblings(".combat-result").replaceWith(generateResult(combats[combatIdx][0], combats[combatIdx][1]));
+                            replacing.replaceWith(combatant.element);
+                            //Apply the class upgrade if there is one.
+                            if(unitUpgrade){
+                                $(combatant.element).children(".combatant-props").children(".combatant-upgrades").children(".upgrades").children("div:eq(0)").children(".icon:eq("+(unitUpgrade-1)+")").click();
+                            } 
+                            //Just click the age that we need to be in.
+                            else {
+                                $(combatant.element).children(".combatant-props").children(".combatant-stats").children("div:eq(0)").children(".icon:eq("+(combatant.data.ageReq-1)+")").click();
+                            }
+                            removeGrid();
+                        });
+                
+                        row.append(img);
+                    }
+
+                    section.append(row);
+                    sectionNum++;
+                    if(sectionNum === sectionHeight){
+                        grid.append(section);
+                        section = $("<div class='col-sm unit-selection-grid-section'></div>");
+                        sectionNum = 0;
+                    }
+                }
+            }
+
             let portrait = $(this);
             let modal_header = $("<div class='modal-header> </div>")
             let modal_body = $("<div class='modal-body'> </div>");
+
             let container = $("<div class='container-fluid'> </div>");
+
             let grid = $("<div class='row'> </div>");
+
             let sectionNum = 0;
             let sectionHeight = 9;
-            let section = $("<div class='col-sm unit-selection-grid-section'></div>");
-            for(let i = 0; i < unitGrid.length; i++){
-                let row = $("<div></div>");
-                for(let j = 0; j < unitGrid[i].length; j++){
-                    let img = $('<img class="icon-big" unit="'+unitGrid[i][j]+'" src="img/'+unitGrid[i][j]+'.png">');
-                    img.on("mousedown", function(){
-                        console.log(grid.children(".unit-selection-grid-section").children("div"))
-                        let unitClassNum = grid.children(".unit-selection-grid-section").children("div").index($(this).parent());
-                        let unit = units.find((d) => {return d.name === unitGrid[unitClassNum][0];});
-                        let unitUpgrade = $(this).parent().children("img").index(this);
-                        let replacing = portrait.closest(".combatant");
-                        
-                        let combatant = createCombatant(replacing.children(".combatant-title").children("h3").text(), unit, $(replacing).children(".combatant-props").children(".combatant-upgrades").children(".civilization").children("select").children("option:selected").val());
-                        let combatIdx = $("#combatants").children(".combat-cont").index(replacing.closest(".combat-cont"));
-                        let combatantIdx = replacing.parent().children(".combatant").index(replacing);
-                        combats[combatIdx][combatantIdx] = combatant.data;
-                        replacing.siblings(".combat-result").replaceWith(generateResult(combats[combatIdx][0], combats[combatIdx][1]));
-                        replacing.replaceWith(combatant.element);
-                        //Apply the class upgrade if there is one.
-                        if(unitUpgrade){
-                            $(combatant.element).children(".combatant-props").children(".combatant-upgrades").children(".upgrades").children("div:eq(0)").children(".icon:eq("+(unitUpgrade-1)+")").click();
-                        } 
-                        //Just click the age that we need to be in.
-                        else {
-                            $(combatant.element).children(".combatant-props").children(".combatant-stats").children("div:eq(0)").children(".icon:eq("+(combatant.data.ageReq-1)+")").click();
-                        }
-                        removeGrid();
-                    });
-            
-                    row.append(img);
-                }
-                section.append(row);
-                sectionNum++;
-                if(sectionNum === sectionHeight){
-                    grid.append(section);
-                    section = $("<div class='col-sm unit-selection-grid-section'></div>");
-                    sectionNum = 0;
-                }
+
+            let section = $("<div class='col-sm unit-selection-grid-section '></div>");
+
+            for(let i = 0; i < buildingList.length; i++){      
+                let img = $('<img class="upgrade-locked icon-big" building="'+ buildingList[i] +'" src="img/'+ buildingList[i] +'.png">');
+                img.on('mousedown', function(){
+                    $("img[building]").addClass("upgrade-locked");
+                    img.removeClass("upgrade-locked");
+                    show_building_units(unitGrid[buildingList[i]]);
+                });
+                container.append(img);
             }
+
             grid.append(section);
             container.append(grid);
             modal_body.append(container);
+
             $('#unit_modal').append(modal_header);
             $('#unit_modal').append(modal_body);
             $('#unit_modal').modal({

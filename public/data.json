@@ -27778,162 +27778,114 @@
             "trainTime": 36
         }
     ],
-    "unitGrid":[
-        [
-            "villager"
-        ],
-        [
-            "militia", "man-at-arms", "long swordsman", "two-handed swordsman", "champion"
-        ],
-        [
-            "spearman" ,"pikeman", "halberdier"
-        ],
-        [
-            "eagle scout","eagle warrior", "elite eagle warrior"
-        ],
-        [
-            "archer", "crossbowman", "arbalester"
-        ],
-        [
-            "skirmisher", "elite skirmisher", "imperial skirmisher"
-        ],
-        [
-            "cavalry archer", "heavy cavalry archer"
-        ],
-        [
-            "hand cannoneer"
-        ],
-        [
-            "genitour", "elite genitour"
-        ],
-        [
-            "scout cavalry", "light cavalry", "hussar"
-        ],
-        [
-            "knight", "cavalier", "paladin"
-        ],
-        [
-            "camel rider", "heavy camel rider", "imperial camel rider"
-        ],
-        [
-            "battle elephant", "elite battle elephant"
-        ],
-        [
-            "steppe lancer", "elite steppe lancer"
-        ],
-        [
-            "battering ram", "capped ram", "siege ram"
-        ],
-        [
-            "mangonel", "onager", "siege onager"
-        ],
-        [
-            "scorpion", "heavy scorpion"
-        ],
-        [
-            "siege tower"
-        ],
-        [
-            "bombard cannon"
-        ],
-        [
-            "fire galley", "fire ship", "fast fire ship"
-        ],
-        [
-            "galley", "war galley", "galleon"
-        ],
-        [
-            "demolition raft", "demolition ship", "heavy demolition ship"
-        ],
-        [
-            "cannon galleon", "elite cannon galleon"
-        ],
-        [   "longboat", "elite longboat"],
-        [   "caravel", "elite caravel"],
-        [   "turtle ship", "elite turtle ship"],
-        [
-            "monk"
-        ],
-        [
-            "missionary"
-        ],
-        [
-            "petard"
-        ],
-        [
-            "trebuchet", "trebuchet unpacked"
-        ],
-        [   "janissary", "elite janissary"],
-        [   "organ gun", "elite organ gun"],
-        [   "ballista elephant", "elite ballista elephant"],
-        [   "coustillier", "elite coustillier"],
-        [   "jaguar warrior", "elite jaguar warrior"],
-        [   "berserk", "elite berserk"],
-        [   "teutonic knight", "elite teutonic knight"],
-        [   "serjeant", "elite serjeant"],
-        [   "gbeto", "elite gbeto"],
-        [   "mameluke", "elite mameluke"],
-        [   "samurai", "elite samurai"],
-        [   "huskarl", "elite huskarl"],
-        [   "throwing axeman", "elite throwing axeman"],
-        [   "shotel warrior", "elite shotel warrior"],
-        [   "kamayuk", "elite kamayuk"],
-        [   "woad raider", "elite woad raider"],
-        [   "cataphract", "elite cataphract"],
-        [   "tarkan", "elite tarkan"],
-        [   "karambit warrior", "elite karambit warrior"],
-        [   "camel archer", "elite camel archer"],
-        [   "war wagon", "elite war wagon"],
-        [   "conquistador", "elite conquistador"],
-        [   "plumed archer", "elite plumed archer"],
-        [   "genoese crossbowman", "elite genoese crossbowman"],
-        [   "rattan archer", "elite rattan archer"],
-        [   "mangudai", "elite mangudai"],
-        [   "elephant archer", "elite elephant archer"],
-        [   "konnik", "elite konnik"],
-        [   "war elephant", "elite war elephant"],
-        [   "leitis", "elite leitis"],
-        [   "boyar", "elite boyar"],
-        [   "magyar huszar", "elite magyar huszar"],
-        [   "keshik", "elite keshik"],
-        [   "arambai", "elite arambai"],
-        [   "chu ko nu", "elite chu ko nu"],
-        [   "kipchak", "elite kipchak"],
-        [   "longbowman", "elite longbowman"],
-        [
-            "house"
-        ],
-        [
-            "town center"
-        ],
-        [
-            "monastery"
-        ],
-        [
-            "wonder"
-        ],
-        [
-            "palisade wall"
-        ],
-        [
-            "palisade gate"
-        ],
-        [
-            "outpost"
-        ],
-        [
-            "stone wall", "fortified wall"
-        ],
-        [
-            "gate"
-        ],
-        [
-            "watch tower", "guard tower", "keep"
-        ],
-        [
-            "bombard tower"
-        ]
+
+    "buildingList": [
+        "barracks",
+        "archery range",
+        "stable",
+        "siege workshop",
+        "dock",
+        "monastery",
+        "castle",
+        "villager build"
     ],
+    "unitGrid":{
+        "barracks": [
+            [   "militia", "man-at-arms", "long swordsman", "two-handed swordsman", "champion"],
+            [   "spearman" ,"pikeman", "halberdier"],
+            [   "eagle scout","eagle warrior", "elite eagle warrior" ],
+            [   "condottiero"]
+        ],
+        "archery range": [
+            [   "archer", "crossbowman", "arbalester"],
+            [   "skirmisher", "elite skirmisher", "imperial skirmisher"],
+            [   "cavalry archer", "heavy cavalry archer"],
+            [   "hand cannoneer"],
+            [   "genitour", "elite genitour"]
+        ],
+        "stable": [
+            [   "scout cavalry", "light cavalry", "hussar"],
+            [   "knight", "cavalier", "paladin"],
+            [   "camel rider", "heavy camel rider", "imperial camel rider"],
+            [   "battle elephant", "elite battle elephant"],
+            [   "steppe lancer", "elite steppe lancer"]
+        ],
+        "siege workshop": [
+            [   "villager"],
+            [   "battering ram", "capped ram", "siege ram"],
+            [   "mangonel", "onager", "siege onager"],
+            [   "scorpion", "heavy scorpion"],
+            [   "siege tower"],
+            [   "bombard cannon"]
+        ],
+        "dock": [
+            [   "fire galley", "fire ship", "fast fire ship"],
+            [   "galley", "war galley", "galleon"],
+            [   "demolition raft", "demolition ship", "heavy demolition ship"],
+            [   "cannon galleon", "elite cannon galleon"],
+            [   "longboat", "elite longboat"],
+            [   "caravel", "elite caravel"],
+            [   "turtle ship", "elite turtle ship"]
+        ],
+        "monastery": [
+            [   "monk"],
+            [   "missionary"]
+        ],
+        "castle": [
+            [   "petard"],
+            [   "trebuchet", "trebuchet unpacked"],
+            [   "janissary", "elite janissary"],
+            [   "organ gun", "elite organ gun"],
+            [   "ballista elephant", "elite ballista elephant"],
+            [   "coustillier", "elite coustillier"],
+            [   "jaguar warrior", "elite jaguar warrior"],
+            [   "berserk", "elite berserk"],
+            [   "teutonic knight", "elite teutonic knight"],
+            [   "serjeant", "elite serjeant"],
+            [   "gbeto", "elite gbeto"],
+            [   "mameluke", "elite mameluke"],
+            [   "samurai", "elite samurai"],
+            [   "huskarl", "elite huskarl"],
+            [   "throwing axeman", "elite throwing axeman"],
+            [   "shotel warrior", "elite shotel warrior"],
+            [   "kamayuk", "elite kamayuk"],
+            [   "woad raider", "elite woad raider"],
+            [   "cataphract", "elite cataphract"],
+            [   "tarkan", "elite tarkan"],
+            [   "karambit warrior", "elite karambit warrior"],
+            [   "camel archer", "elite camel archer"],
+            [   "war wagon", "elite war wagon"],
+            [   "conquistador", "elite conquistador"],
+            [   "plumed archer", "elite plumed archer"],
+            [   "genoese crossbowman", "elite genoese crossbowman"],
+            [   "rattan archer", "elite rattan archer"],
+            [   "mangudai", "elite mangudai"],
+            [   "elephant archer", "elite elephant archer"],
+            [   "konnik", "elite konnik"],
+            [   "war elephant", "elite war elephant"],
+            [   "leitis", "elite leitis"],
+            [   "boyar", "elite boyar"],
+            [   "magyar huszar", "elite magyar huszar"],
+            [   "keshik", "elite keshik"],
+            [   "arambai", "elite arambai"],
+            [   "chu ko nu", "elite chu ko nu"],
+            [   "kipchak", "elite kipchak"],
+            [   "longbowman", "elite longbowman"]
+        ],
+        "villager build": [
+            [   "house"],
+            [   "town center"],
+            [   "monastery"],
+            [   "wonder"],
+            [   "palisade wall"],
+            [   "palisade gate"],
+            [   "outpost"],
+            [   "stone wall", "fortified wall" ],
+            [   "gate"],
+            [   "watch tower", "guard tower", "keep"],
+            [   "bombard tower"]
+        ]  
+    },
     
     "upgradeGroups":{
         "villagerMovement": ["wheelbarrow", "hand cart"],
