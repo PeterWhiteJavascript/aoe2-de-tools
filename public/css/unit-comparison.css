@@ -171,3 +171,7 @@
 .upgrade-locked{
     filter: brightness(50%);
 }
+
+.modal-backdrop  { 
+    opacity:0.8 !important; 
+}
