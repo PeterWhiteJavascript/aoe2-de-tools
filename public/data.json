@@ -30799,5 +30799,43 @@
             "time": 70
             
         }
-    ]   
+    ],
+    "civ_bonus": {
+      "burmese": {
+        "militia": {
+          "mAtk": {
+            "other": 0,
+            "feudalAge": 1,
+            "castleAge": 2,
+            "imperialAge": 3
+          }
+        },
+        "spearman": {
+          "mAtk": {
+            "other": 0,
+            "feudalAge": 1,
+            "castleAge": 2,
+            "imperialAge": 3
+          }
+        }
+      },
+      "vikings": {
+        "spearman": {
+          "hp": {
+            "other": 0,
+            "feudalAge": 10,
+            "castleAge": 15,
+            "imperialAge": 20
+          }
+        },
+        "militia": {
+          "hp": {
+            "other": 0,
+            "feudalAge": 10,
+            "castleAge": 15,
+            "imperialAge": 20
+          }
+        }
+      }
+    }
 }
