@@ -25533,7 +25533,7 @@
                 "gold": 25
             },
             "armorClasses": [[1, 0], [19, 0]],
-            "bonus":[[8, 12], [30, 8], [5, 8], [16, 8], [29, 2], [21, 2]],
+            "bonus":[[8, 12], [30, 8], [5, 8], [16, 8], [29, 2]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
@@ -25732,7 +25732,7 @@
             "pDef": 0,
             "hp": 35,
             "frameDelay": 15,
-            "accuracy": 0.65,
+            "accuracy": 0.75,
             "range": 7,
             "speed": 0.96,
             "rateOfFire": 3.45,
@@ -27155,8 +27155,8 @@
             "lineOfSight": 4,
             "blastRadius": 0.5,
             "cost":{
-                "food": 200,
-                "gold": 75
+                "food": 170,
+                "gold": 85
             },
             "armorClasses": [[8, 0], [5, 0], [19, 0]],
             "bonus":[[11, 7], [13, 7]],
@@ -29202,7 +29202,7 @@
             "ageReq": 4,
             "cost": {
                 "gold": 500,
-                "stone": 450
+                "wood": 450
             },
             "effects":{
                 "range": 2
@@ -29942,7 +29942,8 @@
                 "hp": 150,
                 "pdef": 1,
                 "lineOfSight": 1,
-                "bonus": [[11, 3], [13, 3]]
+                "bonus": [[11, 3], [13, 3]],
+                "trainTime": -6
             },
             "time": 75
         },
@@ -29972,7 +29973,7 @@
             "effects":{
                 "hp": 30,
                 "mAtk": 2,
-                "mDef": 2,
+                "mDef": 4,
                 "pdef": 1
             },
             "time": 60
