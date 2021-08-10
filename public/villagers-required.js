@@ -415,6 +415,10 @@ $(function(){
                     
                 },
                 "upgrades":{
+                    "Heavy Cavalry Archer":{
+                        "trainTime": 27,
+                        "img": "heavy cavalry archer"
+                    },
                     "Steppe Husbandry":{
                         "trainTime": 2,
                         "trainTimePercent": true
@@ -536,6 +540,10 @@ $(function(){
                     }
                 },
                 "upgrades":{
+                    "Imperial Camel Rider":{
+                        "trainTime": 20,
+                        "img": "imperial camel rider"
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -551,6 +559,10 @@ $(function(){
                     
                 },
                 "upgrades":{
+                    "Elite Steppe Lancer":{
+                        "trainTime": 20,
+                        "img": "elite steppe lancer"
+                    },
                     "Steppe Husbandry":{
                         "trainTime": 2,
                         "trainTimePercent": true
@@ -1455,6 +1467,10 @@ $(function(){
                     
                 },
                 "upgrades":{
+                    "Elite Coustillier":{
+                        "trainTime": 14,
+                        "img":"elite coustillier"
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1578,7 +1594,10 @@ $(function(){
                     
                 },
                 "upgrades": {
-                    
+                    "Elite Leitis":{
+                        "trainTime": 18,
+                        "img": "elite leitis"
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1649,7 +1668,6 @@ $(function(){
                     
                 },
                 "upgrades": {
-                    
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1665,7 +1683,10 @@ $(function(){
                     
                 },
                 "upgrades": {
-                    
+                    "Elite Keshik":{
+                        "trainTime": 14,
+                        "img": "elite keshik"
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -1809,7 +1830,10 @@ $(function(){
 
                 },
                 "upgrades": {
-                    
+                    "Elite Genoese Crossbowman":{
+                        "trainTime": 14,
+                        "img": "elite genoese crossbowman"
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
