@@ -13862,6 +13862,10 @@
                     },
                     {
                       "name": "hussar",
+                      "available": false
+                    },
+                    {
+                      "name": "winged hussar",
                       "available": true
                     },
                     {
@@ -14168,7 +14172,7 @@
                     },
                     {
                       "name": "blast furnace",
-                      "available": true
+                      "available": false
                     },
                     {
                       "name": "scale barding armor",
@@ -20127,7 +20131,7 @@
                       "available": true
                     },
                     {
-                      "name": "scutage",
+                      "name": "hauberk",
                       "available": true
                     },
                     {
@@ -20542,7 +20546,7 @@
                 "The Sicilian unique unit is the serjeant; a slow moving infantry unit with high melee and pierce armor that can also build donjons. Donjons are like a watch tower that can train more serjeants. This means that Sicilians have access to their unique unit in the feudal age.",
                 "Sicilian castles and town centers can be built 100% faster, meaning a faster boom or more deadly castle drops."
             ],
-            "ranksUnique":[["first crusade", []], ["scutage", []]],
+            "ranksUnique":[["first crusade", []], ["hauberk", []]],
             "ranks":{
                 "town center": {
                     "villager":[3, 3, 3, 3]
@@ -25730,7 +25734,7 @@
             "pAtk": 17,
             "mDef": 1,
             "pDef": 0,
-            "hp": 35,
+            "hp": 40,
             "frameDelay": 15,
             "accuracy": 0.75,
             "range": 7,
@@ -27170,7 +27174,7 @@
         {
             "name": "leitis",
             "ageReq": 3,
-            "mAtk": 12,
+            "mAtk": 13,
             "mDef": 1,
             "pDef": 1,
             "hp": 100,
@@ -28434,7 +28438,8 @@
             "effects":{
                 "hp": 20,
                 "mAtk": 2,
-                "trainTime": -4
+                "trainTime": -4,
+                "reloadTime": -0.3
             },
             "time": 100,
             "classChange": true,
@@ -29185,6 +29190,19 @@
         },
         
         {
+            "name": "hauberk",
+            "ageReq": 4,
+            "cost": {
+                "food": 500,
+                "gold": 400
+            },
+            "effects":{
+                "mDef": 1,
+                "pDef": 2
+            },
+            "time": ""
+        },
+        {
             "name": "sipahi",
             "ageReq": 3,
             "cost": {
@@ -29473,7 +29491,7 @@
             },
             "effects":{
                 "mDef": 1,
-                "pDef": 1
+                "pDef": 2
             },
             "time": 40
         },
@@ -29958,6 +29976,7 @@
             "effects":{
                 "hp": 30,
                 "mDef": 1,
+                "mAtk": 3,
                 "trainTime": -2
             },
             "time": 45
