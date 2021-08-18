@@ -42,8 +42,8 @@ and open the template in the editor.
             delete techTree["Dark Age"];
             //Fix some specific things
             if(techTree.Castle[0].name === techTree.Castle[1].name) techTree.Castle[1].name = "Elite " + techTree.Castle[1].name;
-            techTree.Dock.find(elm => elm.name === "Fire Galley (Age of Empires II)").name = "Fire Galley";
-            techTree.University.find(elm => elm.name === "Bombard Tower (technology)").name = "Bombard Tower Upgrade";
+            if(techTree.Dock) techTree.Dock.find(elm => elm.name === "Fire Galley (Age of Empires II)").name = "Fire Galley";
+            if(techTree.University) techTree.University.find(elm => elm.name === "Bombard Tower (technology)").name = "Bombard Tower Upgrade";
             console.log(techTree);
             */
             let gData;

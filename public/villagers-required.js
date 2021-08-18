@@ -1277,6 +1277,22 @@ $(function(){
                     }
                 }
             },
+            "hussite wagon":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+                
+            },
             "huskarl":{
                 "civs":{
                     
@@ -1861,7 +1877,21 @@ $(function(){
                     }
                 }
             },
-            
+            "obuch":{
+                "civs":{
+                    
+                },
+                "upgrades": {
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Kasbah":{
+                        "trainTime": 1.25,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "organ gun":{
                 "noGeneric": true,
                 "civs":{
@@ -2253,7 +2283,7 @@ $(function(){
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard", "trade cart",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", "donjon", "palisade wall", "palisade gate", "stone wall", "gate",
-                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
+                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "hussite wagon", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "obuch", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
                       
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");
