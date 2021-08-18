@@ -15094,7 +15094,7 @@
                     "hand cannoneer": [3]
                 },
                 "stable":{
-                    "hussar":[3, 3, 3],
+                    "winged hussar":[3, 3, 3],
                     "paladin":[3.5, 3.5]
                 },
                 "siege workshop":{
@@ -17118,7 +17118,7 @@
               },
             "bonusDesc":[
                 "Mailans construct all buildings at a 15% wood discount, except farms. This helps them make farms earlier as they are saving wood on houses, resource drop off buildings, and military buildings.",
-                "They have the gold mining upgrade free, so going for units that have a high gold cost are more affordable.",
+                "They get 30% longer lasting gold mines, which helps them to produce gold units for much longer.",
                 "Their barracks units have +1 pierce armor when reaching feudal, castle, and imperial age, for a total of 3 in imperial age. Beacause of this, Mailan champions can fill a similar role to the huskarl since they end up with 8 pierce armor.",
                 "Farimba gives all cavalry +5 attack, so even though they lack paladin, Malian cavaliers can still be a viable unit, especially against targets that deal melee damage. Malians lack blast furnace, so the bonus ends up being 3 more than generic."
             ],
