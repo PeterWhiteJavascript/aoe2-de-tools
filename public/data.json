@@ -19857,12 +19857,12 @@
                 },
                 "barracks":{
                     "champion":[3, 3, 3, 3],
-                    "pikeman":[3, 2.5, 2.5]
+                    "pikeman":[3, 2.5, 2]
                 },
                 "archery range":{
                     "arbalester": [3, 3, 2.5],
                     "elite skirmisher": [3, 3, 2],
-                    "cavalry archer": [3, 2]
+                    "heavy cavalry archer": [3, 2]
                 },
                 "stable":{
                     "winged hussar":[3.5, 3.5, 3],
@@ -23977,7 +23977,7 @@
                 },
                 "barracks":{
                     "two-handed swordsman":[3, 3, 1, 1],
-                    "halberdier":[3, 2, 1.5]
+                    "halberdier":[3, 2, 2]
                 },
                 "archery range":{
                     "crossbowman": [3, 3.5, 2],
