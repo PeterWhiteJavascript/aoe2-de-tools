@@ -52,6 +52,10 @@ h1{
     filter: brightness(50%);
     cursor: pointer;
 }
+.unit-show-img img{
+    width: 80px;
+    height: 84px;
+}
 .res-show-img > div{
     text-align: center;
 }

@@ -27245,6 +27245,29 @@
             "trainTime": 30
         },
         {
+            "name": "xolotl",
+            "ageReq": 3,
+            "mAtk": 10,
+            "mDef": 2,
+            "pDef": 2,
+            "hp": 100,
+            "range": 0,
+            "speed": 1.35,
+            "rateOfFire": 1.83,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 60,
+                "gold": 75
+            },
+            "armorClasses": [[8, 0]],
+            "bonus":[],
+            "damageTechs":[],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 30
+        },
+        {
             "name": "camel rider",
             "ageReq": 3,
             "mAtk": 6,

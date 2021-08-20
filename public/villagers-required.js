@@ -536,6 +536,24 @@ $(function(){
                     }
                 }
             },
+            "xolotl warrior":{
+                "civs":{
+                    "Aztec Civ Bonus":{
+                        "trainTime": 1.11,
+                        "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Conscription":{
+                        "trainTime": 1.33,
+                        "trainTimePercent": true
+                    },
+                    "Huns Team Bonus":{
+                        "trainTime": 1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "camel rider":{
                 "civs":{
                     "Berbers - Castle Age":{
@@ -2340,7 +2358,7 @@ $(function(){
         
         //Which units to show and in what order.
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
-                          "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
+                          "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "xolotl warrior", "camel rider", "steppe lancer", "battle elephant", 
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard", "trade cart",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", "donjon", "krepost", "castle", "palisade wall", "palisade gate", "stone wall", "gate",
