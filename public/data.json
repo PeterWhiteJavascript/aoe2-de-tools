@@ -29102,6 +29102,22 @@
             "trainTime": 90
         },
         {
+            "name": "krepost",
+            "ageReq": 3,
+            "cost":{
+                "stone": 350
+            },
+            "trainTime": 150
+        },
+        {
+            "name": "castle",
+            "ageReq": 3,
+            "cost":{
+                "stone": 650
+            },
+            "trainTime": 200
+        },
+        {
             "name": "bombard tower",
             "ageReq": 4,
             "cost":{

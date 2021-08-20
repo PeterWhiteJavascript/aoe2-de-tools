@@ -234,8 +234,20 @@ $(function(){
             },
             "spearman":{
                 "civs":{
-                    "Goths Civ Bonus": {
-                        "cost": {"food": 0.35, "wood": 0.35},
+                    "Goths - Dark Age": {
+                        "cost": {"food": 0.2, "gold": 0.2},
+                        "costPercent": true
+                    },
+                    "Goths - Feudal Age": {
+                        "cost": {"food": 0.25, "gold": 0.25},
+                        "costPercent": true
+                    },
+                    "Goths - Castle Age": {
+                        "cost": {"food": 0.3, "gold": 0.3},
+                        "costPercent": true
+                    },
+                    "Goths - Imperial Age": {
+                        "cost": {"food": 0.35, "gold": 0.35},
                         "costPercent": true
                     },
                     "Byzantines Civ Bonus":{
@@ -1179,6 +1191,43 @@ $(function(){
                     }
                 }
             },
+            "krepost":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
+            "castle":{
+                "civs":{
+                    "Franks Civ Bonus":{
+                        "cost": {"stone": 0.25},
+                        "costPercent": true
+                    },
+                    "Incas Civ Bonus":{
+                        "cost": {"stone": 0.15},
+                        "costPercent": true
+                    },
+                    "Spanish Civ Bonus":{
+                        "trainTime":1.30,
+                        "trainTimePercent": true
+                    },
+                    "Sicilians Civ Bonus":{
+                        "trainTime": 2,
+                        "trainTimePercent": true
+                    }
+                },
+                "upgrades":{
+                    "Treadmill Crane":{
+                        "trainTime":1.2,
+                        "trainTimePercent": true
+                    }
+                }
+            },
             "palisade wall":{
                 "civs":{
                     "Spanish Civ Bonus":{
@@ -1453,7 +1502,19 @@ $(function(){
             },
             "condottiero":{
                 "civs":{
-                    "Goths Civ Bonus": {
+                    "Goths - Dark Age": {
+                        "cost": {"food": 0.2, "gold": 0.2},
+                        "costPercent": true
+                    },
+                    "Goths - Feudal Age": {
+                        "cost": {"food": 0.25, "gold": 0.25},
+                        "costPercent": true
+                    },
+                    "Goths - Castle Age": {
+                        "cost": {"food": 0.3, "gold": 0.3},
+                        "costPercent": true
+                    },
+                    "Goths - Imperial Age": {
                         "cost": {"food": 0.35, "gold": 0.35},
                         "costPercent": true
                     },
@@ -2282,7 +2343,7 @@ $(function(){
                           "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard", "trade cart",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
-                          "house", "farm", "watch tower", "donjon", "palisade wall", "palisade gate", "stone wall", "gate",
+                          "house", "farm", "watch tower", "donjon", "krepost", "castle", "palisade wall", "palisade gate", "stone wall", "gate",
                           "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "hussite wagon", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "obuch", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
                       
         for(let i = 0; i < unitsShown.length; i++){
