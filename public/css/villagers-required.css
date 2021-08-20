@@ -56,6 +56,10 @@ h1{
     width: 80px;
     height: 84px;
 }
+.unit-class img{
+    width: 80px;
+    height: 84px;
+}
 .res-show-img > div{
     text-align: center;
 }
