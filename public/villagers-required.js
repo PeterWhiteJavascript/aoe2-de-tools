@@ -118,10 +118,10 @@ $(function(){
         let order = [
             ["farmer", "farm heavy plow","wheelbarrow", "wheelbarrow heavy plow", "hand cart", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets","feitoria food", "relic food"],
             ["lumberjack", "double-bit axe", "bow saw", "two-man saw", "feitoria wood"],
-            ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold"],
+            ["gold miner", "gold mining", "gold shaft mining", "relic", "trade cart","feitoria gold", "gold from stone", "gold from stone mining", "gold from stone shaft"],
             ["stone miner", "stone mining", "stone shaft mining", "feitoria stone"]
         ];
-        let hideAtStart = ["farm heavy plow", "wheelbarrow heavy plow", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "relic food","feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw"];
+        let hideAtStart = ["farm heavy plow", "wheelbarrow heavy plow", "hunter", "shepherd", "forager", "fisherman", "fishing ship shore", "fishing ship deep", "fishing ship shore gillnets", "fishing ship deep gillnets", "fish trap", "fish trap gillnets", "relic", "relic food","feitoria food", , "feitoria wood", "feitoria gold", "feitoria stone", "trade cart", "stone shaft mining", "gold shaft mining", "two-man saw", "gold from stone", "gold from stone mining", "gold from stone shaft"];
         for(let i = 0 ; i < order.length; i++){
             for(let j = 0; j < order[i].length; j++){
                 let imgCont = $("<div class='res-show-img showing-img' resource='"+order[i][j]+"' title='"+order[i][j]+"'></div>");
@@ -526,6 +526,9 @@ $(function(){
                         "trainTime": 1.4,
                         "trainTimePercent": true
                     },
+                    "Szlachta Privileges":{
+                        "cost": {"gold": -45}
+                    },
                     "Conscription":{
                         "trainTime": 1.33,
                         "trainTimePercent": true
@@ -641,6 +644,14 @@ $(function(){
                         "trainTime": 1.2,
                         "trainTimePercent": true
                     }
+                }
+            },
+            "missionary":{
+                "civs":{
+                    
+                },
+                "upgrades":{
+                    
                 }
             },
             "battering ram":{
@@ -2358,11 +2369,11 @@ $(function(){
         
         //Which units to show and in what order.
         let unitsShown = ["villager", "militia", "spearman", "eagle scout", "archer", "skirmisher",
-                          "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "xolotl warrior", "camel rider", "steppe lancer", "battle elephant", 
+                          "cavalry archer", "hand cannoneer", "scout cavalry", "knight", "camel rider", "steppe lancer", "battle elephant", 
                           "monk", "battering ram", "mangonel", "scorpion", "bombard cannon", "siege tower", "trebuchet", "petard", "trade cart",
                           "fishing ship", "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "longboat", "caravel", "turtle ship",
                           "house", "farm", "watch tower", "donjon", "krepost", "castle", "palisade wall", "palisade gate", "stone wall", "gate",
-                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "hussite wagon", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "obuch", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider"];
+                          "arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "chu ko nu", "condottiero", "conquistador", "coustillier", "elephant archer", "flemish militia","gbeto", "genitour", "genoese crossbowman", "hussite wagon", "huskarl", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "longbowman", "magyar huszar", "mameluke", "mangudai", "missionary", "obuch", "organ gun", "plumed archer", "rattan archer", "samurai", "serjeant", "shotel warrior", "slinger", "tarkan", "teutonic knight", "throwing axeman","war elephant", "war wagon", "woad raider", "xolotl warrior"];
                       
         for(let i = 0; i < unitsShown.length; i++){
             let unitImg = $("<div class='unit-show-img showing-img' unit='"+unitsShown[i]+"' title='"+unitsShown[i]+"'></div>");

@@ -112,6 +112,14 @@ function setUpGatherRates(data){
     gatherRates["trade cart"] = {
         res: "gold", gatherRate: 0.4
     };
-    
+    gatherRates["gold from stone"] = {
+        res: "gold", gatherRate: gatherRates["stone miner"].gatherRate / 2
+    };
+    gatherRates["gold from stone mining"] = {
+        res: "gold", gatherRate: gatherRates["stone mining"].gatherRate / 2
+    };
+    gatherRates["gold from stone shaft"] = {
+        res: "gold", gatherRate: gatherRates["stone shaft mining"].gatherRate / 2
+    };
     return gatherRates;
 }
