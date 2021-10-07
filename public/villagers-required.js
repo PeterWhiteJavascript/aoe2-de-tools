@@ -234,10 +234,6 @@ $(function(){
             },
             "spearman":{
                 "civs":{
-                    "Goths - Dark Age": {
-                        "cost": {"food": 0.2, "gold": 0.2},
-                        "costPercent": true
-                    },
                     "Goths - Feudal Age": {
                         "cost": {"food": 0.25, "gold": 0.25},
                         "costPercent": true
@@ -643,6 +639,9 @@ $(function(){
                     "Lithuanians Team Bonus":{
                         "trainTime": 1.2,
                         "trainTimePercent": true
+                    },
+                    "Hussite Reforms":{
+                        "cost": {"gold": -100, "food": 100}
                     }
                 }
             },
@@ -816,6 +815,9 @@ $(function(){
                     }
                 },
                 "upgrades":{
+                    "Bohemians Team Bonus":{
+                        "trainTime": 1.80
+                    },
                     "Silk Road":{
                         "cost": {"gold": 0.5, "wood": 0.5},
                         "costPercent": true
@@ -1372,8 +1374,16 @@ $(function(){
                 
             },
             "huskarl":{
+                "noGeneric": true,
                 "civs":{
-                    
+                    "Goths - Castle Age": {
+                        "cost": {"food": 0.3, "gold": 0.3},
+                        "costPercent": true
+                    },
+                    "Goths - Imperial Age": {
+                        "cost": {"food": 0.35, "gold": 0.35},
+                        "costPercent": true
+                    },
                 },
                 "upgrades":{
                     "Barracks":{
@@ -1531,18 +1541,6 @@ $(function(){
             },
             "condottiero":{
                 "civs":{
-                    "Goths - Dark Age": {
-                        "cost": {"food": 0.2, "gold": 0.2},
-                        "costPercent": true
-                    },
-                    "Goths - Feudal Age": {
-                        "cost": {"food": 0.25, "gold": 0.25},
-                        "costPercent": true
-                    },
-                    "Goths - Castle Age": {
-                        "cost": {"food": 0.3, "gold": 0.3},
-                        "costPercent": true
-                    },
                     "Goths - Imperial Age": {
                         "cost": {"food": 0.35, "gold": 0.35},
                         "costPercent": true

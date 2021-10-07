@@ -27555,7 +27555,8 @@
             "rateOfFire": 62,
             "rangeHealing": 4,
             "cost":{
-                "gold": 100
+                "gold": 100,
+                "food": 0
             },
             "armorClasses": [[25, 0]],
             "bonus":[],
@@ -27716,7 +27717,7 @@
             "speed": 1.1,
             "lineOfSight": 15,
             "rateOfFire": 10,
-            "projSpeed": 1.95,
+            "projSpeed": 3,
             "accuracy": 0.5,
             "range": 13,
             "frameDelay": 0,
@@ -28167,8 +28168,8 @@
             "lineOfSight": 3,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 52,
-                "gold": 26
+                "food": 80,
+                "gold": 40
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[15, 6], [29, 2], [11, 3]],
@@ -29560,12 +29561,13 @@
             "name": "long swordsman",
             "ageReq": 3,
             "cost":{
-                "food": 200,
+                "food": 150,
                 "gold": 65
             },
             "effects":{
                 "hp": 15,
                 "mAtk": 3,
+                "mDef": 1,
                 "bonus":[[29, 4], [21, 1]]
             },
             "time": 40,
@@ -30045,8 +30047,8 @@
             "name": "supplies",
             "ageReq": 2,
             "cost":{
-                "food": 150,
-                "gold": 100
+                "food": 75,
+                "gold": 75
             },
             "effects":{
                 "cost": ["food", -15]
@@ -30808,7 +30810,7 @@
                 "gold": 250
             },
             "effects":{
-                "hp": 50
+                "hp": 100
             },
             "time": 40
         },
