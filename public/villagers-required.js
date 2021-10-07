@@ -816,7 +816,8 @@ $(function(){
                 },
                 "upgrades":{
                     "Bohemians Team Bonus":{
-                        "trainTime": 1.80
+                        "trainTime": 1.80,
+                        "trainTimePercent": true
                     },
                     "Silk Road":{
                         "cost": {"gold": 0.5, "wood": 0.5},
