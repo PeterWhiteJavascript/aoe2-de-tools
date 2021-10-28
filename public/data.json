@@ -5523,7 +5523,7 @@
                     "heavy camel rider":[3.5, 3]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "onager": [3, 2],
                     "scorpion":[3, 1],
                     "bombard cannon":[2]
@@ -6886,7 +6886,7 @@
                     "heavy camel rider":[3, 3]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "onager": [3, 2],
                     "heavy scorpion":[3, 3.5]
                 },
@@ -10296,7 +10296,7 @@
                     "paladin":[3.5, 3.5]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2],
+                    "siege ram":[3, 3],
                     "mangonel": [3, 1],
                     "scorpion":[3, 1]
                 },
@@ -17821,7 +17821,7 @@
                     "elite skirmisher": [3, 3, 3.5]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "onager": [3, 2],
                     "heavy scorpion":[3, 2.5]
                 },
@@ -19186,7 +19186,7 @@
                     "heavy camel rider": [3, 3]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "onager": [3, 2],
                     "heavy scorpion":[3, 2.5],
                     "bombard cannon":[2]
@@ -19871,7 +19871,8 @@
                 "siege workshop":{
                     "siege ram":[3, 3],
                     "onager": [3, 2.5],
-                    "scorpion":[3, 1]
+                    "scorpion":[3, 1],
+                    "bombard cannon":[3]
                 },
                 "monastery":{
                     "monk":[2.5, 2.5]
@@ -23305,7 +23306,7 @@
                     "paladin":[3, 3, 3]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "onager": [3, 2],
                     "scorpion":[3, 1],
                     "bombard cannon":[2]
@@ -25357,7 +25358,7 @@
                     "heavy camel rider":[3, 3]
                 },
                 "siege workshop":{
-                    "siege ram":[3, 2.5],
+                    "siege ram":[3, 3],
                     "mangonel": [3, 1],
                     "heavy scorpion":[3, 2.5],
                     "bombard cannon":[4]
@@ -28981,7 +28982,7 @@
             "otherTechs":["treadmill crane"],
             "uniqueDamageTechs":["great wall"],
             "uniqueOtherTechs":[],
-            "trainTime": 6
+            "trainTime": 7
         },
         {
             "name": "palisade gate",
