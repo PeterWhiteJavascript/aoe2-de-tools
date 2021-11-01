@@ -1,19 +1,30 @@
 {
-    "name": "aoe2-de-tools",
-    "version": "1.0.0",
-    "keywords": [
-        "util",
-        "functional",
-        "server",
-        "client",
-        "browser"
-    ],
-    "author": "pete",
-    "contributors": [],
-    "dependencies": {
-        "express": "4.17.1"
-    },
-    "scripts": {
-        "start": "node app.js"
-    }
+  "name": "aoe2-de-tools",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "pete",
+  "contributors": [],
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "express": "4.17.1"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "printWidth": 80
+  }
 }
