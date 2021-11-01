@@ -1,3 +1,5 @@
+import { finder, setUpGatherRates } from '/js/shared-es.js'
+
 $(function () {
   let ecoBonuses = {
     civ: {
