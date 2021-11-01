@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="js/shared.js"></script>
+        <script src="/js/shared.js"></script>
         <script>
             /*
             //Code to take tech tree from aoe fandom website (use in the console on the tech tree page).
@@ -48,7 +48,7 @@ and open the template in the editor.
             */
             let gData;
             let allUnits = {};
-            $.getJSON('data.json', function(data) { 
+            $.getJSON('/data.json', function(data) {
                 gData = data;
                 //Use the upgrade groups to get all units
                 gData.units.map((unit) => {

@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build": "eleventy --input=./src --output=public"
+    "prebuild": "rm -rf public",
+    "build": "eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
