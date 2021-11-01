@@ -14,6 +14,7 @@
     "express": "4.17.1"
   },
   "scripts": {
+    "prestart": "npm run build",
     "start": "node app.js",
     "prebuild": "rm -rf public",
     "build": "eleventy"
