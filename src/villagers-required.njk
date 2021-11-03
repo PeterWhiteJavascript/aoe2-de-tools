@@ -9,7 +9,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <script src="/villagers-required.js" type="module" ></script>
+        <!-- <script src="/villagers-required.js" type="module" ></script> -->
+        <script src="/villagers-required2.js" type="module" ></script>
     </head>
     <body>
         <div id="container">
@@ -18,7 +19,16 @@
                 <h2>Choose economic bonuses</h2>
                 <div id="econ-civ-bonus"></div>
                 <h2>Click to toggle resource display</h2>
-                <div id="choose-res"></div>
+                <div id="choose-res">
+                    {% for orderItem in order %}
+                        {% for item in orderItem %}
+                            <div class='res-show-img showing-img' resource='{{item}}' title='{{item}}'>
+                                <img src='/img/{{gatherRates[item].img or item }}.png' class='icon-big'>
+                                <div sec='{{gatherRates[item].gatherRate}}' min='{{gatherRates[item].gatherRate * 60}}'>{{(gatherRates[item].gatherRate).toFixed(2)}} - {{(gatherRates[item].gatherRate * 60).toFixed(1)}}</div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
                 <h2>Click to toggle unit display</h2>
                 <div id="choose-units"></div>
             </div>

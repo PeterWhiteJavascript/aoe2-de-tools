@@ -12,6 +12,7 @@ $(function () {
               let resOrder = ['food', 'wood', 'gold', 'stone']
               for (let i = 0; i < order.length; i++) {
                 for (let j = 0; j < order[i].length; j++) {
+                  // DONE
                   let imgCont = $(
                     "<div class='res-show-img showing-img' resource='" +
                       order[i][j] +
@@ -38,6 +39,7 @@ $(function () {
                   )
                   imgCont.append(img, num)
                   $('#choose-res').append(imgCont)
+                  // END DONE
                   imgCont.on('click', function () {
                     $(this).toggleClass('showing-img')
                     let res = $(this).attr('resource')
@@ -54,6 +56,7 @@ $(function () {
                           })[0]
                         $(resCont).toggle()
                       })
+
                     calculateVilTotals()
                   })
                 }
