@@ -17,7 +17,23 @@
             <h1>Number of Villagers Required to Sustain Constant Unit Production</h1>
             <div id="toolbar">
                 <h2>Choose economic bonuses</h2>
-                <div id="econ-civ-bonus"></div>
+                <div id="econ-civ-bonus">
+                  <select id="econ-civ-select" name="civ bonuses">
+                    {% for name, value in ecoBonuses.civ %}
+                      <option value="{{name}}">{{name}}</option>
+                    {% endfor %}
+                  </select>
+                  <div>
+                    {% for name, value in ecoBonuses.team %}
+                      <div>
+                        <div>
+                          {{ name }}
+                        </div>
+                        <input type="checkbox" name="{{name}}" />
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
                 <h2>Click to toggle resource display</h2>
                 <div id="choose-res">
                     {% for orderItem in order %}
