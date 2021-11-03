@@ -47,7 +47,12 @@
                     {% endfor %}
                 </div>
                 <h2>Click to toggle unit display</h2>
-                <div id="choose-units"></div>
+                <div id="choose-units">
+                    {% for unit in unitsShow %}
+                      <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'>
+                        <img src="/img/{{unit}}.png" alt="{{unit}}" />
+                      </div>
+                    {% endfor %}
             </div>
             <div id="vil-totals">
                 <h2>Villager totals for all unit selections</h2>
