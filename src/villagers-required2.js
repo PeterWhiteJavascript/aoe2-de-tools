@@ -1,21 +1,24 @@
 main()
 
-// TODO change $(element) to vanila equivalent
-
-const getHiddenRes = () => {
-  return $('#choose-res')
-    .children('.res-show-img')
-    .filter(function () {
-      return !$(this).hasClass('showing-img')
-    })
-    .toArray()
-    .map(function (item) {
-      return $(item).attr('resource')
-    })
+// hides or shows element
+// toggle :: Element
+const toggle = (it) => {
+  // https://github.com/nefe/You-Dont-Need-jQuery#8.2
+  if (
+    it.ownerDocument.defaultView.getComputedStyle(it, null).display === 'none'
+  ) {
+    it.style.display = 'block'
+  } else {
+    it.style.display = 'none'
+  }
 }
 
-// TODO change the whole calculateVilTotals,
-// remove jquery
+const getHiddenRes = () => {
+  const chres = Array.from(
+    document.querySelectorAll('#choose-res > .res-show-img >.showing-img')
+  ).map((it) => it.getAttribute('resource'))
+}
+
 const calculateVilTotals = () => {
   let unitsBeingCreated = {}
   let vilsReq = {}
@@ -50,9 +53,18 @@ const calculateVilTotals = () => {
     })
   })
 
-  const resTotals = $("<div class='res-totals'></div>")
-  const resDisplay = $("<div class='resources-cont'></div>")
-  const unitsDisplay = $("<div class='unit-totals'></div>")
+  const resTotals = new DOMParser().parseFromString(
+    "<div class='res-totals'></div>",
+    'text/html'
+  )
+  const resDisplay = new DOMParser().parseFromString(
+    "<div class='resources-cont'></div>",
+    'text/html'
+  )
+  const unitsDisplay = new DOMParser().parseFromString(
+    "<div class='unit-totals'></div>",
+    'text/html'
+  )
 
   const hiddenRes = getHiddenRes()
 
@@ -64,26 +76,22 @@ const calculateVilTotals = () => {
         resDisplay.appendChild(resRow)
       }
       curRes = res
-      resRow = $("<div class='res-row'></div>")
+
+      resRow = new DOMParser().parseFromString(
+        "<div class='res-row'></div>",
+        'text/html'
+      )
     }
-    let resElm = $(
-      "<div class='resource' resource='" +
-        i +
-        "'><img class='icon-big' src='/img/" +
-        i +
-        ".png' title='" +
-        i +
-        "'><div class='resource-num' title='" +
-        vilsReq[i] +
-        "'><div>" +
-        Math.ceil(vilsReq[i]) +
-        '</div></div></div>'
-    )
+    let resElm = new DOMParser().parseFromString(`
+      <div class='resource' resource='${i}'>
+        <img class='icon-big' src='/img/${i}.png' title='${i}'>
+        <div class='resource-num' title='${vilsReq[i]}'>
+          <div>${Math.ceil(vilsReq[i])}'</div>
+        </div>
+      </div>'", 'text/html'`)
     resRow.appendChild(resElm)
-    // todo test this one
     if (hiddenRes.includes(i)) {
-      // TODO change this hide to vanila
-      $(resElm).hide()
+      resElm.style.display = 'none'
     }
   }
   resDisplay.appendChild(resRow)
@@ -122,23 +130,21 @@ const resClickEventHandlers = (event) => {
     )
   ).map((it) => {
     console.log(it)
-    // https://github.com/nefe/You-Dont-Need-jQuery#8.2
-    if (
-      it.ownerDocument.defaultView.getComputedStyle(it, null).display === 'none'
-    ) {
-      it.style.display = 'block'
-    } else {
-      it.style.display = 'none'
-    }
+    toggle(it)
   })
 
-  calculateVilTotals()
+  // calculateVilTotals()
 }
 
 async function main() {
   document.addEventListener(
     'click',
     function (event) {
+      // TODO event on change of the select option
+      // TODO event on change of the checkbox
+      //
+      // TODO event on click for units
+
       resClickEventHandlers(event)
     },
     false

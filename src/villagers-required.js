@@ -520,8 +520,8 @@ $(function () {
                     .children('.unit-container')
                     .filter(function () {
                       return $(this).attr('name') === unitName
-                    })[0]
-                  $(cont).toggle()
+                    })[0](cont)
+                    .toggle()
                   $(this).toggleClass('showing-img')
                   if ($(this).hasClass('showing-img')) {
                     updateVilsRequired({

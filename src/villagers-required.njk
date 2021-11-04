@@ -1,224 +1,350 @@
 <html>
-    <head>
-        <title>AOE2: DE</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/css/villagers-required.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <!-- <script src="/villagers-required.js" type="module" ></script> -->
-        <script src="/villagers-required2.js" type="module" ></script>
-    </head>
-    <body>
-        <div id="container">
-            <h1>Number of Villagers Required to Sustain Constant Unit Production</h1>
-            <div id="toolbar">
-                <h2>Choose economic bonuses</h2>
-                <div id="econ-civ-bonus">
-                  <select id="econ-civ-select" name="civ bonuses">
-                    {% for name, value in ecoBonuses.civ %}
-                      <option value="{{name}}">{{name}}</option>
-                    {% endfor %}
-                  </select>
-                  <div>
-                    {% for name, value in ecoBonuses.team %}
-                      <div>
-                        <div>
-                          {{ name }}
-                        </div>
-                        <input type="checkbox" name="{{name}}" />
-                      </div>
-                    {% endfor %}
+  <head>
+    <title>AOE2: DE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/villagers-required.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- <script src="/villagers-required.js" type="module" ></script> -->
+    <script src="/villagers-required2.js" type="module" ></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Number of Villagers Required to Sustain Constant Unit Production</h1>
+      <div id="toolbar">
+        <h2>Choose economic bonuses</h2>
+        <div id="econ-civ-bonus">
+          <select id="econ-civ-select" name="civ bonuses">
+            {% for name, value in ecoBonuses.civ %}
+              <option value="{{name}}">{{name}}</option>
+            {% endfor %}
+          </select>
+          <div>
+            {% for name, value in ecoBonuses.team %}
+              <div>
+                <div>
+                  {{ name }}
+                </div>
+                <input type="checkbox" name="{{name}}" />
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <h2>Click to toggle resource display</h2>
+        <div id="choose-res">
+          {% for orderItem in order %}
+            {% for item in orderItem %}
+
+              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}'>
+                <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
+                <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <h2>Click to toggle unit display</h2>
+        <div id="choose-units">
+          {% for unit in unitsShow %}
+            <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'>
+              <img src="/img/{{unit}}.png" alt="{{unit}}" />
+            </div>
+          {% endfor %}
+        </div>
+        <div id="vil-totals">
+          <h2>Villager totals for all unit selections</h2>
+          <div class="res-totals">
+            <div class="resources-cont">
+
+              <div class="res-row">
+                <div class="resource" resource="farmer">
+                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
+                  <div class="resource-num" title="21">
+                    <div>
+                      21
+                    </div>
                   </div>
                 </div>
-                <h2>Click to toggle resource display</h2>
-                <div id="choose-res">
-                    {% for orderItem in order %}
-                        {% for item in orderItem %}
-
-                            <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}'>
-                                <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
-                                <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
+                <div class="resource" resource="farmer">
+                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
+                  <div class="resource-num" title="21">
+                    <div>
+                      21
+                    </div>
+                  </div>
                 </div>
-                <h2>Click to toggle unit display</h2>
-                <div id="choose-units">
-                    {% for unit in unitsShow %}
-                      <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'>
-                        <img src="/img/{{unit}}.png" alt="{{unit}}" />
+              </div>
+
+              <div class="res-row">
+
+                <div class="resource" resource="farmer">
+                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
+                  <div class="resource-num" title="21">
+                    <div>
+                      21
+                    </div>
+                  </div>
+                </div>
+                <div class="resource" resource="farmer">
+                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
+                  <div class="resource-num" title="21">
+                    <div>
+                      21
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="unit-totals">
+                <div class="unit-totals">
+                  <div class="unit-class">
+                    <div class="resource-num" title="1x war elephant">
+                      <div>
+                        1
                       </div>
-                    {% endfor %}
+                    </div>
+                    <img src="/img/war elephant.png" alt="war elephant" />
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- let resRow, curRes
+                   for (let i in vilsReq) {
+                   let res = gatherRates[i].res
+                   if (curRes !== res) {
+                   if (resRow) resDisplay.append(resRow)
+                   curRes = res
+                   resRow = $("<div class='res-row'></div>")
+                   }
+                   let resElm = $(
+                   "<div class='resource' resource='" +
+                   i +
+                   "'><img class='icon-big' src='/img/" +
+                   i +
+                   ".png' title='" +
+                   i +
+                   "'><div class='resource-num' title='" +
+                   vilsReq[i] +
+                   "'><div>" +
+                   Math.ceil(vilsReq[i]) +
+                   '</div></div></div>'
+                   )
+                   resRow.append(resElm)
+                   if (hiddenRes.includes(i)) {
+                   $(resElm).hide()
+                   }
+                   }
+                   resDisplay.append(resRow)
+
+                   for (let i in unitsBeingCreated) {
+                   unitsDisplay.append(
+                   "<div class='unit-class'><div class='resource-num' title='" +
+                   unitsBeingCreated[i].quantity +
+                   "'><div>" +
+                   Math.ceil(unitsBeingCreated[i].quantity) +
+                   "</div></div><img src='/img/" +
+                   i +
+                   ".png' title='" +
+                   i +
+                   "'></div>"
+                   )
+                   } -->
+
             </div>
-            <div id="vil-totals">
-                <h2>Villager totals for all unit selections</h2>
-                <div class="res-totals"></div>
+          </div>
+          <div class="gather-rates">
+            <div class="unit-container" title="war elephant">
+              <div class="unit">
+                <div class="res-cont" title="food">
+                  <img src="/img/food-icon.png" alt="food" />
+                  <div>
+                    170
+                  </div>
+                </div>
+
+                <div class="res-cont" title="gold">
+
+                  <img src="/img/gold-icon.png" alt="gold" />
+                  <div>
+                    85
+                  </div>
+                </div>
+                <div class="time-cont">
+                  <img src="/img/hourglass-icon.png">
+                  <div>25</div>
+                </div>
+                <div class="unit-class"><img src="/img/war elephant.png" title="war elephant"></div>
+                <div class="res-desc-cont">
+
+                </div>
+
+              </div>
             </div>
+          </div>
         </div>
         
         <div id="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div id="questions">
-                <div class="faq-card">
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <img src="/img/up-arrow.png" class="small-photo">
-                                <img src="/img/feudal age.png" class="medium-photo">
-                            </div>
-                            <div class="header-right"> 
-                                <div class="header-question">How many resources do my villagers collect on the way up to Feudal Age?</div>
-                                <div class="header-subtitle">Time: 130 seconds</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <table class="card-table">
-                                <thead>
-                                    <tr>
-                                        <th>Resource</th>
-                                        <th>Per Villager</th>
-                                        <th>Rate / Sec</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <th>Woodcutter</th>
-                                    <td>53.3</td>
-                                    <td>.41</td>
-                                </tr>
-                                <tr>
-                                    <th>Farmer</th>
-                                    <td>44.2</td>
-                                    <td>.34</td>
-                                </tr>
-                                <tr>
-                                    <th>Berries</th>
-                                    <td>40.3</td>
-                                    <td>.31</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+          <h2>Frequently Asked Questions</h2>
+          <div id="questions">
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/up-arrow.png" class="small-photo">
+                    <img src="/img/feudal age.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many resources do my villagers collect on the way up to Feudal Age?</div>
+                    <div class="header-subtitle">Time: 130 seconds</div>
+                  </div>
                 </div>
-
-                <div class="faq-card">
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <img src="/img/up-arrow.png" class="small-photo">
-                                <img src="/img/castle age.png" class="medium-photo">
-                            </div>
-                            <div class="header-right"> 
-                                <div class="header-question">How many resources do my villagers collect on the way up to Castle Age?</div>
-                                <div class="header-subtitle">Time: 160 seconds</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <table class="card-table">
-                                <thead>
-                                    <tr>
-                                        <th>Resource</th>
-                                        <th>Per Villager</th>
-                                        <th>Feudal Upgrade</th>
-                                        <th>Upgrade Rate / Sec</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <th>Woodcutter</th>
-                                    <td>65.6</td>
-                                    <td>78.4</td>
-                                    <td>.49</td>
-                                </tr>
-                                <tr>
-                                    <th>Farmer</th>
-                                    <td>54.4</td>
-                                    <td>60.8</td>
-                                    <td>.34</td>
-                                </tr>
-                                <tr>
-                                    <th>Gold Miner</th>
-                                    <td>60.8</td>
-                                    <td>70.4</td>
-                                    <td>.44</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>  
-                <div class="faq-card">
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="header-left">
-                                <img src="/img/farmer.png" class="medium-photo">
-                                <img src="/img/lumber camp.png" class="medium-photo">
-                            </div>
-                            <div class="header-right"> 
-                                <div class="header-question">How many farms can a woodcutter reseed after they've depleted?</div>
-                                <div class="header-subtitle">DONT-WORRYBOUT-IT</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <table class="card-table">
-                                <thead>
-                                    <tr>
-                                        <th>Resource Upgrades</th>
-                                        <th>No Farm Upgrades</th>
-                                        <th>Feudal Upgrades</th>
-                                        <th>Castle Upgrades</th>
-                                        <th>Crop Rotation (Imp)</th>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <th>No Wood Upgrade</th>
-                                    <td class="light-green-background">3.432</td>
-                                    <td>4.277</td>
-                                    <td>5.968</td>
-                                    <td>8.753</td>
-                                </tr>
-                                <tr>
-                                    <th>Double-Bit Axe (Feudal)</th>
-                                    <td>4.110</td>
-                                    <td class="light-green-background">5.121</td>
-                                    <td>7.147</td>
-                                    <td>10.482</td>
-                                </tr>
-                                <tr>
-                                    <th>Bow Saw (Castle)</th>
-                                    <td>4.935</td>
-                                    <td>6.149</td>
-                                    <td class="light-green-background">8.581</td>
-                                    <td>12.585</td>
-                                </tr>
-                                <tr>
-                                    <th>Two-Man Saw (Imp)</th>
-                                    <td>5.436</td>
-                                    <td>6.773</td>
-                                    <td>9.452</td>
-                                    <td class="light-green-background">13.863</td>
-                                </tr>
-                            </table>
-                            <div class="card-copy">
-                                <p>Since farms take so long to deplete, you'll be spending wood income on other things
-                                    in the meantime, so there's no reason to set aside wood to eventually use to 
-                                    reseed farms. The number of villagers on wood per farm ranges from 
-                                    0.333 (1 wood villager /3 farms) to 0.077 (1 wood villager /13 farms). 
-                                    These numbers are so small that you wouldn't realistically keep track of 
-                                    them in an actual game.
-                               </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>              
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource</th>
+                        <th>Per Villager</th>
+                        <th>Rate / Sec</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>Woodcutter</th>
+                      <td>53.3</td>
+                      <td>.41</td>
+                    </tr>
+                    <tr>
+                      <th>Farmer</th>
+                      <td>44.2</td>
+                      <td>.34</td>
+                    </tr>
+                    <tr>
+                      <th>Berries</th>
+                      <td>40.3</td>
+                      <td>.31</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
+
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/up-arrow.png" class="small-photo">
+                    <img src="/img/castle age.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many resources do my villagers collect on the way up to Castle Age?</div>
+                    <div class="header-subtitle">Time: 160 seconds</div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource</th>
+                        <th>Per Villager</th>
+                        <th>Feudal Upgrade</th>
+                        <th>Upgrade Rate / Sec</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>Woodcutter</th>
+                      <td>65.6</td>
+                      <td>78.4</td>
+                      <td>.49</td>
+                    </tr>
+                    <tr>
+                      <th>Farmer</th>
+                      <td>54.4</td>
+                      <td>60.8</td>
+                      <td>.34</td>
+                    </tr>
+                    <tr>
+                      <th>Gold Miner</th>
+                      <td>60.8</td>
+                      <td>70.4</td>
+                      <td>.44</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/farmer.png" class="medium-photo">
+                    <img src="/img/lumber camp.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many farms can a woodcutter reseed after they've depleted?</div>
+                    <div class="header-subtitle">DONT-WORRYBOUT-IT</div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource Upgrades</th>
+                        <th>No Farm Upgrades</th>
+                        <th>Feudal Upgrades</th>
+                        <th>Castle Upgrades</th>
+                        <th>Crop Rotation (Imp)</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>No Wood Upgrade</th>
+                      <td class="light-green-background">3.432</td>
+                      <td>4.277</td>
+                      <td>5.968</td>
+                      <td>8.753</td>
+                    </tr>
+                    <tr>
+                      <th>Double-Bit Axe (Feudal)</th>
+                      <td>4.110</td>
+                      <td class="light-green-background">5.121</td>
+                      <td>7.147</td>
+                      <td>10.482</td>
+                    </tr>
+                    <tr>
+                      <th>Bow Saw (Castle)</th>
+                      <td>4.935</td>
+                      <td>6.149</td>
+                      <td class="light-green-background">8.581</td>
+                      <td>12.585</td>
+                    </tr>
+                    <tr>
+                      <th>Two-Man Saw (Imp)</th>
+                      <td>5.436</td>
+                      <td>6.773</td>
+                      <td>9.452</td>
+                      <td class="light-green-background">13.863</td>
+                    </tr>
+                  </table>
+                  <div class="card-copy">
+                    <p>Since farms take so long to deplete, you'll be spending wood income on other things
+                      in the meantime, so there's no reason to set aside wood to eventually use to
+                      reseed farms. The number of villagers on wood per farm ranges from
+                      0.333 (1 wood villager /3 farms) to 0.077 (1 wood villager /13 farms).
+                      These numbers are so small that you wouldn't realistically keep track of
+                      them in an actual game.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="footer">
-            <div>
-                <div>This app built by <a href="https://www.youtube.com/channel/UCmFJUeU8Oubp5Neldbq0JRA" target = "_blank">Survivalist</a></div>
-            </div>
+          <div>
+            <div>This app built by <a href="https://www.youtube.com/channel/UCmFJUeU8Oubp5Neldbq0JRA" target = "_blank">Survivalist</a></div>
+          </div>
         </div>
-    </body>
+  </body>
 </html>
