@@ -57,46 +57,22 @@
         <div id="vil-totals">
           <h2>Villager totals for all unit selections</h2>
           <div class="res-totals">
-            <div class="resources-cont">
+            <div id="resources-cont-box" class="resources-cont">
+              <template id="t-res-row">
+                <div class="res-row">
+                </div>
+              </template>
+              <template id="t-res-row-resource">
+                <div class="resource" resource="[[name]]">
+                  <img class="icon-big" [[src]] alt="[[name]]" />
+                  <div class="resource-num" title="[[value]]">
+                    <div>
+                      [[value]]
+                    </div>
+                  </div>
+                </div>
+              </template>
 
-              <div class="res-row">
-                <div class="resource" resource="farmer">
-                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
-                  <div class="resource-num" title="21">
-                    <div>
-                      21
-                    </div>
-                  </div>
-                </div>
-                <div class="resource" resource="farmer">
-                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
-                  <div class="resource-num" title="21">
-                    <div>
-                      21
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="res-row">
-
-                <div class="resource" resource="farmer">
-                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
-                  <div class="resource-num" title="21">
-                    <div>
-                      21
-                    </div>
-                  </div>
-                </div>
-                <div class="resource" resource="farmer">
-                  <img class="icon-big" src="/img/farmer.png" alt="farmer" />
-                  <div class="resource-num" title="21">
-                    <div>
-                      21
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="unit-totals">
                 <div class="unit-totals">
                   <div class="unit-class">

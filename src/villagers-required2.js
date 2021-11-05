@@ -1,9 +1,31 @@
 import { placeholder } from '/js/placeholder.js'
 import { finder, setUpGatherRates } from '/js/shared-es.js'
 
-
-
+// TODO remove
 init().then(main)
+
+// Generates String html collection
+// example:
+// <div id="1"> </div>
+// <div id="2"> </div>
+// <div id="3"> </div>
+// makeHtmlCollection :: String -> Array -> returns String
+const makeHtmlCollection = (templateItem) => (arr) => {
+  return (
+    arr
+      // this needs to be mapped into src of the image,
+      // otherwise image in template with src is trying to load the src resulting in 404,
+      // therefore we are adding src="img path" later
+      .map((it) => ({ ...it, src: `src="/img/${it.name}.png"` }))
+      .map((it) => {
+        return placeholder(templateItem.outerHTML)(it)
+      })
+      .reduce((curr, next) => {
+        return `${curr}
+${next}`
+      }, '')
+  )
+}
 
 // hides or shows element
 // toggle :: Element
@@ -16,6 +38,22 @@ const toggle = (it) => {
   } else {
     it.style.display = 'none'
   }
+}
+
+// appendResourceType :: Element
+const appendResourceType = (box) => {
+  const tResRow = document.getElementById('t-res-row')
+  const tResItem = document.getElementById('t-res-row-resource')
+
+  const rResRow = tResRow.content.firstElementChild.cloneNode(true)
+  const rResItem = tResItem.content.firstElementChild.cloneNode(true)
+
+  rResRow.innerHTML = makeHtmlCollection(rResItem)([
+    { name: 'farmer', value: 1 },
+    { name: 'farmer', value: 1 },
+  ])
+
+  box.appendChild(rResRow)
 }
 
 const getHiddenRes = () => {
@@ -124,8 +162,6 @@ const resClickEventHandlers = (event) => {
   if (!event.target.closest('[resource]')) return
   event.preventDefault()
 
-  // console.log(res)
-  // console.log(el)
   const el = event.target.closest('[resource]')
   el.classList.toggle('showing-img')
   const res = el.getAttribute('resource')
@@ -147,47 +183,49 @@ const unitClickEventHandlers = (event) => {
 
   const el = event.target.closest('[unit]')
   el.classList.toggle('showing-img')
-  const res = el.getAttribute('unit') 
+  const res = el.getAttribute('unit')
 
+  const box = document.getElementById('resources-cont-box')
 
-                  // this is triggered by calculate vills call function
-                  // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
-                  // let res = gatherRates[i].res
-                  // if (curRes !== res) {
-                  //   if (resRow) resDisplay.append(resRow)
-                  //   curRes = res
-                  //   resRow = $("<div class='res-row'></div>")
-                  // }
-                  // let resElm = $(
-                  //   "<div class='resource' resource='" +
-                  //     i +
-                  //     "'><img class='icon-big' src='/img/" +
-                  //     i +
-                  //     ".png' title='" +
-                  //     i +
-                  //     "'><div class='resource-num' title='" +
-                  //     vilsReq[i] +
-                  //     "'><div>" +
-                  //     Math.ceil(vilsReq[i]) +
-                  //     '</div></div></div>'
-                  // )
-                  // resRow.append(resElm)
-                  // if (hiddenRes.includes(i)) {
-                  //   $(resElm).hide()
-                  // }
+  // TODO check if the resources are already present
+  appendResourceType(box)
+
+  // this is triggered by calculate vills call function
+  // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
+  // let res = gatherRates[i].res
+  // if (curRes !== res) {
+  //   if (resRow) resDisplay.append(resRow)
+  //   curRes = res
+  //   resRow = $("<div class='res-row'></div>")
+  // }
+  // let resElm = $(
+  //   "<div class='resource' resource='" +
+  //     i +
+  //     "'><img class='icon-big' src='/img/" +
+  //     i +
+  //     ".png' title='" +
+  //     i +
+  //     "'><div class='resource-num' title='" +
+  //     vilsReq[i] +
+  //     "'><div>" +
+  //     Math.ceil(vilsReq[i]) +
+  //     '</div></div></div>'
+  // )
+  // resRow.append(resElm)
+  // if (hiddenRes.includes(i)) {
+  //   $(resElm).hide()
+  // }
   //
   //
-  // 
+  //
 }
 
-
-
-async function init (){
+async function init() {
   const data = await fetch('/data.json') // this takes 500ms on localhost
-    .then(response => response.json())
+    .then((response) => response.json())
   // load data and generate gatherRates
   const gatherRates = setUpGatherRates(data) // this takes 1ms
-  console.log(gatherRates);
+  console.log(gatherRates)
   return gatherRates
 }
 
@@ -210,9 +248,8 @@ async function main(gatherRates) {
 
   // document.getElementById('t-box').innerHTML = placeholder(test)({test: 'works'})
 
-      // <template id="t-test">
-      //   <p>[[test]]</p>
-      // </template>
-      // <div id="t-box"></div>
-
+  // <template id="t-test">
+  //   <p>[[test]]</p>
+  // </template>
+  // <div id="t-box"></div>
 }
