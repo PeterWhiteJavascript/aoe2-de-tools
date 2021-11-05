@@ -1,6 +1,9 @@
 import { placeholder } from '/js/placeholder.js'
+import { finder, setUpGatherRates } from '/js/shared-es.js'
 
-main()
+
+
+init().then(main)
 
 // hides or shows element
 // toggle :: Element
@@ -146,17 +149,49 @@ const unitClickEventHandlers = (event) => {
   el.classList.toggle('showing-img')
   const res = el.getAttribute('unit') 
 
-  // Array.from(
-  //   document.querySelectorAll(
-  //     `#gather-rates > .unit-container > [resource="${res}"]`
-  //   )
-  // ).map((it) => {
-  //   console.log(it)
-  //   toggle(it)
-  // })
+
+                  // this is triggered by calculate vills call function
+                  // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
+                  // let res = gatherRates[i].res
+                  // if (curRes !== res) {
+                  //   if (resRow) resDisplay.append(resRow)
+                  //   curRes = res
+                  //   resRow = $("<div class='res-row'></div>")
+                  // }
+                  // let resElm = $(
+                  //   "<div class='resource' resource='" +
+                  //     i +
+                  //     "'><img class='icon-big' src='/img/" +
+                  //     i +
+                  //     ".png' title='" +
+                  //     i +
+                  //     "'><div class='resource-num' title='" +
+                  //     vilsReq[i] +
+                  //     "'><div>" +
+                  //     Math.ceil(vilsReq[i]) +
+                  //     '</div></div></div>'
+                  // )
+                  // resRow.append(resElm)
+                  // if (hiddenRes.includes(i)) {
+                  //   $(resElm).hide()
+                  // }
+  //
+  //
+  // 
 }
 
-async function main() {
+
+
+async function init (){
+  const data = await fetch('/data.json') // this takes 500ms on localhost
+    .then(response => response.json())
+  // load data and generate gatherRates
+  const gatherRates = setUpGatherRates(data) // this takes 1ms
+  console.log(gatherRates);
+  return gatherRates
+}
+
+async function main(gatherRates) {
   document.addEventListener(
     'click',
     function (event) {
@@ -170,8 +205,14 @@ async function main() {
     },
     false
   )
-  const test = document.getElementById('t-test').innerHTML
-  console.log(test)
+  // const test = document.getElementById('t-test').innerHTML
+  // console.log(test)
 
-  document.getElementById('t-box').innerHTML = placeholder(test)({test: 'works'})
+  // document.getElementById('t-box').innerHTML = placeholder(test)({test: 'works'})
+
+      // <template id="t-test">
+      //   <p>[[test]]</p>
+      // </template>
+      // <div id="t-box"></div>
+
 }

@@ -14,10 +14,6 @@
   </head>
   <body>
     <div id="container">
-      <template id="t-test">
-        <p>[[test]]</p>
-      </template>
-      <div id="t-box"></div>
       <h1>Number of Villagers Required to Sustain Constant Unit Production</h1>
       <div id="toolbar">
         <h2>Choose economic bonuses</h2>
@@ -42,8 +38,8 @@
         <div id="choose-res">
           {% for orderItem in order %}
             {% for item in orderItem %}
-
-              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}'>
+              {% set capacity = ["carry-capacity='", gatherRates[item.name].carryCapacity,"'"] | join %}
+              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
                 <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
                 <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
               </div>
