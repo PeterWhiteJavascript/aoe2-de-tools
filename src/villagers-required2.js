@@ -1,3 +1,5 @@
+import { placeholder } from '/js/placeholder.js'
+
 main()
 
 // hides or shows element
@@ -142,8 +144,7 @@ const unitClickEventHandlers = (event) => {
 
   const el = event.target.closest('[unit]')
   el.classList.toggle('showing-img')
-  const res = el.getAttribute('unit')
-  console.log(res)
+  const res = el.getAttribute('unit') 
 
   // Array.from(
   //   document.querySelectorAll(
@@ -169,4 +170,8 @@ async function main() {
     },
     false
   )
+  const test = document.getElementById('t-test').innerHTML
+  console.log(test)
+
+  document.getElementById('t-box').innerHTML = placeholder(test)({test: 'works'})
 }
