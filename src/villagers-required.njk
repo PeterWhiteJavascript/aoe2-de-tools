@@ -38,7 +38,7 @@
         <div id="choose-res">
           {% for orderItem in order %}
             {% for item in orderItem %}
-              {% set capacity = ["carry-capacity='", gatherRates[item.name].carryCapacity,"'"] | join %}
+              {% set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
               <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
                 <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
                 <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
@@ -53,10 +53,10 @@
           {% for dataUnit in dataset.units %}
             {% if dataUnit.name == unit %}
               <!-- <p>{{dataUnit | dump}}</p> -->
-            {% set food = ["x-food='", dataUnit.cost.food,"'"] | join %}
-            {% set wood = ["x-wood='", dataUnit.cost.wood,"'"] | join %}
-            {% set gold = ["x-gold='", dataUnit.cost.gold,"'"] | join %}
-            {% set stone = ["x-stone='", dataUnit.cost.stone,"'"] | join %}
+            {% set food = ['x-food=', dataUnit.cost.food ] | join %}
+            {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+            {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+            {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
             <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
               <img src="/img/{{unit}}.png" alt="{{unit}}" />
             </div>

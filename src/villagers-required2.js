@@ -1,6 +1,8 @@
 import { placeholder } from '/js/placeholder.js'
 import { finder, setUpGatherRates } from '/js/shared-es.js'
 
+let applyEcoBonuses = [{ name: 'Generic', data: {} }]
+
 // TODO remove
 init().then(main)
 
@@ -40,18 +42,16 @@ const toggle = (it) => {
   }
 }
 
-// appendResourceType :: Element
-const appendResourceType = (box) => {
+// appendResourceType :: Element -> Array -> return undefined
+const appendResourceType = (box) => (arr) => {
   const tResRow = document.getElementById('t-res-row')
   const tResItem = document.getElementById('t-res-row-resource')
 
+  // returns what is inside of the template element
   const rResRow = tResRow.content.firstElementChild.cloneNode(true)
   const rResItem = tResItem.content.firstElementChild.cloneNode(true)
 
-  rResRow.innerHTML = makeHtmlCollection(rResItem)([
-    { name: 'farmer', value: 1 },
-    { name: 'farmer', value: 1 },
-  ])
+  rResRow.innerHTML = makeHtmlCollection(rResItem)(arr)
 
   box.appendChild(rResRow)
 }
@@ -183,12 +183,68 @@ const unitClickEventHandlers = (event) => {
 
   const el = event.target.closest('[unit]')
   el.classList.toggle('showing-img')
-  const res = el.getAttribute('unit')
+  const unit = el.getAttribute('unit')
+  const unitRes = {
+    food: el.getAttribute('x-food'), // Nullable
+    wood: el.getAttribute('x-wood'), // Nullable
+    gold: el.getAttribute('x-gold'), // Nullable
+    stone: el.getAttribute('x-stone'), // Nullable
+  }
+  const trainTime = el.getAttribute('x-train-time')
+
+  const multiplier = 1 // DUMMY VALUE TODO change
+
+  const resources = document.querySelectorAll('#choose-res > [res-type]')
+
+  const applyCivEcoBonuses = (rateRaw, type) => {
+    const rate = parseFloat(rateRaw)
+    // TODO add ecoBonuses
+
+    for (let i = 0; i < applyEcoBonuses.length; i++) {
+      for (let j in applyEcoBonuses[i].data) {
+        if (j === res) {
+          if (typeof applyEcoBonuses[i].data[j] === 'string') {
+            return parseFloat(applyEcoBonuses[i].data[j]) / 60
+          }
+          return rate + rate * applyEcoBonuses[i].data[j]
+        }
+      }
+    }
+    return rate
+  }
+
+  const result = Array.from(resources).reduce((curr, next) => {
+    const name = next.getAttribute('resource')
+    const rps = next.getAttribute('res-per-sec')
+    const type = next.getAttribute('res-type')
+    const rate = applyCivEcoBonuses(rps, type)
+    if (unitRes[type]) {
+      return [
+        ...curr,
+        ...[
+          {
+            name: name,
+            type: type,
+            value: 1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
+          },
+        ],
+      ]
+    } else {
+      return curr
+    }
+  }, [])
+
+  console.log('result', result)
 
   const box = document.getElementById('resources-cont-box')
 
   // TODO check if the resources are already present
-  appendResourceType(box)
+  // TODO check for the visible resources and add Boolean value to indicate if they are shown or not
+  // TODO split this into resource type eg. gold, wood , food, stone
+  appendResourceType(box)([
+    { name: 'farmer', value: 1 },
+    { name: 'farmer', value: 1 },
+  ])
 
   // this is triggered by calculate vills call function
   // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
