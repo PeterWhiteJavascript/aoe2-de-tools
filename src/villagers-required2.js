@@ -136,6 +136,25 @@ const resClickEventHandlers = (event) => {
   // calculateVilTotals()
 }
 
+const unitClickEventHandlers = (event) => {
+  if (!event.target.closest('[unit]')) return
+  event.preventDefault()
+
+  const el = event.target.closest('[unit]')
+  el.classList.toggle('showing-img')
+  const res = el.getAttribute('unit')
+  console.log(res)
+
+  // Array.from(
+  //   document.querySelectorAll(
+  //     `#gather-rates > .unit-container > [resource="${res}"]`
+  //   )
+  // ).map((it) => {
+  //   console.log(it)
+  //   toggle(it)
+  // })
+}
+
 async function main() {
   document.addEventListener(
     'click',
@@ -146,6 +165,7 @@ async function main() {
       // TODO event on click for units
 
       resClickEventHandlers(event)
+      unitClickEventHandlers(event)
     },
     false
   )
