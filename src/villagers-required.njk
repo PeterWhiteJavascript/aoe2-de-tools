@@ -49,9 +49,19 @@
         <h2>Click to toggle unit display</h2>
         <div id="choose-units">
           {% for unit in unitsShow %}
-            <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'>
+
+          {% for dataUnit in dataset.units %}
+            {% if dataUnit.name == unit %}
+              <!-- <p>{{dataUnit | dump}}</p> -->
+            {% set food = ["x-food='", dataUnit.cost.food,"'"] | join %}
+            {% set wood = ["x-wood='", dataUnit.cost.wood,"'"] | join %}
+            {% set gold = ["x-gold='", dataUnit.cost.gold,"'"] | join %}
+            {% set stone = ["x-stone='", dataUnit.cost.stone,"'"] | join %}
+            <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
               <img src="/img/{{unit}}.png" alt="{{unit}}" />
             </div>
+            {% endif %}
+          {% endfor %}
           {% endfor %}
         </div>
         <div id="vil-totals">
