@@ -213,38 +213,115 @@ const unitClickEventHandlers = (event) => {
     return rate
   }
 
-  const result = Array.from(resources).reduce((curr, next) => {
-    const name = next.getAttribute('resource')
-    const rps = next.getAttribute('res-per-sec')
-    const type = next.getAttribute('res-type')
-    const rate = applyCivEcoBonuses(rps, type)
-    if (unitRes[type]) {
-      return [
-        ...curr,
-        ...[
-          {
-            name: name,
-            type: type,
-            value: 1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
-          },
-        ],
-      ]
-    } else {
-      return curr
-    }
-  }, [])
-
-  console.log('result', result)
+  const result = Array.from(resources).reduce(
+    (curr, next) => {
+      const name = next.getAttribute('resource')
+      const rps = next.getAttribute('res-per-sec')
+      const type = next.getAttribute('res-type')
+      const rate = applyCivEcoBonuses(rps, type)
+      if (unitRes[type]) {
+        return {
+          food:
+            type === 'food'
+              ? [
+                  ...curr.food,
+                  ...[
+                    {
+                      name: name,
+                      type: type,
+                      value:
+                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
+                    },
+                  ],
+                ]
+              : curr.food,
+          wood:
+            type === 'wood'
+              ? [
+                  ...curr.wood,
+                  ...[
+                    {
+                      name: name,
+                      type: type,
+                      value:
+                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
+                    },
+                  ],
+                ]
+              : curr.wood,
+          gold:
+            type === 'gold'
+              ? [
+                  ...curr.gold,
+                  ...[
+                    {
+                      name: name,
+                      type: type,
+                      value:
+                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
+                    },
+                  ],
+                ]
+              : curr.gold,
+          stone:
+            type === 'stone'
+              ? [
+                  ...curr.stone,
+                  ...[
+                    {
+                      name: name,
+                      type: type,
+                      value:
+                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
+                    },
+                  ],
+                ]
+              : curr.stone,
+        }
+      } else {
+        return curr
+      }
+    },
+    { food: [], wood: [], gold: [], stone: [] }
+  )
 
   const box = document.getElementById('resources-cont-box')
 
   // TODO check if the resources are already present
   // TODO check for the visible resources and add Boolean value to indicate if they are shown or not
   // TODO split this into resource type eg. gold, wood , food, stone
-  appendResourceType(box)([
-    { name: 'farmer', value: 1 },
-    { name: 'farmer', value: 1 },
-  ])
+
+  if (result.food.length > 0) {
+    appendResourceType(box)(
+      result.food.map((it) => {
+        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
+      })
+    )
+  }
+
+  if (result.wood.length > 0) {
+    appendResourceType(box)(
+      result.wood.map((it) => {
+        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
+      })
+    )
+  }
+
+  if (result.gold.length > 0) {
+    appendResourceType(box)(
+      result.gold.map((it) => {
+        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
+      })
+    )
+  }
+
+  if (result.stone.length > 0) {
+    appendResourceType(box)(
+      result.stone.map((it) => {
+        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
+      })
+    )
+  }
 
   // this is triggered by calculate vills call function
   // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
