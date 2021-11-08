@@ -18,7 +18,31 @@ const makeHtmlCollection = (templateItem) => (arr) => {
       // this needs to be mapped into src of the image,
       // otherwise image in template with src is trying to load the src resulting in 404,
       // therefore we are adding src="img path" later
-      .map((it) => ({ ...it, src: `src="/img/${it.name}.png"` }))
+      .map((it) => {
+        if (typeof it.prevAddValue !== 'undefined') {
+          const newValue = it.prevAddValue + it.value
+          return {
+            ...it,
+            src: `src="/img/${it.name}.png"`,
+            value: newValue,
+            valueCeiling: Math.ceil(newValue),
+          }
+        } else if (typeof it.prevDelValue !== 'undefined') {
+          const newValue = it.prevDelValue - it.value
+          return {
+            ...it,
+            src: `src="/img/${it.name}.png"`,
+            value: newValue,
+            valueCeiling: Math.ceil(newValue),
+          }
+        } else {
+          return {
+            ...it,
+            src: `src="/img/${it.name}.png"`,
+            valueCeiling: Math.ceil(it.value),
+          }
+        }
+      })
       .map((it) => {
         return placeholder(templateItem.outerHTML)(it)
       })
@@ -42,18 +66,50 @@ const toggle = (it) => {
   }
 }
 
-// appendResourceType :: Element -> Array -> return undefined
-const appendResourceType = (box) => (arr) => {
+// calcResourceType :: Element -> Boolean -> String -> Array -> return undefined
+const calcResourceType = (box) => (unitVisible) => (type) => (arr) => {
   const tResRow = document.getElementById('t-res-row')
   const tResItem = document.getElementById('t-res-row-resource')
-
   // returns what is inside of the template element
   const rResRow = tResRow.content.firstElementChild.cloneNode(true)
   const rResItem = tResItem.content.firstElementChild.cloneNode(true)
 
-  rResRow.innerHTML = makeHtmlCollection(rResItem)(arr)
+  const doesRowExist = document.querySelector(
+    `#vil-totals > .res-totals [x-row-type="${type}"]`
+  )
+  if (doesRowExist) {
+    if (unitVisible) {
+      const arrWithPrevValue = arr.map((it) => {
+        return {
+          ...it,
+          prevAddValue: parseFloat(
+            doesRowExist
+              .querySelector(`[resource="${it.name}"] > [title]`)
+              .getAttribute('title')
+          ),
+        }
+      })
 
-  box.appendChild(rResRow)
+      doesRowExist.innerHTML = makeHtmlCollection(rResItem)(arrWithPrevValue)
+    } else {
+      const arrWithPrevValue = arr.map((it) => {
+        return {
+          ...it,
+          prevDelValue: parseFloat(
+            doesRowExist
+              .querySelector(`[resource="${it.name}"] > [title]`)
+              .getAttribute('title')
+          ),
+        }
+      })
+
+      doesRowExist.innerHTML = makeHtmlCollection(rResItem)(arrWithPrevValue)
+    }
+  } else {
+    rResRow.setAttribute('x-row-type', type)
+    rResRow.innerHTML = makeHtmlCollection(rResItem)(arr)
+    box.appendChild(rResRow)
+  }
 }
 
 const getHiddenRes = () => {
@@ -167,10 +223,16 @@ const resClickEventHandlers = (event) => {
   const res = el.getAttribute('resource')
   Array.from(
     document.querySelectorAll(
-      `#gather-rates > .unit-container > [resource="${res}"]`
+      `#gather-rates > .unit-container [resource="${res}"]`
     )
   ).map((it) => {
     console.log(it)
+    toggle(it)
+  })
+
+  Array.from(
+    document.querySelectorAll(`#vil-totals > .res-totals [resource="${res}"]`)
+  ).map((it) => {
     toggle(it)
   })
 
@@ -183,6 +245,8 @@ const unitClickEventHandlers = (event) => {
 
   const el = event.target.closest('[unit]')
   el.classList.toggle('showing-img')
+  const unitVisible = Array.from(el.classList).includes('showing-img')
+
   const unit = el.getAttribute('unit')
   const unitRes = {
     food: el.getAttribute('x-food'), // Nullable
@@ -202,7 +266,7 @@ const unitClickEventHandlers = (event) => {
 
     for (let i = 0; i < applyEcoBonuses.length; i++) {
       for (let j in applyEcoBonuses[i].data) {
-        if (j === res) {
+        if (j === type) {
           if (typeof applyEcoBonuses[i].data[j] === 'string') {
             return parseFloat(applyEcoBonuses[i].data[j]) / 60
           }
@@ -219,6 +283,11 @@ const unitClickEventHandlers = (event) => {
       const rps = next.getAttribute('res-per-sec')
       const type = next.getAttribute('res-type')
       const rate = applyCivEcoBonuses(rps, type)
+      // hide resource when adding / show resource when adding
+      const visible = Array.from(next.classList).includes('showing-img')
+        ? 'display: block;'
+        : `display: none;`
+
       if (unitRes[type]) {
         return {
           food:
@@ -229,6 +298,7 @@ const unitClickEventHandlers = (event) => {
                     {
                       name: name,
                       type: type,
+                      visible: visible,
                       value:
                         1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
                     },
@@ -243,6 +313,7 @@ const unitClickEventHandlers = (event) => {
                     {
                       name: name,
                       type: type,
+                      visible: visible,
                       value:
                         1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
                     },
@@ -257,6 +328,7 @@ const unitClickEventHandlers = (event) => {
                     {
                       name: name,
                       type: type,
+                      visible: visible,
                       value:
                         1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
                     },
@@ -271,6 +343,7 @@ const unitClickEventHandlers = (event) => {
                     {
                       name: name,
                       type: type,
+                      visible: visible,
                       value:
                         1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
                     },
@@ -292,35 +365,19 @@ const unitClickEventHandlers = (event) => {
   // TODO split this into resource type eg. gold, wood , food, stone
 
   if (result.food.length > 0) {
-    appendResourceType(box)(
-      result.food.map((it) => {
-        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
-      })
-    )
+    calcResourceType(box)(unitVisible)('food')(result.food)
   }
 
   if (result.wood.length > 0) {
-    appendResourceType(box)(
-      result.wood.map((it) => {
-        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
-      })
-    )
+    calcResourceType(box)(unitVisible)('wood')(result.wood)
   }
 
   if (result.gold.length > 0) {
-    appendResourceType(box)(
-      result.gold.map((it) => {
-        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
-      })
-    )
+    calcResourceType(box)(unitVisible)('gold')(result.gold)
   }
 
   if (result.stone.length > 0) {
-    appendResourceType(box)(
-      result.stone.map((it) => {
-        return { ...it, valueCeiling: Math.ceil(it.value) } // so we can show pretty int number
-      })
-    )
+    calcResourceType(box)(unitVisible)('stone')(result.stone)
   }
 
   // this is triggered by calculate vills call function
