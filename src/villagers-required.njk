@@ -49,7 +49,6 @@
         <h2>Click to toggle unit display</h2>
         <div id="choose-units">
           {% for unit in unitsShow %}
-
           {% for dataUnit in dataset.units %}
             {% if dataUnit.name == unit %}
               <!-- <p>{{dataUnit | dump}}</p> -->
@@ -83,62 +82,20 @@
                 </div>
               </template>
 
-              <div class="unit-totals">
-                <div class="unit-totals">
-                  <div class="unit-class">
-                    <div class="resource-num" title="1x war elephant">
+              <template id="t-unit-class">
+                  <div class="unit-class" x-unit="[[name]]">
+                    <div class="resource-num" title="[[value]]x [[name]]">
                       <div>
-                        1
+                        [[value]]
                       </div>
                     </div>
-                    <img src="/img/war elephant.png" alt="war elephant" />
+                    <img [[src]] alt="[[name]]" />
                   </div>
-                </div>
+              </template>
 
-              </div>
+            </div>
 
-              <!-- let resRow, curRes
-                   for (let i in vilsReq) {
-                   let res = gatherRates[i].res
-                   if (curRes !== res) {
-                   if (resRow) resDisplay.append(resRow)
-                   curRes = res
-                   resRow = $("<div class='res-row'></div>")
-                   }
-                   let resElm = $(
-                   "<div class='resource' resource='" +
-                   i +
-                   "'><img class='icon-big' src='/img/" +
-                   i +
-                   ".png' title='" +
-                   i +
-                   "'><div class='resource-num' title='" +
-                   vilsReq[i] +
-                   "'><div>" +
-                   Math.ceil(vilsReq[i]) +
-                   '</div></div></div>'
-                   )
-                   resRow.append(resElm)
-                   if (hiddenRes.includes(i)) {
-                   $(resElm).hide()
-                   }
-                   }
-                   resDisplay.append(resRow)
-
-                   for (let i in unitsBeingCreated) {
-                   unitsDisplay.append(
-                   "<div class='unit-class'><div class='resource-num' title='" +
-                   unitsBeingCreated[i].quantity +
-                   "'><div>" +
-                   Math.ceil(unitsBeingCreated[i].quantity) +
-                   "</div></div><img src='/img/" +
-                   i +
-                   ".png' title='" +
-                   i +
-                   "'></div>"
-                   )
-                   } -->
-
+            <div id="unit-totals-box" class="unit-totals">
             </div>
           </div>
           <div class="gather-rates">
