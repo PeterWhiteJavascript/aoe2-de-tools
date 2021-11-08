@@ -68,15 +68,30 @@ const toggle = (it) => {
 
 // calcResourceType :: Element -> Boolean -> String -> Array -> return undefined
 const calcResourceType = (box) => (unitVisible) => (type) => (arr) => {
+  const doesRowExist = document.querySelector(
+    `#vil-totals > .res-totals [x-row-type="${type}"]`
+  )
+
+  // shortcut the code to remove 'res-row' if the resulting number would be 0
+  if (
+    !unitVisible &&
+    arr &&
+    doesRowExist &&
+    doesRowExist.querySelector(`.resource-num`).getAttribute('title') -
+      arr[0].value <
+      1 // less than 1 instead of === 0,
+    // float minus / plus calculation could be incorrect, therefore less than 1 check is fine to remove element.
+  ) {
+    doesRowExist.remove()
+    return
+  }
+
   const tResRow = document.getElementById('t-res-row')
   const tResItem = document.getElementById('t-res-row-resource')
   // returns what is inside of the template element
   const rResRow = tResRow.content.firstElementChild.cloneNode(true)
   const rResItem = tResItem.content.firstElementChild.cloneNode(true)
 
-  const doesRowExist = document.querySelector(
-    `#vil-totals > .res-totals [x-row-type="${type}"]`
-  )
   if (doesRowExist) {
     if (unitVisible) {
       const arrWithPrevValue = arr.map((it) => {
