@@ -6,6 +6,23 @@ let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 // TODO remove
 init().then(main)
 
+const renderGatherRate = (visible) => (unit) => {
+  const box = document.getElementById('gather-rates-id')
+  if (visible) {
+    const tItem = document.getElementById('t-gather-rates-item')
+    const item = tItem.content.firstElementChild.cloneNode(true)
+
+    const src = `src="/img/${unit}.png"`
+    const newItem = new DOMParser().parseFromString(
+      placeholder(item.outerHTML)({ name: unit, src }),
+      'text/html'
+    )
+    box.appendChild(newItem.body.firstElementChild)
+  } else {
+    box.querySelector(`[x-unit="${unit}"]`).remove()
+  }
+}
+
 // renderUnit :: Boolean -> Object({name, value}) -> returns undefined
 const renderUnit = (visible) => (it) => {
   const unitsBox = document.getElementById('unit-totals-box')
@@ -395,6 +412,7 @@ const unitClickEventHandlers = (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
+  renderGatherRate(unitVisible)(unit)
   renderUnit(unitVisible)({ name: unit, value: 1 })
 
   // TODO check if the resources are already present

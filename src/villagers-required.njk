@@ -49,18 +49,18 @@
         <h2>Click to toggle unit display</h2>
         <div id="choose-units">
           {% for unit in unitsShow %}
-          {% for dataUnit in dataset.units %}
-            {% if dataUnit.name == unit %}
-              <!-- <p>{{dataUnit | dump}}</p> -->
-            {% set food = ['x-food=', dataUnit.cost.food ] | join %}
-            {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
-            {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
-            {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
-            <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
-              <img src="/img/{{unit}}.png" alt="{{unit}}" />
-            </div>
-            {% endif %}
-          {% endfor %}
+            {% for dataUnit in dataset.units %}
+              {% if dataUnit.name == unit %}
+                <!-- <p>{{dataUnit | dump}}</p> -->
+                {% set food = ['x-food=', dataUnit.cost.food ] | join %}
+                {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+                {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+                {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
+                  <img src="/img/{{unit}}.png" alt="{{unit}}" />
+                </div>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </div>
         <div id="vil-totals">
@@ -83,14 +83,14 @@
               </template>
 
               <template id="t-unit-class">
-                  <div class="unit-class" x-unit="[[name]]">
-                    <div class="resource-num" title="[[value]]x [[name]]">
-                      <div>
-                        [[value]]
-                      </div>
+                <div class="unit-class" x-unit="[[name]]">
+                  <div class="resource-num" title="[[value]]x [[name]]">
+                    <div>
+                      [[value]]
                     </div>
-                    <img [[src]] alt="[[name]]" />
                   </div>
+                  <img [[src]] alt="[[name]]" />
+                </div>
               </template>
 
             </div>
@@ -98,34 +98,36 @@
             <div id="unit-totals-box" class="unit-totals">
             </div>
           </div>
-          <div class="gather-rates">
-            <div class="unit-container" title="war elephant">
-              <div class="unit">
-                <div class="res-cont" title="food">
-                  <img src="/img/food-icon.png" alt="food" />
-                  <div>
-                    170
+          <div id="gather-rates-id" class="gather-rates">
+            <template id="t-gather-rates-item">
+              <div class="unit-container" title="[[name]]" x-unit="[[name]]">
+                <div class="unit">
+                  <div class="res-cont" title="food">
+                    <img src="/img/food-icon.png" alt="food" />
+                    <div>
+                      170
+                    </div>
                   </div>
-                </div>
 
-                <div class="res-cont" title="gold">
+                  <div class="res-cont" title="gold">
 
-                  <img src="/img/gold-icon.png" alt="gold" />
-                  <div>
-                    85
+                    <img src="/img/gold-icon.png" alt="gold" />
+                    <div>
+                      85
+                    </div>
                   </div>
-                </div>
-                <div class="time-cont">
-                  <img src="/img/hourglass-icon.png">
-                  <div>25</div>
-                </div>
-                <div class="unit-class"><img src="/img/war elephant.png" title="war elephant"></div>
-                <div class="res-desc-cont">
+                  <div class="time-cont">
+                    <img src="/img/hourglass-icon.png">
+                    <div>25</div>
+                  </div>
+                  <div class="unit-class"><img [[src]] title="[[name]]"></div>
+                  <div class="res-desc-cont">
+
+                  </div>
 
                 </div>
-
               </div>
-            </div>
+            </template>
           </div>
         </div>
         
