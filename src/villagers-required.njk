@@ -96,24 +96,60 @@
             </div>
           </div>
           <div id="gather-rates">
-            <template id="t-gather-rates-item">
-              <div class="unit-container" title="[[name]]" x-unit="[[name]]">
+            {% for unit in dataset.units %}
+              <div class="unit-container" title="{{unit.name}}" x-unit="{{unit.name}}">
                 <div class="unit">
-                  [[resources]]
+                  {% if unit.cost.food %}
+                    <div class="res-cont" title="food">
+                      <img src="/img/food-icon.png" alt="food" />
+                      <div>
+                        {{unit.cost.food}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.wood %}
+                    <div class="res-cont" title="food">
+                      <img src="/img/wood-icon.png" alt="food" />
+                      <div>
+                        {{unit.cost.wood}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.gold %}
+                    <div class="res-cont" title="food">
+                      <img src="/img/gold-icon.png" alt="food" />
+                      <div>
+                        {{unit.cost.gold}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.stone %}
+                    <div class="res-cont" title="food">
+                      <img src="/img/stone-icon.png" alt="food" />
+                      <div>
+                        {{unit.cost.stone}}
+                      </div>
+                    </div>
+                  {% endif %}
                   <div class="time-cont">
                     <img src="/img/hourglass-icon.png">
-                    <div>[[timeCreation]]</div>
+                    <div>{{unit.trainTime}}</div>
                   </div>
-                  <div class="unit-class"><img [[src]] title="[[name]]"></div>
+                  <div class="unit-class"><img src="/img/{{unit.name}}.png" title="{{unit.name}}"></div>
                   <div class="upgrade-cont">
-                    <template id="upgrade-cont-civilization-id">
                       <div>
                         Civilization
                         <select>
-                          [[options]]
+                          <option>Generic</option>
+                        {% for key, obj  in unitVariety %}
+                          {% if unit.name == key and obj.civs %}
+                              {% for civKey, civObj  in obj.civs %}
+                                <option>{{civKey}}</option>
+                              {% endfor %}
+                          {% endif %}
+                        {% endfor %}
                         </select>
                       </div>
-                    </template>
                   </div>
                   <div class="multiplier-cont">
                     <div>-</div>
@@ -126,10 +162,46 @@
                     [[resourcesUnit]]
                   </div>
                   <div class="upgrades-cont">
+                        {% for key, obj  in unitVariety %}
+                          {% if unit.name == key and obj.upgrades %}
+                              {% for upKey, upObj  in obj.upgrades %}
+                                {% if upObj.trainTimePercent %}
+                                {% set trainTime = ['x-train-time=', upObj.trainTime ] | join %}
+                                {% endif %}
+
+                                {% if upObj.trainTimePercent %}
+                                {% set percent = ['x-train-time-percent=', upObj.trainTimePercent ] | join %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.food %}
+                                {% set food = ['x-cost-food=', upObj.cost.food ] | join %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.wood %}
+                                {% set wood = ['x-cost-wood=', upObj.cost.wood ] | join %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.gold %}
+                                {% set gold = ['x-cost-gold=', upObj.cost.gold ] | join %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.stone %}
+                                {% set stone = ['x-cost-stone=', upObj.cost.stone ] | join %}
+                                {% endif %}
+
+                                <div>
+                                  <div>
+                                    {{upKey}}
+                                  </div>
+                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} />
+                                </div>
+                              {% endfor %}
+                          {% endif %}
+                        {% endfor %}
                   </div>
                 </div>
               </div>
-            </template>
+            {% endfor %}
             <template id="t-gather-rates-item-upgrades-checkbox">
               <div>
                 <div>
