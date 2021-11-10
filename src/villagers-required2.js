@@ -5,7 +5,7 @@ let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
 init().then(main)
 
-const renderGatherRate = (unitVariety) => (visible) => (result) => (it) => {
+const renderGatherRate = (visible) => (result) => (it) => {
   const box = document.getElementById('gather-rates')
   const row = box.querySelector(`[x-unit="${it.name}"]`)
   makeHtmlCollection2(row)([
@@ -290,7 +290,7 @@ const resClickEventHandlers = (event) => {
   })
 }
 
-const unitClickEventHandlers = (unitVariety) => (event) => {
+const unitClickEventHandlers = (event) => {
   if (!event.target.closest('[unit]')) return
   event.preventDefault()
 
@@ -411,7 +411,7 @@ const unitClickEventHandlers = (unitVariety) => (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
-  renderGatherRate(unitVariety)(unitVisible)(result)({
+  renderGatherRate(unitVisible)(result)({
     name: unit,
     timeCreation: trainTime,
     ...unitRes,
@@ -442,7 +442,7 @@ async function init() {
   return data
 }
 
-async function main(unitVariety) {
+async function main() {
   document.addEventListener(
     'click',
     function (event) {
@@ -452,17 +452,9 @@ async function main(unitVariety) {
       // TODO event on click for units
 
       resClickEventHandlers(event)
-      unitClickEventHandlers(unitVariety)(event)
+      unitClickEventHandlers(event)
+      unitPlusClickEventHandlers(event)
     },
     false
   )
-  // const test = document.getElementById('t-test').innerHTML
-  // console.log(test)
-
-  // document.getElementById('t-box').innerHTML = placeholder(test)({test: 'works'})
-
-  // <template id="t-test">
-  //   <p>[[test]]</p>
-  // </template>
-  // <div id="t-box"></div>
 }

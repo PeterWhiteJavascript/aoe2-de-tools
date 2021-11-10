@@ -161,9 +161,9 @@
                       </div>
                   </div>
                   <div class="multiplier-cont">
-                    <div>-</div>
-                    <div>1</div>
-                    <div>+</div>
+                    <div x-unit-count-calc="minus" >-</div>
+                    <div x-unit-count="num">1</div>
+                    <div x-unit-count-calc="minus" >+</div>
                   </div>
                 </div>
                 <div class="res-desc-cont">
@@ -269,14 +269,6 @@
                 </div>
               </div>
             {% endfor %}
-            <template id="t-gather-rates-item-upgrades-checkbox">
-              <div>
-                <div>
-                  [[upgradeTech]]
-                </div>
-                <input type="checkbox" x-upgrade-unit="[[upgradeTech]]" x-train-time="[[trainTime]]" x-train-time-percent="[[trainTimePercent]]" [[cost]]/>
-              </div>
-            </template>
           </div>
         </div>
         
