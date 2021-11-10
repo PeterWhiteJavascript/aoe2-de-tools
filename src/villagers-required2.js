@@ -7,134 +7,14 @@ init().then(main)
 
 const renderGatherRate = (unitVariety) => (visible) => (result) => (it) => {
   const box = document.getElementById('gather-rates')
-  if (visible) {
-    const tItem = document.getElementById('t-gather-rates-item')
-    const tTechCheckbox = document.getElementById(
-      't-gather-rates-item-upgrades-checkbox'
-    )
-
-    const item = tItem.content.firstElementChild.cloneNode(true)
-
-    const src = `src="/img/${it.name}.png"`
-    let resources = ''
-    if (it.food) {
-      resources = `${resources}
-<div class="res-cont" title="food">
-  <img src="/img/food-icon.png" alt="food" />
-  <div>
-    ${it.food}
-  </div>
-</div>`
-    }
-
-    if (it.wood) {
-      resources = `${resources}
-<div class="res-cont" title="wood">
-  <img src="/img/wood-icon.png" alt="wood" />
-  <div>
-    ${it.wood}
-  </div>
-</div>`
-    }
-
-    if (it.gold) {
-      resources = `${resources}
-<div class="res-cont" title="gold">
-  <img src="/img/gold-icon.png" alt="gold" />
-  <div>
-    ${it.gold}
-  </div>
-</div>`
-    }
-    if (it.stone) {
-      resources = `${resources}
-<div class="res-cont" title="stone">
-  <img src="/img/stone-icon.png" alt="stone" />
-  <div>
-    ${it.stone}
-  </div>
-</div>`
-    }
-
-    let resourcesUnit = ''
-    const tResRow = document.getElementById('t-res-row')
-    const tResItem = document.getElementById('t-res-row-resource')
-    if (result.food.length > 0) {
-      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
-      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
-      rResRow.setAttribute('x-row-type', 'food')
-      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.food)
-      resourcesUnit = `${resourcesUnit}
-${rResRow.outerHTML}`
-    }
-
-    if (result.wood.length > 0) {
-      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
-      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
-      rResRow.setAttribute('x-row-type', 'wood')
-      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.wood)
-      resourcesUnit = `${resourcesUnit}
-${rResRow.outerHTML}`
-    }
-
-    if (result.gold.length > 0) {
-      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
-      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
-      rResRow.setAttribute('x-row-type', 'gold')
-      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.gold)
-      resourcesUnit = `${resourcesUnit}
-${rResRow.outerHTML}`
-    }
-    if (result.stone.length > 0) {
-      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
-      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
-      rResRow.setAttribute('x-row-type', 'stone')
-      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.stone)
-      resourcesUnit = `${resourcesUnit}
-${rResRow.outerHTML}`
-    }
-
-    const newItem = new DOMParser().parseFromString(
-      placeholder(item.outerHTML)({ ...it, src, resources, resourcesUnit }),
-      'text/html'
-    )
-
-    const upgrades = unitVariety[it.name].upgrades
-    let upgradesHtml = ''
-    for (const key in upgrades) {
-      console.log(upgrades)
-      let costStr = ''
-      if (upgrades[key].cost) {
-        if (upgrades[key].cost.food) {
-          costStr = `${costStr} x-cost-food="${upgrades[key].cost.food}"`
-        }
-        if (upgrades[key].cost.wood) {
-          costStr = `${costStr} x-cost-wood="${upgrades[key].cost.wood}"`
-        }
-        if (upgrades[key].cost.gold) {
-          costStr = `${costStr} x-cost-gold="${upgrades[key].cost.gold}"`
-        }
-        if (upgrades[key].cost.stone) {
-          costStr = `${costStr} x-cost-stone="${upgrades[key].cost.stone}"`
-        }
-      }
-
-      const techCheckbox =
-        tTechCheckbox.content.firstElementChild.cloneNode(true)
-      upgradesHtml = `${upgradesHtml}
-${placeholder(techCheckbox.outerHTML)({
-  upgradeTech: key,
-  trainTime: upgrades[key].trainTime,
-  trainTimePercent: upgrades[key].trainTimePercent || 'false',
-  cost: costStr,
-})}`
-    }
-    newItem.querySelector('.upgrades-cont').innerHTML = upgradesHtml
-
-    box.appendChild(newItem.body.firstElementChild)
-  } else {
-    box.querySelector(`[x-unit="${it.name}"]`).remove()
-  }
+  const row = box.querySelector(`[x-unit="${it.name}"]`)
+  makeHtmlCollection2(row)([
+    ...result.food,
+    ...result.wood,
+    ...result.gold,
+    ...result.stone,
+  ])
+  toggle(row)
 }
 
 const toggleUnit = (unit) => {
@@ -531,16 +411,12 @@ const unitClickEventHandlers = (unitVariety) => (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
-  // renderGatherRate(unitVariety)(unitVisible)(result)({
-  //   name: unit,
-  //   timeCreation: trainTime,
-  //   ...unitRes,
-  // })
+  renderGatherRate(unitVariety)(unitVisible)(result)({
+    name: unit,
+    timeCreation: trainTime,
+    ...unitRes,
+  })
   toggleUnit(unit)
-
-  // TODO check if the resources are already present
-  // TODO check for the visible resources and add Boolean value to indicate if they are shown or not
-  // TODO split this into resource type eg. gold, wood , food, stone
 
   if (result.food.length > 0) {
     calcResourceType(box)(unitVisible)('food')(result.food)
@@ -557,35 +433,6 @@ const unitClickEventHandlers = (unitVariety) => (event) => {
   if (result.stone.length > 0) {
     calcResourceType(box)(unitVisible)('stone')(result.stone)
   }
-
-  // this is triggered by calculate vills call function
-  // This takes care of adding row for resource when unit depends on it. // toggles display none or ""
-  // let res = gatherRates[i].res
-  // if (curRes !== res) {
-  //   if (resRow) resDisplay.append(resRow)
-  //   curRes = res
-  //   resRow = $("<div class='res-row'></div>")
-  // }
-  // let resElm = $(
-  //   "<div class='resource' resource='" +
-  //     i +
-  //     "'><img class='icon-big' src='/img/" +
-  //     i +
-  //     ".png' title='" +
-  //     i +
-  //     "'><div class='resource-num' title='" +
-  //     vilsReq[i] +
-  //     "'><div>" +
-  //     Math.ceil(vilsReq[i]) +
-  //     '</div></div></div>'
-  // )
-  // resRow.append(resElm)
-  // if (hiddenRes.includes(i)) {
-  //   $(resElm).hide()
-  // }
-  //
-  //
-  //
 }
 
 async function init() {
