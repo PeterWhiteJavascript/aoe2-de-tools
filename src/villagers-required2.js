@@ -3,13 +3,16 @@ import { finder, setUpGatherRates } from '/js/shared-es.js'
 
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
-// TODO remove
 init().then(main)
 
-const renderGatherRate = (visible) => (result) => (it) => {
+const renderGatherRate = (unitVariety) => (visible) => (result) => (it) => {
   const box = document.getElementById('gather-rates-id')
   if (visible) {
     const tItem = document.getElementById('t-gather-rates-item')
+    const tTechCheckbox = document.getElementById(
+      't-gather-rates-item-upgrades-checkbox'
+    )
+
     const item = tItem.content.firstElementChild.cloneNode(true)
 
     const src = `src="/img/${it.name}.png"`
@@ -95,6 +98,38 @@ ${rResRow.outerHTML}`
       placeholder(item.outerHTML)({ ...it, src, resources, resourcesUnit }),
       'text/html'
     )
+
+    const upgrades = unitVariety[it.name].upgrades
+    let upgradesHtml = ''
+    for (const key in upgrades) {
+      console.log(upgrades)
+      let costStr = ''
+      if (upgrades[key].cost) {
+        if (upgrades[key].cost.food) {
+          costStr = `${costStr} x-cost-food="${upgrades[key].cost.food}"`
+        }
+        if (upgrades[key].cost.wood) {
+          costStr = `${costStr} x-cost-wood="${upgrades[key].cost.wood}"`
+        }
+        if (upgrades[key].cost.gold) {
+          costStr = `${costStr} x-cost-gold="${upgrades[key].cost.gold}"`
+        }
+        if (upgrades[key].cost.stone) {
+          costStr = `${costStr} x-cost-stone="${upgrades[key].cost.stone}"`
+        }
+      }
+
+      const techCheckbox =
+        tTechCheckbox.content.firstElementChild.cloneNode(true)
+      upgradesHtml = `${upgradesHtml}
+${placeholder(techCheckbox.outerHTML)({
+  upgradeTech: key,
+  trainTime: upgrades[key].trainTime,
+  trainTimePercent: upgrades[key].trainTimePercent || 'false',
+  cost: costStr,
+})}`
+    }
+    newItem.querySelector('.upgrades-cont').innerHTML = upgradesHtml
 
     box.appendChild(newItem.body.firstElementChild)
   } else {
@@ -367,7 +402,7 @@ const resClickEventHandlers = (event) => {
   })
 }
 
-const unitClickEventHandlers = (event) => {
+const unitClickEventHandlers = (unitVariety) => (event) => {
   if (!event.target.closest('[unit]')) return
   event.preventDefault()
 
@@ -488,7 +523,7 @@ const unitClickEventHandlers = (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
-  renderGatherRate(unitVisible)(result)({
+  renderGatherRate(unitVariety)(unitVisible)(result)({
     name: unit,
     timeCreation: trainTime,
     ...unitRes,
@@ -546,15 +581,13 @@ const unitClickEventHandlers = (event) => {
 }
 
 async function init() {
-  const data = await fetch('/data.json') // this takes 500ms on localhost
-    .then((response) => response.json())
-  // load data and generate gatherRates
-  const gatherRates = setUpGatherRates(data) // this takes 1ms
-  console.log(gatherRates)
-  return gatherRates
+  const data = await fetch('/data/unitVariety.json').then((response) =>
+    response.json()
+  )
+  return data
 }
 
-async function main(gatherRates) {
+async function main(unitVariety) {
   document.addEventListener(
     'click',
     function (event) {
@@ -564,7 +597,7 @@ async function main(gatherRates) {
       // TODO event on click for units
 
       resClickEventHandlers(event)
-      unitClickEventHandlers(event)
+      unitClickEventHandlers(unitVariety)(event)
     },
     false
   )

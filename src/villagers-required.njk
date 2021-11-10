@@ -114,14 +114,16 @@
                     [[resourcesUnit]]
                   </div>
                   <div class="upgrades-cont">
-                    <div>
-                      <div>
-                        [[]] Conscription
-                      </div>
-                      <input type="checkbox" name="" value="" />
-                    </div>
                   </div>
                 </div>
+              </div>
+            </template>
+            <template id="t-gather-rates-item-upgrades-checkbox">
+              <div>
+                <div>
+                  [[upgradeTech]]
+                </div>
+                <input type="checkbox" x-upgrade-unit="[[upgradeTech]]" x-train-time="[[trainTime]]" x-train-time-percent="[[trainTimePercent]]" [[cost]]/>
               </div>
             </template>
           </div>
