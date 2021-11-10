@@ -137,24 +137,8 @@ ${placeholder(techCheckbox.outerHTML)({
   }
 }
 
-// renderUnit :: Boolean -> Object({name, value}) -> returns undefined
-const renderUnit = (visible) => (it) => {
-  const unitsBox = document.getElementById('unit-totals-box')
-  if (!visible) {
-    unitsBox.querySelector(`[x-unit="${it.name}"]`).remove()
-    return
-  } else {
-    const tUnitItem = document.getElementById('t-unit-class')
-    // returns what is inside of the template element
-    const templateUnit = tUnitItem.content.firstElementChild.cloneNode(true)
-    const src = `src="/img/${it.name}.png"`
-    const newUnit = new DOMParser().parseFromString(
-      placeholder(templateUnit.outerHTML)({ ...it, src }),
-      'text/html'
-    )
-    unitsBox.appendChild(newUnit.body.firstElementChild)
-    return
-  }
+const toggleUnit = (unit) => {
+  toggle(document.querySelector(`#unit-totals-box > [x-unit="${unit}"]`))
 }
 
 // Generates String html collection
@@ -528,7 +512,7 @@ const unitClickEventHandlers = (unitVariety) => (event) => {
     timeCreation: trainTime,
     ...unitRes,
   })
-  renderUnit(unitVisible)({ name: unit, value: 1 })
+  toggleUnit(unit)
 
   // TODO check if the resources are already present
   // TODO check for the visible resources and add Boolean value to indicate if they are shown or not

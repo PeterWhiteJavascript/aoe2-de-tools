@@ -51,7 +51,6 @@
           {% for unit in unitsShow %}
             {% for dataUnit in dataset.units %}
               {% if dataUnit.name == unit %}
-                <!-- <p>{{dataUnit | dump}}</p> -->
                 {% set food = ['x-food=', dataUnit.cost.food ] | join %}
                 {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
                 {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
@@ -81,21 +80,19 @@
                   </div>
                 </div>
               </template>
-
-              <template id="t-unit-class">
-                <div class="unit-class" x-unit="[[name]]">
-                  <div class="resource-num" title="[[value]]x [[name]]">
-                    <div>
-                      [[value]]
-                    </div>
-                  </div>
-                  <img [[src]] alt="[[name]]" />
-                </div>
-              </template>
-
             </div>
 
             <div id="unit-totals-box" class="unit-totals">
+            {% for unit in dataset.units %}
+                <div class="unit-class" x-unit="{{unit.name}}" style="display: none;">
+                  <div class="resource-num" title="1x {{unit.name}}">
+                    <div>
+                      1
+                    </div>
+                  </div>
+                  <img src="/img/{{unit.name}}.png" alt="{{unit.name}}" />
+                </div>
+            {% endfor %}
             </div>
           </div>
           <div id="gather-rates">
@@ -108,6 +105,21 @@
                     <div>[[timeCreation]]</div>
                   </div>
                   <div class="unit-class"><img [[src]] title="[[name]]"></div>
+                  <div class="upgrade-cont">
+                    <template id="upgrade-cont-civilization-id">
+                      <div>
+                        Civilization
+                        <select>
+                          [[options]]
+                        </select>
+                      </div>
+                    </template>
+                  </div>
+                  <div class="multiplier-cont">
+                    <div>-</div>
+                    <div>1</div>
+                    <div>+</div>
+                  </div>
                 </div>
                 <div class="res-desc-cont">
                   <div class="resource-cont">
