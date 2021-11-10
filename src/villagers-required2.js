@@ -6,20 +6,99 @@ let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 // TODO remove
 init().then(main)
 
-const renderGatherRate = (visible) => (unit) => {
+const renderGatherRate = (visible) => (result) => (it) => {
   const box = document.getElementById('gather-rates-id')
   if (visible) {
     const tItem = document.getElementById('t-gather-rates-item')
     const item = tItem.content.firstElementChild.cloneNode(true)
 
-    const src = `src="/img/${unit}.png"`
+    const src = `src="/img/${it.name}.png"`
+    let resources = ''
+    if (it.food) {
+      resources = `${resources}
+<div class="res-cont" title="food">
+  <img src="/img/food-icon.png" alt="food" />
+  <div>
+    ${it.food}
+  </div>
+</div>`
+    }
+
+    if (it.wood) {
+      resources = `${resources}
+<div class="res-cont" title="wood">
+  <img src="/img/wood-icon.png" alt="wood" />
+  <div>
+    ${it.wood}
+  </div>
+</div>`
+    }
+
+    if (it.gold) {
+      resources = `${resources}
+<div class="res-cont" title="gold">
+  <img src="/img/gold-icon.png" alt="gold" />
+  <div>
+    ${it.gold}
+  </div>
+</div>`
+    }
+    if (it.stone) {
+      resources = `${resources}
+<div class="res-cont" title="stone">
+  <img src="/img/stone-icon.png" alt="stone" />
+  <div>
+    ${it.stone}
+  </div>
+</div>`
+    }
+
+    let resourcesUnit = ''
+    const tResRow = document.getElementById('t-res-row')
+    const tResItem = document.getElementById('t-res-row-resource')
+    if (result.food.length > 0) {
+      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
+      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
+      rResRow.setAttribute('x-row-type', 'food')
+      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.food)
+      resourcesUnit = `${resourcesUnit}
+${rResRow.outerHTML}`
+    }
+
+    if (result.wood.length > 0) {
+      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
+      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
+      rResRow.setAttribute('x-row-type', 'wood')
+      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.wood)
+      resourcesUnit = `${resourcesUnit}
+${rResRow.outerHTML}`
+    }
+
+    if (result.gold.length > 0) {
+      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
+      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
+      rResRow.setAttribute('x-row-type', 'gold')
+      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.gold)
+      resourcesUnit = `${resourcesUnit}
+${rResRow.outerHTML}`
+    }
+    if (result.stone.length > 0) {
+      const rResRow = tResRow.content.firstElementChild.cloneNode(true)
+      const rResItem = tResItem.content.firstElementChild.cloneNode(true)
+      rResRow.setAttribute('x-row-type', 'stone')
+      rResRow.innerHTML = makeHtmlCollection(rResItem)(result.stone)
+      resourcesUnit = `${resourcesUnit}
+${rResRow.outerHTML}`
+    }
+
     const newItem = new DOMParser().parseFromString(
-      placeholder(item.outerHTML)({ name: unit, src }),
+      placeholder(item.outerHTML)({ ...it, src, resources, resourcesUnit }),
       'text/html'
     )
+
     box.appendChild(newItem.body.firstElementChild)
   } else {
-    box.querySelector(`[x-unit="${unit}"]`).remove()
+    box.querySelector(`[x-unit="${it.name}"]`).remove()
   }
 }
 
@@ -412,7 +491,11 @@ const unitClickEventHandlers = (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
-  renderGatherRate(unitVisible)(unit)
+  renderGatherRate(unitVisible)(result)({
+    name: unit,
+    timeCreation: trainTime,
+    ...unitRes,
+  })
   renderUnit(unitVisible)({ name: unit, value: 1 })
 
   // TODO check if the resources are already present

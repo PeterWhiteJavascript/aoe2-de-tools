@@ -102,29 +102,25 @@
             <template id="t-gather-rates-item">
               <div class="unit-container" title="[[name]]" x-unit="[[name]]">
                 <div class="unit">
-                  <div class="res-cont" title="food">
-                    <img src="/img/food-icon.png" alt="food" />
-                    <div>
-                      170
-                    </div>
-                  </div>
-
-                  <div class="res-cont" title="gold">
-
-                    <img src="/img/gold-icon.png" alt="gold" />
-                    <div>
-                      85
-                    </div>
-                  </div>
+                  [[resources]]
                   <div class="time-cont">
                     <img src="/img/hourglass-icon.png">
-                    <div>25</div>
+                    <div>[[timeCreation]]</div>
                   </div>
                   <div class="unit-class"><img [[src]] title="[[name]]"></div>
-                  <div class="res-desc-cont">
-
+                </div>
+                <div class="res-desc-cont">
+                  <div class="resource-cont">
+                    [[resourcesUnit]]
                   </div>
-
+                  <div class="upgrades-cont">
+                    <div>
+                      <div>
+                        [[]] Conscription
+                      </div>
+                      <input type="checkbox" name="" value="" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </template>
