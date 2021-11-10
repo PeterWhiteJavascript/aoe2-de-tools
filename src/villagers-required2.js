@@ -124,9 +124,9 @@ const renderUnit = (visible) => (it) => {
 
 // Generates String html collection
 // example:
-// <div id="1"> </div>
-// <div id="2"> </div>
-// <div id="3"> </div>
+// <div id="1"></div>
+// <div id="2"></div>
+// <div id="3"></div>
 // makeHtmlCollection :: String -> Array -> returns String
 const makeHtmlCollection = (templateItem) => (arr) => {
   return (
@@ -354,10 +354,9 @@ const resClickEventHandlers = (event) => {
   const res = el.getAttribute('resource')
   Array.from(
     document.querySelectorAll(
-      `#gather-rates > .unit-container [resource="${res}"]`
+      `#gather-rates-id > .unit-container [resource="${res}"]`
     )
   ).map((it) => {
-    console.log(it)
     toggle(it)
   })
 
@@ -366,8 +365,6 @@ const resClickEventHandlers = (event) => {
   ).map((it) => {
     toggle(it)
   })
-
-  // calculateVilTotals()
 }
 
 const unitClickEventHandlers = (event) => {
