@@ -55,6 +55,7 @@
                 {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
                 {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
                 {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+
                 <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
                   <img src="/img/{{unit}}.png" alt="{{unit}}" />
                 </div>
@@ -66,20 +67,28 @@
           <h2>Villager totals for all unit selections</h2>
           <div class="res-totals">
             <div id="resources-cont-box" class="resources-cont">
-              <template id="t-res-row">
-                <div class="res-row">
-                </div>
-              </template>
-              <template id="t-res-row-resource">
-                <div class="resource" resource="[[name]]" style="[[visible]]" >
-                  <img class="icon-big" [[src]] alt="[[name]]" />
-                  <div class="resource-num" title="[[value]]">
-                    <div>
-                      [[valueCeiling]]
+                  {% for orderItem in order %}
+                    {% if loop.index == 1 %}
+                      <div class="res-row" x-row-type="food" style="display: none;">
+                    {% elif loop.index == 2 %}
+                        <div class="res-row" x-row-type="wood" style="display: none;">
+                    {% elif loop.index == 3 %}
+                        <div class="res-row" x-row-type="gold" style="display: none;">
+                    {% elif loop.index == 4 %}
+                        <div class="res-row" x-row-type="stone" style="display: none;">
+                    {% endif %}
+                    {% for item in orderItem %}
+                    <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                      <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                      <div class="resource-num" title="0">
+                        <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                          0
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </template>
+                    {% endfor %}
+                    </div>
+                  {% endfor %}
             </div>
 
             <div id="unit-totals-box" class="unit-totals">

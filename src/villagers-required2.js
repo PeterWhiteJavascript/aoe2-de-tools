@@ -141,6 +141,18 @@ const toggleUnit = (unit) => {
   toggle(document.querySelector(`#unit-totals-box > [x-unit="${unit}"]`))
 }
 
+const makeHtmlCollection2 = (row) => (arr) => {
+  const tempRow = row.cloneNode(true)
+  arr.map((it) => {
+    const numDiv = tempRow.querySelector(
+      `[type-resource="${it.name}"] .resource-num`
+    )
+    numDiv.title = it.value
+    numDiv.querySelector('[x-sec]').innerText = Math.ceil(it.value)
+  })
+  row.innerHTML = tempRow.innerHTML
+}
+
 // Generates String html collection
 // example:
 // <div id="1"></div>
@@ -195,70 +207,80 @@ const toggle = (it) => {
   if (
     it.ownerDocument.defaultView.getComputedStyle(it, null).display === 'none'
   ) {
-    it.style.display = 'block'
+    it.removeAttribute('style')
   } else {
     it.style.display = 'none'
   }
 }
 
+// show :: Element
+const show = (it) => {
+  it.removeAttribute('style')
+}
+
+// hide :: Element
+const hide = (it) => {
+  it.style.display = 'none'
+}
+
 // calcResourceType :: Element -> Boolean -> String -> Array -> return undefined
 const calcResourceType = (box) => (unitVisible) => (type) => (arr) => {
-  const doesRowExist = document.querySelector(
+  const row = document.querySelector(
     `#vil-totals > .res-totals [x-row-type="${type}"]`
   )
-
   // shortcut the code to remove 'res-row' if the resulting number would be 0
   if (
     !unitVisible &&
     arr &&
-    doesRowExist &&
-    doesRowExist.querySelector(`.resource-num`).getAttribute('title') -
-      arr[0].value <
-      1 // less than 1 instead of === 0,
+    row.querySelector(`.resource-num`).getAttribute('title') - arr[0].value < 1 // less than 1 instead of === 0,
     // float minus / plus calculation could be incorrect, therefore less than 1 check is fine to remove element.
   ) {
-    doesRowExist.remove()
-    return
+    makeHtmlCollection2(row)(
+      arr.map((it) => {
+        return {
+          ...it,
+          value: 0,
+        }
+      })
+    )
+    return hide(row)
+  }
+  // add or subtract vil resources needed
+  if (unitVisible) {
+    makeHtmlCollection2(row)(
+      arr.map((it) => {
+        return {
+          ...it,
+          value:
+            parseFloat(
+              row
+                .querySelector(`[type-resource="${it.name}"] > [title]`)
+                .getAttribute('title')
+            ) + it.value,
+        }
+      })
+    )
+  } else {
+    makeHtmlCollection2(row)(
+      arr.map((it) => {
+        return {
+          ...it,
+          value:
+            parseFloat(
+              row
+                .querySelector(`[type-resource="${it.name}"] > [title]`)
+                .getAttribute('title')
+            ) - it.value,
+        }
+      })
+    )
   }
 
-  const tResRow = document.getElementById('t-res-row')
-  const tResItem = document.getElementById('t-res-row-resource')
-  // returns what is inside of the template element
-  const rResRow = tResRow.content.firstElementChild.cloneNode(true)
-  const rResItem = tResItem.content.firstElementChild.cloneNode(true)
-
-  if (doesRowExist) {
-    if (unitVisible) {
-      const arrWithPrevValue = arr.map((it) => {
-        return {
-          ...it,
-          prevAddValue: parseFloat(
-            doesRowExist
-              .querySelector(`[resource="${it.name}"] > [title]`)
-              .getAttribute('title')
-          ),
-        }
-      })
-
-      doesRowExist.innerHTML = makeHtmlCollection(rResItem)(arrWithPrevValue)
-    } else {
-      const arrWithPrevValue = arr.map((it) => {
-        return {
-          ...it,
-          prevDelValue: parseFloat(
-            doesRowExist
-              .querySelector(`[resource="${it.name}"] > [title]`)
-              .getAttribute('title')
-          ),
-        }
-      })
-
-      doesRowExist.innerHTML = makeHtmlCollection(rResItem)(arrWithPrevValue)
-    }
-  } else {
-    rResRow.setAttribute('x-row-type', type)
-    rResRow.innerHTML = makeHtmlCollection(rResItem)(arr)
-    box.appendChild(rResRow)
+  if (
+    unitVisible &&
+    row.ownerDocument.defaultView.getComputedStyle(row, null).display === 'none'
+  ) {
+    return show(row)
   }
 }
 
@@ -332,7 +354,7 @@ const calculateVilTotals = () => {
       )
     }
     let resElm = new DOMParser().parseFromString(`
-      <div class='resource' resource='${i}'>
+      <div class='resource' type-resource='${i}'>
         <img class='icon-big' src='/img/${i}.png' title='${i}'>
         <div class='resource-num' title='${vilsReq[i]}'>
           <div>${Math.ceil(vilsReq[i])}'</div>
@@ -373,14 +395,16 @@ const resClickEventHandlers = (event) => {
   const res = el.getAttribute('resource')
   Array.from(
     document.querySelectorAll(
-      `#gather-rates > .unit-container [resource="${res}"]`
+      `#gather-rates > .unit-container [type-resource="${res}"]`
     )
   ).map((it) => {
     toggle(it)
   })
 
   Array.from(
-    document.querySelectorAll(`#vil-totals > .res-totals [resource="${res}"]`)
+    document.querySelectorAll(
+      `#vil-totals > .res-totals [type-resource="${res}"]`
+    )
   ).map((it) => {
     toggle(it)
   })
@@ -507,11 +531,11 @@ const unitClickEventHandlers = (unitVariety) => (event) => {
   )
 
   const box = document.getElementById('resources-cont-box')
-  renderGatherRate(unitVariety)(unitVisible)(result)({
-    name: unit,
-    timeCreation: trainTime,
-    ...unitRes,
-  })
+  // renderGatherRate(unitVariety)(unitVisible)(result)({
+  //   name: unit,
+  //   timeCreation: trainTime,
+  //   ...unitRes,
+  // })
   toggleUnit(unit)
 
   // TODO check if the resources are already present
