@@ -6,7 +6,7 @@ let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 init().then(main)
 
 const renderGatherRate = (unitVariety) => (visible) => (result) => (it) => {
-  const box = document.getElementById('gather-rates-id')
+  const box = document.getElementById('gather-rates')
   if (visible) {
     const tItem = document.getElementById('t-gather-rates-item')
     const tTechCheckbox = document.getElementById(
@@ -389,7 +389,7 @@ const resClickEventHandlers = (event) => {
   const res = el.getAttribute('resource')
   Array.from(
     document.querySelectorAll(
-      `#gather-rates-id > .unit-container [resource="${res}"]`
+      `#gather-rates > .unit-container [resource="${res}"]`
     )
   ).map((it) => {
     toggle(it)
