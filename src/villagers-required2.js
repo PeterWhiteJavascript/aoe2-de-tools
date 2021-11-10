@@ -5,17 +5,19 @@ let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
 init().then(main)
 
-const renderGatherRate = (visible) => (result) => (it) => {
-  const box = document.getElementById('gather-rates')
-  const row = box.querySelector(`[x-unit="${it.name}"]`)
-  makeHtmlCollection2(row)([
-    ...result.food,
-    ...result.wood,
-    ...result.gold,
-    ...result.stone,
-  ])
-  toggle(row)
-}
+const renderGatherRate =
+  (visible) => (calculation) => (multiplier) => (result) => (it) => {
+    const box = document.getElementById('gather-rates')
+    const row = box.querySelector(`[x-unit="${it.name}"]`)
+    makeHtmlCollection2(row)(
+      [...result.food, ...result.wood, ...result.gold, ...result.stone].map(
+        (it) => {
+          return { ...it, value: it.value * multiplier }
+        }
+      )
+    )
+    if (!calculation) toggle(row)
+  }
 
 const toggleUnit = (unit) => {
   toggle(document.querySelector(`#unit-totals-box > [x-unit="${unit}"]`))
@@ -103,66 +105,109 @@ const hide = (it) => {
   it.style.display = 'none'
 }
 
-// calcResourceType :: Element -> Boolean -> String -> Array -> return undefined
-const calcResourceType = (box) => (unitVisible) => (type) => (arr) => {
-  const row = document.querySelector(
-    `#vil-totals > .res-totals [x-row-type="${type}"]`
-  )
-  // shortcut the code to remove 'res-row' if the resulting number would be 0
-  if (
-    !unitVisible &&
-    arr &&
-    row.querySelector(`.resource-num`).getAttribute('title') - arr[0].value < 1 // less than 1 instead of === 0,
-    // float minus / plus calculation could be incorrect, therefore less than 1 check is fine to remove element.
-  ) {
-    makeHtmlCollection2(row)(
-      arr.map((it) => {
-        return {
-          ...it,
-          value: 0,
-        }
-      })
+// calcResourceType :: Element -> Int -> Boolean -> String -> Array -> return undefined
+const calcResourceType =
+  (box) =>
+  (multiplier) =>
+  (calculation) =>
+  (unitVisible) =>
+  (type) =>
+  (arr) => {
+    const row = document.querySelector(
+      `#vil-totals > .res-totals [x-row-type="${type}"]`
     )
-    return hide(row)
-  }
-  // add or subtract vil resources needed
-  if (unitVisible) {
-    makeHtmlCollection2(row)(
-      arr.map((it) => {
-        return {
-          ...it,
-          value:
-            parseFloat(
-              row
-                .querySelector(`[type-resource="${it.name}"] > [title]`)
-                .getAttribute('title')
-            ) + it.value,
-        }
-      })
-    )
-  } else {
-    makeHtmlCollection2(row)(
-      arr.map((it) => {
-        return {
-          ...it,
-          value:
-            parseFloat(
-              row
-                .querySelector(`[type-resource="${it.name}"] > [title]`)
-                .getAttribute('title')
-            ) - it.value,
-        }
-      })
-    )
-  }
+    // shortcut the code to remove 'res-row' if the resulting number would be 0
+    //
+    if (
+      !unitVisible &&
+      arr &&
+      parseFloat(row.querySelector(`.resource-num`).getAttribute('title')) -
+        arr[0].value * multiplier <
+        1 // less than 1 instead of === 0,
+      // float minus / plus calculation could be incorrect, therefore less than 1 check is fine to remove element.
+    ) {
+      makeHtmlCollection2(row)(
+        arr.map((it) => {
+          return {
+            ...it,
+            value: 0,
+          }
+        })
+      )
+      return hide(row)
+    }
+    // add or subtract vil resources needed
+    if (unitVisible) {
+      if (calculation === 'minus') {
+        makeHtmlCollection2(row)(
+          arr.map((it) => {
+            return {
+              ...it,
+              value:
+                parseFloat(
+                  row
+                    .querySelector(`[type-resource="${it.name}"] > [title]`)
+                    .getAttribute('title')
+                ) - it.value,
+            }
+          })
+        )
+      } else if (calculation === 'plus') {
+        makeHtmlCollection2(row)(
+          arr.map((it) => {
+            return {
+              ...it,
+              value:
+                parseFloat(
+                  row
+                    .querySelector(`[type-resource="${it.name}"] > [title]`)
+                    .getAttribute('title')
+                ) + it.value,
+            }
+          })
+        )
+      } else {
+        makeHtmlCollection2(row)(
+          arr.map((it) => {
+            return {
+              ...it,
+              value:
+                parseFloat(
+                  row
+                    .querySelector(`[type-resource="${it.name}"] > [title]`)
+                    .getAttribute('title')
+                ) +
+                it.value * multiplier,
+            }
+          })
+        )
+      }
+    } else {
+      // taking into consideration that there could be multiple units
+      makeHtmlCollection2(row)(
+        arr.map((it) => {
+          return {
+            ...it,
+            value:
+              parseFloat(
+                row
+                  .querySelector(`[type-resource="${it.name}"] > [title]`)
+                  .getAttribute('title')
+              ) -
+              it.value * multiplier,
+          }
+        })
+      )
+    }
 
-  if (
-    unitVisible &&
-    row.ownerDocument.defaultView.getComputedStyle(row, null).display === 'none'
-  ) {
-    return show(row)
+    if (
+      unitVisible &&
+      row.ownerDocument.defaultView.getComputedStyle(row, null).display ===
+        'none'
+    ) {
+      return show(row)
+    }
   }
-}
 
 const getHiddenRes = () => {
   const chres = Array.from(
@@ -180,7 +225,6 @@ const calculateVilTotals = () => {
     const unitName = it
       .querySelector('.unit > .unit-class > img')
       .getAttribute('title')
-    console.log({ unitName })
     unitsBeingCreated[unitName] = {}
     Array.from(it.querySelectorAll('.unit > .res-cont')).map((cont) => {
       const res = cont.getAttribute('title')
@@ -296,6 +340,12 @@ const unitClickEventHandlers = (event) => {
 
   const el = event.target.closest('[unit]')
   el.classList.toggle('showing-img')
+
+  unitCalc(el)
+}
+
+// Element
+const unitCalc = (el, calculation) => {
   const unitVisible = Array.from(el.classList).includes('showing-img')
 
   const unit = el.getAttribute('unit')
@@ -307,8 +357,6 @@ const unitClickEventHandlers = (event) => {
     stone: el.getAttribute('x-stone'), // Nullable
   }
   const trainTime = el.getAttribute('x-train-time')
-
-  const multiplier = 1 // DUMMY VALUE TODO change
 
   const resources = document.querySelectorAll('#choose-res > [res-type]')
 
@@ -410,28 +458,42 @@ const unitClickEventHandlers = (event) => {
     { food: [], wood: [], gold: [], stone: [] }
   )
 
+  const multiplier = parseInt(
+    document
+      .querySelector(`.unit-class[x-unit="${unit}"] .resource-num`)
+      .getAttribute('x-count')
+  )
+
   const box = document.getElementById('resources-cont-box')
-  renderGatherRate(unitVisible)(result)({
+  renderGatherRate(unitVisible)(calculation)(multiplier)(result)({
     name: unit,
     timeCreation: trainTime,
     ...unitRes,
   })
-  toggleUnit(unit)
+  if (!calculation) toggleUnit(unit)
 
   if (result.food.length > 0) {
-    calcResourceType(box)(unitVisible)('food')(result.food)
+    calcResourceType(box)(multiplier)(calculation)(unitVisible)('food')(
+      result.food
+    )
   }
 
   if (result.wood.length > 0) {
-    calcResourceType(box)(unitVisible)('wood')(result.wood)
+    calcResourceType(box)(multiplier)(calculation)(unitVisible)('wood')(
+      result.wood
+    )
   }
 
   if (result.gold.length > 0) {
-    calcResourceType(box)(unitVisible)('gold')(result.gold)
+    calcResourceType(box)(multiplier)(calculation)(unitVisible)('gold')(
+      result.gold
+    )
   }
 
   if (result.stone.length > 0) {
-    calcResourceType(box)(unitVisible)('stone')(result.stone)
+    calcResourceType(box)(multiplier)(calculation)(unitVisible)('stone')(
+      result.stone
+    )
   }
 }
 
@@ -442,18 +504,60 @@ async function init() {
   return data
 }
 
+const unitPlusClickEventHandlers = (event) => {
+  if (!event.target.closest('[x-unit-count-calc="plus"]')) return
+  event.preventDefault()
+
+  const unitBox = event.target.closest('[x-unit]')
+  const unit = unitBox.getAttribute('x-unit')
+  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+  const box = unitBox.querySelector('[x-unit-count="num"]')
+  const num = parseInt(box.innerText) + 1
+  box.innerText = num
+  const unitCountBox = document.querySelector(
+    `.unit-class[x-unit="${unit}"] .resource-num`
+  )
+  unitCountBox.title = `${num}x ${unit}`
+  unitCountBox.setAttribute('x-count', num)
+  unitCountBox.innerHTML = `<div>${num}</div>`
+
+  unitCalc(unitStatsBox, 'plus')
+}
+
+const unitMinusClickEventHandlers = (event) => {
+  if (!event.target.closest('[x-unit-count-calc="minus"]')) return
+  event.preventDefault()
+
+  const unitBox = event.target.closest('[x-unit]')
+  const unit = unitBox.getAttribute('x-unit')
+  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+  const box = unitBox.querySelector('[x-unit-count="num"]')
+  if (parseInt(box.innerText) <= 1) return // do not go to 0 or lower
+
+  const num = parseInt(box.innerText) - 1
+  box.innerText = num
+
+  const unitCountBox = document.querySelector(
+    `.unit-class[x-unit="${unit}"] .resource-num`
+  )
+  unitCountBox.title = `${num}x ${unit}`
+  unitCountBox.setAttribute('x-count', num)
+  unitCountBox.innerHTML = `<div>${num}</div>`
+
+  unitCalc(unitStatsBox, 'minus')
+}
+
 async function main() {
   document.addEventListener(
     'click',
     function (event) {
       // TODO event on change of the select option
       // TODO event on change of the checkbox
-      //
-      // TODO event on click for units
 
       resClickEventHandlers(event)
       unitClickEventHandlers(event)
       unitPlusClickEventHandlers(event)
+      unitMinusClickEventHandlers(event)
     },
     false
   )

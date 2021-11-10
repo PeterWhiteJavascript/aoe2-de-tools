@@ -94,7 +94,7 @@
             <div id="unit-totals-box" class="unit-totals">
             {% for unit in dataset.units %}
                 <div class="unit-class" x-unit="{{unit.name}}" style="display: none;">
-                  <div class="resource-num" title="1x {{unit.name}}">
+                  <div class="resource-num" title="1x {{unit.name}}" x-count="1">
                     <div>
                       1
                     </div>
@@ -163,7 +163,7 @@
                   <div class="multiplier-cont">
                     <div x-unit-count-calc="minus" >-</div>
                     <div x-unit-count="num">1</div>
-                    <div x-unit-count-calc="minus" >+</div>
+                    <div x-unit-count-calc="plus" >+</div>
                   </div>
                 </div>
                 <div class="res-desc-cont">

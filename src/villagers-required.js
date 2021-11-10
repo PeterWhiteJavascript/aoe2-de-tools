@@ -297,7 +297,7 @@ $(function () {
                     .children('div:eq(1)')
                     .text()
                 )
-                let unitData = finder(
+                let unitData = finder(data.units, unitName)
                 let checkedUpgrades = []
                 let stats, upgrade
                 if (civ && civ !== 'Generic') {
