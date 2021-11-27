@@ -56,7 +56,12 @@
                 {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
                 {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
 
-                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }}>
+                {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
+                {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
+                {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
+                {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+
+                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }} {{ basefood if dataUnit.cost.food }} {{ basewood if dataUnit.cost.wood }} {{ basegold if dataUnit.cost.gold }} {{ basestone if dataUnit.cost.stone }}>
                   <img src="/img/{{unit}}.png" alt="{{unit}}" />
                 </div>
               {% endif %}
@@ -144,7 +149,7 @@
                     <img src="/img/hourglass-icon.png">
                     <div>{{unit.trainTime}}</div>
                   </div>
-                  <div class="unit-class"><img src="/img/{{unit.name}}.png" title="{{unit.name}}"></div>
+                  <div class="unit-class"><img src="/img/{{unit.name}}.png" alt="{{unit.name}}" title="{{unit.name}}"></div>
                   <div class="upgrade-cont">
                       <div>
                         Civilization
@@ -232,35 +237,48 @@
                         {% for key, obj  in unitVariety %}
                           {% if unit.name == key and obj.upgrades %}
                               {% for upKey, upObj  in obj.upgrades %}
-                                {% if upObj.trainTimePercent %}
+
+                                {% if upObj.trainTime %}
                                 {% set trainTime = ['x-train-time=', upObj.trainTime ] | join %}
+                                {% else %}
+                                {% set trainTime = null %}
                                 {% endif %}
 
                                 {% if upObj.trainTimePercent %}
                                 {% set percent = ['x-train-time-percent=', upObj.trainTimePercent ] | join %}
+                                {% else %}
+                                {% set percent = null %}
                                 {% endif %}
 
                                 {% if upObj.cost and upObj.cost.food %}
                                 {% set food = ['x-cost-food=', upObj.cost.food ] | join %}
+                                {% else %}
+                                {% set food = null %}
                                 {% endif %}
 
                                 {% if upObj.cost and upObj.cost.wood %}
                                 {% set wood = ['x-cost-wood=', upObj.cost.wood ] | join %}
+                                {% else %}
+                                {% set wood = null %}
                                 {% endif %}
 
                                 {% if upObj.cost and upObj.cost.gold %}
                                 {% set gold = ['x-cost-gold=', upObj.cost.gold ] | join %}
+                                {% else %}
+                                {% set gold = null %}
                                 {% endif %}
 
                                 {% if upObj.cost and upObj.cost.stone %}
                                 {% set stone = ['x-cost-stone=', upObj.cost.stone ] | join %}
+                                {% else %}
+                                {% set stone = null %}
                                 {% endif %}
 
                                 <div>
                                   <div>
                                     {{upKey}}
                                   </div>
-                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} />
+                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} />
                                 </div>
                               {% endfor %}
                           {% endif %}

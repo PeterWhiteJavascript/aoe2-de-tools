@@ -1,5 +1,6 @@
 import { placeholder } from '/js/placeholder.js'
 import { finder, setUpGatherRates } from '/js/shared-es.js'
+import { hide, show, toggle, toggleCheckbox } from '/js/helpers.js'
 
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
@@ -24,6 +25,7 @@ const toggleUnit = (unit) => {
 }
 
 const makeHtmlCollection2 = (row) => (arr) => {
+  // Rework this, so it does not clone the hole thing because it is ruining input[checkbox] state
   const tempRow = row.cloneNode(true)
   arr.map((it) => {
     const numDiv = tempRow.querySelector(
@@ -80,29 +82,6 @@ const makeHtmlCollection = (templateItem) => (arr) => {
 ${next}`
       }, '')
   )
-}
-
-// hides or shows element
-// toggle :: Element
-const toggle = (it) => {
-  // https://github.com/nefe/You-Dont-Need-jQuery#8.2
-  if (
-    it.ownerDocument.defaultView.getComputedStyle(it, null).display === 'none'
-  ) {
-    it.removeAttribute('style')
-  } else {
-    it.style.display = 'none'
-  }
-}
-
-// show :: Element
-const show = (it) => {
-  it.removeAttribute('style')
-}
-
-// hide :: Element
-const hide = (it) => {
-  it.style.display = 'none'
 }
 
 // calcResourceType :: Element -> Int -> Boolean -> String -> Array -> return undefined
@@ -163,6 +142,21 @@ const calcResourceType =
                     .querySelector(`[type-resource="${it.name}"] > [title]`)
                     .getAttribute('title')
                 ) + it.value,
+            }
+          })
+        )
+      } else if (calculation === 'recalc') {
+        makeHtmlCollection2(row)(
+          arr.map((it) => {
+            return {
+              ...it,
+              value:
+                // parseFloat(
+                //   row
+                //     .querySelector(`[type-resource="${it.name}"] > [title]`)
+                //     .getAttribute('title')
+                // ) +
+                it.value,
             }
           })
         )
@@ -446,6 +440,182 @@ const unitMinusClickEventHandlers = (event) => {
   unitCalc(unitStatsBox, 'minus')
 }
 
+const clickOnApplyEcoBonusHandlers = (event) => {
+  if (!event.target.matches('input[x-upgrade-unit]')) return
+  toggleCheckbox(event.target)
+
+  const unit = event.target.getAttribute('x-upgrade-unit')
+
+  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+
+  if (event.target.hasAttribute('x-img-swap')) {
+    const arr = Array.from(
+      event.target
+        .closest('.unit-container')
+        .querySelectorAll('input[x-img-swap]:checked')
+    )
+    if (arr && arr.length > 0) {
+      arr.map((it) => {
+        const swap = it.getAttribute('x-img-swap')
+        Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map(
+          (img) => {
+            img.src = `/img/${swap.replace(/-/g, ' ')}.png` // replace all dashes with space
+          }
+        )
+      })
+    } else {
+      Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map((img) => {
+        img.src = `/img/${unit}.png`
+      })
+    }
+  }
+
+  const baseTraintime = parseFloat(
+    unitStatsBox.getAttribute('x-base-train-time')
+  )
+  let tempTrainTime = baseTraintime
+  let priceChanged = false
+  console.log(tempTrainTime)
+  Array.from(
+    document.querySelectorAll(
+      `#gather-rates .unit-container[x-unit="${unit}"] input:checked`
+    )
+  ).map((it) => {
+    const trainTime = it.getAttribute('x-train-time')
+    const percent = it.getAttribute('x-train-time-percent')
+    if (trainTime) {
+      if (percent && percent === 'true') {
+        tempTrainTime = tempTrainTime / parseFloat(trainTime)
+      } else {
+        tempTrainTime = parseFloat(trainTime)
+      }
+    }
+
+    const xfood = it.getAttribute('x-cost-food')
+    const xwood = it.getAttribute('x-cost-wood')
+    const xgold = it.getAttribute('x-cost-gold')
+    const xstone = it.getAttribute('x-cost-stone')
+    if (xfood) {
+      priceChanged = true
+      const operator = xfood.slice(0, 1)
+      const food = parseInt(xfood.slice(1))
+      const baseFood = parseInt(unitStatsBox.getAttribute('x-base-food'))
+
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        unitStatsBox.setAttribute('x-food', baseFood * (1 - parseFloat(xfood)))
+        // case "-45"
+      } else if (operator === '-') {
+        unitStatsBox.setAttribute('x-food', baseFood - parseInt(xfood.slice(1)))
+        // case "+45"
+      } else if (operator === '+') {
+        unitStatsBox.setAttribute('x-food', baseFood + parseInt(xfood.slice(1)))
+        // case "45"
+      } else {
+        unitStatsBox.setAttribute('x-food', baseFood + parseInt(xfood))
+      }
+    }
+
+    if (xwood) {
+      priceChanged = true
+      const operator = xwood.slice(0, 1)
+      const baseWood = parseInt(unitStatsBox.getAttribute('x-base-wood'))
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        unitStatsBox.setAttribute('x-wood', baseWood * (1 - parseFloat(xwood)))
+        // case "-45"
+      } else if (operator === '-') {
+        unitStatsBox.setAttribute('x-wood', baseWood - parseInt(xwood.slice(1)))
+        // case "+45"
+      } else if (operator === '+') {
+        unitStatsBox.setAttribute('x-wood', baseWood + parseInt(xwood.slice(1)))
+        // case "45"
+      } else {
+        unitStatsBox.setAttribute('x-wood', baseWood + parseInt(xwood))
+      }
+    }
+
+    if (xgold) {
+      priceChanged = true
+      const operator = xgold.slice(0, 1)
+      const baseGold = parseInt(unitStatsBox.getAttribute('x-base-gold'))
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        unitStatsBox.setAttribute('x-gold', baseGold * (1 - parseFloat(xgold)))
+        // case "-45"
+      } else if (operator === '-') {
+        unitStatsBox.setAttribute('x-gold', baseGold - parseInt(xgold.slice(1)))
+        // case "+45"
+      } else if (operator === '+') {
+        unitStatsBox.setAttribute('x-gold', baseGold + parseInt(xgold.slice(1)))
+        // case "45"
+      } else {
+        unitStatsBox.setAttribute('x-gold', baseGold + parseInt(xgold))
+      }
+    }
+
+    if (xstone) {
+      priceChanged = true
+      const operator = xstone.slice(0, 1)
+      const baseStone = parseInt(unitStatsBox.getAttribute('x-base-stone'))
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        unitStatsBox.setAttribute(
+          'x-stone',
+          baseStone * (1 - parseFloat(xstone))
+        )
+        // case "-45"
+      } else if (operator === '-') {
+        unitStatsBox.setAttribute(
+          'x-stone',
+          baseStone - parseInt(xstone.slice(1))
+        )
+        // case "+45"
+      } else if (operator === '+') {
+        unitStatsBox.setAttribute(
+          'x-stone',
+          baseStone + parseInt(xstone.slice(1))
+        )
+        // case "45"
+      } else {
+        unitStatsBox.setAttribute('x-stone', baseStone + parseInt(xstone))
+      }
+    }
+  })
+
+  // reset timer on unit info
+  event.target
+    .closest('.unit-container[x-unit]')
+    .querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
+
+  if (!priceChanged) {
+    if (unitStatsBox.hasAttribute('x-base-food'))
+      unitStatsBox.setAttribute(
+        'x-food',
+        unitStatsBox.getAttribute('x-base-food')
+      )
+    if (unitStatsBox.hasAttribute('x-base-wood'))
+      unitStatsBox.setAttribute(
+        'x-wood',
+        unitStatsBox.getAttribute('x-base-wood')
+      )
+    if (unitStatsBox.hasAttribute('x-base-gold'))
+      unitStatsBox.setAttribute(
+        'x-gold',
+        unitStatsBox.getAttribute('x-base-gold')
+      )
+    if (unitStatsBox.hasAttribute('x-base-stone'))
+      unitStatsBox.setAttribute(
+        'x-stone',
+        unitStatsBox.getAttribute('x-base-stone')
+      )
+  }
+
+  unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
+  unitCalc(unitStatsBox, 'recalc')
+  // TODO something with calculation is crooked, apply bonuses from base
+}
+
 async function main() {
   document.addEventListener(
     'click',
@@ -457,6 +627,8 @@ async function main() {
       unitClickEventHandlers(event)
       unitPlusClickEventHandlers(event)
       unitMinusClickEventHandlers(event)
+
+      clickOnApplyEcoBonusHandlers(event)
     },
     false
   )
