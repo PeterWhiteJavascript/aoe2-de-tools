@@ -44,3 +44,6 @@ export const show = (it) => {
 export const hide = (it) => {
   it.style.display = 'none'
 }
+
+// int :: String -> Int | null
+export const int = (i) => parseInt(i, 10)

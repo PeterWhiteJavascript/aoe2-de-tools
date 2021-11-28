@@ -1,10 +1,33 @@
 import { placeholder } from '/js/placeholder.js'
 import { finder, setUpGatherRates } from '/js/shared-es.js'
-import { hide, show, toggle, toggleCheckbox } from '/js/helpers.js'
+import { hide, show, toggle, toggleCheckbox, int } from '/js/helpers.js'
 
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
 init().then(main)
+
+// calcResRate :: { Number, Number, Number } -> Number
+const calcResRate = ({ rate, trainTime, res }) => {
+  return 1 / ((rate * trainTime) / int(res))
+}
+
+// Type -> 'food' | 'wood' | 'gold' | 'stone'
+// renResObj :: {Type, Number, Boolean, Type, String, Object} -> Array
+const genResObj = ({ resType, value, visible, type, name, curr }) => {
+  return type === resType
+    ? [
+        ...curr[resType],
+        ...[
+          {
+            name,
+            type,
+            visible,
+            value,
+          },
+        ],
+      ]
+    : curr[resType]
+}
 
 const renderGatherRate =
   (visible) => (calculation) => (multiplier) => (result) => (it) => {
@@ -87,6 +110,7 @@ ${next}`
 // calcResourceType :: Element -> Int -> Boolean -> String -> Array -> return undefined
 const calcResourceType =
   (box) =>
+  (unit) =>
   (multiplier) =>
   (calculation) =>
   (unitVisible) =>
@@ -115,7 +139,6 @@ const calcResourceType =
       )
       return hide(row)
     }
-    // add or subtract vil resources needed
     if (unitVisible) {
       if (calculation === 'minus') {
         makeHtmlCollection2(row)(
@@ -155,8 +178,15 @@ const calcResourceType =
                 //   row
                 //     .querySelector(`[type-resource="${it.name}"] > [title]`)
                 //     .getAttribute('title')
+                // ) -
+                // parseFloat(
+                //   document
+                //     .querySelector(
+                //       `.unit-container[x-unit="${unit}"] [type-resource="${it.name}"] > [title]`
+                //     )
+                //     .getAttribute('title')
                 // ) +
-                it.value,
+                it.value * multiplier,
             }
           })
         )
@@ -240,18 +270,7 @@ const unitClickEventHandlers = (event) => {
 // Element
 const unitCalc = (el, calculation) => {
   const unitVisible = Array.from(el.classList).includes('showing-img')
-
   const unit = el.getAttribute('unit')
-
-  const unitRes = {
-    food: el.getAttribute('x-food'), // Nullable
-    wood: el.getAttribute('x-wood'), // Nullable
-    gold: el.getAttribute('x-gold'), // Nullable
-    stone: el.getAttribute('x-stone'), // Nullable
-  }
-  const trainTime = el.getAttribute('x-train-time')
-
-  const resources = document.querySelectorAll('#choose-res > [res-type]')
 
   const applyCivEcoBonuses = (rateRaw, type) => {
     const rate = parseFloat(rateRaw)
@@ -270,6 +289,14 @@ const unitCalc = (el, calculation) => {
     return rate
   }
 
+  const unitRes = {
+    food: el.getAttribute('x-food'), // Nullable
+    wood: el.getAttribute('x-wood'), // Nullable
+    gold: el.getAttribute('x-gold'), // Nullable
+    stone: el.getAttribute('x-stone'), // Nullable
+  }
+  const trainTime = el.getAttribute('x-train-time')
+  const resources = document.querySelectorAll('#choose-res > [res-type]')
   const result = Array.from(resources).reduce(
     (curr, next) => {
       const name = next.getAttribute('resource')
@@ -283,66 +310,38 @@ const unitCalc = (el, calculation) => {
 
       if (unitRes[type]) {
         return {
-          food:
-            type === 'food'
-              ? [
-                  ...curr.food,
-                  ...[
-                    {
-                      name: name,
-                      type: type,
-                      visible: visible,
-                      value:
-                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
-                    },
-                  ],
-                ]
-              : curr.food,
-          wood:
-            type === 'wood'
-              ? [
-                  ...curr.wood,
-                  ...[
-                    {
-                      name: name,
-                      type: type,
-                      visible: visible,
-                      value:
-                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
-                    },
-                  ],
-                ]
-              : curr.wood,
-          gold:
-            type === 'gold'
-              ? [
-                  ...curr.gold,
-                  ...[
-                    {
-                      name: name,
-                      type: type,
-                      visible: visible,
-                      value:
-                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
-                    },
-                  ],
-                ]
-              : curr.gold,
-          stone:
-            type === 'stone'
-              ? [
-                  ...curr.stone,
-                  ...[
-                    {
-                      name: name,
-                      type: type,
-                      visible: visible,
-                      value:
-                        1 / ((rate * trainTime) / parseInt(unitRes[type], 10)),
-                    },
-                  ],
-                ]
-              : curr.stone,
+          food: genResObj({
+            resType: 'food',
+            name,
+            type,
+            visible,
+            curr,
+            value: calcResRate({ rate, trainTime, res: unitRes[type] }),
+          }),
+          wood: genResObj({
+            resType: 'wood',
+            name,
+            type,
+            visible,
+            curr,
+            value: calcResRate({ rate, trainTime, res: unitRes[type] }),
+          }),
+          stone: genResObj({
+            resType: 'stone',
+            name,
+            type,
+            visible,
+            curr,
+            value: calcResRate({ rate, trainTime, res: unitRes[type] }),
+          }),
+          gold: genResObj({
+            resType: 'gold',
+            name,
+            type,
+            visible,
+            curr,
+            value: calcResRate({ rate, trainTime, res: unitRes[type] }),
+          }),
         }
       } else {
         return curr
@@ -351,11 +350,12 @@ const unitCalc = (el, calculation) => {
     { food: [], wood: [], gold: [], stone: [] }
   )
 
-  const multiplier = parseInt(
+  const multiplier = int(
     document
       .querySelector(`.unit-class[x-unit="${unit}"] .resource-num`)
       .getAttribute('x-count')
   )
+  console.log(multiplier)
 
   const box = document.getElementById('resources-cont-box')
   renderGatherRate(unitVisible)(calculation)(multiplier)(result)({
@@ -366,25 +366,25 @@ const unitCalc = (el, calculation) => {
   if (!calculation) toggleUnit(unit)
 
   if (result.food.length > 0) {
-    calcResourceType(box)(multiplier)(calculation)(unitVisible)('food')(
+    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('food')(
       result.food
     )
   }
 
   if (result.wood.length > 0) {
-    calcResourceType(box)(multiplier)(calculation)(unitVisible)('wood')(
+    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('wood')(
       result.wood
     )
   }
 
   if (result.gold.length > 0) {
-    calcResourceType(box)(multiplier)(calculation)(unitVisible)('gold')(
+    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('gold')(
       result.gold
     )
   }
 
   if (result.stone.length > 0) {
-    calcResourceType(box)(multiplier)(calculation)(unitVisible)('stone')(
+    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('stone')(
       result.stone
     )
   }
@@ -405,7 +405,7 @@ const unitPlusClickEventHandlers = (event) => {
   const unit = unitBox.getAttribute('x-unit')
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
   const box = unitBox.querySelector('[x-unit-count="num"]')
-  const num = parseInt(box.innerText) + 1
+  const num = int(box.innerText) + 1
   box.innerText = num
   const unitCountBox = document.querySelector(
     `.unit-class[x-unit="${unit}"] .resource-num`
@@ -425,9 +425,9 @@ const unitMinusClickEventHandlers = (event) => {
   const unit = unitBox.getAttribute('x-unit')
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
   const box = unitBox.querySelector('[x-unit-count="num"]')
-  if (parseInt(box.innerText) <= 1) return // do not go to 0 or lower
+  if (int(box.innerText) <= 1) return // do not go to 0 or lower
 
-  const num = parseInt(box.innerText) - 1
+  const num = int(box.innerText) - 1
   box.innerText = num
 
   const unitCountBox = document.querySelector(
@@ -498,66 +498,66 @@ const clickOnApplyEcoBonusHandlers = (event) => {
     if (xfood) {
       priceChanged = true
       const operator = xfood.slice(0, 1)
-      const food = parseInt(xfood.slice(1))
-      const baseFood = parseInt(unitStatsBox.getAttribute('x-base-food'))
+      const food = int(xfood.slice(1))
+      const baseFood = int(unitStatsBox.getAttribute('x-base-food'))
 
       // case "0.2" // 20% cheaper
       if (operator === '0') {
         unitStatsBox.setAttribute('x-food', baseFood * (1 - parseFloat(xfood)))
         // case "-45"
       } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-food', baseFood - parseInt(xfood.slice(1)))
+        unitStatsBox.setAttribute('x-food', baseFood - int(xfood.slice(1)))
         // case "+45"
       } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-food', baseFood + parseInt(xfood.slice(1)))
+        unitStatsBox.setAttribute('x-food', baseFood + int(xfood.slice(1)))
         // case "45"
       } else {
-        unitStatsBox.setAttribute('x-food', baseFood + parseInt(xfood))
+        unitStatsBox.setAttribute('x-food', baseFood + int(xfood))
       }
     }
 
     if (xwood) {
       priceChanged = true
       const operator = xwood.slice(0, 1)
-      const baseWood = parseInt(unitStatsBox.getAttribute('x-base-wood'))
+      const baseWood = int(unitStatsBox.getAttribute('x-base-wood'))
       // case "0.2" // 20% cheaper
       if (operator === '0') {
         unitStatsBox.setAttribute('x-wood', baseWood * (1 - parseFloat(xwood)))
         // case "-45"
       } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-wood', baseWood - parseInt(xwood.slice(1)))
+        unitStatsBox.setAttribute('x-wood', baseWood - int(xwood.slice(1)))
         // case "+45"
       } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-wood', baseWood + parseInt(xwood.slice(1)))
+        unitStatsBox.setAttribute('x-wood', baseWood + int(xwood.slice(1)))
         // case "45"
       } else {
-        unitStatsBox.setAttribute('x-wood', baseWood + parseInt(xwood))
+        unitStatsBox.setAttribute('x-wood', baseWood + int(xwood))
       }
     }
 
     if (xgold) {
       priceChanged = true
       const operator = xgold.slice(0, 1)
-      const baseGold = parseInt(unitStatsBox.getAttribute('x-base-gold'))
+      const baseGold = int(unitStatsBox.getAttribute('x-base-gold'))
       // case "0.2" // 20% cheaper
       if (operator === '0') {
         unitStatsBox.setAttribute('x-gold', baseGold * (1 - parseFloat(xgold)))
         // case "-45"
       } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-gold', baseGold - parseInt(xgold.slice(1)))
+        unitStatsBox.setAttribute('x-gold', baseGold - int(xgold.slice(1)))
         // case "+45"
       } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-gold', baseGold + parseInt(xgold.slice(1)))
+        unitStatsBox.setAttribute('x-gold', baseGold + int(xgold.slice(1)))
         // case "45"
       } else {
-        unitStatsBox.setAttribute('x-gold', baseGold + parseInt(xgold))
+        unitStatsBox.setAttribute('x-gold', baseGold + int(xgold))
       }
     }
 
     if (xstone) {
       priceChanged = true
       const operator = xstone.slice(0, 1)
-      const baseStone = parseInt(unitStatsBox.getAttribute('x-base-stone'))
+      const baseStone = int(unitStatsBox.getAttribute('x-base-stone'))
       // case "0.2" // 20% cheaper
       if (operator === '0') {
         unitStatsBox.setAttribute(
@@ -566,19 +566,13 @@ const clickOnApplyEcoBonusHandlers = (event) => {
         )
         // case "-45"
       } else if (operator === '-') {
-        unitStatsBox.setAttribute(
-          'x-stone',
-          baseStone - parseInt(xstone.slice(1))
-        )
+        unitStatsBox.setAttribute('x-stone', baseStone - int(xstone.slice(1)))
         // case "+45"
       } else if (operator === '+') {
-        unitStatsBox.setAttribute(
-          'x-stone',
-          baseStone + parseInt(xstone.slice(1))
-        )
+        unitStatsBox.setAttribute('x-stone', baseStone + int(xstone.slice(1)))
         // case "45"
       } else {
-        unitStatsBox.setAttribute('x-stone', baseStone + parseInt(xstone))
+        unitStatsBox.setAttribute('x-stone', baseStone + int(xstone))
       }
     }
   })
@@ -612,6 +606,7 @@ const clickOnApplyEcoBonusHandlers = (event) => {
   }
 
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
+  console.log(unitStatsBox)
   unitCalc(unitStatsBox, 'recalc')
   // TODO something with calculation is crooked, apply bonuses from base
 }
@@ -627,7 +622,6 @@ async function main() {
       unitClickEventHandlers(event)
       unitPlusClickEventHandlers(event)
       unitMinusClickEventHandlers(event)
-
       clickOnApplyEcoBonusHandlers(event)
     },
     false
