@@ -53,6 +53,31 @@ const setResAttribute =
     }
   }
 
+// swapImageIfPresent :: { Element, String } -> Effect
+const swapImageIfPresent = ({ input, unit }) => {
+  if (input.hasAttribute('x-img-swap')) {
+    const arr = Array.from(
+      input
+        .closest('.unit-container')
+        .querySelectorAll('input[x-img-swap]:checked')
+    )
+    if (arr && arr.length > 0) {
+      arr.map((it) => {
+        const swap = it.getAttribute('x-img-swap')
+        Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map(
+          (img) => {
+            img.src = `/img/${swap.replace(/-/g, ' ')}.png` // replace all dashes with spaces
+          }
+        )
+      })
+    } else {
+      Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map((img) => {
+        img.src = `/img/${unit}.png`
+      })
+    }
+  }
+}
+
 // Type -> 'food' | 'wood' | 'gold' | 'stone'
 // setResToBaseValue :: Element -> Type -> Effect
 const setResToBaseValue = (elem) => (type) => {
@@ -481,27 +506,7 @@ const clickOnApplyEcoBonusHandlers = (event) => {
   const setUnitResourceAttributes = setResAttribute(unitStatsBox)
   const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
 
-  if (event.target.hasAttribute('x-img-swap')) {
-    const arr = Array.from(
-      event.target
-        .closest('.unit-container')
-        .querySelectorAll('input[x-img-swap]:checked')
-    )
-    if (arr && arr.length > 0) {
-      arr.map((it) => {
-        const swap = it.getAttribute('x-img-swap')
-        Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map(
-          (img) => {
-            img.src = `/img/${swap.replace(/-/g, ' ')}.png` // replace all dashes with space
-          }
-        )
-      })
-    } else {
-      Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map((img) => {
-        img.src = `/img/${unit}.png`
-      })
-    }
-  }
+  swapImageIfPresent({ input: event.target, unit })
 
   const baseTraintime = parseFloat(
     unitStatsBox.getAttribute('x-base-train-time')
@@ -528,7 +533,6 @@ const clickOnApplyEcoBonusHandlers = (event) => {
     const wood = it.getAttribute('x-cost-wood')
     const gold = it.getAttribute('x-cost-gold')
     const stone = it.getAttribute('x-cost-stone')
-
     if (food) {
       priceChanged = true
       setUnitResourceAttributes({ type: 'food', res: food })
