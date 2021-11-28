@@ -1,4 +1,4 @@
-import { toggle, int } from '/js/helpers.js'
+import { show, hide, toggle, int } from '/js/helpers.js'
 
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
