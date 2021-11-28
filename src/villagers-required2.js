@@ -29,6 +29,30 @@ const genResObj = ({ resType, value, visible, type, name, curr }) => {
     : curr[resType]
 }
 
+// Type -> 'food' | 'wood' | 'gold' | 'stone'
+// setResAttribute :: Element -> { Type, String} -> Effect
+const setResAttribute =
+  (elem) =>
+  ({ type, res }) => {
+    // Operator -> '0' | '+' | '-' | any String
+    const operator = res.slice(0, 1)
+    const base = int(elem.getAttribute(`x-base-${type}`)) // x-base-food for example
+
+    // case "0.2" // 20% cheaper
+    if (operator === '0') {
+      elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
+      // case "-45"
+    } else if (operator === '-') {
+      elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
+      // case "+45"
+    } else if (operator === '+') {
+      elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
+      // case "45"
+    } else {
+      elem.setAttribute(`x-${type}`, base + int(res))
+    }
+  }
+
 const renderGatherRate =
   (visible) => (calculation) => (multiplier) => (result) => (it) => {
     const box = document.getElementById('gather-rates')
@@ -447,6 +471,7 @@ const clickOnApplyEcoBonusHandlers = (event) => {
   const unit = event.target.getAttribute('x-upgrade-unit')
 
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+  const setUnitResourceAttributes = setResAttribute(unitStatsBox)
 
   if (event.target.hasAttribute('x-img-swap')) {
     const arr = Array.from(
@@ -491,89 +516,26 @@ const clickOnApplyEcoBonusHandlers = (event) => {
       }
     }
 
-    const xfood = it.getAttribute('x-cost-food')
-    const xwood = it.getAttribute('x-cost-wood')
-    const xgold = it.getAttribute('x-cost-gold')
-    const xstone = it.getAttribute('x-cost-stone')
-    if (xfood) {
-      priceChanged = true
-      const operator = xfood.slice(0, 1)
-      const food = int(xfood.slice(1))
-      const baseFood = int(unitStatsBox.getAttribute('x-base-food'))
+    const food = it.getAttribute('x-cost-food')
+    const wood = it.getAttribute('x-cost-wood')
+    const gold = it.getAttribute('x-cost-gold')
+    const stone = it.getAttribute('x-cost-stone')
 
-      // case "0.2" // 20% cheaper
-      if (operator === '0') {
-        unitStatsBox.setAttribute('x-food', baseFood * (1 - parseFloat(xfood)))
-        // case "-45"
-      } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-food', baseFood - int(xfood.slice(1)))
-        // case "+45"
-      } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-food', baseFood + int(xfood.slice(1)))
-        // case "45"
-      } else {
-        unitStatsBox.setAttribute('x-food', baseFood + int(xfood))
-      }
+    if (food) {
+      priceChanged = true
+      setUnitResourceAttributes({ type: 'food', res: food })
     }
-
-    if (xwood) {
+    if (wood) {
       priceChanged = true
-      const operator = xwood.slice(0, 1)
-      const baseWood = int(unitStatsBox.getAttribute('x-base-wood'))
-      // case "0.2" // 20% cheaper
-      if (operator === '0') {
-        unitStatsBox.setAttribute('x-wood', baseWood * (1 - parseFloat(xwood)))
-        // case "-45"
-      } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-wood', baseWood - int(xwood.slice(1)))
-        // case "+45"
-      } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-wood', baseWood + int(xwood.slice(1)))
-        // case "45"
-      } else {
-        unitStatsBox.setAttribute('x-wood', baseWood + int(xwood))
-      }
+      setUnitResourceAttributes({ type: 'wood', res: wood })
     }
-
-    if (xgold) {
+    if (gold) {
       priceChanged = true
-      const operator = xgold.slice(0, 1)
-      const baseGold = int(unitStatsBox.getAttribute('x-base-gold'))
-      // case "0.2" // 20% cheaper
-      if (operator === '0') {
-        unitStatsBox.setAttribute('x-gold', baseGold * (1 - parseFloat(xgold)))
-        // case "-45"
-      } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-gold', baseGold - int(xgold.slice(1)))
-        // case "+45"
-      } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-gold', baseGold + int(xgold.slice(1)))
-        // case "45"
-      } else {
-        unitStatsBox.setAttribute('x-gold', baseGold + int(xgold))
-      }
+      setUnitResourceAttributes({ type: 'gold', res: gold })
     }
-
-    if (xstone) {
+    if (stone) {
       priceChanged = true
-      const operator = xstone.slice(0, 1)
-      const baseStone = int(unitStatsBox.getAttribute('x-base-stone'))
-      // case "0.2" // 20% cheaper
-      if (operator === '0') {
-        unitStatsBox.setAttribute(
-          'x-stone',
-          baseStone * (1 - parseFloat(xstone))
-        )
-        // case "-45"
-      } else if (operator === '-') {
-        unitStatsBox.setAttribute('x-stone', baseStone - int(xstone.slice(1)))
-        // case "+45"
-      } else if (operator === '+') {
-        unitStatsBox.setAttribute('x-stone', baseStone + int(xstone.slice(1)))
-        // case "45"
-      } else {
-        unitStatsBox.setAttribute('x-stone', baseStone + int(xstone))
-      }
+      setUnitResourceAttributes({ type: 'stone', res: stone })
     }
   })
 
