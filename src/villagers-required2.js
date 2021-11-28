@@ -53,6 +53,13 @@ const setResAttribute =
     }
   }
 
+// Type -> 'food' | 'wood' | 'gold' | 'stone'
+// setResToBaseValue :: Element -> Type -> Effect
+const setResToBaseValue = (elem) => (type) => {
+  if (elem.hasAttribute(`x-base-${type}`))
+    elem.setAttribute(`x-type`, elem.getAttribute(`x-base-${type}`))
+}
+
 const renderGatherRate =
   (visible) => (calculation) => (multiplier) => (result) => (it) => {
     const box = document.getElementById('gather-rates')
@@ -472,6 +479,7 @@ const clickOnApplyEcoBonusHandlers = (event) => {
 
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
   const setUnitResourceAttributes = setResAttribute(unitStatsBox)
+  const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
 
   if (event.target.hasAttribute('x-img-swap')) {
     const arr = Array.from(
@@ -545,26 +553,10 @@ const clickOnApplyEcoBonusHandlers = (event) => {
     .querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
 
   if (!priceChanged) {
-    if (unitStatsBox.hasAttribute('x-base-food'))
-      unitStatsBox.setAttribute(
-        'x-food',
-        unitStatsBox.getAttribute('x-base-food')
-      )
-    if (unitStatsBox.hasAttribute('x-base-wood'))
-      unitStatsBox.setAttribute(
-        'x-wood',
-        unitStatsBox.getAttribute('x-base-wood')
-      )
-    if (unitStatsBox.hasAttribute('x-base-gold'))
-      unitStatsBox.setAttribute(
-        'x-gold',
-        unitStatsBox.getAttribute('x-base-gold')
-      )
-    if (unitStatsBox.hasAttribute('x-base-stone'))
-      unitStatsBox.setAttribute(
-        'x-stone',
-        unitStatsBox.getAttribute('x-base-stone')
-      )
+    setResourceToBaseValue('food')
+    setResourceToBaseValue('wood')
+    setResourceToBaseValue('gold')
+    setResourceToBaseValue('stone')
   }
 
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
