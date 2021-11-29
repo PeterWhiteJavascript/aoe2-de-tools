@@ -2,6 +2,7 @@ import { show, hide, toggle, int } from '/js/helpers.js'
 
 export const fwgs = ['food', 'wood', 'gold', 'stone']
 
+// this one is basically useless
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
 // takes 2 or more arrays
@@ -105,8 +106,6 @@ export const unitCalc = (el, calculation) => {
 
   const applyCivEcoBonuses = (rateRaw, type) => {
     const rate = parseFloat(rateRaw)
-    // TODO add ecoBonuses
-
     for (let i = 0; i < applyEcoBonuses.length; i++) {
       for (let j in applyEcoBonuses[i].data) {
         if (j === type) {
