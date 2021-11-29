@@ -1,7 +1,8 @@
 import { changeSelection } from '/js/helpers.js'
 import { unitCalc } from '/js/shared-es.js'
+import { applyCheckedCivilizationBonuses } from '/js/events/click-input-civilization-bonus-handlers.js'
 
-const resetAllRatesToBaseValues = () => {
+export const resetAllRatesToBaseValues = () => {
   Array.from(
     document.querySelectorAll('#choose-res .res-show-img[resource]')
   ).map((res) => {
@@ -15,16 +16,7 @@ const resetAllRatesToBaseValues = () => {
   })
 }
 
-export const changeOfCivilizationSelection = (event) => {
-  if (!event.target.matches('#econ-civ-select')) return
-  let option = event.target.querySelector(`[value="${event.target.value}"]`)
-  if (!option) option = event.target.firstElementChild
-  changeSelection(event.target, option)
-
-  const upgrades = JSON.parse(option.getAttribute('data-json'))
-
-  resetAllRatesToBaseValues()
-
+export const applyCivilizationBonus = (upgrades) => {
   Object.keys(upgrades).map((key) => {
     const el = document.querySelector(
       `#choose-res .res-show-img[resource="${key}"]`
@@ -35,7 +27,7 @@ export const changeOfCivilizationSelection = (event) => {
     if (isFloat) {
       el.setAttribute(
         'res-per-sec',
-        parseFloat(el.getAttribute('res-per-sec-base')) * (1 + upgrade)
+        parseFloat(el.getAttribute('res-per-sec')) * (1 + upgrade)
       )
     } else {
       el.setAttribute('res-per-sec', upgrade / 60)
@@ -48,6 +40,9 @@ export const changeOfCivilizationSelection = (event) => {
     div.setAttribute('min', rpm)
     div.innerText = `${rps.toFixed(2)} - ${rpm.toFixed(1)}`
   })
+}
+
+export const recalculateAllVisibleUnits = () => {
   Array.from(
     document.querySelectorAll('#choose-units .unit-show-img.showing-img')
   ).map((unitStatsBox) => {
@@ -55,4 +50,18 @@ export const changeOfCivilizationSelection = (event) => {
     // this does a lot of dom manipulation
     unitCalc(unitStatsBox, 'recalc')
   })
+}
+
+export const changeOfCivilizationSelection = (event) => {
+  if (!event.target.matches('#econ-civ-select')) return
+  resetAllRatesToBaseValues()
+
+  let option = event.target.querySelector(`[value="${event.target.value}"]`)
+  if (!option) option = event.target.firstElementChild
+  changeSelection(event.target, option)
+  const upgrades = JSON.parse(option.getAttribute('data-json'))
+
+  applyCivilizationBonus(upgrades)
+  applyCheckedCivilizationBonuses()
+  recalculateAllVisibleUnits()
 }

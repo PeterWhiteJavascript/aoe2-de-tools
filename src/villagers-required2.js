@@ -6,6 +6,7 @@ import { unitClickEventHandlers } from '/js/events/click-unit-event-handlers.js'
 import { resClickEventHandlers } from '/js/events/click-resource-event-handlers.js'
 import { unitCivChangeSelectionHandlers } from '/js/events/change-unit-civilization-selection-handlers.js'
 import { changeOfCivilizationSelection } from '/js/events/change-civilization-selection-handlers.js'
+import { clickInputCivilizationBonusEventHandlers } from '/js/events/click-input-civilization-bonus-handlers.js'
 
 import {
   unitPlusClickEventHandlers,
@@ -22,6 +23,7 @@ async function main() {
       // TODO event on change of the select option
       // TODO event on change of the checkbox
 
+      clickInputCivilizationBonusEventHandlers(event)
       resClickEventHandlers(event)
       unitClickEventHandlers(event)
       unitPlusClickEventHandlers(event)

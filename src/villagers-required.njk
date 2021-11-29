@@ -29,7 +29,7 @@
                 <div>
                   {{ name }}
                 </div>
-                <input type="checkbox" name="{{name}}" />
+                <input type="checkbox" x-upgrade-resources="civilization" data-json="{{value | dump}}" name="{{name}}" />
               </div>
             {% endfor %}
           </div>
