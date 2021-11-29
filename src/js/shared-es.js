@@ -1,5 +1,7 @@
 import { show, hide, toggle, int } from '/js/helpers.js'
 
+export const fwgs = ['food', 'wood', 'gold', 'stone']
+
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
 // takes 2 or more arrays
@@ -196,7 +198,7 @@ export const unitCalc = (el, calculation) => {
   // calculating visible units resources
 
   let resVisible = { food: false, wood: false, gold: false, stone: false }
-  ;['food', 'wood', 'gold', 'stone'].map((type) => {
+  fwgs.map((type) => {
     const rr = Array.from(
       document.querySelectorAll(
         `.unit-container:not([style]) .resource-cont [x-row-type="${type}"]`

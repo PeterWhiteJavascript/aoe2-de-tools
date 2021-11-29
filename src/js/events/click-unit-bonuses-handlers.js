@@ -1,5 +1,5 @@
 import { toggleCheckbox, int } from '/js/helpers.js'
-import { unitCalc } from '/js/shared-es.js'
+import { unitCalc, fwgs } from '/js/shared-es.js'
 import { calculateCivilizationBonusOnUnit } from '/js/events/change-unit-civilization-selection-handlers.js'
 
 // do not take base, because option selected would be ignored
@@ -69,7 +69,7 @@ const updateUnitResourceInfo = (unitInfoFrom, unitInfoTo) => {
         Math.ceil(parseFloat(unitInfoFrom.getAttribute(`x-${type}`)))
     }
   }
-  ;['food', 'wood', 'gold', 'stone'].map(updateResource)
+  fwgs.map(updateResource)
 }
 
 export const calculateBonusesOnUnit = (option) => (target) => {
@@ -131,10 +131,7 @@ export const calculateBonusesOnUnit = (option) => (target) => {
   unitBox.querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
 
   if (!priceChanged) {
-    setResourceToBaseValue('food')
-    setResourceToBaseValue('wood')
-    setResourceToBaseValue('gold')
-    setResourceToBaseValue('stone')
+    fwgs.map(setResToBaseValue)
   }
   updateUnitResourceInfo(unitStatsBox, unitBox)
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
