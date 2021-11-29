@@ -13,18 +13,20 @@ export const setResAttribute =
     const operator = res.slice(0, 1)
     const base = int(elem.getAttribute(`x-${type}`)) // x-food for example
 
-    // case "0.2" // 20% cheaper
-    if (operator === '0') {
-      elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
-      // case "-45"
-    } else if (operator === '-') {
-      elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
-      // case "+45"
-    } else if (operator === '+') {
-      elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
-      // case "45"
-    } else {
-      elem.setAttribute(`x-${type}`, base + int(res))
+    if (base) {
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
+        // case "-45"
+      } else if (operator === '-') {
+        elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
+        // case "+45"
+      } else if (operator === '+') {
+        elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
+        // case "45"
+      } else {
+        elem.setAttribute(`x-${type}`, base + int(res))
+      }
     }
   }
 
@@ -60,17 +62,28 @@ export const setResToBaseValue = (elem) => (type) => {
     elem.setAttribute(`x-${type}`, elem.getAttribute(`x-base-${type}`))
 }
 
+const updateUnitResourceInfo = (unitInfoFrom, unitInfoTo) => {
+  const updateResource = (type) => {
+    if (unitInfoFrom.hasAttribute(`x-${type}`)) {
+      unitInfoTo.querySelector(`.res-cont[title="${type}"] div`).innerText =
+        Math.ceil(parseFloat(unitInfoFrom.getAttribute(`x-${type}`)))
+    }
+  }
+  ;['food', 'wood', 'gold', 'stone'].map(updateResource)
+}
+
 export const calculateBonusesOnUnit = (option) => (target) => {
-  const unitBox = target.closest('.unit-container[x-unit]')
-  const unit = unitBox.getAttribute('x-unit')
-  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
-  // set defaults
   let { priceChanged, tempTrainTime } = Object.assign(
     {
       priceChanged: false,
     },
     option // override defaults
   )
+
+  const unitBox = target.closest('.unit-container[x-unit]')
+  const unit = unitBox.getAttribute('x-unit')
+  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+  // set defaults
 
   const setUnitResourceAttributes = setResAttribute(unitStatsBox)
   const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
@@ -123,6 +136,7 @@ export const calculateBonusesOnUnit = (option) => (target) => {
     setResourceToBaseValue('gold')
     setResourceToBaseValue('stone')
   }
+  updateUnitResourceInfo(unitStatsBox, unitBox)
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
   unitCalc(unitStatsBox, 'recalc')
 }

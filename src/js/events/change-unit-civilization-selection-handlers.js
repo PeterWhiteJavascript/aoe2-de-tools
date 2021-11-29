@@ -12,6 +12,7 @@ export const changeSelection = (parent, el) => {
   if (el) el.setAttribute('selected', '')
 }
 
+// usage of base values because we calculate this bonuses first !
 // Type -> 'food' | 'wood' | 'gold' | 'stone'
 // setResAttributeCiv :: Element -> { Type, String } -> Effect
 export const setResAttributeCiv =
@@ -21,18 +22,20 @@ export const setResAttributeCiv =
     const operator = res.slice(0, 1)
     const base = int(elem.getAttribute(`x-base-${type}`)) // x-base-food for example
 
-    // case "0.2" // 20% cheaper
-    if (operator === '0') {
-      elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
-      // case "-45"
-    } else if (operator === '-') {
-      elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
-      // case "+45"
-    } else if (operator === '+') {
-      elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
-      // case "45"
-    } else {
-      elem.setAttribute(`x-${type}`, base + int(res))
+    if (base) {
+      // case "0.2" // 20% cheaper
+      if (operator === '0') {
+        elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
+        // case "-45"
+      } else if (operator === '-') {
+        elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
+        // case "+45"
+      } else if (operator === '+') {
+        elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
+        // case "45"
+      } else {
+        elem.setAttribute(`x-${type}`, base + int(res))
+      }
     }
   }
 
