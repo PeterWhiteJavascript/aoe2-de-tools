@@ -6,8 +6,8 @@
 
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/villagers-required.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script> -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- <script src="/villagers-required.js" type="module" ></script> -->
     <script src="/villagers-required2.js" type="module" ></script>
@@ -20,7 +20,7 @@
         <div id="econ-civ-bonus">
           <select id="econ-civ-select" name="civ bonuses">
             {% for name, value in ecoBonuses.civ %}
-              <option value="{{name}}">{{name}}</option>
+              <option value="{{name}}" data-json="{{value | dump}}">{{name}}</option>
             {% endfor %}
           </select>
           <div>
@@ -39,7 +39,7 @@
           {% for orderItem in order %}
             {% for item in orderItem %}
               {% set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
-              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
+              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec-base="{{gatherRates[item.name].gatherRate}}" res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
                 <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
                 <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
               </div>

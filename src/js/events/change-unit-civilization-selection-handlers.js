@@ -1,16 +1,8 @@
-import { int } from '/js/helpers.js'
+import { int, changeSelection } from '/js/helpers.js'
 import {
   calculateBonusesOnUnit,
   setResToBaseValue,
 } from '/js/events/click-unit-bonuses-handlers.js'
-
-// changeSelection :: Element -> Effect
-export const changeSelection = (parent, el) => {
-  Array.from(parent.querySelectorAll('option')).map((it) => {
-    it.removeAttribute('selected')
-  })
-  if (el) el.setAttribute('selected', '')
-}
 
 // usage of base values because we calculate this bonuses first !
 // Type -> 'food' | 'wood' | 'gold' | 'stone'

@@ -21,6 +21,14 @@ export const toggleCheckbox = (el) => {
   }
 }
 
+// changeSelection :: Element -> Effect
+export const changeSelection = (parent, el) => {
+  Array.from(parent.querySelectorAll('option')).map((it) => {
+    it.removeAttribute('selected')
+  })
+  if (el) el.setAttribute('selected', '')
+}
+
 // hides or shows element
 //
 // toggle :: Element -> Effect
