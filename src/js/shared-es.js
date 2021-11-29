@@ -49,7 +49,7 @@ const showTotalResourceVisible = ({ food, wood, gold, stone }) => {
   }
 }
 
-const makeHtmlCollection2 = (row) => (arr) => {
+const makeHtmlCollection = (row) => (arr) => {
   // Rework this, so it does not clone the hole thing because it is ruining input[checkbox] state
   const tempRow = row.cloneNode(true)
   arr.map((it) => {
@@ -89,7 +89,7 @@ const renderGatherRate =
   (visible) => (calculation) => (multiplier) => (result) => (it) => {
     const box = document.getElementById('gather-rates')
     const row = box.querySelector(`[x-unit="${it.name}"]`)
-    makeHtmlCollection2(row)(
+    makeHtmlCollection(row)(
       [...result.food, ...result.wood, ...result.gold, ...result.stone].map(
         (it) => {
           return { ...it, value: it.value * multiplier }
@@ -221,7 +221,7 @@ export const unitCalc = (el, calculation) => {
       const row = document.querySelector(
         `#vil-totals > .res-totals [x-row-type="${type}"]`
       )
-      makeHtmlCollection2(row)(zip(...rr))
+      makeHtmlCollection(row)(zip(...rr))
     }
   })
   showTotalResourceVisible(resVisible)
