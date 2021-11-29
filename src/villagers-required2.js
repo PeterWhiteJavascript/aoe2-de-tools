@@ -4,6 +4,7 @@ import { hide, show, toggle, toggleCheckbox, int } from '/js/helpers.js'
 import { clickUnitBonusesHandler } from '/js/events/click-unit-bonuses-handlers.js'
 import { unitClickEventHandlers } from '/js/events/click-unit-event-handlers.js'
 import { resClickEventHandlers } from '/js/events/click-resource-event-handlers.js'
+import { unitCivChangeSelectionHandlers } from '/js/events/change-unit-civilization-selection-handlers.js'
 import {
   unitPlusClickEventHandlers,
   unitMinusClickEventHandlers,
@@ -24,6 +25,14 @@ async function main() {
       unitPlusClickEventHandlers(event)
       unitMinusClickEventHandlers(event)
       clickUnitBonusesHandler(event)
+    },
+    false
+  )
+
+  document.addEventListener(
+    'change',
+    function (event) {
+      unitCivChangeSelectionHandlers(event)
     },
     false
   )

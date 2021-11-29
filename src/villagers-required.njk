@@ -153,12 +153,48 @@
                   <div class="upgrade-cont">
                       <div>
                         Civilization
-                        <select>
+                        <select unit-option="civilization" >
                           <option>Generic</option>
                         {% for key, obj  in unitVariety %}
                           {% if unit.name == key and obj.civs %}
                               {% for civKey, civObj  in obj.civs %}
-                                <option>{{civKey}}</option>
+                                {% if civObj.trainTime %}
+                                {% set trainTime = ['x-opt-train-time=', civObj.trainTime ] | join %}
+                                {% else %}
+                                {% set trainTime = null %}
+                                {% endif %}
+
+                                {% if civObj.trainTimePercent %}
+                                {% set percent = ['x-opt-train-time-percent=', civObj.trainTimePercent ] | join %}
+                                {% else %}
+                                {% set percent = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.food %}
+                                {% set food = ['x-opt-cost-food=', civObj.cost.food ] | join %}
+                                {% else %}
+                                {% set food = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.wood %}
+                                {% set wood = ['x-opt-cost-wood=', civObj.cost.wood ] | join %}
+                                {% else %}
+                                {% set wood = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.gold %}
+                                {% set gold = ['x-opt-cost-gold=', civObj.cost.gold ] | join %}
+                                {% else %}
+                                {% set gold = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.stone %}
+                                {% set stone = ['x-opt-cost-stone=', civObj.cost.stone ] | join %}
+                                {% else %}
+                                {% set stone = null %}
+                                {% endif %}
+
+                                <option value="{{civKey}}" {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} >{{civKey}}</option>
                               {% endfor %}
                           {% endif %}
                         {% endfor %}

@@ -1,14 +1,17 @@
 import { toggleCheckbox, int } from '/js/helpers.js'
 import { unitCalc } from '/js/shared-es.js'
+import { calculateCivilizationBonusOnUnit } from '/js/events/change-unit-civilization-selection-handlers.js'
 
+// do not take base, because option selected would be ignored
+//
 // Type -> 'food' | 'wood' | 'gold' | 'stone'
 // setResAttribute :: Element -> { Type, String } -> Effect
-const setResAttribute =
+export const setResAttribute =
   (elem) =>
   ({ type, res }) => {
     // Operator -> '0' | '+' | '-' | any String
     const operator = res.slice(0, 1)
-    const base = int(elem.getAttribute(`x-base-${type}`)) // x-base-food for example
+    const base = int(elem.getAttribute(`x-${type}`)) // x-food for example
 
     // case "0.2" // 20% cheaper
     if (operator === '0') {
@@ -52,28 +55,28 @@ const swapImageIfPresent = ({ input, unit }) => {
 
 // Type -> 'food' | 'wood' | 'gold' | 'stone'
 // setResToBaseValue :: Element -> Type -> Effect
-const setResToBaseValue = (elem) => (type) => {
+export const setResToBaseValue = (elem) => (type) => {
   if (elem.hasAttribute(`x-base-${type}`))
-    elem.setAttribute(`x-type`, elem.getAttribute(`x-base-${type}`))
+    elem.setAttribute(`x-${type}`, elem.getAttribute(`x-base-${type}`))
 }
 
-export const clickUnitBonusesHandler = (event) => {
-  if (!event.target.matches('input[x-upgrade-unit]')) return
-  toggleCheckbox(event.target)
-
-  const unit = event.target.getAttribute('x-upgrade-unit')
-
+export const calculateBonusesOnUnit = (option) => (target) => {
+  const unitBox = target.closest('.unit-container[x-unit]')
+  const unit = unitBox.getAttribute('x-unit')
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
+  // set defaults
+  let { priceChanged, tempTrainTime } = Object.assign(
+    {
+      priceChanged: false,
+    },
+    option // override defaults
+  )
+
   const setUnitResourceAttributes = setResAttribute(unitStatsBox)
   const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
 
-  swapImageIfPresent({ input: event.target, unit })
+  swapImageIfPresent({ input: target, unit })
 
-  const baseTraintime = parseFloat(
-    unitStatsBox.getAttribute('x-base-train-time')
-  )
-  let tempTrainTime = baseTraintime
-  let priceChanged = false
   Array.from(
     document.querySelectorAll(
       `#gather-rates .unit-container[x-unit="${unit}"] input:checked`
@@ -112,9 +115,7 @@ export const clickUnitBonusesHandler = (event) => {
   })
 
   // reset timer on unit info
-  event.target
-    .closest('.unit-container[x-unit]')
-    .querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
+  unitBox.querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
 
   if (!priceChanged) {
     setResourceToBaseValue('food')
@@ -122,7 +123,13 @@ export const clickUnitBonusesHandler = (event) => {
     setResourceToBaseValue('gold')
     setResourceToBaseValue('stone')
   }
-
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
   unitCalc(unitStatsBox, 'recalc')
+}
+
+export const clickUnitBonusesHandler = (event) => {
+  if (!event.target.matches('input[x-upgrade-unit]')) return
+  toggleCheckbox(event.target)
+  const obj = calculateCivilizationBonusOnUnit(event.target)
+  calculateBonusesOnUnit(obj)(event.target)
 }
