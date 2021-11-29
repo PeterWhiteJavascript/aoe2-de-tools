@@ -74,7 +74,6 @@ export const clickUnitBonusesHandler = (event) => {
   )
   let tempTrainTime = baseTraintime
   let priceChanged = false
-  console.log(tempTrainTime)
   Array.from(
     document.querySelectorAll(
       `#gather-rates .unit-container[x-unit="${unit}"] input:checked`
@@ -125,7 +124,5 @@ export const clickUnitBonusesHandler = (event) => {
   }
 
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
-  console.log(unitStatsBox)
   unitCalc(unitStatsBox, 'recalc')
-  // TODO something with calculation is crooked, apply bonuses from base
 }

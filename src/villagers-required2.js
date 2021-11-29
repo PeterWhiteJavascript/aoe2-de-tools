@@ -15,6 +15,7 @@ async function main() {
   document.addEventListener(
     'click',
     function (event) {
+      // choose economic bonuses section TOP
       // TODO event on change of the select option
       // TODO event on change of the checkbox
 

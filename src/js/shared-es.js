@@ -2,8 +2,48 @@ import { show, hide, toggle, int } from '/js/helpers.js'
 
 let applyEcoBonuses = [{ name: 'Generic', data: {} }]
 
+// takes 2 or more arrays
+// [{name: 'name', value: 1}], [{name: 'name', value: 1}] -> [{name: 'name', value: 2}]
+// simple zip function which accepts same number array and merge value numbers and copies the rest
+const zip = (arr, ...arrs) => {
+  return arr.map((val, i) =>
+    arrs.reduce((a, arr) => {
+      return {
+        ...a,
+        ...arr[i],
+        value: a.value + arr[i].value,
+      }
+    }, val)
+  )
+}
+
 const toggleUnit = (unit) => {
   toggle(document.querySelector(`#unit-totals-box > [x-unit="${unit}"]`))
+}
+
+const showTotalResourceVisible = ({ food, wood, gold, stone }) => {
+  const resourceRow = (type) =>
+    document.querySelector(`#vil-totals .res-row[x-row-type="${type}"]`)
+  if (food) {
+    show(resourceRow('food'))
+  } else {
+    hide(resourceRow('food'))
+  }
+  if (wood) {
+    show(resourceRow('wood'))
+  } else {
+    hide(resourceRow('wood'))
+  }
+  if (gold) {
+    show(resourceRow('gold'))
+  } else {
+    hide(resourceRow('gold'))
+  }
+  if (stone) {
+    show(resourceRow('stone'))
+  } else {
+    hide(resourceRow('stone'))
+  }
 }
 
 const makeHtmlCollection2 = (row) => (arr) => {
@@ -41,132 +81,6 @@ const genResObj = ({ resType, value, visible, type, name, curr }) => {
       ]
     : curr[resType]
 }
-
-// calcResourceType :: Element -> Int -> Boolean -> String -> Array -> return undefined
-const calcResourceType =
-  (box) =>
-  (unit) =>
-  (multiplier) =>
-  (calculation) =>
-  (unitVisible) =>
-  (type) =>
-  (arr) => {
-    const row = document.querySelector(
-      `#vil-totals > .res-totals [x-row-type="${type}"]`
-    )
-    // shortcut the code to remove 'res-row' if the resulting number would be 0
-    //
-    if (
-      !unitVisible &&
-      arr &&
-      parseFloat(row.querySelector(`.resource-num`).getAttribute('title')) -
-        arr[0].value * multiplier <
-        1 // less than 1 instead of === 0,
-      // float minus / plus calculation could be incorrect, therefore less than 1 check is fine to remove element.
-    ) {
-      makeHtmlCollection2(row)(
-        arr.map((it) => {
-          return {
-            ...it,
-            value: 0,
-          }
-        })
-      )
-      return hide(row)
-    }
-    if (unitVisible) {
-      if (calculation === 'minus') {
-        makeHtmlCollection2(row)(
-          arr.map((it) => {
-            return {
-              ...it,
-              value:
-                parseFloat(
-                  row
-                    .querySelector(`[type-resource="${it.name}"] > [title]`)
-                    .getAttribute('title')
-                ) - it.value,
-            }
-          })
-        )
-      } else if (calculation === 'plus') {
-        makeHtmlCollection2(row)(
-          arr.map((it) => {
-            return {
-              ...it,
-              value:
-                parseFloat(
-                  row
-                    .querySelector(`[type-resource="${it.name}"] > [title]`)
-                    .getAttribute('title')
-                ) + it.value,
-            }
-          })
-        )
-      } else if (calculation === 'recalc') {
-        makeHtmlCollection2(row)(
-          arr.map((it) => {
-            return {
-              ...it,
-              value:
-                // parseFloat(
-                //   row
-                //     .querySelector(`[type-resource="${it.name}"] > [title]`)
-                //     .getAttribute('title')
-                // ) -
-                // parseFloat(
-                //   document
-                //     .querySelector(
-                //       `.unit-container[x-unit="${unit}"] [type-resource="${it.name}"] > [title]`
-                //     )
-                //     .getAttribute('title')
-                // ) +
-                it.value * multiplier,
-            }
-          })
-        )
-      } else {
-        makeHtmlCollection2(row)(
-          arr.map((it) => {
-            return {
-              ...it,
-              value:
-                parseFloat(
-                  row
-                    .querySelector(`[type-resource="${it.name}"] > [title]`)
-                    .getAttribute('title')
-                ) +
-                it.value * multiplier,
-            }
-          })
-        )
-      }
-    } else {
-      // taking into consideration that there could be multiple units
-      makeHtmlCollection2(row)(
-        arr.map((it) => {
-          return {
-            ...it,
-            value:
-              parseFloat(
-                row
-                  .querySelector(`[type-resource="${it.name}"] > [title]`)
-                  .getAttribute('title')
-              ) -
-              it.value * multiplier,
-          }
-        })
-      )
-    }
-
-    if (
-      unitVisible &&
-      row.ownerDocument.defaultView.getComputedStyle(row, null).display ===
-        'none'
-    ) {
-      return show(row)
-    }
-  }
 
 const renderGatherRate =
   (visible) => (calculation) => (multiplier) => (result) => (it) => {
@@ -270,7 +184,6 @@ export const unitCalc = (el, calculation) => {
       .querySelector(`.unit-class[x-unit="${unit}"] .resource-num`)
       .getAttribute('x-count')
   )
-  console.log(multiplier)
 
   const box = document.getElementById('resources-cont-box')
   renderGatherRate(unitVisible)(calculation)(multiplier)(result)({
@@ -280,29 +193,37 @@ export const unitCalc = (el, calculation) => {
   })
   if (!calculation) toggleUnit(unit)
 
-  if (result.food.length > 0) {
-    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('food')(
-      result.food
-    )
-  }
+  // calculating visible units resources
 
-  if (result.wood.length > 0) {
-    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('wood')(
-      result.wood
-    )
-  }
+  let resVisible = { food: false, wood: false, gold: false, stone: false }
+  ;['food', 'wood', 'gold', 'stone'].map((type) => {
+    const rr = Array.from(
+      document.querySelectorAll(
+        `.unit-container:not([style]) .resource-cont [x-row-type="${type}"]`
+      )
+    ).map((unitRow) => {
+      resVisible[type] = true
+      return Array.from(
+        unitRow.querySelectorAll('.resource[type-resource] .resource-num')
+      ).map((resource) => {
+        return {
+          type: type,
+          name: resource
+            .closest('[type-resource]')
+            .getAttribute('type-resource'),
+          value: parseFloat(resource.getAttribute('title')),
+        }
+      })
+    })
 
-  if (result.gold.length > 0) {
-    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('gold')(
-      result.gold
-    )
-  }
-
-  if (result.stone.length > 0) {
-    calcResourceType(box)(unit)(multiplier)(calculation)(unitVisible)('stone')(
-      result.stone
-    )
-  }
+    if (rr && rr.length > 0) {
+      const row = document.querySelector(
+        `#vil-totals > .res-totals [x-row-type="${type}"]`
+      )
+      makeHtmlCollection2(row)(zip(...rr))
+    }
+  })
+  showTotalResourceVisible(resVisible)
 }
 
 export const finder = (arr, name) => {
