@@ -1,0 +1,2051 @@
+{
+  "villager": {
+    "civs": {
+      "Indians - Dark Age": {
+        "cost": {
+          "food": 0.1
+        },
+        "costPercent": true
+      },
+      "Indians - Feudal Age": {
+        "cost": {
+          "food": 0.15
+        },
+        "costPercent": true
+      },
+      "Indians - Castle Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Indians - Imperial Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {}
+  },
+  "militia": {
+    "civs": {
+      "Goths - Dark Age": {
+        "cost": {
+          "food": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Goths - Feudal Age": {
+        "cost": {
+          "food": 0.25,
+          "gold": 0.25
+        },
+        "costPercent": true
+      },
+      "Goths - Castle Age": {
+        "cost": {
+          "food": 0.3,
+          "gold": 0.3
+        },
+        "costPercent": true
+      },
+      "Goths - Imperial Age": {
+        "cost": {
+          "food": 0.35,
+          "gold": 0.35
+        },
+        "costPercent": true
+      },
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Supplies": {
+        "cost": {
+          "food": -15
+        }
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Perfusion": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Forced Levy": {
+        "cost": {
+          "food": 20,
+          "gold": -20
+        }
+      }
+    }
+  },
+  "spearman": {
+    "civs": {
+      "Goths - Feudal Age": {
+        "cost": {
+          "food": 0.25,
+          "gold": 0.25
+        },
+        "costPercent": true
+      },
+      "Goths - Castle Age": {
+        "cost": {
+          "food": 0.3,
+          "gold": 0.3
+        },
+        "costPercent": true
+      },
+      "Goths - Imperial Age": {
+        "cost": {
+          "food": 0.35,
+          "gold": 0.35
+        },
+        "costPercent": true
+      },
+      "Byzantines Civ Bonus": {
+        "cost": {
+          "food": 0.25,
+          "wood": 0.25
+        },
+        "costPercent": true
+      },
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Perfusion": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "eagle scout": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Castle Age": {
+        "trainTime": 35,
+        "img": "eagle warrior"
+      },
+      "Elite Eagle Warrior": {
+        "trainTime": 20,
+        "img": "elite eagle warrior"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "archer": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Mayans - Feudal Age": {
+        "cost": {
+          "wood": 0.1,
+          "gold": 0.1
+        },
+        "costPercent": true
+      },
+      "Mayans - Castle Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Mayans - Imperial Age": {
+        "cost": {
+          "wood": 0.3,
+          "gold": 0.3
+        },
+        "costPercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Crossbowman": {
+        "trainTime": 27,
+        "img": "crossbowman"
+      },
+      "Kamandaran": {
+        "cost": {
+          "wood": 35,
+          "gold": -45
+        }
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "skirmisher": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Byzantines Civ Bonus": {
+        "cost": {
+          "food": 0.25,
+          "wood": 0.25
+        },
+        "costPercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "genitour": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Huns - Castle Age": {
+        "cost": {
+          "food": 0.1,
+          "wood": 0.1
+        },
+        "costPercent": true
+      },
+      "Huns - Imperial Age": {
+        "cost": {
+          "food": 0.2,
+          "wood": 0.2
+        },
+        "costPercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "cavalry archer": {
+    "civs": {
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      },
+      "Huns - Castle Age": {
+        "cost": {
+          "wood": 0.1,
+          "gold": 0.1
+        },
+        "costPercent": true
+      },
+      "Huns - Imperial Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Heavy Cavalry Archer": {
+        "trainTime": 27,
+        "img": "heavy cavalry archer"
+      },
+      "Steppe Husbandry": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "hand cannoneer": {
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Italians Civ Bonus": {
+        "cost": {
+          "food": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "scout cavalry": {
+    "civs": {
+      "Berbers - Castle Age": {
+        "cost": {
+          "food": 0.15
+        },
+        "costPercent": true
+      },
+      "Berbers - Imperial Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Magyars Civ Bonus": {
+        "cost": {
+          "food": 0.15
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Chivalry": {
+        "trainTime": 1.4,
+        "trainTimePercent": true
+      },
+      "Steppe Husbandry": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "knight": {
+    "civs": {
+      "Berbers - Castle Age": {
+        "cost": {
+          "food": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      },
+      "Berbers - Imperial Age": {
+        "cost": {
+          "food": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Chivalry": {
+        "trainTime": 1.4,
+        "trainTimePercent": true
+      },
+      "Szlachta Privileges": {
+        "cost": {
+          "gold": -45
+        }
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "xolotl warrior": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "camel rider": {
+    "civs": {
+      "Berbers - Castle Age": {
+        "cost": {
+          "food": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      },
+      "Berbers - Imperial Age": {
+        "cost": {
+          "food": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Byzantines Civ Bonus": {
+        "cost": {
+          "food": 0.25,
+          "gold": 0.25
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Imperial Camel Rider": {
+        "trainTime": 20,
+        "img": "imperial camel rider"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "steppe lancer": {
+    "civs": {},
+    "upgrades": {
+      "Elite Steppe Lancer": {
+        "trainTime": 20,
+        "img": "elite steppe lancer"
+      },
+      "Steppe Husbandry": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "battle elephant": {
+    "civs": {
+      "Malay Civ Bonus Castle Age": {
+        "cost": {
+          "food": 0.3,
+          "gold": 0.3
+        },
+        "costPercent": true
+      },
+      "Malay Civ Bonus Imperial Age": {
+        "cost": {
+          "food": 0.4,
+          "gold": 0.4
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "monk": {
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Lithuanians Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Hussite Reforms": {
+        "cost": {
+          "gold": -100,
+          "food": 100
+        }
+      }
+    }
+  },
+  "missionary": {
+    "civs": {},
+    "upgrades": {}
+  },
+  "battering ram": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Slavs Civ Bonus": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "mangonel": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Slavs Civ Bonus": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "scorpion": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Slavs Civ Bonus": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "bombard cannon": {
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Italians Civ Bonus": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "siege tower": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "trebuchet": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "petard": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "trade cart": {
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Bohemians Team Bonus": {
+        "trainTime": 1.8,
+        "trainTimePercent": true
+      },
+      "Silk Road": {
+        "cost": {
+          "gold": 0.5,
+          "wood": 0.5
+        },
+        "costPercent": true
+      }
+    }
+  },
+  "fishing ship": {
+    "civs": {
+      "Italians Civ Bonus": {
+        "cost": {
+          "wood": 0.15
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "fire galley": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Fire Ship": {
+        "trainTime": 36,
+        "img": "fire ship"
+      },
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "galley": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Vikings - Feudal/Castle Age": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      },
+      "Vikings - Imperial Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "War Galley": {
+        "trainTime": 36,
+        "img": "war galley"
+      },
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "demolition raft": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Vikings - Feudal/Castle Age": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      },
+      "Vikings - Imperial Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Demolition Ship": {
+        "trainTime": 31,
+        "img": "demolition ship"
+      },
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "transport ship": {
+    "civs": {
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Vikings - Feudal/Castle Age": {
+        "cost": {
+          "wood": 0.15
+        },
+        "costPercent": true
+      },
+      "Vikings - Imperial Age": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "cannon galleon": {
+    "civs": {
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      },
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Italians Civ Bonus": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Vikings - Imperial Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      },
+      "Persians - Feudal Age": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Persians - Castle Age": {
+        "trainTime": 1.15,
+        "trainTimePercent": true
+      },
+      "Persians - Imperial Age": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "longboat": {
+    "noGeneric": true,
+    "civs": {
+      "Vikings - Feudal/Castle Age": {
+        "cost": {
+          "wood": 0.15,
+          "gold": 0.15
+        },
+        "costPercent": true
+      },
+      "Vikings - Imperial Age": {
+        "cost": {
+          "wood": 0.2,
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {}
+  },
+  "caravel": {
+    "noGeneric": true,
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {}
+  },
+  "turtle ship": {
+    "noGeneric": true,
+    "civs": {
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "house": {
+    "civs": {
+      "Malians Civ Bonus": {
+        "cost": {
+          "wood": 0.15
+        },
+        "costPercent": true
+      },
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "2 Villagers": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "3 Villagers": {
+        "trainTime": 1.66,
+        "trainTimePercent": true
+      },
+      "4 Villagers": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "farm": {
+    "civs": {
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      },
+      "Teutons Civ Bonus": {
+        "cost": {
+          "wood": 0.4
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "25 Second Build Time": {
+        "trainTime": 25
+      },
+      "Incas Team Bonus": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "watch tower": {
+    "civs": {
+      "Malians Civ Bonus": {
+        "cost": {
+          "wood": 0.15
+        },
+        "costPercent": true
+      },
+      "Incas Civ Bonus": {
+        "cost": {
+          "stone": 0.15
+        },
+        "costPercent": true
+      },
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "2 Villagers": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "3 Villagers": {
+        "trainTime": 1.66,
+        "trainTimePercent": true
+      },
+      "4 Villagers": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "5 Villagers": {
+        "trainTime": 2.33,
+        "trainTimePercent": true
+      },
+      "6 Villagers": {
+        "trainTime": 2.66,
+        "trainTimePercent": true
+      },
+      "7 Villagers": {
+        "trainTime": 3,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "donjon": {
+    "civs": {},
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "krepost": {
+    "civs": {},
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "castle": {
+    "civs": {
+      "Franks Civ Bonus": {
+        "cost": {
+          "stone": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas Civ Bonus": {
+        "cost": {
+          "stone": 0.15
+        },
+        "costPercent": true
+      },
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      },
+      "Sicilians Civ Bonus": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "palisade wall": {
+    "civs": {
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Mayans Team Bonus": {
+        "cost": {
+          "wood": -1
+        }
+      }
+    }
+  },
+  "palisade gate": {
+    "civs": {
+      "Malians Civ Bonus": {
+        "cost": {
+          "wood": 0.15
+        },
+        "costPercent": true
+      },
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Mayans Team Bonus": {
+        "cost": {
+          "wood": 0.5
+        },
+        "costPercent": true
+      }
+    }
+  },
+  "stone wall": {
+    "civs": {
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      },
+      "Incas Civ Bonus": {
+        "cost": {
+          "stone": -1
+        }
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Mayans Team Bonus": {
+        "cost": {
+          "stone": -2
+        }
+      }
+    }
+  },
+  "gate": {
+    "civs": {
+      "Spanish Civ Bonus": {
+        "trainTime": 1.3,
+        "trainTimePercent": true
+      },
+      "Incas Civ Bonus": {
+        "cost": {
+          "stone": 0.15
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Mayans Team Bonus": {
+        "cost": {
+          "stone": 0.5
+        },
+        "costPercent": true
+      }
+    }
+  },
+  "cataphract": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "hussite wagon": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "huskarl": {
+    "noGeneric": true,
+    "civs": {
+      "Goths - Castle Age": {
+        "cost": {
+          "food": 0.3,
+          "gold": 0.3
+        },
+        "costPercent": true
+      },
+      "Goths - Imperial Age": {
+        "cost": {
+          "food": 0.35,
+          "gold": 0.35
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Barracks": {
+        "trainTime": 13
+      },
+      "Perfusion": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "jaguar warrior": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "berserk": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "mameluke": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "teutonic knight": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "throwing axeman": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "serjeant": {
+    "civs": {},
+    "upgrades": {
+      "Donjon": {
+        "trainTime": 20
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "shotel warrior": {
+    "civs": {},
+    "upgrades": {
+      "Royal Heirs": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "karambit warrior": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "condottiero": {
+    "civs": {
+      "Goths - Imperial Age": {
+        "cost": {
+          "food": 0.35,
+          "gold": 0.35
+        },
+        "costPercent": true
+      },
+      "Aztec Civ Bonus": {
+        "trainTime": 1.11,
+        "trainTimePercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Perfusion": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "coustillier": {
+    "civs": {},
+    "upgrades": {
+      "Elite Coustillier": {
+        "trainTime": 14,
+        "img": "elite coustillier"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "war wagon": {
+    "noGeneric": true,
+    "civs": {
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "conquistador": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "tarkan": {
+    "civs": {},
+    "upgrades": {
+      "Stable": {
+        "trainTime": 21
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "camel archer": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "slinger": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "gbeto": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "leitis": {
+    "civs": {},
+    "upgrades": {
+      "Elite Leitis": {
+        "trainTime": 18,
+        "img": "elite leitis"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "chu ko nu": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Elite Chu ko Nu": {
+        "trainTime": 13,
+        "img": "elite chu ko nu"
+      }
+    }
+  },
+  "longbowman": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "konnik": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "war elephant": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "keshik": {
+    "civs": {},
+    "upgrades": {
+      "Elite Keshik": {
+        "trainTime": 14,
+        "img": "elite keshik"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "kipchak": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "arambai": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "mangudai": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "kamayuk": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "samurai": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "boyar": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "plumed archer": {
+    "noGeneric": true,
+    "civs": {
+      "Mayans - Castle Age": {
+        "cost": {
+          "wood": 0.19,
+          "gold": 0.19
+        },
+        "costPercent": true
+      },
+      "Mayans - Imperial Age": {
+        "cost": {
+          "wood": 0.29,
+          "gold": 0.29
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "genoese crossbowman": {
+    "civs": {},
+    "upgrades": {
+      "Elite Genoese Crossbowman": {
+        "trainTime": 14,
+        "img": "elite genoese crossbowman"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "janissary": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "obuch": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "organ gun": {
+    "noGeneric": true,
+    "civs": {
+      "Portuguese Civ Bonus": {
+        "cost": {
+          "gold": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "ballista elephant": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "magyar huszar": {
+    "civs": {},
+    "upgrades": {
+      "Corvinian Army": {
+        "cost": {
+          "gold": -10
+        }
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "rattan archer": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "elephant archer": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "woad raider": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  }
+}

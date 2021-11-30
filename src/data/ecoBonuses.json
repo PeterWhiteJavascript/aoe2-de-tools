@@ -1,0 +1,109 @@
+{
+  "civ": {
+    "Generic": {},
+    "Japanese - Dark Age": {
+      "fishing ship shore": 0.05,
+      "fishing ship deep": 0.05,
+      "fish trap": 0.05
+    },
+    "Japanese - Feudal Age": {
+      "fishing ship shore": 0.1,
+      "fishing ship deep": 0.1,
+      "fish trap": 0.1
+    },
+    "Japanese - Castle Age": {
+      "fishing ship shore": 0.15,
+      "fishing ship deep": 0.15,
+      "fishing ship shore gillnets": 0.15,
+      "fishing ship deep gillnets": 0.15,
+      "fish trap": 0.15,
+      "fish trap gillnets": 0.15
+    },
+    "Japanese - Imperial Age": {
+      "fishing ship shore": 0.2,
+      "fishing ship deep": 0.2,
+      "fishing ship shore gillnets": 0.2,
+      "fishing ship deep gillnets": 0.2,
+      "fish trap": 0.2,
+      "fish trap gillnets": 0.2
+    },
+    "Aztecs (Farms)": {
+      "farmer": "22.46",
+      "farm heavy plow": "22.98",
+      "wheelbarrow": "23.9",
+      "wheelbarrow heavy plow": "24.00",
+      "hand cart": "24.00"
+    },
+    "Slavs (Farms)": {
+      "farmer": "22.35",
+      "farm heavy plow": "23.40",
+      "wheelbarrow": "25.63",
+      "wheelbarrow heavy plow": "26.00",
+      "hand cart": "26.8"
+    },
+    "Berbers (Farms)": {
+      "farmer": "20.88",
+      "farm heavy plow": "21.61",
+      "wheelbarrow": "23.13",
+      "wheelbarrow heavy plow": "23.64",
+      "hand cart": "24.00"
+    },
+    "Mayans (Farms)": {
+      "farmer": "19.50",
+      "farm heavy plow": "20.04",
+      "wheelbarrow": "21.59",
+      "wheelbarrow heavy plow": "22.06",
+      "hand cart": "24.12"
+    },
+    "Khmer (Farms)": {
+      "farmer": "21.48",
+      "farm heavy plow": "22.11",
+      "wheelbarrow": "23.56",
+      "wheelbarrow heavy plow": "23.77",
+      "hand cart": "24.00"
+    },
+    "Mongols (Hunters)": {
+      "hunter": 0.4
+    },
+    "Britons (Shepherds)": {
+      "shepherd": 0.25
+    },
+    "Celts (Lumberjacks)": {
+      "lumberjack": 0.15,
+      "double-bit axe": 0.15,
+      "bow saw": 0.15,
+      "two-man saw": 0.15
+    },
+    "Franks (Foragers)": {
+      "forager": 0.15
+    },
+    "Indians (Fishermen)": {
+      "fisherman": 0.1
+    },
+    "Koreans (Stone Miners)": {
+      "stone miner": 0.2,
+      "stone mining": 0.2,
+      "stone shaft mining": 0.2
+    },
+    "Turks (Gold Miners)": {
+      "gold miner": 0.15,
+      "gold mining": 0.15,
+      "gold shaft mining": 0.15
+    }
+  },
+  "team": {
+    "Aztec Relics": {
+      "relic": 0.3333
+    },
+    "Sultans": {
+      "gold miner": 0.1,
+      "gold mining": 0.1,
+      "gold shaft mining": 0.1,
+      "relic": 0.1,
+      "trade cart": 0.1
+    },
+    "Spanish Trade": {
+      "trade cart": 0.25
+    }
+  }
+}

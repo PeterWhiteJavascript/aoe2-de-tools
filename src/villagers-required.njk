@@ -1,0 +1,494 @@
+<html>
+  <head>
+    <title>AOE2: DE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/villagers-required.css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script> -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- <script src="/villagers-required.js" type="module" ></script> -->
+    <script src="/villagers-required2.js" type="module" ></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Number of Villagers Required to Sustain Constant Unit Production</h1>
+      <div id="toolbar">
+        <h2>Choose economic bonuses</h2>
+        <div id="econ-civ-bonus">
+          <select id="econ-civ-select" name="civ bonuses">
+            {% for name, value in ecoBonuses.civ %}
+              <option value="{{name}}" data-json="{{value | dump}}">{{name}}</option>
+            {% endfor %}
+          </select>
+          <div>
+            {% for name, value in ecoBonuses.team %}
+              <div>
+                <div>
+                  {{ name }}
+                </div>
+                <input type="checkbox" x-upgrade-resources="civilization" data-json="{{value | dump}}" name="{{name}}" />
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <h2>Click to toggle resource display</h2>
+        <div id="choose-res">
+          {% for orderItem in order %}
+            {% for item in orderItem %}
+              {% set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
+              <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec-base="{{gatherRates[item.name].gatherRate}}" res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
+                <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
+                <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <h2>Click to toggle unit display</h2>
+        <div id="choose-units">
+          {% for unit in unitsShow %}
+            {% for dataUnit in dataset.units %}
+              {% if dataUnit.name == unit %}
+                {% set food = ['x-food=', dataUnit.cost.food ] | join %}
+                {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+                {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+                {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+
+                {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
+                {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
+                {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
+                {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+
+                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}' x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}' {{ food if dataUnit.cost.food }}  {{ wood if dataUnit.cost.wood }} {{ gold if dataUnit.cost.gold }} {{ stone if dataUnit.cost.stone }} {{ basefood if dataUnit.cost.food }} {{ basewood if dataUnit.cost.wood }} {{ basegold if dataUnit.cost.gold }} {{ basestone if dataUnit.cost.stone }}>
+                  <img src="/img/{{unit}}.png" alt="{{unit}}" />
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+        <div id="vil-totals">
+          <h2>Villager totals for all unit selections</h2>
+          <div class="res-totals">
+            <div id="resources-cont-box" class="resources-cont">
+                  {% for orderItem in order %}
+                    {% if loop.index == 1 %}
+                      <div class="res-row" x-row-type="food" style="display: none;">
+                    {% elif loop.index == 2 %}
+                        <div class="res-row" x-row-type="wood" style="display: none;">
+                    {% elif loop.index == 3 %}
+                        <div class="res-row" x-row-type="gold" style="display: none;">
+                    {% elif loop.index == 4 %}
+                        <div class="res-row" x-row-type="stone" style="display: none;">
+                    {% endif %}
+                    {% for item in orderItem %}
+                    <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                      <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                      <div class="resource-num" title="0">
+                        <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                          0
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                  {% endfor %}
+            </div>
+
+            <div id="unit-totals-box" class="unit-totals">
+            {% for unit in dataset.units %}
+                <div class="unit-class" x-unit="{{unit.name}}" style="display: none;">
+                  <div class="resource-num" title="1x {{unit.name}}" x-count="1">
+                    <div>
+                      1
+                    </div>
+                  </div>
+                  <img src="/img/{{unit.name}}.png" alt="{{unit.name}}" />
+                </div>
+            {% endfor %}
+            </div>
+          </div>
+          <div id="gather-rates">
+            {% for unit in dataset.units %}
+              <div class="unit-container" title="{{unit.name}}" x-unit="{{unit.name}}" style="display: none;">
+                <div class="unit">
+                  {% if unit.cost.food %}
+                    <div class="res-cont" title="food">
+                      <img src="/img/food-icon.png" alt="food" />
+                      <div>
+                        {{unit.cost.food}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.wood %}
+                    <div class="res-cont" title="wood">
+                      <img src="/img/wood-icon.png" alt="wood" />
+                      <div>
+                        {{unit.cost.wood}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.gold %}
+                    <div class="res-cont" title="gold">
+                      <img src="/img/gold-icon.png" alt="gold" />
+                      <div>
+                        {{unit.cost.gold}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if unit.cost.stone %}
+                    <div class="res-cont" title="stone">
+                      <img src="/img/stone-icon.png" alt="stone" />
+                      <div>
+                        {{unit.cost.stone}}
+                      </div>
+                    </div>
+                  {% endif %}
+                  <div class="time-cont">
+                    <img src="/img/hourglass-icon.png">
+                    <div>{{unit.trainTime}}</div>
+                  </div>
+                  <div class="unit-class"><img src="/img/{{unit.name}}.png" alt="{{unit.name}}" title="{{unit.name}}"></div>
+                  <div class="upgrade-cont">
+                      <div>
+                        Civilization
+                        <select unit-option="civilization" >
+                          <option>Generic</option>
+                        {% for key, obj  in unitVariety %}
+                          {% if unit.name == key and obj.civs %}
+                              {% for civKey, civObj  in obj.civs %}
+                                {% if civObj.trainTime %}
+                                {% set trainTime = ['x-opt-train-time=', civObj.trainTime ] | join %}
+                                {% else %}
+                                {% set trainTime = null %}
+                                {% endif %}
+
+                                {% if civObj.trainTimePercent %}
+                                {% set percent = ['x-opt-train-time-percent=', civObj.trainTimePercent ] | join %}
+                                {% else %}
+                                {% set percent = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.food %}
+                                {% set food = ['x-opt-cost-food=', civObj.cost.food ] | join %}
+                                {% else %}
+                                {% set food = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.wood %}
+                                {% set wood = ['x-opt-cost-wood=', civObj.cost.wood ] | join %}
+                                {% else %}
+                                {% set wood = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.gold %}
+                                {% set gold = ['x-opt-cost-gold=', civObj.cost.gold ] | join %}
+                                {% else %}
+                                {% set gold = null %}
+                                {% endif %}
+
+                                {% if civObj.cost and civObj.cost.stone %}
+                                {% set stone = ['x-opt-cost-stone=', civObj.cost.stone ] | join %}
+                                {% else %}
+                                {% set stone = null %}
+                                {% endif %}
+
+                                <option value="{{civKey}}" {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} >{{civKey}}</option>
+                              {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                        </select>
+                      </div>
+                  </div>
+                  <div class="multiplier-cont">
+                    <div x-unit-count-calc="minus" >-</div>
+                    <div x-unit-count="num">1</div>
+                    <div x-unit-count-calc="plus" >+</div>
+                  </div>
+                </div>
+                <div class="res-desc-cont">
+                  <div class="resource-cont">
+                  {% if unit.cost.food %}
+                      <div class="res-row" x-row-type="food">
+                        {% for item in order[0] %}
+                          <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <div class="resource-num" title="0">
+                              <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                                0
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                  {% endif %}
+
+                  {% if unit.cost.wood %}
+                      <div class="res-row" x-row-type="wood">
+                        {% for item in order[1] %}
+                          <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <div class="resource-num" title="0">
+                              <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                                0
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                  {% endif %}
+
+                  {% if unit.cost.gold %}
+                      <div class="res-row" x-row-type="gold">
+                        {% for item in order[2] %}
+                          <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <div class="resource-num" title="0">
+                              <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                                0
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                  {% endif %}
+
+                  {% if unit.cost.stone %}
+                      <div class="res-row" x-row-type="stone">
+                        {% for item in order[3] %}
+                          <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <div class="resource-num" title="0">
+                              <div x-sec="{{gatherRates[item.name].gatherRate}}">
+                                0
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                  {% endif %}
+                  </div>
+                  <div class="upgrades-cont">
+                        {% for key, obj  in unitVariety %}
+                          {% if unit.name == key and obj.upgrades %}
+                              {% for upKey, upObj  in obj.upgrades %}
+
+                                {% if upObj.trainTime %}
+                                {% set trainTime = ['x-train-time=', upObj.trainTime ] | join %}
+                                {% else %}
+                                {% set trainTime = null %}
+                                {% endif %}
+
+                                {% if upObj.trainTimePercent %}
+                                {% set percent = ['x-train-time-percent=', upObj.trainTimePercent ] | join %}
+                                {% else %}
+                                {% set percent = null %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.food %}
+                                {% set food = ['x-cost-food=', upObj.cost.food ] | join %}
+                                {% else %}
+                                {% set food = null %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.wood %}
+                                {% set wood = ['x-cost-wood=', upObj.cost.wood ] | join %}
+                                {% else %}
+                                {% set wood = null %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.gold %}
+                                {% set gold = ['x-cost-gold=', upObj.cost.gold ] | join %}
+                                {% else %}
+                                {% set gold = null %}
+                                {% endif %}
+
+                                {% if upObj.cost and upObj.cost.stone %}
+                                {% set stone = ['x-cost-stone=', upObj.cost.stone ] | join %}
+                                {% else %}
+                                {% set stone = null %}
+                                {% endif %}
+
+                                <div>
+                                  <div>
+                                    {{upKey}}
+                                  </div>
+                                  <!-- we need to replace the spaces with dashes otherwise it will split the string by space. eg. "eagle" scout=""  -->
+                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} />
+                                </div>
+                              {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div id="faq">
+          <h2>Frequently Asked Questions</h2>
+          <div id="questions">
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/up-arrow.png" class="small-photo">
+                    <img src="/img/feudal age.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many resources do my villagers collect on the way up to Feudal Age?</div>
+                    <div class="header-subtitle">Time: 130 seconds</div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource</th>
+                        <th>Per Villager</th>
+                        <th>Rate / Sec</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>Woodcutter</th>
+                      <td>53.3</td>
+                      <td>.41</td>
+                    </tr>
+                    <tr>
+                      <th>Farmer</th>
+                      <td>44.2</td>
+                      <td>.34</td>
+                    </tr>
+                    <tr>
+                      <th>Berries</th>
+                      <td>40.3</td>
+                      <td>.31</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/up-arrow.png" class="small-photo">
+                    <img src="/img/castle age.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many resources do my villagers collect on the way up to Castle Age?</div>
+                    <div class="header-subtitle">Time: 160 seconds</div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource</th>
+                        <th>Per Villager</th>
+                        <th>Feudal Upgrade</th>
+                        <th>Upgrade Rate / Sec</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>Woodcutter</th>
+                      <td>65.6</td>
+                      <td>78.4</td>
+                      <td>.49</td>
+                    </tr>
+                    <tr>
+                      <th>Farmer</th>
+                      <td>54.4</td>
+                      <td>60.8</td>
+                      <td>.34</td>
+                    </tr>
+                    <tr>
+                      <th>Gold Miner</th>
+                      <td>60.8</td>
+                      <td>70.4</td>
+                      <td>.44</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="card-wrapper">
+                <div class="card-header">
+                  <div class="header-left">
+                    <img src="/img/farmer.png" class="medium-photo">
+                    <img src="/img/lumber camp.png" class="medium-photo">
+                  </div>
+                  <div class="header-right">
+                    <div class="header-question">How many farms can a woodcutter reseed after they've depleted?</div>
+                    <div class="header-subtitle">DONT-WORRYBOUT-IT</div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <table class="card-table">
+                    <thead>
+                      <tr>
+                        <th>Resource Upgrades</th>
+                        <th>No Farm Upgrades</th>
+                        <th>Feudal Upgrades</th>
+                        <th>Castle Upgrades</th>
+                        <th>Crop Rotation (Imp)</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <th>No Wood Upgrade</th>
+                      <td class="light-green-background">3.432</td>
+                      <td>4.277</td>
+                      <td>5.968</td>
+                      <td>8.753</td>
+                    </tr>
+                    <tr>
+                      <th>Double-Bit Axe (Feudal)</th>
+                      <td>4.110</td>
+                      <td class="light-green-background">5.121</td>
+                      <td>7.147</td>
+                      <td>10.482</td>
+                    </tr>
+                    <tr>
+                      <th>Bow Saw (Castle)</th>
+                      <td>4.935</td>
+                      <td>6.149</td>
+                      <td class="light-green-background">8.581</td>
+                      <td>12.585</td>
+                    </tr>
+                    <tr>
+                      <th>Two-Man Saw (Imp)</th>
+                      <td>5.436</td>
+                      <td>6.773</td>
+                      <td>9.452</td>
+                      <td class="light-green-background">13.863</td>
+                    </tr>
+                  </table>
+                  <div class="card-copy">
+                    <p>Since farms take so long to deplete, you'll be spending wood income on other things
+                      in the meantime, so there's no reason to set aside wood to eventually use to
+                      reseed farms. The number of villagers on wood per farm ranges from
+                      0.333 (1 wood villager /3 farms) to 0.077 (1 wood villager /13 farms).
+                      These numbers are so small that you wouldn't realistically keep track of
+                      them in an actual game.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="footer">
+          <div>
+            <div>This app built by <a href="https://www.youtube.com/channel/UCmFJUeU8Oubp5Neldbq0JRA" target = "_blank">Survivalist</a></div>
+            <div>
+              Load time of the website optimized by <a style="color:blue" href="https://rafaj.dev/">rafaj.dev</a>
+            </div>
+          </div>
+        </div>
+  </body>
+</html>
