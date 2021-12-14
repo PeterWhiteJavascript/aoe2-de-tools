@@ -89,9 +89,9 @@ $(function(){
                 "stone shaft mining": 0.20
             },
             "Turks (Gold Miners)":{
-                "gold miner": 0.15,
-                "gold mining": 0.15,
-                "gold shaft mining": 0.15
+                "gold miner": 0.2,
+                "gold mining": 0.2,
+                "gold shaft mining": 0.2
             }
         },
         "team":{
