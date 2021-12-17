@@ -1,0 +1,45 @@
+[
+  [
+    {"name": "farmer", "show": true},
+    {"name": "farm heavy plow", "show": false},
+    {"name": "wheelbarrow", "show": true},
+    {"name": "wheelbarrow heavy plow", "show": false},
+    {"name": "hand cart", "show": true},
+    {"name": "hunter", "show": false},
+    {"name": "shepherd", "show": false},
+    {"name": "forager", "show": false},
+    {"name": "fisherman", "show": false},
+    {"name": "fishing ship shore", "show": false},
+    {"name": "fishing ship deep", "show": false},
+    {"name": "fishing ship shore gillnets", "show": false},
+    {"name": "fishing ship deep gillnets", "show": false},
+    {"name": "fish trap", "show": false},
+    {"name": "fish trap gillnets", "show": false},
+    {"name": "feitoria food", "show": false},
+    {"name": "relic food", "show": false}
+  ],
+  [
+    {"name": "lumberjack", "show": true},
+    {"name": "double-bit axe", "show": true},
+    {"name": "bow saw", "show": true},
+    {"name": "two-man saw", "show": false},
+    {"name": "feitoria wood", "show": false}
+  ],
+  [
+    {"name": "gold miner", "show": true},
+    {"name": "gold mining", "show": true},
+    {"name": "gold shaft mining", "show": false},
+    {"name": "relic", "show": false},
+    {"name": "trade cart", "show": false},
+    {"name": "feitoria gold", "show": false},
+    {"name": "gold from stone", "show": false},
+    {"name": "gold from stone mining", "show": false},
+    {"name": "gold from stone shaft", "show": false}
+  ],
+  [
+    {"name": "stone miner", "show": true},
+    {"name": "stone mining", "show": true},
+    {"name": "stone shaft mining", "show": false},
+    {"name": "feitoria stone", "show": false}
+  ]
+]
