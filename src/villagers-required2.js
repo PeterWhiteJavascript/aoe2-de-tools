@@ -1,6 +1,3 @@
-import { placeholder } from '/js/placeholder.js'
-import { finder, setUpGatherRates } from '/js/shared-es.js'
-import { hide, show, toggle, toggleCheckbox, int } from '/js/helpers.js'
 import { clickUnitBonusesHandler } from '/js/events/click-unit-bonuses-handlers.js'
 import { unitClickEventHandlers } from '/js/events/click-unit-event-handlers.js'
 import { resClickEventHandlers } from '/js/events/click-resource-event-handlers.js'
