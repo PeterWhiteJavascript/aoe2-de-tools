@@ -17,7 +17,7 @@
     "prestart": "npm run build",
     "start": "node app.js",
     "prebuild": "rm -rf public",
-    "build": "eleventy"
+    "build": "npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
