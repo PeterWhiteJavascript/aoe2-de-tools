@@ -29143,6 +29143,15 @@
             "trainTime": 200
         },
         {
+            "name": "feitoria",
+            "ageReq": 4,
+            "cost":{
+                "gold": 250,
+                "stone": 250
+            },
+            "trainTime": 120
+        },
+        {
             "name": "bombard tower",
             "ageReq": 4,
             "cost":{

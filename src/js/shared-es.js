@@ -27,22 +27,22 @@ const toggleUnit = (unit) => {
 const showTotalResourceVisible = ({ food, wood, gold, stone }) => {
   const resourceRow = (type) =>
     document.querySelector(`#vil-totals .res-row[x-row-type="${type}"]`)
-  if (food) {
+  if (food >= 0) {
     show(resourceRow('food'))
   } else {
     hide(resourceRow('food'))
   }
-  if (wood) {
+  if (wood >= 0) {
     show(resourceRow('wood'))
   } else {
     hide(resourceRow('wood'))
   }
-  if (gold) {
+  if (gold >= 0) {
     show(resourceRow('gold'))
   } else {
     hide(resourceRow('gold'))
   }
-  if (stone) {
+  if (stone >= 0) {
     show(resourceRow('stone'))
   } else {
     hide(resourceRow('stone'))
