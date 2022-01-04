@@ -1,5 +1,5 @@
 $(function(){
-$.getJSON('data.json', function(data) {
+$.getJSON('/data.json', function(data) {
    
     
     
@@ -21,7 +21,7 @@ $.getJSON('data.json', function(data) {
     let relevantUpgrades = data.relevantUpgrades;
     
     data.civilizations.forEach((civ, i) => {
-        $("#civ-conts").append("<div class='civ-cont' civid='"+i+"'><img src='img/civicon-"+(civ.name.toLowerCase())+".png'><div>"+civ.name+"</div></div>");
+        $("#civ-conts").append("<div class='civ-cont' civid='"+i+"'><img src='/img/civicon-"+(civ.name.toLowerCase())+".png'><div>"+civ.name+"</div></div>");
         
     });
     
@@ -47,13 +47,13 @@ $.getJSON('data.json', function(data) {
         let civ = data.civilizations[parseInt($(e.currentTarget).attr("civid"))];
         console.log("You've selected civ #" + (parseInt($(e.currentTarget).attr("civid")) + 1)+", "+civ.name);
         $("#civ-title").text(civ.name);
-        $("#civ-emblem").children("img").attr("src", "img/civicon-"+(civ.name.toLowerCase())+".png");
+        $("#civ-emblem").children("img").attr("src", "/img/civicon-"+(civ.name.toLowerCase())+".png");
         let buildings = Object.keys(civ.ranks);
         
         for(let i = 0; i < buildings.length; i++){
             let units = Object.keys(civ.ranks[buildings[i]]);
             let row = $("<div class='row'></div>");
-            row.append("<div class='building'>"+"<div><img src='img/"+buildings[i]+".png'></div>"+"</div>");
+            row.append("<div class='building'>"+"<div><img src='/img/"+buildings[i]+".png'></div>"+"</div>");
             let unitrow = $("<div class='unit-row'></div>");
             let buildingRanks = [];
             
@@ -74,7 +74,7 @@ $.getJSON('data.json', function(data) {
                     rankValues.unshift("medium");
                 }
                 let unitdiv = $("<div class='unit-div' unit='"+unit+"'></div>");
-                unitdiv.append("<div class='unit'>"+"<img src='img/"+unit+".png'>"+"</div>");
+                unitdiv.append("<div class='unit'>"+"<img src='/img/"+unit+".png'>"+"</div>");
                 
                 ranks.forEach((r, k) => {
                     let str = r;
@@ -123,13 +123,13 @@ $.getJSON('data.json', function(data) {
                             locked = !finder(civ.techTree[data.upgradeBuilding[up]].upgrades, up).available;
                             
                         }
-                        let img = $("<div class='relevant-img'><img src='img/"+up+".png'></div>");
+                        let img = $("<div class='relevant-img'><img src='/img/"+up+".png'></div>");
                         if(locked) img.addClass("upgrade-locked");
                         upgradesDiv.children(".relative-upgrades").append(img);
                     });
                     uniqueUps.forEach((affectsUnit, i) => {
                         if(affectsUnit){
-                            upgradesDiv.children(".relative-upgrades").append("<div class='relevant-img'><img src='img/"+civ.ranksUnique[i][0]+".png'></div>");
+                            upgradesDiv.children(".relative-upgrades").append("<div class='relevant-img'><img src='/img/"+civ.ranksUnique[i][0]+".png'></div>");
                         }
                     });
                     if(upgradesDiv.children(".relative-upgrades").children(".relevant-img").length > 7){
@@ -222,7 +222,7 @@ $.getJSON('data.json', function(data) {
                    
         let bsmithdiv = $("<div class='desc-cont'></div>");
         bsmithUps.forEach((u) => {
-            bsmithdiv.append("<div class='desc-img'><img src='img/"+u+".png'></div>");
+            bsmithdiv.append("<div class='desc-img'><img src='/img/"+u+".png'></div>");
         });
         $("#civ-available-techs").append("<div class='header'>Blacksmith</div>");
         $("#civ-available-techs").append(bsmithdiv);
@@ -260,7 +260,7 @@ $.getJSON('data.json', function(data) {
             }
             let row = $("<div class='desc-cont'></div>");
             u.forEach((a) => {
-                let img = $("<div class='desc-img'><img src='img/"+a+".png'></div>");
+                let img = $("<div class='desc-img'><img src='/img/"+a+".png'></div>");
                 if(!finder(upsList, a).available) img.children("img").addClass("upgrade-locked");
                 row.append(img);
                 if(row.children(".desc-img").length === 5){
