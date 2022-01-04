@@ -27866,7 +27866,7 @@
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 9
+            "trainTime": 12
         },
         {
             "name": "organ gun",
@@ -28971,7 +28971,7 @@
             "name": "palisade wall",
             "ageReq": 1,
             "cost":{
-                "wood": 2
+                "wood": 3
             },
             "armorClasses": [[11, 0], [21, 0], [22, 0]],
             "hp": 250,

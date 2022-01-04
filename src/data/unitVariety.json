@@ -1310,6 +1310,15 @@
       }
     }
   },
+  "feitoria": {
+    "civs": {},
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
   "palisade wall": {
     "civs": {
       "Spanish Civ Bonus": {
@@ -1490,6 +1499,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Elite Berserk":{
+        "trainTime": 12,
+        "img": "elite berserk"
       }
     }
   },
@@ -1797,6 +1810,19 @@
         "trainTime": 14,
         "img": "elite keshik"
       },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "flaming camel":{
+    "civs": {},
+    "upgrades": {
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
