@@ -6201,7 +6201,7 @@
                     "heavy cavalry archer": [1.5, 1]
                 },
                 "stable":{
-                    "hussar":[2, 2, 1.5],
+                    "hussar":[2, 2, 2],
                     "paladin":[2, 1.5]
                 },
                 "siege workshop":{
@@ -26166,7 +26166,7 @@
                   "upgrades": [
                     {
                       "name": "thumb ring",
-                      "available": true
+                      "available": false
                     },
                     {
                       "name": "parthian tactics",
