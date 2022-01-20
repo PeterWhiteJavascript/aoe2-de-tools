@@ -203,7 +203,12 @@ export const unitCalc = (el, calculation) => {
         `.unit-container:not([style]) .resource-cont [x-row-type="${type}"]`
       )
     ).map((unitRow) => {
-      resVisible[type] = true
+      Array.from(document.querySelectorAll(`.unit-show-img.showing-img`)).map(
+        (it) => {
+          const xRes = it.getAttribute(`x-${type}`)
+          if (xRes && xRes !== '0') resVisible[type] = true
+        }
+      )
       return Array.from(
         unitRow.querySelectorAll('.resource[type-resource] .resource-num')
       ).map((resource) => {

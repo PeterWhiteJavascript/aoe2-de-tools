@@ -1,4 +1,4 @@
-import { toggleCheckbox, int } from '/js/helpers.js'
+import { toggleCheckbox, int, hide, show } from '/js/helpers.js'
 import { unitCalc, fwgs } from '/js/shared-es.js'
 import { calculateCivilizationBonusOnUnit } from '/js/events/change-unit-civilization-selection-handlers.js'
 
@@ -13,7 +13,7 @@ export const setResAttribute =
     const operator = res.slice(0, 1)
     const base = int(elem.getAttribute(`x-${type}`)) // x-food for example
 
-    if (base) {
+    if (base || base === 0) {
       // case "0.2" // 20% cheaper
       if (operator === '0') {
         elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
@@ -60,6 +60,35 @@ const swapImageIfPresent = ({ input, unit }) => {
 export const setResToBaseValue = (elem) => (type) => {
   if (elem.hasAttribute(`x-base-${type}`))
     elem.setAttribute(`x-${type}`, elem.getAttribute(`x-base-${type}`))
+}
+
+const hideThingsIfUnitPriceIsZero = (unitFrom, unitTo) => {
+  const showHideUnitResourceForUnit = (unit) => (resource) => {
+    const res = unitFrom.getAttribute(`x-${resource}`)
+    if (res || res === '0')
+      Array.from(
+        document.querySelectorAll(
+          `[x-unit="${unit}"] [x-row-type="${resource}"]`
+        )
+      ).map((it) => {
+        if (res === '0') hide(it)
+        else show(it)
+      })
+  }
+
+  const showHideUnitResourcePriceForUnit = (unit) => (resource) => {
+    Array.from(
+      document.querySelectorAll(
+        `[x-unit="${unit}"] .res-cont[title="${resource}"]`
+      )
+    ).map((it) => {
+      if (it.querySelector('div').innerText === '0') hide(it)
+      else show(it)
+    })
+  }
+  const unit = unitFrom.getAttribute('unit')
+  fwgs.map(showHideUnitResourceForUnit(unit))
+  fwgs.map(showHideUnitResourcePriceForUnit(unit))
 }
 
 const updateUnitResourceInfo = (unitInfoFrom, unitInfoTo) => {
@@ -136,6 +165,7 @@ export const calculateBonusesOnUnit = (option) => (target) => {
   updateUnitResourceInfo(unitStatsBox, unitBox)
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
   unitCalc(unitStatsBox, 'recalc')
+  hideThingsIfUnitPriceIsZero(unitStatsBox, unitBox)
 }
 
 export const clickUnitBonusesHandler = (event) => {
