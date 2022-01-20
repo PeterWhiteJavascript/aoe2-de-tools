@@ -157,7 +157,7 @@ export const calculateBonusesOnUnit = (option) => (target) => {
   })
 
   // reset timer on unit info
-  unitBox.querySelector('.time-cont div').innerText = Math.ceil(tempTrainTime)
+  unitBox.querySelector('.time-cont div').innerText = tempTrainTime.toFixed(2)
 
   if (!priceChanged) {
     fwgs.map(setResToBaseValue)
