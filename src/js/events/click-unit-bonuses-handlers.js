@@ -1,4 +1,4 @@
-import { toggleCheckbox, int, hide, show } from '/js/helpers.js'
+import { toggleCheckbox, int, hide, show, isInt } from '/js/helpers.js'
 import { unitCalc, fwgs } from '/js/shared-es.js'
 import { calculateCivilizationBonusOnUnit } from '/js/events/change-unit-civilization-selection-handlers.js'
 
@@ -157,7 +157,9 @@ export const calculateBonusesOnUnit = (option) => (target) => {
   })
 
   // reset timer on unit info
-  unitBox.querySelector('.time-cont div').innerText = tempTrainTime.toFixed(2)
+  unitBox.querySelector('.time-cont div').innerText = isInt(tempTrainTime)
+    ? Math.ceil(tempTrainTime)
+    : tempTrainTime.toFixed(2)
 
   if (!priceChanged) {
     fwgs.map(setResToBaseValue)

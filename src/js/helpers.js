@@ -55,3 +55,8 @@ export const hide = (it) => {
 
 // int :: String -> Int | null
 export const int = (i) => parseInt(i, 10)
+
+// isInt :: Number -> Boolean
+export const isInt = (n) => {
+  return n % 1 === 0
+}
