@@ -100,21 +100,19 @@ const updateUnitResourceInfo = (unitInfoFrom, unitInfoTo) => {
   }
   fwgs.map(updateResource)
 }
-export const calculateBonusesOnUnit = (option) => (target) => {
-  let { priceChanged, tempTrainTime } = Object.assign(
-    {
-      priceChanged: false,
-    },
-    option // override defaults
-  )
-
+export const calculateBonusesOnUnit = (target) => {
   const unitBox = target.closest('.unit-container[x-unit]')
   const unit = unitBox.getAttribute('x-unit')
-  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
-  // set defaults
 
+  const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
   const setUnitResourceAttributes = setResAttribute(unitStatsBox)
   const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
+
+  const baseTraintime = parseFloat(
+    unitStatsBox.getAttribute('x-base-train-time')
+  )
+  let tempTrainTime = baseTraintime
+  let priceChanged = false
 
   swapImageIfPresent({ input: target, unit })
 
@@ -140,89 +138,44 @@ export const calculateBonusesOnUnit = (option) => (target) => {
     if (food) {
       priceChanged = true
       setUnitResourceAttributes({ type: 'food', res: food })
+    } else {
+      setResourceToBaseValue('food')
     }
     if (wood) {
       priceChanged = true
       setUnitResourceAttributes({ type: 'wood', res: wood })
+    } else {
+      setResourceToBaseValue('wood')
     }
     if (gold) {
       priceChanged = true
       setUnitResourceAttributes({ type: 'gold', res: gold })
+    } else {
+      setResourceToBaseValue('gold')
     }
     if (stone) {
       priceChanged = true
       setUnitResourceAttributes({ type: 'stone', res: stone })
+    } else {
+      setResourceToBaseValue('stone')
     }
   })
-
-  // reset timer on unit info
-  unitBox.querySelector('.time-cont div').innerText = isInt(tempTrainTime)
-    ? Math.ceil(tempTrainTime)
-    : tempTrainTime.toFixed(2)
-
-  if (!priceChanged) {
-    fwgs.map(setResToBaseValue)
-  }
-  updateUnitResourceInfo(unitStatsBox, unitBox)
-  unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
-  unitCalc(unitStatsBox, 'recalc')
-  hideThingsIfUnitPriceIsZero(unitStatsBox, unitBox)
+  return { tempTrainTime, priceChanged }
 }
 
-export const calculateBonusesOnUnit2 = (option) => (target) => {
+export const asignNewValuesToUnit = (option) => (target) => {
   let { priceChanged, tempTrainTime } = Object.assign(
     {
       priceChanged: false,
     },
     option // override defaults
   )
-
   const unitBox = target.closest('.unit-container[x-unit]')
   const unit = unitBox.getAttribute('x-unit')
+
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
-  // set defaults
-
-  const setUnitResourceAttributes = setResAttribute(unitStatsBox)
+  // const setUnitResourceAttributes = setResAttribute(unitStatsBox)
   const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
-
-  swapImageIfPresent({ input: target, unit })
-
-  Array.from(
-    document.querySelectorAll(
-      `#gather-rates .unit-container[x-unit="${unit}"] input:checked`
-    )
-  ).map((it) => {
-    const trainTime = it.getAttribute('x-train-time')
-    const percent = it.getAttribute('x-train-time-percent')
-    if (trainTime) {
-      if (percent && percent === 'true') {
-        tempTrainTime = tempTrainTime / parseFloat(trainTime)
-      } else {
-        tempTrainTime = parseFloat(trainTime)
-      }
-    }
-
-    const food = it.getAttribute('x-cost-food')
-    const wood = it.getAttribute('x-cost-wood')
-    const gold = it.getAttribute('x-cost-gold')
-    const stone = it.getAttribute('x-cost-stone')
-    if (food) {
-      priceChanged = true
-      setUnitResourceAttributes({ type: 'food', res: food })
-    }
-    if (wood) {
-      priceChanged = true
-      setUnitResourceAttributes({ type: 'wood', res: wood })
-    }
-    if (gold) {
-      priceChanged = true
-      setUnitResourceAttributes({ type: 'gold', res: gold })
-    }
-    if (stone) {
-      priceChanged = true
-      setUnitResourceAttributes({ type: 'stone', res: stone })
-    }
-  })
 
   // reset timer on unit info
   unitBox.querySelector('.time-cont div').innerText = isInt(tempTrainTime)
@@ -230,7 +183,7 @@ export const calculateBonusesOnUnit2 = (option) => (target) => {
     : tempTrainTime.toFixed(2)
 
   if (!priceChanged) {
-    fwgs.map(setResToBaseValue)
+    fwgs.map(setResourceToBaseValue)
   }
   updateUnitResourceInfo(unitStatsBox, unitBox)
   unitStatsBox.setAttribute('x-train-time', tempTrainTime.toFixed(2))
@@ -241,6 +194,7 @@ export const calculateBonusesOnUnit2 = (option) => (target) => {
 export const clickUnitBonusesHandler = (event) => {
   if (!event.target.matches('input[x-upgrade-unit]')) return
   toggleCheckbox(event.target)
-  const obj = calculateCivilizationBonusOnUnit(event.target)
-  calculateBonusesOnUnit(obj)(event.target)
+  const obj = calculateBonusesOnUnit(event.target)
+  const opt = calculateCivilizationBonusOnUnit(obj)(event.target)
+  asignNewValuesToUnit(opt)(event.target)
 }
