@@ -1,6 +1,7 @@
 import { int, changeSelection } from '/js/helpers.js'
 import {
   calculateBonusesOnUnit,
+  asignNewValuesToUnit,
   setResToBaseValue,
 } from '/js/events/click-unit-bonuses-handlers.js'
 
@@ -31,19 +32,19 @@ export const setResAttributeCiv =
     }
   }
 
-export const calculateCivilizationBonusOnUnit = (target) => {
+export const calculateCivilizationBonusOnUnit = (option) => (target) => {
+  let { priceChanged, tempTrainTime } = Object.assign(
+    {
+      priceChanged: false,
+    },
+    option // override defaults
+  )
+
   const unitBox = target.closest('.unit-container[x-unit]')
   const unit = unitBox.getAttribute('x-unit')
 
   const unitStatsBox = document.querySelector(`[unit="${unit}"]`)
   const setUnitResourceAttributes = setResAttributeCiv(unitStatsBox)
-  const setResourceToBaseValue = setResToBaseValue(unitStatsBox)
-
-  const baseTraintime = parseFloat(
-    unitStatsBox.getAttribute('x-base-train-time')
-  )
-  let tempTrainTime = baseTraintime
-  let priceChanged = false
 
   const selectElem = document.querySelector(
     `#gather-rates .unit-container[x-unit="${unit}"] select[unit-option="civilization"]`
@@ -69,26 +70,18 @@ export const calculateCivilizationBonusOnUnit = (target) => {
   if (food) {
     priceChanged = true
     setUnitResourceAttributes({ type: 'food', res: food })
-  } else {
-    setResourceToBaseValue('food')
   }
   if (wood) {
     priceChanged = true
     setUnitResourceAttributes({ type: 'wood', res: wood })
-  } else {
-    setResourceToBaseValue('wood')
   }
   if (gold) {
     priceChanged = true
     setUnitResourceAttributes({ type: 'gold', res: gold })
-  } else {
-    setResourceToBaseValue('gold')
   }
   if (stone) {
     priceChanged = true
     setUnitResourceAttributes({ type: 'stone', res: stone })
-  } else {
-    setResourceToBaseValue('stone')
   }
   return { tempTrainTime, priceChanged }
 }
@@ -98,8 +91,9 @@ export const unitCivChangeSelectionHandlers = (event) => {
   let option = event.target.querySelector(`[value="${event.target.value}"]`)
   if (!option) option = event.target.firstElementChild
   changeSelection(event.target, option)
-  // apply civ bonuses
-  const obj = calculateCivilizationBonusOnUnit(option)
   // apply input bonuses
-  calculateBonusesOnUnit(obj)(event.target) // make sure to applie input checked bonuses as well
+  const obj = calculateBonusesOnUnit(event.target) // make sure to applie input checked bonuses as well
+  // apply civ bonuses
+  const opt = calculateCivilizationBonusOnUnit(obj)(option)
+  asignNewValuesToUnit(opt)(event.target)
 }
