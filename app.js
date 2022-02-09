@@ -1,8 +1,12 @@
 const path = require('path')
 const express = require('express')
+const compression = require('compression')
 const app = express()
 const server = require('http').Server(app)
 var dir = path.join(__dirname, 'public')
+
+app.use(compression())
+
 app.use('/villagers-required.html', (req, res) => {
   res.redirect('/villagers-required/')
 })
@@ -20,5 +24,7 @@ app.use('/wood-calc.html', (req, res) => {
 })
 
 app.use(express.static(dir))
-server.listen(process.env.PORT || 5000)
-console.log('Multiplayer app listening on port 5000')
+
+const port = process.env.PORT || 5000
+server.listen(port)
+console.log(`AOE2: DE tools app listening on port ${port}`)
