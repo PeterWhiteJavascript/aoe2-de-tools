@@ -43,13 +43,13 @@ const swapImageIfPresent = ({ input, unit }) => {
         const swap = it.getAttribute('x-img-swap')
         Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map(
           (img) => {
-            img.src = `/img/${swap.replace(/-/g, ' ')}.png` // replace all dashes with spaces
+            img.src = `/img/${swap.replace(/-/g, ' ')}.webp` // replace all dashes with spaces
           }
         )
       })
     } else {
       Array.from(document.querySelectorAll(`img[alt="${unit}"]`)).map((img) => {
-        img.src = `/img/${unit}.png`
+        img.src = `/img/${unit}.webp`
       })
     }
   }

@@ -86,7 +86,7 @@ $(function () {
               unitGrid[i][j] +
               '" src="/img/' +
               unitGrid[i][j] +
-              '.png">'
+              '.webp">'
           )
           img.on('mousedown', function () {
             let unitClassNum = grid
@@ -354,7 +354,7 @@ $(function () {
               }
             }
             if (locked > 0) {
-              portraitCont[0].src = '/img/' + upgradeData.name + '.png'
+              portraitCont[0].src = '/img/' + upgradeData.name + '.webp'
               unitData.unitClass = upgradeData.name
             } else {
               let unlocked = elm
@@ -365,7 +365,7 @@ $(function () {
               let portraitURL =
                 $(unlocked[unlocked.length - 1]).attr('upgrade') ||
                 unitData.name
-              portraitCont[0].src = '/img/' + portraitURL + '.png'
+              portraitCont[0].src = '/img/' + portraitURL + '.webp'
               unitData.unitClass = portraitURL
             }
           }
@@ -558,7 +558,7 @@ $(function () {
           let icon = $(
             '<img class="icon upgrade-icon upgrade-locked" src="/img/' +
               name +
-              '.png" upgrade="' +
+              '.webp" upgrade="' +
               techData[i][j].name +
               '">'
           )
@@ -624,14 +624,14 @@ $(function () {
       )
       let ages = $(
         '<div>\n\
-                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/dark age.png">\n\
-                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/feudal age.png" upgrade="feudal age ' +
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/dark age.webp">\n\
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/feudal age.webp" upgrade="feudal age ' +
           combatantData.name +
           '">\n\
-                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/castle age.png" upgrade="castle age ' +
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/castle age.webp" upgrade="castle age ' +
           combatantData.name +
           '">\n\
-                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/imperial age.png" upgrade="imperial age ' +
+                            <img class="icon age-icon upgrade-icon upgrade-locked" src="/img/imperial age.webp" upgrade="imperial age ' +
           combatantData.name +
           '">\n\
                         </div>'
@@ -639,7 +639,7 @@ $(function () {
       ages.children('.icon').click(changeAge)
 
       let elevationCont = $(
-        "<div><img class='icon icon-elevation upgrade-locked' src='/img/elevation low.png'><img class='icon icon-elevation' src='/img/elevation neutral.png'><img class='icon icon-elevation upgrade-locked' src='/img/elevation high.png'></div>"
+        "<div><img class='icon icon-elevation upgrade-locked' src='/img/elevation low.webp'><img class='icon icon-elevation' src='/img/elevation neutral.webp'><img class='icon icon-elevation upgrade-locked' src='/img/elevation high.webp'></div>"
       )
       elevationCont.children('.icon').click(function () {
         if ($(this).hasClass('upgrade-locked')) {
@@ -658,7 +658,7 @@ $(function () {
         '<div>\n\
                             <img class="icon-big" src="img/' +
         data.name +
-        '.png">\n\
+        '.webp">\n\
                         </div>'
       let primaryAtk =
         (combatantData.mAtk || 0) > (combatantData.pAtk || 0) ? 'mAtk' : 'pAtk'
