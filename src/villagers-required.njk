@@ -37,7 +37,7 @@
             {% for item in orderItem %}
               {% set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
               <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec-base="{{gatherRates[item.name].gatherRate}}" res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
-                <img src='/img/{{gatherRates[item.name].img or item.name }}.png' class='icon-big'>
+                <img src='/img/{{gatherRates[item.name].img or item.name }}.webp' class='icon-big'>
                 <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
               </div>
             {% endfor %}
@@ -62,7 +62,7 @@
                      x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
                      {{ food if dataUnit.cost.food is not undefined }}  {{ wood if dataUnit.cost.wood is not undefined }} {{ gold if dataUnit.cost.gold is not undefined }} {{ stone if dataUnit.cost.stone is not undefined }}
                      {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
-                  <img src="/img/{{unit}}.png" alt="{{unit}}" />
+                  <img src="/img/{{unit}}.webp" alt="{{unit}}" />
                 </div>
               {% endif %}
             {% endfor %}
@@ -85,7 +85,7 @@
                     {% endif %}
                     {% for item in orderItem %}
                     <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
-                      <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                      <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                       <div class="resource-num" title="0">
                         <div x-sec="{{gatherRates[item.name].gatherRate}}">
                           0
@@ -105,7 +105,7 @@
                       1
                     </div>
                   </div>
-                  <img src="/img/{{unit.name}}.png" alt="{{unit.name}}" />
+                  <img src="/img/{{unit.name}}.webp" alt="{{unit.name}}" />
                 </div>
             {% endfor %}
             </div>
@@ -120,7 +120,7 @@
                     {% else %}
                     <div class="res-cont" title="food" style="display: none;">
                     {% endif %}
-                      <img src="/img/food-icon.png" alt="food" />
+                      <img src="/img/food-icon.webp" alt="food" />
                       <div>
                         {{unit.cost.food}}
                       </div>
@@ -132,7 +132,7 @@
                     {% else %}
                     <div class="res-cont" title="wood" style="display: none;">
                     {% endif %}
-                      <img src="/img/wood-icon.png" alt="wood" />
+                      <img src="/img/wood-icon.webp" alt="wood" />
                       <div>
                         {{unit.cost.wood}}
                       </div>
@@ -144,7 +144,7 @@
                     {% else %}
                     <div class="res-cont" title="gold" style="display: none;">
                     {% endif %}
-                      <img src="/img/gold-icon.png" alt="gold" />
+                      <img src="/img/gold-icon.webp" alt="gold" />
                       <div>
                         {{unit.cost.gold}}
                       </div>
@@ -156,17 +156,17 @@
                     {% else %}
                     <div class="res-cont" title="stone" style="display: none;">
                     {% endif %}
-                      <img src="/img/stone-icon.png" alt="stone" />
+                      <img src="/img/stone-icon.webp" alt="stone" />
                       <div>
                         {{unit.cost.stone}}
                       </div>
                     </div>
                   {% endif %}
                   <div class="time-cont">
-                    <img src="/img/hourglass-icon.png">
+                    <img src="/img/hourglass-icon.webp">
                     <div>{{unit.trainTime}}</div>
                   </div>
-                  <div class="unit-class"><img src="/img/{{unit.name}}.png" alt="{{unit.name}}" title="{{unit.name}}"></div>
+                  <div class="unit-class"><img src="/img/{{unit.name}}.webp" alt="{{unit.name}}" title="{{unit.name}}"></div>
                   <div class="upgrade-cont">
                       <div>
                         Civilization
@@ -234,7 +234,7 @@
                     {% endif %}
                         {% for item in order[0] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
-                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
                               <div x-sec="{{gatherRates[item.name].gatherRate}}">
                                 0
@@ -253,7 +253,7 @@
                     {% endif %}
                         {% for item in order[1] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
-                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
                               <div x-sec="{{gatherRates[item.name].gatherRate}}">
                                 0
@@ -272,7 +272,7 @@
                     {% endif %}
                         {% for item in order[2] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
-                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
                               <div x-sec="{{gatherRates[item.name].gatherRate}}">
                                 0
@@ -291,7 +291,7 @@
                     {% endif %}
                         {% for item in order[3] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
-                            <img src='/img/{{gatherRates[item.name].img or item.name}}.png' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
+                            <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
                               <div x-sec="{{gatherRates[item.name].gatherRate}}">
                                 0
@@ -367,8 +367,8 @@
               <div class="card-wrapper">
                 <div class="card-header">
                   <div class="header-left">
-                    <img src="/img/up-arrow.png" class="small-photo">
-                    <img src="/img/feudal age.png" class="medium-photo">
+                    <img src="/img/up-arrow.webp" class="small-photo">
+                    <img src="/img/feudal age.webp" class="medium-photo">
                   </div>
                   <div class="header-right">
                     <div class="header-question">How many resources do my villagers collect on the way up to Feudal Age?</div>
@@ -408,8 +408,8 @@
               <div class="card-wrapper">
                 <div class="card-header">
                   <div class="header-left">
-                    <img src="/img/up-arrow.png" class="small-photo">
-                    <img src="/img/castle age.png" class="medium-photo">
+                    <img src="/img/up-arrow.webp" class="small-photo">
+                    <img src="/img/castle age.webp" class="medium-photo">
                   </div>
                   <div class="header-right">
                     <div class="header-question">How many resources do my villagers collect on the way up to Castle Age?</div>
@@ -452,8 +452,8 @@
               <div class="card-wrapper">
                 <div class="card-header">
                   <div class="header-left">
-                    <img src="/img/farmer.png" class="medium-photo">
-                    <img src="/img/lumber camp.png" class="medium-photo">
+                    <img src="/img/farmer.webp" class="medium-photo">
+                    <img src="/img/lumber camp.webp" class="medium-photo">
                   </div>
                   <div class="header-right">
                     <div class="header-question">How many farms can a woodcutter reseed after they've depleted?</div>

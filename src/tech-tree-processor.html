@@ -28,7 +28,7 @@ and open the template in the editor.
                     let name = $(item).children("a").attr("title");
                     if(name){
                         let availStr = $($(item).children("a").children("img")[0]).attr("data-image-name");
-                        let word = "unavailable.png";
+                        let word = "unavailable.webp";
                         let available = !availStr.includes(word);
                         unitsAndTechs.push({name: name, available: available}); 
                     }
