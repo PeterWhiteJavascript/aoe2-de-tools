@@ -1,7 +1,3 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js', {scope: '/'});
-}
-
 function finder(arr, name){
     return arr.find((e) => {return e.name === name;});
 }
@@ -9,9 +5,9 @@ function civHasUpgrade(techTree, upgradeName, building){
     if(building){
         return finder(techTree[building].upgrades, upgradeName).available;
     } else {
-
+        
     }
-
+    
 }
 function setUpGatherRates(data){
     let gatherRates = data.units[0].gathering;
@@ -20,7 +16,7 @@ function setUpGatherRates(data){
     gatherRates["wheelbarrow"] = {res: "food", gatherRate: 23.03 / 60};
     gatherRates["wheelbarrow heavy plow"] = {res: "food", gatherRate: 23.16 / 60};
     gatherRates["hand cart"] = {res: "food", gatherRate: 24 / 60};
-
+    
     gatherRates["fishing ship shore"] = {res: "food", gatherRate: 0.28};
     gatherRates["fishing ship deep"] = {res: "food", gatherRate: 0.49};
     gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2))};
@@ -28,29 +24,29 @@ function setUpGatherRates(data){
     gatherRates["fish trap"] = {res: "food", gatherRate: 0.35};
     gatherRates["fish trap gillnets"] = {res: "food", gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2))};
     gatherRates["double-bit axe"] = {
-        res: "wood", gatherRate:
+        res: "wood", gatherRate: 
             parseFloat(
             (
-            gatherRates.lumberjack.gatherRate *
+            gatherRates.lumberjack.gatherRate * 
             parseFloat(finder(data.upgrades, "double-bit axe").effects.gatherRate[1].substr(1))
             ).toFixed(2)
             )
     };
     gatherRates["bow saw"] = {
-        res: "wood", gatherRate:
+        res: "wood", gatherRate: 
             parseFloat(
             (
-            gatherRates.lumberjack.gatherRate *
+            gatherRates.lumberjack.gatherRate * 
             parseFloat(finder(data.upgrades, "double-bit axe").effects.gatherRate[1].substr(1)) *
             parseFloat(finder(data.upgrades, "bow saw").effects.gatherRate[1].substr(1))
             ).toFixed(2)
             )
     };
     gatherRates["two-man saw"] = {
-        res: "wood", gatherRate:
+        res: "wood", gatherRate: 
             parseFloat(
             (
-            gatherRates.lumberjack.gatherRate *
+            gatherRates.lumberjack.gatherRate * 
             parseFloat(finder(data.upgrades, "double-bit axe").effects.gatherRate[1].substr(1)) *
             parseFloat(finder(data.upgrades, "bow saw").effects.gatherRate[1].substr(1)) *
             parseFloat(finder(data.upgrades, "two-man saw").effects.gatherRate[1].substr(1))
@@ -58,19 +54,19 @@ function setUpGatherRates(data){
             )
     };
     gatherRates["gold mining"] = {
-        res: "gold", gatherRate:
+        res: "gold", gatherRate: 
             parseFloat(
             (
-            gatherRates["gold miner"].gatherRate *
+            gatherRates["gold miner"].gatherRate * 
             parseFloat(finder(data.upgrades, "gold mining").effects.gatherRate[1].substr(1))
             ).toFixed(2)
             )
     };
     gatherRates["gold shaft mining"] = {
-        res: "gold", gatherRate:
+        res: "gold", gatherRate: 
             parseFloat(
             (
-            gatherRates["gold miner"].gatherRate *
+            gatherRates["gold miner"].gatherRate * 
             parseFloat(finder(data.upgrades, "gold mining").effects.gatherRate[1].substr(1)) *
             parseFloat(finder(data.upgrades, "gold shaft mining").effects.gatherRate[1].substr(1))
             ).toFixed(2)
@@ -83,19 +79,19 @@ function setUpGatherRates(data){
         res: "food", gatherRate: 0.5
     };
     gatherRates["stone mining"] = {
-        res: "stone", gatherRate:
+        res: "stone", gatherRate: 
             parseFloat(
             (
-            gatherRates["stone miner"].gatherRate *
+            gatherRates["stone miner"].gatherRate * 
             parseFloat(finder(data.upgrades, "stone mining").effects.gatherRate[1].substr(1))
             ).toFixed(2)
             )
     };
     gatherRates["stone shaft mining"] = {
-        res: "stone", gatherRate:
+        res: "stone", gatherRate: 
             parseFloat(
             (
-            gatherRates["stone miner"].gatherRate *
+            gatherRates["stone miner"].gatherRate * 
             parseFloat(finder(data.upgrades, "stone mining").effects.gatherRate[1].substr(1)) *
             parseFloat(finder(data.upgrades, "stone shaft mining").effects.gatherRate[1].substr(1))
             ).toFixed(2)

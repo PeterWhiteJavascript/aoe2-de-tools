@@ -9,7 +9,6 @@ and open the template in the editor.
         <title>Tool for processing data from aoe fandom</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#ead13d" />
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="/js/shared.js"></script>
@@ -31,14 +30,14 @@ and open the template in the editor.
                         let availStr = $($(item).children("a").children("img")[0]).attr("data-image-name");
                         let word = "unavailable.webp";
                         let available = !availStr.includes(word);
-                        unitsAndTechs.push({name: name, available: available});
+                        unitsAndTechs.push({name: name, available: available}); 
                     }
                 });
               });
 
               techTree[building] = unitsAndTechs;
             });
-
+            
             delete techTree.House;
             delete techTree["Dark Age"];
             //Fix some specific things
@@ -61,7 +60,7 @@ and open the template in the editor.
                         if(tech){
                             if(tech === "heavy " + unit.name) allUnits["heavy " + unit.name] = true;
                             if(tech === "elite " + unit.name) allUnits["elite " + unit.name] = true ;
-                        }
+                        } 
                     }
                 });
                 let groups = ["militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour", "scout cavalry", "knight", "camel rider", "battle elephant", "steppe lancer", "ram", "mangonel", "scorpion", "fire galley", "galley", "demolition raft"];
@@ -72,7 +71,7 @@ and open the template in the editor.
                     });
                 });
             });
-
+            
             function doIt(techTree){
                 let buildings = Object.keys(techTree);
                 let processed = {};
@@ -82,7 +81,7 @@ and open the template in the editor.
                         units: [],
                         upgrades: []
                     };
-
+                    
                     for(let i = 0; i < building.length; i++){
                         building[i].name = building[i].name.toLowerCase();
                         let found = allUnits[building[i].name];
@@ -95,14 +94,12 @@ and open the template in the editor.
                     processed[b.toLowerCase()] = sorted;
                 });
                 console.log(processed);
-
+            
             }
-
+            
         </script>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/img/logo/192x192.png" />
     </head>
     <body>
-
+        
     </body>
 </html>
