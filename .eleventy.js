@@ -3,7 +3,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/**/*.ico')
   eleventyConfig.addPassthroughCopy('src/**/*.pdf')
   eleventyConfig.addPassthroughCopy('src/**/*.webp')
-  eleventyConfig.addPassthroughCopy('src/**/*.png')
   eleventyConfig.addPassthroughCopy('src/**/*.jpeg')
   eleventyConfig.addPassthroughCopy('src/**/*.jpg')
   eleventyConfig.addPassthroughCopy('src/**/*.css')
