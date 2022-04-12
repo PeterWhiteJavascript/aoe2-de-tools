@@ -7,7 +7,6 @@ body{
     margin: 0;
 }
 
-
 .icon{
     width: auto;
     height: 60px;
@@ -21,4 +20,43 @@ body{
 #footer {
     text-align: center;
     padding: 5px; 
+}
+
+.navbar {
+    background-color:rgba(255, 255, 255, 0.65);
+    box-shadow: 5px 5px 15px 5px #444;
+}
+.navbar-wrapper {
+    display:flex;
+    margin:auto;
+    max-width: 1400px;
+}
+
+.navbar-wrapper>.nav-title {
+    flex:1;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-wrapper>.nav-item {
+    width: 100px;
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+    border-left:1px solid #444;
+    border-right:1px solid #444;
+}
+
+.nav-item > .item-wrapper {
+    flex:1;
+    display:flex;
+}
+.nav-item > .item-wrapper  {
+    margin:auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .nav-title {
+        font-size:1.5em;
+    }
 }
