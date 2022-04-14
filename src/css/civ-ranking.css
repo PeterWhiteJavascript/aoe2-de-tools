@@ -263,6 +263,9 @@
         border-radius: 0px;
         background: none;
     }
+    .navbar{
+        display:none;
+    }
     #explanation{
         border: none;
         width: 89%;
