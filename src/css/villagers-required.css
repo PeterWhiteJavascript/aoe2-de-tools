@@ -245,6 +245,7 @@ table.sortable tbody tr:hover { background: yellow !important; }
 }
 
 .card-content{
+    overflow-x:auto;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -339,5 +340,6 @@ thead tr th{
   @media only screen and (max-width: 480px) {
     .faq-card{
         padding: 3rem 0;
+        max-width:100%;
     }
   }
