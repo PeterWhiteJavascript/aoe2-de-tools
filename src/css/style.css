@@ -5,7 +5,6 @@ body{
     background-size: 105% 105%;
     background-position: center;
     margin: 0;
-    color:#000;
 }
 
 .icon{
@@ -73,8 +72,4 @@ body{
     display:block;
     margin:auto;
     text-align:center;
-}
-
-.hidden {
-    display:none;
 }
