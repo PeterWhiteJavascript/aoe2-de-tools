@@ -353,12 +353,18 @@
                                 {% set stone = null %}
                                 {% endif %}
 
+                                {% if upObj.cost and upObj.cost.baseResource is not undefined %}
+                                {% set baseResource = ['x-cost-base-resource=', upObj.cost.baseResource ] | join %}
+                                {% else %}
+                                {% set baseResource = null %}
+                                {% endif %}
+
                                 <div>
                                   <div>
                                     {{upKey}}
                                   </div>
                                   <!-- we need to replace the spaces with dashes otherwise it will split the string by space. eg. "eagle" scout=""  -->
-                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} />
+                                  <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} {{baseResource}} />
                                 </div>
                               {% endfor %}
                           {% endif %}

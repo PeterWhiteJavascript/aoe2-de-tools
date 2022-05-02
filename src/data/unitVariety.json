@@ -1,25 +1,25 @@
 {
   "villager": {
     "civs": {
-      "Indians - Dark Age": {
+      "Hindustanis - Dark Age": {
         "cost": {
           "food": 0.1
         },
         "costPercent": true
       },
-      "Indians - Feudal Age": {
+      "Hindustanis - Feudal Age": {
         "cost": {
           "food": 0.15
         },
         "costPercent": true
       },
-      "Indians - Castle Age": {
+      "Hindustanis - Castle Age": {
         "cost": {
           "food": 0.2
         },
         "costPercent": true
       },
-      "Indians - Imperial Age": {
+      "Hindustanis - Imperial Age": {
         "cost": {
           "food": 0.25
         },
@@ -367,6 +367,23 @@
       }
     }
   },
+  "elephant archer": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.20,
+        "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
   "hand cannoneer": {
     "civs": {
       "Portuguese Civ Bonus": {
@@ -499,7 +516,21 @@
       }
     }
   },
-  "camel rider": {
+  "shrivamsha rider": {
+    "civs": {
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "camel scout": {
     "civs": {
       "Berbers - Castle Age": {
         "cost": {
@@ -524,9 +555,9 @@
       }
     },
     "upgrades": {
-      "Imperial Camel Rider": {
-        "trainTime": 20,
-        "img": "imperial camel rider"
+      "Camel Rider": {
+        "trainTime": 22,
+        "img": "camel rider"
       },
       "Conscription": {
         "trainTime": 1.33,
@@ -534,6 +565,10 @@
       },
       "Huns Team Bonus": {
         "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }
@@ -583,6 +618,10 @@
       },
       "Huns Team Bonus": {
         "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Gurjara Team Bonus": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }
@@ -636,6 +675,20 @@
     "upgrades": {
       "Celts Team Bonus": {
         "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "armored elephant": {
+    "civs": {
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }
@@ -1128,6 +1181,12 @@
     },
     "upgrades": {}
   },
+  "thirisadai": {
+    "noGeneric": true,
+    "civs": {
+    },
+    "upgrades": {}
+  },
   "turtle ship": {
     "noGeneric": true,
     "civs": {
@@ -1232,6 +1291,14 @@
       }
     },
     "upgrades": {
+      "Detinets": {
+        "cost": {
+          "stone": "-0.40",
+          "wood": "+0.40",
+          "baseResource": "stone"
+        },
+        "costPercent": true
+      },
       "Treadmill Crane": {
         "trainTime": 1.2,
         "trainTimePercent": true
@@ -1284,13 +1351,15 @@
     "civs": {
       "Franks Civ Bonus": {
         "cost": {
-          "stone": 0.25
+          "stone": 0.25,
+          "wood": 0
         },
         "costPercent": true
       },
       "Incas Civ Bonus": {
         "cost": {
-          "stone": 0.15
+          "stone": 0.15,
+          "wood": 0
         },
         "costPercent": true
       },
@@ -1304,6 +1373,14 @@
       }
     },
     "upgrades": {
+      "Detinets": {
+        "cost": {
+          "stone": "-0.40",
+          "wood": "+0.40",
+          "baseResource": "stone"
+        },
+        "costPercent": true
+      },
       "Treadmill Crane": {
         "trainTime": 1.2,
         "trainTimePercent": true
@@ -1311,6 +1388,15 @@
     }
   },
   "feitoria": {
+    "civs": {},
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "caravanserai": {
     "civs": {},
     "upgrades": {
       "Treadmill Crane": {
@@ -1516,6 +1602,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -1548,9 +1638,22 @@
   "serjeant": {
     "civs": {},
     "upgrades": {
-      "Donjon": {
-        "trainTime": 20
+      "Castle Age": {
+        "trainTime": 12
       },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "urumi swordsman": {
+    "civs": {},
+    "upgrades": {
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -1701,6 +1804,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -1800,6 +1907,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -1830,6 +1941,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -1847,6 +1962,23 @@
     }
   },
   "arambai": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Elite Arambai":{
+        "trainTime": 18,
+        "img": "elite arambai"
+      }
+    }
+  },
+  "ratha": {
     "civs": {},
     "upgrades": {
       "Conscription": {
@@ -1957,6 +2089,37 @@
       }
     }
   },
+  "chakram thrower": {
+    "civs": {},
+    "upgrades": {
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "ghulam": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
   "janissary": {
     "civs": {},
     "upgrades": {
@@ -2014,6 +2177,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Gurjaras Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -2036,19 +2203,6 @@
     }
   },
   "rattan archer": {
-    "civs": {},
-    "upgrades": {
-      "Conscription": {
-        "trainTime": 1.33,
-        "trainTimePercent": true
-      },
-      "Kasbah": {
-        "trainTime": 1.25,
-        "trainTimePercent": true
-      }
-    }
-  },
-  "elephant archer": {
     "civs": {},
     "upgrades": {
       "Conscription": {

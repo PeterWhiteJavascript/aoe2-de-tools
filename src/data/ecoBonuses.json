@@ -77,9 +77,6 @@
     "Franks (Foragers)": {
       "forager": 0.15
     },
-    "Indians (Fishermen)": {
-      "fisherman": 0.1
-    },
     "Koreans (Stone Miners)": {
       "stone miner": 0.2,
       "stone mining": 0.2,
@@ -95,7 +92,7 @@
     "Aztec Relics": {
       "relic": 0.3333
     },
-    "Sultans": {
+    "Grand Trunk Road": {
       "gold miner": 0.1,
       "gold mining": 0.1,
       "gold shaft mining": 0.1,

@@ -396,11 +396,11 @@ export const setUpGatherRates = (data) => {
   }
   gatherRates['feitoria wood'] = {
     res: 'wood',
-    gatherRate: 1,
+    gatherRate: 0.7,
   }
   gatherRates['feitoria gold'] = {
     res: 'gold',
-    gatherRate: 0.7,
+    gatherRate: 1,
   }
   gatherRates['feitoria stone'] = {
     res: 'stone',
