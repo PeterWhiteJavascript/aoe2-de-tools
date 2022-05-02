@@ -101,10 +101,10 @@ function setUpGatherRates(data){
         res: "food", gatherRate: 1.6
     };
     gatherRates["feitoria wood"] = {
-        res: "wood", gatherRate: 1
+        res: "wood", gatherRate: 0.7
     };
     gatherRates["feitoria gold"] = {
-        res: "gold", gatherRate: 0.7
+        res: "gold", gatherRate: 1
     };
     gatherRates["feitoria stone"] = {
         res: "stone", gatherRate: 0.3

@@ -5,28 +5,62 @@ import { calculateCivilizationBonusOnUnit } from '/js/events/change-unit-civiliz
 // do not take base, because option selected would be ignored
 //
 // Type -> 'food' | 'wood' | 'gold' | 'stone'
-// setResAttribute :: Element -> { Type, String } -> Effect
+// baseType -> 'food' | 'wood' | 'gold' | 'stone' 
+//    for calculating from another resource type for percentage calculation to distribute percentage values among multiple resources
+//    example: wood = 40% of stone, here type is wood and baseType is stone
+// setResAttribute :: Element -> { Type, String, String } -> Effect
 export const setResAttribute =
   (elem) =>
-  ({ type, res }) => {
+  ({ type, res, baseType }) => {
+    //override calculation based on another base if base resource type is present
+    if(!baseType)
+      baseType = type
+
     // Operator -> '0' | '+' | '-' | any String
     const operator = res.slice(0, 1)
-    const base = int(elem.getAttribute(`x-${type}`)) // x-food for example
+    const base = int(elem.getAttribute(`x-${baseType}`)) // x-food for example
+    
+    let current = elem.getAttribute(`x-${type}`);
+    let currentValue;
+
+    if (current)
+      currentValue = int(elem.getAttribute(`x-${type}`))
+
+    if(!currentValue)
+      currentValue = 0;
 
     if (base || base === 0) {
       // case "0.2" // 20% cheaper
       if (operator === '0') {
-        elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
-        // case "-45"
-      } else if (operator === '-') {
-        elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
-        // case "+45"
-      } else if (operator === '+') {
-        elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
-        // case "45"
-      } else {
-        elem.setAttribute(`x-${type}`, base + int(res))
+        currentValue = currentValue - base * parseFloat(res)
       }
+      // case "-45","+45" or "-0.40","+0.40"
+      else if (operator === '-') {
+        //case "-45","+45"
+        if (isInt(res.slice(1))) {
+          currentValue = currentValue + int(res)  
+        }
+        //case "-0.40","+0.40"
+        else{
+          currentValue = currentValue + (base * parseFloat(res))
+        }
+      }
+      else if (operator === '+') {
+        //case "-45","+45"
+        if (isInt(res.slice(1))) {
+          currentValue = currentValue + int(res)
+        }
+        //case "-0.40","+0.40"
+        else{
+          currentValue = currentValue + (base * parseFloat(res))
+        }
+      }
+      // case "45"
+      else{
+        currentValue = currentValue + int(res)
+      }
+
+      elem.setAttribute(`x-${type}`, currentValue)
     }
   }
 
@@ -138,21 +172,23 @@ export const calculateBonusesOnUnit = (option) => (target) => {
     const wood = it.getAttribute('x-cost-wood')
     const gold = it.getAttribute('x-cost-gold')
     const stone = it.getAttribute('x-cost-stone')
+    const baseType = it.getAttribute('x-cost-base-resource')
+
     if (food) {
       priceChanged = true
-      setUnitResourceAttributes({ type: 'food', res: food })
+      setUnitResourceAttributes({ type: 'food', res: food, baseType: baseType })
     }
     if (wood) {
       priceChanged = true
-      setUnitResourceAttributes({ type: 'wood', res: wood })
+      setUnitResourceAttributes({ type: 'wood', res: wood, baseType: baseType })
     }
     if (gold) {
       priceChanged = true
-      setUnitResourceAttributes({ type: 'gold', res: gold })
+      setUnitResourceAttributes({ type: 'gold', res: gold, baseType: baseType })
     }
     if (stone) {
       priceChanged = true
-      setUnitResourceAttributes({ type: 'stone', res: stone })
+      setUnitResourceAttributes({ type: 'stone', res: stone, baseType: baseType })
     }
   })
 
