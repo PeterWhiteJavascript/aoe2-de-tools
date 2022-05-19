@@ -13,20 +13,19 @@ export const setResAttributeCiv =
     // Operator -> '0' | '+' | '-' | any String
     const operator = res.slice(0, 1)
     const base = int(elem.getAttribute(`x-base-${type}`)) // x-base-food for example
-
     if (base) {
       // case "0.2" // 20% cheaper
       if (operator === '0') {
-        elem.setAttribute(`x-${type}`, base * (1 - parseFloat(res)))
+        elem.setAttribute(`x-${type}`, ~~(base * (1 - parseFloat(res))))
         // case "-45"
       } else if (operator === '-') {
-        elem.setAttribute(`x-${type}`, base - int(res.slice(1)))
+        elem.setAttribute(`x-${type}`, ~~(base - int(res.slice(1))))
         // case "+45"
       } else if (operator === '+') {
-        elem.setAttribute(`x-${type}`, base + int(res.slice(1)))
+        elem.setAttribute(`x-${type}`, ~~(base + int(res.slice(1))))
         // case "45"
       } else {
-        elem.setAttribute(`x-${type}`, base + int(res))
+        elem.setAttribute(`x-${type}`, ~~(base + int(res)))
       }
     }
   }
@@ -101,5 +100,5 @@ export const unitCivChangeSelectionHandlers = (event) => {
   // apply civ bonuses
   const obj = calculateCivilizationBonusOnUnit(option)
   // apply input bonuses
-  calculateBonusesOnUnit(obj)(event.target) // make sure to applie input checked bonuses as well
+  calculateBonusesOnUnit(obj)(event.target) // make sure to apply input checked bonuses as well
 }

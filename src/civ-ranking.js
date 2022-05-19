@@ -45,7 +45,7 @@ $.getJSON('/data.json', function(data) {
         $("#explanation").hide();
         
         let civ = data.civilizations[parseInt($(e.currentTarget).attr("civid"))];
-        console.log("You've selected civ #" + (parseInt($(e.currentTarget).attr("civid")) + 1)+", "+civ.name);
+        //console.log("You've selected civ #" + (parseInt($(e.currentTarget).attr("civid")) + 1)+", "+civ.name);
         $("#civ-title").text(civ.name);
         $("#civ-emblem").children("img").attr("src", "/img/civicon-"+(civ.name.toLowerCase())+".webp");
         let buildings = Object.keys(civ.ranks);

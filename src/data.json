@@ -708,7 +708,7 @@
                 "barracks":{
                     "champion":[4, 3.5, 3.5, 4],
                     "pikeman":[3.5, 3.5, 3],
-                    "elite eagle warrior":[3.5, 3.5, 4]
+                    "elite eagle warrior":[3.5, 3.5, 3.5]
                 },
                 "archery range":{
                     "arbalester": [3.5, 3, 2.5],
@@ -1387,30 +1387,30 @@
                 }
               },
             "bonusDesc":[
-                "Elephant and camel units take 25% less bonus damage and are more resistant to conversion",
-                "Town centers spawn 2 villagers when the next age is reached",
-                "Ships generate 15 HP per minute"
+                "The Bengalis are have a fairly strong economy starting in mid-feudal age because their town centers spawn 2 free villagers when they reach the next age. This applies to all tcs, so if you have more than one (in the case of going up to imperial age), you will get 2 villagers per tc. With mahayana in the late game, you have extra population space which you can use for more villagers or military.",
+                "Their elephant units resist 25% of bonus damage and are more resistant to conversion. This especially helps their elephant archers.",
+                "Their unique unit, the ratha, can switch between melee and ranged mode which makes it function kind of like a knight-cavalry archer hybrid."
             ],
-            "ranksUnique":[["paiks", ["elite ratha", "elite elephant archer", "elite battle elephant", "seige elepant"]], ["mahayana", ["villager"]]],
+            "ranksUnique":[["paiks", ["elite ratha", "elite elephant archer", "elite battle elephant", "siege elephant"]], ["mahayana", ["villager"]]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3, 3]
+                    "villager":[3, 3.5, 3.5, 4]
                 },
                 "barracks":{
-                    "champion":[3,2.5,2.5,2.5],
-                    "halberdier":[2.5, 2.5, 2.5]
+                    "champion":[3, 3, 2.5, 2],
+                    "halberdier":[3, 3, 2.5]
                 },
                 "archery range":{
                     "arbalester": [3, 3, 2.5],
                     "elite skirmisher": [3, 3, 3],
-                    "elite elephant archer": [3.5, 3.5]
+                    "elite elephant archer": [3, 3.5]
                 },
                 "stable":{
-                    "light cavalry":[3, 3, 2],
-                    "elite battle elephant":[3, 2.5]
+                    "light cavalry":[3, 3, 2.5],
+                    "elite battle elephant":[3, 4]
                 },
                 "siege workshop":{
-                    "seige elephant":[3, 3],
+                    "siege elephant":[3, 4],
                     "onager": [3, 3],
                     "heavy scorpion":[3, 3]
                 },
@@ -1418,8 +1418,8 @@
                     "monk":[3, 3]
                 },
                 "castle":{
-                    "elite ratha":[3.5, 3.5],
-                    "trebuchet":[3.5]
+                    "elite ratha":[3.5, 4],
+                    "trebuchet":[3]
                 },
                 "university":{
                     "keep": [3, 3, 3],
@@ -8942,44 +8942,44 @@
                 }
             },
             "bonusDesc":[
-                "Receive +200 wood when advancing to the next age",
-                "Fisherman and fishing ships carry +15",
-                "Barracks techonologies cost -50%",
-                "Skirmishers and Elephant archers attack 25% faster"
+                "The Dravidians receive 200 wood when reaching the next age. Along with getting 50% off barracks techs, their skirmishers and elephant archers fire 25% faster.",
+                "The Dravidian stable is the worst in the game since neither bloodlines nor husbandry is available, and only light cavalry and battle elephants can be created. Wootz steel allows infantry and cavalry to ignore armor, so Dravidian light cavalry could be situationally useful because of this.",
+                "The unique urumi swordsman has a charged attack that does extra damage and then goes on cooldown. It also does a bit of splash damage to hit multiple targets."
             ],
-            "ranksUnique":[["medical corps", ["elite elephant archer", "battle elephant", "seige elephant"]], ["wootz steel", ["elite urumi swordsman","champion", "halberdier", "light cavalry", "battle elephant", "seige elephant"]]],
+            "ranksUnique":[["medical corps", ["elite elephant archer", "battle elephant", "siege elephant"]], ["wootz steel", ["elite urumi swordsman","champion", "halberdier", "light cavalry", "battle elephant", "siege elephant"]]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3, 3]
+                    "villager":[3, 3.5, 3, 3]
                 },
                 "barracks":{
-                    "champion":[3, 3, 3.5, 4],
-                    "halberdier":[3.5, 3.5, 4]
+                    "champion":[3, 3.5, 3.5, 4],
+                    "halberdier":[3, 3.5, 4]
                 },
                 "archery range":{
-                    "arbalester": [3.5, 3.5, 3.5],
+                    "arbalester": [3, 3, 3],
                     "elite skirmisher": [3.5, 3.5, 3.5],
-                    "elite elephant archer": [4,4,4]
+                    "elite elephant archer": [3.5, 3.5],
+                    "hand cannoneer": [3]
                 },
                 "stable":{
-                  "light cavalry": [2.5,2.5],
-                  "battle elephant": [2.5, 2.5]
+                  "light cavalry": [3, 2, 1.5],
+                  "battle elephant": [2, 1]
                 },
                 "siege workshop":{
-                    "seige elephant":[3.5, 3.5],
-                    "siege onager": [3, 3],
-                    "heavy scorpion":[3, 3]
+                    "siege elephant":[3, 3.5],
+                    "siege onager": [3, 2.5],
+                    "heavy scorpion":[3, 2.5]
                 },
                 "monastery":{
-                    "monk":[3, 3]
+                    "monk":[2, 2]
                 },
                 "castle":{
-                    "elite urumi swordsman":[3, 3.5],
-                    "trebuchet":[3.5]
+                    "elite urumi swordsman":[3, 4],
+                    "trebuchet":[2.5]
                 },
                 "university":{
                     "keep": [3, 3, 3],
-                    "defenses": [3, 3, 2, 2]
+                    "defenses": [3, 3, 3, 2.5]
                 }
             }
         },
@@ -11245,7 +11245,7 @@
                     "available": true
                   },
                   {
-                    "name": "seige elephant",
+                    "name": "siege elephant",
                     "available": true
                   },
                   {
@@ -11700,49 +11700,47 @@
               }
             },
           "bonusDesc":[
-              "Gurjaras Start with 2 Forage Bushes",
-              "Can Garrison Mills with livestock to produce food",
-              "Mounted units deal 50% bonus damage",
-              "Can Garrison Docks with fishing ships",
-              "Kshatriya makes their all milatary units cost -25% food",
-              "Frontier Guards makes their camel riders and elephant archers to have +4 melee armor",
-              "Camel and elephant units created 25% faster"
+                "Gurjaras have two economic bonuses that work together in the early game. They start with 2 forage bushes, and can garrison herdables in mills to generate a trickle of food. By building the mill as soon as possible, your economy by feudal age is at least as strong as other civs without even having to eat your sheep.",
+                "Gurjaras mounted units deal 50% extra bonus damage. The effects of this are most easily seen with their camel riders and siege elephants. Frontier guards gives elephant archers and camel riders +4 melee armor.",
+                "With kshatriyas, all military units cost 25% less food. This is a huge savings and makes their hussars (which only lack blast furnace) cost only 60 food.",
+                "Their unique chakram thrower is a mid-ranged infantry unit that has a projectile that does pass through damage like scorpions.",
+                "The Gurjaras start the game with a camel scout which automatically gains some stats when reaching feudal and castle age. They can also make camel scouts from the stable in feudal age at the same cost as camel riders in castle age."
           ],
           "ranksUnique":[["kshatriyas", ["infantry","cavalry"]], ["frontier guards", ["heavy camel rider", "elite elephant archer"]]],
           "ranks":{
               "town center": {
-                  "villager":[3, 3, 3, 3]
+                  "villager":[3.5, 3.5, 3.5, 3]
               },
               "barracks":{
-                  "champion":[3, 3, 3, 3],
-                  "halberdier":[3, 3, 3]
+                  "two-handed swordsman":[3, 3, 2, 1.5],
+                  "spearman":[3, 0.5, 0.5]
               },
               "archery range":{
                   "crossbowman": [3, 3, 2],
-                  "elite skirmisher": [3, 3, 3],
-                  "elite elephant archer": [2.5, 2.5],
+                  "elite skirmisher": [3, 3, 2],
+                  "elite elephant archer": [3, 3.5],
                   "hand cannoneer":[3]
               },
               "stable":{
-                  "hussar":[3, 3.5, 3],
-                  "elite shrivamsha rider":[3, 3],
-                  "heavy camel rider":[3.5, 3.5, 3.5]
+                  "hussar":[3, 3, 4],
+                  "elite shrivamsha rider":[3.5, 3.5],
+                  "heavy camel rider":[3.5, 3.5, 4]
               },
               "siege workshop":{
-                  "seige elephant":[3, 3],
-                  "onager": [3, 3],
-                  "heavy scorpion":[3, 3],
-                  "bombard cannon":[3]
+                  "siege elephant":[4, 4],
+                  "onager": [3, 2],
+                  "heavy scorpion":[3, 2],
+                  "bombard cannon":[2]
               },
               "monastery":{
-                  "monk":[2.5, 2.5]
+                  "monk":[3, 2]
               },
               "castle":{
                   "elite chakram thrower":[3, 3],
-                  "trebuchet":[3]
+                  "trebuchet":[2.5]
               },
               "university":{
-                  "keep": [3, 3, 3],
+                  "keep": [3, 3, 2.5],
                   "defenses": [3, 3, 3, 3]
               }
           }
@@ -11951,7 +11949,7 @@
                     "available": true
                   },
                   {
-                    "name": "seige elephant",
+                    "name": "siege elephant",
                     "available": true
                   },
                   {
@@ -12410,16 +12408,15 @@
               }
             },
           "bonusDesc":[
-              "Hindustanis villagers have their resource cost progressively reduced each age, which gives them extra food for scouts, which is the strategy of choice for them in feudal age.",
-              "Hindustanis get +1/+1 armor on their gun powder units",
-              "The imperial camel gives the Hindustanis a very good counter to melee cavalry, though they do have halberdiers as well.",
-              "The ghulam is fast moving anti archer infantry unit, attack through units in a small line.",
-              "With shatagni, hand cannoneers get an extra +2 range. This brings them to 9 range, which is +1 extra than janissaries."
+                "Hindustanis villagers have their resource cost progressively reduced each age, which gives them extra food for scouts, which is the main strategy of choice for them in feudal age.",
+                "Their camel riders attack 25% faster and they have access to the imperial camel rider. Hindustanis camels better fill the role of knights which they lack than other civs' camels.",
+                "The ghulam is similar to the eagle warrior except that it has a passthrough attack which helps it even more against archers.",
+                "Hand cannoneers and bombard cannons get +1/+1 armor. This helps bombard cannons especially since it makes fully upgraded elite skirmishers do 1 instead of 2 damage to them."
           ],
           "ranksUnique":[["grand trunk road", ["villager"]], ["shatagni", ["hand cannoneer"]]],
           "ranks":{
               "town center": {
-                  "villager":[3.5, 3.5, 3.5, 3.5]
+                  "villager":[3.5, 3.5, 4, 4]
               },
               "barracks":{
                   "champion":[3, 3, 3, 2.5],
@@ -12428,24 +12425,24 @@
               "archery range":{
                   "crossbowman": [3, 3, 2],
                   "elite skirmisher": [3, 3, 3],
-                  "heavy cavalry archer": [3, 3],
-                  "hand cannoneer":[3.5]
+                  "heavy cavalry archer": [3, 2.5],
+                  "hand cannoneer":[4]
               },
               "stable":{
-                  "hussar":[3, 3.5, 3],
-                  "imperial camel rider":[3.5, 3.5]
+                  "hussar":[3.5, 3, 3],
+                  "imperial camel rider":[3.5, 4]
               },
               "siege workshop":{
-                  "seige elephant":[3, 3],
+                  "siege elephant":[3, 3],
                   "onager": [3, 3],
                   "scorpion":[3, 2],
-                  "bombard cannon":[3]
+                  "bombard cannon":[3.5]
               },
               "monastery":{
-                  "monk":[2.5, 2.5]
+                  "monk":[3, 3]
               },
               "castle":{
-                  "elite ghulam":[3, 3],
+                  "elite ghulam":[3, 3.5],
                   "trebuchet":[3]
               },
               "university":{
@@ -18566,7 +18563,7 @@
                 }
               },
             "bonusDesc":[
-                "Malay advance to the next age 80% faster. This reduces the up time to feudal age from 130 seconds to 72. Saving 58 seconds gives them the option to go up to the next age earlier, or get two extra villagers in dark age before clicking up.",
+                "Malay advance to the next age 66% faster. This reduces the up time to feudal age from 130 seconds to 72. Saving 58 seconds gives them the option to go up to the next age earlier, or get two extra villagers in dark age before clicking up.",
                 "Their battle elephants are 30% cheaper in castle age and 40% cheaper in imperial age, which makes their total resource cost less than their knights. This affordability is balanced by Malay not having access to chain barding armor.",
                 "In the late game, Malay get forced levy two-handed swordsmen which only cost food. All generic trash units lose against them with equal resource costs, so once Malay is in post-imperial age, they are difficult to stop." ,
                 "Their arbalesters are fully upgraded, so they are an excellent option to open with in imperial age."
@@ -23353,7 +23350,7 @@
                 "Saracens have a full blacksmith and monastery, as well as siege engineers, which allow them to be played in many different ways.",
                 "Their camel riders have +10 hit points and with zealotry, they get +20 hit points, which make them the Saracen anti-cavalry unit from the castle age to late game as they lack halberdier."
             ],
-            "ranksUnique":[["zealotry", ["heavy camel rider", "elite mameluke"]], ["counter weights", ["seige onager", "trebuchet"]] ],
+            "ranksUnique":[["zealotry", ["heavy camel rider", "elite mameluke"]], ["counter weights", ["siege onager", "trebuchet"]] ],
             "ranks":{
                 "town center": {
                     "villager":[3, 3, 3, 3]
@@ -23383,7 +23380,7 @@
                     "monk":[3.5, 3.5]
                 },
                 "castle":{
-                    "elite mameluke":[2, 2],
+                    "elite mameluke":[3, 4],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -24067,7 +24064,7 @@
                 },
                 "stable":{
                     "light cavalry":[3.5, 3, 3],
-                    "cavalier":[3, 3]
+                    "cavalier":[3.5, 4]
                 },
                 "siege workshop":{
                     "siege ram":[3, 3],
@@ -24080,6 +24077,9 @@
                 "castle":{
                     "elite serjeant":[3, 3],
                     "trebuchet":[3]
+                },
+                "donjon":{
+                    "elite serjeant": [1.5, 3, 3]
                 },
                 "university":{
                     "donjon": [3, 3, 3],
@@ -24763,8 +24763,8 @@
                     "trebuchet":[3]
                 },
                 "university":{
-                    "guard tower": [3, 3, 1],
-                    "defenses": [3, 3, 3, 2.5]
+                    "guard tower": [3, 3, 3],
+                    "defenses": [3, 3, 3, 3]
                 }
             }
         },
@@ -26134,7 +26134,7 @@
                 "castle":{
                     "elite keshik":[3, 3],
                     "trebuchet":[4],
-                    "flaming camel":[0]
+                    "flaming camel":[2]
                 },
                 "university":{
                     "guard tower": [3, 3, 1.5],
@@ -27475,7 +27475,7 @@
                 },
                 "barracks":{
                     "champion":[3, 3, 3, 3],
-                    "spearman":[3, 0.5, 0.5]
+                    "spearman":[3, 1, 1]
                 },
                 "archery range":{
                     "crossbowman": [3, 3, 2],
@@ -28171,7 +28171,7 @@
                     "heavy cavalry archer": [3.5, 2.5]
                 },
                 "stable":{
-                    "light cavalry":[3, 3, 2],
+                    "light cavalry":[3, 3, 2.5],
                     "cavalier":[3, 2.5],
                     "elite battle elephant":[3, 3]
                 },
@@ -28856,7 +28856,7 @@
                     "pikeman":[3.5, 3.5, 3]
                 },
                 "archery range":{
-                    "arbalester": [3, 3, 3],
+                    "arbalester": [3, 3, 2.5],
                     "elite skirmisher": [3, 3, 3],
                     "cavalry archer": [2, 1]
                 },
@@ -31046,7 +31046,7 @@
             "otherTechs":["ballistics", "faith", "conscription"],
             "uniqueDamageTechs":[ "manipur cavalry"],
             "uniqueOtherTechs":[],
-            "trainTime": 21
+            "trainTime": 18
         },
         {
             "name": "chakram thrower",
@@ -31650,7 +31650,7 @@
             "battering ram", "capped ram", "siege ram"
         ],
         [
-            "armored elephant", "seige elephant"
+            "armored elephant", "siege elephant"
         ],
         [
             "mangonel", "onager", "siege onager"
@@ -31760,7 +31760,7 @@
         "demolition raft":["demolition ship", "heavy demolition ship"],
         
         "battering ram":["capped ram", "siege ram"],
-        "armored elephant": ["seige elephant"],
+        "armored elephant": ["siege elephant"],
         "mangonel":["onager", "siege onager"],
         "scorpion":["heavy scorpion"],
         
@@ -31798,7 +31798,7 @@
         "steppe lancer": "elite steppe lancer",
         "battering ram": "siege ram",
         "capped ram": "siege ram",
-        "armored elephant": "seige elephant",
+        "armored elephant": "siege elephant",
         "mangonel": "siege onager",
         "onager": "siege onager",
         "scorpion":"heavy scorpion",
@@ -31827,7 +31827,7 @@
         "elite battle elephant":["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite steppe lancer":["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "siege ram": ["siege engineers"],
-        "seige elephant": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
+        "siege elephant": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "siege onager":["siege engineers", "chemistry"],
         "heavy scorpion": ["siege engineers", "chemistry"],
         "bombard cannon":["siege engineers"],
@@ -32385,7 +32385,7 @@
             "classChange": true
         },
         {
-          "name": "seige elephant",
+          "name": "siege elephant",
           "ageReq": 4,
           "cost":{
               "food": 650
@@ -33247,7 +33247,7 @@
                   "onager":{
                       "mAtk": "*1.15"
                   },
-                  "seige onager":{
+                  "siege onager":{
                       "mAtk": "*1.15"
                   },
                   "trebuchet unpacked":{
