@@ -19,6 +19,7 @@ const setUpGatherRates = (data) => {
     gatherRate: 23.16 / 60,
   }
   gatherRates['hand cart'] = { res: 'food', gatherRate: 24 / 60 }
+  gatherRates['gurjara mill'] = { res: 'food', gatherRate: 3.5 / 60}
 
   gatherRates['fishing ship shore'] = { res: 'food', gatherRate: 0.28 }
   gatherRates['fishing ship deep'] = { res: 'food', gatherRate: 0.49 }

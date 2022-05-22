@@ -278,6 +278,7 @@ export const setUpGatherRates = (data) => {
     res: 'food',
     gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2)),
   }
+  gatherRates['gurjara mill'] = {res: "food", gatherRate: 0.0583}
   gatherRates['double-bit axe'] = {
     res: 'wood',
     gatherRate: parseFloat(

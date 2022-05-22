@@ -11706,7 +11706,7 @@
                 "Their unique chakram thrower is a mid-ranged infantry unit that has a projectile that does pass through damage like scorpions.",
                 "The Gurjaras start the game with a camel scout which automatically gains some stats when reaching feudal and castle age. They can also make camel scouts from the stable in feudal age at the same cost as camel riders in castle age."
           ],
-          "ranksUnique":[["kshatriyas", ["infantry","cavalry"]], ["frontier guards", ["heavy camel rider", "elite elephant archer"]]],
+          "ranksUnique":[["kshatriyas", ["champion","halberdier","elite skirmisher","elite elephant archer", "hand cannoneer", "hussar", "elite shrivamsha rider", "heavy camel rider", "siege elephant", "elite chakram thrower"]], ["frontier guards", ["heavy camel rider", "elite elephant archer"]]],
           "ranks":{
               "town center": {
                   "villager":[3.5, 3.5, 3.5, 3]
@@ -15152,8 +15152,8 @@
                     "villager":[3, 3, 3, 3]
                 },
                 "barracks":{
-                    "champion":[3, 3.5, 3.5, 3.5],
-                    "halberdier":[3.5, 3.5, 3.5]
+                    "champion":[3, 3.5, 3.5, 4],
+                    "halberdier":[4, 4, 4]
                 },
                 "archery range":{
                     "arbalester": [3, 3, 3],
@@ -26799,7 +26799,8 @@
                 "archery range":{
                     "crossbowman": [3, 2.5, 1],
                     "elite skirmisher": [3, 3, 2.5],
-                    "cavalry archer": [1, 1]
+                    "cavalry archer": [1, 1],
+                    "hand cannoneer":[3]
                 },
                 "stable":{
                     "scout cavalry":[3, 2.5, 2],
