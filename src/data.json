@@ -18563,7 +18563,7 @@
                 }
               },
             "bonusDesc":[
-                "Malay advance to the next age 66% faster. This reduces the up time to feudal age from 130 seconds to 72. Saving 58 seconds gives them the option to go up to the next age earlier, or get two extra villagers in dark age before clicking up.",
+                "Malay advance to the next age 66% faster. This reduces the up time to feudal age from 130 seconds to 78. Saving 52 seconds gives them the option to go up to the next age earlier, or get two extra villagers in dark age before clicking up.",
                 "Their battle elephants are 30% cheaper in castle age and 40% cheaper in imperial age, which makes their total resource cost less than their knights. This affordability is balanced by Malay not having access to chain barding armor.",
                 "In the late game, Malay get forced levy two-handed swordsmen which only cost food. All generic trash units lose against them with equal resource costs, so once Malay is in post-imperial age, they are difficult to stop." ,
                 "Their arbalesters are fully upgraded, so they are an excellent option to open with in imperial age."
@@ -29013,7 +29013,7 @@
                 "lumberjack": {
                     "carryCapacity": 10,
                     "res": "wood",
-                    "gatherRate": 0.41
+                    "gatherRate": 0.39
                 },
                 "gold miner": {
                     "carryCapacity": 10,
@@ -29703,6 +29703,7 @@
                 "gold": 200
             },
             "armorClasses": [[20, 0]],
+            "bonus":[],
             "damageTechs":[],
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":["ironclad"],
@@ -31921,7 +31922,7 @@
             "ageReq": 2,
             "cost":{
                 "food": 100,
-                "gold": 50
+                "gold": 40
             },
             "effects":{
                 "hp": 5,
@@ -32083,8 +32084,8 @@
             "name": "elite skirmisher",
             "ageReq": 3,
             "cost":{
-                "wood": 200,
-                "gold": 100
+                "wood": 230,
+                "gold": 130
             },
             "effects":{
                 "hp": 5,

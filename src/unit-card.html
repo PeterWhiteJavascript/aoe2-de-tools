@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--
+Unit stat cards can be generated here.
+-->
+<html>
+    <head>
+        <title>Generate a Unit Card</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <script src="/js/shared.js"></script>
+        <style>
+            .card{
+                font-family: courier new;
+                font-size:18px;
+                font-weight: bold;
+                margin:10px;
+                width:300px;
+                border: 2px solid black;
+                border-radius: 5px;
+                background-image: linear-gradient(#C71400, #FFB0A9);
+            }
+            .card-top{
+                padding:10px;
+                display:flex;
+            }
+            .unit-basic-info{
+                
+            }
+            .unit-basic-info-top{
+                display:flex;
+            }
+            .unit-img img{
+                margin:5px;
+            }
+            .unit-cost-cont{
+                margin:5px;
+            }
+            .unit-cost-cont > div{
+                margin:5px;
+                display:flex;
+            }
+            .unit-basic-info-bottom{
+                
+            }
+            .res-per-minute-cont > div{
+                margin:5px;
+                display:flex;
+                
+            }
+            .unit-upgrade{
+                padding:10px;
+                border-left: 2px solid black;
+            }
+            .unit-upgrade-img img{
+                width:60px;
+                height:auto;
+            }
+            .unit-upgrade-cost-cont{
+                
+            }
+            .unit-upgrade-cost-cont > div{
+                margin:5px;
+                display:flex;
+            }
+            .card-bottom{
+                
+            }
+            .unit-stats{
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            .unit-stats div{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-size:16px;
+            }
+            .unit-stats > div > div{
+                width:75px;
+                height:40px;
+                margin:5px;
+            }
+            .unit-stats > div:last-child > div {
+                width:150px;
+                height:40px;
+                margin:5px;
+            }
+            .unit-stats > div > div > img{
+                width:25px;
+                height:25px;
+            }
+            .unit-stats > div > div > div{
+                margin-left:5px;
+            }
+            .armor-classes{
+                margin:10px;
+            }
+            .attack-bonuses{
+                margin:10px;
+            }
+            
+            .category-title{
+                font-size:20px;
+                font-family: georgia;
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="card">
+                <div class="card-top">
+                    <div class="unit-basic-info">
+                        <div class="unit-basic-info-top">
+                            <div class="unit-img">
+                                <img src="/img/man-at-arms.webp">
+                            </div>
+                            <div class="unit-cost-cont">
+                                <div><img src="/img/food-icon.webp"><div></div></div>
+                                <div><img src="/img/gold-icon.webp"><div></div></div>
+                                <div><img src="/img/hourglass-icon.webp"><div></div></div>
+                            </div>
+                        </div>
+                        <div class="unit-basic-info-bottom">
+                            <div class="res-per-minute-cont">
+                                <div>
+                                    <img src="/img/food-icon.webp"><div></div><div>&nbsp/ min</div>
+                                </div>
+                            </div>
+                            <div class="res-per-minute-cont">
+                                <div>
+                                    <img src="/img/gold-icon.webp"><div></div><div>&nbsp/ min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="unit-upgrade">
+                        <div class="unit-upgrade-img">
+                            <img src="/img/man-at-arms-upgrade.webp">
+                        </div>
+                        <div class="unit-upgrade-cost-cont">
+                            <div><img src="/img/food-icon.webp"><div>100</div></div>
+                            <div><img src="/img/gold-icon.webp"><div>40</div></div>
+                            <div><img src="/img/hourglass-icon.webp"><div>40</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-bottom">
+                    <div class="unit-stats">
+                        <div>
+                            <div><img src="/img/icon-hp.webp"><div>45</div></div>
+                            <div><img src="/img/icon-melee-attack.webp"><div>6</div></div>
+                            <div><img src="/img/icon-melee-armor.webp"><div>1</div></div>
+                            <div><img src="/img/icon-pierce-armor.webp"><div>0</div></div>
+                        </div>
+                        <div>
+                            <div><img src="/img/icon-line-of-sight.webp"><div>6</div></div>
+                            <div><img src="/img/icon-attack-speed.webp"><div>2</div></div>
+                            <div><img src="/img/icon-movement-speed.webp"><div>0.9</div></div>
+                            <div><div></div></div>
+                        </div>
+                        <div class="range-attr">
+                            <div><img src="/img/icon-range.webp"><div>0</div></div>
+                            <div><img src="/img/icon-frame-delay.webp"><div>0</div></div>
+                            <div><img src="/img/icon-accuracy.webp"><div>0</div></div>
+                            <div><img src="/img/icon-proj-speed.webp"><div>0</div></div>
+                        </div>
+                        <div>
+                            <div><img src="/img/icon-damage-per-minute.webp"><div></div><div>&nbsp/ min</div></div>
+                            <div><img src="/img/icon-movement-speed-per-minute.webp"><div></div><div>&nbsp/ min</div></div>
+                        </div>
+                    </div>
+                    <div class="category-title">Armor Classes</div>
+                    <div class="armor-classes">
+                        <div>Infantry</div>
+                    </div>
+                    <div class="category-title">Attack Bonuses</div>
+                    <div class="attack-bonuses">
+                        <div>+2 vs Eagle Warrior</div>
+                        <div>+2 vs Standard Building</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div>
+                <div>This app built by <a href="https://www.youtube.com/channel/UCmFJUeU8Oubp5Neldbq0JRA" target = "_blank">Survivalist</a></div>
+            </div>
+        </div>
+        
+        <script>
+            $.getJSON('/data.json', function(data) {
+                let unitSelect = $("<select id='unit-select'></select>")
+                for(let i=0; i<data.units.length; i++){
+                    let unit = data.units[i];
+                    unitSelect.append("<option>"+unit.name+"</option>");
+                    let group = data.upgradeGroups[unit.name];
+                    if(group){
+                        for(let j=0;j<group.length;j++){
+                            unitSelect.append("<option first='"+unit.name+"'>"+group[j]+"</option>");
+                        }
+                    }
+                }
+                $("#container").prepend(unitSelect);
+                function displayData(d){
+                    $(".unit-img").children("img").attr("src", "/img/"+d.name+".webp");
+                    
+                    let costKeys = Object.keys(d.cost);
+                    $(".unit-cost-cont").children("div:nth-child("+2+")").hide();
+                    $(".res-per-minute-cont:nth-child("+(2)+")").hide();
+                    for(let i=0;i<costKeys.length;i++){
+                        $(".unit-cost-cont").children("div:nth-child("+(i+1)+")").children("img").attr("src", "/img/"+costKeys[i]+"-icon.webp");
+                        $(".res-per-minute-cont:nth-child("+(i+1)+")").children("div").first().children("img").attr("src", "/img/"+costKeys[i]+"-icon.webp");
+                        $(".unit-cost-cont").children("div:nth-child("+(i+1)+")").children("div").text(d.cost[costKeys[i]]);
+                        $(".res-per-minute-cont:nth-child("+(i+1)+")").children("div").first().children("div").first().text(Math.round((60 / d.trainTime) * d.cost[costKeys[i]]));
+                        if(i === 1){
+                            $(".unit-cost-cont").children("div:nth-child("+(2)+")").show();
+                            $(".res-per-minute-cont:nth-child("+(2)+")").show();
+                        }
+                    }
+                    $(".unit-cost-cont").children("div:nth-child("+(3)+")").children("div").text(d.trainTime);
+                    
+                    if(d.upgrade){
+                        $(".unit-upgrade").show();
+                        $(".unit-upgrade-cost-cont").children("div:nth-child("+(2)+")").hide();
+                        $(".unit-upgrade-img").children("img").attr("src", "/img/upgrade-"+d.name+".webp");
+                        let upgCostKeys = Object.keys(d.upgrade.cost);
+                        for(let i=0;i<upgCostKeys.length;i++){
+                            $(".unit-upgrade-cost-cont").children("div:nth-child("+(i+1)+")").children("img").attr("src", "/img/"+upgCostKeys[i]+"-icon.webp");
+                            $(".unit-upgrade-cost-cont").children("div:nth-child("+(i+1)+")").children("div").text(d.upgrade.cost[upgCostKeys[i]]);
+                            if(i === 1){
+                                $(".unit-upgrade-cost-cont").children("div:nth-child("+(2)+")").show();
+                            }
+                        }
+                        $(".unit-upgrade-cost-cont").children("div:nth-child("+(3)+")").children("div").text(d.upgrade.time);
+                    } else {
+                        $(".unit-upgrade").hide();
+                    }
+                    $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div").text(d.hp);
+                    $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div").text(d.mAtk || d.pAtk);
+                    $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div").text(d.mDef);
+                    $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(4)").children("div").text(d.pDef);
+                    
+                    $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(1)").children("div").text(d.lineOfSight);
+                    $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div").text(d.rateOfFire);
+                    $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div").text(d.speed);
+                    
+                    if(d.accuracy){
+                        $(".range-attr").show();
+                        $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div").text(d.range);
+                        $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div").text(d.frameDelay);
+                        $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div").text(d.accuracy);
+                        $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(4)").children("div").text(d.projSpeed);
+                    } else{
+                        $(".range-attr").hide();
+                    }
+                    
+                    
+                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(1)").children("div:nth-child(2)").text(Math.round((60 / d.rateOfFire) * (d.mAtk || d. pAtk) ));
+                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(2)").children("div:nth-child(2)").text(Math.round(d.speed * 60));
+                    
+                    $(".armor-classes").empty();
+                    for(let i=0;i<d.armorClasses.length;i++){
+                        let armorClassName = data.armorClasses[d.armorClasses[i][0]];
+                        armorClassName = armorClassName[0].toUpperCase() + armorClassName.substring(1);
+                        $(".armor-classes").append("<div>"+(armorClassName)+(d.armorClasses[i][1] ? "(+"+d.armorClasses[i][1]+")" : "")+"</div>");
+                    }
+                    
+                    $(".attack-bonuses").empty();
+                    if(d.atkBonuses){
+                        for(let i=0;i<d.atkBonuses.length;i++){
+                            if(d.atkBonuses[i][1]){
+                                let bonusName = data.armorClasses[d.atkBonuses[i][0]];
+                                bonusName = bonusName[0].toUpperCase() + bonusName.substring(1);
+                                $(".attack-bonuses").append("<div>"+"+"+d.atkBonuses[i][1]+" vs "+bonusName+"</div>");
+                            }
+                        }
+                    }
+                    console.log(d)
+                }
+                function getUnitData(base, unit){
+                    //Have to get the base unit and then go apply each unit upgrade to get the final stats.
+                    let group = data.upgradeGroups[base];
+                    //Base unit stats
+                    let baseUnit = JSON.parse(JSON.stringify(data.units.find(u => u.name === base)));
+                    let stats = {
+                        name:unit,
+                        cost:baseUnit.cost,
+                        trainTime:baseUnit.trainTime,
+                        upgrade:false,//most recent upgrade
+                        hp:baseUnit.hp,
+                        mAtk:baseUnit.mAtk,
+                        pAtk:baseUnit.pAtk,
+                        mDef:baseUnit.mDef,
+                        pDef:baseUnit.pDef,
+                        lineOfSight:baseUnit.lineOfSight,
+                        range:baseUnit.range,
+                        rateOfFire:baseUnit.rateOfFire,
+                        speed:baseUnit.speed,
+                        armorClasses:baseUnit.armorClasses,
+                        atkBonuses:baseUnit.bonus,
+                        
+                        frameDelay:baseUnit.frameDelay,
+                        accuracy:Math.round(baseUnit.accuracy),
+                        projSpeed:baseUnit.projSpeed
+                    };
+                    if(group){
+                        //Index for upgrade group
+                        let groupIdx = group.indexOf(unit);
+                        //Apply stat increases
+                        for(let i = 0; i < groupIdx+1; i++){
+                            let name = group[i];
+                            let upgrade = data.upgrades.find(u => u.name === name);
+                            let effects = Object.keys(upgrade.effects);
+                            for(let j=0;j<effects.length;j++){
+                                let e = effects[j];
+                                if(e === "armorClass"){
+                                    for (let g=0;g<upgrade.effects[e].length;g++){
+                                        let found = false;
+                                        for(let k=0;k<stats.armorClasses.length;k++){
+                                            if(stats.armorClasses[k][0]===upgrade.effects[e][g][0]){
+                                                stats.armorClasses[k][1] += upgrade.effects[e][g][1];
+                                                found = true;
+                                            }
+                                        }
+                                        if(!found) stats.armorClasses.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
+                                    }
+
+                                } else if(e === "bonus"){
+                                    for (let g=0;g<upgrade.effects[e].length;g++){
+                                        let found = false;
+                                        for(let k=0;k<stats.atkBonuses.length;k++){
+                                            if(stats.atkBonuses[k][0]===upgrade.effects[e][g][0]){
+                                                stats.atkBonuses[k][1] += upgrade.effects[e][g][1];
+                                                found = true;
+                                            }
+                                        }
+                                        if(!found) stats.atkBonuses.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
+                                    }
+                                } else {
+                                    stats[e] += upgrade.effects[e];
+                                }
+                            }
+                            if(groupIdx === i) stats.upgrade = upgrade;
+                        }
+                    }
+                    stats.movementPerMin = stats.speed * 60;
+                    stats.damagePerMin = stats.mAtk ? 60 / stats.rateOfFire * stats.mAtk : 60 / stats.rateOfFire * stats.pAtk ;
+                    return stats;
+                }
+                unitSelect.change(function(){
+                    let unitName = $(this).val();
+                    let unitBase = $(this).find(":selected").attr("first") || unitName;
+                    displayData(getUnitData(unitBase, unitName));
+                });
+                unitSelect.trigger("change");
+            });
+            
+        </script>
+    </body>
+</html>

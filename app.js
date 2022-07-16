@@ -19,6 +19,10 @@ app.use('/civ-ranking.html', (req, res) => {
   res.redirect('/civ-ranking/')
 })
 
+app.use('/unit-card.html', (req, res) => {
+  res.redirect('/civ-ranking/')
+})
+
 app.use('/wood-calc.html', (req, res) => {
   res.redirect('/wood-calc/')
 })
