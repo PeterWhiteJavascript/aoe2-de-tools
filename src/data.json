@@ -32482,7 +32482,7 @@
                 "gold": 75
             },
             "effects":{
-                "cost": ["food", -15]
+                "cost": {"food":-15}
             },
             "time": 35
         },
@@ -34283,7 +34283,8 @@
                 "gold": 200
             },
             "effects":{
-                "atk": 1
+                "mAtk": 1,
+                "pAtk": 1
             },
             "time": 100
         },

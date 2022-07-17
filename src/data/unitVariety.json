@@ -104,6 +104,11 @@
           "food": 20,
           "gold": -20
         }
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -160,6 +165,11 @@
       "Goths Team Bonus": {
         "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -278,6 +288,11 @@
       "Britons Team Bonus": {
         "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -316,6 +331,11 @@
       "Britons Team Bonus": {
         "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -381,6 +401,11 @@
       "Gurjaras Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -412,6 +437,11 @@
       "Turks Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -452,6 +482,11 @@
       "Huns Team Bonus": {
         "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -527,6 +562,11 @@
       "Huns Team Bonus": {
         "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -570,6 +610,11 @@
       "Gurjaras Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -690,6 +735,11 @@
       "Gurjaras Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },
@@ -846,6 +896,11 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Kshatriyas": {
+        "cost":{
+          "food": 0.25
+        }
       }
     }
   },

@@ -67,6 +67,28 @@ Unit stat cards can be generated here.
                 margin:5px;
                 display:flex;
             }
+            .card-middle{
+                padding:10px;
+                display:flex;
+                flex-wrap: wrap;
+            }
+            .up-img{
+                cursor:pointer;
+                width:50px;
+                height:50px;
+                padding:5px;
+            }
+            .up-img img{
+                width:100%;
+                height:100%;
+            }
+            .selected{
+                
+            }
+            .unselected{
+                filter: brightness(50%);
+            }
+            
             .card-bottom{
                 
             }
@@ -101,6 +123,14 @@ Unit stat cards can be generated here.
             }
             .attack-bonuses{
                 margin:10px;
+                display:flex;
+                flex-wrap:wrap;
+            }
+            .attack-bonuses div:nth-child(odd){
+                width:25%;
+            }
+            .attack-bonuses div:nth-child(even){
+                width:75%;
             }
             
             .category-title{
@@ -117,7 +147,7 @@ Unit stat cards can be generated here.
                     <div class="unit-basic-info">
                         <div class="unit-basic-info-top">
                             <div class="unit-img">
-                                <img src="/img/man-at-arms.webp">
+                                <img src="">
                             </div>
                             <div class="unit-cost-cont">
                                 <div><img src="/img/food-icon.webp"><div></div></div>
@@ -140,34 +170,37 @@ Unit stat cards can be generated here.
                     </div>
                     <div class="unit-upgrade">
                         <div class="unit-upgrade-img">
-                            <img src="/img/man-at-arms-upgrade.webp">
+                            <img src="">
                         </div>
                         <div class="unit-upgrade-cost-cont">
-                            <div><img src="/img/food-icon.webp"><div>100</div></div>
-                            <div><img src="/img/gold-icon.webp"><div>40</div></div>
-                            <div><img src="/img/hourglass-icon.webp"><div>40</div></div>
+                            <div><img src="/img/food-icon.webp"><div></div></div>
+                            <div><img src="/img/gold-icon.webp"><div></div></div>
+                            <div><img src="/img/hourglass-icon.webp"><div></div></div>
                         </div>
                     </div>
+                </div>
+                <div class="card-middle">
+                    
                 </div>
                 <div class="card-bottom">
                     <div class="unit-stats">
                         <div>
-                            <div><img src="/img/icon-hp.webp"><div>45</div></div>
-                            <div><img src="/img/icon-melee-attack.webp"><div>6</div></div>
-                            <div><img src="/img/icon-melee-armor.webp"><div>1</div></div>
-                            <div><img src="/img/icon-pierce-armor.webp"><div>0</div></div>
+                            <div><img src="/img/icon-hp.webp"><div></div></div>
+                            <div><img src="/img/icon-melee-attack.webp"><div></div></div>
+                            <div><img src="/img/icon-melee-armor.webp"><div></div></div>
+                            <div><img src="/img/icon-pierce-armor.webp"><div></div></div>
                         </div>
                         <div>
-                            <div><img src="/img/icon-line-of-sight.webp"><div>6</div></div>
-                            <div><img src="/img/icon-attack-speed.webp"><div>2</div></div>
-                            <div><img src="/img/icon-movement-speed.webp"><div>0.9</div></div>
+                            <div><img src="/img/icon-line-of-sight.webp"><div></div></div>
+                            <div><img src="/img/icon-attack-speed.webp"><div></div></div>
+                            <div><img src="/img/icon-movement-speed.webp"><div></div></div>
                             <div><div></div></div>
                         </div>
                         <div class="range-attr">
-                            <div><img src="/img/icon-range.webp"><div>0</div></div>
-                            <div><img src="/img/icon-frame-delay.webp"><div>0</div></div>
-                            <div><img src="/img/icon-accuracy.webp"><div>0</div></div>
-                            <div><img src="/img/icon-proj-speed.webp"><div>0</div></div>
+                            <div><img src="/img/icon-range.webp"><div></div></div>
+                            <div><img src="/img/icon-frame-delay.webp"><div></div></div>
+                            <div><img src="/img/icon-accuracy.webp"><div></div></div>
+                            <div><img src="/img/icon-proj-speed.webp"><div></div></div>
                         </div>
                         <div>
                             <div><img src="/img/icon-damage-per-minute.webp"><div></div><div>&nbsp/ min</div></div>
@@ -176,12 +209,9 @@ Unit stat cards can be generated here.
                     </div>
                     <div class="category-title">Armor Classes</div>
                     <div class="armor-classes">
-                        <div>Infantry</div>
                     </div>
                     <div class="category-title">Attack Bonuses</div>
                     <div class="attack-bonuses">
-                        <div>+2 vs Eagle Warrior</div>
-                        <div>+2 vs Standard Building</div>
                     </div>
                 </div>
             </div>
@@ -206,6 +236,9 @@ Unit stat cards can be generated here.
                     }
                 }
                 $("#container").prepend(unitSelect);
+                function perMinute(time, res){
+                    return Math.round((60 / time) * res);
+                }
                 function displayData(d){
                     $(".unit-img").children("img").attr("src", "/img/"+d.name+".webp");
                     
@@ -214,9 +247,10 @@ Unit stat cards can be generated here.
                     $(".res-per-minute-cont:nth-child("+(2)+")").hide();
                     for(let i=0;i<costKeys.length;i++){
                         $(".unit-cost-cont").children("div:nth-child("+(i+1)+")").children("img").attr("src", "/img/"+costKeys[i]+"-icon.webp");
+                        $(".unit-cost-cont").children("div:nth-child("+(i+1)+")").attr("res", costKeys[i]);
                         $(".res-per-minute-cont:nth-child("+(i+1)+")").children("div").first().children("img").attr("src", "/img/"+costKeys[i]+"-icon.webp");
                         $(".unit-cost-cont").children("div:nth-child("+(i+1)+")").children("div").text(d.cost[costKeys[i]]);
-                        $(".res-per-minute-cont:nth-child("+(i+1)+")").children("div").first().children("div").first().text(Math.round((60 / d.trainTime) * d.cost[costKeys[i]]));
+                        $(".res-per-minute-cont:nth-child("+(i+1)+")").children("div").first().children("div").first().text(perMinute(d.trainTime, d.cost[costKeys[i]]));
                         if(i === 1){
                             $(".unit-cost-cont").children("div:nth-child("+(2)+")").show();
                             $(".res-per-minute-cont:nth-child("+(2)+")").show();
@@ -240,6 +274,22 @@ Unit stat cards can be generated here.
                     } else {
                         $(".unit-upgrade").hide();
                     }
+                    
+                    $(".card-middle").empty();
+                    //Add potential upgrades
+                    for(let i = 0; i < d.upgrades.length; i++){
+                        let u = d.upgrades[i];
+                        //If the upgrade string is that of a group, make the upgrade group type.
+                        if(data.upgradeGroups[u]){
+                            for(let j = 0; j < data.upgradeGroups[u].length; j++){
+                                $(".card-middle").append("<div class='up-img unselected' upgrade='"+data.upgradeGroups[u][j]+"'><img src='/img/"+data.upgradeGroups[u][j]+".webp'></div>");
+                            }
+                        } else/* if(u !== "heresy" && u !== "faith")*/{
+                            $(".card-middle").append("<div class='up-img unselected' upgrade='"+u+"'><img src='/img/"+u+".webp'></div>");
+                        }
+                    }
+                    
+                    
                     $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div").text(d.hp);
                     $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div").text(d.mAtk || d.pAtk);
                     $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div").text(d.mDef);
@@ -249,6 +299,7 @@ Unit stat cards can be generated here.
                     $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div").text(d.rateOfFire);
                     $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div").text(d.speed);
                     
+                    //Units with ranged attributes
                     if(d.accuracy){
                         $(".range-attr").show();
                         $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div").text(d.range);
@@ -260,8 +311,8 @@ Unit stat cards can be generated here.
                     }
                     
                     
-                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(1)").children("div:nth-child(2)").text(Math.round((60 / d.rateOfFire) * (d.mAtk || d. pAtk) ));
-                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(2)").children("div:nth-child(2)").text(Math.round(d.speed * 60));
+                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(1)").children("div:nth-child(2)").text(perMinute(d.rateOfFire, (d.mAtk || d. pAtk) ));
+                    $(".unit-stats").children("div:nth-child(4)").children("div:nth-child(2)").children("div:nth-child(2)").text(perMinute(1, d.speed));
                     
                     $(".armor-classes").empty();
                     for(let i=0;i<d.armorClasses.length;i++){
@@ -271,22 +322,34 @@ Unit stat cards can be generated here.
                     }
                     
                     $(".attack-bonuses").empty();
-                    if(d.atkBonuses){
-                        for(let i=0;i<d.atkBonuses.length;i++){
-                            if(d.atkBonuses[i][1]){
-                                let bonusName = data.armorClasses[d.atkBonuses[i][0]];
+                    if(d.bonus){
+                        for(let i=0;i<d.bonus.length;i++){
+                            if(d.bonus[i][1]){
+                                let bonusName = data.armorClasses[d.bonus[i][0]];
                                 bonusName = bonusName[0].toUpperCase() + bonusName.substring(1);
-                                $(".attack-bonuses").append("<div>"+"+"+d.atkBonuses[i][1]+" vs "+bonusName+"</div>");
+                                $(".attack-bonuses").append("<div>"+"+"+d.bonus[i][1]+" vs </div><div>"+bonusName+"</div>");
                             }
                         }
                     }
-                    console.log(d)
+                }
+                function calculateResPerMinute(){
+                    let res = $(".unit-cost-cont").children("div");
+                    let time = parseInt($(".unit-cost-cont").children("div:last-child").children("div:last-child").text());
+                    for(let i = 0; i < res.length - 1; i++){
+                        let resNum = parseInt($(".unit-cost-cont").children("div:eq("+i+")").children("div:last-child").text());
+                        $(".res-per-minute-cont").children("div:eq("+i+")").children("div:eq(0)").text(perMinute(time, resNum));
+                    }
+                }
+                function calculateDamagePerMinute(){
+                    let damage = parseInt($(".unit-stats").children("div:eq(0)").children("div:eq(1)").text());
+                    let attackSpeed = parseFloat($(".unit-stats").children("div:eq(1)").children("div:eq(1)").text());
+                    $(".unit-stats").children("div:eq(3)").children("div:eq(0)").children("div:eq(0)").text(perMinute(attackSpeed, damage));
                 }
                 function getUnitData(base, unit){
                     //Have to get the base unit and then go apply each unit upgrade to get the final stats.
                     let group = data.upgradeGroups[base];
                     //Base unit stats
-                    let baseUnit = JSON.parse(JSON.stringify(data.units.find(u => u.name === base)));
+                    let baseUnit = getUnitBaseData(base);
                     let stats = {
                         name:unit,
                         cost:baseUnit.cost,
@@ -302,55 +365,161 @@ Unit stat cards can be generated here.
                         rateOfFire:baseUnit.rateOfFire,
                         speed:baseUnit.speed,
                         armorClasses:baseUnit.armorClasses,
-                        atkBonuses:baseUnit.bonus,
+                        bonus:baseUnit.bonus,
                         
                         frameDelay:baseUnit.frameDelay,
                         accuracy:Math.round(baseUnit.accuracy),
-                        projSpeed:baseUnit.projSpeed
+                        projSpeed:baseUnit.projSpeed,
+                        
+                        upgrades:[].concat(baseUnit.damageTechs, baseUnit.otherTechs, baseUnit.uniqueDamageTechs, baseUnit.uniqueOtherTechs)
                     };
                     if(group){
                         //Index for upgrade group
                         let groupIdx = group.indexOf(unit);
                         //Apply stat increases
                         for(let i = 0; i < groupIdx+1; i++){
-                            let name = group[i];
-                            let upgrade = data.upgrades.find(u => u.name === name);
+                            let upgrade = getUpgradeData(group[i]);
                             let effects = Object.keys(upgrade.effects);
-                            for(let j=0;j<effects.length;j++){
-                                let e = effects[j];
-                                if(e === "armorClass"){
-                                    for (let g=0;g<upgrade.effects[e].length;g++){
-                                        let found = false;
-                                        for(let k=0;k<stats.armorClasses.length;k++){
-                                            if(stats.armorClasses[k][0]===upgrade.effects[e][g][0]){
-                                                stats.armorClasses[k][1] += upgrade.effects[e][g][1];
-                                                found = true;
-                                            }
-                                        }
-                                        if(!found) stats.armorClasses.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
-                                    }
-
-                                } else if(e === "bonus"){
-                                    for (let g=0;g<upgrade.effects[e].length;g++){
-                                        let found = false;
-                                        for(let k=0;k<stats.atkBonuses.length;k++){
-                                            if(stats.atkBonuses[k][0]===upgrade.effects[e][g][0]){
-                                                stats.atkBonuses[k][1] += upgrade.effects[e][g][1];
-                                                found = true;
-                                            }
-                                        }
-                                        if(!found) stats.atkBonuses.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
-                                    }
-                                } else {
-                                    stats[e] += upgrade.effects[e];
-                                }
-                            }
+                            stats = getUpgradeEffects(upgrade, effects, stats);
                             if(groupIdx === i) stats.upgrade = upgrade;
                         }
                     }
                     stats.movementPerMin = stats.speed * 60;
                     stats.damagePerMin = stats.mAtk ? 60 / stats.rateOfFire * stats.mAtk : 60 / stats.rateOfFire * stats.pAtk ;
+                    
                     return stats;
+                }
+                function deepCopyObjects(obj){
+                    if(obj.bonus){
+                        let bonus = [];
+                        for(let i=0;i<obj.bonus.length;i++){
+                            bonus.push(JSON.parse(JSON.stringify(obj.bonus[i])));
+                        }
+                        obj.bonus = JSON.parse(JSON.stringify(bonus));
+                    }
+                    if(obj.armorClasses){
+                        let armorClasses = [];
+                        for(let i=0;i<obj.armorClasses.length;i++){
+                            armorClasses.push(JSON.parse(JSON.stringify(obj.armorClasses[i])));
+                        }
+                        obj.armorClasses = JSON.parse(JSON.stringify(armorClasses));
+                    }
+                    if(obj.cost){
+                        let cost = {};
+                        let costKeys = Object.keys(obj.cost);
+                        for(let i=0;i<costKeys.length;i++){
+                            cost[costKeys[i]] = JSON.parse(JSON.stringify(obj.cost[costKeys[i]]));
+                        }
+                        obj.cost = cost;
+                    }
+                    return JSON.parse(JSON.stringify(obj));
+                }
+                function getUnitBaseData(base){
+                    return deepCopyObjects(data.units.find(u => u.name === base));
+                }
+                function getUpgradeData(name){
+                    let upgrade = data.upgrades.find(u => u.name === name);
+                    upgrade.effects = deepCopyObjects(upgrade.effects);
+                    return upgrade;
+                };
+                function getUpgradeEffects(upgrade, effects, stats){
+                    for(let j=0;j<effects.length;j++){
+                        let e = effects[j];
+                        if(e === "armorClasses"){
+                            for (let g=0;g<upgrade.effects[e].length;g++){
+                                let found = false;
+                                for(let k=0;k<stats.armorClasses.length;k++){
+                                    if(stats.armorClasses[k][0]===upgrade.effects[e][g][0]){
+                                        stats.armorClasses[k][1] += upgrade.effects[e][g][1];
+                                        found = true;
+                                    }
+                                }
+                                if(!found) stats.armorClasses.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
+                            }
+
+                        } else if(e === "bonus"){
+                            for (let g=0;g<upgrade.effects[e].length;g++){
+                                let found = false;
+                                for(let k=0;k<stats.bonus.length;k++){
+                                    if(stats.bonus[k][0]===upgrade.effects[e][g][0]){
+                                        stats.bonus[k][1] += upgrade.effects[e][g][1];
+                                        found = true;
+                                    }
+                                }
+                                if(!found){
+                                    stats.bonus.push(JSON.parse(JSON.stringify(upgrade.effects[e][g])));
+                                }
+                            }
+                        } else if(e === "cost"){
+                            let costKeys = Object.keys(upgrade.effects[e]);
+                            for(let k=0;k<costKeys.length;k++){
+                                stats[e][costKeys[k]] += upgrade.effects[e][costKeys[k]];
+                            }
+                        } else {
+                            stats[e] += upgrade.effects[e];
+                        }
+                    }
+                    return stats;
+                }
+                function applyStats(stats, reverse){
+                    reverse = reverse ? -1 : 1;
+                    function changeStat(elm, to){
+                        elm.text(parseInt(elm.text()) + (to * reverse));
+                    };
+                    let statKeys = Object.keys(stats);
+                    for(let i=0;i<statKeys.length;i++){
+                        let s = statKeys[i];
+                        switch(s){
+                            case "armorClasses":
+                                for(let j = 0; j<stats[s].length; j++){
+                                    let armorClassName = data.armorClasses[stats[s][j][0]];
+                                    $(".armor-classes")///UNFINISHED
+                                }
+                                
+                                break;
+                            case "bonus":
+                                for(let j = 0; j<stats[s].length; j++){
+                                    let bonusName = data.armorClasses[stats[s][j][0]];
+                                    let category = $(".attack-bonuses").children("div:contains('"+(bonusName[0].toUpperCase() + bonusName.substring(1))+"')");
+                                    let statDiv = category.prev();
+                                    let statText = statDiv.text();
+                                    statDiv.text("+"+(parseInt(statText.slice(1, -3)) + (stats[s][j][1] * reverse))+" vs");
+                                }
+                                break;
+                            case "cost":
+                                let costKeys = Object.keys(stats[s]);
+                                for( let j = 0; j < costKeys.length; j++){
+                                    let costName = costKeys[j];
+                                    let cont = $(".unit-cost-cont").children("div[res='"+costName+"']");
+                                    changeStat(cont.children("div"), stats[s][costKeys[j]]);
+                                    calculateResPerMinute();
+                                }
+                                break
+                            case "hp":
+                                changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div"), stats[s]);
+                                break;
+                            case "mAtk":
+                            case "pAtk":
+                                changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div"), stats[s]);
+                                calculateDamagePerMinute();
+                                break;
+                            case "mDef":
+                                changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div"), stats[s]);
+                                break;
+                            case "pDef":
+                                changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(4)").children("div"), stats[s]);
+                                break;
+                        }
+                    }
+                }
+                function applyUpgrade(name, remove){
+                    let upData = getUpgradeData(name);
+                    if(!upData) {
+                        console.log(name + " doesn't exist in data.json!");
+                        return;
+                    }
+                    applyStats(upData.effects, remove);
+                    
                 }
                 unitSelect.change(function(){
                     let unitName = $(this).val();
@@ -358,6 +527,10 @@ Unit stat cards can be generated here.
                     displayData(getUnitData(unitBase, unitName));
                 });
                 unitSelect.trigger("change");
+                $(document).on("click", ".up-img", (e) => {
+                    $(e.currentTarget).toggleClass("unselected");
+                    applyUpgrade($(e.currentTarget).attr("upgrade"), $(e.currentTarget).hasClass("unselected"));
+                });
             });
             
         </script>
