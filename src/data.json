@@ -1389,7 +1389,8 @@
             "bonusDesc":[
                 "The Bengalis are have a fairly strong economy starting in mid-feudal age because their town centers spawn 2 free villagers when they reach the next age. This applies to all tcs, so if you have more than one (in the case of going up to imperial age), you will get 2 villagers per tc. With mahayana in the late game, you have extra population space which you can use for more villagers or military.",
                 "Their elephant units resist 25% of bonus damage and are more resistant to conversion. This especially helps their elephant archers.",
-                "Their unique unit, the ratha, can switch between melee and ranged mode which makes it function kind of like a knight-cavalry archer hybrid."
+                "Their unique unit, the ratha, can switch between melee and ranged mode which makes it function kind of like a knight-cavalry archer hybrid.",
+                "Bengalis monks have +3/+3 armor as a civilization bonus."
             ],
             "ranksUnique":[["paiks", ["elite ratha", "elite elephant archer", "elite battle elephant", "siege elephant"]], ["mahayana", ["villager"]]],
             "ranks":{
@@ -1403,7 +1404,7 @@
                 "archery range":{
                     "arbalester": [3, 3, 2.5],
                     "elite skirmisher": [3, 3, 3],
-                    "elite elephant archer": [3, 3.5]
+                    "elite elephant archer": [3.5, 3.5]
                 },
                 "stable":{
                     "light cavalry":[3, 3, 2.5],
@@ -1415,10 +1416,10 @@
                     "heavy scorpion":[3, 3]
                 },
                 "monastery":{
-                    "monk":[3, 3]
+                    "monk":[4, 3.5]
                 },
                 "castle":{
-                    "elite ratha":[3.5, 4],
+                    "elite ratha":[3, 3],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -3317,7 +3318,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": false
+                      "available": true
                     }
                   ]
                 },
@@ -4826,7 +4827,7 @@
                 }
               },
             "bonusDesc":[
-                "Burgundians can research economic upgrades one age earlier and at a 50% food discount.",
+                "Burgundians can research economic upgrades one age earlier and at a 40% food discount.",
                 "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
                 "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers.",
                 "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age.",
@@ -5510,10 +5511,10 @@
                 }
             },
             "bonusDesc":[
-                "Burmese get lumber upgrades for free. Though this is helpful, this is not a good enough bonus to increase the rank of villagers.",
+                "Burmese get lumber upgrades for free. This can be a strong bonus as these upgrades are researched pretty much every game so it's always useful.",
                 "Infantry get +1 attack per age, which means that they have +3 for free in imperial age. This really helps their infantry in trash battles in the late game.",
-                "With howdah, Burmese battle elephants become extremely tanky, especially against archers.",
-                "Manipur cavalry gives an attack bonus  against buildings for all stable units as well as arambai. Since the Burmese lack siege ram, this can be good to pick up in the late game, especially when raiding with hussars.",
+                "With howdah (+1/+1 armor), Burmese battle elephants become extremely tanky, especially against archers. Burmese have a civ bonus that also gives them +1/+1 armor for battle elephants.",
+                "Manipur cavalry gives +5 damage to archer for all stable units. This lets their hussars demolish arbalesters and cavalry archers to make up for the fact that Burmese lacks +2 armor for their skirmishers.",
                 "Monastery technologies are 50% cheaper."
             ],
             "ranksUnique":[["howdah", ["elite battle elephant"]], ["manipur cavalry", ["hussar", "paladin", "elite battle elephant", "elite arambai"]]],
@@ -5533,7 +5534,7 @@
                 "stable":{
                     "hussar":[3, 3, 3.5],
                     "cavalier":[3, 3.5],
-                    "elite battle elephant":[3, 3.5]
+                    "elite battle elephant":[3.5, 4]
                 },
                 "siege workshop":{
                     "capped ram":[3, 2.5],
@@ -6065,7 +6066,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": false
+                      "available": true
                     }
                   ]
                 },
@@ -6910,7 +6911,7 @@
                     "monk":[2, 1]
                 },
                 "castle":{
-                    "elite woad raider":[2, 3.5],
+                    "elite woad raider":[3, 4],
                     "trebuchet":[3.5]
                 },
                 "university":{
@@ -8248,7 +8249,7 @@
             "ranksUnique":[["steppe husbandry", ["hussar", "elite steppe lancer", "heavy cavalry archer"]], ["cuman mercenaries", []]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 4, 3, 3]
+                    "villager":[3, 4, 3.5, 3]
                 },
                 "barracks":{
                     "champion":[3, 3, 2.5, 2.5],
@@ -8512,7 +8513,7 @@
                     },
                     {
                       "name": "bombard cannon",
-                      "available": false
+                      "available": true
                     }
                   ],
                   "upgrades": []
@@ -9656,7 +9657,7 @@
                     "monk":[2, 2]
                 },
                 "castle":{
-                    "elite shotel warrior":[2, 3],
+                    "elite shotel warrior":[3, 3],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -11700,8 +11701,8 @@
               }
             },
           "bonusDesc":[
-                "Gurjaras have two economic bonuses that work together in the early game. They start with 2 forage bushes, and can garrison herdables in mills to generate a trickle of food. By building the mill as soon as possible, your economy by feudal age is at least as strong as other civs without even having to eat your sheep.",
-                "Gurjaras mounted units deal 50% extra bonus damage. The effects of this are most easily seen with their camel riders and siege elephants. Frontier guards gives elephant archers and camel riders +4 melee armor.",
+                "Gurjaras have two economic bonuses that work together in the early game. They start with 2 forage bushes, and can garrison herdables in mills to generate a trickle of food.",
+                "Gurjaras mounted units deal 40% extra bonus damage. The effects of this are most easily seen with their camel riders and siege elephants. Frontier guards gives elephant archers and camel riders +4 melee armor.",
                 "With kshatriyas, all military units cost 25% less food. This is a huge savings and makes their hussars (which only lack blast furnace) cost only 60 food.",
                 "Their unique chakram thrower is a mid-ranged infantry unit that has a projectile that does pass through damage like scorpions.",
                 "The Gurjaras start the game with a camel scout which automatically gains some stats when reaching feudal and castle age. They can also make camel scouts from the stable in feudal age at the same cost as camel riders in castle age."
@@ -11780,7 +11781,7 @@
                   },
                   {
                     "name": "halberdier",
-                    "available": true
+                    "available": false
                   },
                   {
                     "name": "eagle scout",
@@ -12420,7 +12421,7 @@
               },
               "barracks":{
                   "champion":[3, 3, 3, 2.5],
-                  "halberdier":[3, 3, 2.5]
+                  "pikeman":[3, 3, 2.5]
               },
               "archery range":{
                   "crossbowman": [3, 3, 2],
@@ -15822,7 +15823,7 @@
                 }
               },
             "bonusDesc":[
-                "Khmer farmers don't have to drop off food. The food goes directly into the stockpile when it is collected. This makes them so efficient that Khmer farmers were nerfed to work 5% slower than other civilizations.",
+                "Khmer farmers don't have to drop off food. The food goes directly into the stockpile when it is collected.",
                 "Their villagers can also garrison inside houses, which prevents them from being attacked by enemies. They don't regenerate hit points inside houses though.",
                 "One major bonus for Khmer is that they don't require prerequesite buildings to build any building or advance to the next age. This allows them to click to castle age as soon as they reach feudal age provided they have the resources to do so.",
                 "Khmer battle elephants move 10% faster and with the tusk swords, do 3 extra damage.",
@@ -16516,8 +16517,7 @@
                 "The only economic bonus that Koreans get is 20% faster stone miners. This, in addition to their villagers having +3 line of sight, makes tower rush a common strategy.",
                 "All units except siege have their wood cost reduced by 20%. Koreans also get archer armor upgrades for free. This makes opening with elite skirmisher against enemy crossbowmen a tempting choice instead of defending with siege.",
                 "Guard tower and keep upgrades are free. Once eupseong and bodkin arrow is researched, guard towers have 12 range in castle age. This is the same range as bombard cannons. In imperial age, once bracer is researched, Korean keeps have the same range as bombard cannons with siege engineers at 13.",
-                "Shinkichon gives an extra range to the mangonel line, bringing onagers and siege onagers to 10 range with siege engineers.",
-                "Koreans are the best turtling civilization."
+                "Shinkichon gives an extra range to the mangonel line, bringing onagers and siege onagers to 10 range with siege engineers."
             ],
             "ranksUnique":[["eupseong", ["keep"]], ["shinkichon", ["siege onager"]]],
             "ranks":{
@@ -18434,7 +18434,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": false
+                      "available": true
                     }
                   ]
                 },
@@ -18571,10 +18571,10 @@
             "ranksUnique":[["thalassocracy", []], ["forced levy", ["champion"]]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3, 3]
+                    "villager":[3, 3.5, 3.5, 3]
                 },
                 "barracks":{
-                    "two-handed swordsman":[3, 3, 3, 3.5],
+                    "two-handed swordsman":[3, 3, 3, 4],
                     "halberdier":[3, 3, 3]
                 },
                 "archery range":{
@@ -18585,7 +18585,7 @@
                 "stable":{
                     "light cavalry":[2, 1.5, 1],
                     "cavalier":[1.5, 1],
-                    "elite battle elephant": [3, 3]
+                    "elite battle elephant": [3.5, 3.5]
                 },
                 "siege workshop":{
                     "capped ram":[3, 2.5],
@@ -18597,7 +18597,7 @@
                     "monk":[3, 3]
                 },
                 "castle":{
-                    "elite karambit warrior":[3.5, 3.5],
+                    "elite karambit warrior":[3, 3],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -23914,7 +23914,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -24043,7 +24043,7 @@
                 }
               },
             "bonusDesc":[
-                "Sicilian land military units take 50% reduced bonus damage from incoming attacks. This greatly increases the performance of their knights versus pikemen.",
+                "Sicilian land military units take 33% reduced bonus damage from incoming attacks. This greatly increases the performance of their knights versus pikemen.",
                 "They also get double the food increase on farms from farm upgrades. For example heavy plow gives 250 food instead of the usual 125. The carry capacity is still just increased by 1 though.",
                 "The Sicilian unique unit is the serjeant; a slow moving infantry unit with high melee and pierce armor that can also build donjons. Donjons are like a watch tower that can train more serjeants. This means that Sicilians have access to their unique unit in the feudal age.",
                 "Sicilian castles and town centers can be built 100% faster, meaning a faster boom or more deadly castle drops."
@@ -24726,11 +24726,12 @@
                 }
               },
             "bonusDesc":[
-                "Slav farmers work 10% faster. This means that for every 10 villagers that are farming, Slavs get 11 villager's worth of food as well as another villager doing something else.",
-                "Slavs also get supplies for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors, though the Slavs also have access to the Boyar which can deal well with these as well.",
+                "Slav farmers work 10% faster. This means that for every 10 villagers that are farming, Slavs get 11 villager's worth of food.",
+                "Slavs also get supplies for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors",
                 "Their siege workshop units are discounted by 15% which really pushes them towards a siege and halberdier unit composition.",
                 "Military buildings provide an extra 5 population space. This is like getting a free house, which is worth 25 wood plus the villager build time. You can think of this as roughly a 35-40 wood discount on military buildings.",
-                "Druzhina gives all infantry an area of effect attack. This makes their champions and halberdiers powerful in large-scale battles."
+                "Druzhina gives all infantry an area of effect attack. This makes their champions and halberdiers powerful in large-scale battles.",
+                "With detinets, Slavs can have many more castles than other civs to protect their economy and control the map."
             ],
             "ranksUnique":[["detinets", ["castle"]], ["druzhina", ["champion", "halberdier"]]],
             "ranks":{
@@ -24764,7 +24765,7 @@
                 },
                 "university":{
                     "guard tower": [3, 3, 3],
-                    "defenses": [3, 3, 3, 3]
+                    "defenses": [3, 3, 3, 3.5]
                 }
             }
         },
@@ -26652,8 +26653,7 @@
                     },
                     {
                       "name": "treadmill crane",
-                      "available": true
-                    }
+                      "available": false                    }
                   ]
                 },
                 "town center": {
@@ -26790,7 +26790,7 @@
             "ranksUnique":[["ironclad", ["siege ram", "siege onager", "heavy scorpion"]], ["crenellations", ["defenses"]]],
             "ranks":{
                 "town center": {
-                    "villager":[3, 3, 3, 3]
+                    "villager":[3, 3.5, 3.5, 3.5]
                 },
                 "barracks":{
                     "champion":[3, 3, 3.5, 3.5],
@@ -26816,7 +26816,7 @@
                     "monk":[3.5, 3.5]
                 },
                 "castle":{
-                    "elite teutonic knight":[2, 2],
+                    "elite teutonic knight":[2, 3],
                     "trebuchet":[3.5]
                 },
                 "university":{
@@ -27480,7 +27480,7 @@
                 },
                 "archery range":{
                     "crossbowman": [3, 3, 2],
-                    "skirmisher": [3, 1, 0.5],
+                    "skirmisher": [3, 1, 1],
                     "heavy cavalry archer": [3, 4],
                     "hand cannoneer":[4]
                 },
@@ -28874,7 +28874,7 @@
                     "monk":[1.5, 1.5]
                 },
                 "castle":{
-                    "elite berserk":[2, 3.5],
+                    "elite berserk":[3, 3.5],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -29251,10 +29251,10 @@
             "frameDelay": 24,
             "attackDelay": 0.4,
             "cost":{
-                "food": 90,
+                "food": 80,
                 "gold": 70
             },
-            "armorClasses": [[15, 0], [28, -7], [8, 0], [5, 0]],
+            "armorClasses": [[15, 0], [28, -4], [8, 0], [5, 0]],
             "bonus":[[13, 3], [11, 3]],
             "damageTechs":["elite elephant archer", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "thumb ring", "husbandry", "faith", "heresy", "conscription"],
@@ -29411,7 +29411,8 @@
             "mAtk": 8,
             "mDef": 0,
             "pDef": 1,
-            "hp": 100,
+            "hp": 55,
+            "shieldRegen":20,
             "range": 0,
             "speed": 1.6,
             "rateOfFire": 1.75,
@@ -29575,7 +29576,7 @@
             },
             "armorClasses": [[20, 0], [17, 0], [8, 0], [5, 0]],
             "bonus":[[11, 75], [20, 25]],
-            "damageTechs":["armored elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["armored elephant", "meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
             "otherTechs":["husbandry", "faith", "heresy"],
             "uniqueDamageTechs":["Wootz Steel", "Paiks"],
             "uniqueOtherTechs":["Kshatriyas", "Medical Corps"],
@@ -30169,7 +30170,7 @@
             "name": "coustillier",
             "ageReq": 3,
             "mAtk": 8,
-            "atkCharge": 25,
+            "atkCharge": 20,
             "chargeTime": 40,
             "mDef": 2,
             "pDef": 2,
@@ -30655,7 +30656,7 @@
                 "wood": 125,
                 "gold": 60
             },
-            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "armorClasses": [[15, 0], [28, -1], [8, 0], [19, 0]],
             "bonus":[[21, 5]],
             "damageTechs":["elite war wagon", "archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
@@ -30838,7 +30839,7 @@
             "pAtk": 0,
             "mDef": 0,
             "pDef": 3,
-            "hp": 65,
+            "hp": 55,
             "speed": 1.15,
             "lineOfSight": 6,
             "rateOfFire": 2.0,
@@ -31343,7 +31344,7 @@
                 "stone": 5
             },
             "armorClasses": [[11, 16], [21, 0], [13, 0], [22, 0]],
-            "hp": 900,
+            "hp": 1080,
             "mDef": 8,
             "pDef": 10,
             "lineOfSight": 6,
@@ -31355,7 +31356,7 @@
             "ageUpgrade":[
                 {},
                 {
-                    "hp": 900
+                    "hp": 720
                 },
                 {}
             ]
@@ -31367,7 +31368,7 @@
                 "stone": 30
             },
             "armorClasses": [[11, 20], [21, 0], [13, 0], [22, 0]],
-            "hp": 1375,
+            "hp": 1650,
             "mDef": 6,
             "pDef": 6,
             "lineOfSight": 6,
@@ -31379,7 +31380,7 @@
             "ageUpgrade":[
                 {},
                 {
-                    "hp": 1375
+                    "hp": 1100
                 },
                 {}
             ]
@@ -32049,8 +32050,8 @@
             "name": "crossbowman",
             "ageReq": 3,
             "cost":{
-                "food": 125,
-                "gold": 75
+                "food": 175,
+                "gold": 125
             },
             "effects":{
                 "hp": 5,
@@ -32068,8 +32069,8 @@
             "name": "arbalester",
             "ageReq": 4,
             "cost":{
-                "food": 350,
-                "gold": 300
+                "food": 450,
+                "gold": 400
             },
             "effects":{
                 "hp": 5,
@@ -32252,15 +32253,15 @@
             "name": "elite shrivamsha rider",
             "ageReq": 4,
             "cost":{
-                "food": 800,
-                "gold": 600
+                "food": 850,
+                "gold": 500
             },
             "effects":{
                 "hp": 15,
                 "mAtk": 3,
                 "lineOfSight": 1
             },
-            "time": 170,
+            "time": 45,
             "classChange": true
         },
         {
