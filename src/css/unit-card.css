@@ -1,0 +1,141 @@
+.card{
+    font-family: courier new;
+    font-size:18px;
+    font-weight: bold;
+    margin:10px;
+    width:300px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-image: linear-gradient(#C71400, #FFB0A9);
+}
+.card-top{
+    padding:10px;
+    display:flex;
+}
+.unit-basic-info{
+
+}
+.unit-basic-info-top{
+    display:flex;
+}
+.unit-img img{
+    margin:5px;
+}
+.unit-cost-cont{
+    margin:5px;
+}
+.unit-cost-cont > div{
+    margin:5px;
+    display:flex;
+}
+.unit-basic-info-bottom{
+
+}
+.res-per-minute-cont > div{
+    margin:5px;
+    display:flex;
+
+}
+.unit-upgrade{
+    padding:10px;
+    border-left: 2px solid black;
+}
+.unit-upgrade-img img{
+    width:60px;
+    height:auto;
+}
+.unit-upgrade-cost-cont{
+
+}
+.unit-upgrade-cost-cont > div{
+    margin:5px;
+    display:flex;
+}
+.card-middle{
+    padding:10px;
+    display:flex;
+    flex-wrap: wrap;
+}
+.unit-upgrades{
+    display:flex;
+    flex-wrap: wrap;
+}
+.upgrades{
+    display:flex;
+    flex-wrap: wrap;
+}
+.upgrades div{
+    display:flex;
+    flex-wrap: wrap;
+}
+.upgrade-group{
+    width:100%;
+}
+
+
+.up-img{
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    padding:5px;
+}
+.up-img img{
+    width:100%;
+    height:100%;
+}
+.selected{
+
+}
+.unselected{
+    filter: brightness(50%);
+}
+
+.card-bottom{
+
+}
+.unit-stats{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.unit-stats div{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:16px;
+}
+.unit-stats > div > div{
+    width:75px;
+    height:40px;
+    margin:5px;
+}
+.unit-stats > div:last-child > div {
+    width:150px;
+    height:40px;
+    margin:5px;
+}
+.unit-stats > div > div > img{
+    width:25px;
+    height:25px;
+}
+.unit-stats > div > div > div{
+    margin-left:5px;
+}
+.armor-classes{
+    margin:10px;
+}
+.attack-bonuses{
+    margin:10px;
+    display:flex;
+    flex-wrap:wrap;
+}
+.attack-bonuses div:nth-child(odd){
+    width:25%;
+}
+.attack-bonuses div:nth-child(even){
+    width:75%;
+}
+
+.category-title{
+    font-size:20px;
+    font-family: georgia;
+    margin:10px;
+}

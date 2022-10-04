@@ -29067,7 +29067,7 @@
             },
             "armorClasses": [[1, 0]],
             "bonus":[[21, 0]],
-            "damageTechs":["militia", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["supplies", "squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars", "chieftains", "bagains"],
             "uniqueOtherTechs":["perfusion", "druzhina", "forced levy"],
@@ -29090,7 +29090,7 @@
             },
             "armorClasses": [[1, 0], [27, 0]],
             "bonus":[[8, 15], [5, 15], [30, 12], [16, 9], [32, 9], [35, 4], [29, 1], [21, 1]],
-            "damageTechs":["spearman", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars", "chieftains", "tower shields"],
             "uniqueOtherTechs":["perfusion", "druzhina"],
@@ -29113,7 +29113,7 @@
             },
             "armorClasses": [[1, 0], [29, 0]],
             "bonus":[[25, 8], [20, 3], [8, 0], [30, 0], [16, 0], [34, 0]],
-            "damageTechs":["eagle scout", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars", "fabric shields", "el dorado"],
             "uniqueOtherTechs":[],
@@ -29174,7 +29174,7 @@
             },
             "armorClasses": [[15, 0]],
             "bonus":[[27, 3]],
-            "damageTechs":["archer", "archerAttack", "archerDefense", "chemistry"],
+            "damageTechs":["archerAttack", "archerDefense", "chemistry"],
             "otherTechs":["thumb ring", "ballistics", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["pavise"],
             "uniqueOtherTechs":["yeomen", "kamandaran"],
@@ -29201,7 +29201,7 @@
             },
             "armorClasses": [[15, 0]],
             "bonus":[[15, 3], [27, 3], [28, 0]],
-            "damageTechs":["skirmisher", "archerAttack", "archerDefense", "chemistry"],
+            "damageTechs":["archerAttack", "archerDefense", "chemistry"],
             "otherTechs":["thumb ring", "ballistics", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["atlatl", "pavise", "tower shields"],
             "uniqueOtherTechs":["yeomen", "andean sling"],
@@ -29228,7 +29228,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0]],
             "bonus":[[27, 2]],
-            "damageTechs":["heavy cavalry archer", "archerAttack", "archerDefense", "bloodlines", "parthian tactics", "chemistry"],
+            "damageTechs":["archerAttack", "archerDefense", "bloodlines", "parthian tactics", "chemistry"],
             "otherTechs":["thumb ring", "ballistics", "husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["sipahi", "recurve bow", "silk armor"],
             "uniqueOtherTechs":["steppe husbandry"],
@@ -29256,7 +29256,7 @@
             },
             "armorClasses": [[15, 0], [28, -4], [8, 0], [5, 0]],
             "bonus":[[13, 3], [11, 3]],
-            "damageTechs":["elite elephant archer", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "thumb ring", "husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["Frontier Guards", "Paiks"],
             "uniqueOtherTechs":["Kshatriyas", "Medical Corps"],
@@ -29302,7 +29302,7 @@
             "range": 5,
             "minimumRange": 1,
             "speed": 0.96,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "projSpeed": 5.5,
             "lineOfSight": 7,
             "cost":{
@@ -29329,7 +29329,7 @@
             "range": 4,
             "minimumRange": 1,
             "speed": 1.35,
-            "rateOfFire": 3.05,
+            "rateOfFire": 3,
             "projSpeed": 7,
             "lineOfSight": 5,
             "cost":{
@@ -29338,7 +29338,7 @@
             },
             "armorClasses": [[8, 0], [15, 0], [19, 0], [28, 1]],
             "bonus":[[15, 4], [27, 2], [28, 0]],
-            "damageTechs":["genitour", "archerAttack", "archerDefense", "bloodlines", "chemistry"],
+            "damageTechs":["archerAttack", "archerDefense", "bloodlines", "chemistry"],
             "otherTechs":["husbandry", "ballisitcs", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["sipahi", "atlatl", "silk armor"],
             "uniqueOtherTechs":["andean sling"],
@@ -29355,14 +29355,14 @@
             "hp": 45,
             "range": 0,
             "speed": 1.2,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "lineOfSight": 4,
             "cost":{
                 "food": 80
             },
             "armorClasses": [[8, 0]],
             "bonus":[[25, 6]],
-            "damageTechs":["scout cavalry", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["farimba", "manipur cavalry", "silk armor"],
             "uniqueOtherTechs":["stirrups", "chivalry", "steppe husbandry"],
@@ -29391,7 +29391,7 @@
             "hp": 100,
             "range": 0,
             "speed": 1.35,
-            "rateOfFire": 1.83,
+            "rateOfFire": 1.8,
             "lineOfSight": 4,
             "cost":{
                 "food": 60,
@@ -29399,7 +29399,7 @@
             },
             "armorClasses": [[8, 0]],
             "bonus":[],
-            "damageTechs":["knight", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["farimba", "manipur cavalry"],
             "uniqueOtherTechs":["chivalry"],
@@ -29423,7 +29423,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
-            "damageTechs":["shrivamsha rider", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["Kshatriyas"],
@@ -29469,7 +29469,7 @@
             },
             "armorClasses": [[30, 0]],
             "bonus":[[8, 4], [30, 2], [16, 2], [34, 2]],
-            "damageTechs":["camel scout", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["farimba", "zealotry"],
             "uniqueOtherTechs":["maghrabi camels", "Kshatriyas"],
@@ -29504,7 +29504,7 @@
             },
             "armorClasses": [[5, 0], [8, 0]],
             "bonus":[[11, 4], [13, 7]],
-            "damageTechs":["battle elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["chatras", "manipur cavalry", "tusk swords", "howdah"],
             "uniqueOtherTechs":[],
@@ -29527,7 +29527,7 @@
             },
             "armorClasses": [8],
             "bonus":[],
-            "damageTechs":["steppe lancer", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["steppe husbandry"],
@@ -29553,7 +29553,7 @@
             "armorClasses": [[20, 0], [17, 0]],
             "bonus":[[11, 125], [20, 40]],
             "reloadUpgrade":["siege engineers"],
-            "damageTechs":["battering ram", "siege engineers"],
+            "damageTechs":["siege engineers"],
             "otherTechs":["faith", "heresy"],
             "uniqueDamageTechs":["furor celtica", "ironclad"],
             "uniqueOtherTechs":["drill"],
@@ -29576,7 +29576,7 @@
             },
             "armorClasses": [[20, 0], [17, 0], [8, 0], [5, 0]],
             "bonus":[[11, 75], [20, 25]],
-            "damageTechs":["armored elephant", "meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
             "otherTechs":["husbandry", "faith", "heresy"],
             "uniqueDamageTechs":["Wootz Steel", "Paiks"],
             "uniqueOtherTechs":["Kshatriyas", "Medical Corps"],
@@ -29606,7 +29606,7 @@
             "armorClasses": [[20, 0]],
             "bonus":[[11, 35], [20, 12]],
             "reloadUpgrade":["siege engineers"],
-            "damageTechs":["mangonel", "siege engineers", "chemistry"],
+            "damageTechs":["siege engineers", "chemistry"],
             "otherTechs":["faith", "heresy"],
             "uniqueDamageTechs":["furor celtica", "ironclad"],
             "uniqueOtherTechs":["drill"],
@@ -29635,7 +29635,7 @@
             "armorClasses": [[20, 0]],
             "bonus":[[5, 6], [11, 2], [17, 1]],
             "reloadUpgrade":["siege engineers"],
-            "damageTechs":["scorpion", "siege engineers", "chemistry"],
+            "damageTechs":["siege engineers", "chemistry"],
             "otherTechs":["faith", "heresy"],
             "uniqueDamageTechs":["furor celtica", "ironclad", "rocketry"],
             "uniqueOtherTechs":["drill", "torsion engines", "double crossbow"],
@@ -29820,7 +29820,7 @@
             },
             "armorClasses": [[34, 0]],
             "bonus":[],
-            "damageTechs":["careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "gillnets","faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
@@ -29847,7 +29847,7 @@
             },
             "armorClasses": [[16, 6]],
             "bonus":[[16, 3], [2, 1], [11, 1], [34, 1]],
-            "damageTechs":["fire ship", "careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":["greek fire"],
@@ -29874,7 +29874,7 @@
             },
             "armorClasses": [[16, 0]],
             "bonus":[[16, 8], [34, 8], [11, 6], [17, 3]],
-            "damageTechs":["war galley", "archerAttack", "chemistry", "careening"],
+            "damageTechs":["archerAttack", "careeningTechs", "chemistry"],
             "otherTechs":["shipwright", "ballistics", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
@@ -29897,7 +29897,7 @@
             },
             "armorClasses": [[16, 1]],
             "bonus":[[11, 180]],
-            "damageTechs":["demolition raft", "careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
@@ -29919,7 +29919,7 @@
             },
             "armorClasses": [[16, 0]],
             "bonus":[],
-            "damageTechs":["careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
@@ -29946,7 +29946,7 @@
             },
             "armorClasses": [[16, 0], [23, 0]],
             "bonus":[[11, 200], [20, 40], [1, 15], [15, 15], [8, 15], [35, 4]],
-            "damageTechs":["elite cannon galleon", "careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":["artillery", "arquebus"],
@@ -29974,7 +29974,7 @@
             },
             "armorClasses": [[16, 0], [19, 0]],
             "bonus":[[16, 9], [34, 9], [11, 7], [17, 4]],
-            "damageTechs":["elite longboat", "archerAttack", "chemistry", "careening"],
+            "damageTechs":["archerAttack", "careeningTechs", "chemistry"],
             "otherTechs":["ballistics", "faith", "heresy"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30001,7 +30001,7 @@
             },
             "armorClasses": [[16, 0], [19, 0]],
             "bonus":[[16, 6], [34, 6], [11, 8], [17, 4]],
-            "damageTechs":["elite caravel", "archerAttack", "chemistry", "careening"],
+            "damageTechs":["archerAttack", "careeningTechs", "chemistry"],
             "otherTechs":["ballistics", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
@@ -30028,7 +30028,7 @@
             },
             "armorClasses": [[16, 8], [19, 0], [2, 0]],
             "bonus":[[16, 9], [34, 9], [11, 9], [17, 4]],
-            "damageTechs":["thirisadai", "archerAttack", "chemistry", "careening"],
+            "damageTechs":["archerAttack", "careeningTechs", "chemistry"],
             "otherTechs":["shipwright", "ballistics", "faith"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30056,7 +30056,7 @@
             },
             "armorClasses": [[16, 8], [19, 0], [23, 0], [2, 0]],
             "bonus":[],
-            "damageTechs":["elite turtle ship", "careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright","ballistics", "faith", "heresy"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30085,7 +30085,7 @@
             },
             "armorClasses": [[15, 0], [23, 0], [19, 0]],
             "bonus":[[17, 2]],
-            "damageTechs":["elite janissary", "archerDefense"],
+            "damageTechs":["archerDefense"],
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30107,7 +30107,7 @@
             },
             "armorClasses": [[20, 0], [19, 0]],
             "bonus":[[29, 2], [21, 4]],
-            "damageTechs":["elite obuch", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30133,7 +30133,7 @@
             },
             "armorClasses": [[20, 0], [23, 0], [19, 0]],
             "bonus":[[17, 1]],
-            "damageTechs":["elite organ gun", "siege engineers"],
+            "damageTechs":["siege engineers"],
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["arquebus"],
@@ -30160,7 +30160,7 @@
             },
             "armorClasses": [[8, -2], [5, -2], [20, -2], [19, 0]],
             "bonus":[[16, 8], [34, 8], [13, 3], [21, 3], [11, 2]],
-            "damageTechs":["elite ballista elephant","siege engineers", "chemistry", "cavalryDefense", "bloodlines"],
+            "damageTechs":["siege engineers", "chemistry", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["double crossbow"],
             "uniqueOtherTechs":[],
@@ -30184,7 +30184,7 @@
             },
             "armorClasses": [[8, 0],[19, 0]],
             "bonus":[],
-            "damageTechs":["elite coustillier", "meleeAttack", "cavalryDefense"],
+            "damageTechs":["meleeAttack", "cavalryDefense"],
             "otherTechs":["husbandry", "faith", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30207,7 +30207,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[1, 10], [32, 10], [29, 2], [21, 2]],
-            "damageTechs":["elite jaguar warrior", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars"],
             "uniqueOtherTechs":[],
@@ -30231,7 +30231,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [11, 2]],
-            "damageTechs":["elite berserk", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["chieftains"],
             "uniqueOtherTechs":["berserkergang"],
@@ -30255,7 +30255,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 4], [11, 4]],
-            "damageTechs":["elite teutonic knight", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30287,7 +30287,7 @@
             ],
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [21, 2]],
-            "damageTechs":["elite serjeant", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30314,8 +30314,8 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 1]],
-            "damageTechs":["elite gbeto", "meleeAttack", "infantryDefense", "arson"],
-            "otherTechs":["squires","faith", "heresy", "conscription"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 17
@@ -30342,7 +30342,7 @@
             },
             "armorClasses": [[35, 0], [30, 0], [19, 0]],
             "bonus":[[8, 9]],
-            "damageTechs":["elite mameluke", "meleeAttack", "infantryDefense", "arson", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30352,11 +30352,11 @@
         {
             "name": "samurai",
             "ageReq": 3,
-            "mAtk": 8,
+            "mAtk": 10,
             "pAtk": 0,
             "mDef": 1,
             "pDef": 1,
-            "hp": 60,
+            "hp": 70,
             "speed": 1,
             "lineOfSight": 4,
             "rateOfFire": 1.45,
@@ -30366,7 +30366,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[19, 10], [29, 2], [11, 2]],
-            "damageTechs":["elite samurai", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30394,7 +30394,7 @@
             },
             "armorClasses": [[20, 0], [23, 0], [19, 0], [37, 0]],
             "bonus":[[17, 3], [11, 1]],
-            "damageTechs":["elite hussite wagon", "siege engineers"],
+            "damageTechs":["siege engineers"],
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30417,7 +30417,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[15, 6], [29, 2], [11, 3]],
-            "damageTechs":["elite huskarl", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["anarchy", "perfusion"],
@@ -30441,7 +30441,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 1], [11, 1]],
-            "damageTechs":["elite throwing axeman", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["bearded axe"],
@@ -30464,7 +30464,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [11, 1]],
-            "damageTechs":["elite urumi swordsman", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "conscription"],
             "uniqueDamageTechs":["Wootz Steel"],
             "uniqueOtherTechs":[],
@@ -30487,7 +30487,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [11, 1]],
-            "damageTechs":["elite shotel warrior", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["royal heirs"],
@@ -30511,7 +30511,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[5, 20], [8, 8], [30, 6]],
-            "damageTechs":["elite kamayuk", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["fabric shields"],
@@ -30535,7 +30535,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [11, 2]],
-            "damageTechs":["elite woad raider", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars"],
             "uniqueOtherTechs":[],
@@ -30558,7 +30558,7 @@
             },
             "armorClasses": [[8, 12], [19, 0]],
             "bonus":[[1, 9], [32, 9]],
-            "damageTechs":["elite cataphract", "meleeAttack", "cavalryDefense"],
+            "damageTechs":["meleeAttack", "cavalryDefense"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["logistica"],
             "uniqueOtherTechs":[],
@@ -30581,7 +30581,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[[13, 12], [26, 10], [11, 8], [22, 8]],
-            "damageTechs":["elite tarkan", "meleeAttack", "cavalryDefense"],
+            "damageTechs":[ "meleeAttack", "cavalryDefense"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30606,7 +30606,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2]],
-            "damageTechs":["elite karambit warrior", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30633,7 +30633,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [30, 0], [19, 0]],
             "bonus":[[8, 4]],
-            "damageTechs":["elite camel archer", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":[ "archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["maghrabi camels"],
@@ -30658,7 +30658,7 @@
             },
             "armorClasses": [[15, 0], [28, -1], [8, 0], [19, 0]],
             "bonus":[[21, 5]],
-            "damageTechs":["elite war wagon", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30687,7 +30687,7 @@
             },
             "armorClasses": [[8, 0], [15, 0], [19, 0], [23, 0], [28, 0]],
             "bonus":[[11, 4]],
-            "damageTechs":["elite conquistador", "archerDefense", "bloodlines"],
+            "damageTechs":[ "archerDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30715,7 +30715,7 @@
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[27, 2], [1, 1], [32, 1]],
-            "damageTechs":["elite plumed archer", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30743,7 +30743,7 @@
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[8, 5], [5, 5], [30, 4], [16, 4], [34, 4]],
-            "damageTechs":["elite genoese crossbowman", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":[ "archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["pavise"],
@@ -30771,7 +30771,7 @@
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[27, 2]],
-            "damageTechs":["elite rattan archer", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["ballistics", "thumb ring","faith", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30798,7 +30798,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[27, 1], [20, 3]],
-            "damageTechs":["elite ratha", "meleeAttack", "cavalryDefense", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
+            "damageTechs":[ "meleeAttack", "cavalryDefense", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
             "otherTechs":["husbandry", "ballistics", "faith", "conscription"],
             "uniqueDamageTechs":["Paiks"],
             "uniqueOtherTechs":[],
@@ -30825,7 +30825,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[27, 1], [20, 3]],
-            "damageTechs":["elite mangudai", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30850,7 +30850,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 1]],
-            "damageTechs":["elite ghulam", "squires", "arson", "meleeAttack", "infantryDefense"],
+            "damageTechs":["squires", "arson", "meleeAttack", "infantryDefense"],
             "otherTechs":["faith", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30874,7 +30874,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
-            "damageTechs":["elite konnik", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":[ "meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["stirrups"],
             "uniqueOtherTechs":[],
@@ -30899,7 +30899,7 @@
             },
             "armorClasses": [[8, 0], [5, 0], [19, 0]],
             "bonus":[[11, 7], [13, 7]],
-            "damageTechs":["elite war elephant", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["mahouts"],
@@ -30923,7 +30923,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
-            "damageTechs":["elite leitis", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":[ "meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30947,7 +30947,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
-            "damageTechs":["elite boyar", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -30971,7 +30971,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[[20,5], [17, 1]],
-            "damageTechs":["elite magyar huszar", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["corvinian army"],
@@ -31017,7 +31017,7 @@
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
-            "damageTechs":["elite keshik", "meleeAttack", "cavalryDefense", "bloodlines"],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -31045,7 +31045,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[17, 2]],
-            "damageTechs":["elite arambai", "archerDefense", "bloodlines"],
+            "damageTechs":[ "archerDefense", "bloodlines"],
             "otherTechs":["ballistics", "faith", "conscription"],
             "uniqueDamageTechs":[ "manipur cavalry"],
             "uniqueOtherTechs":[],
@@ -31072,7 +31072,7 @@
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 1], [11, 1]],
-            "damageTechs":["elite chakram thrower", "meleeAttack", "infantryDefense", "arson"],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["Kshatriyas"],
@@ -31100,7 +31100,7 @@
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[27, 2]],
             "arrows": 3,
-            "damageTechs":["elite chu ko nu", "archerDefense", "archerAttack", "chemistry", "rocketry"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry", "rocketry"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[ "rocketry"],
             "uniqueOtherTechs":[],
@@ -31129,7 +31129,7 @@
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[27, 1]],
             "arrows": 3,
-            "damageTechs":["elite kipchak", "archerDefense", "archerAttack", "bloodlines", "parthian tactics"],
+            "damageTechs":[ "archerDefense", "archerAttack", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
@@ -31157,7 +31157,7 @@
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[27, 2]],
-            "damageTechs":["elite longbowman", "archerDefense", "archerAttack", "chemistry"],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry"],
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[ "yeomen" ],
@@ -31191,8 +31191,8 @@
                     "pDef": 1
                 }
             ],
-            "damageTechs":["building defense"],
-            "otherTechs":["building sight", "faith", "heresy"],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["nomads"],
             "trainTime": 25
@@ -31235,10 +31235,10 @@
                     "pDef": 1
                 }
             ],
-            "damageTechs":["building defense"],
-            "otherTechs":["building sight", "faith", "heresy"],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
             "uniqueDamageTechs":[],
-            "uniqueOtherTechs":["sultans"],
+            "uniqueOtherTechs":[],
             "trainTime": 40
         },
         {
@@ -31254,8 +31254,8 @@
             "mDef": 3,
             "pDef": 10,
             "lineOfSight": 8,
-            "damageTechs":["building defense"],
-            "otherTechs":["building sight"],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["atheism"],
             "trainTime": 3500
@@ -31297,8 +31297,8 @@
                     "pDef": 1
                 }
             ],
-            "damageTechs":["archerAttack", "chemistry", "building defense"],
-            "otherTechs":["ballistics", "building sight", "herbal medicine"],
+            "damageTechs":["archerAttack", "chemistry", "buildingDefense"],
+            "otherTechs":["ballistics", "townWatch", "herbal medicine"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["tigui", "hill forts", "crenellations"],
             "trainTime": 270
@@ -31414,8 +31414,8 @@
                 {}
             ],
             "reloadUpgrade":["arrowslits"],
-            "damageTechs":["watch tower", "archerAttack", "chemistry", "building defense", "arrowslits", "heated shot"],
-            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
+            "damageTechs":["watch tower", "archerAttack", "chemistry", "buildingDefense", "arrowslits", "heated shot"],
+            "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
             "uniqueDamageTechs":["great wall"],
             "uniqueOtherTechs":["yasama", "yeomen", "stronghold", "crenellations"],
             "trainTime": 80
@@ -31457,7 +31457,7 @@
             ],
             "reloadUpgrade":["arrowslits"],
             "damageTechs":["archerAttack", "chemistry", "masonry", "arrowslits", "heated shot"],
-            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith"],
+            "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane", "faith"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 90
@@ -31518,8 +31518,8 @@
             "arrows": 1,
             "lineOfSight": 10,
             "garrison": 5,
-            "damageTechs":["archerAttack", "building defense", "heated shot"],
-            "otherTechs":["ballistics", "building sight", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
+            "damageTechs":["archerAttack", "buildingDefense", "heated shot"],
+            "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane", "faith", "heresy"],
             "uniqueDamageTechs":["great wall"],
             "uniqueOtherTechs":["arquebus"],
             "trainTime": 80
@@ -31536,8 +31536,8 @@
             "mDef": 0,
             "pDef": 0,
             "lineOfSight": 6,
-            "damageTechs":["building defense"],
-            "otherTechs":["treadmill crane", "building sight", "faith", "heresy"],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["treadmill crane", "townWatch", "faith", "heresy"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 15,
@@ -31573,7 +31573,7 @@
             "damageTechs":[],
             "otherTechs":["caravan", "faith", "heresy"],
             "uniqueDamageTechs":[],
-            "uniqueOtherTechs":["sultans", "silk road"],
+            "uniqueOtherTechs":["grand trunk road", "silk road"],
             "trainTime": 51
         },
         
@@ -31593,10 +31593,10 @@
             },
             "armorClasses": [[16, 0]],
             "bonus":[],
-            "damageTechs":["careening"],
+            "damageTechs":["careeningTechs"],
             "otherTechs":["shipwright", "caravan", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
-            "uniqueOtherTechs":["sultans", "silk road"],
+            "uniqueOtherTechs":["grand trunk road", "silk road"],
             "trainTime": 36
         }
     ],
@@ -31750,13 +31750,10 @@
         "archer":["crossbowman", "arbalester"],
         "skirmisher": ["elite skirmisher", "imperial skirmisher"],
         "cavalry archer": ["heavy cavalry archer"],
-        "genitour":["elite genitour"],
         "scout cavalry":["light cavalry", "hussar"],
         "knight":["cavalier", "paladin"],
         "shrivamsha rider": ["elite shrivamsha rider"],
         "camel scout":["camel rider", "heavy camel rider", "imperial camel rider"],
-        "battle elephant":["elite battle elephant"],
-        "steppe lancer":["elite steppe lancer"],
         
         "galley":["war galley", "galleon"],
         "fire galley":["fire ship", "fast fire ship"],
@@ -31765,14 +31762,13 @@
         "battering ram":["capped ram", "siege ram"],
         "armored elephant": ["siege elephant"],
         "mangonel":["onager", "siege onager"],
-        "scorpion":["heavy scorpion"],
         
-        "careening":["dry dock"],
-        "stoneWall":["fortified wall"],
+        "careeningTechs":["careening","dry dock"],
+        "stoneWall":["stone wall", "fortified wall"],
         "watchTower":["guard tower", "keep"],
         "buildingDefense": ["masonry", "architecture"],
         "chemistryUpgrade":["bombard tower"],
-        "townWatch":["town patrol"]
+        "townWatch":["town watch", "town patrol"]
     },
     "unitGroups":{
         "militia": "champion",
@@ -31915,7 +31911,8 @@
         "32": "condottiero",
         "34": "fishing ship",
         "35": "mameluke",
-        "36": "hero and king"
+        "36": "hero and king",
+        "37": "hussite wagon"
     },
     "upgrades":[
         {
@@ -32500,6 +32497,17 @@
             },
             "time": 25
         },
+        {
+            "name": "squires",
+            "ageReq": 3,
+            "cost":{
+                "food": 100
+            },
+            "effects":{
+                "speed": "*1.1"
+            },
+            "time": 25
+        },
 
         {
             "name": "thumb ring",
@@ -32624,7 +32632,7 @@
                 "food": 150
             },
             "effects":{
-                "speed": "x1.1"
+                "speed": "*1.1"
             },
             "time": 40
         },
@@ -32830,7 +32838,7 @@
                 "gold": 400
             },
             "effects":{
-                "speed": 1.15,
+                "speed": "*1.15",
                 "garrison": 10
             },
             "time": 60
@@ -32844,10 +32852,8 @@
                 "gold": 300
             },
             "effects":{
-                "cost": 1.2,
-                "costPercent": true,
-                "trainTime": 1.54,
-                "trainTimePercent": true
+                "cost": {"wood":"*0.8"},
+                "trainTime": "*0.64935064935"
             },
             "time": 60
         },
@@ -32974,8 +32980,8 @@
                 "gold": 5875
             },
             "effects":{
-                "mAtk": 4,
-                "hp": 20,
+                "mAtk": 2,
+                "hp": 10,
                 "lineOfSight": 1,
                 "bonus":[[19, 2], [29, 1], [11, 1]]
             },
@@ -33549,11 +33555,9 @@
                 "gold": 450
             },
             "effects":{
-                "mDef": 5,
-                "pDef": 5
+                "mDef": 5
             },
-            "time": 40,
-            "NOTE": "ageofempiresfandom doesn't have the time listed"
+            "time": 40
         },
 
         {
@@ -33566,8 +33570,7 @@
             "effects":{
                 "pDef": 2
             },
-            "time": 40,
-            "NOTE": "ageofempiresfandom doesn't have the time listed"
+            "time": 40
         },
 
         {
@@ -33619,14 +33622,38 @@
                 "gold": 250
             },
             "effects":{
-                "cost":{
-                    "wood": "*0.5",
-                    "gold": "*0.5"
-                    
+                "cost": {
+                    "wood":"*0.5",
+                    "gold":"*0.5"
                 }
             },
             "time": 60
         },
+        {
+            "name": "grand trunk road",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 400
+            },
+            "effects":{
+                "gatherRate": ["gold miner", "*1.10"]
+            },
+            "time": 40
+        },
+        {
+            "name": "caravan",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "gold": 200
+            },
+            "effects":{
+                "speed": "*1.5"
+            },
+            "time": 40
+        },
+        
         {
             "name": "arquebus",
             "ageReq": 4,
@@ -33907,7 +33934,8 @@
             },
             "effects":{
                 "bonus":[[20, 2]],
-                "pDef": 1
+                "mDef": 1,
+                "pAtk": 2
             },
             "time": 50
         },
@@ -34081,7 +34109,91 @@
             },
             "time": 40
         },
+        {
+            "name": "stirrups",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 200
+            },
+            "effects":{
+                "rateOfFire":"*0.75187969924"
+            },
+            "time": 35
+        },
+        {
+            "name": "chivalry",
+            "ageReq": 4,
+            "cost": {
+                "food": 600,
+                "gold": 500
+            },
+            "effects":{
+                "trainTime":"*0.71428571428"
+            },
+            "time": 40
+        },
+        {
+            "name": "steppe husbandry",
+            "ageReq": 3,
+            "cost": {
+                "food": 200,
+                "wood": 300
+            },
+            "effects":{
+                "trainTime":"*0.5"
+            },
+            "time": 40
+        },
+        {
+            "name": "yeomen",
+            "ageReq": 3,
+            "cost": {
+                "wood": 750,
+                "gold": 450
+            },
+            "effects":{
+                "range":1
+            },
+            "time": 60
+        },
         
+        {
+            "name": "kamandaran",
+            "ageReq": 3,
+            "cost": {
+                "food": 400,
+                "gold": 300
+            },
+            "effects":{
+                "cost":{"wood":35,"gold":-45}
+            },
+            "time": 40
+        },
+        {
+            "name": "forced levy",
+            "ageReq": 4,
+            "cost": {
+                "food": 850,
+                "gold": 500
+            },
+            "effects":{
+                "cost":{"food":20,"gold":-20}
+            },
+            "time": 40
+        },
+        {
+            "name": "perfusion",
+            "ageReq": 4,
+            "cost": {
+                "wood": 400,
+                "gold": 600
+            },
+            "effects":{
+                "trainTime":"*0.5"
+            },
+            "time": 40
+        },
         {
             "name": "sappers",
             "ageReq": 4,
@@ -34379,9 +34491,11 @@
                         "bonus":[[11, 1]],
                         "range": 1
                     },
-                    "elite ballista elephant":{
-                        "bonus":[[11, 25]],
+                    "ballista elephant":{
                         "range": 1
+                    },
+                    "elite ballista elephant":{
+                        "bonus":[[11, 25]]
                     },
                     "scorpion":{
                         "range": 1
@@ -34506,6 +34620,30 @@
                 }
             },
             "time": 30
+        },
+        {
+            "name": "hoardings",
+            "ageReq": 4,
+            "cost":{
+                "food": 400,
+                "wood": 400
+            },
+            "effects":{
+                "hp": "*1.21"
+            },
+            "time": 75
+        },
+        {
+            "name": "conscription",
+            "ageReq": 4,
+            "cost":{
+                "food": 150,
+                "gold": 150
+            },
+            "effects":{
+                "trainTime": "*0.75187969924"
+            },
+            "time": 60
         },
         
         
