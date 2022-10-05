@@ -69,12 +69,13 @@ $.getJSON('/data.json', function(data) {
         $(".card-middle").children(".upgrades").empty();
         
         //Add unit upgrades (maa, long swordsman, etc...)
-        //If the base unit is not equal to the current unit, include the base unit as an option
-        if(unitName !== unitBase){
-            $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+unitBase+"'><img src='/img/"+unitBase+".webp'></div>");
+        $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+unitBase+"'><img src='/img/"+unitBase+".webp'></div>");
+        if(unitName === unitBase){
+            $(".card-middle").children(".unit-upgrades").children("div:eq(0)").toggleClass("unselected");
         }
         //If there is a group for the unit
         if(data.upgradeGroups[unitBase]){
+            
             for(let j = 0; j < data.upgradeGroups[unitBase].length; j++){
                 //if it's not this unit itself
                 if(data.upgradeGroups[unitBase][j] !== unitName){
@@ -82,6 +83,7 @@ $.getJSON('/data.json', function(data) {
                 } 
                 //mark all previous upgrades as selected
                 else {
+                    $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+data.upgradeGroups[unitBase][j]+"'><img src='/img/"+data.upgradeGroups[unitBase][j]+".webp'></div>");
                     $(".card-middle").children(".unit-upgrades").children("div").toggleClass("unselected");
                 }
             }
@@ -118,7 +120,7 @@ $.getJSON('/data.json', function(data) {
 
         $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(1)").children("div").text(d.lineOfSight);
         $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div").text(d.rateOfFire);
-        $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div").text(d.speed);
+        $(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div").text(Number(d.speed).toFixed(2));
 
         //Units with ranged attributes
         if(d.accuracy){
@@ -391,6 +393,7 @@ $.getJSON('/data.json', function(data) {
                     break;
                 case "rateOfFire":
                     changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
+                    calculateDamagePerMinute();
                     break;
                 case "speed":
                     changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]), s);
