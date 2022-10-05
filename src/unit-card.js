@@ -19,7 +19,7 @@ $.getJSON('/data.json', function(data) {
             unitSelect.append("<option first='"+unit.name+"'>elite "+unit.name+"</option>");
         }
     }
-    $("#container").prepend(unitSelect);
+    $(".card").prepend(unitSelect);
     function perMinute(time, res){
         return Math.round((60 / time) * res) || 0;
     }
@@ -47,7 +47,7 @@ $.getJSON('/data.json', function(data) {
             let name = d.name;
             
             if(name.slice(0,5) === "elite") {
-                if(["elite skirmisher", "elite eagle warrior", "elite battle elephant", "elite steppe lancer", "elite shrivamsha rider", "elite cannon galleon"].indexOf(name) === -1) {
+                if(["elite skirmisher", "elite elephant archer", "elite eagle warrior", "elite battle elephant", "elite steppe lancer", "elite shrivamsha rider", "elite cannon galleon"].indexOf(name) === -1) {
                     name = "elite-unit";
                 }
             }
@@ -111,7 +111,6 @@ $.getJSON('/data.json', function(data) {
             }
         }
 
-
         $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div").text(d.hp);
         $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div").text(d.mAtk || d.pAtk);
         $(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div").text(d.mDef);
@@ -126,7 +125,7 @@ $.getJSON('/data.json', function(data) {
             $(".range-attr").show();
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div").text(d.range);
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div").text(d.frameDelay);
-            $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div").text(d.accuracy);
+            $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div").text(Math.min(Number(d.accuracy).toFixed(2), 1));
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(4)").children("div").text(d.projSpeed);
         } else{
             $(".range-attr").hide();
@@ -194,7 +193,7 @@ $.getJSON('/data.json', function(data) {
             bonus:unitStats.bonus,
 
             frameDelay:unitStats.frameDelay,
-            accuracy:Math.round(unitStats.accuracy),
+            accuracy:unitStats.accuracy,
             projSpeed:unitStats.projSpeed,
 
             upgrades:[].concat(unitStats.damageTechs, unitStats.otherTechs, unitStats.uniqueDamageTechs, unitStats.uniqueOtherTechs),
@@ -305,8 +304,10 @@ $.getJSON('/data.json', function(data) {
         function getStat(cur, to){
             return Number((cur + (to * reverse)).toFixed(2));
         }
-        function changeStat(elm, to){
-            elm.text(getStat(parseFloat(elm.text()), to));
+        function changeStat(elm, to, s){
+            let num = getStat(parseFloat(elm.text()), to);
+            elm.text(num);
+            currentUnit[s] = num;
         };
         function convertMult(stat, baseStat){
             if(typeof stat === "string"){
@@ -314,6 +315,15 @@ $.getJSON('/data.json', function(data) {
             }
             return stat;
         };
+        if(stats.unitSpec){
+            if(stats.unitSpec[unitName]){
+                stats = stats.unitSpec[unitName];
+            } else if(stats.unitSpec[unitBase]){
+                stats = stats.unitSpec[unitBase];
+            } else {
+                console.log("Unit shouldn't be able to upgrade this");
+            }
+        }
         let statKeys = Object.keys(stats);
         let calcRes = false;
         for(let i=0;i<statKeys.length;i++){
@@ -351,52 +361,54 @@ $.getJSON('/data.json', function(data) {
                     for( let j = 0; j < costKeys.length; j++){
                         let costName = costKeys[j];
                         let cont = $(".unit-cost-cont").children("div[res='"+costName+"']");
-                        changeStat(cont.children("div"), convertMult(stats[s][costName], baseUnit.cost[costName]));
+                        changeStat(cont.children("div"), convertMult(stats[s][costName], baseUnit.cost[costName]), s);
                     }
                     calcRes = true;
                     break;
                 case "hp":
-                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "mAtk":
                     if(!baseUnit.pAtk || baseUnit.mAtk > baseUnit.pAtk){
-                        changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]));
+                        changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                         calculateDamagePerMinute();
                     }
                     break;
                 case "pAtk":
                     if(!baseUnit.mAtk || baseUnit.pAtk > baseUnit.mAtk){
-                        changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]));
+                        changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                         calculateDamagePerMinute();
                     }
                     break;
                 case "mDef":
-                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "pDef":
-                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(4)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(1)").children("div:nth-child(4)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "lineOfSight":
-                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "rateOfFire":
-                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "speed":
-                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(2)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     calculateTilesPerMinute();
                     break;
                 case "range":
-                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "frameDelay":
-                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "accuracy":
-                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div"), convertMult(stats[s], baseUnit[s]));
-                    break
+                    currentUnit.accuracy = getStat(currentUnit.accuracy, convertMult(stats[s], baseUnit[s]));
+                    $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div").text(Math.min(currentUnit.accuracy, 1));
+                    calculateDamagePerMinute();
+                    break;
                 case "projSpeed":
-                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]));
+                    changeStat($(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div"), convertMult(stats[s], baseUnit[s]), s);
                     break;
                 case "trainTime":
                     if(reverse > 0){
@@ -415,6 +427,7 @@ $.getJSON('/data.json', function(data) {
                         trainTime += convertMult(currentUnit.currentUpgrades.trainTime[k], trainTime);
                     }
                     $(".unit-cost-cont").children("div:nth-child(3)").children("div").text(Number(trainTime.toFixed(2)));
+                    currentUnit.trainTime = trainTime;
                     calcRes = true;
                     break;
             }
@@ -493,5 +506,5 @@ $.getJSON('/data.json', function(data) {
             upgradesSelected = [];
         }
     });
-    unitSelect.val("militia").trigger("change");
+    unitSelect.val("crossbowman").trigger("change");
 });

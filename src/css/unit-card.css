@@ -12,6 +12,10 @@
     padding:10px;
     display:flex;
 }
+#unit-select{
+    display: block;
+    margin: 0 auto;
+}
 .unit-basic-info{
 
 }
@@ -93,10 +97,22 @@
 .card-bottom{
 
 }
+
+.icon-legend{
+    font-family: courier new;
+    font-size:18px;
+    font-weight: bold;
+    width:750px;
+    padding:25px;
+}
+.legend-title{
+    font-size: 40px !important;
+}
+
 .unit-stats{
     background-color: rgba(0, 0, 0, 0.1);
 }
-.unit-stats div{
+.unit-stats div, .icon-legend div{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -107,16 +123,25 @@
     height:40px;
     margin:5px;
 }
-.unit-stats > div:last-child > div {
+.icon-legend > div > div {
+    justify-content: flex-start;
     width:150px;
     height:40px;
     margin:5px;
 }
-.unit-stats > div > div > img{
+.unit-stats > div:last-child > div, .icon-legend > div:last-child > div{
+    width:315px;
+    height:40px;
+    margin:5px;
+}
+.legent-mvt{
+    width: 315px !important;
+}
+.unit-stats > div > div > img, .icon-legend > div > div > img{
     width:25px;
     height:25px;
 }
-.unit-stats > div > div > div{
+.unit-stats > div > div > div, .icon-legend > div > div > div{
     margin-left:5px;
 }
 .armor-classes{

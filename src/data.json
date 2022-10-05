@@ -29165,7 +29165,7 @@
             "accuracy": 0.8,
             "range": 4,
             "speed": 0.96,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "projSpeed": 7,
             "lineOfSight": 6,
             "cost":{
@@ -29192,7 +29192,7 @@
             "range": 4,
             "minimumRange": 1,
             "speed": 0.96,
-            "rateOfFire": 3.05,
+            "rateOfFire": 3,
             "projSpeed": 7,
             "lineOfSight": 6,
             "cost":{
@@ -29219,7 +29219,7 @@
             "accuracy": 0.5,
             "range": 4,
             "speed": 1.4,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "projSpeed": 7,
             "lineOfSight": 5,
             "cost":{
@@ -29271,10 +29271,11 @@
             "hp": 40,
             "frameDelay": 15,
             "accuracy": 0.75,
+            "attackDelay": 0.35,
             "range": 7,
             "speed": 0.96,
             "rateOfFire": 3.45,
-            "projSpeed": 5.5,
+            "projSpeed": 7.5,
             "lineOfSight": 9,
             "cost":{
                 "food": 45,
@@ -32519,57 +32520,57 @@
             "effects":{
                 "unitSpec":{
                     "archer":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "skirmisher":{
                         "accuracy": 1
                     },
                     "cavalry archer":{
-                        "rateOfFire":"*1.11",
+                        "rateOfFire":"*0.9009009009",
                         "accuracy": 1
                     },
                     "elephant archer":{
-                        "rateOfFire":"*1.18"
+                        "rateOfFire":"*0.84745762711"
                     },
                     "longbowman":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "chu ko nu":{
-                        "rateOfFire":"*1.25",
+                        "rateOfFire":"*0.8",
                         "accuracy": 1
                     },
                     "mangudai":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "war wagon":{
-                        "rateOfFire":"*1.11"
+                        "rateOfFire":"*0.9009009009"
                     },
                     "plumed archer":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "slinger":{
                         "accuracy": 1
                     },
                     "genoese crossbowman":{
-                        "rateOfFire":"*1.18"
+                        "rateOfFire":"*0.84745762711"
                     },
                     "camel archer":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "genitour":{
                         "accuracy": 1
                     },
                     "rattan archer":{
-                        "rateOfFire":"*1.18",
+                        "rateOfFire":"*0.84745762711",
                         "accuracy": 1
                     },
                     "kipchak":{
-                        "rateOfFire":"*1.11",
+                        "rateOfFire":"*0.9009009009",
                         "accuracy": 1
                     }
                 }
@@ -34495,6 +34496,7 @@
                         "range": 1
                     },
                     "elite ballista elephant":{
+                        "range": 1,
                         "bonus":[[11, 25]]
                     },
                     "scorpion":{
