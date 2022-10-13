@@ -6,7 +6,7 @@ $(function () {
             <div id="combatants"></div>'
   )
 
-  $.getJSON('data.json', function (data) {
+  $.getJSON('/data.json', function (data) {
     let civilizations = data.civilizations
     let units = data.units
     let upgrades = data.upgrades
@@ -14,18 +14,19 @@ $(function () {
     let agesStrings = ['feudal age', 'castle age', 'imperial age']
     for (let i = 0; i < units.length; i++) {
       //We're just doing damage test right now, so use damageTechs
-      units[i].techs = units[i].damageTechs.concat(units[i].uniqueDamageTechs) //can go .concat(units[i].otherTechs) for all techs;
-      console.log(units[i].techs)
-      let ageUpgrade = units[i].ageUpgrade
-      if (ageUpgrade) {
-        for (let j = 0; j < ageUpgrade.length; j++) {
-          upgrades.push({
-            name: agesStrings[j] + ' ' + units[i].name,
-            effects: ageUpgrade[j],
-            ageReq: j + 2,
-          })
+      if(units[i].damageTechs && units[i].uniqueDamageTechs){
+        units[i].techs = units[i].damageTechs.concat(units[i].uniqueDamageTechs) //can go .concat(units[i].otherTechs) for all techs;
+        let ageUpgrade = units[i].ageUpgrade;
+        if (ageUpgrade) {
+          for (let j = 0; j < ageUpgrade.length; j++) {
+            upgrades.push({
+              name: agesStrings[j] + ' ' + units[i].name,
+              effects: ageUpgrade[j],
+              ageReq: j + 2,
+            })
+          }
         }
-      }
+    }
     }
 
     let unitGrid = data.unitGrid
@@ -656,7 +657,7 @@ $(function () {
       })
       let img =
         '<div>\n\
-                            <img class="icon-big" src="img/' +
+                            <img class="icon-big" src="/img/' +
         data.name +
         '.webp">\n\
                         </div>'

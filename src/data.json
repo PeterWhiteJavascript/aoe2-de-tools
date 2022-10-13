@@ -31880,7 +31880,7 @@
         "elite berserk": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "donjon":["archerAttack", "arrowslits", "buildingDefense", "treadmill crane", "ballistics", "chemistry"],
         "keep":["archerAttack", "arrowslits", "buildingDefense", "treadmill crane", "ballistics", "chemistry"],
-        "defenses": ["buildingDefense", "stoneWall", "hoardings", "murder holes"]
+        "defenses": ["archerAttack", "buildingDefense", "fortified wall", "hoardings"]
     },
     "armorClasses":{
         "1": "infantry",
@@ -34634,6 +34634,17 @@
                 "hp": "*1.21"
             },
             "time": 75
+        },
+        {
+            "name": "murder holes",
+            "ageReq": 4,
+            "cost":{
+                "food": 200,
+                "stone": 100
+            },
+            "effects":{
+            },
+            "time": 60
         },
         {
             "name": "conscription",
