@@ -1133,18 +1133,6 @@
         "trainTime": 1.2,
         "trainTimePercent": true
       },
-      "Vikings - Feudal/Castle Age": {
-        "cost": {
-          "wood": 0.15
-        },
-        "costPercent": true
-      },
-      "Vikings - Imperial Age": {
-        "cost": {
-          "wood": 0.2
-        },
-        "costPercent": true
-      },
       "Sicilians 50% off": {
         "cost": {
           "wood": 0.5

@@ -29500,7 +29500,7 @@
             "lineOfSight": 4,
             "trample":0.25,
             "cost":{
-                "food": 120,
+                "food": 110,
                 "gold": 70
             },
             "armorClasses": [[5, 0], [8, 0]],
@@ -32125,7 +32125,8 @@
                 "pAtk": 1,
                 "mDef": 1,
                 "trainTime": -7,
-                "lineOfSight": 1
+                "lineOfSight": 1,
+                "bonus":[[27, 2]]
             },
             "time": 50,
             "classChange": true
@@ -32590,7 +32591,7 @@
                 "pDef": 2,
                 "unitSpec":{
                     "cavalry archer":{
-                        "bonus": [[27, 4]]
+                        "bonus": [[27, 2]]
                     },
                     "mangudai":{
                         "bonus": [[27, 2]]

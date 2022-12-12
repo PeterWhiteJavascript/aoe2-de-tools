@@ -114,13 +114,17 @@ function setUpGatherRates(data){
         res: "gold", gatherRate: 0.4
     };
     gatherRates["gold from stone"] = {
-        res: "gold", gatherRate: gatherRates["stone miner"].gatherRate / 2
+        res: "gold", gatherRate: gatherRates["stone miner"].gatherRate / 3
     };
     gatherRates["gold from stone mining"] = {
-        res: "gold", gatherRate: gatherRates["stone mining"].gatherRate / 2
+        res: "gold", gatherRate: gatherRates["stone mining"].gatherRate / 3
     };
     gatherRates["gold from stone shaft"] = {
-        res: "gold", gatherRate: gatherRates["stone shaft mining"].gatherRate / 2
+        res: "gold", gatherRate: gatherRates["stone shaft mining"].gatherRate / 3
+    };
+    
+    gatherRates["wood from berries"] = {
+        res: "wood", gatherRate: gatherRates["forager"].gatherRate / 3
     };
     return gatherRates;
 }
