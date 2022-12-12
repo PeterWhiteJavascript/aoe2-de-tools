@@ -17,15 +17,15 @@
     {"name": "fish trap gillnets", "show": false},
     {"name": "feitoria food", "show": false},
     {"name": "relic food", "show": false},
-    {"name": "gurjara mill", "show": false},
-    {"name": "wood from berries", "show": false}
+    {"name": "gurjara mill", "show": false}
   ],
   [
     {"name": "lumberjack", "show": true},
     {"name": "double-bit axe", "show": true},
     {"name": "bow saw", "show": true},
     {"name": "two-man saw", "show": false},
-    {"name": "feitoria wood", "show": false}
+    {"name": "feitoria wood", "show": false},
+    {"name": "wood from berries", "show": false}
   ],
   [
     {"name": "gold miner", "show": true},
