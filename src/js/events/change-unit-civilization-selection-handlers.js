@@ -42,6 +42,7 @@ export const calculateCivilizationBonusOnUnit = (target) => {
     unitStatsBox.getAttribute('x-base-train-time')
   )
   let tempTrainTime = baseTraintime
+  let trainTimePercentModifier = 1
   let priceChanged = false
 
   const selectElem = document.querySelector(
@@ -53,7 +54,7 @@ export const calculateCivilizationBonusOnUnit = (target) => {
   const percent = it.getAttribute('x-opt-train-time-percent')
   if (trainTime) {
     if (percent && percent === 'true') {
-      tempTrainTime = tempTrainTime / parseFloat(trainTime)
+      trainTimePercentModifier = trainTimePercentModifier * parseFloat(trainTime)
     } else {
       tempTrainTime = parseFloat(trainTime)
     }
@@ -89,7 +90,7 @@ export const calculateCivilizationBonusOnUnit = (target) => {
   } else {
     setResourceToBaseValue('stone')
   }
-  return { tempTrainTime, priceChanged }
+  return { tempTrainTime, trainTimePercentModifier, priceChanged }
 }
 
 export const unitCivChangeSelectionHandlers = (event) => {

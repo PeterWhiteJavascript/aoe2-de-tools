@@ -136,7 +136,7 @@ const updateUnitResourceInfo = (unitInfoFrom, unitInfoTo) => {
 }
 
 export const calculateBonusesOnUnit = (option) => (target) => {
-  let { priceChanged, tempTrainTime } = Object.assign(
+  let { priceChanged, trainTimePercentModifier, tempTrainTime } = Object.assign(
     {
       priceChanged: false,
     },
@@ -162,7 +162,7 @@ export const calculateBonusesOnUnit = (option) => (target) => {
     const percent = it.getAttribute('x-train-time-percent')
     if (trainTime) {
       if (percent && percent === 'true') {
-        tempTrainTime = tempTrainTime / parseFloat(trainTime)
+        trainTimePercentModifier = trainTimePercentModifier * parseFloat(trainTime)
       } else {
         tempTrainTime = parseFloat(trainTime)
       }
@@ -191,6 +191,8 @@ export const calculateBonusesOnUnit = (option) => (target) => {
       setUnitResourceAttributes({ type: 'stone', res: stone, baseType: baseType })
     }
   })
+
+  tempTrainTime = tempTrainTime / trainTimePercentModifier
 
   // reset timer on unit info
   unitBox.querySelector('.time-cont div').innerText = isInt(tempTrainTime)
