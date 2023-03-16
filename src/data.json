@@ -4827,7 +4827,7 @@
                 }
               },
             "bonusDesc":[
-                "Burgundians can research economic upgrades one age earlier and at a 40% food discount.",
+                "Burgundians can research economic upgrades one age earlier and at a 33% food discount.",
                 "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
                 "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers.",
                 "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age.",
@@ -21973,7 +21973,7 @@
             },
             "bonusDesc":[
                 "Poles villagers regenerate hp which helps to never have a weak villager at berries or a woodline in the early-mid game.",
-                "Their mill is replaced by the folwark. When placing a farm near a folwark, 10% of the farm's maximum food is instantly deposited into the stockpile. The folwark also provides 5 population space, though it costs 125 wood.",
+                "Their mill is replaced by the folwark. When placing a farm near a folwark, 8% of the farm's maximum food is instantly deposited into the stockpile. The folwark also provides 5 population space, though it costs 125 wood.",
                 "Stone miners generate gold, which means that going to stone earlier can give you enough gold for castle age without having to mine it.",
                 "With szlatchta privileges, knights cost 60% less gold, putting them at 30 gold per unit. This is balanced by the fact that they lack the final armor upgrade.",
                 "Each time an obuch attacks, it reduces its target's armor stats by 1 until the armor is at 0. If a unit is healed to full health, they can recover their armor."
@@ -29566,7 +29566,7 @@
             "mAtk": 4,
             "mDef": -2,
             "pDef": 140,
-            "hp": 200,
+            "hp": 180,
             "range": 0,
             "speed": 0.6,
             "rateOfFire": 3,
@@ -29575,7 +29575,7 @@
                 "food": 130,
                 "gold": 95
             },
-            "armorClasses": [[20, 0], [17, 0], [8, 0], [5, 0]],
+            "armorClasses": [[20, 0], [17, 0], [8, 7], [5, 17]],
             "bonus":[[11, 75], [20, 25]],
             "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
             "otherTechs":["husbandry", "faith", "heresy"],
@@ -31046,7 +31046,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[17, 2]],
-            "damageTechs":[ "archerDefense", "bloodlines"],
+            "damageTechs":[ "archerDefense", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "faith", "conscription"],
             "uniqueDamageTechs":[ "manipur cavalry"],
             "uniqueOtherTechs":[],
@@ -32393,9 +32393,10 @@
               "food": 650
           },
           "effects":{
-              "hp": 50,
-              "pDef": 10,
-              "bonus": [[11, 30], [20, 10]]
+                "hp": 40,
+                "pDef": 10,
+                "bonus": [[11, 30], [20, 10]],
+                "armorClasses": [[8, 3], [5, 3]]
           },
           "time": 50,
           "classChange": true
@@ -32460,15 +32461,15 @@
             "name": "houfnice",
             "ageReq": 4,
             "cost":{
-                "food": 950,
-                "gold": 750
+                "food": 1100,
+                "gold": 800
             },
             "effects":{
                 "hp": 10,
                 "mAtk": 10,
                 "pDef": 1,
                 "bonus":[[11, 50], [16, 15], [34, 15], [13, 15], [37, 15]],
-                "blastRadius": 0.80
+                "blastRadius": 0.2
             },
             "time": 140,
             "classChange": true
