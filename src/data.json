@@ -8969,7 +8969,8 @@
                 "siege workshop":{
                     "siege elephant":[3, 3.5],
                     "siege onager": [3, 2.5],
-                    "heavy scorpion":[3, 2.5]
+                    "heavy scorpion":[3, 2.5],
+					"bombard cannon":[2]
                 },
                 "monastery":{
                     "monk":[2, 2]
