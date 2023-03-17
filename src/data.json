@@ -31839,7 +31839,7 @@
         "elite ratha": ["bloodlines", "husbandry", "parthian tactics", "archerAttack", "archerDefense", "meleeAttack", "ballistics", "chemistry"],
         "elite camel archer": ["bloodlines", "husbandry", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite konnik": ["squires", "arson", "bloodlines", "husbandry", "meleeAttack", "infantryDefense", "cavalryDefense"],
-        "elite arambai": ["bloodlines", "husbandry", "archerDefense"],
+        "elite arambai": ["bloodlines", "husbandry", "archerDefense", "parthian tactics"],
         "elite longbowman": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite cataphract": ["husbandry", "meleeAttack", "cavalryDefense"],
         "elite woad raider": ["squires", "arson", "meleeAttack", "infantryDefense"],
