@@ -12,7 +12,7 @@
   "contributors": [],
   "dependencies": {
     "compression": "^1.7.4",
-    "express": "4.17.1"
+    "express": "4.17.3"
   },
   "scripts": {
     "prestart": "npm run build",
@@ -21,7 +21,7 @@
     "build": "npx @11ty/eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^2.0.0",
     "prettier": "^2.4.1"
   },
   "prettier": {

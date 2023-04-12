@@ -4827,7 +4827,7 @@
                 }
               },
             "bonusDesc":[
-                "Burgundians can research economic upgrades one age earlier and at a 40% food discount.",
+                "Burgundians can research economic upgrades one age earlier and at a 33% food discount.",
                 "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
                 "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers.",
                 "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age.",
@@ -8969,7 +8969,8 @@
                 "siege workshop":{
                     "siege elephant":[3, 3.5],
                     "siege onager": [3, 2.5],
-                    "heavy scorpion":[3, 2.5]
+                    "heavy scorpion":[3, 2.5],
+					"bombard cannon":[2]
                 },
                 "monastery":{
                     "monk":[2, 2]
@@ -21973,7 +21974,7 @@
             },
             "bonusDesc":[
                 "Poles villagers regenerate hp which helps to never have a weak villager at berries or a woodline in the early-mid game.",
-                "Their mill is replaced by the folwark. When placing a farm near a folwark, 10% of the farm's maximum food is instantly deposited into the stockpile. The folwark also provides 5 population space, though it costs 125 wood.",
+                "Their mill is replaced by the folwark. When placing a farm near a folwark, 8% of the farm's maximum food is instantly deposited into the stockpile. The folwark also provides 5 population space, though it costs 125 wood.",
                 "Stone miners generate gold, which means that going to stone earlier can give you enough gold for castle age without having to mine it.",
                 "With szlatchta privileges, knights cost 60% less gold, putting them at 30 gold per unit. This is balanced by the fact that they lack the final armor upgrade.",
                 "Each time an obuch attacks, it reduces its target's armor stats by 1 until the armor is at 0. If a unit is healed to full health, they can recover their armor."
@@ -29039,8 +29040,8 @@
             "rateOfFire": 2,
             "lineOfSight": 7,
             "cost":{
-                "food": 50,
-                "gold": 15
+                "food": 60,
+                "gold": 25
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[8, 12], [30, 8], [5, 8], [16, 8], [29, 2]],
@@ -29108,7 +29109,7 @@
             "rateOfFire": 2.03,
             "lineOfSight": 5,
             "cost":{
-                "food": 25,
+                "food": 20,
                 "gold": 50
             },
             "armorClasses": [[1, 0], [29, 0]],
@@ -29260,7 +29261,7 @@
             "otherTechs":["ballistics", "thumb ring", "husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["Frontier Guards", "Paiks"],
             "uniqueOtherTechs":["Kshatriyas", "Medical Corps"],
-            "trainTime": 32
+            "trainTime": 34
         },
         {
             "name": "hand cannoneer",
@@ -29307,7 +29308,7 @@
             "projSpeed": 5.5,
             "lineOfSight": 7,
             "cost":{
-                "food": 40,
+                "food": 30,
                 "gold": 40
             },
             "armorClasses": [[15, 0], [19, 0]],
@@ -29420,7 +29421,7 @@
             "lineOfSight": 5,
             "cost":{
                 "food": 70,
-                "gold": 30
+                "gold": 20
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
@@ -29566,7 +29567,7 @@
             "mAtk": 4,
             "mDef": -2,
             "pDef": 140,
-            "hp": 200,
+            "hp": 180,
             "range": 0,
             "speed": 0.6,
             "rateOfFire": 3,
@@ -29575,7 +29576,7 @@
                 "food": 130,
                 "gold": 95
             },
-            "armorClasses": [[20, 0], [17, 0], [8, 0], [5, 0]],
+            "armorClasses": [[20, 0], [17, 0], [8, 7], [5, 17]],
             "bonus":[[11, 75], [20, 25]],
             "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
             "otherTechs":["husbandry", "faith", "heresy"],
@@ -30252,7 +30253,7 @@
             "rateOfFire": 2.0,
             "cost":{
                 "food": 85,
-                "gold": 30
+                "gold": 40
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 4], [11, 4]],
@@ -30362,7 +30363,7 @@
             "lineOfSight": 4,
             "rateOfFire": 1.45,
             "cost":{
-                "food": 50,
+                "food": 60,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -30507,7 +30508,7 @@
             "lineOfSight": 4,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 65,
+                "food": 60,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -30943,8 +30944,8 @@
             "rateOfFire": 1.9,
             "lineOfSight": 5,
             "cost":{
-                "food": 60,
-                "gold": 70
+                "food": 50,
+                "gold": 80
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
@@ -31022,7 +31023,7 @@
             "otherTechs":["husbandry", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 17
+            "trainTime": 16
         },
 
         {
@@ -31046,7 +31047,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[17, 2]],
-            "damageTechs":[ "archerDefense", "bloodlines"],
+            "damageTechs":[ "archerDefense", "bloodlines", "parthian tactics"],
             "otherTechs":["ballistics", "faith", "conscription"],
             "uniqueDamageTechs":[ "manipur cavalry"],
             "uniqueOtherTechs":[],
@@ -31839,7 +31840,7 @@
         "elite ratha": ["bloodlines", "husbandry", "parthian tactics", "archerAttack", "archerDefense", "meleeAttack", "ballistics", "chemistry"],
         "elite camel archer": ["bloodlines", "husbandry", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite konnik": ["squires", "arson", "bloodlines", "husbandry", "meleeAttack", "infantryDefense", "cavalryDefense"],
-        "elite arambai": ["bloodlines", "husbandry", "archerDefense"],
+        "elite arambai": ["bloodlines", "husbandry", "archerDefense", "parthian tactics"],
         "elite longbowman": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite cataphract": ["husbandry", "meleeAttack", "cavalryDefense"],
         "elite woad raider": ["squires", "arson", "meleeAttack", "infantryDefense"],
@@ -32393,9 +32394,10 @@
               "food": 650
           },
           "effects":{
-              "hp": 50,
-              "pDef": 10,
-              "bonus": [[11, 30], [20, 10]]
+                "hp": 40,
+                "pDef": 10,
+                "bonus": [[11, 30], [20, 10]],
+                "armorClasses": [[8, 3], [5, 3]]
           },
           "time": 50,
           "classChange": true
@@ -32460,15 +32462,15 @@
             "name": "houfnice",
             "ageReq": 4,
             "cost":{
-                "food": 950,
-                "gold": 750
+                "food": 1100,
+                "gold": 800
             },
             "effects":{
                 "hp": 10,
                 "mAtk": 10,
                 "pDef": 1,
                 "bonus":[[11, 50], [16, 15], [34, 15], [13, 15], [37, 15]],
-                "blastRadius": 0.80
+                "blastRadius": 0.2
             },
             "time": 140,
             "classChange": true
@@ -33061,8 +33063,7 @@
             },
             "effects":{
                 "mAtk": 2,
-                "hp": 10,
-                "trainTime": -4
+                "hp": 10
             },
             "time": 45
         },
