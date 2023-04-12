@@ -29040,8 +29040,8 @@
             "rateOfFire": 2,
             "lineOfSight": 7,
             "cost":{
-                "food": 60,
-                "gold": 25
+                "food": 50,
+                "gold": 15
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[8, 12], [30, 8], [5, 8], [16, 8], [29, 2]],
@@ -29109,7 +29109,7 @@
             "rateOfFire": 2.03,
             "lineOfSight": 5,
             "cost":{
-                "food": 20,
+                "food": 25,
                 "gold": 50
             },
             "armorClasses": [[1, 0], [29, 0]],
@@ -29261,7 +29261,7 @@
             "otherTechs":["ballistics", "thumb ring", "husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["Frontier Guards", "Paiks"],
             "uniqueOtherTechs":["Kshatriyas", "Medical Corps"],
-            "trainTime": 34
+            "trainTime": 32
         },
         {
             "name": "hand cannoneer",
@@ -29308,7 +29308,7 @@
             "projSpeed": 5.5,
             "lineOfSight": 7,
             "cost":{
-                "food": 30,
+                "food": 40,
                 "gold": 40
             },
             "armorClasses": [[15, 0], [19, 0]],
@@ -29421,7 +29421,7 @@
             "lineOfSight": 5,
             "cost":{
                 "food": 70,
-                "gold": 20
+                "gold": 30
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
@@ -30253,7 +30253,7 @@
             "rateOfFire": 2.0,
             "cost":{
                 "food": 85,
-                "gold": 40
+                "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 4], [11, 4]],
@@ -30363,7 +30363,7 @@
             "lineOfSight": 4,
             "rateOfFire": 1.45,
             "cost":{
-                "food": 60,
+                "food": 50,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -30508,7 +30508,7 @@
             "lineOfSight": 4,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 60,
+                "food": 65,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -30944,8 +30944,8 @@
             "rateOfFire": 1.9,
             "lineOfSight": 5,
             "cost":{
-                "food": 50,
-                "gold": 80
+                "food": 60,
+                "gold": 70
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[],
@@ -31023,7 +31023,7 @@
             "otherTechs":["husbandry", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 16
+            "trainTime": 17
         },
 
         {
@@ -33063,7 +33063,8 @@
             },
             "effects":{
                 "mAtk": 2,
-                "hp": 10
+                "hp": 10,
+                "trainTime": -4
             },
             "time": 45
         },
