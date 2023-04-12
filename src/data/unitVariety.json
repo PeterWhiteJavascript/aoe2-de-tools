@@ -70,6 +70,30 @@
         },
         "costPercent": true
       },
+      "Incas - Dark Age": {
+        "cost": {
+          "food": 0.15
+        },
+        "costPercent": true
+      },
+      "Incas - Feudal Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
+      },
       "Aztec Civ Bonus": {
         "trainTime": 1.11,
         "trainTimePercent": true
@@ -135,6 +159,24 @@
         },
         "costPercent": true
       },
+      "Incas - Feudal Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
+      },
       "Byzantines Civ Bonus": {
         "cost": {
           "food": 0.25,
@@ -178,6 +220,24 @@
       "Aztec Civ Bonus": {
         "trainTime": 1.11,
         "trainTimePercent": true
+      },
+      "Incas - Feudal Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
       }
     },
     "upgrades": {
@@ -255,7 +315,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.2,
+        "trainTime": 1.1,
         "trainTimePercent": true
       }
     }
@@ -273,6 +333,24 @@
         },
         "costPercent": true
       },
+      "Incas - Feudal Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
+      },
       "Koreans Civ Bonus": {
         "cost": {
           "wood": 0.2
@@ -286,7 +364,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.2,
+        "trainTime": 1.1,
         "trainTimePercent": true
       },
       "Kshatriyas": {
@@ -302,6 +380,13 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Byzantines Civ Bonus": {
+        "cost": {
+          "food": 0.25,
+          "wood": 0.25
+        },
+        "costPercent": true
+      },
       "Huns - Castle Age": {
         "cost": {
           "food": 0.1,
@@ -313,6 +398,18 @@
         "cost": {
           "food": 0.2,
           "wood": 0.2
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
         },
         "costPercent": true
       },
@@ -329,7 +426,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.2,
+        "trainTime": 1.1,
         "trainTimePercent": true
       },
       "Kshatriyas": {
@@ -382,7 +479,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.2,
+        "trainTime": 1.1,
         "trainTimePercent": true
       }
     }
@@ -395,7 +492,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.20,
+        "trainTime": 1.1,
         "trainTimePercent": true
       },
       "Gurjaras Team Bonus": {
@@ -431,7 +528,7 @@
         "trainTimePercent": true
       },
       "Britons Team Bonus": {
-        "trainTime": 1.2,
+        "trainTime": 1.1,
         "trainTimePercent": true
       },
       "Turks Team Bonus": {
@@ -538,6 +635,18 @@
       "Aztec Civ Bonus": {
         "trainTime": 1.11,
         "trainTimePercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
       }
     },
     "upgrades": {
@@ -749,6 +858,12 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Dravidians Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      },
       "Portuguese Civ Bonus": {
         "cost": {
           "gold": 0.2
@@ -776,6 +891,12 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Dravidians Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      },
       "Portuguese Civ Bonus": {
         "cost": {
           "gold": 0.2
@@ -799,6 +920,12 @@
   },
   "bombard cannon": {
     "civs": {
+      "Dravidians Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      },
       "Portuguese Civ Bonus": {
         "cost": {
           "gold": 0.2
@@ -830,6 +957,12 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Dravidians Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      },
       "Portuguese Civ Bonus": {
         "cost": {
           "gold": 0.2
@@ -857,6 +990,12 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Dravidians Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      },
       "Portuguese Civ Bonus": {
         "cost": {
           "gold": 0.2
@@ -880,6 +1019,18 @@
       "Aztec Civ Bonus": {
         "trainTime": 1.11,
         "trainTimePercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
       },
       "Portuguese Civ Bonus": {
         "cost": {
@@ -1424,7 +1575,7 @@
         "trainTimePercent": true
       },
       "Sicilians Civ Bonus": {
-        "trainTime": 2,
+        "trainTime": 1.5,
         "trainTimePercent": true
       }
     },
@@ -1727,9 +1878,8 @@
   "shotel warrior": {
     "civs": {},
     "upgrades": {
-      "Royal Heirs": {
-        "trainTime": 2,
-        "trainTimePercent": true
+      "Elite Shotel Warrior": {
+        "trainTime": 4
       },
       "Conscription": {
         "trainTime": 1.33,
@@ -1760,6 +1910,12 @@
         "cost": {
           "food": 0.35,
           "gold": 0.35
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
         },
         "costPercent": true
       },
@@ -1873,12 +2029,24 @@
   },
   "slinger": {
     "civs": {
-      "Britons Team Bonus": {
-        "trainTime": 1.2,
-        "trainTimePercent": true
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
       }
     },
     "upgrades": {
+      "Britons Team Bonus": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
+      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -1983,7 +2151,7 @@
     "civs": {},
     "upgrades": {
       "Elite Keshik": {
-        "trainTime": 14,
+        "trainTime": 15,
         "img": "elite keshik"
       },
       "Conscription": {
@@ -2070,7 +2238,20 @@
     }
   },
   "kamayuk": {
-    "civs": {},
+    "civs": {
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.25
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.3
+        },
+        "costPercent": true
+      }
+    },
     "upgrades": {
       "Conscription": {
         "trainTime": 1.33,
@@ -2293,6 +2474,19 @@
       },
       "Kasbah": {
         "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "flemish militia": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
         "trainTimePercent": true
       }
     }
