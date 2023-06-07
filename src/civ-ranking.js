@@ -228,7 +228,7 @@ $.getJSON('/data.json', function(data) {
         $("#civ-available-techs").append(bsmithdiv);
         
         let ups = [
-            ["squires", "supplies", "arson"],
+            ["squires", "supplies", "gambesons", "arson"],
             ["thumb ring", "parthian tactics"],
             ["bloodlines", "husbandry"],
             ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith","herbal medicine"],
