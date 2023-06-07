@@ -111,6 +111,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -786,6 +790,10 @@
                     {
                       "name": "supplies",
                       "available": false
+                    },
+                    {
+                      "name": "gambesons",
+                      "available": true
                     },
                     {
                       "name": "squires",
@@ -1484,6 +1492,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -2176,6 +2188,10 @@
                             "available": true
                         },
                         {
+                          "name": "gambesons",
+                          "available": false
+                        },
+                        {
                             "name": "squires",
                             "available": true
                         },
@@ -2864,6 +2880,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -3542,6 +3562,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -4239,6 +4263,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -4928,6 +4956,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -5609,6 +5641,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -6295,6 +6331,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": false
                     },
@@ -6973,6 +7013,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": false
+                    },
+                    {
+                      "name": "gambesons",
                       "available": false
                     },
                     {
@@ -7657,6 +7701,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -8337,6 +8385,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -9041,6 +9093,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -9720,6 +9776,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -10405,6 +10465,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -11085,6 +11149,10 @@
                   {
                     "name": "supplies",
                     "available": true
+                  },
+                  {
+                    "name": "gambesons",
+                    "available": false
                   },
                   {
                     "name": "squires",
@@ -11801,6 +11869,10 @@
                   {
                     "name": "supplies",
                     "available": true
+                  },                  
+                  {
+                    "name": "gambesons",
+                    "available": false
                   },
                   {
                     "name": "squires",
@@ -12509,6 +12581,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -13187,6 +13263,10 @@
                     {
                       "name": "supplies",
                       "available": true
+                    },
+                    {
+                      "name": "gambesons",
+                      "available": false
                     },
                     {
                       "name": "squires",
@@ -13875,6 +13955,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -14560,6 +14644,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -15238,6 +15326,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": false
+                    },
+                    {
+                      "name": "gambesons",
                       "available": false
                     },
                     {
@@ -15921,6 +16013,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -16614,6 +16710,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -17301,6 +17401,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": false
                     },
@@ -17978,6 +18082,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -18663,6 +18771,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -19346,6 +19458,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -20020,6 +20136,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": false
+                    },
+                    {
+                      "name": "gambesons",
                       "available": false
                     },
                     {
@@ -20706,6 +20826,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -21389,6 +21513,10 @@
                             "available": true
                         },
                         {
+                          "name": "gambesons",
+                          "available": false
+                        },
+                        {
                             "name": "squires",
                             "available": true
                         },
@@ -22070,6 +22198,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -22763,6 +22895,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -23443,6 +23579,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -24144,6 +24284,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -24823,6 +24967,10 @@
                   "upgrades": [
                     {
                       "name": "supplies",
+                      "available": true
+                    },
+                    {
+                      "name": "gambesons",
                       "available": true
                     },
                     {
@@ -25515,6 +25663,10 @@
                       "available": false
                     },
                     {
+                      "name": "gambesons",
+                      "available": false
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -26200,6 +26352,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -26880,6 +27036,10 @@
                     {
                       "name": "supplies",
                       "available": true
+                    },
+                    {
+                      "name": "gambesons",
+                      "available": false
                     },
                     {
                       "name": "squires",
@@ -27563,6 +27723,10 @@
                     {
                       "name": "supplies",
                       "available": true
+                    },
+                    {
+                      "name": "gambesons",
+                      "available": false
                     },
                     {
                       "name": "squires",
@@ -28252,6 +28416,10 @@
                       "available": true
                     },
                     {
+                      "name": "gambesons",
+                      "available": true
+                    },
+                    {
                       "name": "squires",
                       "available": true
                     },
@@ -28887,6 +29055,7 @@
     ],
     "upgradeBuilding":{
         "supplies": "barracks",
+        "gambesons": "barracks",
         "squires": "barracks",
         "arson": "barracks",
         "thumb ring": "archery range",
@@ -29069,7 +29238,7 @@
             "armorClasses": [[1, 0]],
             "bonus":[[21, 0]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
-            "otherTechs": ["supplies", "squires", "faith", "heresy", "conscription"],
+            "otherTechs": ["supplies", "gambesons", "squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars", "chieftains", "bagains"],
             "uniqueOtherTechs":["perfusion", "druzhina", "forced levy"],
             "trainTime": 21
@@ -31809,7 +31978,7 @@
     "relevantUpgrades":{
         "villager": ["loom", "villagerMovement", "villagerWood", "horse collar","villagerGold", "villagerStone", "sappers"],
         "flemish militia":["squires", "arson", "meleeAttack", "infantryDefense"],
-        "champion": ["squires", "supplies", "arson", "meleeAttack", "infantryDefense"],
+        "champion": ["squires", "gambesons", "supplies", "arson", "meleeAttack", "infantryDefense"],
         "halberdier":["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite eagle warrior":["squires", "arson", "meleeAttack", "infantryDefense"],
         "condottiero":["squires", "arson", "meleeAttack", "infantryDefense"],
@@ -32488,7 +32657,20 @@
             },
             "time": 35
         },
-        
+
+        {
+          "name": "gambesons",
+          "ageReq": 3,
+          "cost":{
+              "food": 100,
+              "gold": 100
+          },
+          "effects":{
+              "pDef": 1
+          },
+          "time": 25
+        },
+      
         {
             "name": "arson",
             "ageReq": 3,
