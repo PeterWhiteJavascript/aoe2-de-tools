@@ -110,9 +110,6 @@
         "cost": {
           "food": -15
         }
-      },      
-      "Gambesons": {
-        "pDef": 1
       },
       "Conscription": {
         "trainTime": 1.33,
