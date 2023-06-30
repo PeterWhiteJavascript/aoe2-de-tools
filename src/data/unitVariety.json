@@ -481,6 +481,10 @@
       "Britons Team Bonus": {
         "trainTime": 1.1,
         "trainTimePercent": true
+      },
+      "Magyars Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
