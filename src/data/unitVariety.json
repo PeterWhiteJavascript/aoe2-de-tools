@@ -190,7 +190,7 @@
       },
       "Koreans Civ Bonus": {
         "cost": {
-          "wood": 0.2
+          "wood": 0.5
         },
         "costPercent": true
       }
@@ -294,7 +294,7 @@
       },
       "Koreans Civ Bonus": {
         "cost": {
-          "wood": 0.2
+          "wood": 0.5
         },
         "costPercent": true
       }
@@ -353,7 +353,7 @@
       },
       "Koreans Civ Bonus": {
         "cost": {
-          "wood": 0.2
+          "wood": 0.5
         },
         "costPercent": true
       }
@@ -415,7 +415,7 @@
       },
       "Koreans Civ Bonus": {
         "cost": {
-          "wood": 0.2
+          "wood": 0.5
         },
         "costPercent": true
       }
@@ -440,7 +440,7 @@
     "civs": {
       "Koreans Civ Bonus": {
         "cost": {
-          "wood": 0.2
+          "wood": 0.5
         },
         "costPercent": true
       },
