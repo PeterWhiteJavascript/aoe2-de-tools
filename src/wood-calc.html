@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Unit vs Buildings Tables</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -19,7 +19,6 @@ and open the template in the editor.
         <script src="/js/shared.js"></script>
         <style>
             table{
-                font-family:"Georgia";
             }
             td, th {
                 width: 4rem;
@@ -30,6 +29,15 @@ and open the template in the editor.
             th {
                 background: lightblue;
                 border-color: black;
+                font-family:"Georgia";
+                font-size: 18px;
+                font-weight: normal;
+            }
+            td {
+                font-family:"Georgia";
+                font-size: 24px;
+                cursor: pointer;
+                user-select: none;
             }
             th div{
                 display: flex;
@@ -46,6 +54,14 @@ and open the template in the editor.
             body {
                 background-image:none;
                 padding: 1rem;
+                background-color:rgba(0, 0, 0, 0);
+            }
+            .red-background{
+                background-color:rgba(255, 0, 0, 0.5);
+                
+            }
+            .blue-background{
+                background-color:rgba(0, 0, 255, 0.5);
             }
         </style>
     </head>
@@ -84,59 +100,124 @@ and open the template in the editor.
     
             $.getJSON('/data.json', function(data) {
                 console.log(data);
-                function applyUpgrade(baseUnit, upgData){
-                    console.log(baseUnit, upgData)
-                    if(!upgData) return baseUnit;
-                    let keys = Object.keys(upgData);
-                    for(let h=0; h<keys.length; h++){
-                        let key = keys[h]
-                        if (key === 'bonus' || key === 'armorClasses') {
-                            for (let y = 0; y < upgData[key].length; y++) {
-                                let found = false
-                                for (let x = baseUnit[key].length - 1; x >= 0; x--) {
-                                  if (baseUnit[key][x][0] === upgData[key][y][0]) {
-                                    baseUnit[key][x][1] += upgData[key][y][1]
-                                    found = true;
-                                  }
-                                }
-                                //Add the armor class if it doesn't exist.
-                                if (!found) {
-                                  baseUnit[key].push(upgData[key][y])
-                                }
+                function applyUpgradeEffects(
+                    unitData,
+                    locked,
+                    currentUpgradeData,
+                    selectedCiv
+                  ) {
+                    function applyEffect(key, data, upgradeData) {
+                        if (key === 'cost') {
+                            let costKeys = Object.keys(data[key]);
+                            costKeys.forEach(function(k){
+                                unitData.cost[k] = unitData.cost[k] + data[key][k] * locked;
+                            });
+                        } else if (key === 'bonus' || key === 'armorClasses') {
+                            console.log(key, data, upgradeData)
+                          for (let y = 0; y < data[key].length; y++) {
+                            let found = false
+                            for (let x = unitData[key].length - 1; x >= 0; x--) {
+                              if (unitData[key][x][0] === data[key][y][0]) {
+                                unitData[key][x][1] += data[key][y][1] * locked
+                                found = true
+                              }
                             }
+                            //Add the armor class if it doesn't exist.
+                            if (!found) {
+                              unitData[key].push(Object.assign({}, data[key][y]))
+                            }
+                          }
+                          //Special case for chemistry since it applies to either mAtk or pAtk
                         } else if (key === 'atk') {
-                            let primaryAtk = (baseUnit.mAtk || 0) > (baseUnit.pAtk || 0) ? 'mAtk' : 'pAtk'
-                            baseUnit[primaryAtk] += upgData[key]
-                            key = primaryAtk;
+                          let primaryAtk =
+                            (unitData.mAtk || 0) > (unitData.pAtk || 0) ? 'mAtk' : 'pAtk'
+                          unitData[primaryAtk] += data[key] * locked
+                          key = primaryAtk
+                        } else {
+                          //Determine what operation to apply (+ or *)
+                          let operation = '+'
+                          let amount = data[key]
+                          if (typeof data[key] === 'string') {
+                            operation = data[key][0]
+                            amount = parseFloat(amount.substr(1))
+                          }
+                          switch (operation) {
+                            case '+':
+                              unitData[key] += data[key] * locked
+                              break
+                            case '*':
+                              //If the upgrade is being unlocked
+                              if (locked === 1) {
+                                let origNum = unitData[key]
+                                let appliedAmount = Math.floor(unitData[key] * amount)
+                                upgradeData.appliedAmount = origNum - appliedAmount
+                                unitData[key] = appliedAmount
+                              }
+                              //If the upgrade is being locked, use the value that was gotten when the upgrade was applied.
+                              else {
+                                unitData[key] += upgradeData.appliedAmount
+                              }
+                          }
                         }
-                        else {
-                            baseUnit[key]+=upgData[key];
+                      }
+                      for (let i in currentUpgradeData.effects) {
+                        //Apply the unit specific effects as well.
+                        if (i === 'unitSpec') {
+                          //If there is no data written for an advanced class (because it would be the same), look for the data on the base class.
+                          let effects =
+                            currentUpgradeData.effects[i][unitData.unitClass] ||
+                            currentUpgradeData.effects[i][unitData.name]
+                          for (j in effects) {
+                            applyEffect(j, effects, currentUpgradeData)
+                          }
+                        } else if (i === 'civSpec') {
+                          if (currentUpgradeData.effects[i][selectedCiv]) {
+                            let effects = currentUpgradeData.effects[i][selectedCiv]
+                            for (j in effects) {
+                              applyEffect(j, effects, currentUpgradeData)
+                            }
+                          }
+                        } else {
+                          applyEffect(i, currentUpgradeData.effects, currentUpgradeData)
                         }
-                    }
-                    return baseUnit;
-                }
+                      }
+                      return unitData;
+                  }
                 function findUpgrade(upgrade){
-                    return data.upgrades.find(function(u){return upgrade === u.name}).effects;
+                    return data.upgrades.find(function(u){return upgrade === u.name;});
                 }
                 function getUnitData(units){
                     //Find base unit
                     let unitData = [];
                     for(let i = 0; i<units.length; i++){
                         let unit = units[i];
+                        let found = false;
                         for(let j = 0;j<data.unitGrid.length; j++){
                             for(let k = 0; k < data.unitGrid[j].length; k++){
-                                if(data.unitGrid[j][k] === unit){
+                                if(data.unitGrid[j][k] === unit && !found){
                                     let baseUnit = data.units.find(function(u){
                                         return data.unitGrid[j][0] === u.name;
                                     });
-                                    if(baseUnit){ 
+                                    baseUnit = $.extend({}, baseUnit);
+                                    baseUnit.cost = Object.assign({}, baseUnit.cost);
+                                    baseUnit.bonus = baseUnit.bonus
+                                      ? baseUnit.bonus.map((a) => Object.assign({}, a))
+                                      : [];
+                                    baseUnit.armorClasses = baseUnit.armorClasses
+                                      ? baseUnit.armorClasses.map((a) => Object.assign({}, a))
+                                      : [];
+                                    if(baseUnit){
                                         //Apply unit upgrades here
+                                        //Go through each of the unit upgrades in order
                                         if(k > 0){
-                                            baseUnit = applyUpgrade(baseUnit, findUpgrade(unit));
-                                            baseUnit.baseUnit = baseUnit.name;
-                                            baseUnit.name = unit;
+                                            for(let l = 1; l < k+1; l++){
+                                                baseUnit = applyUpgradeEffects(baseUnit, 1, findUpgrade(data.unitGrid[j][l]));
+                                                baseUnit.baseUnit = baseUnit.name;
+                                                baseUnit.name = unit;
+                                            }
                                         }
                                         unitData.push(baseUnit);
+                                        found = true;
                                     };
                                 }
                             }
@@ -144,137 +225,191 @@ and open the template in the editor.
                     }
                     return unitData;
                 };
-                let unitData = getUnitData(["man-at-arms", "scout cavalry", "archer", "villager"]);
-                unitData[2] = applyUpgrade(unitData[2], findUpgrade("fletching"));
-                let buildingData = getUnitData(["palisade wall", "palisade gate", "house", "lumber camp", "barracks",       "blacksmith",  "market"]);
-                let ageUpgrade = 0;//Set to -1 for dark age (1 feudal, 2 castle, 3 imperial)
-                if(ageUpgrade >=0 ){
-                    for(let i = 0; i< unitData.length; i++){
-                        if(unitData[i].ageUpgrade){
-                            unitData[i] = applyUpgrade(unitData[i], unitData[i].ageUpgrade[ageUpgrade]);
-                        }
-                    }
-                    for(let i = 0; i< buildingData.length; i++){
-                        if(buildingData[i].ageUpgrade){
-                            buildingData[i] = applyUpgrade(buildingData[i], buildingData[i].ageUpgrade[ageUpgrade]);
-                        }
-                    }
-                }
-                function getBonusDealt(attackerBonus, defenderArmor){
-                    let totalBonusDamage = 0;
-                    for (let i = 0; i < attackerBonus.length; i++) {
-                      for (let j = 0; j < defenderArmor.length; j++) {
-                        if (attackerBonus[i][0] === defenderArmor[j][0]) {
-                          totalBonusDamage += Math.max(
-                            0,
-                            attackerBonus[i][1] - defenderArmor[j][1]
-                          );
-                        }
-                      }
-                    }
-                    return totalBonusDamage;
-                }
-                let elevationBonus = 1;
-                //Make some tables!
-                let dphT = [["Damage Per Hit"]];
-                let htdT = [["Hits To Destroy"]];
-                let ttdT = [["Time To Destroy"]];
-                let dpmT = [["Damage Per Minute"]];
-                let rpmT = [["Res/Min To Repair"]];
-                let nouT = [["# For 2 Repair Vils"]];
-                
-                for(let j=0;j<buildingData.length;j++){
-                    dphT[0].push(buildingData[j].name);
-                    htdT[0].push(buildingData[j].name);
-                    ttdT[0].push(buildingData[j].name);
-                    dpmT[0].push(buildingData[j].name);
-                    rpmT[0].push(buildingData[j].name);
-                    nouT[0].push(buildingData[j].name);
-                    for(let i =0 ; i<unitData.length; i++){
-                        if(j === 0){
-                            dphT.push([unitData[i].name]);
-                            htdT.push([unitData[i].name]);
-                            ttdT.push([unitData[i].name]);
-                            dpmT.push([unitData[i].name]);
-                            rpmT.push([unitData[i].name]);
-                            nouT.push([unitData[i].name]);
-                        }
-                        let unit = unitData[i];
-                        let bldg = buildingData[j];
-                        let primaryAtk = (unit.mAtk || 0) > (unit.pAtk || 0) ? 'mAtk' : 'pAtk';
-                        //Damage per hit
-                        let dph = Math.max(1, (unit[primaryAtk] - bldg[primaryAtk[0]+"Def"] + getBonusDealt(unit.bonus, bldg.armorClasses)) * elevationBonus);
-                        //Hits to destroy
-                        let htd = bldg.hp/dph;
-                        //Time to Destroy (in seconds)
-                        let ttd =  htd * unit.rateOfFire;
-                        //Damage per minute
-                        let dpm = dph * (60 / unit.rateOfFire);
-                        
-                        //Res per minute to repair
-                        let rpm = bldg.cost.wood || bldg.cost.stone;
-                        rpm /= 2;
-                        //Repair rate in hp/min
-                        let repairRate = 750;
-                        if(bldg.name === "town center") rpm = bldg.cost.wood * 2;
-                        //Hp per res
-                        let hpr = bldg.hp / rpm;
-                        rpm = dpm / hpr;
-                        //approx. w/min to idle vil
-                        let idleVil = 23.4;
-                        rpm += idleVil;
-                        //Number of units to force 2 villagers to repair instead of just one
-                        let nou = repairRate / dpm;
-                        
-                        dphT[i + 1].push(dph);
-                        htdT[i + 1].push(Math.ceil(htd));
-                        ttdT[i + 1].push(Math.ceil(ttd));
-                        dpmT[i + 1].push(Math.ceil(dpm));
-                        rpmT[i + 1].push(Math.ceil(rpm));
-                        nouT[i + 1].push(Math.ceil(nou));
-                       /* console.log(unit.name, bldg.name, "Total Damage: "+dph);
-                        console.log(unit.name, bldg.name, "Hits To Destroy: "+Math.ceil(htd));
-                        console.log(unit.name, bldg.name, "Time To Destroy: "+Math.ceil(ttd));
-                        console.log(unit.name, bldg.name, "Damage Per Minute: "+Math.ceil(dpm));
-                        console.log(unit.name, bldg.name, "Res/Min To Repair: "+Math.ceil(rpm));
-                        console.log(unit.name, bldg.name, "# of Units For 2 Repair Vils: "+Math.ceil(nou));*/
-                        
-                    }
-                }
-                makeTable(dphT);
-                makeTable(htdT);
-                makeTable(ttdT);
-                makeTable(dpmT);
-                makeTable(rpmT);
-                makeTable(nouT);
-                function makeTable(tableData){
-                    let table = $('<table>');
-                    for(let i = 0; i< tableData.length; i++){
-                        let row = $('<tr>');
-                        table.append(row);
-                        for (let j = 0; j < tableData[i].length;j++){
-                            let col;
-                            if(i===0 && j===0){
-                                col = $('<th>');
-                                col.text(tableData[i][j]);
-                            } else if(i === 0 || j === 0){
-                                col = $('<th>');
-                                col.append("<div><img class='tableimg' src='/img/"+tableData[i][j]+".webp'></div>");
-                            } else {
-                                col = $('<td>');
-                                col.text(tableData[i][j]);
+                function displayTables(unitData, buildingData, ageUpgrade, elevationBonus){
+                    //Set to -1 for dark age (1 feudal, 2 castle, 3 imperial)
+                    if(ageUpgrade >=0 ){
+                        for(let i = 0; i< unitData.length; i++){
+                            if(unitData[i].ageUpgrade){
+                                for(let j = 0; j < ageUpgrade + 1; j++){
+                                    unitData[i] = applyUpgradeEffects(unitData[i], 1, {effects:unitData[i].ageUpgrade[j]});
+                                }
                             }
-                            
-                            row.append(col);
+                        }
+                        for(let i = 0; i< buildingData.length; i++){
+                            if(buildingData[i].ageUpgrade){
+                                for(let j = 0; j < ageUpgrade; j++){
+                                    buildingData[i] = applyUpgradeEffects(buildingData[i], 1, {effects:buildingData[i].ageUpgrade[j]});
+                                }
+                            }
                         }
                     }
-                    let div = $("<div class='tablediv'>");
-                    div.append(table);
-                    $('body').append(div);
+                    function getBonusDealt(attackerBonus, defenderArmor){
+                        let totalBonusDamage = 0;
+                        for (let i = 0; i < attackerBonus.length; i++) {
+                          for (let j = 0; j < defenderArmor.length; j++) {
+                            if (attackerBonus[i][0] === defenderArmor[j][0]) {
+                              totalBonusDamage += Math.max(
+                                0,
+                                attackerBonus[i][1] - defenderArmor[j][1]
+                              );
+                            }
+                          }
+                        }
+                        return totalBonusDamage;
+                    }
+                    //Make some tables!
+                    let dphT = [["Damage Per Hit"]];
+                    let htdT = [["Hits To Destroy"]];
+                    let ttdT = [["Time To Destroy"]];
+                    let dpmT = [["Damage Per Minute"]];
+                    let rpmT = [["Res/Min To Repair"]];
+                    let nouT = [["# For 2 Repair Vils"]];
+                    let cpdT = [["Cost Per Damage/Min"]];
+
+                    for(let j=0;j<buildingData.length;j++){
+                        dphT[0].push(buildingData[j].name);
+                        htdT[0].push(buildingData[j].name);
+                        ttdT[0].push(buildingData[j].name);
+                        dpmT[0].push(buildingData[j].name);
+                        rpmT[0].push(buildingData[j].name);
+                        nouT[0].push(buildingData[j].name);
+                        cpdT[0].push(buildingData[j].name);
+                        for(let i =0 ; i<unitData.length; i++){
+                            if(j === 0){
+                                dphT.push([unitData[i].name]);
+                                htdT.push([unitData[i].name]);
+                                ttdT.push([unitData[i].name]);
+                                dpmT.push([unitData[i].name]);
+                                rpmT.push([unitData[i].name]);
+                                nouT.push([unitData[i].name]);
+                                cpdT.push([unitData[i].name]);
+                            }
+                            let unit = unitData[i];
+                            let bldg = buildingData[j];
+                            let primaryAtk = (unit.mAtk || 0) > (unit.pAtk || 0) ? 'mAtk' : 'pAtk';
+                            let elevation = elevationBonus ? elevationBonus[i] ? elevationBonus[i] : 1 : 1;
+                            //Damage per hit
+                            let dph = Math.max(1, Math.max(0, unit[primaryAtk] - bldg[primaryAtk[0]+"Def"]) + getBonusDealt(unit.bonus, bldg.armorClasses)) * elevation;
+                            //Hits to destroy
+                            let htd = bldg.hp/dph;
+                            //Time to Destroy (in seconds)
+                            let ttd =  htd * unit.rateOfFire;
+                            //Damage per minute
+                            let dpm = dph * (60 / unit.rateOfFire);
+
+                            //Res per minute to repair
+                            let rpm = bldg.cost.wood || bldg.cost.stone;
+                            rpm /= 2;
+                            //Repair rate in hp/min
+                            let repairRate = 750;
+                            if(bldg.name === "town center") rpm = bldg.cost.wood * 2;
+                            //Hp per res
+                            let hpr = bldg.hp / rpm;
+                            rpm = dpm / hpr;
+                            //approx. w/min to idle vil
+                            let idleVil = 23.4;
+                            rpm += idleVil;
+                            //Number of units to force 2 villagers to repair instead of just one
+                            let nou = repairRate / dpm;
+                            
+                            //Cost per damage/min
+                            let resCost = Object.values(unit.cost).reduce((a, b) => a + b, 0);
+                            let cpd = resCost/dpm;
+
+                            dphT[i + 1].push(dph);
+                            htdT[i + 1].push(Math.ceil(htd));
+                            ttdT[i + 1].push(Math.ceil(ttd));
+                            dpmT[i + 1].push(Math.ceil(dpm));
+                            rpmT[i + 1].push(Math.ceil(rpm));
+                            nouT[i + 1].push(Math.ceil(nou));
+                            cpdT[i + 1].push(cpd.toFixed(2));
+                        }
+                    }
+                    function makeTable(tableData){
+                        let table = $('<table>');
+                        for(let i = 0; i< tableData.length; i++){
+                            let row = $('<tr>');
+                            table.append(row);
+                            for (let j = 0; j < tableData[i].length;j++){
+                                let col;
+                                if(i===0 && j===0){
+                                    col = $('<th>');
+                                    col.text(tableData[i][j]);
+                                } else if(i === 0 || j === 0){
+                                    col = $('<th>');
+                                    col.append("<div><img class='tableimg' src='/img/"+tableData[i][j]+".webp'></div>");
+                                } else {
+                                    col = $('<td>');
+                                    col.text(tableData[i][j]);
+                                }
+
+                                row.append(col);
+                            }
+                        }
+                        let div = $("<div class='tablediv'>");
+                        div.append(table);
+                        $('body').append(div);
+                    }
+                    makeTable(dphT);
+                    makeTable(htdT);
+                    makeTable(ttdT);
+                    makeTable(dpmT);
+                    makeTable(rpmT);
+                    makeTable(nouT);
+                    makeTable(cpdT);
                 }
-                console.log(unitData, buildingData)
+                $("#feudal-button").on("click", function(){
+                    let unitData = getUnitData(["man-at-arms", "scout cavalry", "archer", "villager"]);
+                    unitData[2] = applyUpgradeEffects(unitData[2], 1, findUpgrade("fletching"));
+                    let buildingData = getUnitData(["palisade wall", "palisade gate", "house", "lumber camp", "barracks", "blacksmith", "market"]);
+                    displayTables(unitData, buildingData, 0);
+                });
+                $("#castle-button").on("click", function(){
+                    let unitData = getUnitData(["battering ram", "battering ram", "mangonel", "mangonel", "long swordsman", "knight"]);
+                    unitData[1] = applyUpgradeEffects(unitData[1], 1, {
+                        "effects":{
+                            "cost":{
+                                "wood":360//6 pikemen
+                            },
+                            "bonus":[[11, 60]]//add 60 bonus
+                        }
+                    });
+                    unitData[4] = applyUpgradeEffects(unitData[4], 1, findUpgrade("supplies"));
+                    unitData[4] = applyUpgradeEffects(unitData[4], 1, findUpgrade("forging"));
+                    unitData[4] = applyUpgradeEffects(unitData[4], 1, findUpgrade("iron casting"));
+                    unitData[4] = applyUpgradeEffects(unitData[4], 1, findUpgrade("arson"));
+                    
+                    unitData[5] = applyUpgradeEffects(unitData[5], 1, findUpgrade("forging"));
+                    unitData[5] = applyUpgradeEffects(unitData[5], 1, findUpgrade("iron casting"));
+                    let buildingData = getUnitData(["stone wall", "gate", "fortified wall", "fortified gate", "house", "barracks", "town center", "castle"]);
+                    displayTables(unitData, buildingData, 1, [1, 1, 1, 1.25, 1, 1]);
+                });
+                $("#rams-button").on("click", function(){
+                    let unitData = getUnitData(["battering ram", "armored elephant", "capped ram", "siege elephant","siege ram"]);
+                    let buildingData = getUnitData(["stone wall", "gate", "fortified wall", "fortified gate", "house", "barracks", "town center", "castle"]);
+                    unitData[0] = applyUpgradeEffects(unitData[0], 1, findUpgrade("siege engineers"));
+                    unitData[1] = applyUpgradeEffects(unitData[1], 1, findUpgrade("siege engineers"));
+                    unitData[2] = applyUpgradeEffects(unitData[2], 1, findUpgrade("siege engineers"));
+                    unitData[3] = applyUpgradeEffects(unitData[3], 1, findUpgrade("siege engineers"));
+                    unitData[4] = applyUpgradeEffects(unitData[4], 1, findUpgrade("siege engineers"));
+                    displayTables(unitData, buildingData, 2);
+                });
             });
-            
+            $(document).on("click", "td", function(){
+                if($(this).hasClass("blue-background")){
+                    $(this).removeClass("blue-background");
+                    $(this).addClass("red-background");
+                } else if($(this).hasClass("red-background")){
+                    $(this).removeClass("red-background");
+                } else {
+                    $(this).addClass("blue-background");
+                }
+            });
         </script>
+        <div id="buttons">
+            <button type="button" id="feudal-button">Show Feudal Stuff!</button>
+            <button type="button" id="castle-button">Show Castle Stuff!</button>
+            <button type="button" id="rams-button">Show Rams Stuff!</button>
+        </div>
     </body>
 </html>

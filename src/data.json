@@ -32272,7 +32272,7 @@
             "stone wall", "fortified wall"
         ],
         [
-            "gate"
+            "gate", "fortified gate"
         ],
         [
             "watch tower", "guard tower", "keep"
@@ -32306,6 +32306,8 @@
         "scout cavalry":["light cavalry", "hussar"],
         "knight":["cavalier", "paladin"],
         "shrivamsha rider": ["elite shrivamsha rider"],
+        "steppe lancer": ["elite steppe lancer"],
+        "battle elephant": ["elite battle elephant"],
         "camel scout":["camel rider", "heavy camel rider", "imperial camel rider"],
         
         "galley":["war galley", "galleon"],
@@ -32318,6 +32320,7 @@
         
         "careeningTechs":["careening","dry dock"],
         "stoneWall":["stone wall", "fortified wall"],
+        "gate":["gate", "fortified gate"],
         "watchTower":["guard tower", "keep"],
         "buildingDefense": ["masonry", "architecture"],
         "chemistryUpgrade":["bombard tower"],
@@ -32912,8 +32915,7 @@
                 "pDef": 10,
                 "bonus": [[11, 25], [20, 10]],
                 "armorClasses":[[20, 1]],
-                "blastRadius": 0.5,
-                "garrison": 1
+                "blastRadius": 0.5
             },
             "time": 50,
             "classChange": true
@@ -32931,9 +32933,7 @@
                 "pDef": 5,
                 "bonus": [[11, 50], [20, 15]],
                 "armorClasses":[[20, 1]],
-                "blastRadius": 0.5,
-                "garrison": 1,
-                "speed": 0.1    
+                "blastRadius": 0.5
             },
             "time": 75,
             "classChange": true
@@ -35044,6 +35044,12 @@
                     "battering ram":{
                         "bonus":[[11, 25]]
                     },
+                    "armored elephant":{
+                        "bonus":[[11, 15]]
+                    },
+                    "siege elephant":{
+                        "bonus":[[11, 21]]
+                    },
                     "siege onager":{
                         "bonus":[[11, 12]],
                         "range": 1
@@ -35085,16 +35091,43 @@
             "effects":{
                 "unitSpec":{
                     "stone wall":{
-                        "bonus":[[11, 8]],
-                        "hp": 1200
+                        "armorClasses":[[11, 8]],
+                        "hp": 1200,
+                        "mDef": 4,
+                        "pDef": 2
                     },
                     "gate":{
                         "hp": 1250
                     }
                 }
             },
-            "time": 50
+            "time": 50,
+            "classChange": true
         },
+        {
+            "name": "fortified gate",
+            "ageReq": 3,
+            "cost":{
+                "food": 200,
+                "wood": 100
+            },
+            "effects":{
+                "unitSpec":{
+                    "stone wall":{
+                        "armorClasses":[[11, 8]],
+                        "hp": 1200,
+                        "mDef": 4,
+                        "pDef": 2
+                    },
+                    "gate":{
+                        "hp": 1250
+                    }
+                }
+            },
+            "time": 50,
+            "classChange": true
+        },
+        
         {
             "name": "guard tower",
             "ageReq": 3,
