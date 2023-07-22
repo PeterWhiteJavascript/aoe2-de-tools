@@ -9,12 +9,54 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/unit-comparison.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist/jquery-ui.min.js" integrity="sha384-PtTRqvDhycIBU6x1wwIqnbDo8adeWIWP3AHmnrvccafo35E7oIvW7HPXn2YimvWu" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <script src="/js/shared.js"></script>
+        <style>
+            table{
+                font-family:"Georgia";
+            }
+            td, th {
+                width: 4rem;
+                height: 2rem;
+                border: 1px solid #ccc;
+                text-align: center;
+            }
+            th {
+                background: lightblue;
+                border-color: black;
+            }
+            th div{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .tablediv{
+                display:inline-block;
+                margin-right:40px;
+            }
+            .tableimg{
+                width: 50px;
+                text-align: center;
+            }
+            body {
+                background-image:none;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
         <script>
+            
             //Income from x tiles away
             //Tested with / without wheelbarrow
             //Both tests for wood have double bit axe (no bow saw)
             //Farms are ranked by efficiency (standard 8 farms around tc)
-            let data = {
+            /*let data = {
                 noWheel:{
                     wood:[428, 464, 521, 577, 633, 689],//200 for res amount
                     farm:[487, 491, 501, 518, 529, 532, 533, 547]//175 for res amount
@@ -28,11 +70,9 @@ and open the template in the editor.
                 let tilesAway = eff;
                 let secondsTaken = s;
                 let resAmount = 175;
-                /*
                 console.log("Tiles away: "+tilesAway+ ". "+label + " wheelbarrow.");
                 console.log("Wood/second: " + (resAmount / secondsTaken).toFixed(2));
                 console.log("Wood/minute: " + (resAmount / secondsTaken * 60).toFixed(2));
-                */
                 console.log("Efficiency: "+tilesAway+ ". "+label + " wheelbarrow.");
                 console.log("Food/second: " + (resAmount / secondsTaken).toFixed(2));
                 console.log("Food/minute: " + (resAmount / secondsTaken * 60).toFixed(2));
@@ -40,9 +80,201 @@ and open the template in the editor.
             for(let i = 0; i < data.noWheel.farm.length; i++){
                 crunchNums(i, data.noWheel.farm[i], "Without");
                 crunchNums(i , data.wheel.farm[i], "With");
-            }
+            }*/
+    
+            $.getJSON('/data.json', function(data) {
+                console.log(data);
+                function applyUpgrade(baseUnit, upgData){
+                    console.log(baseUnit, upgData)
+                    if(!upgData) return baseUnit;
+                    let keys = Object.keys(upgData);
+                    for(let h=0; h<keys.length; h++){
+                        let key = keys[h]
+                        if (key === 'bonus' || key === 'armorClasses') {
+                            for (let y = 0; y < upgData[key].length; y++) {
+                                let found = false
+                                for (let x = baseUnit[key].length - 1; x >= 0; x--) {
+                                  if (baseUnit[key][x][0] === upgData[key][y][0]) {
+                                    baseUnit[key][x][1] += upgData[key][y][1]
+                                    found = true;
+                                  }
+                                }
+                                //Add the armor class if it doesn't exist.
+                                if (!found) {
+                                  baseUnit[key].push(upgData[key][y])
+                                }
+                            }
+                        } else if (key === 'atk') {
+                            let primaryAtk = (baseUnit.mAtk || 0) > (baseUnit.pAtk || 0) ? 'mAtk' : 'pAtk'
+                            baseUnit[primaryAtk] += upgData[key]
+                            key = primaryAtk;
+                        }
+                        else {
+                            baseUnit[key]+=upgData[key];
+                        }
+                    }
+                    return baseUnit;
+                }
+                function findUpgrade(upgrade){
+                    return data.upgrades.find(function(u){return upgrade === u.name}).effects;
+                }
+                function getUnitData(units){
+                    //Find base unit
+                    let unitData = [];
+                    for(let i = 0; i<units.length; i++){
+                        let unit = units[i];
+                        for(let j = 0;j<data.unitGrid.length; j++){
+                            for(let k = 0; k < data.unitGrid[j].length; k++){
+                                if(data.unitGrid[j][k] === unit){
+                                    let baseUnit = data.units.find(function(u){
+                                        return data.unitGrid[j][0] === u.name;
+                                    });
+                                    if(baseUnit){ 
+                                        //Apply unit upgrades here
+                                        if(k > 0){
+                                            baseUnit = applyUpgrade(baseUnit, findUpgrade(unit));
+                                            baseUnit.baseUnit = baseUnit.name;
+                                            baseUnit.name = unit;
+                                        }
+                                        unitData.push(baseUnit);
+                                    };
+                                }
+                            }
+                        }
+                    }
+                    return unitData;
+                };
+                let unitData = getUnitData(["man-at-arms", "scout cavalry", "archer", "villager"]);
+                unitData[2] = applyUpgrade(unitData[2], findUpgrade("fletching"));
+                let buildingData = getUnitData(["palisade wall", "palisade gate", "house", "lumber camp", "barracks",       "blacksmith",  "market"]);
+                let ageUpgrade = 0;//Set to -1 for dark age (1 feudal, 2 castle, 3 imperial)
+                if(ageUpgrade >=0 ){
+                    for(let i = 0; i< unitData.length; i++){
+                        if(unitData[i].ageUpgrade){
+                            unitData[i] = applyUpgrade(unitData[i], unitData[i].ageUpgrade[ageUpgrade]);
+                        }
+                    }
+                    for(let i = 0; i< buildingData.length; i++){
+                        if(buildingData[i].ageUpgrade){
+                            buildingData[i] = applyUpgrade(buildingData[i], buildingData[i].ageUpgrade[ageUpgrade]);
+                        }
+                    }
+                }
+                function getBonusDealt(attackerBonus, defenderArmor){
+                    let totalBonusDamage = 0;
+                    for (let i = 0; i < attackerBonus.length; i++) {
+                      for (let j = 0; j < defenderArmor.length; j++) {
+                        if (attackerBonus[i][0] === defenderArmor[j][0]) {
+                          totalBonusDamage += Math.max(
+                            0,
+                            attackerBonus[i][1] - defenderArmor[j][1]
+                          );
+                        }
+                      }
+                    }
+                    return totalBonusDamage;
+                }
+                let elevationBonus = 1;
+                //Make some tables!
+                let dphT = [["Damage Per Hit"]];
+                let htdT = [["Hits To Destroy"]];
+                let ttdT = [["Time To Destroy"]];
+                let dpmT = [["Damage Per Minute"]];
+                let rpmT = [["Res/Min To Repair"]];
+                let nouT = [["# For 2 Repair Vils"]];
+                
+                for(let j=0;j<buildingData.length;j++){
+                    dphT[0].push(buildingData[j].name);
+                    htdT[0].push(buildingData[j].name);
+                    ttdT[0].push(buildingData[j].name);
+                    dpmT[0].push(buildingData[j].name);
+                    rpmT[0].push(buildingData[j].name);
+                    nouT[0].push(buildingData[j].name);
+                    for(let i =0 ; i<unitData.length; i++){
+                        if(j === 0){
+                            dphT.push([unitData[i].name]);
+                            htdT.push([unitData[i].name]);
+                            ttdT.push([unitData[i].name]);
+                            dpmT.push([unitData[i].name]);
+                            rpmT.push([unitData[i].name]);
+                            nouT.push([unitData[i].name]);
+                        }
+                        let unit = unitData[i];
+                        let bldg = buildingData[j];
+                        let primaryAtk = (unit.mAtk || 0) > (unit.pAtk || 0) ? 'mAtk' : 'pAtk';
+                        //Damage per hit
+                        let dph = Math.max(1, (unit[primaryAtk] - bldg[primaryAtk[0]+"Def"] + getBonusDealt(unit.bonus, bldg.armorClasses)) * elevationBonus);
+                        //Hits to destroy
+                        let htd = bldg.hp/dph;
+                        //Time to Destroy (in seconds)
+                        let ttd =  htd * unit.rateOfFire;
+                        //Damage per minute
+                        let dpm = dph * (60 / unit.rateOfFire);
+                        
+                        //Res per minute to repair
+                        let rpm = bldg.cost.wood || bldg.cost.stone;
+                        rpm /= 2;
+                        //Repair rate in hp/min
+                        let repairRate = 750;
+                        if(bldg.name === "town center") rpm = bldg.cost.wood * 2;
+                        //Hp per res
+                        let hpr = bldg.hp / rpm;
+                        rpm = dpm / hpr;
+                        //approx. w/min to idle vil
+                        let idleVil = 23.4;
+                        rpm += idleVil;
+                        //Number of units to force 2 villagers to repair instead of just one
+                        let nou = repairRate / dpm;
+                        
+                        dphT[i + 1].push(dph);
+                        htdT[i + 1].push(Math.ceil(htd));
+                        ttdT[i + 1].push(Math.ceil(ttd));
+                        dpmT[i + 1].push(Math.ceil(dpm));
+                        rpmT[i + 1].push(Math.ceil(rpm));
+                        nouT[i + 1].push(Math.ceil(nou));
+                       /* console.log(unit.name, bldg.name, "Total Damage: "+dph);
+                        console.log(unit.name, bldg.name, "Hits To Destroy: "+Math.ceil(htd));
+                        console.log(unit.name, bldg.name, "Time To Destroy: "+Math.ceil(ttd));
+                        console.log(unit.name, bldg.name, "Damage Per Minute: "+Math.ceil(dpm));
+                        console.log(unit.name, bldg.name, "Res/Min To Repair: "+Math.ceil(rpm));
+                        console.log(unit.name, bldg.name, "# of Units For 2 Repair Vils: "+Math.ceil(nou));*/
+                        
+                    }
+                }
+                makeTable(dphT);
+                makeTable(htdT);
+                makeTable(ttdT);
+                makeTable(dpmT);
+                makeTable(rpmT);
+                makeTable(nouT);
+                function makeTable(tableData){
+                    let table = $('<table>');
+                    for(let i = 0; i< tableData.length; i++){
+                        let row = $('<tr>');
+                        table.append(row);
+                        for (let j = 0; j < tableData[i].length;j++){
+                            let col;
+                            if(i===0 && j===0){
+                                col = $('<th>');
+                                col.text(tableData[i][j]);
+                            } else if(i === 0 || j === 0){
+                                col = $('<th>');
+                                col.append("<div><img class='tableimg' src='/img/"+tableData[i][j]+".webp'></div>");
+                            } else {
+                                col = $('<td>');
+                                col.text(tableData[i][j]);
+                            }
+                            
+                            row.append(col);
+                        }
+                    }
+                    let div = $("<div class='tablediv'>");
+                    div.append(table);
+                    $('body').append(div);
+                }
+                console.log(unitData, buildingData)
+            });
+            
         </script>
-    </head>
-    <body>
     </body>
 </html>

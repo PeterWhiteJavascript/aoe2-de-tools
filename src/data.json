@@ -29141,7 +29141,7 @@
             "hp": 25,
             "range": 0,
             "speed": 0.8,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "lineOfSight": 4,
             "cost":{
                 "food": 50
@@ -29229,7 +29229,7 @@
             "hp": 40,
             "range": 0,
             "speed": 0.9,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "lineOfSight": 4,
             "cost":{
                 "food": 60,
@@ -29252,7 +29252,7 @@
             "hp": 45,
             "range": 0,
             "speed": 1,
-            "rateOfFire": 3.05,
+            "rateOfFire": 3,
             "lineOfSight": 4,
             "cost":{
                 "food": 35,
@@ -29275,7 +29275,7 @@
             "hp": 50,
             "range": 0,
             "speed": 1.1,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "lineOfSight": 5,
             "cost":{
                 "food": 25,
@@ -29665,7 +29665,7 @@
             "hp": 250,
             "range": 0,
             "speed": 0.85,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "blastRadius": 0.4,
             "lineOfSight": 4,
             "trample":0.25,
@@ -30034,7 +30034,7 @@
             "hp": 120,
             "speed": 1.43,
             "lineOfSight": 7,
-            "rateOfFire": 3.05,
+            "rateOfFire": 3,
             "projSpeed": 6,
             "frameDelay": 0,
             "accuracy": 1,
@@ -30371,7 +30371,7 @@
             "hp": 50,
             "speed": 1,
             "lineOfSight": 5,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "cost":{
                 "food": 60,
                 "gold": 30
@@ -30770,7 +30770,7 @@
             "hp": 30,
             "speed": 1.2,
             "lineOfSight": 3,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "cost":{
                 "food": 25,
                 "gold": 15
@@ -31343,7 +31343,7 @@
             },
             "armorClasses": [[11, 0], [21, 0]],
             "hp": 550,
-            "mDef": 0,
+            "mDef": -2,
             "pDef": 7,
             "lineOfSight": 2,
             "ageUpgrade":[
@@ -31354,6 +31354,39 @@
                 },
                 {
                     "hp": 150,
+                    "mDef": 2,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 2,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["nomads"],
+            "trainTime": 25
+        },
+        {
+            "name": "lumber camp",
+            "ageReq": 1,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 600,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 2,
+            "ageUpgrade":[
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 200,
                     "mDef": 1,
                     "pDef": 1
                 },
@@ -31365,8 +31398,263 @@
             "damageTechs":["buildingDefense"],
             "otherTechs":["townWatch", "faith", "heresy"],
             "uniqueDamageTechs":[],
-            "uniqueOtherTechs":["nomads"],
-            "trainTime": 25
+            "uniqueOtherTechs":[],
+            "trainTime": 35
+        },
+        {
+            "name": "mining camp",
+            "ageReq": 1,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 600,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 2,
+            "ageUpgrade":[
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 35
+        },
+        {
+            "name": "mill",
+            "ageReq": 1,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 600,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 2,
+            "ageUpgrade":[
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 35
+        },
+        {
+            "name": "dock",
+            "ageReq": 1,
+            "cost":{
+                "wood": 150
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1800,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 2,
+            "garrison": 10,
+            "ageUpgrade":[
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":["harbor"],
+            "uniqueOtherTechs":[],
+            "trainTime": 35
+        },
+        {
+            "name": "barracks",
+            "ageReq": 1,
+            "cost":{
+                "wood": 175
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1200,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 50
+        },
+        {
+            "name": "archery range",
+            "ageReq": 2,
+            "cost":{
+                "wood": 175
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1500,
+            "mDef": 1,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 50
+        },
+        {
+            "name": "stable",
+            "ageReq": 2,
+            "cost":{
+                "wood": 175
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1500,
+            "mDef": 1,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 50
+        },
+        {
+            "name": "market",
+            "ageReq": 2,
+            "cost":{
+                "wood": 175
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1800,
+            "mDef": 1,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 60
+        },
+        {
+            "name": "blacksmith",
+            "ageReq": 2,
+            "cost":{
+                "wood": 150
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1800,
+            "mDef": 1,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
         },
         {
             "name": "farm",
@@ -31398,6 +31686,7 @@
             "mDef": 2,
             "pDef": 9,
             "lineOfSight": 6,
+            "garrison": 10,
             "ageUpgrade":[
                 {},
                 {},
@@ -31411,6 +31700,62 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 40
+        },
+        {
+            "name": "siege workshop",
+            "ageReq": 3,
+            "cost":{
+                "wood": 200
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1500,
+            "mDef": 1,
+            "pDef": 8,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 300,
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
+        },
+        {
+            "name": "university",
+            "ageReq": 3,
+            "cost":{
+                "wood": 200
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 2100,
+            "mDef": 2,
+            "pDef": 9,
+            "lineOfSight": 6,
+            "ageUpgrade":[
+                {},
+                {},
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 60
         },
         {
             "name": "wonder",
@@ -31443,7 +31788,7 @@
             "mDef": 3,
             "pDef": 5,
             "pAtk": 5,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "projSpeed": 7,
             "accuracy": 1,
             "range": 6,
@@ -31568,7 +31913,7 @@
             "mDef": 1,
             "pDef": 7,
             "pAtk": 5,
-            "rateOfFire": 2.03,
+            "rateOfFire": 2,
             "projSpeed": 7,
             "accuracy": 1,
             "range": 8,
@@ -31869,10 +32214,47 @@
             "house"
         ],
         [
+            "farm"
+        ],
+        
+        [
+            "lumber camp"
+        ],
+        [
+            "mining camp"
+        ],
+        [
+            "mill"
+        ],
+        [
+            "barracks"
+        ],
+        [
+            "archery range"
+        ],
+        [
+            "stable"
+        ],
+        [
+            "blacksmith"
+        ],
+        [
+            "market"
+        ],
+        [
             "town center"
         ],
         [
             "monastery"
+        ],
+        [
+            "siege workshop"
+        ],
+        [
+            "university"
+        ],
+        [
+            "dock"
         ],
         [
             "wonder"
