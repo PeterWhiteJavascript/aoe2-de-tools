@@ -264,7 +264,7 @@ and open the template in the editor.
                     let dpmT = [["Damage Per Minute"]];
                     let rpmT = [["Res/Min To Repair"]];
                     let nouT = [["# For 2 Repair Vils"]];
-                    let cpdT = [["Cost Per Damage/Min"]];
+                    let cpdT = [["Damage/Min Per 1 Res"]];
 
                     for(let j=0;j<buildingData.length;j++){
                         dphT[0].push(buildingData[j].name);
@@ -314,7 +314,7 @@ and open the template in the editor.
                             
                             //Cost per damage/min
                             let resCost = Object.values(unit.cost).reduce((a, b) => a + b, 0);
-                            let cpd = resCost/dpm;
+                            let cpd = dpm/resCost;
 
                             dphT[i + 1].push(dph);
                             htdT[i + 1].push(Math.ceil(htd));
