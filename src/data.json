@@ -31984,6 +31984,25 @@
             "cost":{
                 "stone": 350
             },
+            "armorClasses": [[11, 8], [21, 0], [26, 0]],
+            "hp": 2600,
+            "mDef": 8,
+            "pDef": 11,
+            "pAtk": 10,
+            "rateOfFire": 2,
+            "projSpeed": 7,
+            "accuracy": 1,
+            "range": 8,
+            "minimumRange": 1,
+            "bonus":[[27, 2]],
+            "secondaryBonus":[[30, 1], [16, 10], [34, 10], [13, 10]],
+            "arrows": 4,
+            "lineOfSight": 10,
+            "garrison": 20,
+            "damageTechs":["archerAttack", "chemistry", "buildingDefense", "heated shot"],
+            "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
             "trainTime": 150
         },
         {
@@ -31993,6 +32012,25 @@
                 "stone": 650,
                 "wood": 0
             },
+            "armorClasses": [[11, 8], [21, 0], [26, 0]],
+            "hp": 4800,
+            "mDef": 8,
+            "pDef": 11,
+            "pAtk": 11,
+            "rateOfFire": 2,
+            "projSpeed": 7,
+            "accuracy": 1,
+            "range": 8,
+            "minimumRange": 1,
+            "bonus":[[27, 2]],
+            "secondaryBonus":[[30, 1], [16, 11], [34, 11], [13, 11]],
+            "arrows": 5,
+            "lineOfSight": 11,
+            "garrison": 20,
+            "damageTechs":["archerAttack", "chemistry", "buildingDefense", "heated shot", "hoardings"],
+            "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane"],
+            "uniqueDamageTechs":["stronghold"],
+            "uniqueOtherTechs":["kasbah", "crenellations", "cuman mercenaries", "detinets", "timurid siegecraft"],
             "trainTime": 200
         },
         {
@@ -32216,7 +32254,6 @@
         [
             "farm"
         ],
-        
         [
             "lumber camp"
         ],
@@ -32278,7 +32315,22 @@
             "watch tower", "guard tower", "keep"
         ],
         [
+            "donjon"
+        ],
+        [
             "bombard tower"
+        ],
+        [
+            "castle"
+        ],
+        [
+            "krepost"
+        ],
+        [
+            "caravanserai"
+        ],
+        [
+            "feitoria"
         ]
     ],
     
