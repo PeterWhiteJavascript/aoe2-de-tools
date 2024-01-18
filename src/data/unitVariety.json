@@ -1306,6 +1306,21 @@
       }
     }
   },
+  "dromon": {
+    "civs": {
+            
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
   "cannon galleon": {
     "civs": {
       "Aztec Civ Bonus": {
@@ -1804,6 +1819,23 @@
       "Elite Berserk":{
         "trainTime": 12,
         "img": "elite berserk"
+      }
+    }
+  },
+  "centurion": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Comitatanses": {
+        "trainTime": 1.5,
+        "trainTimePercent": true
       }
     }
   },

@@ -28,7 +28,7 @@ and open the template in the editor.
                     let name = $(item).children("a").attr("title");
                     if(name){
                         let availStr = $($(item).children("a").children("img")[0]).attr("data-image-name");
-                        let word = "unavailable.webp";
+                        let word = "unavailable.png";
                         let available = !availStr.includes(word);
                         unitsAndTechs.push({name: name, available: available}); 
                     }
@@ -40,10 +40,11 @@ and open the template in the editor.
             
             delete techTree.House;
             delete techTree["Dark Age"];
+            delete techTree["undefined"];
+            delete techTree["Outpost"];
             //Fix some specific things
-            if(techTree.Castle[0].name === techTree.Castle[1].name) techTree.Castle[1].name = "Elite " + techTree.Castle[1].name;
-            if(techTree.Dock) techTree.Dock.find(elm => elm.name === "Fire Galley (Age of Empires II)").name = "Fire Galley";
             if(techTree.University) techTree.University.find(elm => elm.name === "Bombard Tower (technology)").name = "Bombard Tower Upgrade";
+            if(techTree.University) techTree.University.find(elm => elm.name === "Chemistry (Age of Empires II)").name = "Chemistry";
             console.log(techTree);
             */
             let gData;
@@ -63,9 +64,10 @@ and open the template in the editor.
                         } 
                     }
                 });
-                let groups = ["militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour", "scout cavalry", "knight", "camel scout", "battle elephant", "steppe lancer", "ram", "mangonel", "scorpion", "fire galley", "galley", "demolition raft"];
+                let groups = ["militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour", "scout cavalry", "knight", "camel scout", "battle elephant", "steppe lancer", "battering ram", "mangonel", "scorpion", "fire galley", "galley", "demolition raft"];
                 groups.forEach((g) => {
                     let group = gData.upgradeGroups[g];
+                    console.log(group)
                     group.forEach((a) => {
                         allUnits[a] = true;
                     });
@@ -84,6 +86,7 @@ and open the template in the editor.
                     
                     for(let i = 0; i < building.length; i++){
                         building[i].name = building[i].name.toLowerCase();
+                        console.log(building[i].name)
                         let found = allUnits[building[i].name];
                         if(found){
                             sorted.units.push(building[i]);

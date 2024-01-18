@@ -100,7 +100,6 @@ $.getJSON('/data.json', function(data) {
                     let uniqueUps = civ.ranksUnique.map((u) => {
                         return u[1].includes(unit);
                     });
-                    console.log(unit, relevantUpgrades)
                     relevant.forEach((u) => {
                         let up = u;
                         let locked = false;
@@ -109,7 +108,7 @@ $.getJSON('/data.json', function(data) {
                             //Get the best upgrade this civ has in the group.
                             for(let i = 0; i < data.upgradeGroups[u].length; i++){
                                 let buildingName = data.upgradeBuilding[data.upgradeGroups[u][i]];
-                                console.log(buildingName, civ.techTree, data.upgradeGroups[u][i])
+                                //console.log(buildingName, civ.techTree, data.upgradeGroups[u][i])
                                 if(finder(civ.techTree[buildingName].upgrades, data.upgradeGroups[u][i]).available){
                                     up = data.upgradeGroups[u][i];
                                     changed = true;
