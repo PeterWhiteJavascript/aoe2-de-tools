@@ -34178,6 +34178,34 @@
             "trainTime": 40
         },
         {
+            "name": "fortified church",
+            "ageReq": 3,
+            "cost":{
+                "wood": 200
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 2400,
+            "mDef": 4,
+            "pDef": 10,
+            "range": 6,
+            "minimumRange": 1,
+            "lineOfSight": 6,
+            "garrison": 10,
+            "ageUpgrade":[
+                {},
+                {},
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
+        },
+        {
             "name": "siege workshop",
             "ageReq": 3,
             "cost":{

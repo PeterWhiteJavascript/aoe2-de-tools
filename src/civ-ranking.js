@@ -15,7 +15,16 @@ $.getJSON('/data.json', function(data) {
     }
     console.log(upgradesList)
     */
-    
+    function processName(buildingName, civ){
+        if(civ === "Armenians" || civ === "Georgians"){
+            if(buildingName === "lumber camp" || buildingName === "mining camp"){
+                buildingName = "mule cart";
+            } else if (buildingName === "monastery"){
+                buildingName = "fortified church";
+            }
+        }
+        return buildingName;
+    }
     
     let upgradeGroup = data.unitGroups;
     let relevantUpgrades = data.relevantUpgrades;
@@ -103,15 +112,14 @@ $.getJSON('/data.json', function(data) {
                     relevant.forEach((u) => {
                         let up = u;
                         let locked = false;
+                        console.log(u)
                         if(data.upgradeGroups[u]){
                             let changed = false;
                             //Get the best upgrade this civ has in the group.
                             for(let i = 0; i < data.upgradeGroups[u].length; i++){
                                 let buildingName = data.upgradeBuilding[data.upgradeGroups[u][i]];
                                 //console.log(buildingName, civ.techTree, data.upgradeGroups[u][i])
-                                if((buildingName === "lumber camp" || buildingName === "mining camp") && (civ.name === "Armenians" || civ.name === "Georgians")){
-                                    buildingName = "mule cart";
-                                }
+                                buildingName = processName(buildingName, civ.name);
                                 if(finder(civ.techTree[buildingName].upgrades, data.upgradeGroups[u][i]).available){
                                     up = data.upgradeGroups[u][i];
                                     changed = true;
@@ -122,7 +130,9 @@ $.getJSON('/data.json', function(data) {
                                 locked = true;
                             }
                         } else {
-                            locked = !finder(civ.techTree[data.upgradeBuilding[up]].upgrades, up).available;
+                            let name = data.upgradeBuilding[up]
+                            name = processName(name, civ.name);
+                            locked = !finder(civ.techTree[name].upgrades, up).available;
                             
                         }
                         let img = $("<div class='relevant-img'><img src='/img/"+up+".webp'></div>");
@@ -250,11 +260,12 @@ $.getJSON('/data.json', function(data) {
         };
         let upsList = [];
         relevantBuildings.forEach((b) => {
+            b = processName(b, civ.name);
             upsList = upsList.concat(civ.techTree[b].upgrades);
         });
         if(civ.name === "Goths" || civ.name === "Cumans"){
             ups[4][ups[4].indexOf("fortified wall")] = "stone wall";
-            upsList.push({name: "stone wall", available: false})
+            upsList.push({name: "stone wall", available: false});
         }
         ups.forEach((u, i) => {
             if(titles[i]){
