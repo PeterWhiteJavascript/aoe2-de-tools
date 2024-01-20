@@ -736,7 +736,7 @@
                 },
                 "barracks":{
                     "champion":[3, 3, 3, 3.5],
-                    "pikeman":[3, 3, 3.5, 3]
+                    "halberdier":[3, 3, 3.5, 3]
                 },
                 "archery range":{
                     "arbalester": [3, 2.5, 2.5],
