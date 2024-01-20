@@ -1808,6 +1808,10 @@
   "berserk": {
     "civs": {},
     "upgrades": {
+      "Elite Berserk":{
+        "trainTime": 12,
+        "img": "elite berserk"
+      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -1815,10 +1819,6 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
-      },
-      "Elite Berserk":{
-        "trainTime": 12,
-        "img": "elite berserk"
       }
     }
   },
@@ -1835,6 +1835,36 @@
       },
       "Comitatanses": {
         "trainTime": 1.5,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "composite bowman": {
+    "civs": {},
+    "upgrades": {
+      "Elite Composite Bowman":{
+        "trainTime": 10,
+        "img": "elite composite bowman"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "monaspa": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }

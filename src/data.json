@@ -1,5 +1,6 @@
 {
     "civlist":[
+        "Armenians",
         "Aztecs",
         "Bengalis",
         "Berbers",
@@ -15,6 +16,7 @@
         "Dravidians",
         "Ethiopians",
         "Franks",
+        "Georgians",
         "Goths",
         "Gurjaras",
         "Hindustanis",
@@ -33,6 +35,7 @@
         "Persians",  
         "Poles",
         "Portuguese",
+        "Romans",
         "Saracens",
         "Sicilians",
         "Spanish",  
@@ -55,6 +58,714 @@
         "4": "S"
     },
     "civilizations":[
+        {
+            "name":"Armenians",
+            "techTree":{
+                "barracks": {
+                    "units": [
+                        {
+                            "name": "militia",
+                            "available": true
+                        },
+                        {
+                            "name": "man-at-arms",
+                            "available": true
+                        },
+                        {
+                            "name": "long swordsman",
+                            "available": true
+                        },
+                        {
+                            "name": "two-handed swordsman",
+                            "available": true
+                        },
+                        {
+                            "name": "champion",
+                            "available": true
+                        },
+                        {
+                            "name": "spearman",
+                            "available": true
+                        },
+                        {
+                            "name": "pikeman",
+                            "available": true
+                        },
+                        {
+                            "name": "halberdier",
+                            "available": true
+                        },
+                        {
+                            "name": "eagle scout",
+                            "available": false
+                        },
+                        {
+                            "name": "eagle warrior",
+                            "available": false
+                        },
+                        {
+                            "name": "elite eagle warrior",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "supplies",
+                            "available": true
+                        },
+                        {
+                            "name": "gambesons",
+                            "available": true
+                        },
+                        {
+                            "name": "squires",
+                            "available": true
+                        },
+                        {
+                            "name": "arson",
+                            "available": true
+                        }
+                    ]
+                },
+                "archery range": {
+                    "units": [
+                        {
+                            "name": "archer",
+                            "available": true
+                        },
+                        {
+                            "name": "crossbowman",
+                            "available": true
+                        },
+                        {
+                            "name": "arbalester",
+                            "available": true
+                        },
+                        {
+                            "name": "skirmisher",
+                            "available": true
+                        },
+                        {
+                            "name": "elite skirmisher",
+                            "available": true
+                        },
+                        {
+                            "name": "cavalry archer",
+                            "available": true
+                        },
+                        {
+                            "name": "elephant archer",
+                            "available": false
+                        },
+                        {
+                            "name": "hand cannoneer",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "heavy cavalry archer",
+                            "available": false
+                        },
+                        {
+                            "name": "elite elephant archer",
+                            "available": false
+                        },
+                        {
+                            "name": "thumb ring",
+                            "available": false
+                        },
+                        {
+                            "name": "parthian tactics",
+                            "available": false
+                        }
+                    ]
+                },
+                "stable": {
+                    "units": [
+                        {
+                            "name": "scout cavalry",
+                            "available": true
+                        },
+                        {
+                            "name": "light cavalry",
+                            "available": true
+                        },
+                        {
+                            "name": "hussar",
+                            "available": false
+                        },
+                        {
+                            "name": "knight",
+                            "available": true
+                        },
+                        {
+                            "name": "cavalier",
+                            "available": true
+                        },
+                        {
+                            "name": "paladin",
+                            "available": false
+                        },
+                        {
+                            "name": "camel rider",
+                            "available": false
+                        },
+                        {
+                            "name": "heavy camel rider",
+                            "available": false
+                        },
+                        {
+                            "name": "battle elephant",
+                            "available": false
+                        },
+                        {
+                            "name": "elite battle elephant",
+                            "available": false
+                        },
+                        {
+                            "name": "steppe lancer",
+                            "available": false
+                        },
+                        {
+                            "name": "elite steppe lancer",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "bloodlines",
+                            "available": true
+                        },
+                        {
+                            "name": "husbandry",
+                            "available": true
+                        }
+                    ]
+                },
+                "siege workshop": {
+                    "units": [
+                        {
+                            "name": "battering ram",
+                            "available": true
+                        },
+                        {
+                            "name": "capped ram",
+                            "available": true
+                        },
+                        {
+                            "name": "siege ram",
+                            "available": false
+                        },
+                        {
+                            "name": "mangonel",
+                            "available": true
+                        },
+                        {
+                            "name": "onager",
+                            "available": true
+                        },
+                        {
+                            "name": "siege onager",
+                            "available": false
+                        },
+                        {
+                            "name": "scorpion",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy scorpion",
+                            "available": true
+                        },
+                        {
+                            "name": "siege tower",
+                            "available": true
+                        },
+                        {
+                            "name": "bombard cannon",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": []
+                },
+                "castle": {
+                    "units": [
+                        {
+                            "name": "composite bowman",
+                            "available": true
+                        },
+                        {
+                            "name": "petard",
+                            "available": true
+                        },
+                        {
+                            "name": "trebuchet",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "elite composite bowman",
+                            "available": true
+                        },
+                        {
+                            "name": "cilician fleet",
+                            "available": true
+                        },
+                        {
+                            "name": "fereters",
+                            "available": true
+                        },
+                        {
+                            "name": "hoardings",
+                            "available": true
+                        },
+                        {
+                            "name": "sappers",
+                            "available": true
+                        },
+                        {
+                            "name": "conscription",
+                            "available": true
+                        },
+                        {
+                            "name": "spies",
+                            "available": true
+                        }
+                    ]
+                },
+                "dock": {
+                    "units": [
+                        {
+                            "name": "fishing ship",
+                            "available": true
+                        },
+                        {
+                            "name": "transport ship",
+                            "available": true
+                        },
+                        {
+                            "name": "trade cog",
+                            "available": true
+                        },
+                        {
+                            "name": "galley",
+                            "available": true
+                        },
+                        {
+                            "name": "war galley",
+                            "available": true
+                        },
+                        {
+                            "name": "galleon",
+                            "available": true
+                        },
+                        {
+                            "name": "dromon",
+                            "available": true
+                        },
+                        {
+                            "name": "fire galley",
+                            "available": true
+                        },
+                        {
+                            "name": "fire ship",
+                            "available": true
+                        },
+                        {
+                            "name": "fast fire ship",
+                            "available": false
+                        },
+                        {
+                            "name": "demolition raft",
+                            "available": true
+                        },
+                        {
+                            "name": "demolition ship",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy demolition ship",
+                            "available": true
+                        },
+                        {
+                            "name": "cannon galleon",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "gillnets",
+                            "available": true
+                        },
+                        {
+                            "name": "shipwright",
+                            "available": true
+                        },
+                        {
+                            "name": "careening",
+                            "available": true
+                        },
+                        {
+                            "name": "dry dock",
+                            "available": true
+                        },
+                        {
+                            "name": "elite cannon galleon",
+                            "available": false
+                        }
+                    ]
+                },
+                "fortified church": {
+                    "units": [
+                        {
+                            "name": "monk",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "sanctity",
+                            "available": true
+                        },
+                        {
+                            "name": "illumination",
+                            "available": true
+                        },
+                        {
+                            "name": "redemption",
+                            "available": true
+                        },
+                        {
+                            "name": "heresy",
+                            "available": true
+                        },
+                        {
+                            "name": "block printing",
+                            "available": true
+                        },
+                        {
+                            "name": "atonement",
+                            "available": true
+                        },
+                        {
+                            "name": "herbal medicine",
+                            "available": true
+                        },
+                        {
+                            "name": "theocracy",
+                            "available": true
+                        },
+                        {
+                            "name": "fervor",
+                            "available": true
+                        },
+                        {
+                            "name": "devotion",
+                            "available": true
+                        },
+                        {
+                            "name": "faith",
+                            "available": true
+                        },
+                        {
+                            "name": "warrior priest",
+                            "available": true
+                        }
+                    ]
+                },
+                "blacksmith": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "padded archer armor",
+                            "available": true
+                        },
+                        {
+                            "name": "leather archer armor",
+                            "available": true
+                        },
+                        {
+                            "name": "ring archer armor",
+                            "available": true
+                        },
+                        {
+                            "name": "fletching",
+                            "available": true
+                        },
+                        {
+                            "name": "bodkin arrow",
+                            "available": true
+                        },
+                        {
+                            "name": "bracer",
+                            "available": true
+                        },
+                        {
+                            "name": "forging",
+                            "available": true
+                        },
+                        {
+                            "name": "iron casting",
+                            "available": true
+                        },
+                        {
+                            "name": "blast furnace",
+                            "available": true
+                        },
+                        {
+                            "name": "scale barding armor",
+                            "available": true
+                        },
+                        {
+                            "name": "chain barding armor",
+                            "available": true
+                        },
+                        {
+                            "name": "plate barding armor",
+                            "available": false
+                        },
+                        {
+                            "name": "scale mail armor",
+                            "available": true
+                        },
+                        {
+                            "name": "chain mail armor",
+                            "available": true
+                        },
+                        {
+                            "name": "plate mail armor",
+                            "available": true
+                        }
+                    ]
+                },
+                "university": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "masonry",
+                            "available": true
+                        },
+                        {
+                            "name": "architecture",
+                            "available": false
+                        },
+                        {
+                            "name": "fortified wall",
+                            "available": true
+                        },
+                        {
+                            "name": "chemistry",
+                            "available": true
+                        },
+                        {
+                            "name": "bombard tower upgrade",
+                            "available": true
+                        },
+                        {
+                            "name": "ballistics",
+                            "available": true
+                        },
+                        {
+                            "name": "siege engineers",
+                            "available": false
+                        },
+                        {
+                            "name": "guard tower",
+                            "available": true
+                        },
+                        {
+                            "name": "keep",
+                            "available": false
+                        },
+                        {
+                            "name": "heated shot",
+                            "available": true
+                        },
+                        {
+                            "name": "arrowslits",
+                            "available": false
+                        },
+                        {
+                            "name": "murder holes",
+                            "available": true
+                        },
+                        {
+                            "name": "treadmill crane",
+                            "available": false
+                        }
+                    ]
+                },
+                "town center": {
+                    "units": [
+                        {
+                            "name": "villager",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "town watch",
+                            "available": true
+                        },
+                        {
+                            "name": "town patrol",
+                            "available": true
+                        },
+                        {
+                            "name": "feudal age",
+                            "available": true
+                        },
+                        {
+                            "name": "castle age",
+                            "available": true
+                        },
+                        {
+                            "name": "imperial age",
+                            "available": true
+                        },
+                        {
+                            "name": "loom",
+                            "available": true
+                        },
+                        {
+                            "name": "wheelbarrow",
+                            "available": true
+                        },
+                        {
+                            "name": "hand cart",
+                            "available": true
+                        }
+                    ]
+                },
+                "mule cart": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "gold mining",
+                            "available": true
+                        },
+                        {
+                            "name": "gold shaft mining",
+                            "available": true
+                        },
+                        {
+                            "name": "stone mining",
+                            "available": true
+                        },
+                        {
+                            "name": "stone shaft mining",
+                            "available": false
+                        },
+                        {
+                            "name": "double-bit axe",
+                            "available": true
+                        },
+                        {
+                            "name": "bow saw",
+                            "available": true
+                        },
+                        {
+                            "name": "two-man saw",
+                            "available": false
+                        },
+                        {
+                            "name": "mining camp",
+                            "available": false
+                        },
+                        {
+                            "name": "lumber camp",
+                            "available": false
+                        }
+                    ]
+                },
+                "mill": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "horse collar",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy plow",
+                            "available": true
+                        },
+                        {
+                            "name": "crop rotation",
+                            "available": false
+                        }
+                    ]
+                },
+                "market": {
+                    "units": [
+                        {
+                            "name": "trade cart",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "coinage",
+                            "available": true
+                        },
+                        {
+                            "name": "banking",
+                            "available": true
+                        },
+                        {
+                            "name": "caravan",
+                            "available": true
+                        },
+                        {
+                            "name": "guilds",
+                            "available": true
+                        }
+                    ]
+                }
+            },
+            "bonusDesc":[
+                "The Armenians are one of the two civs with access to the unique mule cart, which is a mobile drop off point for wood, gold, and stone. It can also be used to drop off food for hunters.",
+                "Economic tecnologies that are researched from the mule cart are 40% more effective incentivizing the Armernians player to reasearch eco techs as a higher priority.",
+                "The first fortified church (monastery replacement) that is built comes with a free relic inside. They can also train warrior priests which are a melee unit that can pick up relics and heal units, but cannot convert.",
+                "Infantry techs can be researched one age earlier starting in the feudal age and spearmen are available in the dark age."
+            ],
+            "ranksUnique":[["cilician fleet", ["heavy demolition ship"]], ["fereters", ["champion", "warrior priest"]]],
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3.5, 3.5, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3.5],
+                    "pikeman":[3, 3, 3.5, 3]
+                },
+                "archery range":{
+                    "arbalester": [3, 2.5, 2.5],
+                    "elite skirmisher": [3, 3, 3],
+                    "cavalry archer": [2.5, 1.5]
+                },
+                "stable":{
+                    "light cavalry":[3, 3, 2],
+                    "cavalier":[3, 2]
+                },
+                "siege workshop":{
+                    "capped ram":[3, 2],
+                    "onager": [3, 2],
+                    "heavy scorpion":[3, 2]
+                },
+                "monastery":{
+                    "monk":[3, 3],
+                    "warrior priest": [3.5, 3]
+                },
+                "castle":{
+                    "elite composite bowman":[3, 3],
+                    "trebuchet":[2.5]
+                },
+                "university":{
+                    "guard tower": [3, 3, 2],
+                    "defenses": [3, 3, 3, 2.5]
+                }
+            }
+        },
         {
             "name":"Aztecs",
             "techTree":{
@@ -409,9 +1120,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion"  ,   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -1106,9 +1821,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion"  ,   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -1798,9 +2517,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion"  ,   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -2491,7 +3214,11 @@
                         }
                     ],
                     "upgrades": [
-                        {
+                        {                      
+                            "name": "devotion",   
+                            "available": true                    
+                        },             
+                        {                      
                             "name": "faith",
                             "available": true
                         },
@@ -2881,7 +3608,7 @@
                     },
                     {
                       "name": "gambesons",
-                      "available": false
+                      "available": true
                     },
                     {
                       "name": "squires",
@@ -3178,9 +3905,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -3876,9 +4607,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": false
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -4562,9 +5297,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -5254,9 +5993,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -5946,9 +6689,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -6633,9 +7380,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -6688,7 +7439,7 @@
                     },
                     {
                       "name": "ring archer armor",
-                      "available": false
+                      "available": true
                     },
                     {
                       "name": "fletching",
@@ -7318,9 +8069,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -8003,9 +8758,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -8710,9 +9469,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -9395,9 +10158,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -10081,9 +10848,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -10410,6 +11181,707 @@
                 "university":{
                     "guard tower": [3, 3, 2],
                     "defenses": [3, 3, 3.5, 4]
+                }
+            }
+        },
+        {
+            "name":"Georgians",
+            "techTree":{
+                "barracks": {
+                    "units": [
+                        {
+                            "name": "militia",
+                            "available": true
+                        },
+                        {
+                            "name": "man-at-arms",
+                            "available": true
+                        },
+                        {
+                            "name": "long swordsman",
+                            "available": true
+                        },
+                        {
+                            "name": "two-handed swordsman",
+                            "available": true
+                        },
+                        {
+                            "name": "champion",
+                            "available": true
+                        },
+                        {
+                            "name": "spearman",
+                            "available": true
+                        },
+                        {
+                            "name": "pikeman",
+                            "available": true
+                        },
+                        {
+                            "name": "halberdier",
+                            "available": true
+                        },
+                        {
+                            "name": "eagle scout",
+                            "available": false
+                        },
+                        {
+                            "name": "eagle warrior",
+                            "available": false
+                        },
+                        {
+                            "name": "elite eagle warrior",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "supplies",
+                            "available": true
+                        },
+                        {
+                            "name": "gambesons",
+                            "available": true
+                        },
+                        {
+                            "name": "squires",
+                            "available": true
+                        },
+                        {
+                            "name": "arson",
+                            "available": true
+                        }
+                    ]
+                },
+                "archery range": {
+                    "units": [
+                        {
+                            "name": "archer",
+                            "available": true
+                        },
+                        {
+                            "name": "crossbowman",
+                            "available": true
+                        },
+                        {
+                            "name": "arbalester",
+                            "available": false
+                        },
+                        {
+                            "name": "skirmisher",
+                            "available": true
+                        },
+                        {
+                            "name": "elite skirmisher",
+                            "available": true
+                        },
+                        {
+                            "name": "cavalry archer",
+                            "available": true
+                        },
+                        {
+                            "name": "elephant archer",
+                            "available": false
+                        },
+                        {
+                            "name": "hand cannoneer",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "heavy cavalry archer",
+                            "available": true
+                        },
+                        {
+                            "name": "elite elephant archer",
+                            "available": false
+                        },
+                        {
+                            "name": "thumb ring",
+                            "available": false
+                        },
+                        {
+                            "name": "parthian tactics",
+                            "available": true
+                        }
+                    ]
+                },
+                "stable": {
+                    "units": [
+                        {
+                            "name": "scout cavalry",
+                            "available": true
+                        },
+                        {
+                            "name": "light cavalry",
+                            "available": true
+                        },
+                        {
+                            "name": "hussar",
+                            "available": true
+                        },
+                        {
+                            "name": "knight",
+                            "available": true
+                        },
+                        {
+                            "name": "cavalier",
+                            "available": true
+                        },
+                        {
+                            "name": "paladin",
+                            "available": false
+                        },
+                        {
+                            "name": "camel rider",
+                            "available": false
+                        },
+                        {
+                            "name": "heavy camel rider",
+                            "available": false
+                        },
+                        {
+                            "name": "battle elephant",
+                            "available": false
+                        },
+                        {
+                            "name": "elite battle elephant",
+                            "available": false
+                        },
+                        {
+                            "name": "steppe lancer",
+                            "available": false
+                        },
+                        {
+                            "name": "elite steppe lancer",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "bloodlines",
+                            "available": true
+                        },
+                        {
+                            "name": "husbandry",
+                            "available": true
+                        }
+                    ]
+                },
+                "siege workshop": {
+                    "units": [
+                        {
+                            "name": "battering ram",
+                            "available": true
+                        },
+                        {
+                            "name": "capped ram",
+                            "available": true
+                        },
+                        {
+                            "name": "siege ram",
+                            "available": true
+                        },
+                        {
+                            "name": "mangonel",
+                            "available": true
+                        },
+                        {
+                            "name": "onager",
+                            "available": true
+                        },
+                        {
+                            "name": "siege onager",
+                            "available": true
+                        },
+                        {
+                            "name": "scorpion",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy scorpion",
+                            "available": true
+                        },
+                        {
+                            "name": "siege tower",
+                            "available": true
+                        },
+                        {
+                            "name": "bombard cannon",
+                            "available": false
+                        }
+                    ],
+                    "upgrades": []
+                },
+                "castle": {
+                    "units": [
+                        {
+                            "name": "petard",
+                            "available": true
+                        },
+                        {
+                            "name": "trebuchet",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "monaspa",
+                            "available": true
+                        },
+                        {
+                            "name": "elite monaspa",
+                            "available": true
+                        },
+                        {
+                            "name": "svan towers",
+                            "available": true
+                        },
+                        {
+                            "name": "aznauri cavalry",
+                            "available": true
+                        },
+                        {
+                            "name": "hoardings",
+                            "available": true
+                        },
+                        {
+                            "name": "sappers",
+                            "available": true
+                        },
+                        {
+                            "name": "conscription",
+                            "available": true
+                        },
+                        {
+                            "name": "spies",
+                            "available": true
+                        }
+                    ]
+                },
+                "dock": {
+                    "units": [
+                        {
+                            "name": "fishing ship",
+                            "available": true
+                        },
+                        {
+                            "name": "transport ship",
+                            "available": true
+                        },
+                        {
+                            "name": "trade cog",
+                            "available": true
+                        },
+                        {
+                            "name": "galley",
+                            "available": true
+                        },
+                        {
+                            "name": "war galley",
+                            "available": true
+                        },
+                        {
+                            "name": "galleon",
+                            "available": true
+                        },
+                        {
+                            "name": "fire galley",
+                            "available": true
+                        },
+                        {
+                            "name": "fire ship",
+                            "available": true
+                        },
+                        {
+                            "name": "fast fire ship",
+                            "available": true
+                        },
+                        {
+                            "name": "demolition raft",
+                            "available": true
+                        },
+                        {
+                            "name": "demolition ship",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy demolition ship",
+                            "available": false
+                        },
+                        {
+                            "name": "cannon galleon",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "gillnets",
+                            "available": true
+                        },
+                        {
+                            "name": "shipwright",
+                            "available": false
+                        },
+                        {
+                            "name": "careening",
+                            "available": true
+                        },
+                        {
+                            "name": "dry dock",
+                            "available": false
+                        },
+                        {
+                            "name": "elite cannon galleon",
+                            "available": false
+                        }
+                    ]
+                },
+                "fortified church": {
+                    "units": [
+                        {
+                            "name": "monk",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "sanctity",
+                            "available": true
+                        },
+                        {
+                            "name": "illumination",
+                            "available": false
+                        },
+                        {
+                            "name": "redemption",
+                            "available": true
+                        },
+                        {
+                            "name": "heresy",
+                            "available": true
+                        },
+                        {
+                            "name": "block printing",
+                            "available": true
+                        },
+                        {
+                            "name": "atonement",
+                            "available": false
+                        },
+                        {
+                            "name": "herbal medicine",
+                            "available": true
+                        },
+                        {
+                            "name": "theocracy",
+                            "available": true
+                        },
+                        {
+                            "name": "fervor",
+                            "available": true
+                        },
+                        {
+                            "name": "devotion",
+                            "available": true
+                        },
+                        {
+                            "name": "faith",
+                            "available": true
+                        }
+                    ]
+                },
+                "blacksmith": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "padded archer armor",
+                            "available": true
+                        },
+                        {
+                            "name": "leather archer armor",
+                            "available": true
+                        },
+                        {
+                            "name": "ring archer armor",
+                            "available": false
+                        },
+                        {
+                            "name": "fletching",
+                            "available": true
+                        },
+                        {
+                            "name": "bodkin arrow",
+                            "available": true
+                        },
+                        {
+                            "name": "bracer",
+                            "available": true
+                        },
+                        {
+                            "name": "forging",
+                            "available": true
+                        },
+                        {
+                            "name": "iron casting",
+                            "available": true
+                        },
+                        {
+                            "name": "blast furnace",
+                            "available": true
+                        },
+                        {
+                            "name": "scale barding armor",
+                            "available": true
+                        },
+                        {
+                            "name": "chain barding armor",
+                            "available": true
+                        },
+                        {
+                            "name": "plate barding armor",
+                            "available": true
+                        },
+                        {
+                            "name": "scale mail armor",
+                            "available": true
+                        },
+                        {
+                            "name": "chain mail armor",
+                            "available": true
+                        },
+                        {
+                            "name": "plate mail armor",
+                            "available": true
+                        }
+                    ]
+                },
+                "university": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "masonry",
+                            "available": true
+                        },
+                        {
+                            "name": "architecture",
+                            "available": true
+                        },
+                        {
+                            "name": "fortified wall",
+                            "available": true
+                        },
+                        {
+                            "name": "chemistry",
+                            "available": true
+                        },
+                        {
+                            "name": "bombard tower upgrade",
+                            "available": false
+                        },
+                        {
+                            "name": "ballistics",
+                            "available": true
+                        },
+                        {
+                            "name": "siege engineers",
+                            "available": true
+                        },
+                        {
+                            "name": "guard tower",
+                            "available": true
+                        },
+                        {
+                            "name": "keep",
+                            "available": true
+                        },
+                        {
+                            "name": "heated shot",
+                            "available": false
+                        },
+                        {
+                            "name": "arrowslits",
+                            "available": true
+                        },
+                        {
+                            "name": "murder holes",
+                            "available": true
+                        },
+                        {
+                            "name": "treadmill crane",
+                            "available": true
+                        }
+                    ]
+                },
+                "town center": {
+                    "units": [
+                        {
+                            "name": "villager",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "town watch",
+                            "available": true
+                        },
+                        {
+                            "name": "town patrol",
+                            "available": true
+                        },
+                        {
+                            "name": "feudal age",
+                            "available": true
+                        },
+                        {
+                            "name": "castle age",
+                            "available": true
+                        },
+                        {
+                            "name": "imperial age",
+                            "available": true
+                        },
+                        {
+                            "name": "loom",
+                            "available": true
+                        },
+                        {
+                            "name": "wheelbarrow",
+                            "available": true
+                        },
+                        {
+                            "name": "hand cart",
+                            "available": true
+                        }
+                    ]
+                },
+                "mule cart": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "gold mining",
+                            "available": true
+                        },
+                        {
+                            "name": "gold shaft mining",
+                            "available": false
+                        },
+                        {
+                            "name": "stone mining",
+                            "available": true
+                        },
+                        {
+                            "name": "stone shaft mining",
+                            "available": true
+                        },
+                        {
+                            "name": "double-bit axe",
+                            "available": true
+                        },
+                        {
+                            "name": "bow saw",
+                            "available": true
+                        },
+                        {
+                            "name": "two-man saw",
+                            "available": false
+                        },
+                        {
+                            "name": "mining camp",
+                            "available": false
+                        },
+                        {
+                            "name": "lumber camp",
+                            "available": false
+                        }
+                    ]
+                },
+                "mill": {
+                    "units": [],
+                    "upgrades": [
+                        {
+                            "name": "horse collar",
+                            "available": true
+                        },
+                        {
+                            "name": "heavy plow",
+                            "available": true
+                        },
+                        {
+                            "name": "crop rotation",
+                            "available": true
+                        }
+                    ]
+                },
+                "market": {
+                    "units": [
+                        {
+                            "name": "trade cart",
+                            "available": true
+                        }
+                    ],
+                    "upgrades": [
+                        {
+                            "name": "coinage",
+                            "available": true
+                        },
+                        {
+                            "name": "banking",
+                            "available": true
+                        },
+                        {
+                            "name": "caravan",
+                            "available": true
+                        },
+                        {
+                            "name": "guilds",
+                            "available": true
+                        }
+                    ]
+                }
+            },
+            "bonusDesc":[
+                "The Georgians are a cavalry civiliziation where their main bonus is that their cavalry regenerate hp starting in feudal age. This lets them always take better fights in even army situations and rewards pulling back weak units so they heal for the next engagement.",
+                "They also get the azunauri cavalry tech which reduces the population cost of mounted units by 15%, allowing them to feild more than would be normally possible in the late game.",
+                "Their fortified churches provide a 10% work rate bonus to villagers working near them.",
+                "The Georgians also have the Tatar hill bonus counterpart but for defense. Their units receive -40% damage instead of the usual -25% when fighting from the high ground.",
+                "Since repairing buildings also costs -25% resources, a Georgian castle on a hill can be very difficult to take out."
+            ],
+            "ranksUnique":[["svan towers", ["keep"]], ["aznauri cavalry", ["hussar", "paladin", "elite monaspa"]]],
+            "ranks":{
+                "town center": {
+                    "villager":[3, 3, 3.5, 3]
+                },
+                "barracks":{
+                    "champion":[3, 3, 3, 3],
+                    "pikeman":[3, 3, 3, 3]
+                },
+                "archery range":{
+                    "crossbowman": [3, 2.5, 2],
+                    "elite skirmisher": [3, 3, 2.5],
+                    "heavy cavalry archer":[2.5, 2],
+                    "hand cannoneer": [3]
+                },
+                "stable":{
+                    "hussar":[3.5, 3.5, 4],
+                    "cavalier":[3.5, 3.5]
+                },
+                "siege workshop":{
+                    "siege ram":[3, 3],
+                    "siege onager": [3, 3],
+                    "heavy scorpion":[3, 3]
+                },
+                "monastery":{
+                    "monk":[3, 2.5]
+                },
+                "castle":{
+                    "elite monaspa":[3.5, 4],
+                    "trebuchet":[2.5]
+                },
+                "university":{
+                    "keep": [3, 3, 3.5],
+                    "defenses": [3, 3.5, 4, 4]
                 }
             }
         },
@@ -10771,9 +12243,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -11489,10 +12965,14 @@
                   }
                 ],
                 "upgrades": [
-                  {
-                    "name": "faith",
-                    "available": false
-                  },
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
+                    },
                   {
                     "name": "redemption",
                     "available": true
@@ -12201,10 +13681,14 @@
                   }
                 ],
                 "upgrades": [
-                  {
-                    "name": "faith",
-                    "available": true
-                  },
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
+                    },
                   {
                     "name": "redemption",
                     "available": true
@@ -12484,13 +13968,13 @@
                   },
                   {
                     "name": "guilds",
-                    "available": true
+                    "available": false
                   }
                 ]
               }
             },
           "bonusDesc":[
-                "Hindustanis villagers have their resource cost progressively reduced each age (5/10/15/20%), which gives them extra food for scouts, which is the main strategy of choice for them in feudal age.",
+                "Hindustanis villagers have their resource cost progressively reduced each age (8/13/18/23%), which gives them extra food for scouts, which is the main strategy of choice for them in feudal age.",
                 "Their camel riders attack 20% faster and they have access to the imperial camel rider. Hindustanis camels better fill the role of knights which they lack than other civs' camels.",
                 "The ghulam is similar to the eagle warrior except that it has a passthrough attack which helps it even more against archers.",
                 "Hand cannoneers and bombard cannons get +1/+1 armor. This helps bombard cannons especially since it makes fully upgraded elite skirmishers do 1 instead of 2 damage to them."
@@ -12891,9 +14375,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -13579,9 +15067,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -13897,7 +15389,7 @@
                     "monk":[2.5, 3]
                 },
                 "castle":{
-                    "elite kamayuk":[2, 3.5],
+                    "elite kamayuk":[3, 3.5],
                     "trebuchet":[3]
                 },
                 "university":{
@@ -14265,9 +15757,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -14954,9 +16450,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -15639,9 +17139,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -16334,9 +17838,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -17024,9 +18532,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -17711,9 +19223,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": false
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -18395,9 +19911,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -19081,9 +20601,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -19768,9 +21292,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -20449,9 +21977,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -20921,8 +22453,13 @@
                     },
                     {
                       "name": "paladin",
+                      "available": false
+                    },
+                    {
+                      "name": "savar",
                       "available": true
                     },
+                    
                     {
                       "name": "camel rider",
                       "available": true
@@ -21029,7 +22566,7 @@
                       "available": true
                     },
                     {
-                      "name": "mahouts",
+                      "name": "citadels",
                       "available": true
                     },
                     {
@@ -21136,9 +22673,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -21824,10 +23365,14 @@
                         }
                     ],
                     "upgrades": [
-                        {
-                            "name": "faith",
-                            "available": true
-                        },
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
+                    },
                         {
                             "name": "redemption",
                             "available": true
@@ -22107,7 +23652,7 @@
                         },
                         {
                             "name": "guilds",
-                            "available": true
+                            "available": false
                         }
                     ]
                 }
@@ -22519,9 +24064,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -23213,6 +24762,14 @@
                         }
                     ],
                     "upgrades": [
+                        {                      
+                            "name": "devotion",   
+                            "available": true                    
+                        },             
+                        {                      
+                            "name": "faith",
+                            "available": true
+                        },
                         {
                             "name": "sanctity",
                             "available": false
@@ -23247,14 +24804,6 @@
                         },
                         {
                             "name": "fervor",
-                            "available": true
-                        },
-                        {
-                            "name": "devotion",
-                            "available": true
-                        },
-                        {
-                            "name": "faith",
                             "available": true
                         }
                     ]
@@ -23902,9 +25451,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -24604,9 +26157,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -25291,9 +26848,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -25329,7 +26890,7 @@
                     },
                     {
                       "name": "fervor",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -25580,8 +27141,8 @@
                 }
               },
             "bonusDesc":[
-                "Slav farmers work 10% faster. This means that for every 10 villagers that are farming, Slavs get 11 villager's worth of food.",
-                "Slavs also get supplies for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors",
+                "Slav farmers work 15% faster. This gives them the fastest collecting farmers in the game.",
+                "Slavs also get supplies and gambesons for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors",
                 "Their siege workshop units are discounted by 15% which really pushes them towards a siege and halberdier unit composition.",
                 "Military buildings provide an extra 5 population space. This is like getting a free house, which is worth 25 wood plus the villager build time. You can think of this as roughly a 35-40 wood discount on military buildings.",
                 "Druzhina gives all infantry an area of effect attack. This makes their champions and halberdiers powerful in large-scale battles.",
@@ -25981,9 +27542,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "illumination",
@@ -26670,9 +28235,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": false
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -27359,9 +28928,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -28045,9 +29618,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -28736,9 +30313,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -29431,9 +31012,13 @@
                     }
                   ],
                   "upgrades": [
-                    {
-                      "name": "faith",
-                      "available": true
+                    {                      
+                        "name": "devotion",   
+                        "available": true                    
+                    },             
+                    {                      
+                        "name": "faith",
+                        "available": true
                     },
                     {
                       "name": "redemption",
@@ -29856,7 +31441,7 @@
                 "food": 50
             },
             "armorClasses": [],
-            "bonus":[[13, 6], [11, 3]],
+            "bonus":[[13, 6], [11, 3], [37, 6]],
             "damageTechs":["loom", "meleeAttack", "infantryDefense", "sappers"],
             "otherTechs":["villagerMovement", "villagerWood", "villagerStone", "villagerGold", "heavy plow", "treadmill crane"],
             "uniqueDamageTechs":["supremacy"],
@@ -30217,7 +31802,7 @@
                 "wood": 35
             },
             "armorClasses": [[8, 0], [15, 0], [19, 0], [28, 1]],
-            "bonus":[[15, 4], [27, 2], [28, 0]],
+            "bonus":[[15, 4], [27, 3], [28, 0]],
             "damageTechs":["archerAttack", "archerDefense", "bloodlines", "chemistry"],
             "otherTechs":["husbandry", "ballisitcs", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["sipahi", "atlatl", "silk armor"],
@@ -30373,10 +31958,10 @@
             "pDef": 2,
             "hp": 250,
             "range": 0,
-            "speed": 0.85,
+            "speed": 0.88,
             "rateOfFire": 2,
             "blastRadius": 0.4,
-            "lineOfSight": 4,
+            "lineOfSight": 7,
             "trample":0.25,
             "cost":{
                 "food": 110,
@@ -30421,8 +32006,8 @@
             "pDef": 180,
             "hp": 175,
             "range": 1,
-            "speed": 0.5,
-            "garrison": 4,
+            "speed": 0.6,
+            "garrison": 6,
             "rateOfFire": 5,
             "lineOfSight": 3,
             "blastRadius": 1,
@@ -30451,7 +32036,7 @@
             "rateOfFire": 3,
             "lineOfSight": 4,
             "cost":{
-                "food": 130,
+                "food": 120,
                 "gold": 95
             },
             "armorClasses": [[20, 0], [17, 0], [8, 7], [5, 17]],
@@ -30664,6 +32249,29 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["inquisition"],
             "trainTime": 51
+        },
+        {
+            "name": "warrior priest",
+            "ageReq": 3,
+            "mAtk": 11,
+            "mDef": 1,
+            "pDef": 1,
+            "hp": 80,
+            "rateOfFire": 2,
+            "speed": 0.85,
+            "lineOfSight": 7,
+            "rangeHealing": 4,
+            "cost":{
+                "gold": 60,
+                "food": 30
+            },
+            "armorClasses": [[1, 0],[19, 0], [25, 0]],
+            "bonus":[],
+            "damageTechs":["sanctity", "fervor", "faith", "heresy", "meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires"],
+            "uniqueDamageTechs":["fereters"],
+            "uniqueOtherTechs":[],
+            "trainTime": 30
         },
         {
             "name": "missionary",
@@ -30984,7 +32592,7 @@
             "hp": 44,
             "frameDelay": 4,
             "accuracy": 0.50,
-            "range": 8,
+            "range": 7,
             "speed": 0.96,
             "rateOfFire": 3.49,
             "projSpeed": 5.5,
@@ -31026,7 +32634,7 @@
         {
             "name": "organ gun",
             "ageReq": 3,
-            "pAtk": 16,
+            "pAtk": 6,
             "mDef": 2,
             "pDef": 4,
             "hp": 60,
@@ -31042,7 +32650,7 @@
                 "gold": 70
             },
             "armorClasses": [[20, 0], [23, 0], [19, 0]],
-            "bonus":[[17, 1]],
+            "bonus":[[17, 2]],
             "damageTechs":["siege engineers"],
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
@@ -31099,6 +32707,34 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 15
+        },
+        
+        {
+            "name": "composite bowman",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 4,
+            "mDef": 1,
+            "pDef": 0,
+            "hp": 40,
+            "speed": 0.96,
+            "lineOfSight": 7,
+            "rateOfFire": 2,
+            "projSpeed": 7.0,
+            "accuracy": 100,
+            "range": 4,
+            "frameDelay": 0.5,
+            "cost":{
+                "wood": 35,
+                "gold": 45
+            },
+            "armorClasses": [[15, 0], [19, 0]],
+            "bonus":[[27, 2]],
+            "damageTechs":["archerDefense", "archerAttack", "chemistry"],
+            "otherTechs":["ballistics","faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 12
         },
         {
             "name": "jaguar warrior",
@@ -31182,7 +32818,7 @@
             "lineOfSight": 3,
             "rateOfFire": 2,
             "cost":{
-                "food": 60,
+                "food": 50,
                 "gold": 35
             },
             "ageUpgrade":[
@@ -31261,7 +32897,7 @@
             "pAtk": 0,
             "mDef": 0,
             "pDef": 0,
-            "hp": 65,
+            "hp": 80,
             "range": 3,
             "accuracy": 100,
             "projSpeed": 7,
@@ -31309,10 +32945,10 @@
             "name": "hussite wagon",
             "ageReq": 3,
             "mAtk": 0,
-            "pAtk": 17,
+            "pAtk": 10,
             "mDef": 0,
             "pDef": 7,
-            "hp": 200,
+            "hp": 160,
             "speed": 0.85,
             "lineOfSight": 8,
             "rateOfFire": 3.45,
@@ -31331,7 +32967,31 @@
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 21
+            "trainTime": 26
+        },
+        
+        {
+            "name": "monaspa",
+            "ageReq": 3,
+            "mAtk": 12,
+            "pAtk": 0,
+            "mDef": 3,
+            "pDef": 2,
+            "hp": 75,
+            "speed": 1.4,
+            "lineOfSight": 4,
+            "rateOfFire": 1.8,
+            "cost":{
+                "food": 60,
+                "gold": 45
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":["azunauri cavalry"],
+            "trainTime": 11
         },
         {
             "name": "huskarl",
@@ -31439,7 +33099,7 @@
             "lineOfSight": 4,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 65,
+                "food": 60,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -31505,7 +33165,7 @@
             "mDef": 1,
             "pDef": 3,
             "hp": 100,
-            "speed": 1.35,
+            "speed": 1.4,
             "lineOfSight": 5,
             "rateOfFire": 2.1,
             "cost":{
@@ -31586,7 +33246,7 @@
             "projSpeed": 6,
             "accuracy": 1,
             "cost":{
-                "wood": 125,
+                "wood": 200,
                 "gold": 60
             },
             "armorClasses": [[15, 0], [28, -1], [8, 0], [19, 0]],
@@ -31729,7 +33389,7 @@
                 "wood": 60,
                 "gold": 60
             },
-            "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
+            "armorClasses": [[15, 0], [28, 1], [8, 0], [19, 0]],
             "bonus":[[27, 1], [20, 3]],
             "damageTechs":[ "meleeAttack", "cavalryDefense", "archerDefense", "archerAttack", "chemistry", "bloodlines", "parthian tactics"],
             "otherTechs":["husbandry", "ballistics", "faith", "conscription"],
@@ -31768,11 +33428,11 @@
         {
             "name": "ghulam",
             "ageReq": 3,
-            "mAtk": 8,
+            "mAtk": 9,
             "pAtk": 0,
             "mDef": 0,
             "pDef": 3,
-            "hp": 55,
+            "hp": 60,
             "speed": 1.15,
             "lineOfSight": 6,
             "rateOfFire": 2.0,
@@ -31822,16 +33482,16 @@
             "pDef": 2,
             "hp": 450,
             "range": 0,
-            "speed": 0.6,
+            "speed": 0.8,
             "rateOfFire": 2.0,
-            "lineOfSight": 4,
+            "lineOfSight": 7,
             "blastRadius": 0.5,
             "cost":{
                 "food": 170,
                 "gold": 85
             },
             "armorClasses": [[8, 0], [5, 0], [19, 0]],
-            "bonus":[[11, 7], [13, 7]],
+            "bonus":[[11, 30], [13, 30]],
             "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
@@ -31893,14 +33553,14 @@
             "mAtk": 9,
             "mDef": 0,
             "pDef": 2,
-            "hp": 70,
+            "hp": 75,
             "range": 0,
             "speed": 1.5,
             "rateOfFire": 1.8,
             "lineOfSight": 5,
             "cost":{
-                "food": 80,
-                "gold": 10
+                "food": 35,
+                "gold": 45
             },
             "armorClasses": [[8, 0], [19, 0]],
             "bonus":[[20,5], [17, 1]],
@@ -31908,7 +33568,7 @@
             "otherTechs":["husbandry", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["corvinian army"],
-            "trainTime": 16
+            "trainTime": 14
         },
         {
             "name": "flaming camel",
@@ -31978,7 +33638,7 @@
             },
             "armorClasses": [[15, 0], [28, 0], [8, 0], [19, 0]],
             "bonus":[[17, 2]],
-            "damageTechs":[ "archerDefense", "bloodlines", "parthian tactics"],
+            "damageTechs":[ "archerDefense", "bloodlines", "parthian tactics", "chemistry"],
             "otherTechs":["ballistics", "faith", "conscription"],
             "uniqueDamageTechs":[ "manipur cavalry"],
             "uniqueOtherTechs":[],
@@ -32228,6 +33888,60 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 35
+        },
+        {
+            "name": "folwark",
+            "ageReq": 1,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 1000,
+            "mDef": 0,
+            "pDef": 7,
+            "lineOfSight": 6,
+            "ageUpgrade":[
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "hp": 200,
+                    "mDef": 1,
+                    "pDef": 1
+                },
+                {
+                    "mDef": 1,
+                    "pDef": 1
+                }
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
+        },
+        {
+            "name": "mule cart",
+            "ageReq": 1,
+            "cost":{
+                "food": 20,
+                "wood": 80
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 600,
+            "mDef": 1,
+            "pDef": 2,
+            "speed": 0.8,
+            "lineOfSight": 4,
+            "ageUpgrade":[
+            ],
+            "damageTechs":["buildingDefense"],
+            "otherTechs":["townWatch", "faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 25
         },
         {
             "name": "dock",
@@ -33219,8 +34933,10 @@
         "bombard cannon":["siege engineers"],
         "houfnice":["siege engineers"],
         "monk": ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy"],
+        "warrior priest": ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy"],
         "missionary": ["bloodlines", "husbandry", "sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy"],
         "trebuchet": ["siege engineers", "chemistry"],
+        "elite composite bowman": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite jaguar warrior": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite ratha": ["bloodlines", "husbandry", "parthian tactics", "archerAttack", "archerDefense", "meleeAttack", "ballistics", "chemistry"],
         "elite camel archer": ["bloodlines", "husbandry", "archerAttack", "archerDefense", "ballistics", "chemistry"],
@@ -33235,6 +34951,7 @@
         "elite shotel warrior": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite throwing axeman": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite hussite wagon":["siege engineers"],
+        "elite monaspa":["bloodlines", "husbandry","meleeAttack", "cavalryDefense"],
         "elite huskarl": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite chakram thrower": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite ghulam": ["squires", "arson", "meleeAttack", "infantryDefense"],
@@ -33479,7 +35196,7 @@
                 "pDef": 1,
                 "range": 1,
                 "lineOfSight": 1,
-                "bonus":[[15, 1], [28, 2]]
+                "bonus":[[15, 1], [28, 3]]
             },
             "time": 50,
             "classChange": true
@@ -33489,7 +35206,7 @@
             "ageReq": 4,
             "cost":{
                 "wood": 300,
-                "gold": 450
+                "gold": 300
             },
             "effects":{
                 "pAtk": 1,
@@ -33513,7 +35230,8 @@
                 "mDef": 1,
                 "trainTime": -7,
                 "lineOfSight": 1,
-                "bonus":[[27, 4]]
+                "bonus":[[27, 4]],
+                "accuracy":0.3
             },
             "time": 50,
             "classChange": true
@@ -33616,7 +35334,7 @@
                 "hp": 20,
                 "mAtk": 2
             },
-            "time": 100,
+            "time": 80,
             "classChange": true
         },
 
@@ -33706,8 +35424,8 @@
             "name": "elite battle elephant",
             "ageReq": 4,
             "cost":{
-                "food": 1200,
-                "gold": 900
+                "food": 1100,
+                "gold": 700
             },
             "effects":{
                 "hp": 50,
@@ -33836,7 +35554,7 @@
                 "wood": 900
             },
             "effects":{
-                "hp": 10,
+                "hp": 15,
                 "pAtk": 4,
                 "pDef": 1,
                 "bonus":[[5, 2], [11, 2], [17, 1]]
@@ -34423,6 +36141,37 @@
             },
             "time": 45
         },
+
+        {
+            "name": "elite composite bowman",
+            "ageReq": 4,
+            "cost": {
+                "wood": 600,
+                "gold": 500
+            },
+            "effects":{
+                "hp": 5,
+                "mDef": 1,
+                "trainTime": -2
+            },
+            "time": 45
+        },
+        {
+            "name": "elite monaspa",
+            "ageReq": 4,
+            "cost": {
+                "food": 1000,
+                "gold": 700
+            },
+            "effects":{
+                "hp": 15,
+                "mAtk": 2,
+                "mDef": 2,
+                "lineOfSight": 1
+            },
+            "time": 45
+        },
+        
         {
             "name": "elite huskarl",
             "ageReq": 4,
@@ -34693,6 +36442,18 @@
           "time": 45
         },
         {
+          "name": "bimaristan",
+          "ageReq": 3,
+          "cost": {
+              "wood": 300,
+              "gold": 200
+          },
+          "effects":{
+              "hp": 20
+          },
+          "time": 50
+        },
+        {
           "name": "zealotry",
           "ageReq": 3,
           "cost": {
@@ -34914,11 +36675,11 @@
             "name": "manipur cavalry",
             "ageReq": 4,
             "cost": {
-                "food": 400,
-                "gold": 400
+                "food": 300,
+                "gold": 300
             },
             "effects":{
-                "bonus": [[11, 3], [21, 3]]
+                "bonus": [[15, 5]]
             },
             "time": 40  
         },
@@ -35072,7 +36833,7 @@
             "name": "pavise",
             "ageReq": 3,
             "cost": {
-                "food": 300,
+                "wood": 200,
                 "gold": 150
             },
             "effects":{
@@ -35418,7 +37179,7 @@
             },
             "effects":{
                 "hp": 5,
-                "pAtk": 3,
+                "pAtk": 2,
                 "accuracy": 0.10,
                 "pDef": 1
             },
@@ -35503,8 +37264,8 @@
             "name": "elite war elephant",
             "ageReq": 4,
             "cost": {
-                "food": 1600,
-                "gold": 1200
+                "food": 1350,
+                "gold": 800
             },
             "effects":{
                 "hp": 150,
@@ -35746,8 +37507,8 @@
             "name": "gold shaft mining",
             "ageReq": 3,
             "cost":{
-                "food": 200,
-                "wood": 150
+                "food": 175,
+                "wood": 75
             },
             "effects":{
                 "gatherRate": ["gold miner", "*1.15"]
@@ -35772,8 +37533,8 @@
             "name": "stone shaft mining",
             "ageReq": 3,
             "cost":{
-                "food": 200,
-                "wood": 150
+                "food": 175,
+                "wood": 75
             },
             "effects":{
                 "gatherRate": ["stone miner", "*1.15"]
@@ -36244,11 +38005,27 @@
             "time": 55
         },
         {
-            "name": "faith",
+            "name": "devotion",
+            "ageReq": 3,
+            "cost":{
+                "food":100,
+                "gold": 150
+            },
+            "effects":{
+                "civSpec":{
+                    "aztecs":{
+                        "hp": 5
+                    }
+                }
+            },
+            "time": 40
+        },
+        {
+            "name": "faith" ,
             "ageReq": 4,
             "cost":{
-                "food": 750,
-                "gold": 1000
+                "food": 550,
+                "gold": 750
             },
             "effects":{
                 "civSpec":{
@@ -36297,7 +38074,7 @@
             "name": "sanctity",
             "ageReq": 3,
             "cost":{
-                "gold": 120
+                "gold": 175
             },
             "effects":{
                 "civSpec":{

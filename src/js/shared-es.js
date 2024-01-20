@@ -267,16 +267,16 @@ export const setUpGatherRates = (data) => {
   gatherRates['fishing ship deep'] = { res: 'food', gatherRate: 0.49 }
   gatherRates['fishing ship shore gillnets'] = {
     res: 'food',
-    gatherRate: parseFloat((0.28 + 0.28 * 0.25).toFixed(2)),
+    gatherRate: parseFloat((0.28 + 0.28 * 0.20).toFixed(2)),
   }
   gatherRates['fishing ship deep gillnets'] = {
     res: 'food',
-    gatherRate: parseFloat((0.49 + 0.49 * 0.25).toFixed(2)),
+    gatherRate: parseFloat((0.49 + 0.49 * 0.20).toFixed(2)),
   }
   gatherRates['fish trap'] = { res: 'food', gatherRate: 0.35 }
   gatherRates['fish trap gillnets'] = {
     res: 'food',
-    gatherRate: parseFloat((0.35 + 0.35 * 0.25).toFixed(2)),
+    gatherRate: parseFloat((0.35 + 0.35 * 0.20).toFixed(2)),
   }
   gatherRates['gurjara mill'] = {res: "food", gatherRate: 0.0583}
   gatherRates['double-bit axe'] = {

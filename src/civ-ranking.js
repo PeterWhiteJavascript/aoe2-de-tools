@@ -109,6 +109,9 @@ $.getJSON('/data.json', function(data) {
                             for(let i = 0; i < data.upgradeGroups[u].length; i++){
                                 let buildingName = data.upgradeBuilding[data.upgradeGroups[u][i]];
                                 //console.log(buildingName, civ.techTree, data.upgradeGroups[u][i])
+                                if((buildingName === "lumber camp" || buildingName === "mining camp") && (civ.name === "Armenians" || civ.name === "Georgians")){
+                                    buildingName = "mule cart";
+                                }
                                 if(finder(civ.techTree[buildingName].upgrades, data.upgradeGroups[u][i]).available){
                                     up = data.upgradeGroups[u][i];
                                     changed = true;
