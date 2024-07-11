@@ -32991,7 +32991,7 @@
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["azunauri cavalry"],
-            "trainTime": 11
+            "trainTime": 14
         },
         {
             "name": "huskarl",

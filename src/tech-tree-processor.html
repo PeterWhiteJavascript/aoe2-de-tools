@@ -67,12 +67,10 @@ and open the template in the editor.
                 let groups = ["militia", "spearman", "eagle scout", "archer", "skirmisher", "genitour", "scout cavalry", "knight", "camel scout", "battle elephant", "steppe lancer", "battering ram", "mangonel", "scorpion", "fire galley", "galley", "demolition raft"];
                 groups.forEach((g) => {
                     let group = gData.upgradeGroups[g];
-                    console.log(group)
                     group.forEach((a) => {
                         allUnits[a] = true;
                     });
                 });
-            });
             
             function doIt(techTree){
                 let buildings = Object.keys(techTree);
@@ -99,6 +97,105 @@ and open the template in the editor.
                 console.log(processed);
             
             }
+            
+            
+            $.getJSON('/data.json', function(data) {
+                let required = {
+                    "archery range":{"units":["arbalester","elite skirmisher","heavy cavalry archer","hand canonneer"],"upgrades":["thumb ring", "parthian tactics"]},
+                    "barracks":{"units":["champion", "halberdier"],"upgrades":["gambesons","squires","arson"]},
+                    "blacksmith":{"units":[],"upgrades":["ring archer armor","bracer","blast furnace", "plate barding armor", "plate mail armor"]},
+                    "castle":{"units":[],"upgrades":["hoardings", "sappers"]},
+                    "dock":{"units":["galleon",["dromon", "elite cannon galleon"], "fast fire ship", "heavy demolition ship"],"upgrades":["shipwright", "careening", "dry dock"]},
+                    "market":{"units":[],"upgrades":["banking", "guilds"]},
+                    "siege workshop":{"units":[["siege elephant","siege ram"], "siege onager", "heavy scorpion", "bombard cannon"],"upgrades":[]},
+                    "stable":{"units":[["hussar", "winged hussar"],["paladin", "savar"], "heavy camel rider"],"upgrades":["bloodlines", "husbandry"]},
+                    "university":{"units":[],"upgrades":["architecture", "fortified wall", "bombard tower upgrade", "siege engineers", "keep", "heated shot", "arrowslits", "treadmill crane"]},
+                    "monastery":{"units":[],"upgrades":["sanctity", "illumination", "redemption","heresy","block printing", "atonement", "herbal medicine","theocracy","fervor", "faith"]}
+                };
+                let reqKeys = Object.keys(required);
+
+                function findItem(arr, name){
+                    return arr.find(item => item.name === name);
+                }
+                //Check civ tech tree
+                function checkTree(civ){
+                    let tree = civ.techTree;
+                    let requiredResult = {};
+                    for(let i = 0; i<reqKeys.length; i++){
+                        let uName = reqKeys[i];
+                        requiredResult[uName] = {};
+                        //check units
+                        for(let j = 0; j<required[uName].units.length; j++){
+                            let name = required[uName].units[j];
+                            let found = false;
+                            if(Array.isArray(name)){
+                                for(let k = 0; k < name.length; k++){
+                                    let techUnit = findItem(tree[uName].units, name[k]);
+                                    if(techUnit && techUnit.available){
+                                        found = true;
+                                    }
+                                }
+                            } else {
+                                let techUnit = findItem(tree[uName].units, name);
+                                if(techUnit && techUnit.available){
+                                    found = true;
+                                }
+                            }
+                            requiredResult[uName][name] = found;
+                        }
+                        //check upgrades
+                        for(let j = 0; j<required[uName].upgrades.length; j++){
+                            let name = required[uName].upgrades[j];
+                            let found = false;
+                            requiredResult[uName][name] = false;
+                            if(Array.isArray(name)){
+                                for(let k = 0; k < name.length; k++){
+                                    let techUnit = findItem(tree[uName].upgrades, name[k]);
+                                    if(techUnit && techUnit.available){
+                                        found = true;
+                                    }
+                                }
+                            } else {
+                                let bldName = uName;
+                                if(bldName === "monastery" && !tree[bldName]){
+                                    bldName= "fortified church";
+                                }
+                                let techUnit = findItem(tree[bldName].upgrades, name);
+                                if(techUnit && techUnit.available){
+                                    found = true;
+                                }
+                            }
+                            requiredResult[uName][name] = found;
+                        }
+                    }
+                    return requiredResult;
+                }
+                let result = checkTree(data.civilizations[1]);
+                function readResult(civ, result){
+                    let blds = Object.keys(result);
+                    console.log("Civilization: " + civ)
+                    for(let i = 0 ; i <blds.length; i++){
+                        let all = true;
+                        let u = Object.keys(result[blds[i]]);
+                        for(let j = 0; j < u.length; j++){
+                            if(!result[blds[i]][u[j]]) all = false;
+                        }
+                        if(all){
+                            console.log(blds[i]+ " is full!");
+                        } else {
+                            console.log(blds[i]+ " is not full!");
+                        }
+
+
+                    }
+                }
+
+                readResult(data.civilizations[1].name,result);
+                readResult(data.civilizations[2].name,result);
+
+                console.log(data, result)
+            });
+        });
             
         </script>
     </head>
