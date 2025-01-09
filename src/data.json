@@ -400,7 +400,7 @@
                         },
                         {
                             "name": "shipwright",
-                            "available": true
+                            "available": false
                         },
                         {
                             "name": "careening",
@@ -1413,7 +1413,7 @@
                 }
               },
             "bonusDesc":[
-                "Aztecs have +3 carry capacity on their villagers as well as 11% faster military production for all military except siege workshop units. This means they collect all resources faster, especially from farms, which allows them to keep up with production of units.",
+                "Aztecs have +3 carry capacity on their villagers as well as 15% faster military production for all military except siege workshop units. This means they collect all resources faster, especially from farms, which allows them to keep up with production of units.",
                 "They start with +50 gold, which gives them a strong militia opening.",
                 "Their monks also gain +5 hp per monastery tech researched and they have access to all monastery techs. Relics also generate 33% more gold.",
                 "Since they lack masonry and hoardings, Aztecs have a more difficult time holding positions on the map.",
@@ -1570,7 +1570,7 @@
                     },
                     {
                       "name": "parthian tactics",
-                      "available": true
+                      "available": false
                     }
                   ]
                 },
@@ -2505,7 +2505,7 @@
                     },
                     {
                       "name": "shipwright",
-                      "available": false
+                      "available": true
                     }
                   ]
                 },
@@ -20205,7 +20205,7 @@
               },
             "bonusDesc":[
                 "Malay advance to the next age 66% faster. This reduces the up time to feudal age from 130 seconds to 78. Saving 52 seconds gives them the option to go up to the next age earlier, or get two extra villagers in dark age before clicking up.",
-                "Their battle elephants are 30% cheaper in castle age and 40% cheaper in imperial age, which makes their total resource cost less than their knights. This affordability is balanced by Malay not having access to chain barding armor.",
+                "Their battle elephants are 25% cheaper in castle age and 35% cheaper in imperial age. This affordability is balanced by Malay not having access to chain barding armor.",
                 "In the late game, Malay get forced levy two-handed swordsmen which only cost food. All generic trash units lose against them with equal resource costs, so once Malay is in post-imperial age, they are difficult to stop." ,
                 "Their arbalesters are fully upgraded, so they are an excellent option to open with in imperial age."
             ],
@@ -22272,7 +22272,7 @@
             "bonusDesc":[
                 "Mongols have 40% faster working hunters, which gives them extra food to work with in the early game. This helps them go for an extremely fast scout rush. Once the hunt runs out, they have no other economic bonus.",
                 "Their cavalry archers fire 25% faster. This helps them in the castle age, but in imperial age, transitioning to their unique mangudai is prefered.",
-                "Light cavalry, hussars, and steppe lancers get 30% more hit points. Mongol hussars become the strongest hussars when fighting melee units, though they are missing plate barding armor so ranged units are still effective against them.",
+                "Scout line, and steppe lancers get 20%/30% more hit points in castle age/imperial age. Mongol hussars become the strongest hussars when fighting melee units, though they are missing plate barding armor so ranged units are still very effective against them.",
                 "Drill makes all siege workshop units move 50% faster, which helps with dodging shots in onager battles, and helps rams close the distance faster so they can actually do damage.",
                 "Mongols are difficult to defeat in the imperial age since their mangudai have a damage bonus against siege, making rams ineffective."
             ],
@@ -25056,7 +25056,7 @@
             },
             "bonusDesc":[
                 "The Romans are and infantry and scorpion focused civs with many bonuses for each of these units. Their villagers also work 5% faster which gives them a slight edge for any strategy that they want to go for.",
-                "Scorpions have a reduced gold cost to 30, minimum range reduced to 1, the ballistas tech which makes them fire 33% faster, and ballistics affecting them (making them able to hit moving targets much more easily)",
+                "Scorpions have a reduced gold cost to 30, minimum range reduced to 1, and the ballistas tech which makes them fire 33% faster",
                 "Romans infantry units benefit double from armor upgrades making their castle age long swordsmen have +4/+4 armor with both armor techs researched. This is balanced by lacking supplies and gambesons.",
                 "In addition to this armor bonus, instead of upgrading to two-handed swordsmen, the Romans upgrade their long swordsmen to legionaries which are stronger than champions and have an attack bonus against infantry.",
                 "The unique unit from the castle is the centurion which gives and aura that increases the stat of militia line units."
@@ -25744,7 +25744,7 @@
                 }
               },
             "bonusDesc":[
-                "Saracens only economic bonus is that they reduce the market commodity trading fee to 5%. This means that from the start of the game, they can buy 100 food or wood for 105 gold, and sell 100 of it for 95 gold. Along with their market only costing 75 wood, the Saracens can balance their economy to favor gold collection and use the market to buy what they need.",
+                "Saracens only economic bonus is that they reduce the market commodity trading fee to 5%. This makes buying and selling at the market an important part of their gameplay. Along with their market only costing 75 wood, the Saracens can balance their economy to favor gold collection and use the market to buy what they need.",
                 "Their archers and skirmishers have +2 attack versus buildings. This lets them break through palisade walls in the feudal age very quickly.",
                 "Saracens have a full blacksmith and monastery, as well as siege engineers, which allow them to be played in many different ways.",
                 "Their camel riders have +10 hit points and with zealotry, they get +20 hit points, which make them the Saracen anti-cavalry unit from the castle age to late game as they lack halberdier."
@@ -26453,7 +26453,7 @@
                 "Sicilian land military units take 33% reduced bonus damage from incoming attacks. This greatly increases the performance of their knights versus pikemen.",
                 "They also get double the food increase on farms from farm upgrades. For example heavy plow gives 250 food instead of the usual 125. The carry capacity is still just increased by 1 though.",
                 "The Sicilian unique unit is the serjeant; a slow moving infantry unit with high melee and pierce armor that can also build donjons. Donjons are like a watch tower that can train more serjeants. This means that Sicilians have access to their unique unit in the feudal age.",
-                "Sicilian castles and town centers can be built 100% faster, meaning a faster boom or more deadly castle drops."
+                "Sicilian defensive structures such as castles and walls can be built 50% faster, and town centers can be built 100% faster, meaning a faster boom or more deadly castle drops."
             ],
             "ranksUnique":[["first crusade", []], ["hauberk", []]],
             "ranks":{
@@ -28531,7 +28531,7 @@
                 "Tatars collect 50% more food from herdable animals, which gives them 400-450 more food in the dark age. The also spawn two more per new town center constructed.",
                 "Tatars benefit from a 25% damage increase when attacking from higher elevation on top of the 25% bonus that all civilizations get.",
                 "In castle age, thumb ring is free. This helps crossbowmen as well as cavalry archers. In imperial age, they get parthian tactics for free.",
-                "Timurid siegecraft gives trebuchets +2 range. Along with siege engineers, Tatar trebuchets have 19 range. Timurid siegecraft also allows for the production of flaming camels, which are made from the castle.",
+                "Timurid siegecraft gives trebuchets +2 range. Along with siege engineers, Tatar trebuchets have 19 range.",
                 "The silk armor technology increases the scout cavalry line, steppe lancers, and cavalry archers melee and pierce armor by 1."
             ],
             "ranksUnique":[["silk armor", ["hussar", "heavy cavalry archer", "elite steppe lancer"]], ["timurid siegecraft", ["trebuchet"]]],
@@ -28558,15 +28558,15 @@
                 "siege workshop":{
                     "siege ram":[3, 3],
                     "onager": [3, 3],
-                    "heavy scorpion":[3, 3]
+                    "heavy scorpion":[3, 3],
+                    "flaming camel":[3]
                 },
                 "monastery":{
                     "monk":[2, 2]
                 },
                 "castle":{
-                    "elite keshik":[3, 3],
-                    "trebuchet":[4],
-                    "flaming camel":[2]
+                    "elite keshik":[3, 3.5],
+                    "trebuchet":[4]
                 },
                 "university":{
                     "guard tower": [3, 3, 1.5],
@@ -31958,13 +31958,13 @@
             "pDef": 2,
             "hp": 250,
             "range": 0,
-            "speed": 0.88,
+            "speed": 0.9,
             "rateOfFire": 2,
             "blastRadius": 0.4,
             "lineOfSight": 7,
             "trample":0.25,
             "cost":{
-                "food": 110,
+                "food": 100,
                 "gold": 70
             },
             "armorClasses": [[5, 0], [8, 0]],
@@ -32016,7 +32016,7 @@
                 "gold": 75
             },
             "armorClasses": [[20, 0], [17, 0]],
-            "bonus":[[11, 125], [20, 40]],
+            "bonus":[[11, 150], [20, 40]],
             "reloadUpgrade":["siege engineers"],
             "damageTechs":["siege engineers"],
             "otherTechs":["faith", "heresy"],
@@ -32040,7 +32040,7 @@
                 "gold": 95
             },
             "armorClasses": [[20, 0], [17, 0], [8, 7], [5, 17]],
-            "bonus":[[11, 75], [20, 25]],
+            "bonus":[[11, 90], [20, 25]],
             "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines", "siege engineers"],
             "otherTechs":["husbandry", "faith", "heresy"],
             "uniqueDamageTechs":["Wootz Steel", "Paiks"],
@@ -32386,7 +32386,7 @@
             "armorClasses": [[16, 1]],
             "bonus":[[11, 180]],
             "damageTechs":["careeningTechs"],
-            "otherTechs":["shipwright", "faith", "heresy"],
+            "otherTechs":["shipwright", "faith", "heresy", "siege engineers"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
             "trainTime": 45
@@ -32424,7 +32424,7 @@
             "speed": 1.1,
             "lineOfSight": 15,
             "rateOfFire": 10,
-            "projSpeed": 3,
+            "projSpeed": 3.5,
             "accuracy": 0.5,
             "range": 13,
             "frameDelay": 0,
@@ -32523,7 +32523,7 @@
             "otherTechs":["ballistics", "faith", "heresy"],
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":[],
-            "trainTime": 36
+            "trainTime": 25
         },
         {
             "name": "thirisadai",
@@ -32539,7 +32539,7 @@
             "projSpeed": 6,
             "frameDelay": 0,
             "accuracy": 1,
-            "range": 6,
+            "range": 7,
             "cost":{
                 "wood": 180,
                 "gold": 60
@@ -32560,7 +32560,7 @@
             "mDef": 6,
             "pDef": 5,
             "hp": 200,
-            "speed": 0.9,
+            "speed": 1.05,
             "lineOfSight": 8,
             "blastRadius": 0.5,
             "rateOfFire": 6.04,
@@ -32655,7 +32655,7 @@
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["arquebus"],
-            "trainTime": 21
+            "trainTime": 25
         },
         {
             "name": "ballista elephant",
@@ -32967,7 +32967,7 @@
             "otherTechs":["faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 26
+            "trainTime": 30
         },
         
         {
@@ -32977,7 +32977,7 @@
             "pAtk": 0,
             "mDef": 3,
             "pDef": 2,
-            "hp": 75,
+            "hp": 70,
             "speed": 1.4,
             "lineOfSight": 4,
             "rateOfFire": 1.8,
@@ -33340,7 +33340,7 @@
             "otherTechs":["ballistics", "thumb ring","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["pavise"],
-            "trainTime": 18
+            "trainTime": 14
         },
 
         {
@@ -33375,8 +33375,8 @@
             "ageReq": 3,
             "mAtk": 10,
             "pAtk": 5,
-            "mDef": 2,
-            "pDef": 1,
+            "mDef": 3,
+            "pDef": 2,
             "hp": 105,
             "speed": 1.3,
             "lineOfSight": 6,
@@ -33385,6 +33385,8 @@
             "accuracy": 0.8,
             "range": 4,
             "frameDelay": 5,
+            "blastRadius": 0.5,
+            "blastDamage": 0.2,
             "cost":{
                 "wood": 60,
                 "gold": 60
@@ -33471,7 +33473,7 @@
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["stirrups"],
             "uniqueOtherTechs":[],
-            "trainTime": 19
+            "trainTime": 16
         },
 
         {
@@ -33590,7 +33592,7 @@
             "otherTechs":["husbandry", "siege engineers", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 16
+            "trainTime": 30
             
         },
         {
@@ -34349,7 +34351,7 @@
             "armorClasses": [[11, 0], [21, 0]],
             "hp": 400,
             "mDef": 2,
-            "pDef": 2,
+            "pDef": 4,
             "lineOfSight": 6,
             "damageTechs":[],
             "otherTechs":["treadmill crane"],
@@ -34409,7 +34411,7 @@
             "name": "watch tower",
             "ageReq": 2,
             "cost":{
-                "wood": 50,
+                "wood": 35,
                 "stone": 125
             },
             "armorClasses": [[11, 0], [13, 0], [21, 0]],
@@ -34444,7 +34446,7 @@
             "name": "donjon",
             "ageReq": 2,
             "cost":{
-                "wood": 75,
+                "wood": 50,
                 "stone": 175
             },
             "armorClasses": [[11, 0], [13, 0], [21, 0]],
@@ -34480,7 +34482,7 @@
             "otherTechs":["ballistics", "townWatch", "murder holes", "herbal medicine", "treadmill crane", "faith"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 90
+            "trainTime": 83
         },
         {
             "name": "krepost",
@@ -35181,7 +35183,7 @@
             "ageReq": 3,
             "cost":{
                 "food": 175,
-                "gold": 125
+                "gold": 100
             },
             "effects":{
                 "hp": 5,
@@ -35200,7 +35202,7 @@
             "ageReq": 4,
             "cost":{
                 "food": 450,
-                "gold": 400
+                "gold": 350
             },
             "effects":{
                 "hp": 5,
@@ -35494,7 +35496,7 @@
                 "hp": 25,
                 "mAtk": 1,
                 "pDef": 10,
-                "bonus": [[11, 25], [20, 10]],
+                "bonus": [[11, 10], [20, 10]],
                 "armorClasses":[[20, 1]],
                 "blastRadius": 0.5
             },
@@ -35579,10 +35581,11 @@
             "ageReq": 4,
             "cost":{
                 "food": 800,
-                "wood": 900
+                "wood": 750
             },
             "effects":{
-                "hp": 15,
+                "hp": 20,
+                "mDef":1,
                 "pAtk": 4,
                 "pDef": 1,
                 "bonus":[[5, 2], [11, 2], [17, 1]]
@@ -35952,8 +35955,8 @@
             "name": "elite turtle ship",
             "ageReq": 4,
             "cost":{
-                "food": 1000,
-                "gold": 800
+                "food": 650,
+                "gold": 500
             },
             "effects":{
                 "hp": 100,
@@ -36165,7 +36168,8 @@
                 "bonus":[[11, 1]],
                 "accuracy": 0.05,
                 "mDef": 1,
-                "pDef": 3
+                "pDef": 3,
+                "trainTime": -4
             },
             "time": 45
         },
@@ -36192,7 +36196,7 @@
                 "gold": 700
             },
             "effects":{
-                "hp": 15,
+                "hp": 10,
                 "mAtk": 2,
                 "mDef": 2,
                 "lineOfSight": 1
@@ -36406,7 +36410,8 @@
             },
             "effects":{
                 "cost": {
-                    "gold": -10
+                    "food": 45,
+                    "gold": -45
                 }
             },
             "time": 40
@@ -36785,6 +36790,31 @@
             },
             "time": 40  
         },
+        
+        {
+            "name": "medical corps",
+            "ageReq": 3,
+            "cost": {
+                "food": 300,
+                "gold": 200
+            },
+            "effects":{
+                "regen": 30
+            },
+            "time": 45
+        },
+        {
+            "name": "wootz steel",
+            "ageReq": 4,
+            "cost": {
+                "food": 650,
+                "gold": 550
+            },
+            "effects":{
+                "ignoreArmor": true
+            },
+            "time": 60  
+        },
 
         {
             "name": "chieftains",
@@ -36973,13 +37003,15 @@
             "ageReq": 4,
             "cost": {
                 "food": 800,
-                "gold": 800
+                "wood": 800
             },
             "effects":{
                 "mAtk": 2,
                 "pAtk": 1,
+                "pDef":1,
                 "hp": 10,
-                "accuracy": 0.90
+                "accuracy": 0.90,
+                "bonus":[[27, 1]]
             },
             "time": 45
         },
@@ -37129,7 +37161,8 @@
             "effects":{
                 "hp": 10,
                 "pAtk": 4,
-                "pDef": 2
+                "pDef": 2,
+                "trainTime": -4
             },
             "time": 45
         },
@@ -37160,8 +37193,7 @@
             },
             "effects":{
                 "hp": 5,
-                "bonus":[[8, 2], [5, 2], [30, 2], [16, 1], [34, 1]],
-                "trainTime": -4
+                "bonus":[[8, 2], [5, 2], [30, 2], [16, 1], [34, 1]]
             },
             "time": 60
         },
@@ -38037,7 +38069,7 @@
             "ageReq": 3,
             "cost":{
                 "food":100,
-                "gold": 150
+                "gold": 200
             },
             "effects":{
                 "civSpec":{

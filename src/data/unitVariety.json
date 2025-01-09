@@ -95,7 +95,7 @@
         "costPercent": true
       },
       "Aztec Civ Bonus": {
-        "trainTime": 1.11,
+        "trainTime": 1.15,
         "trainTimePercent": true
       },
       "Portuguese Civ Bonus": {
@@ -712,6 +712,10 @@
         "trainTime": 22,
         "img": "camel rider"
       },
+      "Imperial Camel Rider": {
+        "trainTime": 20,
+        "img": "imperial camel rider"
+      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -756,15 +760,15 @@
     "civs": {
       "Malay Civ Bonus Castle Age": {
         "cost": {
-          "food": 0.3,
-          "gold": 0.3
+          "food": 0.25,
+          "gold": 0.25
         },
         "costPercent": true
       },
       "Malay Civ Bonus Imperial Age": {
         "cost": {
-          "food": 0.4,
-          "gold": 0.4
+          "food": 0.35,
+          "gold": 0.35
         },
         "costPercent": true
       }
@@ -1642,6 +1646,10 @@
       "Spanish Civ Bonus": {
         "trainTime": 1.3,
         "trainTimePercent": true
+      },
+      "Sicilians Civ Bonus": {
+        "trainTime": 1.5,
+        "trainTimePercent": true
       }
     },
     "upgrades": {
@@ -1662,6 +1670,10 @@
         "cost": {
           "wood": 0.15
         },
+      "Sicilians Civ Bonus": {
+        "trainTime": 1.5,
+        "trainTimePercent": true
+      },
         "costPercent": true
       },
       "Spanish Civ Bonus": {
@@ -1688,6 +1700,10 @@
         "trainTime": 1.3,
         "trainTimePercent": true
       },
+      "Sicilians Civ Bonus": {
+        "trainTime": 1.5,
+        "trainTimePercent": true
+      },
       "Incas Civ Bonus": {
         "cost": {
           "stone": -1
@@ -1710,6 +1726,10 @@
     "civs": {
       "Spanish Civ Bonus": {
         "trainTime": 1.3,
+        "trainTimePercent": true
+      },
+      "Sicilians Civ Bonus": {
+        "trainTime": 1.5,
         "trainTimePercent": true
       },
       "Incas Civ Bonus": {
@@ -1748,6 +1768,10 @@
   "hussite wagon": {
     "civs": {},
     "upgrades": {
+      "Elite Hussite Wagon": {
+        "trainTime": 26,
+        "img": "elite hussite wagon"
+      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -2070,7 +2094,7 @@
     "civs": {},
     "upgrades": {
       "Stable": {
-        "trainTime": 21
+        "trainTime": 21.7
       },
       "Conscription": {
         "trainTime": 1.33,
@@ -2393,10 +2417,6 @@
   "genoese crossbowman": {
     "civs": {},
     "upgrades": {
-      "Elite Genoese Crossbowman": {
-        "trainTime": 14,
-        "img": "elite genoese crossbowman"
-      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
