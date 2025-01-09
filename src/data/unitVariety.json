@@ -2531,7 +2531,8 @@
     "upgrades": {
       "Corvinian Army": {
         "cost": {
-          "gold": -10
+          "food": 45,
+          "gold": -45
         }
       },
       "Conscription": {
