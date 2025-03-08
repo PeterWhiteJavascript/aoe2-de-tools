@@ -23505,7 +23505,7 @@
                         },
                         {
                             "name": "siege engineers",
-                            "available": false
+                            "available": true
                         },
                         {
                             "name": "guard tower",
@@ -23684,8 +23684,8 @@
                 },
                 "siege workshop":{
                     "siege ram":[3, 3],
-                    "onager": [3, 2.5],
-                    "scorpion":[3, 1],
+                    "onager": [3, 3],
+                    "scorpion":[3, 2],
                     "bombard cannon":[3]
                 },
                 "monastery":{
@@ -26466,7 +26466,7 @@
                 },
                 "archery range":{
                     "arbalester": [3.5, 2.5, 2],
-                    "elite skirmisher": [3, 3, 2],
+                    "elite skirmisher": [3.5, 3, 2],
                     "cavalry archer": [2, 1]
                 },
                 "stable":{
@@ -26486,7 +26486,7 @@
                     "trebuchet":[3]
                 },
                 "donjon":{
-                    "elite serjeant": [1.5, 3, 3]
+                    "elite serjeant": [3, 3, 3]
                 },
                 "university":{
                     "donjon": [3, 3, 3],
