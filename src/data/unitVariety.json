@@ -215,6 +215,30 @@
       }
     }
   },
+  "fire lancer": {
+    "civs": {
+      "Koreans Civ Bonus": {
+        "cost": {
+          "wood": 0.5
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Elite Fire Lancer": {
+        "trainTime": 25,
+        "img": "elite fire lancer"
+      }
+    }
+  },
   "eagle scout": {
     "civs": {
       "Aztec Civ Bonus": {
@@ -371,6 +395,19 @@
         "cost":{
           "food": 0.25
         }
+      }
+    }
+  },
+  "grenadier": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Britons Team Bonus": {
+        "trainTime": 1.1,
+        "trainTimePercent": true
       }
     }
   },
@@ -893,6 +930,16 @@
       }
     }
   },
+  "rocket cart": {
+    "civs": {
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
   "scorpion": {
     "civs": {
       "Aztec Civ Bonus": {
@@ -1385,6 +1432,27 @@
       }
     }
   },
+  "lou chuan": {
+    "civs": {
+      "Wei Civ Bonus": {
+        "cost": {
+          "wood": 0.25,
+          "gold": 0.25
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Shipwright": {
+        "cost": {
+          "wood": 0.2
+        },
+        "costPercent": true,
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
   "longboat": {
     "noGeneric": true,
     "civs": {
@@ -1463,6 +1531,10 @@
     "upgrades": {
       "Treadmill Crane": {
         "trainTime": 1.2,
+        "trainTimePercent": true
+      },
+      "Wu Team Bonus": {
+        "trainTime": 2,
         "trainTimePercent": true
       },
       "2 Villagers": {
@@ -2371,7 +2443,33 @@
       }
     }
   },
+  "liao dao": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
   "boyar": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "iron pagoda": {
     "civs": {},
     "upgrades": {
       "Conscription": {

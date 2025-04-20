@@ -16745,8 +16745,7 @@
             "bonusDesc":[
                 "Japanese get 50% cheaper mills, lumber camps, and mining camps. This allows them to save wood for other buildings, as well as place more resource drop off points to increase efficiency.",
                 "Their infantry attack 33% faster starting in feudal age, which makes their man-at-arms rush exceptionally strong.",
-                "Though they are classified as an infantry civilization, they get everything fully upgraded in the archery range as well as the barracks.",
-                "Since the samurai is only situationally used to counter trash, unique units, and infantry, it's sometimes better to take map control with Japanese yasama towers instead of castles."
+                "Though they are classified as an infantry civilization, they get everything fully upgraded in the archery range as well as the barracks."
             ],
             "ranksUnique":[["yasama", ["keep"]], ["kataparuto",  ["trebuchet"]]],
             "ranks":{
@@ -31776,6 +31775,33 @@
             "uniqueOtherTechs":["shatagni", "arquebus"],
             "trainTime": 34
         },
+        {
+            "name": "grenadier",
+            "ageReq": 3,
+            "pAtk": 11,
+            "mDef": 1,
+            "pDef": 1,
+            "hp": 35,
+            "accuracy": 1,
+            "attackDelay": 0.47,
+            "range": 6,
+            "speed": 0.96,
+            "rateOfFire": 3.45,
+            "blastRadius": 0.65,
+            "projSpeed": 7.5,
+            "lineOfSight": 7,
+            "cost":{
+                "food": 35,
+                "gold": 70
+            },
+            "armorClasses": [[15, 0], [19, 0],[23, 0]],
+            "bonus":[],
+            "damageTechs":["archerDefense"],
+            "otherTechs":["faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 34
+        },
         
         
         {
@@ -33021,6 +33047,29 @@
             "trainTime": 9
         },
         {
+            "name": "liao dao",
+            "ageReq": 3,
+            "mAtk": 9,
+            "pAtk": 0,
+            "mDef": 3,
+            "pDef": 1,
+            "hp": 75,
+            "speed": 1,
+            "lineOfSight": 3,
+            "rateOfFire": 2.4,
+            "cost":{
+                "food": 40,
+                "gold": 40
+            },
+            "armorClasses": [[1, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
+            "otherTechs":["squires","faith", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 12
+        },
+        {
             "name": "hussite wagon",
             "ageReq": 3,
             "mAtk": 0,
@@ -33626,6 +33675,29 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 15
+        },
+        {
+            "name": "iron pagoda",
+            "ageReq": 3,
+            "mAtk": 12,
+            "mDef": 1,
+            "pDef": 3,
+            "hp": 115,
+            "range": 0,
+            "speed": 1.4,
+            "rateOfFire": 1.9,
+            "lineOfSight": 5,
+            "cost":{
+                "food": 80,
+                "gold": 55
+            },
+            "armorClasses": [[8, 0], [19, 0]],
+            "bonus":[],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 14
         },
 
         {
@@ -35088,6 +35160,7 @@
         "elite kamayuk": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite genoese crossbowman": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite samurai": ["squires", "arson", "meleeAttack", "infantryDefense"],
+        "elite liao dao": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite ballista elephant": ["bloodlines", "husbandry", "siege engineers", "cavalryDefense", "chemistry"],
         "elite war wagon": ["bloodlines", "husbandry", "archerAttack", "archerDefense", "ballistics", "chemistry"],
         "elite leitis": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
@@ -35104,6 +35177,7 @@
         "elite mameluke": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite serjeant": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite conquistador": ["bloodlines", "husbandry", "archerDefense"],
+        "elite iron pagoda": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite boyar": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "elite keshik": ["bloodlines", "husbandry", "meleeAttack", "cavalryDefense"],
         "flaming camel":["bloodlines", "husbandry", "siege engineers"],
@@ -36290,6 +36364,20 @@
                 "bonus":[[19, 2], [29, 1], [11, 1]]
             },
             "time": 60
+        },
+        {
+            "name": "elite liao dao",
+            "ageReq": 4,
+            "cost": {
+                "food": 800,
+                "gold": 650
+            },
+            "effects":{
+                "mAtk": 4,
+                "hp": 10,
+                "bonus":[]
+            },
+            "time": 45
         },
 
         {
@@ -37491,6 +37579,20 @@
         },
 
         {
+            "name": "elite iron pagoda",
+            "ageReq": 4,
+            "cost": {
+                "food": 950,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 25,
+                "mAtk": 2,
+                "mDef": 1
+            },
+            "time": 45
+        },
+        {
             "name": "elite boyar",
             "ageReq": 4,
             "cost": {
@@ -37501,7 +37603,7 @@
                 "hp": 30,
                 "mAtk": 2,
                 "mDef": 4,
-                "pdef": 1
+                "pDef": 1
             },
             "time": 60
         },
