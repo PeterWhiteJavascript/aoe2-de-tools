@@ -111,11 +111,6 @@
           "food": 0.25
         }
       },
-      "Supplies": {
-        "cost": {
-          "food": -15
-        }
-      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
