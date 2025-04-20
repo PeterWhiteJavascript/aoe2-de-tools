@@ -32150,7 +32150,7 @@
                 "gold": 75
             },
             "armorClasses": [[20, 0]],
-            "bonus":[[1, 1][5, 7], [11, 2], [17, 1]],
+            "bonus":[[1, 1], [5, 7], [11, 2], [17, 1]],
             "reloadUpgrade":["siege engineers"],
             "damageTechs":["siege engineers", "chemistry"],
             "otherTechs":["faith", "heresy"],
