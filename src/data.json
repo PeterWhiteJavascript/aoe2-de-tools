@@ -32156,6 +32156,35 @@
             "trainTime": 46
         },
         {
+            "name": "mounted trebuchet",
+            "ageReq": 4,
+            "mAtk": 75,
+            "mDef": 2,
+            "pDef": 4,
+            "hp": 75,
+            "range": 10,
+            "minimumRange": 3,
+            "speed": 0.8,
+            "rateOfFire": 6.5,
+            "projSpeed": 3.5,
+            "frameDelay": 0.7,
+            "accuracy": 0.9,
+            "lineOfSight": 13,
+            "blastRadius": 0.5,
+            "cost":{
+                "food": 175,
+                "gold": 175
+            },
+            "armorClasses": [],
+            "bonus":[],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["siege engineers", "chemistry"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":["furor celtica", "ironclad"],
+            "uniqueOtherTechs":["drill"],
+            "trainTime": 46
+        },
+        {
             "name": "scorpion",
             "ageReq": 3,
             "mAtk": 0,
@@ -34897,6 +34926,9 @@
         ],
         [
             "bombard cannon"
+        ],
+        [
+            "mounted trebuchet"
         ],
         [
             "fire galley", "fire ship", "fast fire ship"
