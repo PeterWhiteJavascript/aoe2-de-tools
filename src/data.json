@@ -5604,7 +5604,7 @@
             "ranks":{
                 "town center": {
                     "villager":[3.5, 3.5, 3.5, 3.5],
-                    "flemish militia":[3.5]
+                    "flemish militia":[3, 3, 3.5]
                 },
                 "barracks":{
                     "champion":[3, 3, 2.5, 2.5],
@@ -8365,7 +8365,7 @@
                 "Chinese start with 3 extra villagers, -200 food, and -50 wood. This results in about a 2 villager lead from the beginning of the game.",
                 "They also have incrementally cheaper technologies depending on the current age they are in. This helps afford economic as well as military upgrades. Their completely full blacksmith allows them to tech into almost any unit comfortably as well.",
                 "With their unique tech, great wall, Chinese walls and towers can hold critial positions for longer. They lack hoardings though, so their castles are not fully upgraded.",
-                "Rocketry gives +2 attack to chu ko nu and +4 attack to scorpions, which really helps them take down high pierce armor targets."
+                "Rocketry gives scorpions, rocket carts, and lou chuans 25% more attack."
             ],
             "ranksUnique":[["great wall", ["keep", "defenses"]], ["rocketry", ["elite chu ko nu", "heavy scorpion"]]],
             "ranks":{
@@ -9276,7 +9276,7 @@
                     },
                     {
                       "name": "husbandry",
-                      "available": false
+                      "available": true
                     }
                   ]
                 },
@@ -23667,7 +23667,7 @@
             "ranksUnique":[["szlachta privileges", ["knight"]], ["lechitic legacy", ["winged hussar"]]],
             "ranks":{
                 "town center": {
-                    "villager":[3.5, 3.5, 4, 4]
+                    "villager":[3, 3.5, 4, 4]
                 },
                 "barracks":{
                     "champion":[3, 3, 3, 3],
@@ -23679,7 +23679,7 @@
                     "heavy cavalry archer": [3, 2]
                 },
                 "stable":{
-                    "winged hussar":[3.5, 3.5, 3],
+                    "winged hussar":[3.5, 3.5, 4],
                     "cavalier":[3, 4]
                 },
                 "siege workshop":{
@@ -24461,7 +24461,7 @@
                         },
                         {
                             "name": "arson",
-                            "available": true
+                            "available": false
                         }
                     ]
                 },
@@ -31493,21 +31493,21 @@
         },
         {
             "name": "flemish militia",
-            "ageReq": 4,
-            "mAtk": 11,
+            "ageReq": 2,
+            "mAtk": 5,
             "mDef": 1,
-            "pDef": 0,
-            "hp": 60,
+            "pDef": 1,
+            "hp": 45,
             "range": 0,
             "speed": 0.9,
             "rateOfFire": 2,
             "lineOfSight": 7,
             "cost":{
-                "food": 50,
-                "gold": 15
+                "food": 30,
+                "gold": 30
             },
-            "armorClasses": [[1, 0], [19, 0]],
-            "bonus":[[8, 12], [30, 8], [5, 8], [16, 8], [29, 2]],
+            "armorClasses": [[1, 0], [19, 0], [27, 0]],
+            "bonus":[[8, 6], [30, 4], [5, 8], [16, 8], [29, 2]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs": ["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
@@ -31526,7 +31526,7 @@
             "rateOfFire": 2,
             "lineOfSight": 4,
             "cost":{
-                "food": 60,
+                "food": 50,
                 "gold": 20
             },
             "armorClasses": [[1, 0]],
@@ -31561,6 +31561,29 @@
             "trainTime": 22
         },
         {
+            "name": "fire lancer",
+            "ageReq": 3,
+            "mAtk": 8,
+            "mDef": 0,
+            "pDef": 0,
+            "hp": 65,
+            "range": 0,
+            "speed": 0.96,
+            "rateOfFire": 2,
+            "lineOfSight": 7,
+            "cost":{
+                "wood": 40,
+                "gold": 50
+            },
+            "armorClasses": [[1, 0], [23, 0], [29, 0]],
+            "bonus":[[21, 1], [8, 5], [5, 5], [30, 4], [16, 4]],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
+            "otherTechs": ["squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 32
+        },
+        {
             "name": "eagle scout",
             "ageReq": 2,
             "mAtk": 4,
@@ -31581,7 +31604,7 @@
             "otherTechs":["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars", "fabric shields", "el dorado"],
             "uniqueOtherTechs":[],
-            "trainTime": 60,
+            "trainTime": 50,
             "ageUpgrade":[
                 {
                     "lineOfSight": 3
@@ -31589,7 +31612,7 @@
                 {
                     "atk": 3,
                     "bonus": [[8, 2], [30, 1], [16, 1]],
-                    "trainTime": -25
+                    "trainTime": -15
                 },
                 {}
             ]
@@ -31696,7 +31719,7 @@
             "otherTechs":["thumb ring", "ballistics", "husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["sipahi", "recurve bow", "silk armor"],
             "uniqueOtherTechs":["steppe husbandry"],
-            "trainTime": 34
+            "trainTime": 37
         },
         {
             "name": "elephant archer",
@@ -31715,8 +31738,8 @@
             "frameDelay": 24,
             "attackDelay": 0.4,
             "cost":{
-                "food": 80,
-                "gold": 70
+                "food": 60,
+                "gold": 80
             },
             "armorClasses": [[15, 0], [28, -4], [8, 0], [5, 0]],
             "bonus":[[13, 3], [11, 3]],
@@ -32048,6 +32071,35 @@
             "trainTime": 36
         },
         {
+            "name": "rocket cart",
+            "ageReq": 3,
+            "mAtk": 40,
+            "mDef": 0,
+            "pDef": 6,
+            "hp": 45,
+            "range": 7,
+            "minimumRange": 2.5,
+            "speed": 0.6,
+            "rateOfFire": 5.5,
+            "projSpeed": 3.75,
+            "frameDelay": 0,
+            "accuracy": 0.9,
+            "lineOfSight": 9,
+            "blastRadius": 1,
+            "cost":{
+                "wood": 130,
+                "gold": 155
+            },
+            "armorClasses": [[20, 0], [23, 0]],
+            "bonus":[[11, 7], [26, 7],[22, 6], [37, 5], [20, 2]],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["siege engineers", "chemistry"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
+        },
+        {
             "name": "mangonel",
             "ageReq": 3,
             "mAtk": 40,
@@ -32081,7 +32133,7 @@
             "name": "scorpion",
             "ageReq": 3,
             "mAtk": 0,
-            "pAtk": 7,
+            "pAtk": 11,
             "mDef": 0,
             "pDef": 7,
             "hp": 40,
@@ -32098,7 +32150,7 @@
                 "gold": 75
             },
             "armorClasses": [[20, 0]],
-            "bonus":[[5, 6], [11, 2], [17, 1]],
+            "bonus":[[1, 1][5, 7], [11, 2], [17, 1]],
             "reloadUpgrade":["siege engineers"],
             "damageTechs":["siege engineers", "chemistry"],
             "otherTechs":["faith", "heresy"],
@@ -32289,7 +32341,7 @@
             },
             "armorClasses": [[25, 0]],
             "bonus":[],
-            "damageTechs":["sanctity", "bloodlines"],
+            "damageTechs":["sanctity", "bloodlines", "cavalryDefense"],
             "otherTechs":["block printing", "fervor", "husbandry", "redemption", "atonement", "illumination", "theocracy", "faith", "heresy"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["inquisition"],
@@ -32439,6 +32491,33 @@
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":["artillery", "arquebus"],
             "trainTime": 46
+        },
+        {
+            "name": "lou chuan",
+            "ageReq": 4,
+            "mAtk": 25,
+            "pAtk": 5,
+            "mDef": 0,
+            "pDef": 9,
+            "hp": 175,
+            "speed": 1.15,
+            "lineOfSight": 15,
+            "rateOfFire": 5,
+            "projSpeed": 3.5,
+            "accuracy": 0.5,
+            "range": 13,
+            "frameDelay": 0,
+            "cost":{
+                "wood": 250,
+                "gold": 225
+            },
+            "armorClasses": [[16, 0]],
+            "bonus":[],
+            "damageTechs":["careeningTechs"],
+            "otherTechs":["shipwright", "faith", "heresy", "siege engineers"],
+            "uniqueDamageTechs":["carrack"],
+            "uniqueOtherTechs":["artillery", "arquebus"],
+            "trainTime": 60
         },
         {
             "name": "dromon",
@@ -32637,7 +32716,7 @@
             "pAtk": 6,
             "mDef": 2,
             "pDef": 4,
-            "hp": 60,
+            "hp": 50,
             "frameDelay": 6,
             "accuracy": 0.50,
             "range": 7,
@@ -32660,7 +32739,7 @@
         {
             "name": "ballista elephant",
             "ageReq": 3,
-            "pAtk": 10,
+            "pAtk": 9,
             "mDef": 2,
             "pDef": 4,
             "hp": 250,
@@ -32739,7 +32818,7 @@
         {
             "name": "jaguar warrior",
             "ageReq": 3,
-            "mAtk": 10,
+            "mAtk": 15,
             "pAtk": 0,
             "mDef": 1,
             "pDef": 2,
@@ -32752,7 +32831,7 @@
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
-            "bonus":[[1, 10], [32, 10], [29, 2], [21, 2]],
+            "bonus":[[1, 5], [32, 10], [29, 2], [21, 2]],
             "damageTechs":["meleeAttack", "infantryDefense", "arson"],
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":["garland wars"],
@@ -32773,7 +32852,7 @@
             "rateOfFire": 2.0,
             "cost":{
                 "food": 65,
-                "gold": 25
+                "gold": 20
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[29, 2], [11, 2]],
@@ -32791,7 +32870,7 @@
             "pAtk": 0,
             "mDef": 5,
             "pDef": 2,
-            "hp": 80,
+            "hp": 90,
             "speed": 0.8,
             "lineOfSight": 3,
             "rateOfFire": 2.0,
@@ -32812,22 +32891,22 @@
             "ageReq": 3,
             "mAtk": 5,
             "mDef": 2,
-            "pDef": 2,
+            "pDef": 1,
             "hp": 50,
-            "speed": 0.9,
+            "speed": 0.95,
             "lineOfSight": 3,
             "rateOfFire": 2,
             "cost":{
-                "food": 50,
-                "gold": 35
+                "food": 60,
+                "gold": 25
             },
             "ageUpgrade":[
                 {},
                 {
                     "hp": 25,
                     "mAtk": 3,
-                    "mDef": 1,
-                    "pDef": 2
+                    "mDef": 2,
+                    "pDef": 1
                 },
                 {}
             ],
@@ -32930,7 +33009,7 @@
             "lineOfSight": 4,
             "rateOfFire": 1.45,
             "cost":{
-                "food": 50,
+                "food": 45,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -33005,8 +33084,8 @@
             "lineOfSight": 3,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 80,
-                "gold": 40
+                "food": 75,
+                "gold": 35
             },
             "armorClasses": [[1, 0], [19, 0]],
             "bonus":[[15, 6], [29, 2], [11, 3]],
@@ -33043,12 +33122,12 @@
         {
             "name": "urumi swordsman",
             "ageReq": 3,
-            "mAtk": 8,
+            "mAtk": 9,
             "pAtk": 0,
             "mDef": 1,
             "pDef": 0,
             "hp": 55,
-            "speed": 1.05,
+            "speed": 1.1,
             "lineOfSight": 3,
             "rateOfFire": 2.0,
             "cost":{
@@ -33119,11 +33198,11 @@
             "mDef": 0,
             "pDef": 1,
             "hp": 70,
-            "speed": 1.38,
+            "speed": 1.17,
             "lineOfSight": 3,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 65,
+                "food": 70,
                 "gold": 25
             },
             "armorClasses": [[1, 0], [19, 0]],
@@ -33167,7 +33246,7 @@
             "hp": 100,
             "speed": 1.4,
             "lineOfSight": 5,
-            "rateOfFire": 2.1,
+            "rateOfFire": 1.9,
             "cost":{
                 "food": 60,
                 "gold": 60
@@ -33377,7 +33456,7 @@
             "pAtk": 5,
             "mDef": 3,
             "pDef": 2,
-            "hp": 105,
+            "hp": 100,
             "speed": 1.3,
             "lineOfSight": 6,
             "rateOfFire": 2.0,
@@ -33397,7 +33476,7 @@
             "otherTechs":["husbandry", "ballistics", "faith", "conscription"],
             "uniqueDamageTechs":["Paiks"],
             "uniqueOtherTechs":[],
-            "trainTime": 18
+            "trainTime": 20
         },
         {
             "name": "mangudai",
@@ -34636,7 +34715,7 @@
             "mDef": 0,
             "pDef": 0,
             "hp": 70,
-            "speed": 1,
+            "speed": 1.25,
             "lineOfSight": 7,
             "cost":{
                 "wood": 100,
@@ -34659,7 +34738,7 @@
             "mDef": 0,
             "pDef": 6,
             "hp": 80,
-            "speed": 1.32,
+            "speed": 1.65,
             "lineOfSight": 6,
             "cost":{
                 "wood": 100,
@@ -34686,6 +34765,9 @@
         ],
         [
             "eagle scout","eagle warrior", "elite eagle warrior"
+        ],
+        [
+            "fire lancer", "elite fire lancer"
         ],
         [
             "archer", "crossbowman", "arbalester"
@@ -34728,6 +34810,9 @@
         ],
         [
             "armored elephant", "siege elephant"
+        ],
+        [
+            "rocket cart", "heavy rocket cart"
         ],
         [
             "mangonel", "onager", "siege onager"
@@ -34879,6 +34964,7 @@
         "militia":["man-at-arms", "long swordsman", "two-handed swordsman", "champion"],
         "spearman":["pikeman", "halberdier"],
         "eagle scout":["eagle warrior", "elite eagle warrior"],
+        "fire lancer":["fire lancer", "elite fire lancer"],
         
         
         "archer":["crossbowman", "arbalester"],
@@ -34898,6 +34984,7 @@
         
         "battering ram":["capped ram", "siege ram"],
         "armored elephant": ["siege elephant"],
+        "rocket cart":["heavy rocket cart"],
         "mangonel":["onager", "siege onager"],
         "scorpion":["heavy scorpion"],
         
@@ -34918,6 +35005,7 @@
         "pikeman": "halberdier",
         "eagle scout": "elite eagle warrior",
         "eagle warrior": "elite eagle warrior",
+        "fire lancer": "elite fire lancer",
         "archer": "arbalester",
         "crossbowman": "arbalester",
         "skirmisher": "elite skirmisher",
@@ -34937,6 +35025,7 @@
         "battering ram": "siege ram",
         "capped ram": "siege ram",
         "armored elephant": "siege elephant",
+        "rocket cart": "heavy rocket cart",
         "mangonel": "siege onager",
         "onager": "siege onager",
         "scorpion":"heavy scorpion",
@@ -34949,6 +35038,7 @@
         "champion": ["squires", "gambesons", "supplies", "arson", "meleeAttack", "infantryDefense"],
         "legionary": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "halberdier":["squires", "arson", "meleeAttack", "infantryDefense"],
+        "elite fire lancer":["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite eagle warrior":["squires", "arson", "meleeAttack", "infantryDefense"],
         "condottiero":["squires", "arson", "meleeAttack", "infantryDefense"],
         "arbalester": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
@@ -35069,6 +35159,7 @@
             "effects":{
                 "hp": 5,
                 "mAtk": 2,
+                "speed":0.06,
                 "bonus":[[29, 2], [21, 2]]
             },
             "time": 40,
@@ -35094,29 +35185,30 @@
             "name": "two-handed swordsman",
             "ageReq": 4,
             "cost":{
-                "food": 300,
+                "food": 200,
                 "gold": 100
             },
             "effects":{
                 "mAtk": 3,
+                "hp":5, 
                 "lineOfSight": 1,
                 "bonus":[[29, 2], [21, 1]]
             },
-            "time": 60,
+            "time": 45,
             "classChange": true
         },
         {
             "name": "champion",
             "ageReq": 4,
             "cost":{
-                "food": 750,
+                "food": 650,
                 "gold": 350
             },
             "effects":{
                 "hp": 10,
-                "mAtk": 1
+                "mAtk": 2
             },
-            "time": 86,
+            "time": 70,
             "classChange": true
         },
         {
@@ -35163,6 +35255,23 @@
                 "pDef": 1,
                 "bonus":[[8, 1], [30, 1], [34, 1]],
                 "lineOfSight": 1
+            },
+            "time": 50,
+            "classChange": true
+        },
+        {
+            "name": "elite fire lancer",
+            "ageReq": 4,
+            "cost":{
+                "food": 650,
+                "gold": 400
+            },
+            "effects":{
+                "hp": 20,
+                "mAtk": 2,
+                "bonus":[[8, 10], [5, 10], [30, 8], [16, 8]],
+                "lineOfSight": 1,
+                "trainTime": -7
             },
             "time": 50,
             "classChange": true
@@ -35481,7 +35590,7 @@
             "name": "elite steppe lancer",
             "ageReq": 4,
             "cost":{
-                "food": 900,
+                "food": 600,
                 "gold": 550
             },
             "effects":{
@@ -35546,6 +35655,25 @@
           "classChange": true
         },
         {
+            "name": "heavy rocket cart",
+            "ageReq": 4,
+            "cost":{
+                "wood": 800,
+                "gold": 750
+            },
+            "effects":{
+                "hp": 20,
+                "extraAttack": 3,
+                "pDef": 2,
+                "bonus": [[11, 5],[22, 1]],
+                "blastRadius": 0.25,
+                "lineOfSight": 1,
+                "range": 1
+            },
+            "time": 75,
+            "classChange": true
+        },
+        {
             "name": "onager",
             "ageReq": 4,
             "cost":{
@@ -35595,9 +35723,9 @@
             "effects":{
                 "hp": 20,
                 "mDef":1,
-                "pAtk": 4,
+                "pAtk": 3,
                 "pDef": 1,
-                "bonus":[[5, 2], [11, 2], [17, 1]]
+                "bonus":[[1,1],[5, 3], [11, 2], [17, 1]]
             },
             "time": 50,
             "classChange": true
@@ -35648,10 +35776,10 @@
       
         {
             "name": "arson",
-            "ageReq": 3,
+            "ageReq": 2,
             "cost":{
-                "food": 150,
-                "gold": 50
+                "food": 75,
+                "gold": 25
             },
             "effects":{
                 "bonus": [[21, 2]]
@@ -36042,7 +36170,7 @@
                 "gold": 500
             },
             "effects":{
-                "mAtk": 2,
+                "mAtk": 4,
                 "hp": 25,
                 "lineOfSight": 2,
                 "bonus":[[1, 1]]
@@ -36092,7 +36220,7 @@
             },
             "effects":{
                 "mAtk": 3,
-                "mDef": 1,
+                "mDef": 2   ,
                 "pDef": 1,
                 "hp": 20,
                 "lineOfSight": 2,
@@ -36297,7 +36425,7 @@
                 "gold": 800
             },
             "effects":{
-                "mAtk": 5,
+                "mAtk": 4,
                 "hp": 15,
                 "lineOfSight": 2,
                 "bonus":[[29, 1], [11, 1]]
@@ -37275,12 +37403,13 @@
             "name": "elite chu ko nu",
             "ageReq": 4,
             "cost": {
-                "food": 760,
-                "wood": 760
+                "food": 1105,
+                "wood": 1105
             },
             "effects":{
                 "hp": 5,
-                "arrows": 2
+                "arrows": 2,
+                "pAtk": 2
             },
             "time": 50
         },
