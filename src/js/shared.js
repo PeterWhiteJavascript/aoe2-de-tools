@@ -17,6 +17,9 @@ function setUpGatherRates(data){
     gatherRates["wheelbarrow heavy plow"] = {res: "food", gatherRate: 23.16 / 60};
     gatherRates["hand cart"] = {res: "food", gatherRate: 24 / 60};
     
+    gatherRates["pasture wheelbarrow"] = {res: "food", gatherRate: 23.96 / 60}
+    gatherRates["pasture hand cart"] = {res: "food", gatherRate: 25.26 / 60}
+
     gatherRates["fishing ship shore"] = {res: "food", gatherRate: 0.28};
     gatherRates["fishing ship deep"] = {res: "food", gatherRate: 0.49};
     gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: parseFloat((0.28 + 0.28 * 0.20).toFixed(2))};

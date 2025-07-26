@@ -183,6 +183,10 @@
         "trainTime": 1.11,
         "trainTimePercent": true
       },
+      "Khitans Civ Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
       "Koreans Civ Bonus": {
         "cost": {
           "wood": 0.5
@@ -370,6 +374,10 @@
         },
         "costPercent": true
       },
+      "Khitans Civ Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
       "Koreans Civ Bonus": {
         "cost": {
           "wood": 0.5
@@ -444,6 +452,10 @@
           "food": 0.3
         },
         "costPercent": true
+      },
+      "Khitans Civ Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       },
       "Koreans Civ Bonus": {
         "cost": {
@@ -597,6 +609,10 @@
           "food": 0.15
         },
         "costPercent": true
+      },
+      "Khitans Civ Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     },
     "upgrades": {
@@ -1577,10 +1593,19 @@
       },
       "25 Second Build Time": {
         "trainTime": 25
-      },
-      "Incas Team Bonus": {
-        "trainTime": 2,
+      }
+    }
+  },
+  "pasture": {
+    "civs": {
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
         "trainTimePercent": true
+      },
+      "50 Second Build Time": {
+        "trainTime": 50
       }
     }
   },

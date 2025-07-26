@@ -31453,6 +31453,21 @@
                     "res": "food",
                     "gatherRate": 0.3383
                 },
+                "herder":{
+                    "carryCapacity": 3,
+                    "res": "food",
+                    "gatherRate": 0.3815
+                },
+                "pasture wheelbarrow":{
+                    "carryCapacity": 0,
+                    "res": "food",
+                    "gatherRate": 0.3993
+                },
+                "pasture hand cart":{
+                    "carryCapacity": 0,
+                    "res": "food",
+                    "gatherRate": 0.421
+                },
                 "fisherman": {
                     "carryCapacity": 10,
                     "res": "food",
@@ -31562,7 +31577,7 @@
         {
             "name": "fire lancer",
             "ageReq": 3,
-            "mAtk": 8,
+            "mAtk": 9,
             "mDef": 0,
             "pDef": 0,
             "hp": 65,
@@ -31572,7 +31587,7 @@
             "lineOfSight": 7,
             "cost":{
                 "wood": 40,
-                "gold": 50
+                "gold": 45
             },
             "armorClasses": [[1, 0], [23, 0], [29, 0]],
             "bonus":[[21, 1], [8, 5], [5, 5], [30, 4], [16, 4]],
@@ -31778,10 +31793,10 @@
         {
             "name": "grenadier",
             "ageReq": 3,
-            "pAtk": 11,
+            "pAtk": 12,
             "mDef": 1,
             "pDef": 1,
-            "hp": 35,
+            "hp": 40,
             "accuracy": 1,
             "attackDelay": 0.47,
             "range": 6,
@@ -31792,7 +31807,7 @@
             "lineOfSight": 7,
             "cost":{
                 "food": 35,
-                "gold": 70
+                "gold": 65
             },
             "armorClasses": [[15, 0], [19, 0],[23, 0]],
             "bonus":[],
@@ -31918,6 +31933,29 @@
             "uniqueDamageTechs":["farimba", "manipur cavalry", "comitatenses"],
             "uniqueOtherTechs":["chivalry"],
             "trainTime": 30
+        },
+        {
+            "name": "hei guang cavalry",
+            "ageReq": 3,
+            "mAtk": 11,
+            "mDef": 4,
+            "pDef": 3,
+            "hp": 60,
+            "range": 0,
+            "speed": 1.35,
+            "rateOfFire": 1.8,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 65,
+                "gold": 65
+            },
+            "armorClasses": [[8, 0]],
+            "bonus":[],
+            "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
+            "otherTechs":["husbandry", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 28
         },
         {
             "name": "shrivamsha rider",
@@ -32212,6 +32250,35 @@
             "uniqueDamageTechs":["furor celtica", "ironclad", "rocketry"],
             "uniqueOtherTechs":["drill", "torsion engines", "double crossbow", "ballistas"],
             "trainTime": 30
+        },
+        {
+            "name": "war chariot",
+            "ageReq": 3,
+            "mAtk": 0,
+            "pAtk": 8,
+            "mDef": 0,
+            "pDef": 5,
+            "hp": 65,
+            "range": 7,
+            "minimumRange": 1,
+            "speed": 0.9,
+            "rateOfFire": 6.5,
+            "projSpeed": 3.5,
+            "frameDelay": 0.25,
+            "accuracy": 1,
+            "lineOfSight": 8,
+            "cost":{
+                "food": 50,
+                "gold": 90
+            },
+            "armorClasses": [],
+            "bonus":[],
+            "reloadUpgrade":["siege engineers"],
+            "damageTechs":["siege engineers", "chemistry", "cavalryDefense"],
+            "otherTechs":["faith", "heresy"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 28
         },
         
         {
@@ -34331,6 +34398,25 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 15
+            
+        },
+        {
+            "name": "pasture",
+            "ageReq": 1,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 560,
+            "mDef": 0,
+            "pDef": 0,
+            "lineOfSight": 1,
+            "ageUpgrade":[],
+            "damageTechs":[],
+            "otherTechs":["domestication", "pastoralism", "transhumance"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 18
             
         },
         {
