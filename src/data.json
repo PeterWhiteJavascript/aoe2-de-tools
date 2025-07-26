@@ -22970,7 +22970,7 @@
                 "Persian knights do an extra 2 damage to archers. This includes skirmishers, cavalry archers, hand cannoneers, and unique archers.",
                 "With kamadaran, Persians have access to crossbowmen that only cost wood. Even though they are missing bracer and arbalester, Persian crossbows do very well against infantry in the late game."
             ],
-            "ranksUnique":[["kamandaran", ["arbalester"]], ["mahouts", ["elite war elephant"]]],
+            "ranksUnique":[["kamandaran", ["arbalester"]]],
             "ranks":{
                 "town center": {
                     "villager":[3, 3.5, 3.5, 3.5]
@@ -31598,6 +31598,29 @@
             "trainTime": 32
         },
         {
+            "name": "jian swordsman",
+            "ageReq": 3,
+            "mAtk": 8,
+            "mDef": 3,
+            "pDef": 5,
+            "hp": 70,
+            "range": 0,
+            "speed": 1,
+            "rateOfFire": 2,
+            "lineOfSight": 4,
+            "cost":{
+                "food": 45,
+                "gold": 50
+            },
+            "armorClasses": [[1, 0], [29, 0]],
+            "bonus":[],
+            "damageTechs":["meleeAttack", "infantryDefense", "arson"],
+            "otherTechs": ["squires", "faith", "heresy", "conscription"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 27
+        },
+        {
             "name": "eagle scout",
             "ageReq": 2,
             "mAtk": 4,
@@ -33721,7 +33744,7 @@
             "damageTechs":["meleeAttack", "cavalryDefense", "bloodlines"],
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
-            "uniqueOtherTechs":["mahouts"],
+            "uniqueOtherTechs":[],
             "trainTime": 25
         },
 

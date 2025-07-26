@@ -2222,6 +2222,10 @@
       "Gurjaras Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Magyars Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -2389,6 +2393,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Magyars Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
       }
     }
   },
@@ -2430,6 +2438,10 @@
         "trainTimePercent": true
       },
       "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Magyars Team Bonus": {
         "trainTime": 1.25,
         "trainTimePercent": true
       }
