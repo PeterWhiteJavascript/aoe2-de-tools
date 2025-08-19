@@ -386,6 +386,10 @@
       }
     },
     "upgrades": {
+      "Elite Skirmisher": {
+        "trainTime": 26,
+        "img": "elite skirmisher"
+      },
       "Conscription": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -982,7 +986,7 @@
       },
       "Romans Civ Bonus": {
         "cost": {
-          "gold": 0.6
+          "gold": 0.5
         },
         "costPercent": true
       },

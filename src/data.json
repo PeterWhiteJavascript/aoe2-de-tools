@@ -5596,7 +5596,7 @@
             "bonusDesc":[
                 "Burgundians can research economic upgrades one age earlier and at a 33% food discount.",
                 "Their gunpowder units do 25% more damage, but they lack siege engineers for bombard cannons.",
-                "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid. This tech also enables them to train flemish militia from town centers.",
+                "With the flemish revolution tech, Burgundians can convert all of their villagers into flemish militia, which are like a champion/halberdier hybrid.",
                 "They lack bloodlines, but get other stable technologies at half price and can research cavalier in castle age.",
                 "Burgundian relics produce food at the same rate as gold."
             ],
@@ -5604,11 +5604,12 @@
             "ranks":{
                 "town center": {
                     "villager":[3.5, 3.5, 3.5, 3.5],
-                    "flemish militia":[3, 3, 3.5]
+                    "flemish militia":[3, 3, 3]
                 },
                 "barracks":{
                     "champion":[3, 3, 2.5, 2.5],
-                    "halberdier":[3, 3, 3]
+                    "halberdier":[3, 3, 3],
+                    "flemish militia":[3, 3, 3]
                 },
                 "archery range":{
                     "crossbowman": [3, 2, 1],
@@ -31305,9 +31306,9 @@
               },
             "bonusDesc":[
                 "Vikings get wheelbarrow and hand cart for free. This gives them a huge economic boost in feudal and castle age as they get the upgrades instantly, so they don't need to use town center work time to research them.",
-                "Their infantry have +10% hit points in the feudal age, +15% in castle age, and +20% in imperial age. Though they don't have access to the halberdier, the chieftains upgrade makes their champions and berserks deal with cavalry just fine.",
+                "Their infantry have +20% hit points. Though they don't have access to the halberdier, the chieftains upgrade makes their champions and berserks deal with cavalry just fine.",
                 "The berserk moves fast and regenerates hit points, making them stronger, but more expensive than champions.",
-                "Vikings can also produce fully upgraded skirmishers and arbalesters. They also have decent siege as they have access to siege ram and heavy scorpion as well as siege engineers."
+                "Viking arbalesters with bogsveigar for +1 attack are another great option. They also have decent siege as they have access to siege ram and heavy scorpion as well as siege engineers."
             ],
             "ranksUnique":[["chieftains", ["champion", "halberdier", "elite berserk"]], ["bogsveigar", ["elite berserk"]]],
             "ranks":{
@@ -31319,7 +31320,7 @@
                     "pikeman":[3.5, 3.5, 3]
                 },
                 "archery range":{
-                    "arbalester": [3, 3, 2.5],
+                    "arbalester": [3, 3, 3.5],
                     "elite skirmisher": [3, 3, 3],
                     "cavalry archer": [2, 1]
                 },
@@ -31347,7 +31348,6 @@
         }
     ],
     "upgradeBuilding":{
-        "supplies": "barracks",
         "gambesons": "barracks",
         "squires": "barracks",
         "arson": "barracks",
@@ -31518,7 +31518,7 @@
             "lineOfSight": 7,
             "cost":{
                 "food": 30,
-                "gold": 30
+                "gold": 25
             },
             "armorClasses": [[1, 0], [19, 0], [27, 0]],
             "bonus":[[8, 6], [30, 4], [5, 8], [16, 8], [29, 2]],
@@ -31601,7 +31601,7 @@
             "name": "jian swordsman",
             "ageReq": 3,
             "mAtk": 8,
-            "mDef": 3,
+            "mDef": 2,
             "pDef": 5,
             "hp": 70,
             "range": 0,
@@ -31729,7 +31729,7 @@
             "otherTechs":["thumb ring", "ballistics", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["atlatl", "pavise", "tower shields"],
             "uniqueOtherTechs":["yeomen", "andean sling"],
-            "trainTime": 22
+            "trainTime": 26
         },
         {
             "name": "cavalry archer",
@@ -32048,15 +32048,12 @@
             "otherTechs":["husbandry", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":["farimba", "zealotry"],
             "uniqueOtherTechs":["maghrabi camels", "Kshatriyas"],
-            "trainTime": 48,
+            "trainTime": 22,
             "ageUpgrade":[
               {
                   "atk": 2,
                   "lineOfSight": 1,
                   "speed": 0.25
-              },
-              {
-                  "trainTime": 22
               }
           ]
         },
@@ -32291,7 +32288,7 @@
             "accuracy": 1,
             "lineOfSight": 8,
             "cost":{
-                "food": 50,
+                "food": 65,
                 "gold": 90
             },
             "armorClasses": [],
@@ -32314,8 +32311,8 @@
             "speed": 0.8,
             "lineOfSight": 8,
             "cost":{
-                "wood": 200,
-                "gold": 160
+                "wood": 100,
+                "gold": 120
             },
             "armorClasses": [[20, 0], [17, 0]],
             "damageTechs":[],
@@ -33042,7 +33039,7 @@
             "lineOfSight": 3,
             "rateOfFire": 2,
             "cost":{
-                "food": 60,
+                "food": 55,
                 "gold": 25
             },
             "ageUpgrade":[
@@ -33285,7 +33282,7 @@
             "otherTechs":["squires","faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["bearded axe"],
-            "trainTime": 17
+            "trainTime": 13
         },
         {
             "name": "urumi swordsman",
@@ -33522,8 +33519,8 @@
             "range": 6,
             "frameDelay": 4,
             "cost":{
-                "food": 60,
-                "gold": 70
+                "food": 70,
+                "gold": 60
             },
             "armorClasses": [[8, 0], [15, 0], [19, 0], [23, 0], [28, 0]],
             "bonus":[[11, 4]],
@@ -33840,7 +33837,7 @@
             "otherTechs":["husbandry", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":["corvinian army"],
-            "trainTime": 14
+            "trainTime": 12
         },
         {
             "name": "flaming camel",
@@ -35559,7 +35556,8 @@
                 "pDef": 1,
                 "range": 1,
                 "lineOfSight": 1,
-                "bonus":[[15, 1], [28, 3]]
+                "bonus":[[15, 1], [28, 3]],
+                "trainTime": -4
             },
             "time": 50,
             "classChange": true
@@ -35828,6 +35826,7 @@
             "effects":{
                 "hp": 25,
                 "mAtk": 1,
+                "mDef": 1,
                 "pDef": 10,
                 "bonus": [[11, 10], [20, 10]],
                 "armorClasses":[[20, 1]],
@@ -35846,6 +35845,7 @@
             "effects":{
                 "hp": 70,
                 "mAtk": 1,
+                "mDef": 1,
                 "pDef": 5,
                 "bonus": [[11, 50], [20, 15]],
                 "armorClasses":[[20, 1]],
