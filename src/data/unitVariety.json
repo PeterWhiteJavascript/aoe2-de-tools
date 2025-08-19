@@ -387,7 +387,7 @@
     },
     "upgrades": {
       "Elite Skirmisher": {
-        "trainTime": 26,
+        "trainTime": 22,
         "img": "elite skirmisher"
       },
       "Conscription": {
