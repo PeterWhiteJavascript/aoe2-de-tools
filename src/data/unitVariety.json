@@ -945,6 +945,21 @@
       }
     }
   },
+  "traction trebuchet": {
+    "civs": {
+        "Wei Civ Bonus":{
+        "cost": {
+            "wood": 0.25,
+            "gold": 0.25
+          }
+    },
+    "upgrades": {
+      "Celts Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
   "mounted trebuchet": {
     "civs": {
             
@@ -1859,6 +1874,45 @@
     }
   },
   "cataphract": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "tiger cavalry": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "fire archer": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "white feather guard": {
     "civs": {},
     "upgrades": {
       "Conscription": {
