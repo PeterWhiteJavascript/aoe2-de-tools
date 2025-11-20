@@ -45,32 +45,28 @@
       "Goths - Dark Age": {
         "cost": {
           "food": 0.15,
-          "gold": 0.15,
-          "wold": 0.15
+          "gold": 0.15
         },
         "costPercent": true
       },
       "Goths - Feudal Age": {
         "cost": {
           "food": 0.2,
-          "gold": 0.2,
-          "wold": 0.2
+          "gold": 0.2
         },
         "costPercent": true
       },
       "Goths - Castle Age": {
         "cost": {
           "food": 0.25,
-          "gold": 0.25,
-          "wold": 0.25
+          "gold": 0.25
         },
         "costPercent": true
       },
       "Goths - Imperial Age": {
         "cost": {
           "food": 0.3,
-          "gold": 0.3,
-          "wold": 0.3
+          "gold": 0.3
         },
         "costPercent": true
       },
@@ -140,21 +136,21 @@
       "Goths - Feudal Age": {
         "cost": {
           "food": 0.2,
-          "gold": 0.2
+          "wood": 0.2
         },
         "costPercent": true
       },
       "Goths - Castle Age": {
         "cost": {
           "food": 0.25,
-          "gold": 0.25
+          "wood": 0.25
         },
         "costPercent": true
       },
       "Goths - Imperial Age": {
         "cost": {
           "food": 0.3,
-          "gold": 0.3
+          "wood": 0.3
         },
         "costPercent": true
       },
