@@ -33197,7 +33197,7 @@
             "lineOfSight": 8,
             "rateOfFire": 3.45,
             "attackDelay": 0.93,
-            "accuraccy": 0.8,
+            "accuracy": 0.8,
             "minimumRange": 0,
             "blastRadius": 0,
             "projSpeed": 7,
@@ -33212,6 +33212,39 @@
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
             "trainTime": 30
+        },
+        {
+            "name": "tiger cavalry",
+            "hp": 115,
+            "cost":{
+                "food": 60,
+                "gold": 80
+            },
+            "trainTime": 15
+        },
+        {
+            "name": "traction trebuchet",
+            "cost":{
+                "wood": 175,
+                "gold": 210
+            },
+            "trainTime": 70
+        },
+        {
+            "name": "white feather guard",
+            "cost":{
+                "food": 60,
+                "gold": 15
+            },
+            "trainTime": 11
+        },
+        {
+            "name": "fire archer",
+            "cost":{
+                "wood": 45,
+                "gold": 45
+            },
+            "trainTime": 17
         },
         
         {
