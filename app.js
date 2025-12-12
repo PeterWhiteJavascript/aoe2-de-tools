@@ -30,6 +30,6 @@ app.use('/wood-calc.html', (req, res) => {
 
 app.use(express.static(dir))
 
-const port = process.env.PORT || 5006
+const port = process.env.PORT || 5000
 server.listen(port)
 console.log(`AOE2: DE tools app listening on port ${port}`)
