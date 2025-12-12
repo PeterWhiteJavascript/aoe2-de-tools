@@ -54,7 +54,10 @@
             {% endfor %}
           {% endfor %}
         </div>
-        <h2>Click to toggle unit display</h2>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <h2 style="margin: 0;">Click to toggle unit display</h2>
+          <input type="text" id="unit-search" placeholder="Search units..." style="padding: 8px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; min-width: 200px;">
+        </div>
         <div id="choose-units">
           {% for unit in unitsShow %}
             {% for dataUnit in dataset.units %}

@@ -34,4 +34,33 @@ async function main() {
     },
     false
   )
+
+  // Unit search functionality
+  function setupUnitSearch() {
+    const unitSearchInput = document.getElementById('unit-search')
+    if (unitSearchInput) {
+      unitSearchInput.addEventListener('input', function (event) {
+        const searchTerm = event.target.value.toLowerCase().trim()
+        const unitElements = document.querySelectorAll('#choose-units .unit-show-img')
+        
+        unitElements.forEach(function (unitElement) {
+          const unitName = (unitElement.getAttribute('unit') || '').toLowerCase()
+          const unitTitle = (unitElement.getAttribute('title') || '').toLowerCase()
+          
+          if (searchTerm === '' || unitName.includes(searchTerm) || unitTitle.includes(searchTerm)) {
+            unitElement.style.display = ''
+          } else {
+            unitElement.style.display = 'none'
+          }
+        })
+      })
+    }
+  }
+  
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupUnitSearch)
+  } else {
+    setupUnitSearch()
+  }
 }
