@@ -33412,6 +33412,14 @@
             "trainTime": 10
         },
         {
+            "name": "xianbei raider",
+            "cost":{
+                "wood": 60,
+                "gold": 25
+            },
+            "trainTime": 26
+        },
+        {
             "name": "cataphract",
             "ageReq": 3,
             "mAtk": 9,
