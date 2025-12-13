@@ -31618,7 +31618,7 @@
             "otherTechs": ["squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs":[],
             "uniqueOtherTechs":[],
-            "trainTime": 27
+            "trainTime": 35
         },
         {
             "name": "eagle scout",
@@ -31632,7 +31632,7 @@
             "rateOfFire": 2,
             "lineOfSight": 5,
             "cost":{
-                "food": 25,
+                "food": 20,
                 "gold": 50
             },
             "armorClasses": [[1, 0], [29, 0]],
@@ -32456,7 +32456,7 @@
             "lineOfSight": 7,
             "rangeHealing": 4,
             "cost":{
-                "gold": 60,
+                "gold": 50,
                 "food": 30
             },
             "armorClasses": [[1, 0],[19, 0], [25, 0]],
@@ -34465,7 +34465,7 @@
             "name": "pasture",
             "ageReq": 1,
             "cost":{
-                "wood": 100
+                "wood": 110
             },
             "armorClasses": [[11, 0], [21, 0]],
             "hp": 560,
@@ -36021,7 +36021,7 @@
           "name": "gambesons",
           "ageReq": 3,
           "cost":{
-              "food": 100,
+              "food": 50,
               "gold": 100
           },
           "effects":{

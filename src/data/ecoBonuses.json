@@ -83,9 +83,9 @@
       "stone shaft mining": 0.2
     },
     "Turks (Gold Miners)": {
-      "gold miner": 0.2,
-      "gold mining": 0.2,
-      "gold shaft mining": 0.2
+      "gold miner": 0.25,
+      "gold mining": 0.25,
+      "gold shaft mining": 0.25
     },
     "Malians (Gold Miners)": {
       "gold miner": 0.1,
