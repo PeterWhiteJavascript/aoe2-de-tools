@@ -59,28 +59,111 @@
           <input type="text" id="unit-search" placeholder="Search units..." style="padding: 8px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; min-width: 200px;">
         </div>
         <div id="choose-units">
-          {% for unit in unitsShow %}
-            {% for dataUnit in dataset.units %}
-              {% if dataUnit.name == unit %}
-                {% set food = ['x-food=', dataUnit.cost.food ] | join %}
-                {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
-                {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
-                {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+          {# --- 1. 定义分组数组 (根据你提供的列表分类) --- #}
+          
+          {% set group_economy = [
+            "villager", "fishing ship", "farm", "fish trap", "pasture", "monk", "trade cart", "warrior priest", "missionary"
+          ] %}
 
-                {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
-                {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
-                {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
-                {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+          {% set group_stable = [
+            "scout cavalry", "knight", "camel scout", "steppe lancer", "battle elephant", "shrivamsha rider", "hei guang cavalry", "xolotl warrior"
+          ] %}
 
-                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'
-                     x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
-                     {{ food if dataUnit.cost.food is not undefined }}  {{ wood if dataUnit.cost.wood is not undefined }} {{ gold if dataUnit.cost.gold is not undefined }} {{ stone if dataUnit.cost.stone is not undefined }}
-                     {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
-                  <img src="/img/{{unit}}.webp" alt="{{unit}}" />
-                </div>
-              {% endif %}
-            {% endfor %}
+          {# --- 所有其他的特色单位 (UU) 归入 Castle --- #}
+          {% set group_castle = ["arambai", "ballista elephant", "berserk", "boyar", "camel archer", "cataphract", "centurion", "chakram thrower", "chu ko nu", "composite bowman", "conquistador", "coustillier", "fire archer", "gbeto", "genoese crossbowman", "ghulam", "huskarl", "hussite wagon", "iron pagoda", "jaguar warrior", "janissary", "kamayuk", "karambit warrior", "keshik", "kipchak", "konnik", "leitis", "liao dao", "longbowman", "magyar huszar", "mameluke", "mangudai", "monaspa", "obuch", "organ gun", "plumed archer", "ratha", "rattan archer", "samurai", "serjeant", "shotel warrior", "tarkan", "teutonic knight", "throwing axeman", "tiger cavalry", "urumi swordsman", "war elephant", "war wagon", "white feather guard", "woad raider"
+          ] %}
+
+          {% set group_archery = [
+            "archer", "skirmisher", "cavalry archer", "elephant archer", "hand cannoneer", "grenadier", "xianbei raider", "genitour", "slinger"
+          ] %}
+
+          {% set group_barracks = [
+            "militia", "spearman", "eagle scout", "condottiero", "flemish militia", "halberdier", "jian swordsman", "fire lancer"
+          ] %}
+
+          {% set group_siege = [
+            "battering ram", "mangonel", "scorpion", "bombard cannon", "war chariot", "siege tower", "flaming camel", "trebuchet", "petard", 
+            "mounted trebuchet", "traction trebuchet", "rocket cart"
+          ] %}
+
+          {% set group_navy = [
+             "fire galley", "galley", "demolition raft", "transport ship", "cannon galleon", "dromon", 
+             "caravel", "longboat", "thirisadai", "lou chuan", "turtle ship"
+          ] %}
+
+          {% set group_building = [
+            "watch tower", "bombard tower", "donjon", "krepost", "castle", 
+            "fortified church", "palisade wall", "palisade gate", "stone wall", "gate", "house", "feitoria", "caravanserai"
+          ] %}
+
+          {# --- 2. 构建总的大列表用于循环 (修改点：增加了 collapsed 属性) --- #}
+          {% set all_groups = [
+            {'name': 'Economy', 'list': group_economy, 'collapsed': false},
+            {'name': 'Stable', 'list': group_stable, 'collapsed': false},
+            {'name': 'Castle', 'list': group_castle, 'collapsed': false},
+            {'name': 'Archery Range', 'list': group_archery, 'collapsed': false},
+            {'name': 'Barracks', 'list': group_barracks, 'collapsed': true},
+            {'name': 'Navy', 'list': group_navy, 'collapsed': true},
+            {'name': 'Siege Workshop', 'list': group_siege, 'collapsed': true},
+            {'name': 'Building', 'list': group_building, 'collapsed': true}
+          ] %}
+
+          {# --- 3. 渲染逻辑 (修改点：增加了点击事件和初始显示状态判断) --- #}
+          {% for group in all_groups %}
+            <div class="unit-category-row" style="width: 100%; margin-bottom: 20px; clear: both;">
+                
+                {# 标题部分：增加 onclick 事件，鼠标变成手型，以及一个折叠指示器 #}
+                <h3 onclick="toggleUnitGroup(this)" style="margin: 10px 0; border-bottom: 1px solid #ccc; color: #333; cursor: pointer; user-select: none;">
+                    <span class="toggle-icon">{{ '▶' if group.collapsed else '▼' }}</span> 
+                    {{ group.name }}
+                </h3>
+
+                {# 内容容器：根据 collapsed 属性决定初始是 flex 还是 none #}
+                <div class="unit-flex-container" style="display: {{ 'none' if group.collapsed else 'flex' }}; flex-wrap: wrap; gap: 5px;">
+                    {% for unit in group.list %}
+                      {% for dataUnit in dataset.units %}
+                        {% if dataUnit.name == unit %}
+                          {% set food = ['x-food=', dataUnit.cost.food ] | join %}
+                          {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+                          {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+                          {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+
+                          {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
+                          {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
+                          {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
+                          {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+
+                          <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'
+                              x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
+                              {{ food if dataUnit.cost.food is not undefined }}  {{ wood if dataUnit.cost.wood is not undefined }} {{ gold if dataUnit.cost.gold is not undefined }} {{ stone if dataUnit.cost.stone is not undefined }}
+                              {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
+                            <img src="/img/{{unit}}.webp" alt="{{unit}}" />
+                          </div>
+                        {% endif %}
+                      {% endfor %}
           {% endfor %}
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {# --- 4. JavaScript 交互脚本 (直接放在 div 闭合标签后面即可) --- #}
+        <script>
+        function toggleUnitGroup(headerElement) {
+            // 找到标题紧随其后的 div 容器
+            var container = headerElement.nextElementSibling;
+            var icon = headerElement.querySelector('.toggle-icon');
+            
+            // 切换显示状态
+            if (container.style.display === 'none') {
+                container.style.display = 'flex'; // 展开
+                if(icon) icon.innerText = '▼';
+            } else {
+                container.style.display = 'none'; // 折叠
+                if(icon) icon.innerText = '▶';
+            }
+        }
+        </script>
         </div>
         <div id="vil-totals">
           <h2>Villager totals for all unit selections</h2>
