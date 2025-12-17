@@ -33,7 +33,7 @@
   [
     {"name": "gold miner", "show": true},
     {"name": "gold mining", "show": true},
-    {"name": "gold shaft mining", "show": false},
+    {"name": "gold shaft mining", "show": true},
     {"name": "relic", "show": false},
     {"name": "trade cart", "show": false},
     {"name": "feitoria gold", "show": false},

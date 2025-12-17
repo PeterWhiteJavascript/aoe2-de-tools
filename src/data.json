@@ -34999,6 +34999,25 @@
             "uniqueDamageTechs":["carrack"],
             "uniqueOtherTechs":["grand trunk road", "silk road"],
             "trainTime": 36
+        },
+        
+        {
+            "name": "fish trap",
+            "ageReq": 2,
+            "cost":{
+                "wood": 100
+            },
+            "armorClasses": [[11, 0], [21, 0]],
+            "hp": 50,
+            "mDef": 0,
+            "pDef": 0,
+            "lineOfSight": 1,
+            "ageUpgrade":[],
+            "damageTechs":[],
+            "otherTechs":["gillnets"],
+            "uniqueDamageTechs":[],
+            "uniqueOtherTechs":[],
+            "trainTime": 40
         }
     ],
     "unitGrid":[

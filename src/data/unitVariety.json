@@ -2782,5 +2782,21 @@
         "trainTimePercent": true
       }
     }
+  },
+  "fish trap": {
+    "civs": {
+      "Malay Civ Bonus": {
+        "cost": {
+          "wood": 0.33
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Treadmill Crane": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
   }
 }
