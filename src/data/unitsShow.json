@@ -7,29 +7,32 @@
     [
         "militia",
         "spearman",
+        "eagle scout",
         "fire lancer",
         "condottiero",
-        "jian swordsman",
-        "eagle scout"
+        "flemish militia",
+        "jian swordsman"
     ],
     [
         "archer",
         "skirmisher",
-        "genitour",
         "cavalry archer",
         "elephant archer",
-        "grenadier",
-        "hand cannoneer"
+        "hand cannoneer",
+        "slinger",
+        "genitour",
+        "xianbei raider",
+        "grenadier"
     ],
     [
         "scout cavalry",
         "knight",
-        "hei guang cavalry",
-        "shrivamsha rider",
-        "xolotl warrior",
         "camel scout",
         "steppe lancer",
-        "battle elephant"
+        "battle elephant",
+        "hei guang cavalry",
+        "shrivamsha rider",
+        "xolotl warrior"
     ],
     [
         "monk",
@@ -42,11 +45,11 @@
         "mangonel",
         "rocket cart",
         "scorpion",
+        "bombard cannon",
+        "siege tower",
         "war chariot",
         "mounted trebuchet",
-        "traction trebuchet",
-        "bombard cannon",
-        "siege tower"
+        "traction trebuchet"
     ],
     [
         "trebuchet",
@@ -65,7 +68,6 @@
         "coustillier",
           "fire archer",
         "flaming camel",
-        "flemish militia",
         "gbeto",
         "genoese crossbowman",
         "ghulam",
@@ -94,7 +96,6 @@
         "samurai",
         "serjeant",
         "shotel warrior",
-        "slinger",
         "tarkan",
         "teutonic knight",
         "throwing axeman",
@@ -103,8 +104,7 @@
         "war elephant",
         "war wagon",
           "white feather guard",
-        "woad raider",
-          "xianbei raider"
+        "woad raider"
     ],
     [
         "fire galley",
