@@ -61,6 +61,13 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.unit-show-category{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 5px;
+    
+}
 
 .unit-show-img, .res-show-img{
     padding: 5px;

@@ -59,27 +59,31 @@
           <input type="text" id="unit-search" placeholder="Search units..." style="padding: 8px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; min-width: 200px;">
         </div>
         <div id="choose-units">
-          {% for unit in unitsShow %}
-            {% for dataUnit in dataset.units %}
-              {% if dataUnit.name == unit %}
-                {% set food = ['x-food=', dataUnit.cost.food ] | join %}
-                {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
-                {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
-                {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+          {% for category in unitsShow %}
+            <div class='unit-show-category'>
+            {% for unit in category %}
+              {% for dataUnit in dataset.units %}
+                {% if dataUnit.name == unit %}
+                  {% set food = ['x-food=', dataUnit.cost.food ] | join %}
+                  {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+                  {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+                  {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
 
-                {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
-                {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
-                {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
-                {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+                  {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
+                  {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
+                  {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
+                  {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
 
-                <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'
-                     x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
-                     {{ food if dataUnit.cost.food is not undefined }}  {{ wood if dataUnit.cost.wood is not undefined }} {{ gold if dataUnit.cost.gold is not undefined }} {{ stone if dataUnit.cost.stone is not undefined }}
-                     {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
-                  <img src="/img/{{unit}}.webp" alt="{{unit}}" />
-                </div>
-              {% endif %}
+                  <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'
+                       x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
+                       {{ food if dataUnit.cost.food is not undefined }}  {{ wood if dataUnit.cost.wood is not undefined }} {{ gold if dataUnit.cost.gold is not undefined }} {{ stone if dataUnit.cost.stone is not undefined }}
+                       {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
+                    <img src="/img/{{unit}}.webp" alt="{{unit}}" />
+                  </div>
+                {% endif %}
+              {% endfor %}
             {% endfor %}
+            </div>
           {% endfor %}
         </div>
         <div id="vil-totals">

@@ -31,6 +31,7 @@ const setUpGatherRates = (data) => {
     res: 'food',
     gatherRate: parseFloat((0.49 + 0.49 * 0.25).toFixed(2)),
   }
+  
   gatherRates['fish trap'] = { res: 'food', gatherRate: 0.35 }
   gatherRates['fish trap gillnets'] = {
     res: 'food',
@@ -112,6 +113,8 @@ const setUpGatherRates = (data) => {
       ).toFixed(2)
     ),
   }
+  gatherRates['oyster gatherer'] = { res: 'gold', gatherRate: 22.8 / 60 }
+  gatherRates['fishing ship oysters'] = { res: 'gold', gatherRate: 24 / 60 }
   gatherRates['relic'] = {
     res: 'gold',
     gatherRate: 0.5,

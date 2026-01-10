@@ -1,6 +1,15 @@
 {
   "civ": {
     "Generic": {},
+        "Armenians (Stronger Eco Techs)":{
+            "double-bit axe": 0.04, 
+            "bow saw": 0.04, 
+            "two-man saw": 0.04,
+            "gold mining": 0.04, 
+            "gold shaft mining": 0.04,
+            "stone mining": 0.04, 
+            "stone shaft mining": 0.04
+        },
     "Japanese - Dark Age": {
       "fishing ship shore": 0.05,
       "fishing ship deep": 0.05,
@@ -90,7 +99,8 @@
     "Malians (Gold Miners)": {
       "gold miner": 0.1,
       "gold mining": 0.1,
-      "gold shaft mining": 0.1
+      "gold shaft mining": 0.1,
+      "oyster gatherer": 0.1
     },
     "Romans (5% Everything)": {
         "farmer": 0.05, 
@@ -108,7 +118,8 @@
         "two-man saw": 0.05, 
         "gold miner": 0.05, 
         "gold mining": 0.05, 
-        "gold shaft mining": 0.05, 
+        "gold shaft mining": 0.05,
+        "oyster gatherer": 0.05, 
         "stone miner": 0.05, 
         "stone mining": 0.05, 
         "stone shaft mining": 0.05
@@ -130,6 +141,7 @@
         "gold miner": 0.1, 
         "gold mining": 0.1, 
         "gold shaft mining": 0.1, 
+        "oyster gatherer": 0.1, 
         "stone miner": 0.1, 
         "stone mining": 0.1, 
         "stone shaft mining": 0.1

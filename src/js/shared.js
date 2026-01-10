@@ -76,6 +76,9 @@ function setUpGatherRates(data){
             ).toFixed(2)
             )
     };
+    
+  gatherRates['oyster gatherer'] = { res: 'gold', gatherRate: 22.8 / 60 }
+  gatherRates['fishing ship oysters'] = { res: 'gold', gatherRate: 24 / 60 }
     gatherRates["relic"] = {
         res: "gold", gatherRate: 0.5
     };
