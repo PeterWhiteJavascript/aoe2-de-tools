@@ -68,6 +68,7 @@ body{
 .nav-item > .item-wrapper > .item-icon{
     display:block;
     margin:auto;
+    width:50px;
 }
 
 .nav-item > .item-wrapper > .item-label{
