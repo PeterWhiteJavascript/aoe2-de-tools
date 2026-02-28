@@ -15363,7 +15363,6 @@
             "bonusDesc":[
                 "Incas start the game with a free llama and their houses provide 10 population. This gives them extra resources to work with in the early game, which helps an early drush. Their buildings also cost 15% less stone, which helps tower rushing.",
                 "Their villagers also benefit from blacksmith upgrades starting in castle age.",
-                "The slinger gives the Incas a great anti-infantry option, since American civilizations don't have access to hand cannoneers.",
                 "The Incan army is pretty straightforward. They have eagle warriors or skirmishers against archers, halberdiers or kamayuks versus cavalry, and slingers or champions versus infantry. Both of the Incas unique units as well as eagle warriors benefit from the extra armor provided by fabric shields, so in post-imperial age, the Incan army can be difficult to stop."
             ],
             "ranksUnique":[["andean sling", ["elite skirmisher", "slinger"]], ["fabric shields", ["elite eagle warrior", "elite kamayuk", "slinger"]]],
@@ -31552,6 +31551,14 @@
             "trainTime": 21
         },
         {
+            "name": "champi scout",
+            "cost":{
+                "food": 45,
+                "gold": 25
+            },
+            "trainTime": 30
+        },
+        {
             "name": "spearman",
             "ageReq": 2,
             "mAtk": 3,
@@ -31858,8 +31865,8 @@
             "projSpeed": 5.5,
             "lineOfSight": 7,
             "cost":{
-                "food": 40,
-                "gold": 40
+                "food": 70,
+                "wood": 10
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[1, 10], [32, 10], [17, 3], [27, 1]],

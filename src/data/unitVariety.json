@@ -70,30 +70,6 @@
         },
         "costPercent": true
       },
-      "Incas - Dark Age": {
-        "cost": {
-          "food": 0.15
-        },
-        "costPercent": true
-      },
-      "Incas - Feudal Age": {
-        "cost": {
-          "food": 0.2
-        },
-        "costPercent": true
-      },
-      "Incas - Castle Age": {
-        "cost": {
-          "food": 0.25
-        },
-        "costPercent": true
-      },
-      "Incas - Imperial Age": {
-        "cost": {
-          "food": 0.3
-        },
-        "costPercent": true
-      },
       "Aztec Civ Bonus": {
         "trainTime": 1.15,
         "trainTimePercent": true
@@ -131,6 +107,48 @@
       }
     }
   },
+  "champi scout": {
+    "civs": {
+      "Incas - Dark Age": {
+        "cost": {
+          "food": 0.05
+        },
+        "costPercent": true
+      },
+      "Incas - Feudal Age": {
+        "cost": {
+          "food": 0.1
+        },
+        "costPercent": true
+      },
+      "Incas - Castle Age": {
+        "cost": {
+          "food": 0.15
+        },
+        "costPercent": true
+      },
+      "Incas - Imperial Age": {
+        "cost": {
+          "food": 0.2
+        },
+        "costPercent": true
+      }
+    },
+    "upgrades": {
+      "Champi Warrior": {
+        "trainTime": 21,
+        "img": "champi warrior"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
   "spearman": {
     "civs": {
       "Goths - Feudal Age": {
@@ -156,19 +174,19 @@
       },
       "Incas - Feudal Age": {
         "cost": {
-          "food": 0.2
+          "food": 0.1
         },
         "costPercent": true
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.25
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.3
+          "food": 0.2
         },
         "costPercent": true
       },
@@ -243,24 +261,6 @@
       "Aztec Civ Bonus": {
         "trainTime": 1.11,
         "trainTimePercent": true
-      },
-      "Incas - Feudal Age": {
-        "cost": {
-          "food": 0.2
-        },
-        "costPercent": true
-      },
-      "Incas - Castle Age": {
-        "cost": {
-          "food": 0.25
-        },
-        "costPercent": true
-      },
-      "Incas - Imperial Age": {
-        "cost": {
-          "food": 0.3
-        },
-        "costPercent": true
       }
     },
     "upgrades": {
@@ -358,19 +358,19 @@
       },
       "Incas - Feudal Age": {
         "cost": {
-          "food": 0.2
+          "food": 0.1
         },
         "costPercent": true
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.25
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.3
+          "food": 0.2
         },
         "costPercent": true
       },
@@ -445,15 +445,16 @@
         },
         "costPercent": true
       },
+      
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.25
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.3
+          "food": 0.2
         },
         "costPercent": true
       },
@@ -694,13 +695,13 @@
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.25
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.3
+          "food": 0.2
         },
         "costPercent": true
       }
@@ -1125,13 +1126,13 @@
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.25
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.3
+          "food": 0.2
         },
         "costPercent": true
       },
