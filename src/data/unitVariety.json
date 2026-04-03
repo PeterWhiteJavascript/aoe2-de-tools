@@ -135,9 +135,17 @@
       }
     },
     "upgrades": {
+      "Champi Runner": {
+        "trainTime": 40,
+        "img": "champi runner"
+      },
       "Champi Warrior": {
-        "trainTime": 21,
+        "trainTime": 26,
         "img": "champi warrior"
+      },
+      "Elite Champi Warrior": {
+        "trainTime": 21,
+        "img": "elite champi warrior"
       },
       "Conscription": {
         "trainTime": 1.33,
