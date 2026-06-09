@@ -12,7 +12,7 @@
   "contributors": [],
   "dependencies": {
     "compression": "^1.8.1",
-    "express": "4.22.0"
+    "express": "4.22.2"
   },
   "scripts": {
     "prestart": "npm run build",
