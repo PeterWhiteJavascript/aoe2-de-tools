@@ -102,6 +102,9 @@
       "gold shaft mining": 0.1,
       "oyster gatherer": 0.1
     },
+    "Mapuche (Foragers)": {
+      "forager": 0.25
+    },
     "Romans (5% Everything)": {
         "farmer": 0.05, 
         "farm heavy plow": 0.05, 

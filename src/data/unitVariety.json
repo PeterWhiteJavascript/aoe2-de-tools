@@ -111,32 +111,32 @@
     "civs": {
       "Incas - Dark Age": {
         "cost": {
-          "food": 0.05
+          "food": 0.15
         },
         "costPercent": true
       },
       "Incas - Feudal Age": {
         "cost": {
-          "food": 0.1
+          "food": 0.2
         },
         "costPercent": true
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.15
+          "food": 0.25
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.2
+          "food": 0.3
         },
         "costPercent": true
       }
     },
     "upgrades": {
       "Champi Runner": {
-        "trainTime": 40,
+        "trainTime": 34,
         "img": "champi runner"
       },
       "Champi Warrior": {
@@ -182,19 +182,19 @@
       },
       "Incas - Feudal Age": {
         "cost": {
-          "food": 0.1
+          "food": 0.2
         },
         "costPercent": true
       },
       "Incas - Castle Age": {
         "cost": {
-          "food": 0.15
+          "food": 0.25
         },
         "costPercent": true
       },
       "Incas - Imperial Age": {
         "cost": {
-          "food": 0.2
+          "food": 0.3
         },
         "costPercent": true
       },
@@ -2324,6 +2324,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Huaracas": {
+        "trainTime": 1.5,
+        "trainTimePercent": true
       }
     }
   },
@@ -2788,6 +2792,92 @@
       },
       "Goths Team Bonus": {
         "trainTime": 1.2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "kona": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "ibirapema warrior": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "temple guard": {
+    "civs": {},
+    "upgrades": {
+      "Elite Temple Guard": {
+        "trainTime": 24,
+        "img": "elite temple guard"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "guecha warrior": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "blackwood archer": {
+    "civs": {},
+    "upgrades": {
+      "Elite Blackwood Archer": {
+        "trainTime": 14,
+        "img": "elite blackwood archer"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "bolas rider": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }
