@@ -31556,7 +31556,7 @@
                 "food": 45,
                 "gold": 25
             },
-            "trainTime": 45
+            "trainTime": 42
         },
         {
             "name": "spearman",
@@ -31865,8 +31865,8 @@
             "projSpeed": 5.5,
             "lineOfSight": 7,
             "cost":{
-                "food": 70,
-                "wood": 10
+                "food": 50,
+                "wood": 25
             },
             "armorClasses": [[15, 0], [19, 0]],
             "bonus":[[1, 10], [32, 10], [17, 3], [27, 1]],
@@ -33227,7 +33227,7 @@
                 "food": 60,
                 "gold": 80
             },
-            "trainTime": 15
+            "trainTime": 18
         },
         {
             "name": "traction trebuchet",
@@ -33253,7 +33253,61 @@
             },
             "trainTime": 17
         },
-        
+        {
+            "name": "kona",
+            "ageReq": 3,
+            "cost":{
+                "food": 65,
+                "gold": 40
+            },
+            "trainTime": 14
+        },
+        {
+            "name": "ibirapema warrior",
+            "ageReq": 3,
+            "cost":{
+                "food": 30,
+                "gold": 60
+            },
+            "trainTime": 24
+        },
+        {
+            "name": "temple guard",
+            "ageReq": 3,
+            "cost":{
+                "food": 70,
+                "gold": 45
+            },
+            "trainTime": 28
+        },
+        {
+            "name": "guecha warrior",
+            "ageReq": 3,
+            "cost":{
+                "wood": 50,
+                "gold": 60
+            },
+            "trainTime": 17
+        },
+        {
+            "name": "blackwood archer",
+            "ageReq": 3,
+            "cost":{
+                "wood": 35,
+                "gold": 45
+            },
+            "trainTime": 18
+        },
+        {
+            "name": "bolas rider",
+            "ageReq": 3,
+            "cost":{
+                "wood": 45,
+                "gold": 50
+            },
+            "trainTime": 34
+        },
+
         {
             "name": "monaspa",
             "ageReq": 3,
@@ -33383,7 +33437,7 @@
             "lineOfSight": 4,
             "rateOfFire": 2.0,
             "cost":{
-                "food": 60,
+                "food": 70,
                 "gold": 30
             },
             "armorClasses": [[1, 0], [19, 0]],
