@@ -258,6 +258,10 @@
         "trainTime": 1.2,
         "trainTimePercent": true
       },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      },
       "Elite Fire Lancer": {
         "trainTime": 25,
         "img": "elite fire lancer"
@@ -422,6 +426,10 @@
       },
       "Britons Team Bonus": {
         "trainTime": 1.1,
+        "trainTimePercent": true
+      },
+      "Turks Team Bonus": {
+        "trainTime": 1.25,
         "trainTimePercent": true
       }
     }

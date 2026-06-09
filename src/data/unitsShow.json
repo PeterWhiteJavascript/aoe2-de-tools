@@ -51,9 +51,10 @@
         "scorpion",
         "bombard cannon",
         "siege tower",
+        "traction trebuchet",
         "war chariot",
         "mounted trebuchet",
-        "traction trebuchet"
+        "flaming camel"
     ],
     [
         "trebuchet",
@@ -72,7 +73,6 @@
         "composite bowman",
         "coustillier",
           "fire archer",
-        "flaming camel",
         "gbeto",
         "genoese crossbowman",
         "ghulam",
