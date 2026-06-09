@@ -2326,7 +2326,7 @@
         "trainTimePercent": true
       },
       "Huaracas": {
-        "trainTime": 0.5,
+        "trainTime": 1.5,
         "trainTimePercent": true
       }
     }
