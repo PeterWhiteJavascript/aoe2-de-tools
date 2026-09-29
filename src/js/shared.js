@@ -20,10 +20,12 @@ function setUpGatherRates(data){
     gatherRates["pasture wheelbarrow"] = {res: "food", gatherRate: 23.96 / 60}
     gatherRates["pasture hand cart"] = {res: "food", gatherRate: 25.26 / 60}
 
-    gatherRates["fishing ship shore"] = {res: "food", gatherRate: 0.28};
-    gatherRates["fishing ship deep"] = {res: "food", gatherRate: 0.49};
-    gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: parseFloat((0.28 + 0.28 * 0.20).toFixed(2))};
-    gatherRates["fishing ship deep gillnets"] = {res: "food", gatherRate: parseFloat((0.49 + 0.49 * 0.20).toFixed(2))};
+    gatherRates["fishing ship shore"] = {res: "food", gatherRate: 14.4 / 60};
+    gatherRates["fishing ship deep"] = {res: "food", gatherRate: 25.3 / 60};
+    gatherRates["fishing ship shore gillnets"] = {res: "food", gatherRate: 17.4 / 60};
+    gatherRates["fishing ship deep gillnets"] = {res: "food", gatherRate: 30.5 / 60};
+    gatherRates["fishing ship shore fishing lines"] = {res: "food", gatherRate: 15.8 / 60};
+    gatherRates["fishing ship deep fishing lines"] = {res: "food", gatherRate: 27.8 / 60};
     gatherRates["fish trap"] = {res: "food", gatherRate: 0.35};
     gatherRates["fish trap gillnets"] = {res: "food", gatherRate: parseFloat((0.35 + 0.35 * 0.20).toFixed(2))};
     gatherRates["gurjara mill"] = {res: "food", gatherRate: 0.0583};
@@ -79,11 +81,13 @@ function setUpGatherRates(data){
     
   gatherRates['oyster gatherer'] = { res: 'gold', gatherRate: 22.8 / 60 }
   gatherRates['fishing ship oysters'] = { res: 'gold', gatherRate: 24 / 60 }
+  gatherRates['fishing ship oysters gillnets'] = { res: 'gold', gatherRate: 29 / 60 }
+  gatherRates['fishing ship oysters fishing lines'] = { res: 'gold', gatherRate: 26.4 / 60 }
     gatherRates["relic"] = {
         res: "gold", gatherRate: 0.5
     };
     gatherRates["relic food"] = {
-        res: "food", gatherRate: 0.5
+        res: "food", gatherRate: 20 / 60
     };
     gatherRates["stone mining"] = {
         res: "stone", gatherRate: 
