@@ -13,11 +13,16 @@
     "Japanese - Dark Age": {
       "fishing ship shore": 0.05,
       "fishing ship deep": 0.05,
+      "fishing ship oysters": 0.05,
       "fish trap": 0.05
     },
     "Japanese - Feudal Age": {
       "fishing ship shore": 0.1,
       "fishing ship deep": 0.1,
+      "fishing ship shore fishing lines": 0.1,
+      "fishing ship deep fishing lines": 0.1,
+      "fishing ship oysters": 0.1,
+      "fishing ship oysters fishing lines": 0.1,
       "fish trap": 0.1
     },
     "Japanese - Castle Age": {
@@ -25,6 +30,11 @@
       "fishing ship deep": 0.15,
       "fishing ship shore gillnets": 0.15,
       "fishing ship deep gillnets": 0.15,
+      "fishing ship shore fishing lines": 0.15,
+      "fishing ship deep fishing lines": 0.15,
+      "fishing ship oysters": 0.15,
+      "fishing ship oysters fishing lines": 0.15,
+      "fishing ship oysters gillnets": 0.15,
       "fish trap": 0.15,
       "fish trap gillnets": 0.15
     },
@@ -33,6 +43,11 @@
       "fishing ship deep": 0.2,
       "fishing ship shore gillnets": 0.2,
       "fishing ship deep gillnets": 0.2,
+      "fishing ship shore fishing lines": 0.2,
+      "fishing ship deep fishing lines": 0.2,
+      "fishing ship oysters": 0.2,
+      "fishing ship oysters fishing lines": 0.2,
+      "fishing ship oysters gillnets": 0.2,
       "fish trap": 0.2,
       "fish trap gillnets": 0.2
     },
