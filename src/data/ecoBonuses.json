@@ -163,6 +163,26 @@
         "stone miner": 0.1, 
         "stone mining": 0.1, 
         "stone shaft mining": 0.1
+    },
+    "Danes (Food drop-off +5%)": {
+      "farmer": 0.05,
+      "farm heavy plow": 0.05,
+      "wheelbarrow": 0.05,
+      "wheelbarrow heavy plow": 0.05,
+      "hand cart": 0.05,
+      "herder": 0.05,
+      "pasture wheelbarrow": 0.05,
+      "pasture hand cart": 0.05,
+      "hunter": 0.05,
+      "shepherd": 0.05,
+      "forager": 0.05,
+      "fisherman": 0.05,
+      "fishing ship shore": 0.05,
+      "fishing ship deep": 0.05,
+      "fishing ship shore fishing lines": 0.05,
+      "fishing ship deep fishing lines": 0.05,
+      "fishing ship shore gillnets": 0.05,
+      "fishing ship deep gillnets": 0.05
     }
   },
   "team": {

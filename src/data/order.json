@@ -45,7 +45,12 @@
     {"name": "feitoria gold", "show": false},
     {"name": "gold from stone", "show": false},
     {"name": "gold from stone mining", "show": false},
-    {"name": "gold from stone shaft", "show": false}
+    {"name": "gold from stone shaft", "show": false},
+    {"name": "gold from shepherd", "show": false},
+    {"name": "gold from hunter", "show": false},
+    {"name": "gold from fishing ship shore", "show": false},
+    {"name": "gold from fishing ship deep", "show": false},
+    {"name": "gold from fish trap", "show": false}
   ],
   [
     {"name": "stone miner", "show": true},

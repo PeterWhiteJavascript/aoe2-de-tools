@@ -22,5 +22,35 @@
     "from": "forager",
     "factor": 0.333,
     "civ": "Portuguese"
+  },
+  "gold from shepherd": {
+    "res": "gold",
+    "from": "shepherd",
+    "factor": 0.1,
+    "civ": "Varangians"
+  },
+  "gold from hunter": {
+    "res": "gold",
+    "from": "hunter",
+    "factor": 0.1,
+    "civ": "Varangians"
+  },
+  "gold from fishing ship shore": {
+    "res": "gold",
+    "from": "fishing ship shore",
+    "factor": 0.1,
+    "civ": "Varangians"
+  },
+  "gold from fishing ship deep": {
+    "res": "gold",
+    "from": "fishing ship deep",
+    "factor": 0.1,
+    "civ": "Varangians"
+  },
+  "gold from fish trap": {
+    "res": "gold",
+    "from": "fish trap",
+    "factor": 0.05,
+    "civ": "Varangians"
   }
 }
