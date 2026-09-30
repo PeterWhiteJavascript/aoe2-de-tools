@@ -14,7 +14,8 @@
         "flemish militia",
         "ibirapema warrior",
         "jian swordsman",
-        "temple guard"
+        "temple guard",
+        "varangian guard"
     ],
     [
         "archer",
@@ -26,7 +27,8 @@
         "slinger",
         "genitour",
         "xianbei raider",
-        "grenadier"
+        "grenadier",
+        "mounted crossbowman"
     ],
     [
         "scout cavalry",
@@ -77,11 +79,14 @@
         "genoese crossbowman",
         "ghulam",
         "guecha warrior",
+        "hearth troop",
         "hussite wagon",
         "huskarl",
         "iron pagoda",
         "jaguar warrior",
         "janissary",
+        "jarl",
+        "jomsviking",
         "kamayuk",
         "karambit warrior",
         "keshik",
@@ -121,10 +126,12 @@
         "cannon galleon",
         "dromon",
         "caravel",
-        "longboat",
+        "longship",
         "thirisadai",
         "lou chuan",
-        "turtle ship"
+        "turtle ship",
+        "hulk",
+        "catapult galleon"
     ],
     [
         "house",

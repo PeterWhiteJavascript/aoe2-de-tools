@@ -18,7 +18,9 @@
     "prestart": "npm run build",
     "start": "node app.js",
     "prebuild": "rm -rf public",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "gamedata:verify": "python tools/gamedata/gamedata.py verify",
+    "gamedata:update": "python tools/gamedata/gamedata.py update"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",

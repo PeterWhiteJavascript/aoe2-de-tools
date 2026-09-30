@@ -9,7 +9,7 @@ const finder = (arr, name) => {
   })
 }
 
-const setUpGatherRates = (data) => {
+const setUpGatherRates = (data, derived) => {
   let gatherRates = data.units[0].gathering
   //Get all of the gather rates with various upgrades applied.
   gatherRates['farm heavy plow'] = { res: 'food', gatherRate: 21.2 / 60 }
@@ -175,27 +175,17 @@ const setUpGatherRates = (data) => {
     res: 'gold',
     gatherRate: 0.4,
   }
-  gatherRates['gold from stone'] = {
-    res: 'gold',
-    gatherRate: gatherRates['stone miner'].gatherRate / 3,
+  for (const [name, d] of Object.entries(derived)) {
+    gatherRates[name] = { res: d.res, gatherRate: gatherRates[d.from].gatherRate * d.factor }
   }
-  gatherRates['gold from stone mining'] = {
-    res: 'gold',
-    gatherRate: gatherRates['stone mining'].gatherRate / 3,
-  }
-  gatherRates['gold from stone shaft'] = {
-    res: 'gold',
-    gatherRate: gatherRates['stone shaft mining'].gatherRate / 3,
-  }
-  
-    gatherRates["wood from berries"] = {
-        res: "wood", gatherRate: gatherRates["forager"].gatherRate / 3
-    };
   return gatherRates
 }
 
 module.exports = async function () {
   const buf = await readFile(path.join(__dirname, '../data.json'))
   const data = JSON.parse(buf.toString('utf8'))
-  return setUpGatherRates(data)
+  const derived = JSON.parse(
+    (await readFile(path.join(__dirname, '../data/derivedGatherRates.json'))).toString('utf8')
+  )
+  return setUpGatherRates(data, derived)
 }

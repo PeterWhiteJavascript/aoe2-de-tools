@@ -532,7 +532,7 @@
     },
     "upgrades": {
       "Heavy Cavalry Archer": {
-        "trainTime": 27,
+        "trainTime": 30,
         "img": "heavy cavalry archer"
       },
       "Steppe Husbandry": {
@@ -1263,7 +1263,7 @@
     },
     "upgrades": {
       "Fire Ship": {
-        "trainTime": 36,
+        "trainTime": 27,
         "img": "fire ship"
       },
       "Shipwright": {
@@ -1323,7 +1323,7 @@
     },
     "upgrades": {
       "War Galley": {
-        "trainTime": 36,
+        "trainTime": 27,
         "img": "war galley"
       },
       "Shipwright": {
@@ -1512,7 +1512,7 @@
       }
     }
   },
-  "longboat": {
+  "longship": {
     "noGeneric": true,
     "civs": {
       "Vikings - Feudal/Castle Age": {
@@ -2878,6 +2878,101 @@
     }
   },
   "bolas rider": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "hulk": {
+    "civs": {},
+    "upgrades": {
+      "War Hulk": {
+        "trainTime": 27,
+        "img": "war hulk"
+      },
+      "Carrack": {
+        "trainTime": 27,
+        "img": "carrack unit"
+      },
+      "Shipwright": {
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "catapult galleon": {
+    "civs": {},
+    "upgrades": {
+      "Shipwright": {
+        "trainTime": 1.54,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "mounted crossbowman": {
+    "civs": {},
+    "upgrades": {
+      "Heavy Mounted Crossbowman": {
+        "trainTime": 30,
+        "img": "heavy mounted crossbowman"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "varangian guard": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Perfusion": {
+        "trainTime": 2,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "hearth troop": {
+    "civs": {},
+    "upgrades": {
+      "Elite Hearth Troop": {
+        "trainTime": 14,
+        "img": "elite hearth troop"
+      },
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "jarl": {
+    "civs": {},
+    "upgrades": {
+      "Conscription": {
+        "trainTime": 1.33,
+        "trainTimePercent": true
+      },
+      "Kasbah": {
+        "trainTime": 1.25,
+        "trainTimePercent": true
+      }
+    }
+  },
+  "jomsviking": {
     "civs": {},
     "upgrades": {
       "Conscription": {
