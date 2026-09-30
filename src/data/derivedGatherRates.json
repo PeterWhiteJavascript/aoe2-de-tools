@@ -1,0 +1,26 @@
+{
+  "gold from stone": {
+    "res": "gold",
+    "from": "stone miner",
+    "factor": 0.333,
+    "civ": "Poles"
+  },
+  "gold from stone mining": {
+    "res": "gold",
+    "from": "stone mining",
+    "factor": 0.333,
+    "civ": "Poles"
+  },
+  "gold from stone shaft": {
+    "res": "gold",
+    "from": "stone shaft mining",
+    "factor": 0.333,
+    "civ": "Poles"
+  },
+  "wood from berries": {
+    "res": "wood",
+    "from": "forager",
+    "factor": 0.333,
+    "civ": "Portuguese"
+  }
+}

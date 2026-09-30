@@ -21,6 +21,11 @@ node app.js # Start the server
 
 2. Visit http://localhost:5000/ (or whichever port is indicated by the last command's output)
 
+### Update data
+
+Run `npm run gamedata:update` after a game patch. Cost, training time, gather rates, new units and their corresponding icons will be automatically created based on the game files.
+Details: [tools/gamedata/README.md](tools/gamedata/README.md).
+
 ### Lossless images
 
 Images in the PNG format were replaced in [#20](https://github.com/PeterWhiteJavascript/aoe2-de-tools/pull/20), but can still be found [here](https://github.com/PeterWhiteJavascript/aoe2-de-tools/tree/5fbf8a7/src/img) or checked out via:

@@ -1,0 +1,2 @@
+genieutils-py==0.1.2
+Pillow>=10
