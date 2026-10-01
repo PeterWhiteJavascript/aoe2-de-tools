@@ -94,7 +94,7 @@
     }
   },
   "manualEcoBonuses": ["Aztecs (Farms)", "Berbers (Farms)", "Georgians (10% Everything Near Church)", "Japanese - Dark Age", "Japanese - Feudal Age", "Japanese - Castle Age", "Japanese - Imperial Age"],
-  "knownResources": [0, 1, 2, 3, 4, 32, 33, 47, 69, 78, 79, 85, 86, 88, 89, 90, 91, 92, 93, 94, 97, 176, 177, 178, 179, 180, 181, 182, 189, 190, 191, 203, 204, 208, 209, 210, 211, 212, 216, 218, 219, 225, 234, 245, 251, 254, 268, 269, 271, 272, 273, 277, 283, 291, 292, 295, 296, 504],
+  "knownResources": [0, 1, 2, 3, 4, 32, 33, 47, 69, 78, 79, 85, 86, 88, 89, 90, 91, 92, 93, 94, 97, 176, 177, 178, 179, 180, 181, 182, 189, 190, 191, 203, 204, 208, 209, 210, 211, 212, 216, 218, 219, 225, 234, 236, 237, 238, 239, 245, 251, 254, 266, 268, 269, 271, 272, 273, 277, 283, 287, 288, 289, 291, 292, 295, 296, 297, 502, 504],
   "otherResources": ["fishing ship shore", "fishing ship deep", "fishing ship shore fishing lines", "fishing ship deep fishing lines",
     "fishing ship shore gillnets", "fishing ship deep gillnets", "fishing ship oysters", "fishing ship oysters fishing lines",
     "fishing ship oysters gillnets", "fish trap", "fish trap gillnets", "feitoria food", "feitoria wood", "feitoria gold",
