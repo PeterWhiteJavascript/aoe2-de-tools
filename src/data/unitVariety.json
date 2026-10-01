@@ -2143,10 +2143,6 @@
         "trainTime": 1.25,
         "trainTimePercent": true
       },
-      "Comitatanses": {
-        "trainTime": 1.5,
-        "trainTimePercent": true
-      },
       "Comitatenses": {
         "trainTime": 1.5,
         "trainTimePercent": true
