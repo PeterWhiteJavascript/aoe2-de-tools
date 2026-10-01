@@ -871,13 +871,6 @@ class Sync:
                 self.new_images.append({'file': game_name.lower(), 'kind': self.category(unit_id), 'unit': unit_id,
                                         'replaces': old_name})
 
-    def check_civs(self):
-        project_civs = set(self.data.root['civlist'].value())
-        missing = sorted(set(self.snapshot['civs']) - project_civs)
-        if missing:
-            self.add('info', 'data.json civlist', 'civs missing (rankings/tech tree are editorial, hence not '
-                     'automatic): ' + ', '.join(missing))
-
     def check_new_units(self):
         """Report trainable tech tree units that the project has neither as unit nor as upgrade."""
         covered = set()
@@ -1031,8 +1024,8 @@ class Sync:
         self.check_eco_bonuses()
         self.check_unknown_resources()
         self.check_new_units()
-        self.check_civs()
-        if self.unknown_classes:
+        # Armor classes are only compared with --stats
+        if self.stats and self.unknown_classes:
             self.add('info', 'data.json armorClasses', 'classes without a name in the project are ignored: '
                      + ', '.join(map(str, sorted(self.unknown_classes))))
         return self.findings

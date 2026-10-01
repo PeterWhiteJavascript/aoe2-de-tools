@@ -71,7 +71,7 @@ Details are in the docstrings of the `check_*` methods in `sync.py`.
 - **Resources** in `order.json` are checked against `gatherers` in both directions, so a new resource cannot silently miss its civ bonuses.
 - **New units** get a `data.json` entry with their upgrades, a `unitVariety.json` entry, an icon and a place in the `unitsShow.json` group with the most units from the same building.
 - **Renamed units** listed in `renames` get the game name everywhere in `src/`, including their upgrades and icons.
-- Editorial data (civ rankings, tech tree pages, bonus texts) is not touched; missing civs are only reported.
+- Editorial data (civ rankings, tech tree pages, bonus texts) is not touched.
 
 ## config.json
 
