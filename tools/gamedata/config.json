@@ -33,6 +33,15 @@
     "town center": ["ageReq"]
   },
   "skipNewUnits": [1954, 1966, 1978],
+  "ignoreTechs":[1405, 1406, 1407],
+  "manualVariety": {
+    "house": ["2 Villagers", "3 Villagers", "4 Villagers"],
+    "watch tower": ["2 Villagers", "3 Villagers", "4 Villagers", "5 Villagers", "6 Villagers", "7 Villagers"],
+    "farm": ["25 Second Build Time"],
+    "pasture": ["50 Second Build Time"],
+    "huskarl": ["Barracks", "Perfusion"],
+    "tarkan": ["Stable"]
+  },
   "gatherers": {
     "farmer": {"units": [259, 214], "resources": ["farmer", "farm heavy plow", "wheelbarrow", "wheelbarrow heavy plow", "hand cart"]},
     "herder": {"units": [1892, 1891], "resources": ["herder", "pasture wheelbarrow", "pasture hand cart"]},
@@ -48,6 +57,16 @@
   "notGatherers": [156, 222],
   "effectiveGatherRates": ["farmer", "herder", "pasture wheelbarrow", "pasture hand cart"],
   "specialResources": {
+    "215": {
+      "kind": "ecoBonus",
+      "label": "Foragers",
+      "gatherers": ["forager"]
+    },
+    "276": {
+      "kind": "ecoBonus",
+      "label": "Gold Miners",
+      "gatherers": ["gold miner", "oyster gatherer"]
+    },
     "241": {
       "kind": "derived",
       "res": "gold",
@@ -70,13 +89,15 @@
     "299": {
       "kind": "ecoBonus",
       "label": "Food drop-off",
-      "resources": ["farmer", "farm heavy plow", "wheelbarrow", "wheelbarrow heavy plow", "hand cart", "herder",
-        "pasture wheelbarrow", "pasture hand cart", "hunter", "shepherd", "forager", "fisherman",
-        "fishing ship shore", "fishing ship deep", "fishing ship shore fishing lines",
-        "fishing ship deep fishing lines", "fishing ship shore gillnets", "fishing ship deep gillnets"]
+      "res": "food",
+      "except": ["fish trap", "fish trap gillnets", "feitoria food", "relic food", "gurjara mill"]
     }
   },
-  "unitsShowCategories": {"12": 1, "87": 2, "101": 3, "104": 4, "49": 5, "82": 6, "45": 7},
-  "uniqueCategory": 6,
+  "manualEcoBonuses": ["Aztecs (Farms)", "Berbers (Farms)", "Georgians (10% Everything Near Church)", "Japanese - Dark Age", "Japanese - Feudal Age", "Japanese - Castle Age", "Japanese - Imperial Age"],
+  "knownResources": [0, 1, 2, 3, 4, 32, 33, 47, 69, 78, 79, 85, 86, 88, 89, 90, 91, 92, 93, 94, 97, 176, 177, 178, 179, 180, 181, 182, 189, 190, 191, 203, 204, 208, 209, 210, 211, 212, 216, 218, 219, 225, 234, 245, 251, 254, 268, 269, 271, 272, 273, 277, 283, 291, 292, 295, 296, 504],
+  "otherResources": ["fishing ship shore", "fishing ship deep", "fishing ship shore fishing lines", "fishing ship deep fishing lines",
+    "fishing ship shore gillnets", "fishing ship deep gillnets", "fishing ship oysters", "fishing ship oysters fishing lines",
+    "fishing ship oysters gillnets", "fish trap", "fish trap gillnets", "feitoria food", "feitoria wood", "feitoria gold",
+    "feitoria stone", "relic", "relic food", "trade cart", "gurjara mill"],
   "genericShare": 0.8
 }

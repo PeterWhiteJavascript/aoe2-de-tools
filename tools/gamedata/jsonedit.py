@@ -115,8 +115,8 @@ class Doc:
         # (start, sequence number, end, new text); the sequence number keeps insertions at the
         # same position in the order they were made
         self.edits = []
-        # Empty containers have no member to copy the formatting from, so values added to them
-        # are collected here and the whole container is rendered on save: id(node) -> (node, content)
+        # Containers that are rendered in full on save: id(node) -> (node, content). Empty containers
+        # have no member to copy the formatting from; object_content() also uses this
         self.filled_containers = {}
         self.root = self._parse(self._skip_whitespace(0))[0]
         # The smallest indentation in the file is its indentation step
@@ -215,15 +215,27 @@ class Doc:
             at = arr.members[index][1]
             self._edit(at.start, at.start, rendered + separator)
 
+    def object_content(self, obj):
+        """The value of an object node as a dict that save() writes back in full.
+
+        For edits that remove or reorder keys. The object is rendered in the project style then, so
+        no other edit may touch it (save() refuses overlapping edits).
+        """
+        return self.filled_containers.setdefault(id(obj), (obj, obj.value()))[1]
+
     def changed(self):
         return bool(self.edits or self.filled_containers)
 
     def save(self):
         for node, content in self.filled_containers.values():
             self._edit(node.start, node.end, render(content, self.indent, node.line_indent()))
+        edits = sorted(self.edits)
+        for (_, _, end, _), (next_start, _, _, _) in zip(edits, edits[1:]):
+            if next_start < end:
+                raise ValueError(f'{self.path}: overlapping edits at {next_start}')
         text = self.text
         # Apply from the end of the file backwards so earlier positions stay valid
-        for start, _, end, new_text in sorted(self.edits, reverse=True):
+        for start, _, end, new_text in reversed(edits):
             text = text[:start] + new_text + text[end:]
         json.loads(text)  # refuse to write broken JSON
         self.path.write_text(text, encoding='utf-8')

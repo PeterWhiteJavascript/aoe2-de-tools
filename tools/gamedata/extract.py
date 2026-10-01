@@ -29,6 +29,7 @@ COST_RESOURCES = {0: 'food', 1: 'wood', 2: 'stone', 3: 'gold'}  # engine resourc
 # Effect command types
 EFFECT_ENABLE_UNIT = 2   # b = 1 enables unit a, b = 0 disables it
 EFFECT_UPGRADE_UNIT = 3  # turns unit a into unit b
+EFFECT_TEAM_TECH = 18    # applies tech a to the whole team (Wu houses, Italians Condottiero)
 ATTRIBUTE_EFFECT_TYPES = {0, 4, 5, 10, 14, 15}  # set / add / multiply, 10+ are the team bonus variants
 RESOURCE_EFFECT_TYPES = {1, 6, 11, 16}          # modify / multiply, 10+ are the team bonus variants
 
@@ -115,6 +116,12 @@ def relevant_effects(dat, effect_id):
         return []
     return [[c.type, c.a, c.b, c.c, clean_number(c.d)] for c in dat.effects[effect_id].effect_commands
             if is_relevant(c)]
+
+
+def team_techs(dat, effect_ids):
+    """Techs the effects apply to the whole team."""
+    return sorted({int(c.a) for effect_id in effect_ids if effect_id >= 0
+                   for c in dat.effects[effect_id].effect_commands if c.type == EFFECT_TEAM_TECH})
 
 
 def costs(resource_costs):
@@ -281,6 +288,7 @@ def extract(game, extra_units=(), extra_techs=()):
                        if tech.civ == i and tech.effect_id >= 0
                        and not any(location.location_id >= 0 for location in tech.research_locations)]
         tech_ids.update(bonus_techs)
+        team_tech_ids = team_techs(dat, [dat.civs[i].tech_tree_id, dat.civs[i].team_bonus_id])
         civ = civ_list[i]
         civs[CIV_RENAMES.get(internal_name, internal_name)] = {
             'id': i,
@@ -288,7 +296,13 @@ def extract(game, extra_units=(), extra_techs=()):
             'uniqueUnits': [unit_id for unit_id in (civ.get('unique_unit_id'), civ.get('elite_unique_unit_id'))
                             if unit_id is not None],
             'bonusTechs': bonus_techs,
-            'teamBonus': relevant_effects(dat, dat.civs[i].team_bonus_id),
+            # The tech tree effect also holds bonuses that apply from the start (Aztecs military
+            # production, Spanish builders)
+            'techTreeBonus': relevant_effects(dat, dat.civs[i].tech_tree_id),
+            # Techs the civ gives its whole team: bonuses (Wu houses) or units (Italians Condottiero)
+            'teamTechs': team_tech_ids,
+            'teamBonus': relevant_effects(dat, dat.civs[i].team_bonus_id)
+            + [e for t in team_tech_ids for e in relevant_effects(dat, dat.techs[t].effect_id)],
         }
 
     techs = {str(tech_id): tech_entry(dat, strings, tech_id, tech_civs)

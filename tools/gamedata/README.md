@@ -1,32 +1,37 @@
 # Game data sync (gamedata)
 
-Checks the project data against the real AoE2:DE game data and applies changes:
-costs, training and research times, gather rates, eco bonuses, new units, new
-resources and their icons (webp).
+Checks the project data in `src/` against the AoE2:DE game data and applies changes: costs, train and
+research times, gather rates, eco bonuses, new units and resources with their icons.
 
 ## After a game patch
 
 ```shell
 pip install -r tools/gamedata/requirements.txt   # once
-python tools/gamedata/gamedata.py update          # or: npm run gamedata:update
-git diff                                          # review the changes
+npm run gamedata:extract                        
+npm run gamedata:verify                         # optional, preview all changes
+npm run gamedata:update                         # apply changes
+git diff                                        # review
 ```
 
 | Command   | Effect |
 |-----------|--------|
 | `extract` | reads the game and writes `snapshot.json` |
 | `verify`  | compares the project with `snapshot.json`, changes nothing (exit code 1 on differences) |
-| `patch`   | fixes differences, adds new things, creates missing icons |
+| `patch`   | applies differences and new entries, creates missing icons |
 | `update`  | `extract` + `patch` |
 
-Options: `--game <path>` (default: the Steam library in which app 813780 is installed),
-`--stats` (additionally check combat stats such as hp, attack and armor, which the villager calculator does not need).
+Options:
 
-`snapshot.json` is checked in. Its diff shows what a game patch changed.
+  - `--game <path>` (default: the Steam library with app 813780), 
+  - `--stats` (also check combat stats, which the villager calculator does not use).
+
+`snapshot.json` is checked in; its diff shows what a game patch changed.
 
 ## Data sources
 
-- `resources/_common/dat/empires2_x2_p1.dat` holds the game data and is read with [genieutils-py](https://github.com/SiegeEngineers/genieutils-py).
+Paths in the game installation:
+
+- `resources/_common/dat/empires2_x2_p1.dat`: game data
 - `resources/_common/dat/futuravailableunits.json`: tech tree per civ (availability, age).
 - `resources/_common/dat/civilizations.json`: civ names.
 - `resources/en/strings/key-value/key-value-strings-utf8.txt`: display names.
@@ -34,93 +39,111 @@ Options: `--game <path>` (default: the Steam library in which app 813780 is inst
 - `resources/_common/wpfg/resources/uniticons` (PNG) and `widgetui/textures/ingame/units` (DDS): unit portraits.
 - `widgetui/textures/menu/civs`: civ emblems.
 - `widgetui/textures/ingame/icons`: resource symbols.
-- `resources/_common/fonts/georgiab.ttf`: font for the unit names.
-
-## Rules
-
-- **Values** come from the Gaia copy of a unit. All civ copies are identical; civ differences arise via techs.
-- **Upgrades** in `data.json` are only checked if they have `effects.gatherRate` (eco techs such as Double-Bit Axe or Gold Mining). The villager calculator reads nothing else from them.
-- **Unit upgrades of new units** are named like the target unit ("war galley", "fire ship"). Cost and time come from the researchable tech behind them, even if it affects several lines ("Medium Warships", "Heavy Warships").
-- **Category** of new units (frame color, placement in `unitsShow.json`):
-  - *unique* if unlocked via a civ-specific tech or available to only one civ,
-  - *generic* for more than 80 % of the civs (`genericShare`),
-  - *regional* otherwise.
-- **unitVariety** of new units: elite tiers with a different time or cost (with `img`) plus all percentage techs the project already knows (Conscription, Kasbah, Perfusion, Shipwright ...), provided they affect the unit.
-- **Eco bonuses** of new civs are detected from gather rate multipliers. Factors below 1 are ignored: they make a resource last longer (Goths hunt, Tatars sheep) and do not change the gather rate.
-  Engine resources with special meaning are listed in `config.json` under `specialResources`:
-  - 241 = gold from stone (Poles),
-  - 267 = wood from berries (Portuguese),
-  - 298 = gold from food (Varangians),
-  - 299 = food bonus on drop-off (Danes).
-- **Derived resources** (a share of a gathered resource as another resource) live in `src/data/derivedGatherRates.json`. `src/_data/gatherRates.js` computes them from the source rate, new ones are also added to `order.json` with an icon.
-- **Renamed units** get the game name everywhere in `src/` (also their upgrades, e.g. "elite longboat" →
-  "elite longship"), and their icons are recreated under the new name. See `renames` below.
-- Editorial data (civ rankings, tech tree pages, civ bonus texts) is left untouched; missing civs are only reported.
+- `resources/_common/fonts/georgiab.ttf`: font for the unit names (icon generation)
 
 ## Code overview
 
 | File | Purpose |
 |------|---------|
-| `gamedata.py` | command line entry point, prints the findings |
-| `extract.py` | reads the game files and writes `snapshot.json`; the only module that touches the game installation besides `icons.py` |
-| `sync.py` | compares `src/` with `snapshot.json`; each `check_*` method records findings, fixable ones carry an `apply` function that `patch` runs |
-| `jsonedit.py` | edits the project JSON files in place so their hand formatting and the git diff stay small |
-| `icons.py` | creates the webp icons for new units and resources from the game textures |
+| `gamedata.py` | command line, prints the findings |
+| `extract.py` | reads the game files (`.dat` via [genieutils-py](https://github.com/SiegeEngineers/genieutils-py), tech trees, strings) into `snapshot.json` |
+| `sync.py` | compares `src/` with the snapshot; each `check_*` method records findings, fixable ones carry an `apply` function that `patch` runs |
+| `jsonedit.py` | edits the project JSON files in place, keeping their formatting |
+| `icons.py` | creates webp icons from the game textures |
 
-`verify` and `patch` only read `snapshot.json`, so they work without the game installed (except for
-creating icons). To test a change to the tool, run `verify` before and after it and compare the output;
-for changes to `patch`, run it on a copy of the repository.
+`verify` and `patch` only read the snapshot and work without the game installed, except for creating icons.
+To test a change to the tool, compare the `verify` output before and after; run `patch` on a copy of the repository.
+
+## Rules
+
+Details are in the docstrings of the `check_*` methods in `sync.py`.
+
+- **Unit values** come from the Gaia copy of a unit; civ differences come from techs. Only `trainTime` and `cost` are checked without `--stats`.
+- **Eco techs** in `data.json` "upgrades" are checked if they have `effects.gatherRate`; the calculator reads nothing else from them.
+- **Villager gather rates** are compared with the work rate of the task units in `gatherers`.
+- **unitVariety.json** is derived from every tech and bonus that changes train time or cost of a unit line:
+  - techs go to `upgrades` under the tech name, team bonuses as "<Civ> Team Bonus", civ bonuses to `civs` as "<Civ> Civ Bonus" or "<Civ> - <Age> Age",
+  - a group of keys with the same game source is replaced as a whole if it differs; values are compared by effect, not notation,
+  - elite tiers with another time or cost than the tier before go to `upgrades` with `img`; `cost` is the difference to the base unit, because the calculator adds it,
+  - units in `unitsShow.json` without an entry get one,
+  - keys without a game source and bonuses that slow training are only reported.
+- **Eco bonuses** come from the work rate multipliers of a civ's bonus techs and tech tree effect, and from `specialResources`. Factors below 1 are ignored. Values are compared only for bonuses from a single tech without prerequisites; removed bonuses are only reported. The `team` section is not checked.
+- **Resources** in `order.json` are checked against `gatherers` in both directions, so a new resource cannot silently miss its civ bonuses.
+- **New units** get a `data.json` entry with their upgrades, a `unitVariety.json` entry, an icon and a place in the `unitsShow.json` group with the most units from the same building.
+- **Renamed units** listed in `renames` get the game name everywhere in `src/`, including their upgrades and icons.
+- Editorial data (civ rankings, tech tree pages, bonus texts) is not touched; missing civs are only reported.
 
 ## config.json
 
-`config.json` holds everything the tool cannot derive from the game data by itself: name mappings,
-exceptions and the meaning of special engine values. It only needs to change when `verify` reports
-a note that points to it, or when a patch introduces a new kind of mechanic.
-
-Game IDs can be looked up in `snapshot.json` (search for the English name; `units` and `techs`
-are keyed by ID). Units that exist in several copies (Gaia, per civ, hero) have several IDs; use the
-one with a `civs` list.
+Holds what neither the game data nor the project contains: name mappings, exceptions and the meaning of
+engine values. It only changes when `verify` points to it. Game IDs are in `snapshot.json`; for units with
+several copies use the ID with a `civs` list.
 
 | Key | Purpose |
 |-----|---------|
-| `units` | project name → unit ID, if the name in `data.json` is ambiguous or differs from the game name |
-| `renames` | old project name → unit ID, for units that were renamed in the game; `patch` renames them in the project, afterwards the entry can be removed |
-| `upgrades` | project name → tech ID, if an eco tech in `data.json` cannot be found by its name |
-| `ignoreFields` | fields that are not compared for a unit (e.g. monks: `rateOfFire` is the conversion time there) |
-| `skipNewUnits` | unit IDs that are never adopted as new units (heroes, campaign units) |
-| `gatherers` | villager task units in the game (male and female ID) → resources in the project that use their work rate |
-| `notGatherers` | unit IDs with a work rate that are not gatherers (repairers), so they are not reported as unknown |
-| `effectiveGatherRates` | resources the project tracks as effective rates including walking time (farms, pastures); they are not compared with the pure work rate |
-| `specialResources` | engine resource ID → meaning, for civ bonuses that are not a gather rate multiplier (see below) |
-| `unitsShowCategories` | building ID → group index in `src/data/unitsShow.json` where new units trained there are listed |
-| `uniqueCategory` | group index in `unitsShow.json` for unique units |
-| `genericShare` | share of civs above which a new unit counts as *generic* instead of *regional* |
+| `units` | project name → unit ID, if the name is ambiguous or differs from the game |
+| `renames` | old project name → unit ID of a unit renamed in the game; can be removed after `patch` |
+| `upgrades` | project name → tech ID, if an eco tech cannot be found by name |
+| `ignoreFields` | fields not compared for a unit, because they mean something else there |
+| `skipNewUnits` | unit IDs never adopted as new units (heroes, campaign units) |
+| `ignoreTechs` | tech IDs that affect another building than the calculator shows; list all techs of a bonus |
+| `manualVariety` | unit → `unitVariety` keys maintained by hand |
+| `gatherers` | villager task unit IDs (male, female) → project resources using their work rate |
+| `notGatherers` | unit IDs with a work rate that do not gather |
+| `effectiveGatherRates` | resources stored as effective rates including walking; not compared with the work rate |
+| `otherResources` | resources in `order.json` no villager gathers |
+| `specialResources` | engine resource ID → meaning, see below |
+| `knownResources` | engine resource IDs that do not affect gathering |
+| `manualEcoBonuses` | `ecoBonuses.json` keys maintained by hand |
+| `genericShare` | share of civs above which a new unit is *generic* instead of *regional* |
 
-### Handling notes from `verify`
+After changing `units` or `upgrades`, run `update`: the mappings also decide what `extract` writes.
 
-| Note | What to do |
-|------|------------|
-| `units/<name>: no matching unit found in the game` | If the unit was renamed in the game, add `"<name>": <ID>` to `renames`, otherwise to `units`. |
-| `units/<name>: ambiguous [...]` | Check the IDs in `snapshot.json` and pin the right one in `units`. |
-| `upgrades/<name>: not in any tech tree of the game` | The eco tech was renamed or removed. Map it in `upgrades` or remove the effect from `data.json`. |
-| `config.json gatherers: unknown gatherer in the game` | New villager task. Add it to `gatherers` with the resources that should use its rate, or to `notGatherers`. |
-| difference in a field that means something else for a unit | Add the field to `ignoreFields` for that unit. |
-| new unit that should not appear in the calculator | Add its ID to `skipNewUnits`. |
+### Notes from `verify`
 
-After changing `config.json`, run `verify` again. Mappings in `units` and `upgrades` also decide what
-`extract` writes to `snapshot.json`, so run `update` (or `extract`) if a mapping points to an ID that is
-not yet in the snapshot.
+| Note | Action |
+|------|--------|
+| `units/<name>: no matching unit` (also `unitVariety.json <unit>`) | add the ID to `renames` if renamed, else to `units` |
+| `units/<name>: ambiguous` | pin the right ID in `units` |
+| `upgrades/<name>: not in any tech tree` | map it in `upgrades` or remove the effect |
+| `unknown gatherer in the game` | add it to `gatherers` or `notGatherers` |
+| field differs that means something else | add it to `ignoreFields` |
+| unwanted new unit | add its ID to `skipNewUnits` |
+| `slows training down` | if it applies to another building, add the tech IDs to `ignoreTechs` |
+| `no game source found` | rename the key to the tech name, or add it to `manualVariety` |
+| `no gather bonus found in the game` | remove the entry, or add it to `manualEcoBonuses` |
+| `no such bonus anymore` (derived resource) | remove it from `derivedGatherRates.json` and `order.json`, or fix `specialResources` |
+| `not assigned to a villager task` | add it to its task in `gatherers`, or to `otherResources` |
+| `not in order.json` | update `gatherers` or `otherResources` |
+| `unknown engine resource` | add it to `specialResources` if it affects gathering, else to `knownResources` |
 
 ### Special resources
 
-Some civ bonuses are stored as engine resources instead of work rate multipliers. `verify` does not detect
-new ones by itself; they show up as a civ bonus that is missing in the calculator. To add one, find the
-resource ID in the civ's bonus tech in `snapshot.json` (`effects` entries of type 1:
-`[1, resource, mode, -1, value]`) and add an entry:
+Most eco bonuses make villagers work faster, which the tool reads from the game data. Some bonuses
+work differently: the game stores them as a number on an engine "resource" (e.g. Malians: resource 276
+= 10), and only the game executable knows what that number does. `specialResources` tells the tool.
 
-- `"kind": "derived"`: a share of a gathered resource is also credited as another resource (Poles: gold from stone). `res` is the credited resource, `resources` maps the new project resource to its source resource. The share is `value / 100`. If the game applies a different share to a single source, write it as `{"from": "<source>", "scale": <factor>, "note": "<how it was tested>"}` instead of the plain source name (Varangians: fish traps only get half of the 10 %). New entries are written to `src/data/derivedGatherRates.json` and `order.json` and get an icon.
-- `"kind": "ecoBonus"`: a percentage bonus on the listed project resources, written to `ecoBonuses.json` with `label` as the bonus name.
+When `verify` reports an unknown engine resource, look at the listed tech in `snapshot.json`. Its effect
+`[1, <resource ID>, <mode>, -1, <value>]` holds the value; `value / 100` is the share. Test the effect in
+the game once, then add one of two kinds:
 
-Verify the share in the game once. The `.dat` only holds the value; which sources it applies to and
-how is decided by the game executable and is not documented in the game files. The civ descriptions do
-not give percentages either.
+**`ecoBonus`**: villagers of some tasks gather faster. Written to `ecoBonuses.json`.
+
+```json
+"276": {"kind": "ecoBonus", "label": "Gold Miners", "gatherers": ["gold miner", "oyster gatherer"]}
+```
+
+`gatherers` names keys of `gatherers`. Alternatively `"res": "food", "except": [...]` applies the bonus
+to all food resources except the listed ones.
+
+**`derived`**: gathering one resource also yields another one (Poles get gold when mining stone). Each
+pair becomes a new resource in `derivedGatherRates.json` and `order.json`, with an icon.
+
+```json
+"241": {"kind": "derived", "res": "gold", "resources": {"gold from stone": "stone miner"}}
+```
+
+`resources` maps the new resource to the resource it comes from. If the game uses a different share for
+one source, write `{"from": "<source>", "scale": <factor>, "note": "<how it was tested>"}` instead of the name.
+
+`verify` does not notice when a game patch gives a known resource ID a new meaning.
