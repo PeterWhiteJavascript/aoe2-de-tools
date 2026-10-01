@@ -5,6 +5,8 @@
       "id": 44,
       "internalName": "Armenians",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1800, 1802]
     },
     "Aztecs": {
@@ -12,6 +14,8 @@
       "id": 15,
       "internalName": "Aztecs",
       "teamBonus": [[6, 191, 0, -1, 1.33]],
+      "teamTechs": [],
+      "techTreeBonus": [[4, -1, 4, 14, 3], [5, -1, 0, 101, 0.8696], [5, -1, 55, 101, 0.8696], [5, -1, 22, 101, 0.8696], [5, -1, 35, 101, 0.8696], [5, -1, 6, 101, 0.8696], [5, -1, 54, 101, 0.8696], [5, -1, 13, 101, 0.8696], [5, -1, 51, 101, 0.8696], [5, -1, 36, 101, 0.8696], [5, -1, 12, 101, 0.8696]],
       "uniqueUnits": [725, 726]
     },
     "Bengalis": {
@@ -19,6 +23,8 @@
       "id": 41,
       "internalName": "Bengalis",
       "teamBonus": [[1, 251, -1, -1, 10]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1759, 1761]
     },
     "Berbers": {
@@ -26,6 +32,8 @@
       "id": 27,
       "internalName": "Berbers",
       "teamBonus": [],
+      "teamTechs": [599, 601],
+      "techTreeBonus": [],
       "uniqueUnits": [1007, 1012]
     },
     "Bohemians": {
@@ -33,6 +41,8 @@
       "id": 39,
       "internalName": "Bohemians",
       "teamBonus": [[5, 84, -1, 13, 1.8], [5, 116, -1, 13, 1.8], [5, 137, -1, 13, 1.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1704, 1706]
     },
     "Britons": {
@@ -40,6 +50,8 @@
       "id": 1,
       "internalName": "Britons",
       "teamBonus": [[5, 87, -1, 13, 1.1], [5, 10, -1, 13, 1.1], [5, 14, -1, 13, 1.1]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [8, 530]
     },
     "Bulgarians": {
@@ -47,6 +59,8 @@
       "id": 32,
       "internalName": "Bulgarians",
       "teamBonus": [[5, 18, -1, 13, 1.8], [5, 19, -1, 13, 1.8], [5, 103, -1, 13, 1.8], [5, 105, -1, 13, 1.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1225, 1254]
     },
     "Burgundians": {
@@ -54,6 +68,8 @@
       "id": 36,
       "internalName": "Burgundians",
       "teamBonus": [[1, 225, -1, -1, 20]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1655, 1657]
     },
     "Burmese": {
@@ -61,6 +77,8 @@
       "id": 30,
       "internalName": "Burmese",
       "teamBonus": [[1, 210, 0, -1, 42]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1126, 1128]
     },
     "Byzantines": {
@@ -68,6 +86,8 @@
       "id": 7,
       "internalName": "Byzantines",
       "teamBonus": [[1, 89, 0, -1, 2]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [40, 553]
     },
     "Celts": {
@@ -75,6 +95,8 @@
       "id": 13,
       "internalName": "Celts",
       "teamBonus": [[5, 49, -1, 13, 1.2], [5, 150, -1, 13, 1.2]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [232, 534]
     },
     "Chinese": {
@@ -82,6 +104,8 @@
       "id": 6,
       "internalName": "Chinese",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [73, 559]
     },
     "Cumans": {
@@ -89,6 +113,8 @@
       "id": 34,
       "internalName": "Cumans",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1231, 1233]
     },
     "Danes": {
@@ -96,6 +122,8 @@
       "id": 62,
       "internalName": "Danes",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2711, 2712]
     },
     "Dravidians": {
@@ -103,6 +131,8 @@
       "id": 40,
       "internalName": "Dravidians",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1735, 1737]
     },
     "Ethiopians": {
@@ -110,6 +140,8 @@
       "id": 25,
       "internalName": "Ethiopians",
       "teamBonus": [[0, 598, -1, 106, 0]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1016, 1018]
     },
     "Franks": {
@@ -117,6 +149,8 @@
       "id": 2,
       "internalName": "Franks",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [281, 531]
     },
     "Georgians": {
@@ -124,6 +158,8 @@
       "id": 45,
       "internalName": "Georgians",
       "teamBonus": [[6, 271, 1, -1, 0.75]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1803, 1805]
     },
     "Goths": {
@@ -131,6 +167,8 @@
       "id": 3,
       "internalName": "Goths",
       "teamBonus": [[5, 12, -1, 13, 1.2], [5, 498, -1, 13, 1.2], [5, 132, -1, 13, 1.2], [5, 20, -1, 13, 1.2]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [41, 555]
     },
     "Gurjaras": {
@@ -138,6 +176,8 @@
       "id": 42,
       "internalName": "Gurjaras",
       "teamBonus": [[5, 1755, -1, 101, 0.8], [5, 329, -1, 101, 0.8], [5, 330, -1, 101, 0.8], [5, 207, -1, 101, 0.8], [5, 282, -1, 101, 0.8], [5, 556, -1, 101, 0.8], [5, 1007, -1, 101, 0.8], [5, 1009, -1, 101, 0.8], [5, 1263, -1, 101, 0.8], [5, 239, -1, 101, 0.8], [5, 558, -1, 101, 0.8], [5, 873, -1, 101, 0.8], [5, 875, -1, 101, 0.8], [5, 1120, -1, 101, 0.8], [5, 1122, -1, 101, 0.8], [5, 1132, -1, 101, 0.8], [5, 1134, -1, 101, 0.8], [5, 1744, -1, 101, 0.8], [5, 1746, -1, 101, 0.8], [5, 1923, -1, 101, 0.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1741, 1743]
     },
     "Hindustanis": {
@@ -145,6 +185,8 @@
       "id": 20,
       "internalName": "Indians",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1747, 1749]
     },
     "Huns": {
@@ -152,13 +194,17 @@
       "id": 17,
       "internalName": "Huns",
       "teamBonus": [[5, 101, -1, 13, 1.2], [5, 86, -1, 13, 1.2], [5, 153, -1, 13, 1.2]],
+      "teamTechs": [],
+      "techTreeBonus": [[1, 4, 1, -1, 2000]],
       "uniqueUnits": [755, 757]
     },
     "Incas": {
       "bonusTechs": [70, 152, 153, 154, 155, 158, 474, 475, 476, 477, 478, 479, 495, 508, 519],
       "id": 21,
       "internalName": "Incas",
-      "teamBonus": [],
+      "teamBonus": [[1, 234, 0, -1, 1], [1, 33, 0, -1, 1]],
+      "teamTechs": [730],
+      "techTreeBonus": [],
       "uniqueUnits": [879, 881]
     },
     "Italians": {
@@ -166,6 +212,8 @@
       "id": 19,
       "internalName": "Italians",
       "teamBonus": [],
+      "teamTechs": [522],
+      "techTreeBonus": [[5, 13, -1, 104, 0.85]],
       "uniqueUnits": [866, 868]
     },
     "Japanese": {
@@ -173,6 +221,8 @@
       "id": 5,
       "internalName": "Japanese",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [291, 560]
     },
     "Jurchens": {
@@ -180,6 +230,8 @@
       "id": 52,
       "internalName": "Jurchens",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1908, 1910]
     },
     "Khitans": {
@@ -187,6 +239,8 @@
       "id": 53,
       "internalName": "Khitans",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1920, 1922]
     },
     "Khmer": {
@@ -194,6 +248,8 @@
       "id": 28,
       "internalName": "Khmer",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1120, 1122]
     },
     "Koreans": {
@@ -201,6 +257,8 @@
       "id": 18,
       "internalName": "Koreans",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [[5, 220, -1, 13, 1.2], [5, 124, -1, 13, 1.2]],
       "uniqueUnits": [827, 829]
     },
     "Lithuanians": {
@@ -208,6 +266,8 @@
       "id": 35,
       "internalName": "Lithuanians",
       "teamBonus": [[5, 30, -1, 13, 1.2], [5, 31, -1, 13, 1.2], [5, 32, -1, 13, 1.2], [5, 104, -1, 13, 1.2], [5, 1806, -1, 13, 1.2]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1234, 1236]
     },
     "Magyars": {
@@ -215,6 +275,8 @@
       "id": 22,
       "internalName": "Magyars",
       "teamBonus": [[5, -1, 36, 101, 0.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [869, 871]
     },
     "Malay": {
@@ -222,6 +284,8 @@
       "id": 29,
       "internalName": "Malay",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1123, 1125]
     },
     "Malians": {
@@ -229,6 +293,8 @@
       "id": 26,
       "internalName": "Malians",
       "teamBonus": [[5, 209, -1, 13, 1.8], [5, 210, -1, 13, 1.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1013, 1015]
     },
     "Mapuche": {
@@ -236,6 +302,8 @@
       "id": 58,
       "internalName": "Mapuche",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2566, 2568]
     },
     "Mayans": {
@@ -243,6 +311,8 @@
       "id": 16,
       "internalName": "Mayans",
       "teamBonus": [[5, -1, 27, 100, 0.5], [5, -1, 39, 100, 0.5]],
+      "teamTechs": [],
+      "techTreeBonus": [[5, 4, -1, 100, 0.9], [5, 24, -1, 100, 0.9], [5, 492, -1, 100, 0.9], [5, 763, -1, 100, 0.9], [5, 765, -1, 100, 0.9], [6, 47, 0, -1, 1.15], [6, 190, 0, -1, 1.15], [6, 79, 0, -1, 1.15], [6, 189, 0, -1, 1.15], [5, 214, -1, 13, 0.81], [5, 57, -1, 13, 0.87], [5, 354, -1, 13, 0.87], [5, 581, -1, 13, 0.87], [5, 216, -1, 13, 0.87], [5, 218, -1, 13, 0.87], [5, 220, -1, 13, 0.87], [5, 590, -1, 13, 0.87], [5, 259, -1, 13, 0.81], [5, 56, -1, 13, 0.87], [5, 120, -1, 13, 0.87], [5, 579, -1, 13, 0.87], [5, 122, -1, 13, 0.87], [5, 123, -1, 13, 0.87], [5, 124, -1, 13, 0.87], [5, 592, -1, 13, 0.87], [6, 216, 0, -1, 1.15], [6, 219, 0, -1, 1.15], [5, -1, 21, 13, 0.87], [5, 199, -1, 101, 0.87], [6, 268, 0, -1, 1.15], [5, 1891, -1, 13, 0.87], [5, 1892, -1, 13, 0.87], [5, 2333, -1, 13, 0.87], [5, 2334, -1, 13, 0.87], [5, 83, -1, 13, 0.87], [5, 293, -1, 13, 0.87], [6, 296, 0, -1, 1.15]],
       "uniqueUnits": [763, 765]
     },
     "Mongols": {
@@ -250,6 +320,8 @@
       "id": 12,
       "internalName": "Mongols",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [11, 561]
     },
     "Muisca": {
@@ -257,6 +329,8 @@
       "id": 57,
       "internalName": "Muisca",
       "teamBonus": [[6, 47, 0, -1, 1.15], [5, 581, -1, 13, 0.8696], [5, 579, -1, 13, 0.8696], [5, 2171, -1, 13, 0.8696], [5, 2630, -1, 13, 0.8696]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2562, 2564]
     },
     "Persians": {
@@ -264,6 +338,8 @@
       "id": 8,
       "internalName": "Persians",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [239, 558]
     },
     "Poles": {
@@ -271,6 +347,8 @@
       "id": 38,
       "internalName": "Poles",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1701, 1703]
     },
     "Portuguese": {
@@ -278,6 +356,8 @@
       "id": 24,
       "internalName": "Portuguese",
       "teamBonus": [[1, 86, 0, -1, 0.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1001, 1003]
     },
     "Romans": {
@@ -285,6 +365,8 @@
       "id": 43,
       "internalName": "Romans",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1790, 1792]
     },
     "Saracens": {
@@ -292,6 +374,8 @@
       "id": 9,
       "internalName": "Saracens",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [282, 556]
     },
     "Saxons": {
@@ -299,6 +383,8 @@
       "id": 60,
       "internalName": "Saxons",
       "teamBonus": [[5, 156, -1, 13, 1.25], [5, 222, -1, 13, 1.25]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2705, 2706]
     },
     "Shu": {
@@ -306,6 +392,8 @@
       "id": 49,
       "internalName": "Shu",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1959, 1961]
     },
     "Sicilians": {
@@ -313,6 +401,8 @@
       "id": 37,
       "internalName": "Sicilians",
       "teamBonus": [[5, 545, -1, 100, 0.5]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1658, 1659]
     },
     "Slavs": {
@@ -320,6 +410,8 @@
       "id": 23,
       "internalName": "Slavs",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [[5, 214, -1, 13, 1.23], [5, 259, -1, 13, 1.23], [5, 50, -1, 13, 1.15], [5, 1187, -1, 13, 1.15]],
       "uniqueUnits": [876, 878]
     },
     "Spanish": {
@@ -327,6 +419,8 @@
       "id": 14,
       "internalName": "Spanish",
       "teamBonus": [[5, 17, -1, 13, 1.25], [5, 128, -1, 13, 1.25], [5, 204, -1, 13, 1.25], [5, 2149, -1, 13, 1.25], [6, 504, -1, -1, 0.8]],
+      "teamTechs": [],
+      "techTreeBonus": [[5, 118, -1, 13, 1.3], [5, 212, -1, 13, 1.3], [5, 621, -1, 101, 1.3], [5, 617, -1, 101, 1.3], [5, 484, -1, 101, 1.3], [5, 597, -1, 101, 1.3], [5, 276, -1, 101, 1.0833]],
       "uniqueUnits": [771, 773]
     },
     "Tatars": {
@@ -334,6 +428,8 @@
       "id": 33,
       "internalName": "Tatars",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1228, 1230]
     },
     "Teutons": {
@@ -341,6 +437,8 @@
       "id": 4,
       "internalName": "Teutons",
       "teamBonus": [[1, 178, 1, -1, 3], [1, 179, 1, -1, 1]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [25, 554]
     },
     "Tupi": {
@@ -348,6 +446,8 @@
       "id": 59,
       "internalName": "Tupi",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2579, 2581]
     },
     "Turks": {
@@ -355,6 +455,8 @@
       "id": 10,
       "internalName": "Turks",
       "teamBonus": [[5, 5, -1, 101, 0.8], [5, 36, -1, 101, 0.8], [5, 420, -1, 101, 0.8], [5, 46, -1, 101, 0.8], [5, 691, -1, 101, 0.8], [5, 771, -1, 101, 0.8], [5, 773, -1, 101, 0.8], [5, 557, -1, 101, 0.8], [5, 1001, -1, 101, 0.8], [5, 1003, -1, 101, 0.8], [5, 831, -1, 101, 0.8], [5, 832, -1, 101, 0.8], [5, 1709, -1, 101, 0.8], [5, 1704, -1, 101, 0.8], [5, 1706, -1, 101, 0.8], [5, 1904, -1, 101, 0.8], [5, 1907, -1, 101, 0.8], [5, 1911, -1, 101, 0.8], [5, 1901, -1, 101, 0.8], [5, 1903, -1, 101, 0.8]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [46, 557]
     },
     "Varangians": {
@@ -362,6 +464,8 @@
       "id": 61,
       "internalName": "Varangians",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [2708, 2709]
     },
     "Vietnamese": {
@@ -369,6 +473,8 @@
       "id": 31,
       "internalName": "Vietnamese",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1129, 1131]
     },
     "Vikings": {
@@ -376,6 +482,8 @@
       "id": 11,
       "internalName": "Vikings",
       "teamBonus": [[5, 45, -1, 100, 0.85], [5, 133, -1, 100, 0.85], [5, 47, -1, 100, 0.85], [5, 51, -1, 100, 0.85], [5, 1189, -1, 100, 0.85]],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [692, 694]
     },
     "Wei": {
@@ -383,13 +491,17 @@
       "id": 51,
       "internalName": "Wei",
       "teamBonus": [],
+      "teamTechs": [],
+      "techTreeBonus": [],
       "uniqueUnits": [1949, 1951]
     },
     "Wu": {
       "bonusTechs": [1031, 1073, 1075, 1076, 1079, 1083, 1084, 1085, 1086, 1087],
       "id": 50,
       "internalName": "Wu",
-      "teamBonus": [],
+      "teamBonus": [[5, 70, -1, 101, 0.5], [5, 191, -1, 101, 0.5], [5, 192, -1, 101, 0.5], [5, 463, -1, 101, 0.5], [5, 464, -1, 101, 0.5], [5, 465, -1, 101, 0.5]],
+      "teamTechs": [1089],
+      "techTreeBonus": [],
       "uniqueUnits": [1968, 1970]
     }
   },
