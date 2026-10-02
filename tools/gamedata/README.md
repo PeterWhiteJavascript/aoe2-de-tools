@@ -32,7 +32,7 @@ Options:
 Paths in the game installation:
 
 - `resources/_common/dat/empires2_x2_p1.dat`: game data
-- `resources/_common/dat/futuravailableunits.json`: tech tree per civ (availability, age).
+- `resources/_common/dat/CivTechTrees/<CIV>.json`: tech tree per civ as shown in the game (availability, age).
 - `resources/_common/dat/civilizations.json`: civ names.
 - `resources/en/strings/key-value/key-value-strings-utf8.txt`: display names.
 - `widgetui/textures/menu/techtree/normal`: tech tree frames.
@@ -85,6 +85,7 @@ several copies use the ID with a `civs` list.
 |-----|---------|
 | `units` | project name → unit ID, if the name is ambiguous or differs from the game |
 | `renames` | old project name → unit ID of a unit renamed in the game; can be removed after `patch` |
+| `unitCivs` | unit ID → civs that can train it, for units no tech tree shows (Xolotl Warrior: trained in a converted Stable) |
 | `upgrades` | project name → tech ID, if an eco tech cannot be found by name |
 | `ignoreFields` | fields not compared for a unit, because they mean something else there |
 | `skipNewUnits` | unit IDs never adopted as new units (heroes, campaign units) |

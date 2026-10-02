@@ -92,6 +92,9 @@ class Sync:
         # Project unit name -> game ID for names that cannot be found by the game name
         self.pinned_units = {**config['units'], **config['renames']}
         self.units = {int(k): v for k, v in snapshot['units'].items()}
+        for unit_id, civs in config['unitCivs'].items():
+            if int(unit_id) in self.units:
+                self.units[int(unit_id)]['civs'] = civs
         self.techs = {int(k): v for k, v in snapshot['techs'].items()}
         self.civ_count = snapshot['meta']['civCount']
         self.findings = []

@@ -22,9 +22,13 @@
     "town center": 621,
     "serjeant": 1660,
     "spearman": 93,
-    "konnik": 1225
+    "konnik": 1225,
+    "huskarl": 41,
+    "tarkan": 755,
+    "xolotl warrior": 1570
   },
   "renames": {"longboat": 250},
+  "unitCivs": {"1570": ["Aztecs", "Incas"]},
   "upgrades": {},
   "ignoreFields": {
     "monk": ["rateOfFire"],
@@ -39,7 +43,7 @@
     "watch tower": ["2 Villagers", "3 Villagers", "4 Villagers", "5 Villagers", "6 Villagers", "7 Villagers"],
     "farm": ["25 Second Build Time"],
     "pasture": ["50 Second Build Time"],
-    "huskarl": ["Barracks", "Perfusion"],
+    "huskarl": ["Barracks"],
     "tarkan": ["Stable"]
   },
   "gatherers": {
