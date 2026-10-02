@@ -1609,14 +1609,6 @@
       }
     },
     "upgrades": {
-      "Shipwright": {
-        "trainTime": 1.54,
-        "trainTimePercent": true,
-        "cost": {
-          "wood": 0.2
-        },
-        "costPercent": true
-      },
       "Circumnavigation": {
         "trainTime": 1.33,
         "trainTimePercent": true
@@ -1722,12 +1714,7 @@
     }
   },
   "pasture": {
-    "civs": {
-      "Spanish Civ Bonus": {
-        "trainTime": 1.3,
-        "trainTimePercent": true
-      }
-    },
+    "civs": {},
     "upgrades": {
       "Treadmill Crane": {
         "trainTime": 1.2,
@@ -2094,6 +2081,10 @@
       "Kasbah": {
         "trainTime": 1.25,
         "trainTimePercent": true
+      },
+      "Goths Team Bonus": {
+        "trainTime": 1.2,
+        "trainTimePercent": true
       }
     }
   },
@@ -2407,6 +2398,10 @@
       },
       "Kasbah": {
         "trainTime": 1.25,
+        "trainTimePercent": true
+      },
+      "Huns Team Bonus": {
+        "trainTime": 1.2,
         "trainTimePercent": true
       }
     }
@@ -3314,18 +3309,7 @@
     }
   },
   "fortified church": {
-    "civs": {
-      "Malians Civ Bonus": {
-        "cost": {
-          "wood": 0.15
-        },
-        "costPercent": true
-      },
-      "Spanish Civ Bonus": {
-        "trainTime": 1.3,
-        "trainTimePercent": true
-      }
-    },
+    "civs": {},
     "upgrades": {
       "Treadmill Crane": {
         "trainTime": 1.2,
