@@ -36,7 +36,8 @@ Paths in the game installation:
 - `resources/_common/dat/civilizations.json`: civ names.
 - `resources/en/strings/key-value/key-value-strings-utf8.txt`: display names.
 - `widgetui/textures/menu/techtree/normal`: tech tree frames.
-- `resources/_common/wpfg/resources/uniticons` (PNG) and `widgetui/textures/ingame/units` (DDS): unit portraits.
+- `widgetui/textures/ingame/units` (DDS): unit portraits. Their alpha channel masks the player color.
+- `resources/_common/palettes/spritecolors.json`: player colors (icon generation).
 - `widgetui/textures/menu/civs`: civ emblems.
 - `widgetui/textures/ingame/icons`: resource symbols.
 - `resources/_common/fonts/georgiab.ttf`: font for the unit names (icon generation)

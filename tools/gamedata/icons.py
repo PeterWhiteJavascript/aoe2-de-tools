@@ -4,6 +4,7 @@ Unit icons imitate the tech tree tiles: the unit portrait inside the frame of it
 with the unit name below it. Resource icons put the civ emblem and the resource symbol on top
 of the icon of the source resource (e.g. "gold from hunter": hunter icon + emblem + gold).
 """
+import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -11,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[2]
 IMG = ROOT / 'src' / 'img'
 ICON_SIZE = (80, 84)  # size of all icons in src/img
+PLAYER = 'Player 1'   # blue, the player color of the unit portraits
 
 # Unit category -> name part of the tech tree frame texture
 FRAMES = {'generic': 'units', 'regional': 'regionalunit', 'unique': 'specialunits'}
@@ -24,8 +26,8 @@ LABEL_MAX_FONT_SIZE, LABEL_MIN_FONT_SIZE = 12, 9
 def game_paths(game):
     return {
         'frames': game / 'widgetui' / 'textures' / 'menu' / 'techtree' / 'normal',
-        'portraits': game / 'resources' / '_common' / 'wpfg' / 'resources' / 'uniticons',
-        'portraits_dds': game / 'widgetui' / 'textures' / 'ingame' / 'units',
+        'portraits': game / 'widgetui' / 'textures' / 'ingame' / 'units',
+        'sprite_colors': game / 'resources' / '_common' / 'palettes' / 'spritecolors.json',
         'resource_symbols': game / 'widgetui' / 'textures' / 'ingame' / 'icons',
         'civ_emblems': game / 'widgetui' / 'textures' / 'menu' / 'civs',
         'font': game / 'resources' / '_common' / 'fonts' / 'georgiab.ttf',
@@ -46,11 +48,23 @@ def label_lines(draw, label, font, width):
     return best[1]
 
 
+def player_color(paths):
+    rgba = json.loads(paths['sprite_colors'].read_text())['TeamColors'][PLAYER]['FloatRGBA']
+    return rgba['r'], rgba['g'], rgba['b']
+
+
 def unit_portrait(paths, icon_id):
-    # Some portraits (Varangian Guard) only exist as DDS
-    png = paths['portraits'] / f'{icon_id:03d}_50730.png'
-    source = png if png.exists() else paths['portraits_dds'] / f'{icon_id:03d}_50730.dds'
-    return Image.open(source).convert('RGBA')
+    """Load the portrait and tint it in the player color like the game's UI shader (widgetui_ps).
+
+    The alpha channel of the DDS is a mask: texels with alpha < 0.8 get the color
+    (red + 0.2) * player color, all others keep their color. The PNGs in wpfg/uniticons are
+    not used because they are only available for some units and come pre-tinted in another blue.
+    """
+    image = Image.open(paths['portraits'] / f'{icon_id:03d}_50730.dds').convert('RGBA')
+    r, _, _, a = image.split()
+    tinted = Image.merge('RGB', [r.point(lambda v, c=c: min(255, round((v + 51) * c))) for c in player_color(paths)])
+    mask = a.point(lambda v: 255 if v < 204 else 0)  # 204 = 0.8 * 255
+    return Image.composite(tinted, image.convert('RGB'), mask)
 
 
 def unit_tile(paths, icon_id, label, category):
