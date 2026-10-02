@@ -684,6 +684,7 @@
     "101": {
       "ageReq": 2,
       "civ": -1,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 500
       },
@@ -702,6 +703,7 @@
     "1010": {
       "ageReq": 4,
       "civ": 6,
+      "civs": ["Chinese"],
       "cost": {},
       "effects": [],
       "internalName": "Dragon Ship",
@@ -788,6 +790,7 @@
     "102": {
       "ageReq": 3,
       "civ": -1,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 800,
         "gold": 200
@@ -817,6 +820,7 @@
     "103": {
       "ageReq": 4,
       "civ": -1,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 1000,
         "gold": 800
@@ -1483,6 +1487,17 @@
       "requiredTechs": [103],
       "time": 60
     },
+    "1156": {
+      "ageReq": 1,
+      "civ": -1,
+      "civs": ["Wu"],
+      "cost": {},
+      "effects": [],
+      "internalName": "",
+      "locations": [],
+      "name": "",
+      "requiredTechs": []
+    },
     "1174": {
       "ageReq": 4,
       "civ": -1,
@@ -1648,6 +1663,7 @@
     "1350": {
       "ageReq": 1,
       "civ": -1,
+      "civs": ["Incas", "Mapuche", "Muisca", "Tupi"],
       "cost": {},
       "effects": [],
       "internalName": "Champi Scout (Make avail)",
@@ -1700,6 +1716,36 @@
       "name": "Elite Champi Warrior",
       "requiredTechs": [103, 1351],
       "time": 50
+    },
+    "1353": {
+      "ageReq": 1,
+      "civ": -1,
+      "cost": {},
+      "effects": [],
+      "internalName": "Settlement (make avail)",
+      "locations": [],
+      "name": "Settlement (make avail)",
+      "requiredTechs": [104]
+    },
+    "1354": {
+      "ageReq": 2,
+      "civ": -1,
+      "cost": {},
+      "effects": [],
+      "internalName": "Settlement Age2 upgrade",
+      "locations": [],
+      "name": "Settlement Age2 upgrade",
+      "requiredTechs": [101, 1353]
+    },
+    "1355": {
+      "ageReq": 3,
+      "civ": -1,
+      "cost": {},
+      "effects": [],
+      "internalName": "Settlement Age3 upgrade",
+      "locations": [],
+      "name": "Settlement Age3 upgrade",
+      "requiredTechs": [102, 1353]
     },
     "1363": {
       "ageReq": 3,
@@ -2378,7 +2424,7 @@
     "1452": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bohemians", "Britons", "Danes", "Franks", "Italians", "Portuguese", "Saxons", "Sicilians", "Varangians"],
+      "civs": ["Britons", "Danes", "Franks", "Saxons", "Sicilians", "Varangians"],
       "cost": {
         "food": 300,
         "gold": 200
@@ -2828,7 +2874,7 @@
     "15": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Cumans", "Dravidians", "Ethiopians", "Georgians", "Goths", "Huns", "Incas", "Italians", "Jurchens", "Khitans", "Koreans", "Lithuanians", "Malay", "Malians", "Mayans", "Muisca", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Cumans", "Dravidians", "Ethiopians", "Georgians", "Goths", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Koreans", "Lithuanians", "Malians", "Mayans", "Muisca", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Wu"],
       "cost": {
         "food": 300,
         "gold": 200
@@ -3028,7 +3074,7 @@
     "182": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Ethiopians", "Franks", "Gurjaras", "Hindustanis", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Magyars", "Malay", "Malians", "Mapuche", "Mongols", "Muisca", "Persians", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Tatars", "Tupi", "Turks", "Vikings", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Ethiopians", "Franks", "Gurjaras", "Hindustanis", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Magyars", "Malay", "Malians", "Mapuche", "Mongols", "Muisca", "Persians", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Tatars", "Tupi", "Turks", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 175,
         "wood": 75
@@ -3484,7 +3530,7 @@
     "218": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Berbers", "Bulgarians", "Burmese", "Byzantines", "Cumans", "Ethiopians", "Georgians", "Goths", "Hindustanis", "Huns", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Persians", "Romans", "Saracens", "Shu", "Slavs", "Tatars", "Turks", "Vietnamese", "Wu"],
+      "civs": ["Berbers", "Bulgarians", "Burmese", "Byzantines", "Cumans", "Ethiopians", "Georgians", "Goths", "Hindustanis", "Huns", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Persians", "Romans", "Saracens", "Shu", "Slavs", "Tatars", "Turks", "Vietnamese"],
       "cost": {
         "food": 900,
         "gold": 500
@@ -3681,7 +3727,7 @@
     "230": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Chinese", "Danes", "Dravidians", "Franks", "Georgians", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Slavs", "Spanish", "Tatars", "Teutons", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Chinese", "Danes", "Dravidians", "Franks", "Georgians", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Slavs", "Spanish", "Tatars", "Teutons", "Vietnamese", "Vikings", "Wei"],
       "cost": {
         "food": 0,
         "gold": 200
@@ -3721,7 +3767,7 @@
     "233": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Chinese", "Danes", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Lithuanians", "Magyars", "Malay", "Muisca", "Romans", "Saracens", "Saxons", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Chinese", "Danes", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Lithuanians", "Magyars", "Malay", "Muisca", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
       "cost": {
         "food": 0,
         "gold": 120
@@ -3801,7 +3847,7 @@
     "239": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burmese", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Incas", "Japanese", "Jurchens", "Khitans", "Khmer", "Magyars", "Malay", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Romans", "Saxons", "Sicilians", "Slavs", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burmese", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Incas", "Japanese", "Jurchens", "Khmer", "Magyars", "Malay", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Romans", "Saxons", "Sicilians", "Slavs", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 800,
         "wood": 750
@@ -3881,7 +3927,7 @@
     "244": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Berbers", "Britons", "Bulgarians", "Byzantines", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Huns", "Jurchens", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Romans", "Saracens", "Shu", "Sicilians", "Spanish", "Teutons", "Turks", "Vietnamese", "Wu"],
+      "civs": ["Armenians", "Berbers", "Britons", "Byzantines", "Celts", "Chinese", "Dravidians", "Franks", "Goths", "Gurjaras", "Huns", "Jurchens", "Malians", "Mayans", "Mongols", "Muisca", "Persians", "Saracens", "Shu", "Sicilians", "Spanish", "Teutons", "Turks", "Vietnamese", "Wu"],
       "cost": {
         "gold": 300,
         "wood": 250
@@ -3901,6 +3947,7 @@
     "246": {
       "ageReq": 4,
       "civ": -1,
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Britons", "Burgundians", "Byzantines", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Incas", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Romans", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Wei", "Wu"],
       "cost": {},
       "effects": [],
       "internalName": "Fast Fire Ship",
@@ -4656,7 +4703,7 @@
     "320": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Aztecs", "Bulgarians", "Celts", "Cumans", "Danes", "Dravidians", "Ethiopians", "Georgians", "Malians", "Mongols", "Muisca", "Saracens", "Slavs", "Teutons"],
+      "civs": ["Aztecs", "Bulgarians", "Celts", "Cumans", "Danes", "Dravidians", "Ethiopians", "Georgians", "Malians", "Mongols", "Muisca", "Saracens", "Sicilians", "Slavs", "Teutons"],
       "cost": {
         "food": 1450,
         "gold": 1000
@@ -4676,7 +4723,7 @@
     "321": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bohemians", "Britons", "Burgundians", "Celts", "Chinese", "Cumans", "Ethiopians", "Georgians", "Goths", "Gurjaras", "Huns", "Incas", "Khitans", "Khmer", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saxons", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Vietnamese", "Vikings"],
+      "civs": ["Armenians", "Aztecs", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Celts", "Chinese", "Cumans", "Ethiopians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Jurchens", "Khmer", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Vietnamese", "Vikings"],
       "cost": {
         "food": 400,
         "wood": 200
@@ -5286,7 +5333,6 @@
     "37": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Celts", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mongols", "Persians", "Poles", "Portuguese", "Saracens", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Vietnamese"],
       "cost": {},
       "effects": [],
       "internalName": "Cannon Galleon",
@@ -5357,7 +5403,7 @@
     "373": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Britons", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Goths", "Gurjaras", "Incas", "Italians", "Japanese", "Koreans", "Magyars", "Malay", "Mayans", "Mongols", "Romans", "Saxons", "Shu", "Sicilians", "Spanish", "Turks", "Varangians"],
       "cost": {
         "food": 1000,
         "gold": 300
@@ -5374,10 +5420,30 @@
       "requiredTechs": [103],
       "time": 60
     },
+    "374": {
+      "ageReq": 3,
+      "civ": -1,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "cost": {
+        "food": 100,
+        "gold": 200
+      },
+      "effects": [],
+      "internalName": "Careening",
+      "locations": [
+        {
+          "location": 209,
+          "time": 50
+        }
+      ],
+      "name": "Careening",
+      "requiredTechs": [102],
+      "time": 50
+    },
     "375": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bengalis", "Berbers", "Britons", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Goths", "Huns", "Incas", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Britons", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Huns", "Incas", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Muisca", "Persians", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wu"],
       "cost": {
         "food": 200,
         "gold": 400
@@ -5397,7 +5463,7 @@
     "376": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bengalis", "Berbers", "Bohemians", "Burgundians", "Burmese", "Dravidians", "Hindustanis", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Malay", "Persians", "Poles", "Portuguese", "Saracens", "Spanish", "Tatars", "Turks", "Vietnamese"],
+      "civs": ["Bengalis", "Berbers", "Bohemians", "Burgundians", "Burmese", "Dravidians", "Hindustanis", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Malay", "Persians", "Portuguese", "Saracens", "Spanish", "Tatars", "Turks", "Vietnamese"],
       "cost": {
         "gold": 500,
         "wood": 525
@@ -5447,7 +5513,7 @@
     "379": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Berbers", "Britons", "Burgundians", "Byzantines", "Celts", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Lithuanians", "Magyars", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Vietnamese", "Vikings", "Wei"],
+      "civs": ["Armenians", "Berbers", "Britons", "Burgundians", "Byzantines", "Celts", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khmer", "Lithuanians", "Magyars", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Vietnamese", "Vikings", "Wei"],
       "cost": {
         "food": 400,
         "wood": 400
@@ -5477,7 +5543,7 @@
     "380": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Britons", "Bulgarians", "Burmese", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Persians", "Portuguese", "Saxons", "Shu", "Sicilians", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Britons", "Bulgarians", "Burmese", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Goths", "Gurjaras", "Incas", "Italians", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Persians", "Portuguese", "Saxons", "Shu", "Sicilians", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 350,
         "gold": 100
@@ -5587,7 +5653,7 @@
     "39": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Turks", "Varangians", "Vietnamese", "Wei", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Turks", "Varangians", "Vietnamese", "Wei", "Wu"],
       "cost": {
         "food": 150
       },
@@ -5975,7 +6041,7 @@
     "429": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Mapuche", "Mayans", "Muisca", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Mapuche", "Mayans", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
       "cost": {
         "food": 300,
         "gold": 600
@@ -6079,7 +6145,7 @@
     "436": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bengalis", "Bulgarians", "Burmese", "Cumans", "Georgians", "Huns", "Japanese", "Khitans", "Khmer", "Magyars", "Mongols", "Persians", "Saracens", "Tatars", "Turks", "Wei"],
+      "civs": ["Bulgarians", "Burmese", "Cumans", "Georgians", "Huns", "Japanese", "Khitans", "Khmer", "Magyars", "Mongols", "Persians", "Saracens", "Tatars", "Turks", "Wei"],
       "cost": {
         "food": 200,
         "gold": 250
@@ -6099,7 +6165,7 @@
     "437": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Berbers", "Bulgarians", "Byzantines", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Khitans", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Spanish", "Tatars", "Turks", "Vietnamese", "Vikings", "Wei"],
+      "civs": ["Berbers", "Bulgarians", "Byzantines", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Khitans", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Spanish", "Tatars", "Turks", "Vietnamese", "Wei"],
       "cost": {
         "food": 300,
         "wood": 250
@@ -6179,7 +6245,7 @@
     "441": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wu"],
       "cost": {
         "food": 0,
         "gold": 200
@@ -6269,7 +6335,7 @@
     "45": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 550,
         "gold": 750
@@ -7239,7 +7305,7 @@
     "51": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Chinese", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Italians", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Malians", "Mayans", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Spanish", "Turks", "Varangians", "Vikings", "Wu"],
+      "civs": ["Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Chinese", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Italians", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Malians", "Mapuche", "Mayans", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Spanish", "Turks", "Varangians", "Vikings", "Wu"],
       "cost": {
         "food": 300,
         "wood": 200
@@ -7547,7 +7613,7 @@
     "54": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Franks", "Georgians", "Gurjaras", "Incas", "Italians", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Muisca", "Poles", "Portuguese", "Saracens", "Saxons", "Slavs", "Tatars", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Berbers", "Britons", "Burgundians", "Burmese", "Byzantines", "Franks", "Georgians", "Goths", "Gurjaras", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Muisca", "Poles", "Portuguese", "Saxons", "Shu", "Tatars", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "stone": 50,
         "wood": 200
@@ -8205,7 +8271,7 @@
     "602": {
       "ageReq": 2,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 75,
         "gold": 25
@@ -8716,7 +8782,7 @@
     "64": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Bohemians", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Italians", "Koreans", "Lithuanians", "Malay", "Mapuche", "Poles", "Portuguese", "Spanish", "Tatars", "Teutons", "Turks", "Vietnamese"],
+      "civs": ["Armenians", "Bohemians", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Italians", "Koreans", "Lithuanians", "Malay", "Mapuche", "Poles", "Portuguese", "Spanish", "Tatars", "Teutons", "Turks", "Vietnamese"],
       "cost": {
         "food": 800,
         "wood": 400
@@ -9812,7 +9878,7 @@
     "77": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Koreans", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Incas", "Italians", "Japanese", "Khitans", "Koreans", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wu"],
       "cost": {
         "food": 300,
         "gold": 150
@@ -10883,7 +10949,7 @@
     "875": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Britons", "Bulgarians", "Burmese", "Byzantines", "Celts", "Danes", "Dravidians", "Franks", "Georgians", "Japanese", "Jurchens", "Khitans", "Koreans", "Persians", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Varangians", "Wei"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Britons", "Bulgarians", "Burmese", "Byzantines", "Celts", "Danes", "Dravidians", "Franks", "Georgians", "Japanese", "Jurchens", "Khitans", "Persians", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Varangians"],
       "cost": {
         "food": 50,
         "gold": 100
@@ -11163,6 +11229,7 @@
     "904": {
       "ageReq": 4,
       "civ": -1,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {},
       "effects": [],
       "internalName": "Carrack",
@@ -11213,7 +11280,7 @@
     "907": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Berbers", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Danes", "Dravidians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Malay", "Malians", "Mapuche", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Danes", "Dravidians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Malay", "Malians", "Mapuche", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {
         "food": 350,
         "wood": 200
@@ -11253,7 +11320,7 @@
     "909": {
       "ageReq": 3,
       "civ": -1,
-      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Franks", "Goths", "Incas", "Italians", "Jurchens", "Khmer", "Koreans", "Malay", "Mapuche", "Mongols", "Persians", "Portuguese", "Saracens", "Saxons", "Sicilians", "Spanish", "Teutons", "Turks", "Varangians", "Vikings", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Franks", "Goths", "Italians", "Jurchens", "Khmer", "Koreans", "Malay", "Mapuche", "Mongols", "Persians", "Portuguese", "Saracens", "Saxons", "Sicilians", "Spanish", "Teutons", "Turks", "Varangians", "Vikings", "Wu"],
       "cost": {
         "food": 100,
         "gold": 175
@@ -11273,7 +11340,7 @@
     "910": {
       "ageReq": 4,
       "civ": -1,
-      "civs": ["Armenians", "Bohemians", "Burgundians", "Dravidians", "Goths", "Incas", "Italians", "Koreans", "Persians", "Saracens", "Turks", "Varangians"],
+      "civs": ["Armenians", "Bohemians", "Burgundians", "Dravidians", "Goths", "Italians", "Jurchens", "Koreans", "Persians", "Saracens", "Turks", "Varangians"],
       "cost": {
         "food": 200,
         "gold": 325
@@ -12527,7 +12594,7 @@
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 175
@@ -12587,7 +12654,7 @@
     },
     "109": {
       "accuracy": 1,
-      "ageReq": 3,
+      "ageReq": 1,
       "armours": [[3, 5], [4, 3], [11, 0], [21, 0], [31, 3]],
       "attacks": [[3, 5]],
       "blastRadius": 0,
@@ -13232,9 +13299,11 @@
     },
     "1189": {
       "accuracy": 1,
+      "ageReq": 3,
       "armours": [[3, 10], [4, 3], [11, 0], [13, 0], [21, 0], [31, 3]],
       "attacks": [[3, 3], [16, 3], [30, 1]],
       "blastRadius": 0,
+      "civs": ["Malay"],
       "class": 3,
       "cost": {
         "wood": 150
@@ -13292,9 +13361,11 @@
     },
     "12": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 175
@@ -14464,7 +14535,7 @@
       "armours": [[3, 12], [4, 12], [11, 24], [13, 0], [21, 0], [22, 0], [31, 12]],
       "attacks": [],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Malians", "Mayans", "Mongols", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei"],
       "class": 27,
       "cost": {
         "stone": 5
@@ -14527,7 +14598,6 @@
       "armours": [[3, 2], [4, 2], [8, 0], [31, 0]],
       "attacks": [[4, 10], [11, 0], [15, 0], [20, 0], [21, 0], [31, 0], [38, 0], [39, -3]],
       "blastRadius": 0,
-      "civs": ["Aztecs", "Incas", "Mapuche", "Mayans", "Muisca", "Tupi"],
       "class": 12,
       "cost": {
         "food": 60,
@@ -14625,7 +14695,7 @@
     },
     "1658": {
       "accuracy": 1,
-      "ageReq": 2,
+      "ageReq": 3,
       "armours": [[1, 0], [3, 1], [4, 2], [19, 0], [31, 0]],
       "attacks": [[4, 5], [8, 0], [15, 0], [21, 2], [29, 2], [30, 0]],
       "blastRadius": 0,
@@ -15161,9 +15231,11 @@
     },
     "1734": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Poles"],
       "class": 3,
       "cost": {
         "wood": 100
@@ -16113,9 +16185,11 @@
     },
     "1806": {
       "accuracy": 1,
+      "ageReq": 3,
       "armours": [[3, 10], [4, 4], [11, 0], [13, 0], [21, 0], [31, 4]],
       "attacks": [[3, 5], [11, 0], [16, 5], [30, 1]],
       "blastRadius": 0,
+      "civs": ["Armenians", "Georgians"],
       "class": 3,
       "cost": {
         "wood": 200
@@ -16143,9 +16217,11 @@
     },
     "1808": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 2], [4, 1], [11, 0], [21, 0], [31, 1]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Georgians"],
       "class": 3,
       "cost": {
         "food": 20,
@@ -16307,9 +16383,11 @@
     },
     "1889": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 0], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Khitans"],
       "class": 49,
       "cost": {
         "wood": 110
@@ -16392,33 +16470,6 @@
       "type": 70,
       "upgradesTo": [[1663, 755]],
       "workRate": 0.4759
-    },
-    "1897": {
-      "accuracy": 0,
-      "ageReq": 1,
-      "armours": [[3, 0], [4, 0], [11, 0], [21, 0], [31, 0]],
-      "attacks": [],
-      "blastRadius": 0,
-      "civs": ["Khitans"],
-      "class": 49,
-      "cost": {
-        "wood": 110
-      },
-      "garrison": 0,
-      "hp": 560,
-      "icon": 96,
-      "internalName": "PASTURE",
-      "lineOfSight": 1,
-      "minimumRange": 0,
-      "name": "Pasture",
-      "range": 0,
-      "rateOfFire": 0,
-      "resourceCapacity": 15,
-      "speed": 0,
-      "trainLocations": [],
-      "trainTime": 100,
-      "type": 80,
-      "workRate": 0.4
     },
     "19": {
       "accuracy": 0,
@@ -17954,7 +18005,7 @@
       "armours": [[3, 8], [4, 2], [11, 0], [13, 0], [21, 0], [31, 2]],
       "attacks": [[3, 7], [11, 0], [16, 7], [27, 2], [30, 1]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 52,
       "cost": {
         "stone": 125,
@@ -17989,7 +18040,7 @@
       "armours": [[3, 9], [4, 3], [11, 0], [13, 0], [21, 0], [31, 3]],
       "attacks": [[3, 8], [11, 0], [16, 8], [27, 2], [30, 1]],
       "blastRadius": 0,
-      "civs": ["Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Danes", "Dravidians", "Ethiopians", "Georgians", "Gurjaras", "Incas", "Italians", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Malay", "Malians", "Mayans", "Muisca", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Spanish", "Teutons", "Tupi", "Turks", "Vietnamese", "Wei", "Wu"],
       "class": 52,
       "cost": {
         "stone": 125,
@@ -18023,7 +18074,7 @@
       "armours": [[3, 9], [4, 3], [11, 0], [13, 0], [21, 0], [23, 0], [31, 3]],
       "attacks": [[3, 120], [16, 40], [30, 1]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Bohemians", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Italians", "Koreans", "Lithuanians", "Malay", "Poles", "Portuguese", "Spanish", "Tatars", "Teutons", "Turks"],
+      "civs": ["Armenians", "Bohemians", "Burgundians", "Byzantines", "Chinese", "Dravidians", "Italians", "Koreans", "Lithuanians", "Malay", "Mapuche", "Poles", "Portuguese", "Spanish", "Tatars", "Teutons", "Turks", "Vietnamese"],
       "class": 52,
       "cost": {
         "gold": 100,
@@ -18295,7 +18346,7 @@
     },
     "2552": {
       "accuracy": 1,
-      "ageReq": 1,
+      "ageReq": 3,
       "armours": [[1, 0], [3, 3], [4, 0], [31, 0]],
       "attacks": [[4, 9], [8, 0], [15, 0], [20, 3], [21, 2], [29, 1], [30, 0]],
       "blastRadius": 0,
@@ -18358,6 +18409,101 @@
       ],
       "trainTime": 21,
       "type": 70,
+      "workRate": 1
+    },
+    "2556": {
+      "accuracy": 0,
+      "ageReq": 1,
+      "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
+      "attacks": [],
+      "blastRadius": 0,
+      "civs": ["Incas", "Mapuche", "Muisca", "Tupi"],
+      "class": 3,
+      "cost": {
+        "wood": 125
+      },
+      "enabledBy": [1353],
+      "garrison": 0,
+      "hp": 1000,
+      "icon": 98,
+      "internalName": "SETTL1",
+      "lineOfSight": 6,
+      "minimumRange": 0,
+      "name": "Settlement",
+      "range": 0,
+      "rateOfFire": 0,
+      "resourceCapacity": 0,
+      "speed": 0,
+      "trainLocations": [
+        {
+          "location": 118,
+          "time": 40
+        }
+      ],
+      "trainTime": 40,
+      "type": 80,
+      "upgradesTo": [[2558, 1354], [2560, 1355]],
+      "workRate": 1
+    },
+    "2558": {
+      "accuracy": 0,
+      "armours": [[3, 8], [4, 1], [11, 0], [21, 0], [31, 0]],
+      "attacks": [],
+      "blastRadius": 0,
+      "class": 3,
+      "cost": {
+        "wood": 125
+      },
+      "garrison": 0,
+      "hp": 1200,
+      "icon": 98,
+      "internalName": "SETTL2",
+      "lineOfSight": 6,
+      "minimumRange": 0,
+      "name": "Settlement",
+      "range": 0,
+      "rateOfFire": 0,
+      "resourceCapacity": 0,
+      "speed": 0,
+      "trainLocations": [
+        {
+          "location": 118,
+          "time": 40
+        }
+      ],
+      "trainTime": 40,
+      "type": 80,
+      "upgradesTo": [[2560, 1355]],
+      "workRate": 1
+    },
+    "2560": {
+      "accuracy": 0,
+      "armours": [[3, 9], [4, 2], [11, 0], [21, 0], [31, 0]],
+      "attacks": [],
+      "blastRadius": 0,
+      "class": 3,
+      "cost": {
+        "wood": 125
+      },
+      "garrison": 0,
+      "hp": 1400,
+      "icon": 98,
+      "internalName": "SETTL3",
+      "lineOfSight": 6,
+      "minimumRange": 0,
+      "name": "Settlement",
+      "range": 0,
+      "rateOfFire": 0,
+      "resourceCapacity": 0,
+      "speed": 0,
+      "trainLocations": [
+        {
+          "location": 118,
+          "time": 40
+        }
+      ],
+      "trainTime": 40,
+      "type": 80,
       "workRate": 1
     },
     "2562": {
@@ -19698,28 +19844,6 @@
       "upgradesTo": [[1806, 930], [1806, 941]],
       "workRate": 1
     },
-    "320": {
-      "accuracy": 1,
-      "ageReq": 4,
-      "armours": [],
-      "attacks": [],
-      "blastRadius": 0,
-      "civs": ["Georgians"],
-      "class": 11,
-      "garrison": 0,
-      "hp": 1,
-      "icon": -1,
-      "internalName": "ARROW8",
-      "lineOfSight": -1,
-      "minimumRange": 0,
-      "name": "ARROW8",
-      "range": 20,
-      "rateOfFire": 1,
-      "resourceCapacity": 0,
-      "speed": 8.8,
-      "type": 60,
-      "workRate": 0
-    },
     "329": {
       "accuracy": 1,
       "ageReq": 3,
@@ -19924,7 +20048,7 @@
       "armours": [[1, 0], [3, 0], [4, 0], [27, 0], [31, 0]],
       "attacks": [[4, 6], [5, 28], [8, 32], [15, 0], [16, 17], [21, 1], [29, 1], [30, 26], [35, 7]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Mapuche", "Mayans", "Muisca", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
+      "civs": ["Armenians", "Bengalis", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Japanese", "Jurchens", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Mapuche", "Mayans", "Persians", "Portuguese", "Romans", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Vietnamese", "Wei", "Wu"],
       "class": 6,
       "cost": {
         "food": 35,
@@ -20411,9 +20535,11 @@
     },
     "45": {
       "accuracy": 1,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [[3, 3], [16, 0], [30, 1]],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 150
@@ -20606,7 +20732,7 @@
       "armours": [[1, 0], [3, 1], [4, 1], [31, 0]],
       "attacks": [[4, 12], [8, 0], [15, 0], [21, 4], [29, 9], [30, 0]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 6,
       "cost": {
         "food": 50,
@@ -20640,7 +20766,7 @@
       "armours": [[3, 0], [4, 1], [8, 0], [15, 0], [28, 0], [31, 0]],
       "attacks": [[3, 7], [15, 0], [17, 0], [21, 0], [27, 4], [38, 0], [39, -3]],
       "blastRadius": 0,
-      "civs": ["Berbers", "Bulgarians", "Burmese", "Byzantines", "Cumans", "Ethiopians", "Georgians", "Goths", "Hindustanis", "Huns", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Persians", "Romans", "Saracens", "Shu", "Slavs", "Tatars", "Turks", "Vietnamese", "Wu"],
+      "civs": ["Berbers", "Bulgarians", "Burmese", "Byzantines", "Cumans", "Ethiopians", "Georgians", "Goths", "Hindustanis", "Huns", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Persians", "Romans", "Saracens", "Shu", "Slavs", "Tatars", "Turks", "Vietnamese"],
       "class": 36,
       "cost": {
         "gold": 60,
@@ -21000,7 +21126,7 @@
       "armours": [[3, 0], [4, 2], [16, 0], [31, 0]],
       "attacks": [[4, 120], [11, 280]],
       "blastRadius": 3.25,
-      "civs": ["Armenians", "Berbers", "Britons", "Byzantines", "Celts", "Chinese", "Dravidians", "Franks", "Goths", "Gurjaras", "Huns", "Jurchens", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Saracens", "Shu", "Sicilians", "Spanish", "Teutons", "Turks", "Vietnamese", "Wu"],
+      "civs": ["Armenians", "Berbers", "Britons", "Byzantines", "Celts", "Chinese", "Dravidians", "Franks", "Goths", "Gurjaras", "Huns", "Jurchens", "Malians", "Mayans", "Mongols", "Muisca", "Persians", "Saracens", "Shu", "Sicilians", "Spanish", "Teutons", "Turks", "Vietnamese", "Wu"],
       "class": 22,
       "cost": {
         "gold": 80,
@@ -21137,7 +21263,7 @@
       "armours": [[3, 7], [4, 3], [16, 0], [31, 0], [41, 0]],
       "attacks": [[2, 0], [4, 4], [11, 3], [16, 0], [60, 1]],
       "blastRadius": 0,
-      "civs": ["Aztecs", "Bengalis", "Berbers", "Britons", "Burgundians", "Byzantines", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Huns", "Incas", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Romans", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Varangians", "Wei", "Wu"],
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Britons", "Burgundians", "Byzantines", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Incas", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Romans", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Wei", "Wu"],
       "class": 22,
       "cost": {
         "gold": 45,
@@ -21770,9 +21896,11 @@
     },
     "562": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 100
@@ -21895,7 +22023,7 @@
       "armours": [[1, 0], [3, 1], [4, 1], [31, 0]],
       "attacks": [[4, 14], [8, 0], [15, 0], [21, 4], [29, 9], [30, 0]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Hindustanis", "Italians", "Japanese", "Jurchens", "Khitans", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Turks", "Vietnamese", "Vikings", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Hindustanis", "Italians", "Japanese", "Khitans", "Koreans", "Lithuanians", "Magyars", "Malians", "Mongols", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Teutons", "Turks", "Vietnamese", "Vikings", "Wu"],
       "class": 6,
       "cost": {
         "food": 50,
@@ -21928,7 +22056,7 @@
       "armours": [[3, 3], [4, 2], [8, 0], [31, 0]],
       "attacks": [[4, 14], [11, 0], [15, 0], [20, 0], [21, 0], [31, 0], [38, 0], [39, -3]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Bulgarians", "Burgundians", "Byzantines", "Celts", "Cumans", "Franks", "Huns", "Lithuanians", "Magyars", "Spanish", "Teutons"],
+      "civs": ["Burgundians", "Byzantines", "Celts", "Cumans", "Franks", "Huns", "Lithuanians", "Magyars", "Spanish", "Teutons"],
       "class": 12,
       "cost": {
         "food": 60,
@@ -22040,9 +22168,11 @@
     },
     "584": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 100
@@ -22165,7 +22295,7 @@
       "armours": [[3, 8], [4, 0], [20, 0], [31, 0]],
       "attacks": [[4, 75], [11, 60], [20, 12], [37, 50]],
       "blastRadius": 1.5,
-      "civs": ["Aztecs", "Bulgarians", "Celts", "Cumans", "Danes", "Dravidians", "Ethiopians", "Malians", "Mongols", "Muisca", "Saracens", "Slavs", "Teutons"],
+      "civs": ["Aztecs", "Bulgarians", "Celts", "Cumans", "Danes", "Dravidians", "Ethiopians", "Georgians", "Malians", "Mongols", "Muisca", "Saracens", "Sicilians", "Slavs", "Teutons"],
       "class": 13,
       "cost": {
         "gold": 135,
@@ -22283,9 +22413,11 @@
     },
     "598": {
       "accuracy": 1,
+      "ageReq": 1,
       "armours": [[3, 0], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "stone": 5,
@@ -22417,9 +22549,11 @@
     },
     "68": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, 0], [11, 0], [21, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Persians", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 100
@@ -22452,7 +22586,7 @@
       "armours": [[3, 6], [4, 0], [16, 0], [23, 0], [31, 0], [60, 0]],
       "attacks": [[4, 60], [11, 275], [20, 25]],
       "blastRadius": 0.3,
-      "civs": ["Bengalis", "Berbers", "Bohemians", "Burgundians", "Burmese", "Dravidians", "Hindustanis", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Malay", "Persians", "Poles", "Portuguese", "Saracens", "Spanish", "Tatars", "Turks", "Vietnamese"],
+      "civs": ["Bengalis", "Berbers", "Bohemians", "Burgundians", "Burmese", "Dravidians", "Hindustanis", "Italians", "Japanese", "Khmer", "Koreans", "Lithuanians", "Malay", "Persians", "Portuguese", "Saracens", "Spanish", "Tatars", "Turks", "Vietnamese"],
       "class": 22,
       "cost": {
         "gold": 150,
@@ -22586,9 +22720,11 @@
     },
     "70": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 7], [4, -2], [11, 0], [21, 0], [31, 0], [40, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 3,
       "cost": {
         "wood": 25
@@ -22643,9 +22779,11 @@
     },
     "72": {
       "accuracy": 0,
+      "ageReq": 1,
       "armours": [[3, 5], [4, 2], [11, 0], [21, 0], [22, 0], [31, 2], [40, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 27,
       "cost": {
         "wood": 3
@@ -23015,6 +23153,81 @@
       "type": 70,
       "workRate": 1
     },
+    "759": {
+      "accuracy": 1,
+      "ageReq": 3,
+      "armours": [[1, 0], [3, 6], [4, 0], [19, 0], [31, 0]],
+      "attacks": [[4, 10], [8, 0], [15, 6], [21, 2], [29, 2], [30, 0]],
+      "blastRadius": 0,
+      "civs": ["Goths"],
+      "class": 6,
+      "cost": {
+        "food": 75,
+        "gold": 35
+      },
+      "garrison": 0,
+      "hp": 60,
+      "icon": 50,
+      "internalName": "BHUSK",
+      "lineOfSight": 3,
+      "minimumRange": 0,
+      "name": "Huskarl",
+      "range": 0,
+      "rateOfFire": 2,
+      "resourceCapacity": 25,
+      "speed": 1.05,
+      "trainLocations": [
+        {
+          "location": 82,
+          "time": 13
+        },
+        {
+          "location": 12,
+          "time": 16
+        }
+      ],
+      "trainTime": 13,
+      "type": 70,
+      "upgradesTo": [[761, 365]],
+      "workRate": 1
+    },
+    "761": {
+      "accuracy": 1,
+      "ageReq": 4,
+      "armours": [[1, 0], [3, 8], [4, 0], [19, 0], [31, 0]],
+      "attacks": [[4, 12], [8, 0], [15, 10], [21, 3], [29, 3], [30, 0]],
+      "blastRadius": 0,
+      "civs": ["Goths"],
+      "class": 6,
+      "cost": {
+        "food": 75,
+        "gold": 35
+      },
+      "garrison": 0,
+      "hp": 70,
+      "icon": 478,
+      "internalName": "BHUSKX",
+      "lineOfSight": 5,
+      "minimumRange": 0,
+      "name": "Elite Huskarl",
+      "range": 0,
+      "rateOfFire": 2,
+      "resourceCapacity": 25,
+      "speed": 1.05,
+      "trainLocations": [
+        {
+          "location": 82,
+          "time": 13
+        },
+        {
+          "location": 12,
+          "time": 16
+        }
+      ],
+      "trainTime": 13,
+      "type": 70,
+      "workRate": 1
+    },
     "763": {
       "accuracy": 0.8,
       "ageReq": 3,
@@ -23091,7 +23304,7 @@
       "armours": [[1, 0], [3, 1], [4, 1], [31, 0]],
       "attacks": [[4, 9], [8, 0], [15, 0], [21, 3], [29, 8], [30, 0]],
       "blastRadius": 0,
-      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mayans", "Mongols", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 6,
       "cost": {
         "food": 50,
@@ -23191,6 +23404,7 @@
     },
     "775": {
       "accuracy": 0.38,
+      "ageReq": 3,
       "armours": [[3, 0], [4, 0], [8, 0], [19, 0], [25, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
@@ -23260,9 +23474,11 @@
     },
     "792": {
       "accuracy": 1,
+      "ageReq": 1,
       "armours": [[3, 0], [4, 0], [11, 0], [21, 0], [22, 0], [31, 0]],
       "attacks": [],
       "blastRadius": 0,
+      "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Britons", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Danes", "Dravidians", "Ethiopians", "Franks", "Georgians", "Goths", "Gurjaras", "Hindustanis", "Huns", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Muisca", "Persians", "Poles", "Portuguese", "Romans", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "class": 39,
       "cost": {
         "wood": 30
@@ -24007,6 +24223,81 @@
         }
       ],
       "trainTime": 18,
+      "type": 70,
+      "workRate": 1
+    },
+    "886": {
+      "accuracy": 1,
+      "ageReq": 3,
+      "armours": [[3, 3], [4, 1], [8, 0], [19, 0], [31, 0]],
+      "attacks": [[4, 8], [11, 8], [13, 12], [15, 0], [20, 0], [21, 0], [22, 8], [26, 10], [31, 0], [38, 0], [39, -3]],
+      "blastRadius": 0,
+      "civs": ["Huns"],
+      "class": 12,
+      "cost": {
+        "food": 60,
+        "gold": 60
+      },
+      "garrison": 0,
+      "hp": 100,
+      "icon": 105,
+      "internalName": "TARKAN",
+      "lineOfSight": 5,
+      "minimumRange": 0,
+      "name": "Tarkan",
+      "range": 0,
+      "rateOfFire": 1.9,
+      "resourceCapacity": 25,
+      "speed": 1.4,
+      "trainLocations": [
+        {
+          "location": 82,
+          "time": 14
+        },
+        {
+          "location": 101,
+          "time": 26
+        }
+      ],
+      "trainTime": 14,
+      "type": 70,
+      "upgradesTo": [[887, 2]],
+      "workRate": 1
+    },
+    "887": {
+      "accuracy": 1,
+      "ageReq": 4,
+      "armours": [[3, 4], [4, 1], [8, 0], [19, 0], [31, 0]],
+      "attacks": [[4, 11], [11, 10], [13, 12], [15, 0], [20, 0], [21, 0], [22, 10], [26, 10], [31, 0], [38, 0], [39, -3]],
+      "blastRadius": 0,
+      "civs": ["Huns"],
+      "class": 12,
+      "cost": {
+        "food": 60,
+        "gold": 60
+      },
+      "garrison": 0,
+      "hp": 150,
+      "icon": 487,
+      "internalName": "UTARK",
+      "lineOfSight": 7,
+      "minimumRange": 0,
+      "name": "Elite Tarkan",
+      "range": 0,
+      "rateOfFire": 1.9,
+      "resourceCapacity": 25,
+      "speed": 1.4,
+      "trainLocations": [
+        {
+          "location": 82,
+          "time": 14
+        },
+        {
+          "location": 101,
+          "time": 24
+        }
+      ],
+      "trainTime": 14,
       "type": 70,
       "workRate": 1
     },
