@@ -51,6 +51,7 @@ Paths in the game installation:
 | `sync.py` | compares `src/` with the snapshot; each `check_*` method records findings, fixable ones carry an `apply` function that `patch` runs |
 | `jsonedit.py` | edits the project JSON files in place, keeping their formatting |
 | `icons.py` | creates webp icons from the game textures |
+| `patch_icons.py` | optional: regenerates all existing unit icons so they share the style of `icons.py` |
 
 `verify` and `patch` only read the snapshot and work without the game installed, except for creating icons.
 To test a change to the tool, compare the `verify` output before and after; run `patch` on a copy of the repository.

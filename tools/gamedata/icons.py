@@ -112,8 +112,9 @@ def resource_tile(paths, source, resource, civ):
     return base.convert('RGB')
 
 
-def create(jobs, units, game):
-    """Create the icons for the jobs collected by sync.Sync.new_images. Existing files are kept.
+def create(jobs, units, game, overwrite=False):
+    """Create the icons for the jobs collected by sync.Sync.new_images. Existing files are kept
+    unless `overwrite` is set.
 
     Job formats:
         {'file': name, 'kind': 'generic' | 'regional' | 'unique', 'unit': unit ID, 'replaces': old name (optional)}
@@ -125,7 +126,7 @@ def create(jobs, units, game):
     done = set()
     for job in jobs:
         target = IMG / f'{job["file"]}.webp'
-        if target.exists() or target in done:
+        if (target.exists() and not overwrite) or target in done:
             continue
         if job['kind'] == 'resource':
             image = resource_tile(paths, job['source'], job['res'], job['civ'])
