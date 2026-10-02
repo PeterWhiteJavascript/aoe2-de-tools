@@ -18,11 +18,12 @@
     padding: 5px;
     display: flex;
 }
-#econ-civ-bonus > div > div{
+#econ-civ-bonus > div > label{
     padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 #choose-units, #choose-res{
@@ -180,8 +181,12 @@
     flex-wrap: wrap;
     margin-bottom: 35px;
 }
-.upgrades-cont > div{
+.upgrades-cont > label{
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }
 .resource{
     width: 80px;
