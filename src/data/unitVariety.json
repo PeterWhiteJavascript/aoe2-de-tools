@@ -2259,7 +2259,8 @@
     "civs": {},
     "upgrades": {
       "Elite Shotel Warrior": {
-        "trainTime": 4
+        "trainTime": 4,
+        "img": "elite shotel warrior"
       },
       "Conscription": {
         "trainTime": 1.33,
