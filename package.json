@@ -21,7 +21,9 @@
     "build": "npx @11ty/eleventy",
     "gamedata:extract": "python tools/gamedata/gamedata.py extract",
     "gamedata:verify": "python tools/gamedata/gamedata.py verify",
-    "gamedata:update": "python tools/gamedata/gamedata.py update"
+    "gamedata:update": "python tools/gamedata/gamedata.py update",
+    "techtree:verify": "python tools/gamedata/gamedata.py verify --techtree",
+    "techtree:update": "python tools/gamedata/gamedata.py update --techtree"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",

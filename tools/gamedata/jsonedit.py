@@ -118,6 +118,7 @@ class Doc:
         # Containers that are rendered in full on save: id(node) -> (node, content). Empty containers
         # have no member to copy the formatting from; object_content() also uses this
         self.filled_containers = {}
+        self.removals = {}  # id(container) -> (container, indexes of the members to remove)
         self.root = self._parse(self._skip_whitespace(0))[0]
         # The smallest indentation in the file is its indentation step
         indents = {len(m) for m in re.findall(r'\n( +)\S', self.text)}
@@ -215,6 +216,33 @@ class Doc:
             at = arr.members[index][1]
             self._edit(at.start, at.start, rendered + separator)
 
+    def remove(self, container, key):
+        """Remove an array element (key: index) or an object member (key: name) with its separator.
+
+        Removals are collected per container and turned into edits on save(), so neighbouring
+        members can be removed by separate calls without overlapping edits.
+        """
+        keys = container.keys() if container.kind == 'object' else list(range(len(container.members)))
+        self.removals.setdefault(id(container), (container, set()))[1].add(keys.index(key))
+
+    def _removal_edits(self, container, indexes):
+        members = [node for _, node in container.members]
+
+        def start(node):
+            return node.key_range[0] if node.key_range else node.start
+
+        kept = [i for i in range(len(members)) if i not in indexes]
+        if not kept:
+            self._edit(start(members[0]), members[-1].end, '')
+            return
+        # Members before the last kept one go with the separator after them, the ones after it
+        # together with the separator before them
+        for i in sorted(indexes):
+            if i < kept[-1]:
+                self._edit(start(members[i]), start(members[i + 1]), '')
+        if kept[-1] < len(members) - 1:
+            self._edit(members[kept[-1]].end, members[-1].end, '')
+
     def object_content(self, obj):
         """The value of an object node as a dict that save() writes back in full.
 
@@ -224,11 +252,13 @@ class Doc:
         return self.filled_containers.setdefault(id(obj), (obj, obj.value()))[1]
 
     def changed(self):
-        return bool(self.edits or self.filled_containers)
+        return bool(self.edits or self.filled_containers or self.removals)
 
     def save(self):
         for node, content in self.filled_containers.values():
             self._edit(node.start, node.end, render(content, self.indent, node.line_indent()))
+        for container, indexes in self.removals.values():
+            self._removal_edits(container, indexes)
         edits = sorted(self.edits)
         for (_, _, end, _), (next_start, _, _, _) in zip(edits, edits[1:]):
             if next_start < end:
@@ -239,4 +269,4 @@ class Doc:
             text = text[:start] + new_text + text[end:]
         json.loads(text)  # refuse to write broken JSON
         self.path.write_text(text, encoding='utf-8')
-        self.text, self.edits, self.filled_containers = text, [], {}
+        self.text, self.edits, self.filled_containers, self.removals = text, [], {}, {}

@@ -1,7 +1,8 @@
 # Game data sync (gamedata)
 
 Checks the project data in `src/` against the AoE2:DE game data and applies changes: costs, train and
-research times, gather rates, eco bonuses, new units and resources with their icons.
+research times, gather rates, eco bonuses, new units and resources with their icons, and the civ tech
+trees of the civ ranking.
 
 ## After a game patch
 
@@ -23,7 +24,8 @@ git diff                                        # review
 Options:
 
   - `--game <path>` (default: the Steam library with app 813780), 
-  - `--stats` (also check combat stats, which the villager calculator does not use).
+  - `--stats` (also check combat stats, which the villager calculator does not use),
+  - `--techtree` (check only the civ ranking tech trees, see below).
 
 `snapshot.json` is checked in; its diff shows what a game patch changed.
 
@@ -73,7 +75,49 @@ Details are in the docstrings of the `check_*` methods in `sync.py`.
 - **Resources** in `order.json` are checked against `gatherers` in both directions, so a new resource cannot silently miss its civ bonuses.
 - **New units** get a `data.json` entry with their upgrades, a `unitVariety.json` entry, an icon and a place in the `unitsShow.json` group with the most units from the same building.
 - **Renamed units** listed in `renames` get the game name everywhere in `src/`, including their upgrades and icons.
-- Editorial data (civ rankings, tech tree pages, bonus texts) is not touched.
+- **Civ tech trees** (`data.json` "civilizations" → "techTree", used by the civ ranking) follow the in-game tech tree. Only `--techtree` checks them, see below.
+- Editorial data (civ ratings, tech tree pages, bonus texts) is not touched.
+
+## Civ ranking tech trees
+
+The civ ranking rates each civ by its tech tree. The ratings ("ranks", "ranksUnique" in `data.json`) are
+editorial, so the tech trees are updated separately, by whoever reviews the ratings afterwards:
+
+```shell
+npm run techtree:verify                         # optional, preview
+npm run techtree:update                         # extract + patch the tech trees, write TODO_RANKINGS.txt
+```
+
+`techtree:update` writes `TODO_RANKINGS.txt` to the repository root (git-ignored, overwritten by every update)
+before it patches, and opens it. It lists the tech tree changes, what to update by hand, and per civ the changes
+that touch its ratings, a building it is rated in or its bonuses ("Rankings to review"; changes most civs share by
+`genericShare` are listed once). `techtree:verify` only prints the same list, so the file stays until the next update.
+
+```
+Britons:
+  - gained mounted crossbowman
+  - lost cavalry archer
+Chinese:
+  - cost increase: fire lancer - 35f 40g -> 45w 45g
+Malians:
+  - effect change: malians civ bonus - Gold Miners (resource 276) 15 -> 10
+```
+
+Effect and cost changes are compared with `techtree-baseline.json` (checked in), which `techtree:update` writes
+after patching: they show what changed since the last tech tree update, no matter when `gamedata:update` ran.
+Without the file, e.g. on the first run, they are missing. Only economic effects are compared (work rate, carry
+capacity, cost, train time and the engine resources of `specialResources`), as the snapshot holds no other
+effects; changes of combat stats (hp, attack, armor, range, speed) do not show up.
+
+- `available` is fixed per entry; the finding lists the civs that gained (+) or lost (-) it.
+- Techs researched in another building now are moved there, also in "upgradeBuilding".
+- Units and techs of a tech tree building no entry stands for are added to every civ with that building.
+- Names in `removedTechs` leave "relevantUpgrades" and "upgradeBuilding". They leave the tech trees only once
+  neither `civ-ranking.js` nor "ranksUnique" names them, since the page fails on names missing in a tech tree;
+  until then they become unavailable. Other mentions in `src/` are only reported.
+- Techs in `techRenames` get the game name everywhere in `src/`; their icon files are renamed, since there is no
+  generator for tech icons. If the game gave the tech a new effect too, replace the icon by hand.
+- Civs missing in the project are only reported.
 
 ## config.json
 
@@ -86,7 +130,9 @@ several copies use the ID with a `civs` list.
 | `units` | project name → unit ID, if the name is ambiguous or differs from the game |
 | `renames` | old project name → unit ID of a unit renamed in the game; can be removed after `patch` |
 | `unitCivs` | unit ID → civs that can train it, for units no tech tree shows (Xolotl Warrior: trained in a converted Stable) |
-| `upgrades` | project name → tech ID, if an eco tech cannot be found by name |
+| `upgrades` | project name → tech ID, if a tech cannot be found by name |
+| `techRenames` | old project name → tech ID of a tech renamed in the game; can be removed after `techtree:update` |
+| `removedTechs` | project names of techs removed from the game; can be removed once nothing mentions them |
 | `ignoreFields` | fields not compared for a unit, because they mean something else there |
 | `skipNewUnits` | unit IDs never adopted as new units (heroes, campaign units) |
 | `ignoreTechs` | tech IDs that affect another building than the calculator shows; list all techs of a bonus |
@@ -119,6 +165,9 @@ After changing `units` or `upgrades`, run `update`: the mappings also decide wha
 | `not assigned to a villager task` | add it to its task in `gatherers`, or to `otherResources` |
 | `not in order.json` | update `gatherers` or `otherResources` |
 | `unknown engine resource` | add it to `specialResources` if it affects gathering, else to `knownResources` |
+| `techTree <building>/<name>: not found in the game` | map it in `units` or `upgrades` if renamed, else add it to `removedTechs` |
+| `techTree <name>: called "..." in the game` | nothing; rename the entry and its icon by hand if wanted |
+| `removed tech "<name>": still mentioned in ...` | update these places by hand, then remove the name from `removedTechs` |
 
 ### Special resources
 

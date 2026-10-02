@@ -28,8 +28,18 @@
     "xolotl warrior": 1570
   },
   "renames": {"longboat": 250},
+  "removedTechs": ["supplies", "bearded axe", "pavise", "zealotry"],
   "unitCivs": {"1570": ["Aztecs", "Incas"]},
-  "upgrades": {},
+  "upgrades": {
+    "spies": 408,
+    "bombard tower upgrade": 64
+  },
+  "techRenames": {
+    "counter weights": 454,
+    "el dorado": 4,
+    "hul che javelineers": 485,
+    "maghrabi camels": 579
+  },
   "ignoreFields": {
     "monk": ["rateOfFire"],
     "missionary": ["rateOfFire"],
