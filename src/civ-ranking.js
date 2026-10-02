@@ -22,6 +22,8 @@ $.getJSON('/data.json', function(data) {
             } else if (buildingName === "monastery"){
                 buildingName = "fortified church";
             }
+        } else if(civ === "Poles" && buildingName === "mill"){
+            buildingName = "folwark";
         }
         return buildingName;
     }
