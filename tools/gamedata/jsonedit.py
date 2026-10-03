@@ -171,6 +171,22 @@ class Doc:
     def replace(self, node, value):
         self._edit(node.start, node.end, render(value, self.indent, node.line_indent()))
 
+    def replace_lines(self, node, values):
+        """Replace a node with an array that has one element per line, for long texts ("bonusDesc").
+
+        render() keeps arrays without objects on one line.
+        """
+        if not values:
+            self._edit(node.start, node.end, '[]')
+            return
+        base = node.line_indent()
+        inner = base + self.indent
+        # Keep the indentation of the current elements, the file is not indented consistently
+        if node.members and '\n' in self.text[node.start:node.members[0][1].start]:
+            inner = node.members[0][1].line_indent()
+        body = ',\n'.join(inner + json.dumps(v, ensure_ascii=False) for v in values)
+        self._edit(node.start, node.end, '[\n' + body + '\n' + base + ']')
+
     def set_key(self, obj, key, value):
         """Set a key of an object node. New keys are appended in the style of the last member."""
         if key in obj:

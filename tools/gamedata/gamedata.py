@@ -23,18 +23,23 @@ sys.path.insert(0, str(HERE))  # allows running the script from any working dire
 
 import extract  # noqa: E402
 import sync  # noqa: E402
+import todo_rankings  # noqa: E402
 
 SNAPSHOT = HERE / 'snapshot.json'
 CONFIG = HERE / 'config.json'
 TITLES = {'diff': 'Differences', 'new': 'New in the game', 'info': 'Notes', 'ranking': 'Rankings to review'}
-TODO_RANKINGS = sync.ROOT / 'TODO_RANKINGS.txt'
+TODO_RANKINGS = todo_rankings.TODO_RANKINGS
 TODO_HEADER = """Civ ranking: what to review after the tech tree changes below
-Written by "npm run techtree:update", overwritten on every run.
+Written by "npm run techtree:update" on every run.
 
 The ratings in src/data.json ("ranks", "ranksUnique") are editorial; the tool does not change them.
 Once the tech trees are updated, the ratings still describe the old tech trees until they are
 reviewed. Techs removed from the game stay in the tech trees as unavailable until nothing in
 "By hand" names them anymore, because civ-ranking.js fails on names missing in a tech tree.
+
+"Rankings to review" keeps the notes of earlier updates as rounds of their own, newest first,
+so an unfinished review survives the next patch. Reviewed rounds can be deleted.
+Review them with "npm run ranking:edit".
 """
 
 
@@ -50,14 +55,19 @@ def report(findings):
         print('Project data matches the game data.')
 
 
-def write_todo_rankings(findings):
-    """Write the findings the maintainer has to handle to TODO_RANKINGS.txt and open it."""
+def write_todo_rankings(findings, round_name):
+    """Write the findings the maintainer has to handle to TODO_RANKINGS.txt and open it.
+
+    The "Rankings to review" become round `round_name`; the rounds of earlier updates stay (see todo_rankings.py).
+    """
     sections = [('Tech tree changes', [f for f in findings if f.kind in ('diff', 'new')]),
-                ('By hand', [f for f in findings if f.kind == 'info']),
-                ('Rankings to review', [f for f in findings if f.kind == 'ranking'])]
+                ('By hand', [f for f in findings if f.kind == 'info'])]
     text = TODO_HEADER
     for title, items in sections:
         text += f'\n== {title} ({len(items)}) ==\n' + ''.join(f'  {f.where}: {f.message}\n' for f in items)
+    rounds = todo_rankings.read_rounds()
+    text += todo_rankings.format_rounds(
+        todo_rankings.add_round(rounds, round_name, todo_rankings.notes_from_findings(findings)))
     TODO_RANKINGS.write_text(text, encoding='utf-8')
     print(f'\nWritten: {TODO_RANKINGS.name}')
     try:
@@ -101,7 +111,7 @@ def main():
 
     # Written before applying: afterwards the changes are no longer visible
     if args.techtree:
-        write_todo_rankings(findings)
+        write_todo_rankings(findings, f'build {syncer.snapshot["meta"]["buildId"]}')
     findings_before_apply = len(findings)
     changed = syncer.apply()
     if args.techtree:

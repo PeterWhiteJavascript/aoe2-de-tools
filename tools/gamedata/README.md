@@ -55,6 +55,8 @@ Paths in the game installation:
 | `jsonedit.py` | edits the project JSON files in place, keeping their formatting |
 | `icons.py` | creates webp icons from the game textures |
 | `patch_icons.py` | optional: regenerates all existing unit icons so they share the style of `icons.py` |
+| `ranking_editor.py`, `ranking_editor.html` | local editor for the ratings and unit tooltips of the civ ranking (see below) |
+| `todo_rankings.py` | reads and writes the review rounds in `TODO_RANKINGS.txt` |
 
 `verify` and `patch` only read the snapshot and work without the game installed, except for creating icons.
 To test a change to the tool, compare the `verify` output before and after; run `patch` on a copy of the repository.
@@ -91,10 +93,11 @@ npm run techtree:verify                         # optional, preview
 npm run techtree:update                         # extract + patch the tech trees, write TODO_RANKINGS.txt
 ```
 
-`techtree:update` writes `TODO_RANKINGS.txt` to the repository root (git-ignored, overwritten by every update)
+`techtree:update` writes `TODO_RANKINGS.txt` to the repository root (git-ignored, rewritten by every update)
 before it patches, and opens it. It lists the tech tree changes, what to update by hand, and per civ the changes
 that touch its ratings, a building it is rated in or its bonuses ("Rankings to review"; changes most civs share by
 `genericShare` are listed once). `techtree:verify` only prints the same list, so the file stays until the next update.
+"Rankings to review" keeps the notes of earlier updates as rounds of their own (see "Reviewing the ratings").
 
 ```
 Britons:
@@ -144,6 +147,59 @@ effects; changes of combat stats (hp, attack, armor, range, speed) do not show u
   for civs with that unit (Cranequins needs the Mounted Crossbowman).
 - Icons the page needs (rated units, unique techs, overview, civs) are created if missing: units and techs as tech
   tree tiles, civs from their emblem.
+
+### Reviewing the ratings
+
+```shell
+npm run ranking:edit
+```
+
+Starts a local server (`http://localhost:8765/`, `--port` to change it, `--no-browser` to not open it) with an
+editor for "ranks", "ranksUnique" and "bonusDesc" of every civ, next to the civ's open review notes ("Civs"), and
+for the techs the unit tooltips show ("Unit upgrades", see below). It needs no packages besides Python. It is a
+maintainer tool: the website build only takes `src/`, so neither the editor nor the review notes are published.
+
+**Review notes across sessions and patches.** The editor shows the "Rankings to review" of `TODO_RANKINGS.txt`
+grouped by review round, named after the game build (`build 25464371`). Ticked off notes are stored in the browser
+(`localStorage`), so the review can be spread over several sessions. When a patch arrives before a round is
+finished, `techtree:update` adds the new round in front and keeps the earlier ones; the editor marks them as
+"earlier round". A note an earlier round lists already is not added again, and a second update for the same build
+only adds what is new. Reviewed rounds may be deleted from the file by hand, but need not be. A note the saved
+ratings already cover (a "new rating" with ratings, a "review rating" entry that is gone, a "new unique tech" with
+affected units) is marked "looks resolved"; ticking it off stays with the maintainer.
+
+**Editing.**
+
+- Ratings are edited per age (Dark to Imperial) with the letters of "rankConversion"; `data.json` stores them up to
+  the Imperial Age, so they must not have gaps. The building rating is the average, as on the page.
+- Rows are flagged when the civ does not have the unit in its tech tree or the entry has no ratings yet. Hovering a
+  note marks the rows it names, selecting it scrolls to them; only its checkbox ticks it off.
+- Selecting a unit name compares its ratings across all civs and lists the civs that have the unit without rating it.
+- Unique techs the page cannot find in the civ's tech tree (it would fail on them) are listed as problems; gaps in
+  ratings block saving.
+- "Save" writes one civ via `jsonedit.py`: only the changed values change in `data.json`. If the civ was changed in
+  `data.json` since the editor loaded it (e.g. by `techtree:update`), saving is refused; "Revert" loads it again.
+- New buildings and units are added at the end of their civ's entry in `data.json`, except for a civ without any
+  entries.
+
+**Unit upgrades.** Hovering a unit on the civ ranking page shows its "relevantUpgrades", then the civ's unique
+techs that affect it. These lists are kept by hand: the snapshot holds no combat effects to derive them from, and
+they are a choice anyway. The view lists the rated units without a list first; `techtree:update` adds new units to
+"ranks", not here.
+
+- A unit's list is ordered by drag and drop (or Alt+Up/Down). Techs and upgrade groups come from a searchable list
+  filtered by building. A unit without a list can copy the list of another unit, or share it: sharing writes the
+  rating keys to "unitGroups", which the page also uses to match unique techs, so those then have to name the
+  shared unit.
+- Upgrade groups ("meleeAttack": forging, iron casting, blast furnace) take one place in a list: the tooltip shows
+  the highest tier the civ has, or the first one greyed out. Their techs are ordered lowest tier first. They rarely
+  change, only when the game adds a tech series. The unit comparison uses them too, so a group is only deleted when
+  nothing uses it. The upgrade groups of unit lines ("militia") belong to the unit comparison and are not shown.
+- The page looks every tech up in the tech tree building "upgradeBuilding" names and fails on a civ that lacks it.
+  The list therefore offers the techs of "upgradeBuilding" and the ones every civ has in the same building outside
+  the castle (marked "new"; saving adds them to "upgradeBuilding"). Unique techs come from "ranksUnique".
+- A preview shows the tooltip per civ. "Save" writes all unit upgrade edits at once, refused like a civ when
+  `data.json` changed meanwhile.
 
 ## config.json
 
