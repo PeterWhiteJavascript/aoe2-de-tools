@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranking Editor</title>
+<style>
+  :root {
+    --bg: #eef0f3;
+    --panel: #fff;
+    --line: #d9dde3;
+    --line-strong: #b9bfc8;
+    --text: #1f2328;
+    --muted: #5b626d;
+    --side: #1d2127;
+    --side-hover: #2a2f37;
+    --side-sel: #363c47;
+    --side-text: #e8eaed;
+    --side-muted: #a7aeb9;
+    --accent: #b8901c;
+    --high: gold;
+    --low: #b84a4a;
+    --medium: #e6e9ed;
+    --ok: #2f7a3f;
+    --ok-bg: #e3f2e6;
+    --bad: #b3261e;
+    --bad-bg: #fdecea;
+    --warn: #9a5a07;
+    --warn-bg: #fdf0dc;
+    --info: #2f63a0;
+    --mark: #fff3c4;
+    --focus: #2f63a0;
+    --radius: 6px;
+  }
+  * { box-sizing: border-box; }
+  html { scrollbar-color: var(--line-strong) transparent; }
+  body { margin: 0; font: 14px/1.45 system-ui, sans-serif; color: var(--text); background: var(--bg); }
+  ::selection { background: #ffe48a; color: var(--text); }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+  input[type=checkbox] { accent-color: var(--info); width: 15px; height: 15px; margin: 0; }
+  button { cursor: pointer; border: 1px solid var(--line-strong); background: var(--panel); border-radius: var(--radius); padding: 5px 12px; }
+  button:hover:not(:disabled) { background: var(--bg); }
+  button:disabled { opacity: .5; cursor: default; }
+  button.primary { background: var(--side); color: #fff; border-color: var(--side); font-weight: 600; }
+  button.primary:hover:not(:disabled) { background: var(--side-sel); }
+  button.icon { border: none; background: none; color: var(--muted); width: 28px; height: 28px; padding: 0; display: inline-grid; place-items: center; border-radius: var(--radius); flex: none; }
+  button.icon:hover { color: var(--bad); background: var(--bad-bg); }
+  button.icon svg { width: 14px; height: 14px; }
+  input:not([type=checkbox]), select, textarea { border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--panel); padding: 5px 8px; }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  img.ico { width: 30px; height: 30px; object-fit: contain; vertical-align: middle; border-radius: 4px; }
+  img.ico.missing { visibility: hidden; }
+  .ico-wrap { display: inline-block; width: 30px; height: 30px; position: relative; vertical-align: middle; flex: none; }
+  .ico-wrap.missing { outline: 1px dashed var(--bad); border-radius: 4px; }
+  .ico-wrap.missing::after { content: "?"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--bad); font-weight: 700; }
+  .ico-wrap.sm, .ico-wrap.sm img.ico { width: 24px; height: 24px; }
+
+  #app { display: grid; grid-template-columns: 248px 1fr; height: 100vh; }
+  #app.comparing { grid-template-columns: 248px 1fr 290px; }
+
+  /* Civ list */
+  #side { background: var(--side); color: var(--side-text); display: flex; flex-direction: column; min-height: 0; }
+  #side header { padding: 16px 14px 10px; }
+  #side h1 { font-size: 16px; margin: 0 0 10px; color: #fff; }
+  .views { display: flex; gap: 2px; padding: 3px; background: var(--side-hover); border-radius: 8px; margin-bottom: 10px; }
+  .views button { flex: 1; border: none; background: none; color: var(--side-muted); padding: 4px 8px; font-size: 13px; font-weight: 600; border-radius: 6px; }
+  .views button:hover:not(:disabled) { background: none; color: #fff; }
+  .views button[aria-selected=true], .views button[aria-selected=true]:hover { background: var(--side-sel); color: #fff; }
+  #side .files { font-size: 12px; color: var(--side-muted); margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+  #side input[type=search] { width: 100%; border-color: #464d59; background: var(--side-hover); color: #fff; }
+  #side input[type=search]::placeholder { color: var(--side-muted); }
+  #side label { display: flex; align-items: center; gap: 7px; font-size: 13px; margin-top: 10px; color: var(--side-muted); cursor: pointer; }
+  #civs { overflow-y: auto; flex: 1; padding: 4px 6px 16px; scrollbar-color: #464d59 transparent; }
+  .civ { display: flex; align-items: center; gap: 9px; padding: 4px 8px; cursor: pointer; border-radius: var(--radius); }
+  .civ:hover { background: var(--side-hover); }
+  .civ.sel { background: var(--side-sel); color: #fff; }
+  .civ img { width: 24px; height: 24px; }
+  .civ .name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .civ .count { font-size: 12px; color: var(--side-muted); font-variant-numeric: tabular-nums; }
+  .side-title { font-size: 12px; font-weight: 650; color: var(--side-muted); padding: 14px 8px 4px; }
+  .side-title:first-child { padding-top: 4px; }
+  #side input.new-group { width: calc(100% - 16px); margin: 6px 8px 0; border-color: #464d59; background: var(--side-hover); color: #fff; }
+  #side input.new-group::placeholder { color: var(--side-muted); }
+  .badge { font-size: 11px; font-weight: 600; border-radius: 9px; padding: 0 7px; line-height: 18px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .badge.notes { background: #e9a23b; color: #1d2127; }
+  .badge.unrated { background: transparent; color: #f0b660; box-shadow: inset 0 0 0 1.5px #e9a23b; }
+  .badge.new { background: #6f9fd8; color: #10233a; }
+  .badge.err { background: #e5534b; color: #fff; }
+  .badge.muted { background: #3a404a; color: var(--side-muted); font-weight: 500; }
+  .dirty-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  /* Main */
+  #main { overflow-y: auto; min-height: 0; }
+  #bar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px; padding: 10px 24px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  #bar h2 { margin: 0; font-size: 20px; flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0; }
+  #bar h2 img { width: 36px; height: 36px; }
+  #status { font-size: 13px; color: var(--muted); }
+  #status.bad { color: var(--bad); }
+  #status.ok { color: var(--ok); }
+  .content { padding: 20px 24px 64px; display: grid; grid-template-columns: minmax(520px, 1fr) minmax(320px, 430px); gap: 20px; align-items: start; }
+  .col { display: grid; gap: 16px; }
+  section.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px 16px; }
+  section.card > h3 { margin: 0 0 12px; font-size: 15px; font-weight: 650; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .hint { font-weight: normal; font-size: 12px; color: var(--muted); }
+  .errors { background: var(--bad-bg); border: 1px solid #f2b8b2; color: var(--bad); border-radius: 8px; padding: 10px 14px; }
+  .errors div + div { margin-top: 4px; }
+
+  /* Notes */
+  .note { display: flex; gap: 9px; align-items: flex-start; padding: 4px 6px; margin: 0 -6px; border-radius: var(--radius); }
+  .note.jumps { cursor: pointer; }
+  .note:hover { background: var(--mark); }
+  .note input { margin-top: 2px; flex: none; cursor: pointer; }
+  .note.done .text { text-decoration: line-through; color: var(--muted); }
+  .note .kind { font-size: 12px; font-weight: 650; flex: none; width: 82px; padding-top: 1px; }
+  .kind.gained { color: var(--ok); } .kind.lost, .kind.removed { color: var(--bad); }
+  .kind.review, .kind.effect, .kind.cost { color: var(--warn); } .kind.new { color: var(--info); }
+  .note .text { flex: 1; }
+  .note .file { color: var(--muted); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .notes-group { font-size: 13px; font-weight: 650; margin: 14px 0 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .notes-group:first-child { margin-top: 0; }
+  .notes-group span { font-weight: normal; color: var(--muted); }
+  .notes-group .tag { margin-left: 0; }
+  .toggle { margin-left: auto; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .empty { color: var(--muted); }
+
+  /* Ratings */
+  .building + .building { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 12px; }
+  .bhead { display: flex; align-items: center; gap: 9px; font-weight: 650; margin-bottom: 2px; text-transform: capitalize; }
+  .bhead .avg { min-width: 32px; text-align: center; border-radius: 4px; padding: 1px 6px; font-weight: 700; font-variant-numeric: tabular-nums; text-transform: none; }
+  .bhead .spacer { flex: 1; }
+  table.ranks { border-collapse: collapse; width: 100%; }
+  table.ranks th { font-size: 12px; font-weight: 500; color: var(--muted); text-align: center; padding: 0 2px 2px; }
+  table.ranks td { padding: 2px; vertical-align: middle; }
+  table.ranks td.unit { width: 100%; }
+  table.ranks tr.mark td { background: var(--mark); }
+  table.ranks tr.flash td { animation: flash 1.2s ease-out; }
+  @keyframes flash { from { background: #ffd84d; } to { background: var(--mark); } }
+  @media (prefers-reduced-motion: reduce) { table.ranks tr.flash td { animation: none; } }
+  table.ranks tr.gap td.cell select { outline: 2px solid var(--bad); outline-offset: 0; }
+  .ucell { display: flex; align-items: center; gap: 8px; }
+  .uname { cursor: pointer; text-decoration: underline dotted var(--line-strong); text-underline-offset: 4px; background: none; border: none; padding: 0; text-align: left; }
+  .uname:hover { color: var(--info); text-decoration-color: var(--info); background: none !important; }
+  .tag { font-size: 11px; font-weight: 600; margin-left: 6px; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+  .tag.lost { background: var(--bad-bg); color: var(--bad); }
+  .tag.unrated { background: var(--warn); color: #fff; }
+  table.ranks tr.unrated select.rank.empty-slot { border-color: #d99a3d; background: var(--warn-bg); color: var(--warn); }
+  .tag.older { background: var(--warn-bg); color: var(--warn); }
+  .tag.resolved { background: var(--ok-bg); color: var(--ok); }
+  select.rank { appearance: none; width: 46px; height: 30px; padding: 0; text-align: center; text-align-last: center; font-weight: 700; cursor: pointer; border-color: var(--line); }
+  select.rank:hover { border-color: var(--muted); }
+  select.rank.empty-slot { color: var(--muted); font-weight: normal; background: var(--panel); border-style: dashed; }
+  .high { background: var(--high) !important; border-color: #d9b400 !important; }
+  .low { background: var(--low) !important; color: #fff; border-color: var(--low) !important; }
+  .medium { background: var(--medium) !important; }
+  .add-row { display: flex; gap: 6px; margin-top: 8px; }
+  .add-row input, .add-row select { flex: 1; min-width: 0; }
+
+  /* Unique techs */
+  .utech + .utech { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
+  .utech .row { display: flex; gap: 8px; align-items: center; }
+  .utech input.tname { flex: 1; min-width: 0; font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 0 38px; align-items: center; }
+  .chip { background: var(--medium); border-radius: 14px; padding: 0 0 0 10px; font-size: 13px; display: inline-flex; align-items: center; }
+  .chip button.icon { width: 24px; height: 24px; border-radius: 12px; }
+  .chip.unknown { background: var(--warn-bg); }
+  .chips select { padding: 2px 8px; border-style: dashed; border-radius: 14px; font-size: 13px; color: var(--muted); max-width: 170px; }
+  .warn { color: var(--warn); font-size: 12px; margin: 6px 0 0 38px; }
+
+  /* Bonus texts */
+  .bonus { display: flex; gap: 6px; align-items: flex-start; margin-bottom: 8px; }
+  .bonus textarea { flex: 1; resize: none; overflow: hidden; min-height: 36px; line-height: 1.45; }
+  .size { font-size: 12px; color: var(--muted); font-weight: normal; font-variant-numeric: tabular-nums; }
+
+  /* Compare */
+  #compare { display: none; background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; min-height: 0; padding: 14px; }
+  #app.comparing #compare { display: block; }
+  #compare h3 { margin: 0 0 4px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  #compare h3 span { flex: 1; text-align: left; }
+  #compare .sub { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  #compare table { border-collapse: separate; border-spacing: 0 2px; width: 100%; font-size: 13px; }
+  #compare td { padding: 2px 3px; }
+  #compare tr { cursor: pointer; }
+  #compare tr:hover td { background: var(--mark); }
+  #compare tr.sel td { font-weight: 700; }
+  #compare td.l { width: 30px; text-align: center; border-radius: 4px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  #compare img { width: 18px; height: 18px; vertical-align: middle; }
+
+  /* Views */
+  #app[data-view=civs] .up-only, #app[data-view=upgrades] .civs-only { display: none !important; }
+
+  /* Unit upgrades */
+  .olist { display: grid; gap: 4px; }
+  .orow { display: flex; align-items: center; gap: 9px; padding: 4px 4px 4px 6px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); cursor: grab; }
+  .orow:hover { border-color: var(--line-strong); }
+  .orow.dragging { opacity: .4; }
+  .orow.drop-before { box-shadow: 0 -3px 0 var(--info); }
+  .orow.drop-after { box-shadow: 0 3px 0 var(--info); }
+  .handle { color: var(--line-strong); flex: none; width: 10px; height: 16px; }
+  .orow:hover .handle, .orow:focus-visible .handle { color: var(--muted); }
+  .drop-empty { border: 1.5px dashed var(--line-strong); border-radius: var(--radius); padding: 16px; text-align: center; color: var(--muted); font-size: 13px; }
+  .olist.over .drop-empty { border-color: var(--info); color: var(--info); background: #eaf1fa; }
+  .tlabel { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+  .tlabel .sub, .sub { font-size: 12px; color: var(--muted); }
+  .tlabel .uname { align-self: flex-start; }
+  /* One icon slot for techs and groups alike, so the names line up */
+  .islot { display: inline-flex; flex: none; width: 46px; }
+  .islot .ico-wrap.sm + .ico-wrap.sm { margin-left: -13px; }
+  .islot .ico-wrap.sm img.ico { box-shadow: 0 0 0 2px var(--panel); }
+  .tag.group, .tag.new-tech { background: #e6effa; color: var(--info); margin-left: 0; }
+  .alt-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .alt-row select { max-width: 220px; }
+  .card-foot { display: flex; justify-content: flex-end; margin-top: 10px; }
+  .palette-tools { display: flex; gap: 6px; margin-bottom: 8px; }
+  .palette-tools input { flex: 1; min-width: 0; }
+  .palette { display: grid; gap: 1px; }
+  .tech { display: flex; align-items: center; gap: 9px; padding: 3px 4px 3px 6px; border-radius: var(--radius); cursor: grab; }
+  .tech:hover { background: var(--mark); }
+  .tech.used { cursor: default; }
+  .tech.used:hover { background: none; }
+  .tech.used .tlabel > :first-child { color: var(--muted); }
+  button.add { width: 28px; height: 28px; padding: 0; flex: none; font-size: 17px; line-height: 1; }
+  .tip { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px; background: var(--side); border-radius: var(--radius); min-height: 50px; align-items: center; }
+  .tip .empty { color: var(--side-muted); }
+  .tip-ico.locked img { filter: brightness(50%); }
+  .tip-head { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  .rated { display: flex; align-items: center; gap: 9px; padding: 3px 0; }
+  .rated .tlabel { flex-direction: row; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .users { display: flex; flex-wrap: wrap; gap: 5px; }
+  .users .chip { padding: 2px 10px; cursor: pointer; border: none; }
+  .users .chip:hover { background: var(--mark); }
+
+  /* The notes stay in view while the ratings scroll to the row a note names */
+  @media (min-width: 1251px) {
+    .content > .col:last-child { position: sticky; top: 76px; max-height: calc(100vh - 96px); overflow-y: auto; }
+  }
+  @media (max-width: 1250px) {
+    .content { grid-template-columns: 1fr; }
+    .palette { max-height: 60vh; overflow-y: auto; }
+    /* One column: the notes come first, they say what to look at */
+    .col { display: contents; }
+    #notes-card { order: -1; }
+  }
+  @media (max-width: 800px) {
+    #app, #app.comparing { display: block; height: auto; }
+    #side header { padding: 12px 16px 8px; }
+    #civs { display: flex; overflow-x: auto; gap: 4px; padding: 0 12px 10px; }
+    .civ { flex: none; padding: 5px 9px; }
+    #main { overflow: visible; }
+    #bar { padding: 8px 16px; flex-wrap: wrap; gap: 4px 8px; }
+    #bar h2 { font-size: 17px; flex-basis: 100%; }
+    #bar h2 img { width: 28px; height: 28px; }
+    #bar button { padding: 5px 10px; }
+    #status { order: 3; flex-basis: 100%; font-size: 12px; }
+    .tag { margin-left: 0; }
+    .content { padding: 14px 16px 48px; gap: 14px; }
+    .side-title { flex: none; align-self: center; padding: 0 4px 0 8px; }
+    #side input.new-group { flex: none; width: 160px; margin: 0; }
+    section.card { padding: 12px; }
+    select.rank { width: 40px; }
+    .chips, .warn { margin-left: 0; }
+    #compare { position: fixed; inset: 0; z-index: 10; border: none; }
+  }
+</style>
+</head>
+<body>
+<div id="app" data-view="civs">
+  <aside id="side">
+    <header>
+      <h1>Civ ranking editor</h1>
+      <div class="views" role="tablist">
+        <button role="tab" data-view="civs">Civs</button>
+        <button role="tab" data-view="upgrades">Unit upgrades</button>
+      </div>
+      <div class="files" id="files"></div>
+      <input type="search" id="search" placeholder="Filter civs">
+      <label class="civs-only"><input type="checkbox" id="only-open"> Only civs with open work</label>
+      <label class="up-only"><input type="checkbox" id="only-missing"> Only units without upgrades</label>
+    </header>
+    <div id="civs"></div>
+  </aside>
+  <main id="main">
+    <div id="bar">
+      <h2 id="title"></h2>
+      <span id="status"></span>
+      <button id="revert" title="Discard the unsaved changes of this civ">Revert</button>
+      <button id="save" class="primary" title="Ctrl+S">Save to data.json</button>
+    </div>
+    <div id="content" class="content civs-only">
+      <div class="col">
+        <div id="errors"></div>
+        <section class="card"><h3>Ratings <span class="hint">Select a unit name to compare it across civs</span></h3><div id="ranks"></div></section>
+      </div>
+      <div class="col">
+        <section class="card" id="notes-card"><h3>To review <span class="hint">Select a note to show the rows it names</span>
+          <label class="hint toggle"><input type="checkbox" id="show-done"> Show done <span id="show-done-count"></span></label></h3><div id="notes"></div></section>
+        <section class="card"><h3>Unique techs <span class="hint">and the rated units they affect</span></h3><div id="unique"></div></section>
+        <section class="card"><h3>Bonus description <span class="size" id="size"></span></h3><div id="bonus"></div></section>
+      </div>
+    </div>
+    <div id="ucontent" class="content up-only"></div>
+  </main>
+  <aside id="compare"></aside>
+</div>
+
+<datalist id="unit-names"></datalist>
+
+<script>
+'use strict'
+
+const AGES = ['Dark', 'Feudal', 'Castle', 'Imperial']
+const STORAGE_PREFIX = 'ranking-editor:done:'
+// The civ ranking page (civ-ranking.js) looks unique techs up in the upgrades of these buildings
+const PAGE_UPGRADE_BUILDINGS = ['barracks', 'archery range', 'stable', 'monastery', 'university', 'castle']
+
+let data, notes = [], roundNames = []
+// Per civ name: the values as in data.json and the edited ones. "ranks" are kept as 4 age slots
+// (null = no rating in that age) while editing; data.json stores only the ratings up to the Imperial Age.
+const base = {}, work = {}
+// markedNote: rows marked while hovering a note; pinnedNote: the note clicked last, marked when not hovering
+let selected = null, compareKey = null, markedNote = null, pinnedNote = null
+
+const $ = (id) => document.getElementById(id)
+
+function h(tag, attrs = {}, ...children) {
+  const el = document.createElement(tag)
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v === undefined || v === null || v === false) continue
+    if (k.startsWith('on')) el.addEventListener(k.slice(2), v)
+    else if (k === 'class') el.className = v
+    else if (k === 'title' && tag === 'button') { el.title = v; el.setAttribute('aria-label', v) }
+    else el.setAttribute(k, v === true ? '' : v)
+  }
+  for (const c of children.flat()) if (c !== null && c !== undefined && c !== false) el.append(c)
+  return el
+}
+
+function closeIcon() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svg.setAttribute('viewBox', '0 0 14 14')
+  svg.setAttribute('aria-hidden', 'true')
+  svg.innerHTML = '<path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  return svg
+}
+
+function icon(name, size = '') {
+  const wrap = h('span', { class: 'ico-wrap ' + size, title: name })
+  const img = h('img', { class: 'ico', src: '/img/' + encodeURIComponent(name) + '.webp', loading: 'lazy' })
+  img.onerror = () => { img.classList.add('missing'); wrap.classList.add('missing'); wrap.title = `Icon missing: src/img/${name}.webp` }
+  wrap.append(img)
+  return wrap
+}
+
+// --- Data model ---
+
+function toSlots(values) {
+  return [...Array(4 - values.length).fill(null), ...values]
+}
+
+// Ratings must run without gaps up to the Imperial Age; returns null if they do not
+function fromSlots(slots) {
+  const first = slots.findIndex((v) => v !== null)
+  if (first === -1) return []
+  const values = slots.slice(first)
+  return values.includes(null) ? null : values
+}
+
+function editable(civ) {
+  return { bonusDesc: civ.bonusDesc || [], ranksUnique: civ.ranksUnique || [], ranks: civ.ranks || {} }
+}
+
+function toWork(value) {
+  const copy = structuredClone(value)
+  for (const units of Object.values(copy.ranks)) for (const k in units) units[k] = toSlots(units[k])
+  return copy
+}
+
+// The edited values as data.json stores them, or null while a rating has a gap
+function toStored(w) {
+  const copy = structuredClone(w)
+  for (const units of Object.values(copy.ranks)) {
+    for (const k in units) {
+      units[k] = fromSlots(units[k])
+      if (units[k] === null) return null
+    }
+  }
+  copy.bonusDesc = copy.bonusDesc.map((t) => t.trim()).filter((t) => t)
+  return copy
+}
+
+function isDirty(name) {
+  return JSON.stringify(toStored(work[name])) !== JSON.stringify(base[name])
+}
+
+function civData(name) {
+  return data.civilizations.find((c) => c.name === name)
+}
+
+function treeBuilding(civ, building) {
+  if (civ.techTree[building]) return civ.techTree[building]
+  if (building === 'monastery') return civ.techTree['fortified church']
+  return null
+}
+
+// true/false: the civ has/lacks the unit or upgrade; null: not in the tech tree (keys like "defenses")
+function availability(civ, name) {
+  let found = null
+  for (const b of Object.values(civ.techTree)) {
+    for (const item of [...b.units, ...b.upgrades]) {
+      if (item.name === name) found = found || item.available
+    }
+  }
+  return found
+}
+
+function ratedKeys(w) {
+  return Object.values(w.ranks).flatMap((units) => Object.keys(units))
+}
+
+function letter(v) {
+  return v === null ? '' : data.rankConversion[String(v)]
+}
+
+function rankClass(v) {
+  if (v === null) return ''
+  return v > 3 ? 'high' : v < 2 ? 'low' : 'medium'
+}
+
+// Same as the building rating on the civ ranking page
+function buildingAverage(units) {
+  const all = Object.values(units).flat().filter((v) => v !== null)
+  if (!all.length) return { text: '', value: null }
+  const avg = all.reduce((a, b) => a + b, 0) / all.length
+  if (avg === 4) return { text: 'X', value: 4 }
+  const rounded = Math.round(avg * 2) / 2
+  return { text: letter(rounded), value: rounded }
+}
+
+function openNotes(name) {
+  return notes.filter((n) => n.civ === name && !isDone(n)).length
+}
+
+function unratedCount(name) {
+  return Object.values(work[name].ranks).flatMap((u) => Object.values(u)).filter((s) => s.every((v) => v === null)).length
+}
+
+function problems(name) {
+  const w = work[name], civ = civData(name), list = []
+  for (const [b, units] of Object.entries(w.ranks)) {
+    for (const [k, slots] of Object.entries(units)) {
+      if (fromSlots(slots) === null) list.push(`${b} / ${k}: the ratings have a gap; they must run up to the Imperial Age.`)
+    }
+  }
+  const pageUpgrades = PAGE_UPGRADE_BUILDINGS.flatMap((b) => (treeBuilding(civ, b) || { upgrades: [] }).upgrades.map((u) => u.name))
+  w.ranksUnique.forEach(([tech]) => {
+    if (!tech.trim()) list.push('A unique tech has no name.')
+    else if (!pageUpgrades.includes(tech)) list.push(`Unique tech "${tech}" is not in the castle, university, monastery or unit building upgrades of the tech tree; the civ ranking page would fail on it.`)
+  })
+  return list
+}
+
+// --- Review notes: the rounds of TODO_RANKINGS.txt (see todo_rankings.py); done state per browser ---
+
+function noteKey(n) { return STORAGE_PREFIX + n.round + '|' + n.civ + '|' + n.note }
+
+function isDone(n) {
+  try { return localStorage.getItem(noteKey(n)) === '1' } catch { return false }
+}
+
+function setDone(n, done) {
+  try { done ? localStorage.setItem(noteKey(n), '1') : localStorage.removeItem(noteKey(n)) } catch {}
+  renderNotes()
+  renderCivList()
+  renderSummary()
+}
+
+// Whether the saved ratings already cover a note, as a hint; ticking it off stays with the maintainer
+function looksResolved(n, saved) {
+  let m
+  if ((m = n.note.match(/^new rating: (.+) \((.+)\)$/))) return (saved.ranks[m[2]]?.[m[1]] || []).length > 0
+  if ((m = n.note.match(/^review rating: (.+?) \[/))) return !Object.values(saved.ranks).some((u) => m[1] in u)
+  if ((m = n.note.match(/^new unique tech: (.+?) - /))) return saved.ranksUnique.some(([t, units]) => t === m[1] && units.length)
+  return false
+}
+
+function renderSummary() {
+  if (view === 'upgrades') {
+    const missing = unitEntries().filter((e) => !hasList(e.name)).length
+    $('files').textContent = missing ? `${missing} rated units without upgrades` : 'Every rated unit has upgrades'
+    return
+  }
+  const open = notes.filter((n) => !isDone(n))
+  const openRounds = new Set(open.map((n) => n.round))
+  $('files').textContent = notes.length
+    ? `${open.length} open notes` + (openRounds.size > 1 ? ` in ${openRounds.size} review rounds` : '')
+    : 'No review notes'
+}
+
+// --- Rendering ---
+
+function renderCivList() {
+  if (view === 'upgrades') return renderUnitList()
+  const filter = $('search').value.trim().toLowerCase()
+  const onlyOpen = $('only-open').checked
+  const list = $('civs')
+  list.replaceChildren()
+  for (const civ of data.civilizations) {
+    const name = civ.name
+    const open = openNotes(name), unrated = unratedCount(name), dirty = isDirty(name)
+    const isNew = !base[name].bonusDesc.length && !ratedKeys(work[name]).length
+    const errs = problems(name).length
+    if (filter && !name.toLowerCase().includes(filter)) continue
+    if (onlyOpen && !open && !unrated && !dirty && !isNew && !errs) continue
+    list.append(h('div', { class: 'civ' + (name === selected ? ' sel' : ''), onclick: () => select(name) },
+      h('img', { src: `/img/civicon-${name.toLowerCase()}.webp`, alt: '' }),
+      h('span', { class: 'name' }, name),
+      dirty && h('span', { class: 'dirty-dot', title: 'unsaved changes' }),
+      errs > 0 && h('span', { class: 'badge err', title: 'problems' }, '!'),
+      isNew && h('span', { class: 'badge new', title: 'no ratings and bonus description yet' }, 'new'),
+      unrated > 0 && h('span', { class: 'badge unrated', title: 'entries without ratings' }, unrated),
+      open > 0 && h('span', { class: 'badge notes', title: 'open notes' }, open)))
+  }
+}
+
+function renderBar() {
+  if (view === 'upgrades') return renderUpBar()
+  const dirty = isDirty(selected), errs = problems(selected)
+  $('save').disabled = !dirty || errs.some((e) => e.includes('gap') || e.includes('no name'))
+  $('revert').disabled = !dirty
+  const status = $('status')
+  if (!status.dataset.sticky) {
+    status.className = ''
+    status.textContent = dirty ? 'unsaved changes' : 'saved'
+  }
+  $('errors').replaceChildren(...(errs.length ? [h('div', { class: 'errors' }, errs.map((e) => h('div', {}, e)))] : []))
+}
+
+function setStatus(text, kind, sticky = false) {
+  const status = $('status')
+  status.textContent = text
+  status.className = kind || ''
+  if (sticky) status.dataset.sticky = '1'
+  else delete status.dataset.sticky
+}
+
+// Re-render what depends on the edited values, without rebuilding the inputs being typed in
+function changed() {
+  delete $('status').dataset.sticky
+  renderBar()
+  renderCivList()
+  renderSize()
+  if (compareKey) renderCompare()
+}
+
+function select(name) {
+  selected = name
+  markedNote = pinnedNote = null
+  delete $('status').dataset.sticky
+  const civ = civData(name)
+  $('title').replaceChildren(h('img', { src: `/img/civicon-${name.toLowerCase()}.webp`, alt: '' }), name)
+  try { localStorage.setItem('ranking-editor:civ', name) } catch {}
+  renderAll()
+  $('main').scrollTop = 0
+}
+
+function renderAll() {
+  renderNotes()
+  renderRanks()
+  renderUnique()
+  renderBonus()
+  renderBar()
+  renderCivList()
+  if (compareKey) renderCompare()
+}
+
+// The note types sync.py writes (see ranking_notes()), with the color class of their label
+const NOTE_KINDS = [
+  ['removed unique tech', 'removed'], ['new unique tech', 'new'], ['review rating', 'review'], ['removed rating', 'removed'],
+  ['new rating', 'new'], ['effect change', 'review'], ['cost increase', 'review'], ['cost decrease', 'review'],
+  ['cost change', 'review'], ['gained', 'gained'], ['lost', 'lost'],
+]
+
+function noteKind(text) {
+  const [label, cls] = NOTE_KINDS.find(([label]) => text.startsWith(label + ' ') || text.startsWith(label + ':')) || ['', '']
+  return { label, cls, rest: label ? text.slice(label.length).replace(/^:?\s*/, '') : text }
+}
+
+function noteRow(n) {
+  const kind = noteKind(n.note)
+  const done = isDone(n)
+  const resolved = !done && n.civ !== 'Most civs' && looksResolved(n, base[selected])
+  const jumps = ratedKeys(work[selected]).some((key) => mentions(n.note, key))
+  // Only the checkbox ticks a note off; a click on the rest of the row shows the rows it names
+  const row = h('div', { class: 'note' + (done ? ' done' : '') + (jumps ? ' jumps' : ''), onclick: () => jumps && showNote(n.note) },
+    h('input', { type: 'checkbox', checked: done, 'aria-label': 'done', onclick: (e) => e.stopPropagation(),
+      onchange: (e) => setDone(n, e.target.checked) }),
+    h('span', { class: 'kind ' + kind.cls }, kind.label),
+    h('span', { class: 'text' }, kind.rest),
+    resolved && h('span', { class: 'tag resolved', title: 'the saved ratings cover this note' }, 'looks resolved'))
+  row.addEventListener('mouseenter', () => markRows(n.note))
+  row.addEventListener('mouseleave', () => markRows(pinnedNote))
+  return row
+}
+
+// Per review round the civ's notes and the ones most civs share; done notes only on request
+function renderNotes() {
+  const box = $('notes')
+  box.replaceChildren()
+  const showDone = $('show-done').checked
+  const mine = notes.filter((n) => n.civ === selected || n.civ === 'Most civs')
+  const doneCount = mine.filter(isDone).length
+  $('show-done-count').textContent = doneCount ? `(${doneCount})` : ''
+  const visible = mine.filter((n) => showDone || !isDone(n))
+  if (!notes.length) box.append(h('div', { class: 'empty' }, 'No review notes. "npm run techtree:update" adds them to TODO_RANKINGS.txt after a patch.'))
+  else if (!visible.length) box.append(h('div', { class: 'empty' }, 'Nothing open for this civ.'))
+  // Oldest round first: its notes have waited longest
+  for (const round of [...roundNames].reverse()) {
+    const items = visible.filter((n) => n.round === round)
+    if (!items.length) continue
+    const older = round !== roundNames[0]
+    box.append(h('div', { class: 'notes-group' }, round, older && h('span', { class: 'tag older' }, 'earlier round')))
+    items.sort((a, b) => (a.civ === 'Most civs') - (b.civ === 'Most civs') || a.order - b.order)
+      .forEach((n) => box.append(noteRow(n)))
+  }
+}
+
+// Whether a note names a rating key as a whole name ("cavalry archer" is not in "heavy cavalry archers")
+function mentions(text, key) {
+  return new RegExp(`(^|[\\s:(/])${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[\\s,)/?])`).test(text)
+}
+
+function markRows(text) {
+  markedNote = text
+  document.querySelectorAll('#ranks tr[data-key]').forEach((tr) => {
+    tr.classList.toggle('mark', !!text && mentions(text, tr.dataset.key))
+  })
+}
+
+function showNote(text) {
+  pinnedNote = text
+  markRows(text)
+  const rows = [...document.querySelectorAll('#ranks tr.mark')]
+  if (!rows.length) return
+  rows[0].scrollIntoView({ behavior: 'smooth', block: 'center' })
+  rows.forEach((tr) => {
+    tr.classList.remove('flash')
+    void tr.offsetWidth  // restarts the animation when the same note is clicked again
+    tr.classList.add('flash')
+  })
+}
+
+function rankSelect(slots, i, onChange) {
+  const sel = h('select', { class: 'rank', title: AGES[i] + ' Age' })
+  sel.append(h('option', { value: '' }, '–'))
+  for (const v of Object.keys(data.rankConversion).map(Number).sort((a, b) => b - a)) {
+    sel.append(h('option', { value: v }, data.rankConversion[String(v)]))
+  }
+  const paint = () => {
+    sel.value = slots[i] === null ? '' : String(slots[i])
+    sel.className = 'rank ' + (slots[i] === null ? 'empty-slot' : rankClass(slots[i]))
+  }
+  paint()
+  sel.addEventListener('change', () => {
+    slots[i] = sel.value === '' ? null : Number(sel.value)
+    paint()
+    onChange()
+  })
+  return sel
+}
+
+function renderRanks() {
+  const w = work[selected], civ = civData(selected)
+  const box = $('ranks')
+  box.replaceChildren()
+  for (const [building, units] of Object.entries(w.ranks)) {
+    const avg = h('span', { class: 'avg' })
+    const paintAvg = () => {
+      const a = buildingAverage(units)
+      avg.textContent = a.text || '–'
+      avg.className = 'avg ' + (a.value === null ? 'medium' : rankClass(a.value))
+      avg.title = 'building rating on the page (average)'
+    }
+    paintAvg()
+    const table = h('table', { class: 'ranks' },
+      h('tr', {}, h('th'), ...AGES.map((a) => h('th', {}, a)), h('th')))
+    for (const [key, slots] of Object.entries(units)) {
+      const avail = availability(civ, key)
+      const tr = h('tr', { 'data-key': key })
+      const unrated = () => slots.every((v) => v === null)
+      const tags = h('span')
+      const paintRow = () => {
+        tr.classList.toggle('gap', fromSlots(slots) === null)
+        tr.classList.toggle('unrated', unrated())
+        tags.replaceChildren(
+          avail === false ? h('span', { class: 'tag lost', title: 'not available in the tech tree of the civ' }, 'not available') : '',
+          unrated() ? h('span', { class: 'tag unrated' }, 'unrated') : '')
+      }
+      tr.append(h('td', { class: 'unit' }, h('div', { class: 'ucell' }, icon(key), h('div', {}, h('button', { class: 'uname', type: 'button', onclick: () => openCompare(key) }, key), tags))))
+      AGES.forEach((_, i) => tr.append(h('td', { class: 'cell' }, rankSelect(slots, i, () => { paintRow(); paintAvg(); changed() }))))
+      tr.append(h('td', {}, h('button', { class: 'icon', title: 'remove this rating entry', onclick: () => {
+        delete units[key]
+        renderRanks(); renderUnique(); changed()
+      } }, closeIcon())))
+      paintRow()
+      table.append(tr)
+    }
+    const input = h('input', { list: 'unit-names', placeholder: 'add unit or key (e.g. defenses)…' })
+    const add = () => {
+      const key = input.value.trim().toLowerCase()
+      if (!key || units[key]) return
+      units[key] = [null, null, null, null]
+      renderRanks(); renderUnique(); changed()
+    }
+    input.addEventListener('focus', () => fillUnitNames(building))
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') add() })
+    box.append(h('div', { class: 'building' },
+      h('div', { class: 'bhead' }, icon(building), building, avg, h('span', { class: 'spacer' }),
+        h('button', { class: 'icon', title: 'remove the building and its ratings', onclick: () => {
+          if (Object.keys(units).length && !confirm(`Remove ${building} with all its ratings?`)) return
+          delete w.ranks[building]
+          renderRanks(); renderUnique(); changed()
+        } }, closeIcon())),
+      table,
+      h('div', { class: 'add-row' }, input, h('button', { onclick: add }, 'Add'))))
+  }
+  if (!Object.keys(w.ranks).length) {
+    box.append(h('div', { class: 'empty' }, 'No rating entries yet. "npm run techtree:update" adds them for the units of the civ.'))
+  }
+  const allBuildings = [...new Set(data.civilizations.flatMap((c) => Object.keys(c.ranks || {})))]
+  const missing = allBuildings.filter((b) => !w.ranks[b])
+  if (missing.length) {
+    const sel = h('select', {}, h('option', { value: '' }, 'add building…'), missing.map((b) => h('option', { value: b }, b)))
+    sel.addEventListener('change', () => {
+      if (!sel.value) return
+      // In the order of the other civs, since the page shows the buildings in the order of "ranks"
+      const ranks = { ...w.ranks, [sel.value]: {} }
+      w.ranks = Object.fromEntries(allBuildings.filter((b) => ranks[b]).map((b) => [b, ranks[b]]))
+      renderRanks(); changed()
+    })
+    box.append(h('div', { class: 'add-row' }, sel))
+  }
+  if (markedNote) markRows(markedNote)
+}
+
+// Suggestions for a building: the civ's available units there, then keys other civs rate in it
+function fillUnitNames(building) {
+  const civ = civData(selected), units = work[selected].ranks[building] || {}
+  const tree = treeBuilding(civ, building)
+  const own = tree ? [...tree.units, ...tree.upgrades].filter((u) => u.available).map((u) => u.name) : []
+  const others = data.civilizations.flatMap((c) => Object.keys((c.ranks || {})[building] || {}))
+    .filter((k) => availability(civ, k) !== false)
+  const names = [...new Set([...own, ...others])].filter((n) => !units[n])
+  $('unit-names').replaceChildren(...names.map((n) => h('option', { value: n })))
+}
+
+function renderUnique() {
+  const w = work[selected], civ = civData(selected)
+  const box = $('unique')
+  box.replaceChildren()
+  const keys = ratedKeys(w)
+  // civ-ranking.js also matches the last tier of a line ("champion" for "two-handed swordsman")
+  const matched = new Set([...keys, ...keys.map((k) => data.unitGroups[k]).filter(Boolean)])
+  const castle = (civ.techTree.castle || { upgrades: [] }).upgrades.filter((u) => u.available).map((u) => u.name)
+  const listId = 'castle-techs'
+  box.append(h('datalist', { id: listId }, castle.map((n) => h('option', { value: n }))))
+  w.ranksUnique.forEach((pair, index) => {
+    const [, affected] = pair
+    const ico = icon(pair[0])
+    const name = h('input', { class: 'tname', value: pair[0], list: listId })
+    name.addEventListener('change', () => {
+      pair[0] = name.value.trim().toLowerCase()
+      renderUnique(); changed()
+    })
+    const add = h('select', {}, h('option', { value: '' }, '+ unit'),
+      keys.filter((k) => !affected.includes(k)).map((k) => h('option', { value: k }, k)))
+    add.addEventListener('change', () => {
+      if (!add.value) return
+      affected.push(add.value)
+      renderUnique(); changed()
+    })
+    const unknown = affected.filter((u) => !matched.has(u))
+    box.append(h('div', { class: 'utech' },
+      h('div', { class: 'row' }, ico, name,
+        h('button', { class: 'icon', title: 'remove unique tech', onclick: () => { w.ranksUnique.splice(index, 1); renderUnique(); changed() } }, closeIcon())),
+      h('div', { class: 'chips' },
+        affected.map((u, i) => h('span', { class: 'chip' + (matched.has(u) ? '' : ' unknown'), title: matched.has(u) ? '' : 'not rated for this civ' }, u,
+          h('button', { class: 'icon', title: 'remove', onclick: () => { affected.splice(i, 1); renderUnique(); changed() } }, closeIcon()))),
+        add),
+      !affected.length && h('div', { class: 'warn' }, 'Affects no rated unit yet.'),
+      unknown.length > 0 && h('div', { class: 'warn' }, `Not rated for this civ, so the page shows the tech for no unit: ${unknown.join(', ')}`)))
+  })
+  const rated = new Set(w.ranksUnique.map((p) => p[0]))
+  const suggestions = castle.filter((n) => !rated.has(n) && !data.civilizations.some((c) => c.name !== selected && availability(c, n)))
+  box.append(h('div', { class: 'add-row' },
+    h('button', { onclick: () => { w.ranksUnique.push([suggestions[0] || '', []]); renderUnique(); changed() } }, 'Add unique tech')))
+}
+
+function renderBonus() {
+  const w = work[selected]
+  const box = $('bonus')
+  box.replaceChildren()
+  w.bonusDesc.forEach((text, i) => {
+    const ta = h('textarea', { rows: 1 })
+    ta.value = text
+    const grow = () => { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 2 + 'px' }
+    ta.addEventListener('input', () => { w.bonusDesc[i] = ta.value; grow(); changed() })
+    box.append(h('div', { class: 'bonus' }, ta,
+      h('button', { class: 'icon', title: 'remove paragraph', onclick: () => { w.bonusDesc.splice(i, 1); renderBonus(); changed() } }, closeIcon())))
+    requestAnimationFrame(grow)
+  })
+  box.append(h('div', { class: 'add-row' }, h('button', { onclick: () => {
+    w.bonusDesc.push('')
+    renderBonus(); changed()
+    box.querySelectorAll('textarea')[w.bonusDesc.length - 1].focus()
+  } }, 'Add paragraph')))
+  renderSize()
+}
+
+// civ-ranking.js shrinks the bonus text and the tech icons from a text size of 550 on (length + 44 per paragraph)
+function renderSize() {
+  const size = work[selected].bonusDesc.filter((t) => t.trim()).reduce((a, t) => a + t.trim().length + 44, 0)
+  const el = $('size')
+  el.textContent = `text size ${size}` + (size > 550 ? ' (the page uses smaller text from 550 on, the smallest above 950)' : '')
+}
+
+function openCompare(key) {
+  compareKey = key
+  $('app').classList.add('comparing')
+  renderCompare()
+}
+
+function renderCompare() {
+  const rows = []
+  for (const civ of data.civilizations) {
+    for (const [building, units] of Object.entries(work[civ.name].ranks)) {
+      if (units[compareKey]) rows.push({ civ: civ.name, building, slots: units[compareKey] })
+    }
+  }
+  const missing = data.civilizations.filter((c) => availability(c, compareKey) && !rows.some((r) => r.civ === c.name)).map((c) => c.name)
+  const table = h('table', {}, rows.map((r) => h('tr', { class: r.civ === selected ? 'sel' : '', onclick: () => select(r.civ) },
+    h('td', {}, h('img', { src: `/img/civicon-${r.civ.toLowerCase()}.webp`, alt: '' })),
+    h('td', {}, r.civ),
+    r.slots.map((v) => h('td', { class: 'l ' + rankClass(v) }, letter(v))))))
+  $('compare').replaceChildren(
+    h('h3', {}, icon(compareKey), h('span', {}, compareKey),
+      h('button', { class: 'icon', title: 'close', onclick: () => { compareKey = null; $('app').classList.remove('comparing') } }, closeIcon())),
+    h('div', { class: 'sub' }, `rated for ${rows.length} civs (with unsaved edits)`),
+    table,
+    missing.length ? h('div', { class: 'sub', style: 'margin-top:10px' }, 'Available but not rated: ' + missing.join(', ')) : '')
+}
+
+// --- Unit upgrades view: "relevantUpgrades" and the upgrade groups, buildings and unit groups it relies on ---
+
+const UP_KEYS = ['relevantUpgrades', 'unitGroups', 'upgradeGroups', 'upgradeBuilding']
+// Tech tree buildings that stand in for a building of "upgradeBuilding" for some civs, see pageBuilding()
+const BUILDING_ALIASES = { 'fortified church': 'monastery', folwark: 'mill' }
+const COMPARISON_TECH_LISTS = ['damageTechs', 'uniqueDamageTechs', 'otherTechs']
+
+let view = 'civs'
+// The four keys as edited and as in data.json
+let up, upBase
+let upSel = null  // { kind: 'unit' | 'group', name }
+let previewCiv = null, paletteQuery = '', paletteBuilding = '', focusAfter = null
+// Techs of the tech trees "upgradeBuilding" lacks, which the tooltip could show: [{ name, building }]
+let techCandidates = []
+
+function upgradesOf(d) {
+  return Object.fromEntries(UP_KEYS.map((k) => [k, structuredClone(d[k] || {})]))
+}
+
+// The tech tree building civ-ranking.js (processName()) looks a tech of `building` up in
+function pageBuilding(civ, building) {
+  let b = building
+  if (civ.name === 'Armenians' || civ.name === 'Georgians') {
+    if (b === 'lumber camp' || b === 'mining camp') b = 'mule cart'
+    else if (b === 'monastery') b = 'fortified church'
+  } else if (civ.name === 'Poles' && b === 'mill') b = 'folwark'
+  return civ.techTree[b]
+}
+
+function techAvailable(civ, tech) {
+  return !!pageBuilding(civ, up.upgradeBuilding[tech])?.upgrades.find((u) => u.name === tech)?.available
+}
+
+// civ-ranking.js fails on a tech missing from a civ's tech tree, so only techs in the same building of every
+// civ qualify. Unit upgrades are no techs here, and unique techs come from "ranksUnique".
+function findTechCandidates() {
+  const units = new Set([
+    ...data.civilizations.flatMap((c) => Object.values(c.techTree).flatMap((b) => b.units.map((u) => u.name))),
+    ...data.units.map((u) => u.name), ...Object.keys(data.unitGroups), ...Object.values(data.unitGroups),
+    ...Object.values(data.upgradeGroups).flat()])
+  const found = new Map()
+  for (const civ of data.civilizations) {
+    for (const [b, tree] of Object.entries(civ.techTree)) {
+      const building = BUILDING_ALIASES[b] || b
+      if (building === 'castle' || building === 'mule cart') continue
+      for (const u of tree.upgrades) if (!(u.name in data.upgradeBuilding) && !units.has(u.name)) found.set(u.name, building)
+    }
+  }
+  return [...found]
+    .filter(([name, building]) => data.civilizations.every((c) => pageBuilding(c, building)?.upgrades.some((u) => u.name === name)))
+    .map(([name, building]) => ({ name, building }))
+}
+
+function techCatalog() {
+  return [...Object.entries(up.upgradeBuilding).map(([name, building]) => ({ name, building })),
+    ...techCandidates.filter((t) => !(t.name in up.upgradeBuilding))].sort((a, b) => a.name.localeCompare(b.name))
+}
+
+// Groups of techs; the other upgrade groups are unit lines for the unit comparison and stay out of the editor
+function isTechGroup(name) {
+  const members = up.upgradeGroups[name]
+  return !!members && members.every((t) => t in up.upgradeBuilding)
+}
+
+function techGroups() {
+  return Object.keys(up.upgradeGroups).filter(isTechGroup)
+}
+
+function buildingOf(name) {
+  return up.upgradeBuilding[name] || techCandidates.find((t) => t.name === name)?.building || ''
+}
+
+// Inserts a tech or group into a list; a tech "upgradeBuilding" lacks gets its building there
+function addTech(list, name, index = list.length) {
+  if (!name || list.includes(name)) return false
+  if (!(name in up.upgradeBuilding) && !up.upgradeGroups[name]) {
+    const candidate = techCandidates.find((t) => t.name === name)
+    if (!candidate) return false
+    up.upgradeBuilding[name] = candidate.building
+  }
+  list.splice(index, 0, name)
+  return true
+}
+
+// Drops the "upgradeBuilding" entries the editor added for techs no list uses any more
+function dropUnusedBuildings() {
+  const used = new Set([...Object.values(up.relevantUpgrades).flat(), ...Object.values(up.upgradeGroups).flat()])
+  for (const name of Object.keys(up.upgradeBuilding)) {
+    if (!(name in upBase.upgradeBuilding) && !used.has(name)) delete up.upgradeBuilding[name]
+  }
+}
+
+// The list civ-ranking.js uses for a rating key: its own, else the one of its "unitGroups" entry
+function resolveUnit(key) {
+  return up.relevantUpgrades[key] ? key : up.unitGroups[key] || key
+}
+
+function hasList(name) {
+  return Array.isArray(up.relevantUpgrades[name])
+}
+
+// Every list of "relevantUpgrades" and every rated unit without one, with the rating keys that use it
+function unitEntries() {
+  const civsByKey = new Map()
+  for (const civ of data.civilizations) {
+    for (const key of ratedKeys(work[civ.name])) civsByKey.set(key, new Set([...(civsByKey.get(key) || []), civ.name]))
+  }
+  const entries = new Map(Object.keys(up.relevantUpgrades).map((name) => [name, { name, rated: [] }]))
+  for (const [key, civs] of civsByKey) {
+    const name = resolveUnit(key)
+    if (!entries.has(name)) entries.set(name, { name, rated: [] })
+    entries.get(name).rated.push({ key, civs: [...civs].sort() })
+  }
+  return [...entries.values()].sort((a, b) => a.name.localeCompare(b.name))
+}
+
+function upDirty() {
+  return JSON.stringify(up) !== JSON.stringify(upBase)
+}
+
+function entryDirty(e) {
+  return JSON.stringify(up.relevantUpgrades[e.name]) !== JSON.stringify(upBase.relevantUpgrades[e.name])
+    || e.rated.some((r) => up.unitGroups[r.key] !== upBase.unitGroups[r.key])
+}
+
+function groupDirty(name) {
+  return JSON.stringify(up.upgradeGroups[name]) !== JSON.stringify(upBase.upgradeGroups[name])
+}
+
+function upProblems() {
+  return Object.keys(up.upgradeGroups).filter((name) => !up.upgradeGroups[name].length)
+    .map((name) => `The upgrade group "${name}" has no techs; add one or delete the group.`)
+}
+
+function comparisonUses(name) {
+  return data.units.filter((u) => COMPARISON_TECH_LISTS.some((k) => (u[k] || []).includes(name))).length
+}
+
+function handleIcon() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svg.setAttribute('viewBox', '0 0 10 16')
+  svg.setAttribute('class', 'handle')
+  svg.setAttribute('aria-hidden', 'true')
+  svg.setAttribute('fill', 'currentColor')
+  svg.innerHTML = [3, 8, 13].map((y) => `<circle cx="2.5" cy="${y}" r="1.5"/><circle cx="7.5" cy="${y}" r="1.5"/>`).join('')
+  return svg
+}
+
+// Icon and name of a tech or upgrade group; a group's name opens it
+function techLabel(name) {
+  const members = up.upgradeGroups[name]
+  if (members) {
+    return [h('span', { class: 'islot' }, members.slice(0, 3).map((m) => icon(m, 'sm'))),
+      h('span', { class: 'tlabel' },
+        h('button', { class: 'uname', type: 'button', title: 'edit the upgrade group ' + name, onclick: (e) => { e.stopPropagation(); selectUp('group', name) } }, name),
+        h('span', { class: 'sub' }, members.join(' › ') || 'no techs'))]
+  }
+  return [h('span', { class: 'islot' }, icon(name)), h('span', { class: 'tlabel' }, h('span', {}, name), h('span', { class: 'sub' }, buildingOf(name)))]
+}
+
+// An ordered list of techs and groups. Drag and drop or Alt+Up/Down reorders it; techs dragged from the
+// palette are inserted where they are dropped.
+function sortable(list, id, onChange, emptyText) {
+  const box = h('div', { class: 'olist' })
+  const clearMarks = () => box.querySelectorAll('.drop-before, .drop-after').forEach((r) => r.classList.remove('drop-before', 'drop-after'))
+  const rows = list.map((name, i) => {
+    const row = h('div', { class: 'orow', draggable: 'true', tabindex: '0', 'aria-label': `${name}, ${i + 1} of ${list.length}` },
+      handleIcon(), ...techLabel(name),
+      h('button', { class: 'icon', title: 'remove ' + name, onclick: () => { list.splice(i, 1); onChange() } }, closeIcon()))
+    row.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/x-move', String(i))
+      e.dataTransfer.effectAllowed = 'move'
+      row.classList.add('dragging')
+    })
+    row.addEventListener('dragend', () => { row.classList.remove('dragging'); clearMarks() })
+    row.addEventListener('keydown', (e) => {
+      if (!e.altKey || (e.key !== 'ArrowUp' && e.key !== 'ArrowDown')) return
+      e.preventDefault()
+      const to = i + (e.key === 'ArrowUp' ? -1 : 1)
+      if (to < 0 || to >= list.length) return
+      list.splice(to, 0, list.splice(i, 1)[0])
+      focusAfter = { id, index: to }
+      onChange()
+    })
+    return row
+  })
+  box.append(...rows)
+  if (!list.length) box.append(h('div', { class: 'drop-empty' }, emptyText))
+  const dropIndex = (y) => {
+    const i = rows.findIndex((r) => { const b = r.getBoundingClientRect(); return y < b.top + b.height / 2 })
+    return i === -1 ? rows.length : i
+  }
+  box.addEventListener('dragover', (e) => {
+    const types = [...e.dataTransfer.types]
+    if (!types.includes('text/x-move') && !types.includes('text/x-tech')) return
+    e.preventDefault()
+    e.dataTransfer.dropEffect = types.includes('text/x-move') ? 'move' : 'copy'
+    clearMarks()
+    const i = dropIndex(e.clientY)
+    if (rows[i]) rows[i].classList.add('drop-before')
+    else rows[rows.length - 1]?.classList.add('drop-after')
+    box.classList.add('over')
+  })
+  box.addEventListener('dragleave', (e) => {
+    if (!box.contains(e.relatedTarget)) { clearMarks(); box.classList.remove('over') }
+  })
+  box.addEventListener('drop', (e) => {
+    e.preventDefault()
+    clearMarks()
+    box.classList.remove('over')
+    const i = dropIndex(e.clientY)
+    const from = e.dataTransfer.getData('text/x-move')
+    if (from !== '') list.splice(i > Number(from) ? i - 1 : i, 0, list.splice(Number(from), 1)[0])
+    else if (!addTech(list, e.dataTransfer.getData('text/x-tech'), i)) return
+    onChange()
+  })
+  if (focusAfter?.id === id) {
+    const { index } = focusAfter
+    focusAfter = null
+    requestAnimationFrame(() => rows[index]?.focus())
+  }
+  return box
+}
+
+// Searchable, filterable techs (and groups) to drag into a list or add with "+"
+function palette(used, add, withGroups) {
+  const items = [...(withGroups ? techGroups().map((name) => ({ name, building: 'upgrade group' })) : []), ...techCatalog()]
+  const buildings = [...new Set(techCatalog().map((t) => t.building))].sort()
+  const search = h('input', { type: 'search', placeholder: 'Search techs…', 'aria-label': 'search techs' })
+  search.value = paletteQuery
+  const filter = h('select', { 'aria-label': 'building' }, h('option', { value: '' }, 'All buildings'),
+    withGroups && h('option', { value: 'upgrade group' }, 'Upgrade groups'), buildings.map((b) => h('option', { value: b }, b)))
+  filter.value = paletteBuilding
+  if (filter.value !== paletteBuilding) filter.value = ''
+  const results = h('div', { class: 'palette' })
+  const item = (t) => {
+    const inList = used().includes(t.name)
+    const isNew = !up.upgradeGroups[t.name] && !(t.name in upBase.upgradeBuilding)
+    const row = h('div', { class: 'tech' + (inList ? ' used' : ''), draggable: inList ? 'false' : 'true' },
+      ...techLabel(t.name),
+      isNew && h('span', { class: 'tag new-tech', title: 'not in "upgradeBuilding" yet; saving adds it' }, 'new'),
+      h('button', { class: 'add', title: inList ? 'already in the list' : 'add ' + t.name, disabled: inList, onclick: () => add(t.name) }, '+'))
+    row.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/x-tech', t.name)
+      e.dataTransfer.effectAllowed = 'copy'
+    })
+    return row
+  }
+  const fill = () => {
+    const q = paletteQuery.trim().toLowerCase()
+    const shown = items.filter((t) => (!filter.value || t.building === filter.value)
+      && (!q || t.name.toLowerCase().includes(q) || t.building.includes(q) || (up.upgradeGroups[t.name] || []).some((m) => m.includes(q))))
+    results.replaceChildren(...shown.map(item), shown.length ? '' : h('div', { class: 'empty' }, 'No tech matches.'))
+  }
+  search.addEventListener('input', () => { paletteQuery = search.value; fill() })
+  filter.addEventListener('change', () => { paletteBuilding = filter.value; fill() })
+  fill()
+  return h('section', { class: 'card' }, h('h3', {}, 'Techs', h('span', { class: 'hint' }, 'Drag into the list or use +')),
+    h('div', { class: 'palette-tools' }, search, filter), results)
+}
+
+function renderUnitList() {
+  const filter = $('search').value.trim().toLowerCase()
+  const onlyMissing = $('only-missing').checked
+  const box = $('civs')
+  box.replaceChildren()
+  const entries = unitEntries().filter((e) => !filter || e.name.includes(filter) || e.rated.some((r) => r.key.includes(filter)))
+  const isSel = (kind, name) => upSel?.kind === kind && upSel.name === name
+  const unitItem = (e) => {
+    const civs = new Set(e.rated.flatMap((r) => r.civs)).size
+    return h('div', { class: 'civ' + (isSel('unit', e.name) ? ' sel' : ''), onclick: () => selectUp('unit', e.name) },
+      icon(e.name, 'sm'),
+      h('span', { class: 'name' }, e.name),
+      entryDirty(e) && h('span', { class: 'dirty-dot', title: 'unsaved changes' }),
+      !hasList(e.name) && h('span', { class: 'badge notes', title: 'no relevant upgrades, the tooltip stays empty' }, 'none'),
+      civs > 0 ? h('span', { class: 'count', title: `rated by ${civs} civs` }, civs) : h('span', { class: 'badge muted', title: 'no civ rates it' }, 'unused'))
+  }
+  const section = (title, items) => { if (items.length) box.append(h('div', { class: 'side-title' }, title), ...items) }
+  section('Without upgrades', entries.filter((e) => !hasList(e.name)).map(unitItem))
+  if (onlyMissing) return
+  section('Units', entries.filter((e) => hasList(e.name)).map(unitItem))
+  const groups = techGroups().filter((g) => !filter || g.toLowerCase().includes(filter) || up.upgradeGroups[g].some((m) => m.includes(filter)))
+  section('Upgrade groups', groups.map((g) => h('div', { class: 'civ' + (isSel('group', g) ? ' sel' : ''), onclick: () => selectUp('group', g) },
+    icon(up.upgradeGroups[g].at(-1) || '', 'sm'),
+    h('span', { class: 'name' }, g),
+    groupDirty(g) && h('span', { class: 'dirty-dot', title: 'unsaved changes' }),
+    h('span', { class: 'count', title: 'techs' }, up.upgradeGroups[g].length))))
+  const input = h('input', { class: 'new-group', placeholder: 'New upgrade group…', 'aria-label': 'new upgrade group' })
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return
+    const name = input.value.trim()
+    if (!name) return
+    if (name in up.upgradeGroups || name in up.upgradeBuilding || name in up.relevantUpgrades) {
+      setStatus(`"${name}" is taken by a group, tech or unit`, 'bad', true)
+      return
+    }
+    up.upgradeGroups[name] = []
+    selectUp('group', name)
+  })
+  box.append(input)
+}
+
+function selectUp(kind, name) {
+  upSel = { kind, name }
+  try { localStorage.setItem('ranking-editor:upgrades', JSON.stringify(upSel)) } catch {}
+  delete $('status').dataset.sticky
+  renderUpView()
+  renderUnitList()
+  renderSummary()
+  $('main').scrollTop = 0
+}
+
+function upChanged() {
+  dropUnusedBuildings()
+  delete $('status').dataset.sticky
+  renderUpView()
+  renderUnitList()
+  renderSummary()
+}
+
+function renderUpBar() {
+  const dirty = upDirty(), errs = upProblems()
+  $('save').disabled = !dirty || errs.length > 0
+  $('revert').disabled = !dirty
+  const status = $('status')
+  if (!status.dataset.sticky) {
+    status.className = ''
+    status.textContent = dirty ? 'unsaved changes' : 'saved'
+  }
+}
+
+function renderUpView() {
+  const entries = unitEntries()
+  const valid = upSel && (upSel.kind === 'group' ? isTechGroup(upSel.name) : entries.some((e) => e.name === upSel.name))
+  if (!valid) upSel = { kind: 'unit', name: (entries.find((e) => !hasList(e.name)) || entries[0]).name }
+  const errs = upProblems()
+  const left = h('div', { class: 'col' }, errs.length ? h('div', { class: 'errors' }, errs.map((e) => h('div', {}, e))) : '')
+  const right = h('div', { class: 'col' })
+  if (upSel.kind === 'group') renderGroupView(upSel.name, left, right)
+  else renderUnitView(entries.find((e) => e.name === upSel.name), entries, left, right)
+  $('ucontent').replaceChildren(left, right)
+  renderUpBar()
+}
+
+function renderUnitView(entry, entries, left, right) {
+  const name = entry.name
+  $('title').replaceChildren(icon(name), name)
+  const list = up.relevantUpgrades[name] || []
+  const ensure = () => (up.relevantUpgrades[name] ||= list)
+  const withLists = entries.filter((e) => hasList(e.name) && e.name !== name).map((e) => e.name)
+  const listCard = h('section', { class: 'card' },
+    h('h3', {}, 'Relevant upgrades', h('span', { class: 'hint' }, 'The tooltip shows them in this order, then the unique techs. Drag to reorder, or Alt+↑/↓.')),
+    sortable(list, 'unit:' + name, () => { if (list.length) ensure(); upChanged() },
+      'No relevant upgrades yet, so the tooltip stays empty. Drop techs here.'))
+  if (!hasList(name)) {
+    const copy = h('select', { 'aria-label': 'copy the list of a unit' }, h('option', { value: '' }, 'Copy the list of…'), withLists.map((n) => h('option', { value: n }, n)))
+    copy.addEventListener('change', () => { up.relevantUpgrades[name] = [...up.relevantUpgrades[copy.value]]; upChanged() })
+    const share = h('select', { 'aria-label': 'share the list of a unit' }, h('option', { value: '' }, 'Share the list of…'), withLists.map((n) => h('option', { value: n }, n)))
+    share.addEventListener('change', () => {
+      for (const r of entry.rated) up.unitGroups[r.key] = share.value
+      dropUnusedBuildings()
+      selectUp('unit', share.value)
+    })
+    listCard.append(h('div', { class: 'alt-row' }, copy, entry.rated.length > 0 && share,
+      entry.rated.length > 0 && h('span', {}, 'Sharing goes into "unitGroups"; unique techs then have to name the shared unit.')))
+  } else {
+    listCard.append(h('div', { class: 'card-foot' }, h('button', { onclick: () => { delete up.relevantUpgrades[name]; upChanged() } },
+      entry.rated.length ? 'Remove the list' : 'Remove the unused list')))
+  }
+  left.append(listCard)
+  const preview = tooltipPreview(entry)
+  if (preview) left.append(preview)
+  left.append(h('section', { class: 'card' }, h('h3', {}, 'Rated as', h('span', { class: 'hint' }, 'the rating keys that use this list')),
+    entry.rated.length ? entry.rated.map((r) => h('div', { class: 'rated' }, icon(r.key, 'sm'),
+      h('span', { class: 'tlabel' }, h('span', {}, r.key),
+        h('span', { class: 'sub', title: r.civs.join(', ') }, `${r.civs.length} ${r.civs.length === 1 ? 'civ' : 'civs'}`),
+        r.key !== name && h('span', { class: 'tag group' }, 'shared via unitGroups')),
+      r.key !== name && h('button', { class: 'icon', title: 'stop sharing (remove from unitGroups)', onclick: () => { delete up.unitGroups[r.key]; upChanged() } }, closeIcon())))
+    : h('div', { class: 'empty' }, 'No civ rates this unit, so the list is unused.')))
+  right.append(palette(() => list, (tech) => { if (addTech(list, tech)) { ensure(); upChanged() } }, true))
+}
+
+// The tooltip of the civ ranking page for one civ; greyed out what the civ lacks
+function tooltipPreview(entry) {
+  const civs = [...new Set(entry.rated.flatMap((r) => r.civs))].sort()
+  if (!civs.length) return null
+  if (!civs.includes(previewCiv)) previewCiv = civs.includes(selected) ? selected : civs[0]
+  const civ = civData(previewCiv)
+  const tipIcon = (name, locked) => h('span', { class: 'tip-ico' + (locked ? ' locked' : ''), title: name + (locked ? ' (not available)' : '') }, icon(name))
+  const icons = (up.relevantUpgrades[entry.name] || []).map((name) => {
+    const members = up.upgradeGroups[name]
+    if (!members) return tipIcon(name, !techAvailable(civ, name))
+    if (!members.length) return null
+    const best = members.filter((m) => techAvailable(civ, m)).pop()
+    return tipIcon(best || members[0], !best)
+  })
+  const uniques = work[previewCiv].ranksUnique.filter(([, units]) => units.includes(entry.name)).map(([tech]) => tipIcon(tech, false))
+  const sel = h('select', { 'aria-label': 'civ' }, civs.map((c) => h('option', { value: c }, c)))
+  sel.value = previewCiv
+  sel.addEventListener('change', () => { previewCiv = sel.value; renderUpView() })
+  const all = [...icons, ...uniques].filter(Boolean)
+  return h('section', { class: 'card' }, h('h3', {}, 'Tooltip preview'),
+    h('div', { class: 'tip-head' }, 'as the civ ranking page shows it for', sel),
+    h('div', { class: 'tip' }, all.length ? all : h('span', { class: 'empty' }, 'empty')))
+}
+
+function renderGroupView(name, left, right) {
+  const members = up.upgradeGroups[name]
+  $('title').replaceChildren(name, h('span', { class: 'tag group' }, 'upgrade group'))
+  const users = Object.keys(up.relevantUpgrades).filter((u) => up.relevantUpgrades[u].includes(name))
+  const comparison = comparisonUses(name)
+  left.append(h('section', { class: 'card' },
+    h('h3', {}, 'Techs', h('span', { class: 'hint' }, 'Lowest tier first. A tooltip shows the highest tier the civ has, or the first one greyed out.')),
+    sortable(members, 'group:' + name, upChanged, 'Drop techs here.')))
+  const usedBy = h('section', { class: 'card' }, h('h3', {}, 'Used by'),
+    users.length ? h('div', { class: 'users' }, users.map((u) => h('button', { class: 'chip', onclick: () => selectUp('unit', u) }, u))) : '',
+    comparison ? h('div', { class: 'sub', style: users.length ? 'margin-top:8px' : '' }, `and ${comparison} units of the unit comparison ("units" in data.json)`) : '',
+    !users.length && !comparison ? h('div', { class: 'empty' }, 'Nothing uses this group yet.') : '')
+  if (!users.length && !comparison) {
+    usedBy.append(h('div', { class: 'card-foot' }, h('button', { onclick: () => { delete up.upgradeGroups[name]; upSel = null; upChanged() } }, 'Delete the group')))
+  }
+  left.append(usedBy)
+  right.append(palette(() => members, (tech) => { if (addTech(members, tech)) upChanged() }, false))
+}
+
+async function saveUpgrades() {
+  if ($('save').disabled) return
+  const value = structuredClone(up)
+  setStatus('saving…')
+  try {
+    const res = await fetch('/save-upgrades', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ base: upBase, value }) })
+    const body = await res.json()
+    if (!res.ok) throw new Error(body.error || res.statusText)
+    upBase = structuredClone(value)
+    Object.assign(data, structuredClone(value))
+    upChanged()
+    setStatus('saved to data.json', 'ok', true)
+  } catch (e) {
+    setStatus(e.message + (e.message.includes('changed since') ? ' Revert to load them again (discards your unit upgrade edits).' : ''), 'bad', true)
+  }
+}
+
+async function revertUpgrades() {
+  const fresh = await fetch('/data.json').then((r) => r.json())
+  for (const k of UP_KEYS) data[k] = fresh[k]
+  upBase = upgradesOf(data)
+  up = structuredClone(upBase)
+  setStatus('reverted')
+  upChanged()
+}
+
+function setView(v) {
+  view = v
+  $('app').dataset.view = v
+  document.querySelectorAll('.views button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === v)))
+  try { localStorage.setItem('ranking-editor:view', v) } catch {}
+  compareKey = null
+  $('app').classList.remove('comparing')
+  $('search').value = ''
+  $('search').placeholder = v === 'civs' ? 'Filter civs' : 'Filter units and groups'
+  $('revert').title = v === 'civs' ? 'Discard the unsaved changes of this civ' : 'Discard all unsaved unit upgrade changes'
+  delete $('status').dataset.sticky
+  if (v === 'civs') select(selected)
+  else { renderUpView(); renderUnitList(); $('main').scrollTop = 0 }
+  renderSummary()
+}
+
+// --- Loading and saving ---
+
+async function load() {
+  const [d, n] = await Promise.all([fetch('/data.json').then((r) => r.json()), fetch('/notes').then((r) => r.json())])
+  data = d
+  upBase = upgradesOf(data)
+  up = structuredClone(upBase)
+  techCandidates = findTechCandidates()
+  // Newest round first, as in TODO_RANKINGS.txt
+  roundNames = n.map((r) => r.name)
+  notes = n.flatMap((r) => r.notes.map((note, order) => ({ ...note, round: r.name, order })))
+  renderSummary()
+  for (const civ of data.civilizations) {
+    base[civ.name] = editable(civ)
+    work[civ.name] = toWork(base[civ.name])
+  }
+  let start = null
+  try { start = localStorage.getItem('ranking-editor:civ') } catch {}
+  select(base[start] ? start : data.civilizations[0].name)
+  try { upSel = JSON.parse(localStorage.getItem('ranking-editor:upgrades')) } catch {}
+  let startView = null
+  try { startView = localStorage.getItem('ranking-editor:view') } catch {}
+  setView(startView === 'upgrades' ? 'upgrades' : 'civs')
+}
+
+async function save() {
+  if ($('save').disabled) return
+  const name = selected
+  const value = toStored(work[name])
+  setStatus('saving…')
+  try {
+    const res = await fetch('/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ civ: name, base: base[name], value }) })
+    const body = await res.json()
+    if (!res.ok) throw new Error(body.error || res.statusText)
+    base[name] = structuredClone(value)
+    Object.assign(civData(name), structuredClone(value))
+    work[name] = toWork(value)
+    if (name === selected) renderAll()
+    setStatus('saved to data.json', 'ok', true)
+  } catch (e) {
+    setStatus(e.message + (e.message.includes('changed since') ? ' Revert to load them again (discards your edits of this civ).' : ''), 'bad', true)
+  }
+}
+
+async function revert() {
+  // Reloads the civ from disk, so a revert also resolves a conflict with changes made outside the editor
+  const fresh = await fetch('/data.json').then((r) => r.json())
+  const civ = fresh.civilizations.find((c) => c.name === selected)
+  Object.assign(civData(selected), civ)
+  base[selected] = editable(civ)
+  work[selected] = toWork(base[selected])
+  setStatus('reverted')
+  renderAll()
+}
+
+$('save').addEventListener('click', () => view === 'civs' ? save() : saveUpgrades())
+$('revert').addEventListener('click', () => view === 'civs' ? revert() : revertUpgrades())
+$('search').addEventListener('input', renderCivList)
+$('only-open').addEventListener('change', renderCivList)
+$('only-missing').addEventListener('change', renderCivList)
+document.querySelectorAll('.views button').forEach((b) => b.addEventListener('click', () => setView(b.dataset.view)))
+$('show-done').addEventListener('change', renderNotes)
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); view === 'civs' ? save() : saveUpgrades() }
+})
+window.addEventListener('beforeunload', (e) => {
+  if (data && (data.civilizations.some((c) => isDirty(c.name)) || upDirty())) e.preventDefault()
+})
+
+load()
+</script>
+</body>
+</html>

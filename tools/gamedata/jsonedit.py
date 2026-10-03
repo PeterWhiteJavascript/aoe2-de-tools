@@ -115,9 +115,10 @@ class Doc:
         # (start, sequence number, end, new text); the sequence number keeps insertions at the
         # same position in the order they were made
         self.edits = []
-        # Empty containers have no member to copy the formatting from, so values added to them
-        # are collected here and the whole container is rendered on save: id(node) -> (node, content)
+        # Containers that are rendered in full on save: id(node) -> (node, content). Empty containers
+        # have no member to copy the formatting from; object_content() also uses this
         self.filled_containers = {}
+        self.removals = {}  # id(container) -> (container, indexes of the members to remove)
         self.root = self._parse(self._skip_whitespace(0))[0]
         # The smallest indentation in the file is its indentation step
         indents = {len(m) for m in re.findall(r'\n( +)\S', self.text)}
@@ -170,6 +171,22 @@ class Doc:
     def replace(self, node, value):
         self._edit(node.start, node.end, render(value, self.indent, node.line_indent()))
 
+    def replace_lines(self, node, values):
+        """Replace a node with an array that has one element per line, for long texts ("bonusDesc").
+
+        render() keeps arrays without objects on one line.
+        """
+        if not values:
+            self._edit(node.start, node.end, '[]')
+            return
+        base = node.line_indent()
+        inner = base + self.indent
+        # Keep the indentation of the current elements, the file is not indented consistently
+        if node.members and '\n' in self.text[node.start:node.members[0][1].start]:
+            inner = node.members[0][1].line_indent()
+        body = ',\n'.join(inner + json.dumps(v, ensure_ascii=False) for v in values)
+        self._edit(node.start, node.end, '[\n' + body + '\n' + base + ']')
+
     def set_key(self, obj, key, value):
         """Set a key of an object node. New keys are appended in the style of the last member."""
         if key in obj:
@@ -215,16 +232,57 @@ class Doc:
             at = arr.members[index][1]
             self._edit(at.start, at.start, rendered + separator)
 
+    def remove(self, container, key):
+        """Remove an array element (key: index) or an object member (key: name) with its separator.
+
+        Removals are collected per container and turned into edits on save(), so neighbouring
+        members can be removed by separate calls without overlapping edits.
+        """
+        keys = container.keys() if container.kind == 'object' else list(range(len(container.members)))
+        self.removals.setdefault(id(container), (container, set()))[1].add(keys.index(key))
+
+    def _removal_edits(self, container, indexes):
+        members = [node for _, node in container.members]
+
+        def start(node):
+            return node.key_range[0] if node.key_range else node.start
+
+        kept = [i for i in range(len(members)) if i not in indexes]
+        if not kept:
+            self._edit(start(members[0]), members[-1].end, '')
+            return
+        # Members before the last kept one go with the separator after them, the ones after it
+        # together with the separator before them
+        for i in sorted(indexes):
+            if i < kept[-1]:
+                self._edit(start(members[i]), start(members[i + 1]), '')
+        if kept[-1] < len(members) - 1:
+            self._edit(members[kept[-1]].end, members[-1].end, '')
+
+    def object_content(self, obj):
+        """The value of an object node as a dict that save() writes back in full.
+
+        For edits that remove or reorder keys. The object is rendered in the project style then, so
+        no other edit may touch it (save() refuses overlapping edits).
+        """
+        return self.filled_containers.setdefault(id(obj), (obj, obj.value()))[1]
+
     def changed(self):
-        return bool(self.edits or self.filled_containers)
+        return bool(self.edits or self.filled_containers or self.removals)
 
     def save(self):
         for node, content in self.filled_containers.values():
             self._edit(node.start, node.end, render(content, self.indent, node.line_indent()))
+        for container, indexes in self.removals.values():
+            self._removal_edits(container, indexes)
+        edits = sorted(self.edits)
+        for (_, _, end, _), (next_start, _, _, _) in zip(edits, edits[1:]):
+            if next_start < end:
+                raise ValueError(f'{self.path}: overlapping edits at {next_start}')
         text = self.text
         # Apply from the end of the file backwards so earlier positions stay valid
-        for start, _, end, new_text in sorted(self.edits, reverse=True):
+        for start, _, end, new_text in reversed(edits):
             text = text[:start] + new_text + text[end:]
         json.loads(text)  # refuse to write broken JSON
         self.path.write_text(text, encoding='utf-8')
-        self.text, self.edits, self.filled_containers = text, [], {}
+        self.text, self.edits, self.filled_containers, self.removals = text, [], {}, {}
