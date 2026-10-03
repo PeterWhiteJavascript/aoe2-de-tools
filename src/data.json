@@ -3513,7 +3513,7 @@
                 "All mining camp upgrades are free, which if you're not careful, will make you float way too much gold in castle age.",
                 "Bohemians get hussite reforms, which makes everything that you can get in the monastery cost food instead of gold, including monks."
             ],
-            "ranksUnique":[["wagenburg tactics", "hand cannoneer"], ["hussite reforms", "monk"]],
+            "ranksUnique":[["wagenburg tactics", ["hand cannoneer"]], ["hussite reforms", ["monk"]]],
             "ranks":{
                 "town center": {
                     "villager":[3, 3, 3.5, 3.5]
@@ -35488,7 +35488,7 @@
         "champion": ["squires", "gambesons", "supplies", "arson", "meleeAttack", "infantryDefense"],
         "legionary": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "halberdier":["squires", "arson", "meleeAttack", "infantryDefense"],
-        "elite fire lancer":["squires", "arson", "meleeAttack", "infantryDefense"],
+        "elite fire lancer":["squires", "gambesons", "arson", "meleeAttack", "infantryDefense"],
         "elite eagle warrior":["squires", "arson", "meleeAttack", "infantryDefense"],
         "condottiero":["squires", "arson", "meleeAttack", "infantryDefense"],
         "arbalester": ["thumb ring", "archerAttack", "archerDefense", "ballistics", "chemistry"],
