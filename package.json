@@ -17,6 +17,7 @@
   "scripts": {
     "prestart": "npm run build",
     "start": "node app.js",
+    "dev": "npm start -- --open",
     "prebuild": "rm -rf public",
     "build": "npx @11ty/eleventy",
     "gamedata:extract": "python tools/gamedata/gamedata.py extract",
