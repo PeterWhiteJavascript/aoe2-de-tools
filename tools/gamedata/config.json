@@ -25,9 +25,11 @@
     "konnik": 1225,
     "huskarl": 41,
     "tarkan": 755,
-    "xolotl warrior": 1570
+    "xolotl warrior": 1570,
+    "elite ratha": 1761
   },
   "renames": {"longboat": 250},
+  "unratedUnits": ["petard", "siege tower"],
   "removedTechs": ["supplies", "bearded axe", "pavise", "zealotry"],
   "unitCivs": {"1570": ["Aztecs", "Incas"]},
   "upgrades": {

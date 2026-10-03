@@ -27,6 +27,9 @@ $.getJSON('/data.json', function(data) {
         }
         return buildingName;
     }
+    function civHasUnit(civ, unitName){
+        return Object.values(civ.techTree).some((b) => b.units.some((u) => u.name === unitName && u.available));
+    }
     
     let upgradeGroup = data.unitGroups;
     let relevantUpgrades = data.relevantUpgrades;
@@ -107,7 +110,7 @@ $.getJSON('/data.json', function(data) {
                     });
                     let unit = $(e.currentTarget).attr("unit");
                     if(!relevantUpgrades[unit] && upgradeGroup[unit])  unit = upgradeGroup[unit];
-                    let relevant = relevantUpgrades[unit];
+                    let relevant = relevantUpgrades[unit] || [];
                     let uniqueUps = civ.ranksUnique.map((u) => {
                         return u[1].includes(unit);
                     });
@@ -174,6 +177,7 @@ $.getJSON('/data.json', function(data) {
             if(buildingRank / buildingRanks.length === 4){
                 rankStr = "X";
             }
+            if(numRanks === 0) rankStr = " ";
             if(rankStr.length === 2) rankStr = "&nbsp" + rankStr;
             else rankStr = "&nbsp" + rankStr + "&nbsp";
             row.children(".building:last-child").append("<div class='building-rank'><div>"+rankStr+"</div></div>");
@@ -241,13 +245,9 @@ $.getJSON('/data.json', function(data) {
         $("#civ-available-techs").append("<div class='header'>Blacksmith</div>");
         $("#civ-available-techs").append(bsmithdiv);
         
-        let ups = [
-            ["squires", "supplies", "gambesons", "arson"],
-            ["thumb ring", "parthian tactics"],
-            ["bloodlines", "husbandry"],
-            ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith","herbal medicine"],
-            ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "treadmill crane", "bombard tower upgrade"]
-        ];
+        let ups = data.overviewUpgrades.map((group) => group
+            .filter((u) => typeof u === "string" || civHasUnit(civ, u.requires))
+            .map((u) => typeof u === "string" ? u : u.name));
         if(finder(civ.techTree.university.upgrades, "architecture").available === true) ups[4][ups[4].indexOf("masonry")] = "architecture";
         civ.ranksUnique.forEach((r) => {
             ups[4].push(r[0]);

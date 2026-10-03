@@ -9,6 +9,7 @@ Everything the game data cannot tell (name mappings, exceptions, meaning of spec
 values) comes from config.json, see README.md.
 """
 import json
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Optional
@@ -1062,11 +1063,74 @@ class Sync:
         for name, game_name in sorted(renamed.items()):
             self.add('info', f'data.json techTree {name}', f'called "{game_name}" in the game')
         self.check_removed_techs(removals)
-        changes += self.check_missing_techtree_entries(civ_nodes, covered)
+        missing_changes, added = self.check_missing_techtree_entries(civ_nodes, covered)
+        changes += missing_changes
         changes += self.baseline_changes(civ_nodes)
+        layout, names = self.rating_layout(civ_nodes)
+        changes += self.check_ratings(civ_nodes, layout, names)
+        changes += self.check_unique_ratings(civ_nodes)
         self.ranking_notes(civ_nodes, changes)
+        self.check_missing_civs(civ_nodes, added, layout, names)
+        self.check_icons()
+
+    def check_missing_civs(self, civ_nodes, added, layout, names):
+        """Add the civs the project lacks, and report civs without ratings.
+
+        A new civ gets the tech tree of the most common building layout, with its own availability,
+        the rating names of its units and unique techs without ratings (see rating_layout()), no
+        bonus texts, and its emblem as civ icon. The entries keep the template's
+        order: civ-ranking.js reads the blacksmith upgrades by position. `added` are the entries
+        check_missing_techtree_entries() adds in the same run.
+        """
+        layouts = Counter(tuple(node['techTree'].keys()) for node in civ_nodes.values())
+        template = next(node for node in civ_nodes.values()
+                        if tuple(node['techTree'].keys()) == layouts.most_common(1)[0][0])['techTree'].value()
+        names = sorted(civ_nodes)
         for civ in sorted(set(self.snapshot['civs']) - set(civ_nodes)):
-            self.add('new', f'data.json civilizations/{civ}', 'civ missing: needs tech tree, ranks and bonus texts')
+            tree = self.new_civ_tech_tree(civ, template, added)
+            ranks = {building: {name: [] for name in rated} for building, rated in self.expected_ratings(civ, layout, names).items()}
+            unique = [[self.techs[t]['name'].lower(), []] for t in self.unique_techs(civ)]
+            entry = {'name': civ, 'techTree': tree, 'bonusDesc': [], 'ranksUnique': unique, 'ranks': ranks}
+            index = sum(name < civ for name in names)  # the list is sorted by name
+
+            def add(e=entry, i=index, c=civ):
+                self.data.append(self.data.root['civilizations'], e, i)
+                for units in e['ranks'].values():
+                    for name in units:
+                        self.queue_icon('units', name)
+                for tech, _ in e['ranksUnique']:
+                    self.queue_icon('upgrades', tech)
+                if not (IMG / f'civicon-{c.lower()}.webp').exists():
+                    self.new_images.append({'file': f'civicon-{c.lower()}', 'kind': 'civ',
+                                            'civ': self.snapshot['civs'][c]['internalName']})
+            self.add('new', f'data.json civilizations/{civ}', 'civ added with its tech tree and icon', add)
+        for civ, node in sorted(civ_nodes.items()):
+            if not any(r for units in node['ranks'].value().values() for r in units.values()):
+                self.add('info', f'data.json civilizations/{civ}', 'no ratings yet: rate "ranks", set the units of '
+                         '"ranksUnique" and write "bonusDesc"')
+
+    def new_civ_tech_tree(self, civ, template, added):
+        """Tech tree of a new civ: the template's entries with the civ's availability (see check_missing_civs)."""
+        renames = {old: self.techs[i]['name'].lower() for old, i in self.config['techRenames'].items()}
+        tree = {building: {'units': [], 'upgrades': []} for building in template}
+        moved = []
+        for building, lists in template.items():
+            for list_name in ('units', 'upgrades'):
+                for entry in lists[list_name]:
+                    source = self.tech_tree_source(list_name, entry['name'])
+                    # Removed techs (no source) stay unavailable until check_removed_techs() drops them everywhere
+                    available = bool(source) and civ in source[0]
+                    item = {'name': renames.get(entry['name'], entry['name']), 'available': available}
+                    targets = sorted(b for b in (source[1] if source else []) if b in tree)
+                    if source and source[1] and building not in source[1] and targets:
+                        moved.append((targets[0], list_name, item))
+                    else:
+                        tree[building][list_name].append(item)
+        for building, list_name, name in [(b, l, i['name']) for b, l, i in moved] + added:
+            if building in tree and not any(e['name'] == name for e in tree[building][list_name]):
+                source = self.tech_tree_source(list_name, name)
+                tree[building][list_name].append({'name': name, 'available': bool(source) and civ in source[0]})
+        return tree
 
     def ranking_notes(self, civ_nodes, changes):
         """Add the tech tree changes as "Rankings to review" findings.
@@ -1089,11 +1153,231 @@ class Sync:
                 items = [(civ, rated) for civ, rated in items if rated]
             for civ, _ in items:
                 per_civ.setdefault(civ, []).append(text)
-        order = ('gained', 'lost', 'effect change', 'cost increase', 'cost decrease', 'cost change')
+        order = ('gained', 'lost', 'effect change', 'cost increase', 'cost decrease', 'cost change', 'review rating',
+                 'removed rating', 'new rating', 'new unique tech', 'removed unique tech')
         # One change per line; the report prints the message after "<where>:"
         for where, notes in ([('Most civs', most)] if most else []) + sorted(per_civ.items()):
             notes = sorted(notes, key=lambda n: (next(i for i, o in enumerate(order) if n.startswith(o)), n))
             self.add('ranking', where, ''.join(f'\n    - {note}' for note in notes))
+
+    # --- Ratings of the civ ranking ---
+
+    def unit_ids_named(self, name):
+        """Game IDs of a unit by its project name: the config.json mapping or all copies in a tech tree."""
+        if name in self.pinned_units:
+            return [self.pinned_units[name]]
+        return [i for i in self.unit_ids_by_name.get(name, []) if 'civs' in self.units[i]]
+
+    def is_tier_step(self, unit_id, target):
+        """Whether an upgrade is a tier of a unit line; conversions of villagers (Flemish Militia) are not."""
+        classes = {self.units[unit_id]['class'], self.units[target]['class']}
+        return len(classes) == 1 or UNIT_CLASS_CIVILIAN not in classes
+
+    def rating_line(self, name):
+        """First unit of the line a rating name belongs to, or the name itself for keys without a unit ("defenses")."""
+        ids = self.unit_ids_named(name)
+        if not ids:
+            return name
+        unit_id, seen = ids[0], set()
+        while unit_id in self.upgrade_parent and unit_id not in seen:
+            seen.add(unit_id)
+            parent = self.upgrade_parent[unit_id][0]
+            if not self.is_tier_step(parent, unit_id):
+                break
+            unit_id = parent
+        return unit_id
+
+    def line_tiers(self, start):
+        """Unit ID -> tier in the line of `start`: the longest upgrade path to it, so branches that
+        replace a tier (Winged Hussar, Legionary) end up as top tiers."""
+        line = [start] + [u for u in self.upgrade_chain(start)]
+        depth = {start: 0}
+        for _ in line:
+            for unit_id in list(depth):
+                for target, _ in self.units[unit_id].get('upgradesTo', []):
+                    if target in self.units and self.is_tier_step(unit_id, target):
+                        depth[target] = max(depth.get(target, 0), depth[unit_id] + 1)
+        return depth
+
+    def rating_layout(self, civ_nodes):
+        """What the ratings cover, as template for every civ.
+
+        Returns building -> rated lines (first unit ID) and keys without a unit ("defenses") in the
+        order the civs list them, and unit ID -> the name the ratings use for it. Lines no civ rates
+        yet are added for the buildings they are trained in, unless config.json "unratedUnits" names
+        them: they are new in the game (Mounted Crossbowman) and need a rating.
+        """
+        layout, names, civ_counts, key_counts = {}, {}, Counter(), Counter()
+        for node in civ_nodes.values():
+            for building, units in node['ranks'].value().items():
+                entries = layout.setdefault(building, [])
+                civ_counts[building] += 1
+                for key in units:
+                    for unit_id in self.unit_ids_named(key):
+                        names.setdefault(unit_id, key)
+                    entry = self.rating_line(key)
+                    key_counts[building, entry] += 1
+                    if entry not in entries:
+                        entries.append(entry)
+        # Keys without a unit go to every civ only if every civ has them ("defenses")
+        for building, entries in layout.items():
+            entries[:] = [e for e in entries if not isinstance(e, str) or key_counts[building, e] == civ_counts[building]]
+        rated = {entry for entries in layout.values() for entry in entries}
+        unrated = {self.rating_line(name) for name in self.config['unratedUnits']}
+        for unit_id, unit in sorted(self.units.items()):
+            if ('civs' not in unit or unit['type'] != UNIT_TYPE_CREATABLE or str(unit_id) in self.config['unitCivs']
+                    or self.rating_line(unit['name'].lower()) != unit_id or unit_id in rated | unrated):
+                continue
+            for location in unit.get('trainLocations', []):
+                building = self.units.get(location['location'], {}).get('name', '').lower()
+                if building in layout and unit_id not in layout[building]:
+                    layout[building].append(unit_id)
+        return layout, names
+
+    def expected_ratings(self, civ, layout, names):
+        """building -> rating names a civ gets: per line of the layout its top available tier, and the keys without a unit."""
+        expected = {}
+        for building, entries in layout.items():
+            for entry in entries:
+                if isinstance(entry, str):
+                    expected.setdefault(building, []).append(entry)
+                    continue
+                available = [(depth, unit_id) for unit_id, depth in self.line_tiers(entry).items()
+                             if civ in self.units[unit_id].get('civs', [])]
+                if available:
+                    top = max(available)[1]
+                    expected.setdefault(building, []).append(names.get(top, self.units[top]['name'].lower()))
+        return expected
+
+    def check_ratings(self, civ_nodes, layout, names):
+        """Keep the "ranks" of each rated civ in line with its units; the ratings themselves are editorial.
+
+        - A rated unit the civ no longer has keeps its entry and ratings, flagged for review with the
+          tier it has now or the unrated units of that building that may replace it (Onager ->
+          Rocket Cart). Once they are rated, the entry is removed.
+        - A rated line the civ lost without an unrated unit in that building loses its entry.
+        - Lines the civ has but does not rate get an entry without ratings. Civs without any ratings
+          (new civs) get all of them, without a note per entry.
+        Returns the changes for ranking_notes().
+        """
+        all_changes = []
+        for civ, node in sorted(civ_nodes.items()):
+            if civ not in self.snapshot['civs']:
+                continue
+            changes = []
+            expected = self.expected_ratings(civ, layout, names)
+            ranks = node['ranks']
+            for building, units_node in ranks.items():
+                wanted = {self.rating_line(name): name for name in expected.get(building, [])}
+                lines = {self.rating_line(key) for key in units_node.keys()}
+                new = [name for line, name in wanted.items() if line not in lines]
+                # Units of the building without ratings may replace a unit the civ lost
+                replacements = new + [key for key, values in units_node.items() if not values.value()]
+                removed = []
+                for key, values in units_node.items():
+                    line = self.rating_line(key)
+                    if isinstance(line, str) or civ in set().union(
+                            *(self.units[i].get('civs', []) for i in self.unit_ids_named(key))):
+                        continue
+                    if line in wanted:
+                        changes.append((civ, None, key, f'review rating: {key} {values.value()} no longer available, '
+                                                         f'now {wanted[line]}'))
+                    elif replacements:
+                        changes.append((civ, None, key, f'review rating: {key} {values.value()} no longer available, '
+                                                         f'replaced by {" / ".join(replacements)}?'))
+                    else:
+                        removed.append(key)
+                        changes.append((civ, None, key, f'removed rating: {key} {values.value()} ({building})'))
+                for key in removed:
+                    self.add('diff', f'data.json ranks {civ}/{building}/{key}', 'no longer available, rating removed',
+                             lambda n=units_node, k=key: self.data.remove(n, k))
+                for name in new:
+                    changes.append((civ, None, name, f'new rating: {name} ({building})'))
+                    self.add('new', f'data.json ranks {civ}/{building}/{name}', 'added without rating',
+                             lambda n=units_node, k=name: self.add_rating(n, k))
+            for building in [b for b in expected if b not in ranks.keys()]:
+                for name in expected[building]:
+                    changes.append((civ, None, name, f'new rating: {name} ({building})'))
+                self.add('new', f'data.json ranks {civ}/{building}', f'added without ratings: {", ".join(expected[building])}',
+                         lambda n=ranks, b=building, k=expected[building]: self.add_rating(n, k, b))
+            if any(values for units in ranks.value().values() for values in units.values()):
+                all_changes += changes
+        return all_changes
+
+    def add_rating(self, node, names, building=None):
+        """Add rating names without ratings to a "ranks" building node, or the building to "ranks", and queue their icons."""
+        names = [names] if isinstance(names, str) else names
+        if building:
+            self.data.set_key(node, building, {name: [] for name in names})
+        else:
+            for name in names:
+                self.data.set_key(node, name, [])
+        for name in names:
+            self.queue_icon('units', name)
+
+    def unique_techs(self, civ):
+        """Tech IDs of a civ's unique techs: castle techs only this civ has, without the elite upgrade of its unique unit."""
+        elite = {tech for unit_id in self.snapshot['civs'][civ]['uniqueUnits']
+                 for _, tech in self.units.get(unit_id, {}).get('upgradesTo', [])}
+        return [tech_id for tech_id, tech in sorted(self.techs.items()) if tech.get('civs') == [civ] and tech_id not in elite
+                and any(self.units.get(l['location'], {}).get('name', '').lower() == 'castle' for l in tech.get('locations', []))]
+
+    def check_unique_ratings(self, civ_nodes):
+        """Keep "ranksUnique" in line with the civs' unique techs. Which units a unique tech affects
+        is editorial: new ones get none and are flagged, since they may change the civ's rating.
+        Returns the changes for ranking_notes()."""
+        changes = []
+        removed = set(self.config['removedTechs'])
+        for civ, node in sorted(civ_nodes.items()):
+            if civ not in self.snapshot['civs']:
+                continue
+            pairs, have = node['ranksUnique'], set()
+            rated = any(values for units in node['ranks'].value().values() for values in units.values())
+            for index, pair in enumerate(pairs.children()):
+                name, affected = pair[0].value(), pair[1].value()
+                source = None if name in removed else self.tech_tree_source('upgrades', name)
+                if source and civ in source[0]:
+                    have |= {i for _, i in source[2]}
+                    continue
+                changes.append((civ, None, name, f'removed unique tech: {name} (affected {", ".join(affected) or "nothing"})'))
+                self.add('diff', f'data.json ranksUnique {civ}/{name}', 'no longer a unique tech of the civ, removed',
+                         lambda n=pairs, i=index: self.data.remove(n, i))
+            for tech_id in self.unique_techs(civ):
+                if tech_id in have:
+                    continue
+                name = self.techs[tech_id]['name'].lower()
+                if rated:
+                    changes.append((civ, None, name, f'new unique tech: {name} - may change the rating, set the units it affects'))
+                self.add('new', f'data.json ranksUnique {civ}/{name}', 'added without affected units',
+                         lambda n=pairs, k=name: (self.data.append(n, [k, []]), self.queue_icon('upgrades', k)))
+        return changes
+
+    def check_icons(self):
+        """Queue icons the civ ranking shows but src/img lacks: rated units, unique techs and the overview."""
+        names = {('units', key) for node in self.data.root['civilizations'].children() for units in node['ranks'].value().values()
+                 for key in units}
+        names |= {('upgrades', tech) for node in self.data.root['civilizations'].children()
+                  for tech, _ in node['ranksUnique'].value()}
+        names |= {('upgrades', item if isinstance(item, str) else item['name'])
+                  for group in self.data.root['overviewUpgrades'].value() for item in group}
+        for list_name, name in sorted(names):
+            if not (IMG / f'{name}.webp').exists() and self.tech_tree_source(list_name, name):
+                self.add('new', f'src/img/{name}.webp', 'icon missing', lambda l=list_name, n=name: self.queue_icon(l, n))
+
+    def queue_icon(self, list_name, name):
+        """Queue the icon of a rated unit or a tech for icons.create(), unless it exists."""
+        source = self.tech_tree_source(list_name, name)
+        if (IMG / f'{name}.webp').exists() or not source:
+            return
+        kind, item_id = sorted(source[2])[0]
+        if kind == 'units':
+            self.new_images.append({'file': name, 'kind': self.category(item_id), 'unit': item_id})
+        elif 'icon' in self.techs[item_id]:
+            category = 'unique' if len(self.techs[item_id].get('civs', [])) == 1 else 'generic'
+            self.new_images.append({'file': name, 'kind': 'tech', 'category': category,
+                                    'icon': self.techs[item_id]['icon'], 'label': self.techs[item_id]['name']})
+        else:
+            self.add('info', f'src/img/{name}.webp', 'snapshot.json has no tech icons yet: run "techtree:update"')
 
     # --- Effect and cost changes since the last tech tree update ---
 
@@ -1184,58 +1468,53 @@ class Sync:
         return ', '.join(parts) or 'effects reordered'
 
     def check_removed_techs(self, removals):
-        """Remove the names in config.json "removedTechs" (see check_techtree).
+        """Remove the names in config.json "removedTechs" from data.json: list items, objects and pairs
+        named after them (tech trees, "upgrades", "relevantUpgrades", "overviewUpgrades", "ranksUnique",
+        ...) and object keys ("upgradeBuilding").
 
-        civ-ranking.js looks every name of its fixed lists and of "ranksUnique" up in the tech tree
-        and fails if one is missing. As long as it still names a removed tech, the tech stays in
-        the tech trees and only becomes unavailable; it is removed by the first run after that.
-        "relevantUpgrades" and "upgradeBuilding" are only read for the names in "relevantUpgrades",
-        so they can always lose the name.
+        civ-ranking.js looks names of the tech trees up and fails on missing ones. As long as its
+        code names a removed tech, the tech trees only mark it unavailable; the first run after the
+        code no longer names it removes it. Other code is only reported.
         """
         ranking_js = (SRC / CIV_RANKING_JS).read_text(encoding='utf-8')
-        ranks_unique = {tech for civ in self.data.root['civilizations'].children()
-                        for tech, _ in civ['ranksUnique'].value()}
         for name in sorted(self.config['removedTechs']):
-            entries = removals.get(name, [])
-            blockers = ([CIV_RANKING_JS] if f'"{name}"' in ranking_js else []) + (
-                ['data.json ranksUnique'] if name in ranks_unique else [])
-            relevant = [(node, index) for node in self.data.root['relevantUpgrades'].children()
-                        for index, child in enumerate(node.children()) if child.value() == name]
-            in_building_map = name in self.data.root['upgradeBuilding']
-            if blockers:
-                tree_entries, unavailable = [], [node for _, _, node in entries if node.value()]
-            else:
-                tree_entries, unavailable = [(c, i) for c, i, _ in entries], []
+            blocked = f'"{name}"' in ranking_js
+            tree_entries = {(id(c), i) for c, i, _ in removals.get(name, [])}
+            places = [(c, k) for c, k in self.places_named(self.data.root, name) if not (blocked and (id(c), k) in tree_entries)]
+            unavailable = [node for _, _, node in removals.get(name, []) if blocked and node.value()]
 
-            def remove(n=name, places=tree_entries + relevant, a=unavailable, b=in_building_map):
-                for container, index in places:
-                    self.data.remove(container, index)
+            def remove(p=places, a=unavailable):
+                for container, key in p:
+                    self.data.remove(container, key)
                 for node in a:
                     self.data.replace(node, False)
-                if b:
-                    self.data.remove(self.data.root['upgradeBuilding'], n)
 
-            done = [f'{len(tree_entries)} tech tree entries removed'] if tree_entries else []
-            done += [f'unavailable for {len(unavailable)} civs (removed once {", ".join(blockers)} '
-                     'no longer name it)'] if unavailable else []
-            done += [f'{len(relevant)} removed from relevantUpgrades'] if relevant else []
-            done += ['removed from upgradeBuilding'] if in_building_map else []
-            if done:
-                self.add('diff', f'data.json techTree {name}', 'removed from the game: ' + ', '.join(done), remove)
-            mentions = [f'data.json {key}' for key in self.data_mentions(name)]
-            mentions += sorted(str(path.relative_to(ROOT)) for path in SRC.rglob('*')
-                               if path.suffix in ('.js', '.html', '.json') and path != SRC / 'data.json'
-                               and f'"{name}"' in path.read_text(encoding='utf-8', errors='ignore'))
-            mentions += [b for b in blockers if b.startswith('data.json')]
-            if mentions:
-                self.add('info', f'removed tech "{name}"', 'still mentioned in ' + ', '.join(mentions)
+            if places or unavailable:
+                message = f'removed from the game: {len(places)} places in data.json'
+                if unavailable:
+                    message += f', unavailable for {len(unavailable)} civs until {CIV_RANKING_JS} no longer names it'
+                self.add('diff', f'data.json {name}', message, remove)
+            code = sorted(str(path.relative_to(ROOT)) for path in SRC.rglob('*') if path.suffix in ('.js', '.html')
+                          and f'"{name}"' in path.read_text(encoding='utf-8', errors='ignore'))
+            if code:
+                self.add('info', f'removed tech "{name}"', 'still named in ' + ', '.join(code)
                          + '; update by hand. Remove it from config.json "removedTechs" when done')
 
-    def data_mentions(self, name):
-        """Top-level keys of data.json outside the tech tree data that mention a name."""
-        skip = {'civilizations', 'relevantUpgrades', 'upgradeBuilding'}
-        return [key for key, node in self.data.root.items() if key not in skip
-                and any(child.kind == 'value' and child.value() == name for child in node.walk())]
+    @staticmethod
+    def places_named(node, name):
+        """(container, key) of the members under `node` that stand for `name`: the value itself, an
+        object with that "name", a pair starting with it ("ranksUnique") or an object key."""
+        for key, child in (node.items() if node.kind == 'object' else enumerate(node.children())):
+            if node.kind == 'object' and key == name:
+                yield node, key
+            elif child.kind == 'value' and child.value() == name:
+                yield node, key
+            elif child.kind == 'object' and 'name' in child and child['name'].value() == name:
+                yield node, key
+            elif child.kind == 'array' and child.members and child[0].kind == 'value' and child[0].value() == name:
+                yield node, key
+            elif child.kind != 'value':
+                yield from Sync.places_named(child, name)
 
     def check_missing_techtree_entries(self, civ_nodes, covered):
         """Add game units and techs of a tech tree building that no techTree entry stands for.
@@ -1243,8 +1522,9 @@ class Sync:
         Covered are the entries' units with their upgrades and techs; techs that only enable a unit
         stand for the unit. Units from config.json "unitCivs" are left out: no tech tree shows them.
         The new entries go to every civ that has the building, with its availability; the page shows
-        only what "ranks" and civ-ranking.js name, so they need no icon.
-        Returns the (civ, building, name, 'gained <name>') changes.
+        only what "ranks" and civ-ranking.js name, so they need no icon. Civs the project lacks count
+        too, so their unique units and techs are added in the same run as the civs themselves.
+        Returns the (civ, building, name, 'gained <name>') changes and the added (building, list, name).
         """
         covered = set(covered)
         for kind, item_id in list(covered):
@@ -1258,7 +1538,7 @@ class Sync:
         candidates += [('upgrades', i, t, t.get('locations', [])) for i, t in self.techs.items() if i not in enabling]
         missing = {}  # name -> (buildings, civs, lists); a unit upgrade is both a unit and a tech
         for list_name, item_id, item, locations in candidates:
-            civs = project_civs & set(item.get('civs', []))
+            civs = set(self.snapshot['civs']) & set(item.get('civs', []))
             places = {self.units[l['location']]['name'].lower() for l in locations if l['location'] in self.units}
             if not civs or not places & buildings or (list_name, item_id) in covered:
                 continue
@@ -1270,7 +1550,7 @@ class Sync:
             entry[0].update(places & buildings)
             entry[1].update(civs)
             entry[2].add(list_name)
-        changes = []
+        changes, added = [], []
         for name, (places, civs, lists) in sorted(missing.items()):
             building = sorted(places)[0]
             # Unit upgrades are listed as units, like the Hussar
@@ -1282,8 +1562,9 @@ class Sync:
                         self.data.append(node['techTree'][b][l], {'name': n, 'available': civ in c})
             self.add('new', f'data.json techTree {building}/{name}',
                      f'{list_name[:-1]} for ' + (f'{len(civs)} civs' if len(civs) > 10 else ', '.join(sorted(civs))), add)
-            changes += [(civ, building, name, f'gained {name}') for civ in sorted(civs)]
-        return changes
+            changes += [(civ, building, name, f'gained {name}') for civ in sorted(civs & project_civs)]
+            added.append((building, list_name, name))
+        return changes, added
 
     # --- Entries for new units and resources ---
 

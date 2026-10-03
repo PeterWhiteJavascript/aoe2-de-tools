@@ -1,8 +1,9 @@
-"""Create the webp icons for new units and resources in src/img from the game's textures.
+"""Create the webp icons for new units, techs, resources and civs in src/img from the game's textures.
 
-Unit icons imitate the tech tree tiles: the unit portrait inside the frame of its category
-with the unit name below it. Resource icons put the civ emblem and the resource symbol on top
+Unit and tech icons imitate the tech tree tiles: the portrait or tech icon inside the frame of
+its category with the name below it. Resource icons put the civ emblem and the resource symbol on top
 of the icon of the source resource (e.g. "gold from hunter": hunter icon + emblem + gold).
+Civ icons ("civicon-<civ>") are the civ emblems.
 """
 import json
 from pathlib import Path
@@ -16,6 +17,7 @@ PLAYER = 'Player 1'   # blue, the player color of the unit portraits
 
 # Unit category -> name part of the tech tree frame texture
 FRAMES = {'generic': 'units', 'regional': 'regionalunit', 'unique': 'specialunits'}
+TECH_FRAMES = {'generic': 'techs', 'regional': 'regionaltechs', 'unique': 'uniquetechs'}
 # Positions in frame texture coordinates
 PORTRAIT_BOX = (30, 13, 54, 53)  # x, y, width, height of the portrait
 TILE_CROP = (15, 12, 99, 100)    # left, top, right, bottom of the tile within the texture
@@ -27,6 +29,7 @@ def game_paths(game):
     return {
         'frames': game / 'widgetui' / 'textures' / 'menu' / 'techtree' / 'normal',
         'portraits': game / 'widgetui' / 'textures' / 'ingame' / 'units',
+        'tech_icons': game / 'widgetui' / 'textures' / 'ingame' / 'tech',
         'sprite_colors': game / 'resources' / '_common' / 'palettes' / 'spritecolors.json',
         'resource_symbols': game / 'widgetui' / 'textures' / 'ingame' / 'icons',
         'civ_emblems': game / 'widgetui' / 'textures' / 'menu' / 'civs',
@@ -68,10 +71,20 @@ def unit_portrait(paths, icon_id):
 
 
 def unit_tile(paths, icon_id, label, category):
-    frame_file = f'techtreepanel_{FRAMES[category]}_castleage_active_normal.png'
-    frame = Image.open(paths['frames'] / frame_file).convert('RGBA')
+    return tile(paths, FRAMES[category], unit_portrait(paths, icon_id), label)
+
+
+def tech_tile(paths, icon_id, label, category):
+    # The files are named "<icon ID>_<tech name>.DDS"
+    icon = next(paths['tech_icons'].glob(f'{icon_id:03d}_*.DDS'))
+    return tile(paths, TECH_FRAMES[category], Image.open(icon).convert('RGB'), label)
+
+
+def tile(paths, frame_name, picture, label):
+    """A tech tree tile: the picture inside the frame with the label below it."""
+    frame = Image.open(paths['frames'] / f'techtreepanel_{frame_name}_castleage_active_normal.png').convert('RGBA')
     x, y, width, height = PORTRAIT_BOX
-    frame.paste(unit_portrait(paths, icon_id).resize((width, height), Image.LANCZOS), (x, y))
+    frame.paste(picture.resize((width, height), Image.LANCZOS), (x, y))
 
     draw = ImageDraw.Draw(frame)
     usable_width = TILE_CROP[2] - TILE_CROP[0] - 4
@@ -119,6 +132,8 @@ def create(jobs, units, game, overwrite=False):
     Job formats:
         {'file': name, 'kind': 'generic' | 'regional' | 'unique', 'unit': unit ID, 'replaces': old name (optional)}
         {'file': name, 'kind': 'resource', 'source': source resource, 'res': 'gold' | ..., 'civ': internal civ name}
+        {'file': name, 'kind': 'civ', 'civ': internal civ name}
+        {'file': name, 'kind': 'tech', 'category': 'generic' | 'regional' | 'unique', 'icon': icon ID, 'label': name}
     `units` is the snapshot's unit table (unit ID -> entry). Icons of renamed units ('replaces') are
     deleted once the new icon exists, including the old png versions.
     """
@@ -130,6 +145,11 @@ def create(jobs, units, game, overwrite=False):
             continue
         if job['kind'] == 'resource':
             image = resource_tile(paths, job['source'], job['res'], job['civ'])
+        elif job['kind'] == 'tech':
+            image = tech_tile(paths, job['icon'], job['label'], job['category'])
+        elif job['kind'] == 'civ':
+            # The civ icons of the civ ranking are the game's emblems as they are
+            image = Image.open(paths['civ_emblems'] / f'{job["civ"].lower()}.png').convert('RGBA')
         else:
             unit = units[job['unit']]
             image = unit_tile(paths, unit['icon'], unit['name'], job['kind'])

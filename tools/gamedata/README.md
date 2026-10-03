@@ -38,9 +38,10 @@ Paths in the game installation:
 - `resources/_common/dat/civilizations.json`: civ names.
 - `resources/en/strings/key-value/key-value-strings-utf8.txt`: display names.
 - `widgetui/textures/menu/techtree/normal`: tech tree frames.
+- `widgetui/textures/ingame/tech` (DDS): tech icons (icon generation).
 - `widgetui/textures/ingame/units` (DDS): unit portraits. Their alpha channel masks the player color.
 - `resources/_common/palettes/spritecolors.json`: player colors (icon generation).
-- `widgetui/textures/menu/civs`: civ emblems.
+- `widgetui/textures/menu/civs`: civ emblems (civ icons, resource icons).
 - `widgetui/textures/ingame/icons`: resource symbols.
 - `resources/_common/fonts/georgiab.ttf`: font for the unit names (icon generation)
 
@@ -80,8 +81,10 @@ Details are in the docstrings of the `check_*` methods in `sync.py`.
 
 ## Civ ranking tech trees
 
-The civ ranking rates each civ by its tech tree. The ratings ("ranks", "ranksUnique" in `data.json`) are
-editorial, so the tech trees are updated separately, by whoever reviews the ratings afterwards:
+The civ ranking rates each civ by its tech tree. The ratings (the numbers in "ranks", the units in "ranksUnique",
+"bonusDesc" in `data.json`) are editorial, so the tech trees are updated separately, by whoever reviews the
+ratings afterwards. The tool keeps everything else in line with the game, including which units and unique techs
+a civ has entries for; it never changes a rating.
 
 ```shell
 npm run techtree:verify                         # optional, preview
@@ -97,6 +100,8 @@ that touch its ratings, a building it is rated in or its bonuses ("Rankings to r
 Britons:
   - gained mounted crossbowman
   - lost cavalry archer
+  - review rating: heavy cavalry archer [2, 1.5] no longer available, replaced by heavy mounted crossbowman?
+  - new rating: heavy mounted crossbowman (archery range)
 Chinese:
   - cost increase: fire lancer - 35f 40g -> 45w 45g
 Malians:
@@ -112,12 +117,33 @@ effects; changes of combat stats (hp, attack, armor, range, speed) do not show u
 - `available` is fixed per entry; the finding lists the civs that gained (+) or lost (-) it.
 - Techs researched in another building now are moved there, also in "upgradeBuilding".
 - Units and techs of a tech tree building no entry stands for are added to every civ with that building.
-- Names in `removedTechs` leave "relevantUpgrades" and "upgradeBuilding". They leave the tech trees only once
-  neither `civ-ranking.js` nor "ranksUnique" names them, since the page fails on names missing in a tech tree;
-  until then they become unavailable. Other mentions in `src/` are only reported.
+- Names in `removedTechs` are removed from `data.json` wherever they stand: tech trees, "upgrades",
+  "relevantUpgrades", "upgradeBuilding", "overviewUpgrades", "ranksUnique", unit tech lists. While the code of
+  `civ-ranking.js` still names one, its tech tree entries only become unavailable, since the page fails on names
+  missing in a tech tree. Mentions in other code are only reported.
 - Techs in `techRenames` get the game name everywhere in `src/`; their icon files are renamed, since there is no
   generator for tech icons. If the game gave the tech a new effect too, replace the icon by hand.
-- Civs missing in the project are only reported.
+- Civs missing in the project are added: the tech tree of the most common building layout with the civ's
+  availability, the entries of "ranks" and "ranksUnique" without ratings (see below), no "bonusDesc", and the
+  game's civ emblem as `civicon-<civ>.webp`. The page shows them right away; until they have ratings,
+  `TODO_RANKINGS.txt` lists them under "By hand".
+- **"ranks"**: every civ has an entry for each unit line any civ rates, in the building it is rated in, named
+  after the highest tier the civ has (longest upgrade path, so Winged Hussar and Legionary count as top tiers).
+  Entries without a unit ("defenses") go to a civ only if every civ has them. Lines no civ rates yet are new units
+  and get entries too, unless `unratedUnits` names them (Petard). Per civ:
+  - a line it has but does not rate gets an entry without ratings,
+  - a rated unit it no longer has keeps its entry and ratings and is flagged for review, with the tier it has now
+    or the unrated units of that building that may replace it (Onager → Rocket Cart); once those are rated, the
+    old entry is removed,
+  - a rated line it lost without such a replacement loses its entry.
+- **"ranksUnique"**: the civ's unique techs (castle techs only the civ has, without the elite upgrade of its unique
+  unit). Techs it no longer has are removed, new ones are added without affected units and flagged, since they may
+  change the civ's rating.
+- **"overviewUpgrades"** is the selection of techs the page lists per civ ("relevant for 1v1 Arabia"). It is
+  editorial: removed techs leave it, new ones are not added. An entry `{"name": ..., "requires": <unit>}` shows only
+  for civs with that unit (Cranequins needs the Mounted Crossbowman).
+- Icons the page needs (rated units, unique techs, overview, civs) are created if missing: units and techs as tech
+  tree tiles, civs from their emblem.
 
 ## config.json
 
@@ -132,6 +158,7 @@ several copies use the ID with a `civs` list.
 | `unitCivs` | unit ID → civs that can train it, for units no tech tree shows (Xolotl Warrior: trained in a converted Stable) |
 | `upgrades` | project name → tech ID, if a tech cannot be found by name |
 | `techRenames` | old project name → tech ID of a tech renamed in the game; can be removed after `techtree:update` |
+| `unratedUnits` | names of unit lines the civ ranking never rates (Petard); others get entries in "ranks" |
 | `removedTechs` | project names of techs removed from the game; can be removed once nothing mentions them |
 | `ignoreFields` | fields not compared for a unit, because they mean something else there |
 | `skipNewUnits` | unit IDs never adopted as new units (heroes, campaign units) |
@@ -167,7 +194,9 @@ After changing `units` or `upgrades`, run `update`: the mappings also decide wha
 | `unknown engine resource` | add it to `specialResources` if it affects gathering, else to `knownResources` |
 | `techTree <building>/<name>: not found in the game` | map it in `units` or `upgrades` if renamed, else add it to `removedTechs` |
 | `techTree <name>: called "..." in the game` | nothing; rename the entry and its icon by hand if wanted |
-| `removed tech "<name>": still mentioned in ...` | update these places by hand, then remove the name from `removedTechs` |
+| `removed tech "<name>": still named in ...` | update the code by hand, then remove the name from `removedTechs` |
+| `civilizations/<civ>: no ratings yet` | rate its "ranks", set the units of its "ranksUnique", write its "bonusDesc" |
+| unwanted entry in "ranks" for a new unit line | add the line's first unit to `unratedUnits` |
 
 ### Special resources
 

@@ -232,6 +232,7 @@ def tech_entry(dat, strings, tech_id, tech_civs):
         'requiredTechs': [r for r in tech.required_techs if r >= 0],
         'locations': locations,
         'effects': relevant_effects(dat, tech.effect_id),
+        'icon': tech.icon_id,  # for icons.tech_tile()
     }
     if locations:
         entry['time'] = locations[0]['time']

@@ -39086,5 +39086,12 @@
             "time": 45,
             "classChange": true
         }
+    ],
+    "overviewUpgrades": [
+        ["squires", "supplies", "gambesons", "arson"],
+        ["thumb ring", "parthian tactics", {"name": "cranequins", "requires": "mounted crossbowman"}],
+        ["bloodlines", "husbandry"],
+        ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith", "herbal medicine"],
+        ["siege engineers", "masonry", "fortified wall", "hoardings", "sappers", "arrowslits", "treadmill crane", "bombard tower upgrade"]
     ]   
 }
