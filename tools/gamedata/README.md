@@ -90,7 +90,8 @@ a civ has entries for; it never changes a rating.
 
 ```shell
 npm run techtree:verify                         # optional, preview
-npm run techtree:update                         # extract + patch the tech trees, write TODO_RANKINGS.txt
+npm run techtree:update                         # extract + patch the tech trees, write TODO_RANKINGS.txt,
+                                                # rebuild public/ for the local site
 ```
 
 `techtree:update` writes `TODO_RANKINGS.txt` to the repository root (git-ignored, rewritten by every update)
