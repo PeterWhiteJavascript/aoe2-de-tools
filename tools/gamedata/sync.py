@@ -903,7 +903,8 @@ class Sync:
             def rename(o=old_name, n=new_name, i=icons):
                 self.rename_text({o: self.techs[self.config['techRenames'][o]]['name']})
                 for icon in i:
-                    icon.rename(icon.with_name(n + icon.suffix))
+                    # replace(): an icon left over from an earlier, reverted update may already have the new name
+                    icon.replace(icon.with_name(n + icon.suffix))
             self.add('diff', f'data.json {old_name}', f'renamed in the game: {old_name} -> {new_name}'
                      + (', icons renamed' if icons else ''), rename)
             self.add('info', f'src/img/{new_name}.webp', f'renamed from "{old_name}"; replace it if the tech itself '
@@ -1085,13 +1086,13 @@ class Sync:
         layouts = Counter(tuple(node['techTree'].keys()) for node in civ_nodes.values())
         template = next(node for node in civ_nodes.values()
                         if tuple(node['techTree'].keys()) == layouts.most_common(1)[0][0])['techTree'].value()
-        names = sorted(civ_nodes)
+        civ_names = sorted(civ_nodes)
         for civ in sorted(set(self.snapshot['civs']) - set(civ_nodes)):
             tree = self.new_civ_tech_tree(civ, template, added)
             ranks = {building: {name: [] for name in rated} for building, rated in self.expected_ratings(civ, layout, names).items()}
             unique = [[self.techs[t]['name'].lower(), []] for t in self.unique_techs(civ)]
             entry = {'name': civ, 'techTree': tree, 'bonusDesc': [], 'ranksUnique': unique, 'ranks': ranks}
-            index = sum(name < civ for name in names)  # the list is sorted by name
+            index = sum(name < civ for name in civ_names)  # the list is sorted by name
 
             def add(e=entry, i=index, c=civ):
                 self.data.append(self.data.root['civilizations'], e, i)

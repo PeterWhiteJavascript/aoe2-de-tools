@@ -516,6 +516,7 @@
       "civ": 17,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Tarkan (make avail)",
       "locations": [],
       "name": "Tarkan (make avail)",
@@ -530,6 +531,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Turkish Artillery",
       "locations": [
         {
@@ -550,6 +552,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 29,
       "internalName": "Crossbow",
       "locations": [
         {
@@ -566,6 +569,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Blast Furnace",
       "locations": [],
       "name": "C-Bonus, Double Blast Furnace",
@@ -576,6 +580,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Liao Dao (make avail)",
       "locations": [],
       "name": "Liao Dao (make avail)",
@@ -590,6 +595,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Liao Dao",
       "locations": [
         {
@@ -606,6 +612,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Early + Cheaper HCA",
       "locations": [],
       "name": "C-Bonus, Early + Cheaper HCA",
@@ -616,6 +623,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mounted Trebuchet (make avail)",
       "locations": [],
       "name": "Mounted Trebuchet (make avail)",
@@ -630,6 +638,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Lamellar Armor",
       "locations": [
         {
@@ -650,6 +659,7 @@
         "gold": 300
       },
       "effects": [[1, 33, 0, -1, 3]],
+      "icon": 107,
       "internalName": "Ordo Cavalry",
       "locations": [
         {
@@ -666,6 +676,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Pastures",
       "locations": [],
       "name": "C-Bonus, Pastures",
@@ -676,6 +687,7 @@
       "civ": 52,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, No friendly damage",
       "locations": [],
       "name": "C-Bonus, No friendly damage",
@@ -689,6 +701,7 @@
         "food": 500
       },
       "effects": [[1, 6, 0, -1, 1], [6, 242, 0, -1, 1.5], [6, 243, 0, -1, 1.5], [6, 244, 0, -1, 1.5], [6, 245, 0, -1, 1.5]],
+      "icon": 30,
       "internalName": "Middle Age",
       "locations": [
         {
@@ -706,6 +719,7 @@
       "civs": ["Chinese"],
       "cost": {},
       "effects": [],
+      "icon": 40,
       "internalName": "Dragon Ship",
       "locations": [
         {
@@ -722,6 +736,7 @@
       "civ": 53,
       "cost": {},
       "effects": [[5, 7, -1, 101, 0.8696], [5, 448, -1, 101, 0.8696], [5, 546, -1, 101, 0.8696], [5, 93, -1, 101, 0.8696], [5, 441, -1, 101, 0.8696], [5, 6, -1, 101, 0.8696], [5, 358, -1, 101, 0.8696], [5, 359, -1, 101, 0.8696], [5, 1155, -1, 101, 0.8696], [5, 1010, -1, 101, 0.8696], [5, 1012, -1, 101, 0.8696], [5, 1786, -1, 101, 0.8696], [5, 1787, -1, 101, 0.8696], [5, 1788, -1, 101, 0.8696]],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Spear Scout train 25% faster",
       "locations": [],
       "name": "C-Bonus, Skirms Spear Scout train 25% faster",
@@ -736,6 +751,7 @@
         "wood": 325
       },
       "effects": [[1, 288, 1, 69, 345], [1, 289, 1, -1, 3]],
+      "icon": 136,
       "internalName": "Grazing Grasslands",
       "locations": [
         {
@@ -756,6 +772,7 @@
         "wood": 150
       },
       "effects": [[1, 288, 1, 69, 230], [1, 289, 1, -1, 2]],
+      "icon": 137,
       "internalName": "Enclosures",
       "locations": [
         {
@@ -776,6 +793,7 @@
         "wood": 100
       },
       "effects": [[1, 288, 1, 69, 115], [1, 289, 1, -1, 1]],
+      "icon": 138,
       "internalName": "Livestock Husbandry",
       "locations": [
         {
@@ -796,6 +814,7 @@
         "gold": 200
       },
       "effects": [[1, 6, 0, -1, 2], [5, 1658, -1, 13, 1.3333], [5, 1660, -1, 13, 1.3333], [5, 1660, -1, 101, 0.75], [6, 242, 0, -1, 1.5], [6, 243, 0, -1, 1.5], [6, 244, 0, -1, 1.5], [6, 245, 0, -1, 1.5]],
+      "icon": 31,
       "internalName": "Feudal Age",
       "locations": [
         {
@@ -812,6 +831,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Traction Trebuchet (make avail)",
       "locations": [],
       "name": "Traction Trebuchet (make avail)",
@@ -826,6 +846,7 @@
         "gold": 800
       },
       "effects": [[1, 6, 0, -1, 3], [6, 242, 0, -1, 1.5], [6, 243, 0, -1, 1.5], [6, 244, 0, -1, 1.5], [6, 245, 0, -1, 1.5]],
+      "icon": 32,
       "internalName": "Imperial Age",
       "locations": [
         {
@@ -842,6 +863,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Wu Team Bonus",
       "locations": [],
       "name": "Wu Team Bonus",
@@ -852,6 +874,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Hei-Kuang Cavalry (make avail)",
       "locations": [],
       "name": "Hei-Kuang Cavalry (make avail)",
@@ -866,6 +889,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 132,
       "internalName": "Heavy Hei-Kuang Cavalry",
       "locations": [
         {
@@ -882,6 +906,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Lou Chuan (make avail)",
       "locations": [],
       "name": "Lou Chuan (make avail)",
@@ -892,6 +917,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Tiger Cavalry (make avail)",
       "locations": [],
       "name": "Tiger Cavalry (make avail)",
@@ -906,6 +932,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Tiger Cavalry",
       "locations": [
         {
@@ -922,6 +949,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Xianbei Raider (make avail)",
       "locations": [],
       "name": "Xianbei Raider (make avail)",
@@ -932,6 +960,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Cao Cao (make avail)",
       "locations": [],
       "name": "Cao Cao (make avail)",
@@ -942,6 +971,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Bit Axe",
       "locations": [],
       "name": "C-Bonus, Fre vill + Bit Axe",
@@ -952,6 +982,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Bow Saw",
       "locations": [],
       "name": "C-Bonus, Fre vill + Bow Saw",
@@ -962,6 +993,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Two-Man Saw",
       "locations": [],
       "name": "C-Bonus, Fre vill + Two-Man Saw",
@@ -972,6 +1004,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Horse collar",
       "locations": [],
       "name": "C-Bonus, Fre vill + Horse collar",
@@ -982,6 +1015,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Heavy Plow",
       "locations": [],
       "name": "C-Bonus, Fre vill + Heavy Plow",
@@ -992,6 +1026,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Crop Rotation",
       "locations": [],
       "name": "C-Bonus, Fre vill + Crop Rotation",
@@ -1002,6 +1037,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Gold Mining",
       "locations": [],
       "name": "C-Bonus, Fre vill + Gold Mining",
@@ -1012,6 +1048,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Gold Shaft",
       "locations": [],
       "name": "C-Bonus, Fre vill + Gold Shaft",
@@ -1022,6 +1059,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Stone Mining",
       "locations": [],
       "name": "C-Bonus, Fre vill + Stone Mining",
@@ -1032,6 +1070,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Stone Shaft",
       "locations": [],
       "name": "C-Bonus, Fre vill + Stone Shaft",
@@ -1042,6 +1081,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Wheelbarrow",
       "locations": [],
       "name": "C-Bonus, Fre vill + Wheelbarrow",
@@ -1052,6 +1092,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Hand Cart",
       "locations": [],
       "name": "C-Bonus, Fre vill + Hand Cart",
@@ -1062,6 +1103,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Gillnets",
       "locations": [],
       "name": "C-Bonus, Fre vill + Gillnets",
@@ -1072,6 +1114,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Caravan",
       "locations": [],
       "name": "C-Bonus, Fre vill + Caravan",
@@ -1082,6 +1125,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Guilds",
       "locations": [],
       "name": "C-Bonus, Fre vill + Guilds",
@@ -1092,6 +1136,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Fre vill + Gillnets",
       "locations": [],
       "name": "C-Bonus, Fre vill + Gillnets",
@@ -1102,6 +1147,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Heavy Cav +15% HP + BL",
       "locations": [],
       "name": "C-Bonus, Heavy Cav +15% HP + BL",
@@ -1112,6 +1158,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Heavy Cav +30% HP + BL",
       "locations": [],
       "name": "C-Bonus, Heavy Cav +30% HP + BL",
@@ -1122,6 +1169,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Heavy Cav +15% HP",
       "locations": [],
       "name": "C-Bonus, Heavy Cav +15% HP",
@@ -1132,6 +1180,7 @@
       "civ": 51,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Heavy Cav +30% HP",
       "locations": [],
       "name": "C-Bonus, Heavy Cav +30% HP",
@@ -1142,6 +1191,7 @@
       "civ": 51,
       "cost": {},
       "effects": [[5, 1940, -1, 100, 0.75], [5, 1942, -1, 100, 0.75], [5, 1948, -1, 100, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus Cheaper Traction Treb",
       "locations": [],
       "name": "C-Bonus Cheaper Traction Treb",
@@ -1156,6 +1206,7 @@
         "wood": 300
       },
       "effects": [[1, 287, -1, -1, 3], [1, 33, 0, -1, 4]],
+      "icon": 33,
       "internalName": "Tuntian",
       "locations": [
         {
@@ -1176,6 +1227,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Ming-Kuang Armor",
       "locations": [
         {
@@ -1192,6 +1244,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "White Feather Guard (make avail)",
       "locations": [],
       "name": "White Feather Guard (make avail)",
@@ -1206,6 +1259,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite White Feather Guard",
       "locations": [
         {
@@ -1222,6 +1276,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "War Chariot (make avail)",
       "locations": [],
       "name": "War Chariot (make avail)",
@@ -1232,6 +1287,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Liu Bei (make avail)",
       "locations": [],
       "name": "Liu Bei (make avail)",
@@ -1242,6 +1298,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, cheaper archer upg",
       "locations": [],
       "name": "C-Bonus, cheaper archer upg",
@@ -1252,6 +1309,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Siege +10% movement",
       "locations": [],
       "name": "C-Bonus, Siege +10% movement",
@@ -1266,6 +1324,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Bolt Magazine",
       "locations": [
         {
@@ -1286,6 +1345,7 @@
         "gold": 300
       },
       "effects": [[1, 33, 0, -1, 6]],
+      "icon": 33,
       "internalName": "Coiled Serpent Array",
       "locations": [
         {
@@ -1302,6 +1362,7 @@
       "civ": 49,
       "cost": {},
       "effects": [[1, 502, -1, -1, 7], [1, 33, 0, -1, 16]],
+      "icon": -1,
       "internalName": "C-Bonus, Lumberjacks food",
       "locations": [],
       "name": "C-Bonus, Lumberjacks food",
@@ -1312,6 +1373,7 @@
       "civ": 49,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Siege +15% movement",
       "locations": [],
       "name": "C-Bonus, Siege +15% movement",
@@ -1322,6 +1384,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fire Archer (make avail)",
       "locations": [],
       "name": "Fire Archer (make avail)",
@@ -1336,6 +1399,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Fire Archer",
       "locations": [
         {
@@ -1352,6 +1416,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Jian Swordsman (make avail)",
       "locations": [],
       "name": "Jian Swordsman (make avail)",
@@ -1362,6 +1427,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Jian & Hei Kuang attack",
       "locations": [],
       "name": "C-Bonus, Jian & Hei Kuang attack",
@@ -1372,6 +1438,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, free Careening, Dry Dock",
       "locations": [],
       "name": "C-Bonus, free Careening, Dry Dock",
@@ -1386,6 +1453,7 @@
         "gold": 250
       },
       "effects": [[1, 277, 0, -1, 1], [1, 33, 0, -1, 10]],
+      "icon": 33,
       "internalName": "Red Cliffs Tactics",
       "locations": [
         {
@@ -1406,6 +1474,7 @@
         "wood": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Ming-Kuang Armor",
       "locations": [
         {
@@ -1422,6 +1491,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Sun Jian (make avail)",
       "locations": [],
       "name": "Sun Jian (make avail)",
@@ -1432,6 +1502,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Military Buildings +65f",
       "locations": [],
       "name": "C-Bonus, Military Buildings +65f",
@@ -1442,6 +1513,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf regen Feudal",
       "locations": [],
       "name": "C-Bonus, inf regen Feudal",
@@ -1452,6 +1524,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf regen Castle",
       "locations": [],
       "name": "C-Bonus, inf regen Castle",
@@ -1462,6 +1535,7 @@
       "civ": 50,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf regen Imp",
       "locations": [],
       "name": "C-Bonus, inf regen Imp",
@@ -1476,6 +1550,7 @@
         "stone": 400
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Teuton Crenellations",
       "locations": [
         {
@@ -1493,6 +1568,7 @@
       "civs": ["Wu"],
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "",
       "locations": [],
       "name": "",
@@ -1506,6 +1582,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 183,
       "internalName": "Champion",
       "locations": [
         {
@@ -1525,6 +1602,7 @@
         "wood": 125
       },
       "effects": [],
+      "icon": 171,
       "internalName": "Economic Satrapy Upgrade",
       "locations": [
         {
@@ -1544,6 +1622,7 @@
         "wood": 125
       },
       "effects": [],
+      "icon": 170,
       "internalName": "Military Satrapy Upgrade",
       "locations": [
         {
@@ -1563,6 +1642,7 @@
         "wood": 100
       },
       "effects": [],
+      "icon": 172,
       "internalName": "Defensive Satrapy Upgrade",
       "locations": [
         {
@@ -1583,6 +1663,7 @@
         "wood": 250
       },
       "effects": [[1, 36, 1, 69, 175], [1, 237, 0, 36, 0.1]],
+      "icon": 0,
       "internalName": "Crop rotation",
       "locations": [
         {
@@ -1603,6 +1684,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Watch Tower (make avail)",
       "locations": [],
       "name": "Watch Tower (make avail)",
@@ -1615,6 +1697,7 @@
         "wood": 50
       },
       "effects": [],
+      "icon": 309,
       "internalName": "Fortified Outpost",
       "locations": [
         {
@@ -1631,6 +1714,7 @@
       "civ": 55,
       "cost": {},
       "effects": [[1, 563, 0, -1, 1], [1, 33, 0, -1, 1004]],
+      "icon": -1,
       "internalName": "Thracians Static Bonuses",
       "locations": [],
       "name": "Thracians Static Bonuses",
@@ -1645,6 +1729,7 @@
         "wood": 125
       },
       "effects": [[1, 36, 1, 69, 125], [5, 259, -1, 13, 1], [5, 214, -1, 13, 1], [4, 214, -1, 14, 1], [4, 259, -1, 14, 1], [1, 237, 0, 36, 0.1]],
+      "icon": 1,
       "internalName": "Heavy plow",
       "locations": [
         {
@@ -1666,6 +1751,7 @@
       "civs": ["Incas", "Mapuche", "Muisca", "Tupi"],
       "cost": {},
       "effects": [],
+      "icon": 75,
       "internalName": "Champi Scout (Make avail)",
       "locations": [
         {
@@ -1686,6 +1772,7 @@
         "gold": 175
       },
       "effects": [],
+      "icon": 144,
       "internalName": "Champi Warrior",
       "locations": [
         {
@@ -1706,6 +1793,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 145,
       "internalName": "Elite Champi Warrior",
       "locations": [
         {
@@ -1722,6 +1810,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Settlement (make avail)",
       "locations": [],
       "name": "Settlement (make avail)",
@@ -1732,6 +1821,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Settlement Age2 upgrade",
       "locations": [],
       "name": "Settlement Age2 upgrade",
@@ -1742,6 +1832,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Settlement Age3 upgrade",
       "locations": [],
       "name": "Settlement Age3 upgrade",
@@ -1752,6 +1843,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Guecha Warrior (make avail)",
       "locations": [],
       "name": "Guecha Warrior (make avail)",
@@ -1766,6 +1858,7 @@
         "wood": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Guecha Warrior Pagoda",
       "locations": [
         {
@@ -1786,6 +1879,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Herbalism",
       "locations": [
         {
@@ -1806,6 +1900,7 @@
         "wood": 450
       },
       "effects": [[5, 185, -1, 101, 0.6667]],
+      "icon": 107,
       "internalName": "Huaracas",
       "locations": [
         {
@@ -1822,6 +1917,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Age up -50% gold",
       "locations": [],
       "name": "C-Bonus, Age up -50% gold",
@@ -1832,6 +1928,7 @@
       "civ": 57,
       "cost": {},
       "effects": [[5, 2556, -1, 100, 0.67], [5, 2558, -1, 100, 0.67], [5, 2560, -1, 100, 0.67], [1, 33, 0, -1, 28]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheaper + Healing Settlement",
       "locations": [],
       "name": "C-Bonus, Cheaper + Healing Settlement",
@@ -1842,6 +1939,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Arch + Champi +1 armor Age2",
       "locations": [],
       "name": "C-Bonus, Arch + Champi +1 armor Age2",
@@ -1852,6 +1950,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Castle -- Age Three",
       "locations": [],
       "name": "Castle -- Age Three",
@@ -1862,6 +1961,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Arch + Champi +1 armor Age3",
       "locations": [],
       "name": "C-Bonus, Arch + Champi +1 armor Age3",
@@ -1872,6 +1972,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Arch + Champi +1 armor Age4",
       "locations": [],
       "name": "C-Bonus, Arch + Champi +1 armor Age4",
@@ -1882,6 +1983,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Monks Faster Faith",
       "locations": [],
       "name": "C-Bonus, Monks Faster Faith",
@@ -1892,6 +1994,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Caravan and Guilds",
       "locations": [],
       "name": "C-Bonus, Free Caravan and Guilds",
@@ -1902,6 +2005,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Kona (make avail)",
       "locations": [],
       "name": "Kona (make avail)",
@@ -1916,6 +2020,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Kona",
       "locations": [
         {
@@ -1932,6 +2037,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Bolas Rider (make avail)",
       "locations": [],
       "name": "Bolas Rider (make avail)",
@@ -1946,6 +2052,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Bolas Rider",
       "locations": [
         {
@@ -1966,6 +2073,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Malon",
       "locations": [
         {
@@ -1986,6 +2094,7 @@
         "gold": 450
       },
       "effects": [[1, 33, 0, -1, 51], [15, 2569, -1, 100, 0.85], [15, 2571, -1, 100, 0.85]],
+      "icon": 107,
       "internalName": "Butalmapu",
       "locations": [
         {
@@ -2002,6 +2111,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[1, 215, 1, -1, 25], [1, 33, 0, -1, 29]],
+      "icon": -1,
       "internalName": "C-Bonus, Forager productivity",
       "locations": [],
       "name": "C-Bonus, Forager productivity",
@@ -2012,6 +2122,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Spear Settlements",
       "locations": [],
       "name": "C-Bonus, Skirms Spear Settlements",
@@ -2022,6 +2133,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirm Spear +5 HP Feudal",
       "locations": [],
       "name": "C-Bonus, Skirm Spear +5 HP Feudal",
@@ -2032,6 +2144,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirm Spear +5 HP Castle",
       "locations": [],
       "name": "C-Bonus, Skirm Spear +5 HP Castle",
@@ -2042,6 +2155,7 @@
       "civ": 58,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirm Spear +5 HP Imperial",
       "locations": [],
       "name": "C-Bonus, Skirm Spear +5 HP Imperial",
@@ -2052,6 +2166,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[1, 204, 0, -1, 82]],
+      "icon": -1,
       "internalName": "C-Bonus, Reveal Castle",
       "locations": [],
       "name": "C-Bonus, Reveal Castle",
@@ -2062,6 +2177,7 @@
       "civ": 59,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Blackwood Archer (make avail)",
       "locations": [],
       "name": "Blackwood Archer (make avail)",
@@ -2076,6 +2192,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Blackwood Archer",
       "locations": [
         {
@@ -2092,6 +2209,7 @@
       "civ": 59,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Ibirapema Warrior (make avail)",
       "locations": [],
       "name": "Ibirapema Warrior (make avail)",
@@ -2106,6 +2224,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Ibirapema Warrior",
       "locations": [
         {
@@ -2126,6 +2245,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Caciques",
       "locations": [
         {
@@ -2146,6 +2266,7 @@
         "gold": 600
       },
       "effects": [[1, 33, 0, -1, 25]],
+      "icon": 107,
       "internalName": "Curare",
       "locations": [
         {
@@ -2162,6 +2283,7 @@
       "civ": 59,
       "cost": {},
       "effects": [[1, 91, 1, -1, 25], [1, 92, 1, -1, 25], [1, 93, 1, -1, 25], [1, 94, 1, -1, 25]],
+      "icon": -1,
       "internalName": "C-Bonus, +25 each res",
       "locations": [],
       "name": "C-Bonus, +25 each res",
@@ -2172,6 +2294,7 @@
       "civ": 59,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Settlement garrison",
       "locations": [],
       "name": "C-Bonus, Settlement garrison",
@@ -2182,6 +2305,7 @@
       "civ": 59,
       "cost": {},
       "effects": [[1, 33, 0, -1, 27], [1, 295, 0, -1, 0.15]],
+      "icon": -1,
       "internalName": "C-Bonus, Unit Refund",
       "locations": [],
       "name": "C-Bonus, Unit Refund",
@@ -2192,6 +2316,7 @@
       "civ": 59,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Barracks + Range tech discount",
       "locations": [],
       "name": "C-Bonus, Barracks + Range tech discount",
@@ -2202,6 +2327,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Ships +15% HP",
       "locations": [],
       "name": "C-Bonus, Ships +15% HP",
@@ -2212,6 +2338,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Ships +20% HP",
       "locations": [],
       "name": "C-Bonus, Ships +20% HP",
@@ -2226,6 +2353,7 @@
         "wood": 75
       },
       "effects": [[1, 36, 1, 69, 75], [5, 259, -1, 13, 1], [5, 214, -1, 13, 1], [1, 237, 0, 36, 0.1]],
+      "icon": 2,
       "internalName": "Horse collar",
       "locations": [
         {
@@ -2250,6 +2378,7 @@
         "wood": 250
       },
       "effects": [],
+      "icon": 76,
       "internalName": "Guard Tower",
       "locations": [
         {
@@ -2266,6 +2395,7 @@
       "civ": 57,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Temple Guard (make avail)",
       "locations": [],
       "name": "Temple Guard (make avail)",
@@ -2280,6 +2410,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Temple Guard",
       "locations": [
         {
@@ -2300,6 +2431,7 @@
         "gold": 60
       },
       "effects": [],
+      "icon": 146,
       "internalName": "Champi Runner",
       "locations": [
         {
@@ -2316,6 +2448,7 @@
       "civ": 59,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Tupi team bonus",
       "locations": [],
       "name": "Tupi team bonus",
@@ -2330,6 +2463,7 @@
         "wood": 150
       },
       "effects": [[1, 203, 0, -1, -1], [5, -1, 21, 101, 0.75], [5, -1, 22, 101, 0.75], [5, -1, 2, 101, 0.75], [5, -1, 20, 101, 0.75]],
+      "icon": 33,
       "internalName": "Circumnavigation",
       "locations": [
         {
@@ -2346,6 +2480,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[5, 93, -1, 101, 2.15], [5, 358, -1, 101, 2.15], [5, 359, -1, 101, 2.15], [5, 7, -1, 101, 2.15], [5, 6, -1, 101, 2.15], [5, 1155, -1, 101, 2.15]],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Spear Settlements Feudal",
       "locations": [],
       "name": "C-Bonus, Skirms Spear Settlements Feudal",
@@ -2356,6 +2491,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[5, 93, -1, 101, 0.75], [5, 358, -1, 101, 0.75], [5, 359, -1, 101, 0.75], [5, 7, -1, 101, 0.75], [5, 6, -1, 101, 0.75], [5, 1155, -1, 101, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Spear Settlements Castle",
       "locations": [],
       "name": "C-Bonus, Skirms Spear Settlements Castle",
@@ -2366,6 +2502,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[5, 93, -1, 101, 0.6202], [5, 358, -1, 101, 0.6202], [5, 359, -1, 101, 0.6202], [5, 7, -1, 101, 0.6202], [5, 6, -1, 101, 0.6202], [5, 1155, -1, 101, 0.6202]],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Spear Settlements Imperia;",
       "locations": [],
       "name": "C-Bonus, Skirms Spear Settlements Imperia;",
@@ -2376,6 +2513,7 @@
       "civ": 59,
       "cost": {},
       "effects": [[1, 0, 1, -1, 25], [1, 1, 1, -1, 25], [1, 2, 1, -1, 25], [1, 3, 1, -1, 25]],
+      "icon": -1,
       "internalName": "Post-TC +25 each res",
       "locations": [],
       "name": "Post-TC +25 each res",
@@ -2386,6 +2524,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": 77,
       "internalName": "Wonder Plans",
       "locations": [],
       "name": "Wonder Plans",
@@ -2396,6 +2535,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": 75,
       "internalName": "Mounted Crossbowman (Make avail)",
       "locations": [],
       "name": "Mounted Crossbowman (Make avail)",
@@ -2410,6 +2550,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 77,
       "internalName": "Heavy Mounted Crossbowman",
       "locations": [
         {
@@ -2430,6 +2571,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 56,
       "internalName": "Cranequins",
       "locations": [
         {
@@ -2446,6 +2588,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Varangian Guard (make avail)",
       "locations": [],
       "name": "Varangian Guard (make avail)",
@@ -2460,6 +2603,7 @@
         "gold": 475
       },
       "effects": [],
+      "icon": 72,
       "internalName": "Elite Varangian Guard",
       "locations": [
         {
@@ -2476,6 +2620,7 @@
       "civ": 60,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Hearth Troop (make avail)",
       "locations": [],
       "name": "Hearth Troop (make avail)",
@@ -2490,6 +2635,7 @@
         "wood": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Hearth Troop",
       "locations": [
         {
@@ -2510,6 +2656,7 @@
         "gold": 475
       },
       "effects": [[1, 33, 0, -1, 31]],
+      "icon": 107,
       "internalName": "Shield Wall",
       "locations": [
         {
@@ -2526,6 +2673,7 @@
       "civ": 60,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Dropsites +35 food, +10 stone",
       "locations": [],
       "name": "C-Bonus, Dropsites +35 food, +10 stone",
@@ -2536,6 +2684,7 @@
       "civ": 60,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Castle/TC Foot Soldiers Discount",
       "locations": [],
       "name": "C-Bonus, Castle/TC Foot Soldiers Discount",
@@ -2546,6 +2695,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "ARRG (make avail)",
       "locations": [],
       "name": "ARRG (make avail)",
@@ -2556,6 +2706,7 @@
       "civ": 60,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Longboats and Catapult Galleon +20% HP",
       "locations": [],
       "name": "C-Bonus, Longboats and Catapult Galleon +20% HP",
@@ -2566,6 +2717,7 @@
       "civ": 61,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Jarl (make avail)",
       "locations": [],
       "name": "Jarl (make avail)",
@@ -2580,6 +2732,7 @@
         "gold": 725
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Jarl",
       "locations": [
         {
@@ -2600,6 +2753,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Vendel Legacy",
       "locations": [
         {
@@ -2620,6 +2774,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Gothikon",
       "locations": [
         {
@@ -2636,6 +2791,7 @@
       "civ": 61,
       "cost": {},
       "effects": [[1, 33, 0, -1, 34], [1, 298, 0, -1, 10.01]],
+      "icon": -1,
       "internalName": "C-Bonus, gold from sheep, hunt, fishing ships",
       "locations": [],
       "name": "C-Bonus, gold from sheep, hunt, fishing ships",
@@ -2646,6 +2802,7 @@
       "civ": 61,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, VG attack +25% faster",
       "locations": [],
       "name": "C-Bonus, VG attack +25% faster",
@@ -2656,6 +2813,7 @@
       "civ": 61,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Lonbgoats and Catapult Galleon attack +15% faster",
       "locations": [],
       "name": "C-Bonus, Lonbgoats and Catapult Galleon attack +15% faster",
@@ -2666,6 +2824,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "MRKT TDWS (make avail)",
       "locations": [],
       "name": "MRKT TDWS (make avail)",
@@ -2676,6 +2835,7 @@
       "civ": 62,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Jomsviking (make avail)",
       "locations": [],
       "name": "Jomsviking (make avail)",
@@ -2690,6 +2850,7 @@
         "gold": 825
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Jomsviking ",
       "locations": [
         {
@@ -2710,6 +2871,7 @@
         "wood": 950
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Northmen's Fury",
       "locations": [
         {
@@ -2730,6 +2892,7 @@
         "gold": 450
       },
       "effects": [[1, 33, 0, -1, 30]],
+      "icon": 33,
       "internalName": "Hamask",
       "locations": [
         {
@@ -2746,6 +2909,7 @@
       "civ": 62,
       "cost": {},
       "effects": [[1, 291, -1, -1, 250], [1, 33, 0, -1, 36], [11, 33, 0, -1, 36]],
+      "icon": -1,
       "internalName": "C-Bonus, Razing Bounty",
       "locations": [],
       "name": "C-Bonus, Razing Bounty",
@@ -2756,6 +2920,7 @@
       "civ": 62,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Longboats & VG move +10% faster",
       "locations": [],
       "name": "C-Bonus, Longboats & VG move +10% faster",
@@ -2766,6 +2931,7 @@
       "civ": 61,
       "cost": {},
       "effects": [[6, 297, -1, -1, 1.3333]],
+      "icon": -1,
       "internalName": "C-Bonus, VG +33% more gold",
       "locations": [],
       "name": "C-Bonus, VG +33% more gold",
@@ -2776,6 +2942,7 @@
       "civ": 61,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bloodlines +65% more effective",
       "locations": [],
       "name": "C-Bonus, Bloodlines +65% more effective",
@@ -2786,6 +2953,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Siege Wksp (make avail)",
       "locations": [],
       "name": "Siege Wksp (make avail)",
@@ -2796,6 +2964,7 @@
       "civ": 61,
       "cost": {},
       "effects": [[5, 17, -1, 13, 1.0835], [5, 128, -1, 13, 1.0835], [5, 204, -1, 13, 1.0835], [5, 846, -1, 13, 1.0835], [5, 2149, -1, 13, 1.0835]],
+      "icon": -1,
       "internalName": "C-Bonus, Caravan +65% more effective",
       "locations": [],
       "name": "C-Bonus, Caravan +65% more effective",
@@ -2810,6 +2979,7 @@
         "gold": 200
       },
       "effects": [[5, -1, 18, 101, 0.75]],
+      "icon": 33,
       "internalName": "Clerical Recruitment",
       "locations": [
         {
@@ -2826,6 +2996,7 @@
       "civ": 62,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Barracks & Siege Workshop upgrades no gold",
       "locations": [],
       "name": "C-Bonus, Barracks & Siege Workshop upgrades no gold",
@@ -2836,6 +3007,7 @@
       "civ": 60,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Towers and Castles x2 arrows",
       "locations": [],
       "name": "C-Bonus, Towers and Castles x2 arrows",
@@ -2846,6 +3018,7 @@
       "civ": 62,
       "cost": {},
       "effects": [[1, 299, 1, -1, 5.01], [1, 33, 0, -1, 35]],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers & Fishing Ships +10% food",
       "locations": [],
       "name": "C-Bonus, Villagers & Fishing Ships +10% food",
@@ -2860,6 +3033,7 @@
         "gold": 250
       },
       "effects": [[5, 2700, -1, 105, 0.6], [5, 2701, -1, 105, 0.6]],
+      "icon": 33,
       "internalName": "Ordonnance Companies",
       "locations": [
         {
@@ -2880,6 +3054,7 @@
         "gold": 200
       },
       "effects": [[1, 78, 0, -1, 0.15]],
+      "icon": 58,
       "internalName": "Guilds",
       "locations": [
         {
@@ -2896,6 +3071,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Univ (make avail)",
       "locations": [],
       "name": "Univ (make avail)",
@@ -2906,6 +3082,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Archer (make avail)",
       "locations": [],
       "name": "Archer (make avail)",
@@ -2916,6 +3093,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, -1, 0, 103, 0.85], [5, -1, 35, 103, 0.85], [5, -1, 6, 103, 0.85], [5, -1, 36, 103, 0.85], [5, -1, 47, 103, 0.85], [5, -1, 12, 103, 0.85], [5, -1, 44, 103, 0.85], [5, -1, 23, 103, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Military cost -15%",
       "locations": [],
       "name": "C-Bonus, Military cost -15%",
@@ -2926,6 +3104,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, -1, 0, 103, 1.174], [5, -1, 35, 103, 1.174], [5, -1, 6, 103, 1.174], [5, -1, 36, 103, 1.174], [5, -1, 47, 103, 1.174], [5, -1, 12, 103, 1.174], [5, -1, 44, 103, 1.174], [5, -1, 23, 103, 1.174], [5, -1, 0, 103, 0.8], [5, -1, 35, 103, 0.8], [5, -1, 6, 103, 0.8], [5, -1, 36, 103, 0.8], [5, -1, 47, 103, 0.8], [5, -1, 12, 103, 0.8], [5, -1, 44, 103, 0.8], [5, -1, 23, 103, 0.8]],
+      "icon": -1,
       "internalName": "C-Bonus, Military cost -20%",
       "locations": [],
       "name": "C-Bonus, Military cost -20%",
@@ -2936,6 +3115,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, -1, 0, 103, 1.25], [5, -1, 35, 103, 1.25], [5, -1, 6, 103, 1.25], [5, -1, 36, 103, 1.25], [5, -1, 47, 103, 1.25], [5, -1, 12, 103, 1.25], [5, -1, 44, 103, 1.25], [5, -1, 23, 103, 1.25], [5, -1, 0, 103, 0.75], [5, -1, 35, 103, 0.75], [5, -1, 6, 103, 0.75], [5, -1, 36, 103, 0.75], [5, -1, 47, 103, 0.75], [5, -1, 12, 103, 0.75], [5, -1, 44, 103, 0.75], [5, -1, 23, 103, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus, Military cost -25%",
       "locations": [],
       "name": "C-Bonus, Military cost -25%",
@@ -2946,6 +3126,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, -1, 0, 103, 1.328], [5, -1, 35, 103, 1.328], [5, -1, 6, 103, 1.328], [5, -1, 36, 103, 1.328], [5, -1, 47, 103, 1.328], [5, -1, 12, 103, 1.328], [5, -1, 44, 103, 1.328], [5, -1, 23, 103, 1.328], [5, -1, 0, 103, 0.7], [5, -1, 35, 103, 0.7], [5, -1, 6, 103, 0.7], [5, -1, 36, 103, 0.7], [5, -1, 47, 103, 0.7], [5, -1, 12, 103, 0.7], [5, -1, 44, 103, 0.7], [5, -1, 23, 103, 0.7]],
+      "icon": -1,
       "internalName": "C-Bonus, Military cost -30%",
       "locations": [],
       "name": "C-Bonus, Military cost -30%",
@@ -2956,6 +3137,7 @@
       "civ": 26,
       "cost": {},
       "effects": [[5, 109, -1, 104, 0.85], [5, 618, -1, 104, 0.85], [5, 619, -1, 104, 0.85], [5, 620, -1, 104, 0.85], [5, 621, -1, 104, 0.85], [5, 71, -1, 104, 0.85], [5, 614, -1, 104, 0.85], [5, 615, -1, 104, 0.85], [5, 616, -1, 104, 0.85], [5, 617, -1, 104, 0.85], [5, 141, -1, 104, 0.85], [5, 481, -1, 104, 0.85], [5, 482, -1, 104, 0.85], [5, 483, -1, 104, 0.85], [5, 484, -1, 104, 0.85], [5, 142, -1, 104, 0.85], [5, 611, -1, 104, 0.85], [5, 612, -1, 104, 0.85], [5, 613, -1, 104, 0.85], [5, 597, -1, 104, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, TC Wood cost",
       "locations": [],
       "name": "C-Bonus, TC Wood cost",
@@ -2966,6 +3148,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Monk (make avail)",
       "locations": [],
       "name": "Monk (make avail)",
@@ -2976,6 +3159,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, 109, -1, 106, 0.85], [5, 618, -1, 106, 0.85], [5, 619, -1, 106, 0.85], [5, 620, -1, 106, 0.85], [5, 621, -1, 106, 0.85], [5, 71, -1, 106, 0.85], [5, 614, -1, 106, 0.85], [5, 615, -1, 106, 0.85], [5, 616, -1, 106, 0.85], [5, 617, -1, 106, 0.85], [5, 141, -1, 106, 0.85], [5, 481, -1, 106, 0.85], [5, 482, -1, 106, 0.85], [5, 483, -1, 106, 0.85], [5, 484, -1, 106, 0.85], [5, 142, -1, 106, 0.85], [5, 611, -1, 106, 0.85], [5, 612, -1, 106, 0.85], [5, 613, -1, 106, 0.85], [5, 597, -1, 106, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, TC Stone cost",
       "locations": [],
       "name": "C-Bonus, TC Stone cost",
@@ -2986,6 +3170,7 @@
       "civ": 14,
       "cost": {},
       "effects": [[5, 621, -1, 101, 0.7692], [5, 617, -1, 101, 0.7692], [5, 484, -1, 101, 0.7692], [5, 597, -1, 101, 0.7692]],
+      "icon": -1,
       "internalName": "C-Bonus, TC constr time",
       "locations": [],
       "name": "C-Bonus, TC constr time",
@@ -3000,6 +3185,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Gothic Anarchy",
       "locations": [
         {
@@ -3016,6 +3202,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Trade Cart (make avail)",
       "locations": [],
       "name": "Trade Cart (make avail)",
@@ -3026,6 +3213,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Bat Ram (make avail)",
       "locations": [],
       "name": "Bat Ram (make avail)",
@@ -3036,6 +3224,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Knight (make avail)",
       "locations": [],
       "name": "Knight (make avail)",
@@ -3050,6 +3239,7 @@
         "gold": 200
       },
       "effects": [[1, 46, 0, -1, 0]],
+      "icon": 3,
       "internalName": "Banking",
       "locations": [
         {
@@ -3066,6 +3256,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Cog",
       "locations": [],
       "name": "Cog",
@@ -3080,6 +3271,7 @@
         "wood": 75
       },
       "effects": [[5, 579, -1, 13, 1.15], [5, 581, -1, 13, 1.15]],
+      "icon": 62,
       "internalName": "Gold Shaft Mining",
       "locations": [
         {
@@ -3104,6 +3296,7 @@
       "civ": 14,
       "cost": {},
       "effects": [[1, 269, 0, -1, 300]],
+      "icon": -1,
       "internalName": "C-Bonus, Tech reward",
       "locations": [],
       "name": "C-Bonus, Tech reward",
@@ -3114,6 +3307,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "R TC (make avail)",
       "locations": [],
       "name": "R TC (make avail)",
@@ -3124,6 +3318,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Bombard Cannon",
       "locations": [],
       "name": "Bombard Cannon",
@@ -3134,6 +3329,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Wall 2 (make avail)",
       "locations": [],
       "name": "Wall 2 (make avail)",
@@ -3144,6 +3340,7 @@
       "civ": 5,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, CA vs Archers",
       "locations": [],
       "name": "C-Bonus, CA vs Archers",
@@ -3154,6 +3351,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Cav Archer (make avail)",
       "locations": [],
       "name": "Cav Archer (make avail)",
@@ -3168,6 +3366,7 @@
         "wood": 100
       },
       "effects": [],
+      "icon": 46,
       "internalName": "Fortified Wall",
       "locations": [
         {
@@ -3188,6 +3387,7 @@
         "gold": 90
       },
       "effects": [],
+      "icon": 36,
       "internalName": "Pikeman",
       "locations": [
         {
@@ -3212,6 +3412,7 @@
         "gold": 50
       },
       "effects": [],
+      "icon": 34,
       "internalName": "Fletching",
       "locations": [
         {
@@ -3232,6 +3433,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Tarkan",
       "locations": [
         {
@@ -3252,6 +3454,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 35,
       "internalName": "Bodkin Arrow",
       "locations": [
         {
@@ -3272,6 +3475,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 37,
       "internalName": "Bracer",
       "locations": [
         {
@@ -3292,6 +3496,7 @@
         "wood": 50
       },
       "effects": [[5, 218, -1, 13, 1.2], [5, 123, -1, 13, 1.2]],
+      "icon": 70,
       "internalName": "Double Bit Axe",
       "locations": [
         {
@@ -3320,6 +3525,7 @@
         "wood": 100
       },
       "effects": [[5, 218, -1, 13, 1.2], [5, 123, -1, 13, 1.2], [4, 218, -1, 14, 0], [4, 123, -1, 14, 0]],
+      "icon": 71,
       "internalName": "Bow Saw",
       "locations": [
         {
@@ -3344,6 +3550,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Scout (make avail)",
       "locations": [],
       "name": "Scout (make avail)",
@@ -3358,6 +3565,7 @@
         "gold": 65
       },
       "effects": [],
+      "icon": 48,
       "internalName": "Long Swordsman",
       "locations": [
         {
@@ -3378,6 +3586,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 78,
       "internalName": "Cavalier",
       "locations": [
         {
@@ -3398,6 +3607,7 @@
         "wood": 300
       },
       "effects": [[1, 33, 0, -1, 56]],
+      "icon": 107,
       "internalName": "Hun Atheism",
       "locations": [
         {
@@ -3414,6 +3624,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Church (make avail)",
       "locations": [],
       "name": "Church (make avail)",
@@ -3427,6 +3638,7 @@
         "food": 100
       },
       "effects": [],
+      "icon": 49,
       "internalName": "Padded Archer Armor",
       "locations": [
         {
@@ -3447,6 +3659,7 @@
         "gold": 150
       },
       "effects": [],
+      "icon": 50,
       "internalName": "Leather Archer Armor",
       "locations": [
         {
@@ -3467,6 +3680,7 @@
         "wood": 50
       },
       "effects": [[5, -1, 4, 14, 1.2695]],
+      "icon": 79,
       "internalName": "Wheel Barrow",
       "locations": [
         {
@@ -3486,6 +3700,7 @@
         "food": 100
       },
       "effects": [],
+      "icon": 80,
       "internalName": "Squires",
       "locations": [
         {
@@ -3502,6 +3717,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Farms (make avail)",
       "locations": [],
       "name": "Farms (make avail)",
@@ -3516,6 +3732,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 53,
       "internalName": "Two-Handed Swordsman",
       "locations": [
         {
@@ -3536,6 +3753,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 52,
       "internalName": "Heavy Cavalry Archer",
       "locations": [
         {
@@ -3556,6 +3774,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 51,
       "internalName": "Ring Archer Armor",
       "locations": [
         {
@@ -3575,6 +3794,7 @@
         "gold": 50
       },
       "effects": [],
+      "icon": 6,
       "internalName": "Loom",
       "locations": [
         {
@@ -3591,6 +3811,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Barracks (make avail)",
       "locations": [],
       "name": "Barracks (make avail)",
@@ -3605,6 +3826,7 @@
         "wood": 200
       },
       "effects": [[5, 123, -1, 13, 1.1], [5, 218, -1, 13, 1.1]],
+      "icon": 81,
       "internalName": "Two Man Saw",
       "locations": [
         {
@@ -3633,6 +3855,7 @@
         "gold": 40
       },
       "effects": [],
+      "icon": 85,
       "internalName": "Man-At-Arms",
       "locations": [
         {
@@ -3649,6 +3872,7 @@
       "civ": 8,
       "cost": {},
       "effects": [[1, 91, 1, -1, 50], [1, 92, 1, -1, 50]],
+      "icon": -1,
       "internalName": "C-Bonus, +50f +50w",
       "locations": [],
       "name": "C-Bonus, +50f +50w",
@@ -3659,6 +3883,7 @@
       "civ": 15,
       "cost": {},
       "effects": [[1, 94, 1, -1, 50]],
+      "icon": -1,
       "internalName": "C-Bonus, +50g",
       "locations": [],
       "name": "C-Bonus, +50g",
@@ -3669,6 +3894,7 @@
       "civ": 17,
       "cost": {},
       "effects": [[1, 92, 1, -1, -100]],
+      "icon": -1,
       "internalName": "C-Bonus, -100w",
       "locations": [],
       "name": "C-Bonus, -100w",
@@ -3679,6 +3905,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 91, 1, -1, -200], [1, 92, 1, -1, -50]],
+      "icon": -1,
       "internalName": "C-Bonus, -200f -50w",
       "locations": [],
       "name": "C-Bonus, -200f -50w",
@@ -3689,6 +3916,7 @@
       "civ": 16,
       "cost": {},
       "effects": [[1, 91, 1, -1, -50]],
+      "icon": -1,
       "internalName": "C-Bonus, -50f",
       "locations": [],
       "name": "C-Bonus, -50f",
@@ -3699,6 +3927,7 @@
       "civ": 37,
       "cost": {},
       "effects": [[1, 93, 1, -1, 100]],
+      "icon": -1,
       "internalName": "C-Bonus, +100s",
       "locations": [],
       "name": "C-Bonus, +100s",
@@ -3713,6 +3942,7 @@
         "gold": 100
       },
       "effects": [[1, 46, 0, -1, 0.2]],
+      "icon": 7,
       "internalName": "Coinage",
       "locations": [
         {
@@ -3733,6 +3963,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 82,
       "internalName": "Block Printing",
       "locations": [
         {
@@ -3753,6 +3984,7 @@
         "gold": 175
       },
       "effects": [],
+      "icon": 83,
       "internalName": "Sanctity",
       "locations": [
         {
@@ -3773,6 +4005,7 @@
         "gold": 120
       },
       "effects": [],
+      "icon": 84,
       "internalName": "Illumination",
       "locations": [
         {
@@ -3789,6 +4022,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Make Camels Available",
       "locations": [],
       "name": "Make Camels Available",
@@ -3803,6 +4037,7 @@
         "gold": 360
       },
       "effects": [],
+      "icon": 55,
       "internalName": "Heavy Camel",
       "locations": [
         {
@@ -3823,6 +4058,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 54,
       "internalName": "Arbalest",
       "locations": [
         {
@@ -3839,6 +4075,7 @@
       "civ": 17,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Start w/ Horse",
       "locations": [],
       "name": "C-Bonus, Start w/ Horse",
@@ -3853,6 +4090,7 @@
         "wood": 750
       },
       "effects": [],
+      "icon": 38,
       "internalName": "Heavy Scorpion",
       "locations": [
         {
@@ -3873,6 +4111,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Aztec Garland Wars",
       "locations": [
         {
@@ -3889,6 +4128,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Make Scout Ship Avail",
       "locations": [],
       "name": "Make Scout Ship Avail",
@@ -3899,6 +4139,7 @@
       "civ": 17,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Disable Horse",
       "locations": [],
       "name": "C-Bonus, Disable Horse",
@@ -3909,6 +4150,7 @@
       "civ": 17,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Disable Horse2",
       "locations": [],
       "name": "C-Bonus, Disable Horse2",
@@ -3919,6 +4161,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Make Fire Galley Avail",
       "locations": [],
       "name": "Make Fire Galley Avail",
@@ -3933,6 +4176,7 @@
         "wood": 250
       },
       "effects": [],
+      "icon": 39,
       "internalName": "Heavy Demolition",
       "locations": [
         {
@@ -3950,6 +4194,7 @@
       "civs": ["Aztecs", "Bengalis", "Berbers", "Britons", "Burgundians", "Byzantines", "Cumans", "Danes", "Dravidians", "Franks", "Georgians", "Goths", "Incas", "Italians", "Japanese", "Khitans", "Khmer", "Koreans", "Lithuanians", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Mongols", "Persians", "Poles", "Romans", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Tupi", "Varangians", "Wei", "Wu"],
       "cost": {},
       "effects": [],
+      "icon": 40,
       "internalName": "Fast Fire Ship",
       "locations": [],
       "name": "Fast Fire Ship",
@@ -3964,6 +4209,7 @@
         "wood": 200
       },
       "effects": [[5, -1, 4, 14, 1.5]],
+      "icon": 42,
       "internalName": "Hand Cart",
       "locations": [
         {
@@ -3980,6 +4226,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "STBL (make avail)",
       "locations": [],
       "name": "STBL (make avail)",
@@ -3994,6 +4241,7 @@
         "gold": 140
       },
       "effects": [],
+      "icon": 73,
       "internalName": "Fervor",
       "locations": [
         {
@@ -4014,6 +4262,7 @@
         "gold": 50
       },
       "effects": [],
+      "icon": 43,
       "internalName": "Light Cavalry",
       "locations": [
         {
@@ -4033,6 +4282,7 @@
         "food": 1000
       },
       "effects": [],
+      "icon": 86,
       "internalName": "Siege Ram",
       "locations": [
         {
@@ -4049,6 +4299,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": 56,
       "internalName": "Trebuchet",
       "locations": [],
       "name": "Trebuchet",
@@ -4063,6 +4314,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 57,
       "internalName": "Onager",
       "locations": [
         {
@@ -4079,6 +4331,7 @@
       "civ": 8,
       "cost": {},
       "effects": [[1, 0, 1, -1, 50], [1, 1, 1, -1, 50]],
+      "icon": -1,
       "internalName": "Post-TC +50f +50w",
       "locations": [],
       "name": "Post-TC +50f +50w",
@@ -4089,6 +4342,7 @@
       "civ": 16,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Plumed Archer (make avail)",
       "locations": [],
       "name": "Plumed Archer (make avail)",
@@ -4099,6 +4353,7 @@
       "civ": 15,
       "cost": {},
       "effects": [[1, 3, 1, -1, 50]],
+      "icon": -1,
       "internalName": "Post-TC +50g",
       "locations": [],
       "name": "Post-TC +50g",
@@ -4109,6 +4364,7 @@
       "civ": 37,
       "cost": {},
       "effects": [[1, 2, 1, -1, 100]],
+      "icon": -1,
       "internalName": "Post-TC +100s",
       "locations": [],
       "name": "Post-TC +100s",
@@ -4119,6 +4375,7 @@
       "civ": 5,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Samurai (make avail)",
       "locations": [],
       "name": "Samurai (make avail)",
@@ -4129,6 +4386,7 @@
       "civ": 1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Longbow (make avail)",
       "locations": [],
       "name": "Longbow (make avail)",
@@ -4143,6 +4401,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 44,
       "internalName": "Champion",
       "locations": [
         {
@@ -4163,6 +4422,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 45,
       "internalName": "Paladin",
       "locations": [
         {
@@ -4179,6 +4439,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Cataphract (make avail)",
       "locations": [],
       "name": "Cataphract (make avail)",
@@ -4189,6 +4450,7 @@
       "civ": 6,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Chu-Ko-Nu (make avail)",
       "locations": [],
       "name": "Chu-Ko-Nu (make avail)",
@@ -4199,6 +4461,7 @@
       "civ": 9,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mameluke (make avail)",
       "locations": [],
       "name": "Mameluke (make avail)",
@@ -4213,6 +4476,7 @@
         "wood": 1000
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Plumed Archer",
       "locations": [
         {
@@ -4229,6 +4493,7 @@
       "civ": 10,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Jannisary (make avail)",
       "locations": [],
       "name": "Jannisary (make avail)",
@@ -4239,6 +4504,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Longship (make avail)",
       "locations": [],
       "name": "Longship (make avail)",
@@ -4249,6 +4515,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mobile Siege Unit (make avail)",
       "locations": [],
       "name": "Mobile Siege Unit (make avail)",
@@ -4259,6 +4526,7 @@
       "civ": 8,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "War Elephant (make avail)",
       "locations": [],
       "name": "War Elephant (make avail)",
@@ -4269,6 +4537,7 @@
       "civ": 2,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Throwing Axemen (make avail)",
       "locations": [],
       "name": "Throwing Axemen (make avail)",
@@ -4279,6 +4548,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Teutonic Knight (make avail)",
       "locations": [],
       "name": "Teutonic Knight (make avail)",
@@ -4289,6 +4559,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Woad Berserker (make avail)",
       "locations": [],
       "name": "Woad Berserker (make avail)",
@@ -4303,6 +4574,7 @@
         "wood": 75
       },
       "effects": [[5, 124, -1, 13, 1.15], [5, 220, -1, 13, 1.15]],
+      "icon": 87,
       "internalName": "Stone Mining",
       "locations": [
         {
@@ -4331,6 +4603,7 @@
         "wood": 75
       },
       "effects": [[5, 220, -1, 13, 1.15], [5, 124, -1, 13, 1.15]],
+      "icon": 88,
       "internalName": "Stone Shaft Mining",
       "locations": [
         {
@@ -4359,6 +4632,7 @@
         "wood": 300
       },
       "effects": [[1, 33, 0, -1, 7]],
+      "icon": 33,
       "internalName": "Bimaristan",
       "locations": [
         {
@@ -4379,6 +4653,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 89,
       "internalName": "Town Patrol",
       "locations": [
         {
@@ -4395,6 +4670,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Blacksmith (make avail)",
       "locations": [],
       "name": "Blacksmith (make avail)",
@@ -4405,6 +4681,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Building HP x1.5",
       "locations": [],
       "name": "C-Bonus, Building HP x1.5",
@@ -4415,6 +4692,7 @@
       "civ": 7,
       "cost": {},
       "effects": [[5, 7, -1, 100, 0.75], [5, 1755, -1, 100, 0.75], [5, 329, -1, 100, 0.75], [5, 93, -1, 100, 0.75], [5, 330, -1, 100, 0.75], [5, 6, -1, 100, 0.75], [5, 358, -1, 100, 0.75], [5, 359, -1, 100, 0.75], [5, 1155, -1, 100, 0.75], [5, 1010, -1, 100, 0.75], [5, 1012, -1, 100, 0.75], [5, 1786, -1, 100, 0.75], [5, 1787, -1, 100, 0.75], [5, 1788, -1, 100, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Pikes cost -25%",
       "locations": [],
       "name": "C-Bonus, Skirms Pikes cost -25%",
@@ -4425,6 +4703,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Light Cavalry +20% HP + BL",
       "locations": [],
       "name": "C-Bonus, Light Cavalry +20% HP + BL",
@@ -4435,6 +4714,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Light Cavalry +30% HP + BL",
       "locations": [],
       "name": "C-Bonus, Light Cavalry +30% HP + BL",
@@ -4445,6 +4725,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Light Cavalry +20% HP",
       "locations": [],
       "name": "C-Bonus, Light Cavalry +20% HP",
@@ -4455,6 +4736,7 @@
       "civ": 17,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "[EW] Remove hun houses",
       "locations": [],
       "name": "[EW] Remove hun houses",
@@ -4465,6 +4747,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -4475,6 +4758,7 @@
       "civ": 2,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry +20% HP",
       "locations": [],
       "name": "C-Bonus, Cavalry +20% HP",
@@ -4485,6 +4769,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Sheep annex HP",
       "locations": [],
       "name": "C-Bonus, Sheep annex HP",
@@ -4499,6 +4784,7 @@
         "wood": 750
       },
       "effects": [],
+      "icon": 33,
       "internalName": "British Yeoman",
       "locations": [
         {
@@ -4515,6 +4801,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -4525,6 +4812,7 @@
       "civ": 10,
       "cost": {},
       "effects": [[5, 579, -1, 13, 1.25], [5, 581, -1, 13, 1.25]],
+      "icon": -1,
       "internalName": "C-Bonus, Mining +25%",
       "locations": [],
       "name": "C-Bonus, Mining +25%",
@@ -4535,6 +4823,7 @@
       "civ": 10,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Gunpowder +25% HP",
       "locations": [],
       "name": "C-Bonus, Gunpowder +25% HP",
@@ -4545,6 +4834,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Start w/ 6 villagers",
       "locations": [],
       "name": "C-Bonus, Start w/ 6 villagers",
@@ -4555,6 +4845,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Extra sheep from TC",
       "locations": [],
       "name": "C-Bonus, Extra sheep from TC",
@@ -4565,6 +4856,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 85, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Techs -15% cost",
       "locations": [],
       "name": "C-Bonus, Techs -15% cost",
@@ -4575,6 +4867,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Sheep from second TC",
       "locations": [],
       "name": "C-Bonus, Sheep from second TC",
@@ -4585,6 +4878,7 @@
       "civ": 5,
       "cost": {},
       "effects": [[5, -1, 21, 13, 1.05]],
+      "icon": -1,
       "internalName": "C-Bonus, Better Fishing Ships",
       "locations": [],
       "name": "C-Bonus, Better Fishing Ships",
@@ -4595,6 +4889,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -4605,6 +4900,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Sheep bonus age3 start",
       "locations": [],
       "name": "C-Bonus, Sheep bonus age3 start",
@@ -4615,6 +4911,7 @@
       "civ": 9,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Camels +25% HP",
       "locations": [],
       "name": "C-Bonus, Camels +25% HP",
@@ -4625,6 +4922,7 @@
       "civ": 4,
       "cost": {},
       "effects": [[5, 50, -1, 100, 0.6], [5, 1187, -1, 100, 0.6]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheap Farms",
       "locations": [],
       "name": "C-Bonus, Cheap Farms",
@@ -4639,6 +4937,7 @@
         "gold": 150
       },
       "effects": [[5, 87, -1, 13, 1.33], [5, 12, -1, 13, 1.33], [5, 101, -1, 13, 1.33], [5, 82, -1, 13, 1.33], [5, 10, -1, 13, 1.33], [5, 14, -1, 13, 1.33], [5, 498, -1, 13, 1.33], [5, 132, -1, 13, 1.33], [5, 20, -1, 13, 1.33], [5, 86, -1, 13, 1.33], [5, 153, -1, 13, 1.33], [5, 1251, -1, 13, 1.33], [5, 1665, -1, 13, 1.33], [5, 2117, -1, 13, 1.33], [5, 2118, -1, 13, 1.33], [5, 2119, -1, 13, 1.33]],
+      "icon": 91,
       "internalName": "Conscription",
       "locations": [
         {
@@ -4659,6 +4958,7 @@
         "gold": 475
       },
       "effects": [[1, 28, 0, -1, 1], [1, 29, 0, -1, 1]],
+      "icon": 92,
       "internalName": "Redemption",
       "locations": [
         {
@@ -4679,6 +4979,7 @@
         "gold": 325
       },
       "effects": [[1, 27, 0, -1, 1]],
+      "icon": 93,
       "internalName": "Atonement",
       "locations": [
         {
@@ -4695,6 +4996,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -4709,6 +5011,7 @@
         "gold": 1000
       },
       "effects": [],
+      "icon": 96,
       "internalName": "Siege Onager",
       "locations": [
         {
@@ -4729,6 +5032,7 @@
         "wood": 200
       },
       "effects": [],
+      "icon": 5,
       "internalName": "Sappers",
       "locations": [
         {
@@ -4749,6 +5053,7 @@
         "stone": 100
       },
       "effects": [],
+      "icon": 61,
       "internalName": "Murder Holes",
       "locations": [
         {
@@ -4765,6 +5070,7 @@
       "civ": 14,
       "cost": {},
       "effects": [[1, 3, 1, -1, -20]],
+      "icon": -1,
       "internalName": "Exclude Age2 from tech reward",
       "locations": [],
       "name": "Exclude Age2 from tech reward",
@@ -4775,6 +5081,7 @@
       "civ": 14,
       "cost": {},
       "effects": [[1, 3, 1, -1, -20]],
+      "icon": -1,
       "internalName": "Exclude Age3 from tech reward",
       "locations": [],
       "name": "Exclude Age3 from tech reward",
@@ -4785,6 +5092,7 @@
       "civ": 2,
       "cost": {},
       "effects": [[5, 82, -1, 100, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Castle 15% cheaper",
       "locations": [],
       "name": "C-Bonus, Castle 15% cheaper",
@@ -4795,6 +5103,7 @@
       "civ": 14,
       "cost": {},
       "effects": [[1, 3, 1, -1, -20]],
+      "icon": -1,
       "internalName": "Exclude Age4 from tech reward",
       "locations": [],
       "name": "Exclude Age4 from tech reward",
@@ -4805,6 +5114,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf v Building Age2",
       "locations": [],
       "name": "C-Bonus, Inf v Building Age2",
@@ -4815,6 +5125,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf v Building Age3",
       "locations": [],
       "name": "C-Bonus, Inf v Building Age3",
@@ -4825,6 +5136,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf v Building Age4",
       "locations": [],
       "name": "C-Bonus, Inf v Building Age4",
@@ -4835,6 +5147,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -4845,6 +5158,7 @@
       "civ": 2,
       "cost": {},
       "effects": [[5, 82, -1, 100, 0.8824]],
+      "icon": -1,
       "internalName": "C-Bonus, Castle 25% cheaper",
       "locations": [],
       "name": "C-Bonus, Castle 25% cheaper",
@@ -4855,6 +5169,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Outpost (make avail)",
       "locations": [],
       "name": "Outpost (make avail)",
@@ -4865,6 +5180,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Tower Arrows",
       "locations": [],
       "name": "C-Bonus, Tower Arrows",
@@ -4875,6 +5191,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf Cav +1 armor Age3",
       "locations": [],
       "name": "C-Bonus, Inf Cav +1 armor Age3",
@@ -4885,6 +5202,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf Cav +1 armor Age4",
       "locations": [],
       "name": "C-Bonus, Inf Cav +1 armor Age4",
@@ -4895,6 +5213,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, TC + Atk",
       "locations": [],
       "name": "C-Bonus, TC + Atk",
@@ -4905,6 +5224,7 @@
       "civ": 9,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Spr Xport Ship",
       "locations": [],
       "name": "C-Bonus, Spr Xport Ship",
@@ -4919,6 +5239,7 @@
         "wood": 150
       },
       "effects": [],
+      "icon": 147,
       "internalName": "War Galley",
       "locations": [
         {
@@ -4935,6 +5256,7 @@
       "civ": 5,
       "cost": {},
       "effects": [[5, 68, -1, 100, 0.5], [5, 562, -1, 100, 0.5], [5, 584, -1, 100, 0.5], [5, 129, -1, 100, 0.5], [5, 130, -1, 100, 0.5], [5, 131, -1, 100, 0.5], [5, 585, -1, 100, 0.5], [5, 586, -1, 100, 0.5], [5, 587, -1, 100, 0.5], [5, 563, -1, 100, 0.5], [5, 564, -1, 100, 0.5], [5, 565, -1, 100, 0.5]],
+      "icon": -1,
       "internalName": "C-Bonus, Gather Price",
       "locations": [],
       "name": "C-Bonus, Gather Price",
@@ -4945,6 +5267,7 @@
       "civ": 5,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf Attack Spd",
       "locations": [],
       "name": "C-Bonus, Inf Attack Spd",
@@ -4955,6 +5278,7 @@
       "civ": 8,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, TC Productivity",
       "locations": [],
       "name": "C-Bonus, TC Productivity",
@@ -4965,6 +5289,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Instant Loom",
       "locations": [],
       "name": "C-Bonus, Instant Loom",
@@ -4975,6 +5300,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[5, -1, 6, 100, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry Cost -15%",
       "locations": [],
       "name": "C-Bonus, Infantry Cost -15%",
@@ -4985,6 +5311,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Unit Cost 35%",
       "locations": [],
       "name": "C-Bonus, Unit Cost 35%",
@@ -4995,6 +5322,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Unit Cost 50%",
       "locations": [],
       "name": "C-Bonus, Unit Cost 50%",
@@ -5005,6 +5333,7 @@
       "civ": 4,
       "cost": {},
       "effects": [[1, 90, 0, -1, 8]],
+      "icon": -1,
       "internalName": "C-Bonus, Monk Heal Range",
       "locations": [],
       "name": "C-Bonus, Monk Heal Range",
@@ -5015,6 +5344,7 @@
       "civ": 8,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Super Dock",
       "locations": [],
       "name": "C-Bonus, Super Dock",
@@ -5029,6 +5359,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 148,
       "internalName": "Galleon",
       "locations": [
         {
@@ -5045,6 +5376,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 85, 0, -1, 0.95]],
+      "icon": -1,
       "internalName": "C-Bonus, Tec Cost",
       "locations": [],
       "name": "C-Bonus, Tec Cost",
@@ -5055,6 +5387,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 85, 0, -1, 0.9]],
+      "icon": -1,
       "internalName": "C-Bonus, Tec Cost",
       "locations": [],
       "name": "C-Bonus, Tec Cost",
@@ -5065,6 +5398,7 @@
       "civ": 6,
       "cost": {},
       "effects": [[1, 85, 0, -1, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Tec Cost",
       "locations": [],
       "name": "C-Bonus, Tec Cost",
@@ -5075,6 +5409,7 @@
       "civ": 4,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Tower Arrows",
       "locations": [],
       "name": "C-Bonus, Tower Arrows",
@@ -5085,6 +5420,7 @@
       "civ": 10,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Turk Castle",
       "locations": [],
       "name": "Turk Castle",
@@ -5095,6 +5431,7 @@
       "civ": 9,
       "cost": {},
       "effects": [[1, 78, 0, -1, 0.05], [4, 84, -1, 104, -100], [4, 116, -1, 104, -100], [4, 137, -1, 104, -100]],
+      "icon": -1,
       "internalName": "C-Bonus, Market",
       "locations": [],
       "name": "C-Bonus, Market",
@@ -5105,6 +5442,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fish Trap (make avail)",
       "locations": [],
       "name": "Fish Trap (make avail)",
@@ -5115,6 +5453,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mangonel",
       "locations": [],
       "name": "Mangonel",
@@ -5125,6 +5464,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -5139,6 +5479,7 @@
         "gold": 850
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Longbow",
       "locations": [
         {
@@ -5159,6 +5500,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Cataphract",
       "locations": [
         {
@@ -5179,6 +5521,7 @@
         "gold": 1300
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Chu Ko Nu",
       "locations": [
         {
@@ -5199,6 +5542,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Throwing Axemen",
       "locations": [
         {
@@ -5219,6 +5563,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Teutonic Knight",
       "locations": [
         {
@@ -5239,6 +5584,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Huskarl",
       "locations": [
         {
@@ -5259,6 +5605,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Samurai",
       "locations": [
         {
@@ -5279,6 +5626,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite War Elephant",
       "locations": [
         {
@@ -5299,6 +5647,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Mameluke",
       "locations": [
         {
@@ -5319,6 +5668,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Jannisary",
       "locations": [
         {
@@ -5335,6 +5685,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": 0,
       "internalName": "Cannon Galleon",
       "locations": [],
       "name": "Cannon Galleon",
@@ -5349,6 +5700,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Woad Raider",
       "locations": [
         {
@@ -5369,6 +5721,7 @@
         "gold": 675
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Mangudai",
       "locations": [
         {
@@ -5389,6 +5742,7 @@
         "gold": 475
       },
       "effects": [],
+      "icon": 68,
       "internalName": "Unique Heroic Viking LBT",
       "locations": [
         {
@@ -5409,6 +5763,7 @@
         "gold": 300
       },
       "effects": [[5, -1, 21, 104, 0.8], [5, -1, 22, 104, 0.8], [5, -1, 2, 104, 0.8], [5, -1, 20, 104, 0.8], [5, -1, 21, 101, 0.65], [5, -1, 22, 101, 0.65], [5, -1, 2, 101, 0.65], [5, -1, 20, 101, 0.65]],
+      "icon": 97,
       "internalName": "Shipwright",
       "locations": [
         {
@@ -5429,6 +5784,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 98,
       "internalName": "Careening",
       "locations": [
         {
@@ -5449,6 +5805,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 99,
       "internalName": "Dry Dock",
       "locations": [
         {
@@ -5469,6 +5826,7 @@
         "wood": 525
       },
       "effects": [],
+      "icon": 100,
       "internalName": "Elite Cannon Galley",
       "locations": [
         {
@@ -5489,6 +5847,7 @@
         "wood": 600
       },
       "effects": [],
+      "icon": 101,
       "internalName": "Siege Engineers",
       "locations": [
         {
@@ -5505,6 +5864,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": 0,
       "internalName": "Xolotl (make avail) Ande",
       "locations": [],
       "name": "Xolotl (make avail) Ande",
@@ -5519,6 +5879,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 103,
       "internalName": "Hoardings",
       "locations": [
         {
@@ -5535,6 +5896,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -5549,6 +5911,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 104,
       "internalName": "Heated Shot",
       "locations": [
         {
@@ -5565,6 +5928,7 @@
       "civ": 1,
       "cost": {},
       "effects": [[5, 109, -1, 104, 0.5], [5, 618, -1, 104, 0.5], [5, 619, -1, 104, 0.5], [5, 620, -1, 104, 0.5], [5, 621, -1, 104, 0.5], [5, 71, -1, 104, 0.5], [5, 614, -1, 104, 0.5], [5, 615, -1, 104, 0.5], [5, 616, -1, 104, 0.5], [5, 617, -1, 104, 0.5], [5, 141, -1, 104, 0.5], [5, 481, -1, 104, 0.5], [5, 482, -1, 104, 0.5], [5, 483, -1, 104, 0.5], [5, 484, -1, 104, 0.5], [5, 142, -1, 104, 0.5], [5, 611, -1, 104, 0.5], [5, 612, -1, 104, 0.5], [5, 613, -1, 104, 0.5], [5, 597, -1, 104, 0.5]],
+      "icon": -1,
       "internalName": "C-Bonus, 1/2 TCs",
       "locations": [],
       "name": "C-Bonus, 1/2 TCs",
@@ -5575,6 +5939,7 @@
       "civ": 1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +1 Archer range",
       "locations": [],
       "name": "C-Bonus, +1 Archer range",
@@ -5585,6 +5950,7 @@
       "civ": 1,
       "cost": {},
       "effects": [[5, 592, -1, 13, 1.25], [5, 590, -1, 13, 1.25]],
+      "icon": -1,
       "internalName": "C-Bonus, +25% Shepherd",
       "locations": [],
       "name": "C-Bonus, +25% Shepherd",
@@ -5599,6 +5965,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 75,
       "internalName": "Heavy Eagle Warrior",
       "locations": [
         {
@@ -5615,6 +5982,7 @@
       "civ": 13,
       "cost": {},
       "effects": [[5, 123, -1, 13, 1.15], [5, 218, -1, 13, 1.15]],
+      "icon": -1,
       "internalName": "C-Bonus, Lumberjacks 15% faster",
       "locations": [],
       "name": "C-Bonus, Lumberjacks 15% faster",
@@ -5625,6 +5993,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Siege fire rate",
       "locations": [],
       "name": "C-Bonus, Siege fire rate",
@@ -5635,6 +6004,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Light Cavalry +30% HP",
       "locations": [],
       "name": "C-Bonus, Light Cavalry +30% HP",
@@ -5645,6 +6015,7 @@
       "civ": 12,
       "cost": {},
       "effects": [[5, 216, -1, 13, 1.4], [5, 122, -1, 13, 1.4]],
+      "icon": -1,
       "internalName": "C-Bonus, Hunters 40% faster",
       "locations": [],
       "name": "C-Bonus, Hunters 40% faster",
@@ -5658,6 +6029,7 @@
         "food": 150
       },
       "effects": [],
+      "icon": 10,
       "internalName": "Husbandry",
       "locations": [
         {
@@ -5674,6 +6046,7 @@
       "civ": 18,
       "cost": {},
       "effects": [[5, -1, 0, 104, 0.5], [5, -1, 6, 104, 0.5], [5, -1, 22, 104, 0.8], [5, -1, 36, 104, 0.5]],
+      "icon": -1,
       "internalName": "C-Bonus, Units cost less wood",
       "locations": [],
       "name": "C-Bonus, Units cost less wood",
@@ -5684,6 +6057,7 @@
       "civ": 11,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Wheel",
       "locations": [],
       "name": "C-Bonus, Free Wheel",
@@ -5694,6 +6068,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry +5% speed",
       "locations": [],
       "name": "C-Bonus, Infantry +5% speed",
@@ -5704,6 +6079,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "None",
       "locations": [],
       "name": "None",
@@ -5714,6 +6090,7 @@
       "civ": 11,
       "cost": {},
       "effects": [[5, -1, 53, 100, 0.9], [5, -1, 22, 100, 0.9]],
+      "icon": -1,
       "internalName": "C-Bonus, Warship cost age2",
       "locations": [],
       "name": "C-Bonus, Warship cost age2",
@@ -5724,6 +6101,7 @@
       "civ": 6,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +50% Demo HP",
       "locations": [],
       "name": "C-Bonus, +50% Demo HP",
@@ -5734,6 +6112,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Navy attack speed",
       "locations": [],
       "name": "C-Bonus, Navy attack speed",
@@ -5748,6 +6127,7 @@
         "gold": 475
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Berserk",
       "locations": [
         {
@@ -5764,6 +6144,7 @@
       "civ": 11,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Berserk",
       "locations": [],
       "name": "Berserk",
@@ -5778,6 +6159,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Mayan El Dorado",
       "locations": [
         {
@@ -5794,6 +6176,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -5804,6 +6187,7 @@
       "civ": 11,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Hand Cart",
       "locations": [],
       "name": "C-Bonus, Free Hand Cart",
@@ -5814,6 +6198,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +15% farmers",
       "locations": [],
       "name": "C-Bonus, +15% farmers",
@@ -5824,6 +6209,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[4, 122, -1, 14, 15], [4, 216, -1, 14, 15], [6, 268, 0, -1, 1.23], [5, 122, -1, 13, 0.813], [5, 216, -1, 13, 0.813]],
+      "icon": -1,
       "internalName": "C-Bonus, Hunting bonuses",
       "locations": [],
       "name": "C-Bonus, Hunting bonuses",
@@ -5834,6 +6220,7 @@
       "civ": 1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, archer range +1",
       "locations": [],
       "name": "C-Bonus, archer range +1",
@@ -5844,6 +6231,7 @@
       "civ": 9,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Galley +20% fire",
       "locations": [],
       "name": "C-Bonus, Galley +20% fire",
@@ -5854,6 +6242,7 @@
       "civ": 13,
       "cost": {},
       "effects": [[1, 97, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Dominant LOS",
       "locations": [],
       "name": "C-Bonus, Dominant LOS",
@@ -5864,6 +6253,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[1, 32, 1, -1, 10]],
+      "icon": -1,
       "internalName": "C-Bonus, +10 pop",
       "locations": [],
       "name": "C-Bonus, +10 pop",
@@ -5877,6 +6267,7 @@
         "gold": 200
       },
       "effects": [[1, 183, 0, -1, 1]],
+      "icon": 19,
       "internalName": "Spy Technology",
       "locations": [
         {
@@ -5893,6 +6284,7 @@
       "civ": 8,
       "cost": {},
       "effects": [[5, 109, -1, 13, 1.05], [5, 71, -1, 13, 1.1], [5, 141, -1, 13, 1.15], [5, 142, -1, 13, 1.2], [5, 45, -1, 13, 1.05], [5, 133, -1, 13, 1.1], [5, 47, -1, 13, 1.15], [5, 51, -1, 13, 1.2], [5, 1189, -1, 13, 1.2]],
+      "icon": -1,
       "internalName": "C-Bonus, TC and Dock work rate",
       "locations": [],
       "name": "C-Bonus, TC and Dock work rate",
@@ -5903,6 +6295,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -5913,6 +6306,7 @@
       "civ": 11,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Inf +20% HP",
       "locations": [],
       "name": "C-Bonus, Inf +20% HP",
@@ -5923,6 +6317,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bld +20%",
       "locations": [],
       "name": "C-Bonus, Bld +20%",
@@ -5933,6 +6328,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bld +30%",
       "locations": [],
       "name": "C-Bonus, Bld +30%",
@@ -5943,6 +6339,7 @@
       "civ": 7,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bld +40%",
       "locations": [],
       "name": "C-Bonus, Bld +40%",
@@ -5953,6 +6350,7 @@
       "civ": 5,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus",
       "locations": [],
       "name": "C-Bonus",
@@ -5963,6 +6361,7 @@
       "civ": 5,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus",
       "locations": [],
       "name": "C-Bonus",
@@ -5973,6 +6372,7 @@
       "civ": 5,
       "cost": {},
       "effects": [[5, -1, 21, 13, 1.0476]],
+      "icon": -1,
       "internalName": "C-Bonus",
       "locations": [],
       "name": "C-Bonus",
@@ -5983,6 +6383,7 @@
       "civ": 5,
       "cost": {},
       "effects": [[5, -1, 21, 13, 1.0454]],
+      "icon": -1,
       "internalName": "C-Bonus",
       "locations": [],
       "name": "C-Bonus",
@@ -5993,6 +6394,7 @@
       "civ": 5,
       "cost": {},
       "effects": [[5, -1, 21, 13, 1.0434]],
+      "icon": -1,
       "internalName": "C-Bonus",
       "locations": [],
       "name": "C-Bonus",
@@ -6003,6 +6405,7 @@
       "civ": 6,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Chinese TC POP",
       "locations": [],
       "name": "C-Bonus Chinese TC POP",
@@ -6013,6 +6416,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Petard (make avail)",
       "locations": [],
       "name": "Petard (make avail)",
@@ -6027,6 +6431,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 122,
       "internalName": "Hussar",
       "locations": [
         {
@@ -6047,6 +6452,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 106,
       "internalName": "Halberdier",
       "locations": [
         {
@@ -6067,6 +6473,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Jaguar Man",
       "locations": [],
       "name": "Jaguar Man",
@@ -6081,6 +6488,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Jaguar Man",
       "locations": [
         {
@@ -6097,6 +6505,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Eagle Warrior (make avail)",
       "locations": [],
       "name": "Eagle Warrior (make avail)",
@@ -6111,6 +6520,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 115,
       "internalName": "Elite Eagle Warrior",
       "locations": [
         {
@@ -6131,6 +6541,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 110,
       "internalName": "Bloodlines",
       "locations": [
         {
@@ -6151,6 +6562,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 111,
       "internalName": "Parthian Tactics",
       "locations": [
         {
@@ -6171,6 +6583,7 @@
         "wood": 250
       },
       "effects": [],
+      "icon": 112,
       "internalName": "Thumb Ring",
       "locations": [
         {
@@ -6191,6 +6604,7 @@
         "gold": 200
       },
       "effects": [[1, 193, 0, -1, 1]],
+      "icon": 109,
       "internalName": "Theocracy",
       "locations": [
         {
@@ -6211,6 +6625,7 @@
         "gold": 1000
       },
       "effects": [[1, 192, 0, -1, 1]],
+      "icon": 108,
       "internalName": "Heresy",
       "locations": [
         {
@@ -6231,6 +6646,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Spanish Supremacy",
       "locations": [
         {
@@ -6251,6 +6667,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 114,
       "internalName": "Herbal Medicine",
       "locations": [
         {
@@ -6271,6 +6688,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Korean catapults",
       "locations": [
         {
@@ -6287,6 +6705,7 @@
       "civ": 3,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Huskarl (make avail)",
       "locations": [],
       "name": "Huskarl (make avail)",
@@ -6297,6 +6716,7 @@
       "civ": 18,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Turtle Ship (make avail)",
       "locations": [],
       "name": "Turtle Ship (make avail)",
@@ -6311,6 +6731,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Turtle Ship",
       "locations": [
         {
@@ -6327,6 +6748,7 @@
       "civ": 18,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "War Wagon",
       "locations": [],
       "name": "War Wagon",
@@ -6341,6 +6763,7 @@
         "gold": 750
       },
       "effects": [[1, 178, 1, -1, 4], [1, 179, 1, -1, 4]],
+      "icon": 11,
       "internalName": "Faith",
       "locations": [
         {
@@ -6361,6 +6784,7 @@
         "wood": 1000
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite War Wagon",
       "locations": [
         {
@@ -6377,6 +6801,7 @@
       "civ": 18,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Archer armor free",
       "locations": [],
       "name": "C-Bonus, Archer armor free",
@@ -6387,6 +6812,7 @@
       "civ": 10,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Light cavalry +1P armor",
       "locations": [],
       "name": "C-Bonus, Light cavalry +1P armor",
@@ -6397,6 +6823,7 @@
       "civ": 24,
       "cost": {},
       "effects": [[1, 267, 1, -1, 33.3333], [1, 33, 0, -1, 12]],
+      "icon": -1,
       "internalName": "C-Bonus, Foragers generate wood",
       "locations": [],
       "name": "C-Bonus, Foragers generate wood",
@@ -6411,6 +6838,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Counterweights",
       "locations": [
         {
@@ -6431,6 +6859,7 @@
         "wood": 400
       },
       "effects": [[4, 79, -1, 104, 50], [4, 79, -1, 106, -50], [4, 234, -1, 104, 50], [4, 234, -1, 106, -50], [4, 235, -1, 104, 50], [4, 235, -1, 106, -50], [4, 236, -1, 104, 50], [4, 236, -1, 106, -50], [4, 82, -1, 104, 260], [4, 82, -1, 106, -260]],
+      "icon": 33,
       "internalName": "Detinets",
       "locations": [
         {
@@ -6447,6 +6876,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -6461,6 +6891,7 @@
         "wood": 400
       },
       "effects": [[5, 12, -1, 13, 2], [5, 20, -1, 13, 2], [5, 132, -1, 13, 2], [5, 498, -1, 13, 2]],
+      "icon": 107,
       "internalName": "Gothic Perfusion",
       "locations": [
         {
@@ -6477,6 +6908,7 @@
       "civ": 17,
       "cost": {},
       "effects": [[5, -1, 36, 100, 0.9]],
+      "icon": -1,
       "internalName": "C-Bonus, 35% CA",
       "locations": [],
       "name": "C-Bonus, 35% CA",
@@ -6487,6 +6919,7 @@
       "civ": 17,
       "cost": {},
       "effects": [[5, -1, 36, 100, 0.8889]],
+      "icon": -1,
       "internalName": "C-Bonus, 40% CA",
       "locations": [],
       "name": "C-Bonus, 40% CA",
@@ -6501,6 +6934,7 @@
         "gold": 200
       },
       "effects": [[1, 178, 1, -1, 1], [1, 179, 1, -1, 1]],
+      "icon": 131,
       "internalName": "Devotion",
       "locations": [
         {
@@ -6521,6 +6955,7 @@
         "gold": 350
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Aztec Sacrifice",
       "locations": [
         {
@@ -6541,6 +6976,7 @@
         "wood": 800
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Britons City Rights",
       "locations": [
         {
@@ -6561,6 +6997,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Chinese Great Wall",
       "locations": [
         {
@@ -6581,6 +7018,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Viking Chieftains",
       "locations": [
         {
@@ -6601,6 +7039,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Byzantines Greek Fire",
       "locations": [
         {
@@ -6617,6 +7056,7 @@
       "civ": 19,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Free War Galley",
       "locations": [],
       "name": "C-Bonus Free War Galley",
@@ -6627,6 +7067,7 @@
       "civ": 19,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Genoese Bow (make avail)",
       "locations": [],
       "name": "Genoese Bow (make avail)",
@@ -6641,6 +7082,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Genoese Bow",
       "locations": [
         {
@@ -6661,6 +7103,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 12,
       "internalName": "Chemistry",
       "locations": [
         {
@@ -6677,6 +7120,7 @@
       "civ": 22,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Magyar Huszar (make avail)",
       "locations": [],
       "name": "Magyar Huszar (make avail)",
@@ -6691,6 +7135,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Magyar Huszar",
       "locations": [
         {
@@ -6707,6 +7152,7 @@
       "civ": 22,
       "cost": {},
       "effects": [[5, 448, -1, 103, 0.85], [5, 546, -1, 103, 0.85], [5, 441, -1, 103, 0.85], [5, 1707, -1, 103, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus Lcav Cheaper",
       "locations": [],
       "name": "C-Bonus Lcav Cheaper",
@@ -6717,6 +7163,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Forging",
       "locations": [],
       "name": "C-Bonus Vil Forging",
@@ -6727,6 +7174,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Iron Casting",
       "locations": [],
       "name": "C-Bonus Vil Iron Casting",
@@ -6737,6 +7185,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Blast Furnace",
       "locations": [],
       "name": "C-Bonus Vil Blast Furnace",
@@ -6747,6 +7196,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Scale Armor",
       "locations": [],
       "name": "C-Bonus Vil Scale Armor",
@@ -6757,6 +7207,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Chain Armor",
       "locations": [],
       "name": "C-Bonus Vil Chain Armor",
@@ -6767,6 +7218,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus Vil Plate Armor",
       "locations": [],
       "name": "C-Bonus Vil Plate Armor",
@@ -6781,6 +7233,7 @@
         "gold": 200
       },
       "effects": [[5, 17, -1, 13, 1.2], [5, 128, -1, 13, 1.2], [5, 204, -1, 13, 1.2], [5, 846, -1, 13, 1.2], [5, 2149, -1, 13, 1.2]],
+      "icon": 113,
       "internalName": "Caravan",
       "locations": [
         {
@@ -6797,6 +7250,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Elephant Archer (make avail)",
       "locations": [],
       "name": "Elephant Archer (make avail)",
@@ -6811,6 +7265,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 127,
       "internalName": "Elite Elephant Archer",
       "locations": [
         {
@@ -6831,6 +7286,7 @@
         "gold": 200
       },
       "effects": [[1, 33, 0, -1, 8]],
+      "icon": 33,
       "internalName": "Stronghold",
       "locations": [
         {
@@ -6851,6 +7307,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Huns UT",
       "locations": [
         {
@@ -6871,6 +7328,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Japanese UT",
       "locations": [
         {
@@ -6891,6 +7349,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Mayans UT",
       "locations": [
         {
@@ -6911,6 +7370,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Koreans UT",
       "locations": [
         {
@@ -6931,6 +7391,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Mongols UT",
       "locations": [
         {
@@ -6951,6 +7412,7 @@
         "gold": 300
       },
       "effects": [[4, 4, -1, 105, -45], [4, 24, -1, 105, -45], [4, 492, -1, 105, -45], [4, 4, -1, 104, 25], [4, 24, -1, 104, 25], [4, 492, -1, 104, 25]],
+      "icon": 33,
       "internalName": "Persians UT",
       "locations": [
         {
@@ -6971,6 +7433,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Teutons UT",
       "locations": [
         {
@@ -6991,6 +7454,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Bogsveigar",
       "locations": [
         {
@@ -7011,6 +7475,7 @@
         "gold": 150
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Sipahi",
       "locations": [
         {
@@ -7031,6 +7496,7 @@
         "gold": 300
       },
       "effects": [[1, 176, 1, -1, -1], [1, 177, 1, -1, -1], [1, 180, 1, -1, -5], [1, 181, 1, -1, -5], [1, 182, 1, -1, 5]],
+      "icon": 33,
       "internalName": "Spanish UT",
       "locations": [
         {
@@ -7051,6 +7517,7 @@
         "wood": 600
       },
       "effects": [[5, 101, -1, 13, 1.4], [5, 86, -1, 13, 1.4], [5, 153, -1, 13, 1.4]],
+      "icon": 107,
       "internalName": "Franks UT",
       "locations": [
         {
@@ -7067,6 +7534,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Houses +5 pop",
       "locations": [],
       "name": "C-Bonus, Houses +5 pop",
@@ -7077,6 +7545,7 @@
       "civ": 20,
       "cost": {},
       "effects": [[5, 83, -1, 100, 0.92], [5, 293, -1, 100, 0.92]],
+      "icon": -1,
       "internalName": "C-Bonus, Villager cost Age1",
       "locations": [],
       "name": "C-Bonus, Villager cost Age1",
@@ -7087,6 +7556,7 @@
       "civ": 20,
       "cost": {},
       "effects": [[5, 83, -1, 100, 0.9457], [5, 293, -1, 100, 0.9457]],
+      "icon": -1,
       "internalName": "C-Bonus, Villager cost Age2",
       "locations": [],
       "name": "C-Bonus, Villager cost Age2",
@@ -7097,6 +7567,7 @@
       "civ": 20,
       "cost": {},
       "effects": [[5, 83, -1, 100, 0.9425], [5, 293, -1, 100, 0.9425]],
+      "icon": -1,
       "internalName": "C-Bonus, Villager cost Age3",
       "locations": [],
       "name": "C-Bonus, Villager cost Age3",
@@ -7111,6 +7582,7 @@
         "gold": 250
       },
       "effects": [[5, 128, -1, 100, 0.5], [5, 204, -1, 100, 0.5], [5, 17, -1, 100, 0.5], [5, 846, -1, 100, 0.5]],
+      "icon": 33,
       "internalName": "Silk Route",
       "locations": [
         {
@@ -7131,6 +7603,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Celtic Furor Celtica",
       "locations": [
         {
@@ -7151,6 +7624,7 @@
         "wood": 175
       },
       "effects": [],
+      "icon": 13,
       "internalName": "Masonry",
       "locations": [
         {
@@ -7167,6 +7641,7 @@
       "civ": 19,
       "cost": {},
       "effects": [[5, 5, -1, 100, 0.8], [5, 36, -1, 100, 0.8], [5, 420, -1, 100, 0.8], [5, 691, -1, 100, 0.8], [5, 1709, -1, 100, 0.8]],
+      "icon": -1,
       "internalName": "C-Bonus, Gunpowder -20% cheaper",
       "locations": [],
       "name": "C-Bonus, Gunpowder -20% cheaper",
@@ -7177,6 +7652,7 @@
       "civ": 11,
       "cost": {},
       "effects": [[5, -1, 53, 100, 0.9412], [5, -1, 22, 100, 0.9412]],
+      "icon": -1,
       "internalName": "C-Bonus, Warship cost age3",
       "locations": [],
       "name": "C-Bonus, Warship cost age3",
@@ -7187,6 +7663,7 @@
       "civ": 11,
       "cost": {},
       "effects": [[5, -1, 53, 100, 0.9412], [5, -1, 22, 100, 0.9412]],
+      "icon": -1,
       "internalName": "C-Bonus, Warship cost age4",
       "locations": [],
       "name": "C-Bonus, Warship cost age4",
@@ -7197,6 +7674,7 @@
       "civ": 23,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Boyar (make avail)",
       "locations": [],
       "name": "Boyar (make avail)",
@@ -7211,6 +7689,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Siege Tower",
       "locations": [
         {
@@ -7227,6 +7706,7 @@
       "civ": 20,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Camel Rider attack speed",
       "locations": [],
       "name": "C-Bonus, Camel Rider attack speed",
@@ -7241,6 +7721,7 @@
         "wood": 200
       },
       "effects": [[5, 579, -1, 13, 1.1], [5, 581, -1, 13, 1.1], [5, 17, -1, 13, 1.1], [5, 128, -1, 13, 1.1], [5, 204, -1, 13, 1.1], [6, 191, 1, -1, 1.1], [6, 208, 1, -1, 1.1], [6, 245, 1, -1, 1.1], [1, 78, 0, -1, 0.1], [5, 2333, -1, 13, 1.1], [5, 2334, -1, 13, 1.1], [5, 2171, -1, 13, 1.1], [6, 504, -1, -1, 0.9091]],
+      "icon": 33,
       "internalName": "Indians UT",
       "locations": [
         {
@@ -7261,6 +7742,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Indians UT2",
       "locations": [
         {
@@ -7277,6 +7759,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Kamayuk (make avail)",
       "locations": [],
       "name": "Kamayuk (make avail)",
@@ -7291,6 +7774,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Kamayuk",
       "locations": [
         {
@@ -7311,6 +7795,7 @@
         "wood": 200
       },
       "effects": [],
+      "icon": 14,
       "internalName": "Architecture",
       "locations": [
         {
@@ -7327,6 +7812,7 @@
       "civ": 23,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Monks 20% faster",
       "locations": [],
       "name": "C-Bonus, Monks 20% faster",
@@ -7337,6 +7823,7 @@
       "civ": 23,
       "cost": {},
       "effects": [[5, -1, 13, 100, 0.85], [5, -1, 55, 100, 0.85], [5, 1923, -1, 100, 0.85], [5, 1120, -1, 100, 0.85], [5, 1122, -1, 100, 0.85], [5, 1744, -1, 100, 0.85], [5, 1746, -1, 100, 0.85], [5, 1962, -1, 100, 0.85], [5, 1980, -1, 100, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Siege Units Cheaper",
       "locations": [],
       "name": "C-Bonus, Siege Units Cheaper",
@@ -7351,6 +7838,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Slavs UT",
       "locations": [
         {
@@ -7371,6 +7859,7 @@
         "gold": 300
       },
       "effects": [[0, 869, -1, 105, 0], [0, 871, -1, 105, 0], [0, 869, -1, 103, 80], [0, 871, -1, 103, 80]],
+      "icon": 33,
       "internalName": "Magyars UT",
       "locations": [
         {
@@ -7391,6 +7880,7 @@
         "wood": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Indians UT",
       "locations": [
         {
@@ -7411,6 +7901,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Incas UT",
       "locations": [
         {
@@ -7431,6 +7922,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Indians UT",
       "locations": [
         {
@@ -7447,6 +7939,7 @@
       "civ": 20,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Caravanserai (make avail)",
       "locations": [],
       "name": "Caravanserai (make avail)",
@@ -7457,6 +7950,7 @@
       "civ": 21,
       "cost": {},
       "effects": [[5, -1, 3, 106, 0.85], [5, -1, 52, 106, 0.85], [5, -1, 27, 106, 0.85], [5, -1, 39, 106, 0.85], [5, 109, -1, 106, 1.1765], [5, 618, -1, 106, 1.1765], [5, 619, -1, 106, 1.1765], [5, 620, -1, 106, 1.1765], [5, 621, -1, 106, 1.1765], [5, 71, -1, 106, 1.1765], [5, 614, -1, 106, 1.1765], [5, 615, -1, 106, 1.1765], [5, 616, -1, 106, 1.1765], [5, 617, -1, 106, 1.1765], [5, 141, -1, 106, 1.1765], [5, 481, -1, 106, 1.1765], [5, 482, -1, 106, 1.1765], [5, 483, -1, 106, 1.1765], [5, 484, -1, 106, 1.1765], [5, 142, -1, 106, 1.1765], [5, 611, -1, 106, 1.1765], [5, 612, -1, 106, 1.1765], [5, 613, -1, 106, 1.1765], [5, 597, -1, 106, 1.1765]],
+      "icon": -1,
       "internalName": "C-Bonus, Building Stone cost",
       "locations": [],
       "name": "C-Bonus, Building Stone cost",
@@ -7471,6 +7965,7 @@
         "gold": 900
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Chinese Rocketry",
       "locations": [
         {
@@ -7487,6 +7982,7 @@
       "civ": 20,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Gunpowder armor",
       "locations": [],
       "name": "C-Bonus, Gunpowder armor",
@@ -7501,6 +7997,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 74,
       "internalName": "Heavy Camel",
       "locations": [
         {
@@ -7517,6 +8014,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Condottiero (make avail)",
       "locations": [],
       "name": "Condottiero (make avail)",
@@ -7527,6 +8025,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Palisade Wall (make avail)",
       "locations": [],
       "name": "Palisade Wall (make avail)",
@@ -7537,6 +8036,7 @@
       "civ": 2,
       "cost": {},
       "effects": [[5, 120, -1, 13, 1.15], [5, 354, -1, 13, 1.15]],
+      "icon": -1,
       "internalName": "C-Bonus, 15% faster foragers",
       "locations": [],
       "name": "C-Bonus, 15% faster foragers",
@@ -7549,6 +8049,7 @@
         "wood": 10
       },
       "effects": [],
+      "icon": -1,
       "internalName": "Fire Tower (make avail)",
       "locations": [
         {
@@ -7569,6 +8070,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 130,
       "internalName": "Savar",
       "locations": [
         {
@@ -7585,6 +8087,7 @@
       "civ": 8,
       "cost": {},
       "effects": [],
+      "icon": 0,
       "internalName": "[FTT] Disable Paladin",
       "locations": [],
       "name": "[FTT] Disable Paladin",
@@ -7595,6 +8098,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Slinger (make avail)",
       "locations": [],
       "name": "Slinger (make avail)",
@@ -7605,6 +8109,7 @@
       "civ": 16,
       "cost": {},
       "effects": [[5, 4, -1, 100, 0.889], [5, 24, -1, 100, 0.89], [5, 492, -1, 100, 0.89], [5, 763, -1, 100, 0.89], [5, 765, -1, 100, 0.89]],
+      "icon": -1,
       "internalName": "C-Bonus, -20% archer cost",
       "locations": [],
       "name": "C-Bonus, -20% archer cost",
@@ -7619,6 +8124,7 @@
         "wood": 200
       },
       "effects": [[5, 212, -1, 13, 1.2], [5, 118, -1, 13, 1.2]],
+      "icon": 60,
       "internalName": "Stone cutting",
       "locations": [
         {
@@ -7639,6 +8145,7 @@
         "wood": 75
       },
       "effects": [[5, 581, -1, 13, 1.15], [5, 579, -1, 13, 1.15]],
+      "icon": 15,
       "internalName": "Gold Mining",
       "locations": [
         {
@@ -7663,6 +8170,7 @@
       "civ": 8,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Caravanserai (make avail)",
       "locations": [],
       "name": "Caravanserai (make avail)",
@@ -7673,6 +8181,7 @@
       "civ": 20,
       "cost": {},
       "effects": [[5, 83, -1, 100, 0.939], [5, 293, -1, 100, 0.939]],
+      "icon": -1,
       "internalName": "C-Bonus, Villager cost Age4",
       "locations": [],
       "name": "C-Bonus, Villager cost Age4",
@@ -7683,6 +8192,7 @@
       "civ": 16,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Start w/ 4 villagers",
       "locations": [],
       "name": "C-Bonus, Start w/ 4 villagers",
@@ -7693,6 +8203,7 @@
       "civ": 24,
       "cost": {},
       "effects": [[5, -1, 0, 105, 0.8], [5, -1, 6, 105, 0.8], [5, -1, 12, 105, 0.8], [5, -1, 13, 105, 0.8], [5, -1, 18, 105, 0.8], [5, -1, 43, 105, 0.8], [5, -1, 19, 105, 0.8], [5, -1, 22, 105, 0.8], [5, -1, 2, 105, 0.8], [5, -1, 36, 105, 0.8], [5, -1, 51, 105, 0.8], [5, -1, 44, 105, 0.8], [5, -1, 54, 105, 0.8], [5, -1, 55, 105, 0.8], [5, -1, 35, 105, 0.8]],
+      "icon": -1,
       "internalName": "C-Bonus, All units -20% gold",
       "locations": [],
       "name": "C-Bonus, All units -20% gold",
@@ -7703,6 +8214,7 @@
       "civ": 16,
       "cost": {},
       "effects": [[5, 4, -1, 100, 0.875], [5, 24, -1, 100, 0.88], [5, 492, -1, 100, 0.88], [5, 763, -1, 100, 0.88], [5, 765, -1, 100, 0.88]],
+      "icon": -1,
       "internalName": "C-Bonus, -30% archer cost",
       "locations": [],
       "name": "C-Bonus, -30% archer cost",
@@ -7713,6 +8225,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Ships +10% HP",
       "locations": [],
       "name": "C-Bonus, Ships +10% HP",
@@ -7723,6 +8236,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, University +80% faste",
       "locations": [],
       "name": "C-Bonus, University +80% faste",
@@ -7733,6 +8247,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Organ Gun (make avail)",
       "locations": [],
       "name": "Organ Gun (make avail)",
@@ -7747,6 +8262,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Organ Gun",
       "locations": [
         {
@@ -7763,6 +8279,7 @@
       "civ": 27,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Camel Archer (make avail)",
       "locations": [],
       "name": "Camel Archer (make avail)",
@@ -7777,6 +8294,7 @@
         "wood": 1000
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Camel Archer",
       "locations": [
         {
@@ -7793,6 +8311,7 @@
       "civ": 26,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Gbeto (make avail)",
       "locations": [],
       "name": "Gbeto (make avail)",
@@ -7807,6 +8326,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Mali Unit",
       "locations": [
         {
@@ -7823,6 +8343,7 @@
       "civ": 25,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Shotel Warrior (make avail)",
       "locations": [],
       "name": "Shotel Warrior (make avail)",
@@ -7837,6 +8358,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Ethiopia Unit",
       "locations": [
         {
@@ -7853,6 +8375,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Feitoria (make avail)",
       "locations": [],
       "name": "Feitoria (make avail)",
@@ -7867,6 +8390,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Portuguese UT",
       "locations": [
         {
@@ -7887,6 +8411,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Ethiopian UT",
       "locations": [
         {
@@ -7907,6 +8432,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Ethiopian UT",
       "locations": [
         {
@@ -7927,6 +8453,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Malian UT",
       "locations": [
         {
@@ -7947,6 +8474,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Malian UT",
       "locations": [
         {
@@ -7967,6 +8495,7 @@
         "gold": 250
       },
       "effects": [[1, 33, 0, -1, 52], [15, 82, -1, 13, 1.25]],
+      "icon": 33,
       "internalName": "Berber UT",
       "locations": [
         {
@@ -7987,6 +8516,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Berber UT",
       "locations": [
         {
@@ -8003,6 +8533,7 @@
       "civ": 14,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Conquistador (make avail)",
       "locations": [],
       "name": "Conquistador (make avail)",
@@ -8013,6 +8544,7 @@
       "civ": 27,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers 5% faster",
       "locations": [],
       "name": "C-Bonus, Villagers 5% faster",
@@ -8023,6 +8555,7 @@
       "civ": 27,
       "cost": {},
       "effects": [[5, -1, 2, 13, 1.1]],
+      "icon": -1,
       "internalName": "C-Bonus, Ships +10% faster",
       "locations": [],
       "name": "C-Bonus, Ships +10% faster",
@@ -8033,6 +8566,7 @@
       "civ": 27,
       "cost": {},
       "effects": [[5, -1, 12, 100, 0.85], [5, -1, 47, 100, 0.85]],
+      "icon": -1,
       "internalName": "C-Bonus, Stable units -15% che",
       "locations": [],
       "name": "C-Bonus, Stable units -15% che",
@@ -8043,6 +8577,7 @@
       "civ": 25,
       "cost": {},
       "effects": [[1, 0, 1, -1, 100], [1, 3, 1, -1, 100]],
+      "icon": -1,
       "internalName": "C-Bonus, +100f, +100g in age2",
       "locations": [],
       "name": "C-Bonus, +100f, +100g in age2",
@@ -8053,6 +8588,7 @@
       "civ": 25,
       "cost": {},
       "effects": [[1, 0, 1, -1, 100], [1, 3, 1, -1, 100]],
+      "icon": -1,
       "internalName": "C-Bonus, +100f, +100g in age3",
       "locations": [],
       "name": "C-Bonus, +100f, +100g in age3",
@@ -8063,6 +8599,7 @@
       "civ": 25,
       "cost": {},
       "effects": [[1, 0, 1, -1, 100], [1, 3, 1, -1, 100]],
+      "icon": -1,
       "internalName": "C-Bonus, +100f, +100g in age4",
       "locations": [],
       "name": "C-Bonus, +100f, +100g in age4",
@@ -8077,6 +8614,7 @@
         "wood": 550
       },
       "effects": [[5, 42, -1, 13, 4]],
+      "icon": 107,
       "internalName": "Japanese Kataparuto",
       "locations": [
         {
@@ -8093,6 +8631,7 @@
       "civ": 25,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Pike",
       "locations": [],
       "name": "C-Bonus, Free Pike",
@@ -8103,6 +8642,7 @@
       "civ": 26,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 armor feudal",
       "locations": [],
       "name": "C-Bonus, inf +1 armor feudal",
@@ -8113,6 +8653,7 @@
       "civ": 26,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 armor castle",
       "locations": [],
       "name": "C-Bonus, inf +1 armor castle",
@@ -8123,6 +8664,7 @@
       "civ": 26,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 armor imp",
       "locations": [],
       "name": "C-Bonus, inf +1 armor imp",
@@ -8133,6 +8675,7 @@
       "civ": 26,
       "cost": {},
       "effects": [[1, 276, 1, -1, 10], [1, 33, 0, -1, 11]],
+      "icon": -1,
       "internalName": "C-Bonus, Gold productivity",
       "locations": [],
       "name": "C-Bonus, Gold productivity",
@@ -8143,6 +8686,7 @@
       "civ": 26,
       "cost": {},
       "effects": [[5, -1, 3, 104, 0.85], [5, -1, 39, 104, 0.85], [5, -1, 52, 104, 0.85], [5, -1, 27, 104, 0.85], [5, 109, -1, 104, 1.1765], [5, 618, -1, 104, 1.1765], [5, 619, -1, 104, 1.1765], [5, 620, -1, 104, 1.1765], [5, 621, -1, 104, 1.1765], [5, 71, -1, 104, 1.1765], [5, 614, -1, 104, 1.1765], [5, 615, -1, 104, 1.1765], [5, 616, -1, 104, 1.1765], [5, 617, -1, 104, 1.1765], [5, 141, -1, 104, 1.1765], [5, 481, -1, 104, 1.1765], [5, 482, -1, 104, 1.1765], [5, 483, -1, 104, 1.1765], [5, 484, -1, 104, 1.1765], [5, 142, -1, 104, 1.1765], [5, 611, -1, 104, 1.1765], [5, 612, -1, 104, 1.1765], [5, 613, -1, 104, 1.1765], [5, 597, -1, 104, 1.1765]],
+      "icon": -1,
       "internalName": "C-Bonus, buildings cost -15% w",
       "locations": [],
       "name": "C-Bonus, buildings cost -15% w",
@@ -8153,6 +8697,7 @@
       "civ": 24,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Caravel (make avail)",
       "locations": [],
       "name": "Caravel (make avail)",
@@ -8167,6 +8712,7 @@
         "gold": 525
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Caravel",
       "locations": [
         {
@@ -8183,6 +8729,7 @@
       "civ": 27,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Genitour (make avail)",
       "locations": [],
       "name": "Genitour (make avail)",
@@ -8197,6 +8744,7 @@
         "wood": 450
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Genitour",
       "locations": [
         {
@@ -8217,6 +8765,7 @@
         "wood": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Mongol Siege Drill",
       "locations": [
         {
@@ -8237,6 +8786,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Conquistador",
       "locations": [
         {
@@ -8253,6 +8803,7 @@
       "civ": 27,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers 10% faster",
       "locations": [],
       "name": "C-Bonus, Villagers 10% faster",
@@ -8263,6 +8814,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Genitour (make avail)",
       "locations": [],
       "name": "Genitour (make avail)",
@@ -8277,6 +8829,7 @@
         "gold": 25
       },
       "effects": [],
+      "icon": 118,
       "internalName": "Arson",
       "locations": [
         {
@@ -8293,6 +8846,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Siege Tower (make avail)",
       "locations": [],
       "name": "Siege Tower (make avail)",
@@ -8303,6 +8857,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fire Galley (make avail)",
       "locations": [],
       "name": "Fire Galley (make avail)",
@@ -8313,6 +8868,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Demo Galley (make avail)",
       "locations": [],
       "name": "Demo Galley (make avail)",
@@ -8323,6 +8879,7 @@
       "civ": 25,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Archers fire +15% fas",
       "locations": [],
       "name": "C-Bonus, Archers fire +15% fas",
@@ -8337,6 +8894,7 @@
         "wood": 250
       },
       "effects": [],
+      "icon": 119,
       "internalName": "Arrowslits",
       "locations": [
         {
@@ -8353,6 +8911,7 @@
       "civ": 25,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Chemistry + Torsion",
       "locations": [],
       "name": "Chemistry + Torsion",
@@ -8367,6 +8926,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Byzantine Logistica",
       "locations": [
         {
@@ -8383,6 +8943,7 @@
       "civ": 27,
       "cost": {},
       "effects": [[5, -1, 12, 100, 0.9412], [5, -1, 47, 100, 0.9412]],
+      "icon": -1,
       "internalName": "C-Bonus, Stable units -20% che",
       "locations": [],
       "name": "C-Bonus, Stable units -20% che",
@@ -8393,6 +8954,7 @@
       "civ": 28,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Ballista Elephant (make avail)",
       "locations": [],
       "name": "Ballista Elephant (make avail)",
@@ -8407,6 +8969,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Ballista Elephant",
       "locations": [
         {
@@ -8423,6 +8986,7 @@
       "civ": 29,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Karambit Warrior (make avail)",
       "locations": [],
       "name": "Karambit Warrior (make avail)",
@@ -8437,6 +9001,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Karambit Warrior",
       "locations": [
         {
@@ -8453,6 +9018,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Arambai (make avail)",
       "locations": [],
       "name": "Arambai (make avail)",
@@ -8467,6 +9033,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Arambai",
       "locations": [
         {
@@ -8483,6 +9050,7 @@
       "civ": 58,
       "cost": {},
       "effects": [[1, 33, 0, -1, 26]],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry gold",
       "locations": [],
       "name": "C-Bonus, Cavalry gold",
@@ -8493,6 +9061,7 @@
       "civ": 31,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Rattan Archer (make avail)",
       "locations": [],
       "name": "Rattan Archer (make avail)",
@@ -8507,6 +9076,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Rattan Archer",
       "locations": [
         {
@@ -8527,6 +9097,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Khmer UT",
       "locations": [
         {
@@ -8547,6 +9118,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Khmer UT",
       "locations": [
         {
@@ -8567,6 +9139,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Malay UT",
       "locations": [
         {
@@ -8587,6 +9160,7 @@
         "gold": 500
       },
       "effects": [[4, 74, -1, 105, -20], [4, 75, -1, 105, -20], [4, 77, -1, 105, -20], [4, 473, -1, 105, -20], [4, 567, -1, 105, -20], [4, 1793, -1, 105, -20], [4, 74, -1, 103, 20], [4, 75, -1, 103, 20], [4, 77, -1, 103, 20], [4, 473, -1, 103, 20], [4, 567, -1, 103, 20], [4, 1793, -1, 103, 20]],
+      "icon": 107,
       "internalName": "Malay UT",
       "locations": [
         {
@@ -8607,6 +9181,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Burmese UT",
       "locations": [
         {
@@ -8627,6 +9202,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Burmese UT",
       "locations": [
         {
@@ -8647,6 +9223,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Vietnamese UT",
       "locations": [
         {
@@ -8667,6 +9244,7 @@
         "wood": 200
       },
       "effects": [[1, 266, -1, -1, 1.5], [1, 33, 0, -1, 15]],
+      "icon": 107,
       "internalName": "Vietnamese UT",
       "locations": [
         {
@@ -8687,6 +9265,7 @@
         "wood": 350
       },
       "effects": [],
+      "icon": 16,
       "internalName": "Keep",
       "locations": [
         {
@@ -8704,6 +9283,7 @@
       "civs": ["Bengalis", "Burmese", "Dravidians", "Khmer", "Malay", "Vietnamese"],
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Battle Elephant (make avail)",
       "locations": [],
       "name": "Battle Elephant (make avail)",
@@ -8718,6 +9298,7 @@
         "gold": 700
       },
       "effects": [],
+      "icon": 121,
       "internalName": "Elite Battle Elephant",
       "locations": [
         {
@@ -8734,6 +9315,7 @@
       "civ": 31,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Archers +20% HP",
       "locations": [],
       "name": "C-Bonus, Archers +20% HP",
@@ -8744,6 +9326,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 attack dark",
       "locations": [],
       "name": "C-Bonus, inf +1 attack dark",
@@ -8754,6 +9337,7 @@
       "civ": 29,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Age up faster",
       "locations": [],
       "name": "C-Bonus, Age up faster",
@@ -8764,6 +9348,7 @@
       "civ": 29,
       "cost": {},
       "effects": [[5, 199, -1, 100, 0.6667]],
+      "icon": -1,
       "internalName": "C-Bonus, Fish Trap 33% cheaper",
       "locations": [],
       "name": "C-Bonus, Fish Trap 33% cheaper",
@@ -8774,6 +9359,7 @@
       "civ": 29,
       "cost": {},
       "effects": [[1, 88, 0, -1, 2130]],
+      "icon": -1,
       "internalName": "C-Bonus, 3x food fish traps",
       "locations": [],
       "name": "C-Bonus, 3x food fish traps",
@@ -8788,6 +9374,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 47,
       "internalName": "Bombard Tower",
       "locations": [
         {
@@ -8804,6 +9391,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Battle Elephant armor",
       "locations": [],
       "name": "C-Bonus, Battle Elephant armor",
@@ -8814,6 +9402,7 @@
       "civ": 12,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Imperial Nomads",
       "locations": [],
       "name": "Imperial Nomads",
@@ -8824,6 +9413,7 @@
       "civ": 29,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +2% arc HP feudal",
       "locations": [],
       "name": "C-Bonus, +2% arc HP feudal",
@@ -8834,6 +9424,7 @@
       "civ": 29,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +2% arc HP castle",
       "locations": [],
       "name": "C-Bonus, +2% arc HP castle",
@@ -8844,6 +9435,7 @@
       "civ": 29,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +2% arc HP imp",
       "locations": [],
       "name": "C-Bonus, +2% arc HP imp",
@@ -8854,6 +9446,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, free lumberjack upgra",
       "locations": [],
       "name": "C-Bonus, free lumberjack upgra",
@@ -8864,6 +9457,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 attack feudal",
       "locations": [],
       "name": "C-Bonus, inf +1 attack feudal",
@@ -8874,6 +9468,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 attack castle",
       "locations": [],
       "name": "C-Bonus, inf +1 attack castle",
@@ -8884,6 +9479,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, inf +1 attack imp",
       "locations": [],
       "name": "C-Bonus, inf +1 attack imp",
@@ -8894,6 +9490,7 @@
       "civ": 30,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, monastery techs -50% cost",
       "locations": [],
       "name": "C-Bonus, monastery techs -50% cost",
@@ -8908,6 +9505,7 @@
         "wood": 125
       },
       "effects": [[5, -1, 21, 13, 1.1], [4, -1, 21, 14, 5]],
+      "icon": 41,
       "internalName": "Gillnets",
       "locations": [
         {
@@ -8924,6 +9522,7 @@
       "civ": 28,
       "cost": {},
       "effects": [[1, 33, 0, -1, 50], [5, 214, -1, 13, 0.95], [5, 259, -1, 13, 0.95]],
+      "icon": -1,
       "internalName": "C-Bonus, Instant Farmers",
       "locations": [],
       "name": "C-Bonus, Instant Farmers",
@@ -8938,6 +9537,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 120,
       "internalName": "Imperial Skirmisher",
       "locations": [
         {
@@ -8954,6 +9554,7 @@
       "civ": 28,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Houses garrison",
       "locations": [],
       "name": "C-Bonus, Houses garrison",
@@ -8964,6 +9565,7 @@
       "civ": 15,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +5 monk HP",
       "locations": [],
       "name": "C-Bonus, +5 monk HP",
@@ -8974,6 +9576,7 @@
       "civ": 29,
       "cost": {},
       "effects": [[5, 1132, -1, 100, 0.75], [5, 1134, -1, 100, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus, Battle Ele 25% cheaper",
       "locations": [],
       "name": "C-Bonus, Battle Ele 25% cheaper",
@@ -8984,6 +9587,7 @@
       "civ": 29,
       "cost": {},
       "effects": [[5, 1132, -1, 100, 0.8667], [5, 1134, -1, 100, 0.8667]],
+      "icon": -1,
       "internalName": "C-Bonus, Battle Ele 35% cheaper",
       "locations": [],
       "name": "C-Bonus, Battle Ele 35% cheaper",
@@ -8994,6 +9598,7 @@
       "civ": 34,
       "cost": {},
       "effects": [[4, 87, -1, 104, -75], [4, 10, -1, 104, -75], [4, 14, -1, 104, -75], [4, 101, -1, 104, -75], [4, 86, -1, 104, -75], [4, 153, -1, 104, -75]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheap Ranges and Stables",
       "locations": [],
       "name": "C-Bonus, Cheap Ranges and Stables",
@@ -9004,6 +9609,7 @@
       "civ": 31,
       "cost": {},
       "effects": [[1, 209, 0, -1, 5]],
+      "icon": -1,
       "internalName": "C-Bonus, Vietnamese Vision",
       "locations": [],
       "name": "Vietnamese Vision",
@@ -9017,6 +9623,7 @@
         "food": 150
       },
       "effects": [],
+      "icon": 17,
       "internalName": "Forging",
       "locations": [
         {
@@ -9033,6 +9640,7 @@
       "civ": 28,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Battle Ele 10% faster",
       "locations": [],
       "name": "C-Bonus, Battle Ele 10% faster",
@@ -9043,6 +9651,7 @@
       "civ": 32,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Konnik (make avail)",
       "locations": [],
       "name": "Konnik (make avail)",
@@ -9057,6 +9666,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Konnik",
       "locations": [
         {
@@ -9077,6 +9687,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Keshik (make avail)",
       "locations": [],
       "name": "Keshik (make avail)",
@@ -9091,6 +9702,7 @@
         "gold": 120
       },
       "effects": [],
+      "icon": 18,
       "internalName": "Iron casting",
       "locations": [
         {
@@ -9111,6 +9723,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Keshik",
       "locations": [
         {
@@ -9127,6 +9740,7 @@
       "civ": 34,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Kipchak (make avail)",
       "locations": [],
       "name": "Kipchak (make avail)",
@@ -9141,6 +9755,7 @@
         "wood": 1000
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Kipchak",
       "locations": [
         {
@@ -9157,6 +9772,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Leitis (make avail)",
       "locations": [],
       "name": "Leitis (make avail)",
@@ -9171,6 +9787,7 @@
         "gold": 750
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Leitis",
       "locations": [
         {
@@ -9191,6 +9808,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Khmer UT",
       "locations": [
         {
@@ -9211,6 +9829,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Khmer UT",
       "locations": [
         {
@@ -9231,6 +9850,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Malay UT",
       "locations": [
         {
@@ -9251,6 +9871,7 @@
         "wood": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Malay UT",
       "locations": [
         {
@@ -9271,6 +9892,7 @@
         "wood": 300
       },
       "effects": [[5, 448, -1, 101, 0.5], [5, 546, -1, 101, 0.5], [5, 441, -1, 101, 0.5], [5, 1707, -1, 101, 0.5], [5, 39, -1, 101, 0.5], [5, 474, -1, 101, 0.5], [5, 1370, -1, 101, 0.5], [5, 1372, -1, 101, 0.5]],
+      "icon": 33,
       "internalName": "Burmese UT",
       "locations": [
         {
@@ -9287,6 +9909,7 @@
       "civ": 22,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +2 vs Animals",
       "locations": [],
       "name": "C-Bonus, +2 vs Animals",
@@ -9301,6 +9924,7 @@
         "gold": 400
       },
       "effects": [[1, 33, 0, -1, 53]],
+      "icon": 107,
       "internalName": "Burmese UT",
       "locations": [
         {
@@ -9321,6 +9945,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Vietnamese UT",
       "locations": [
         {
@@ -9341,6 +9966,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Vietnamese UT",
       "locations": [
         {
@@ -9357,6 +9983,7 @@
       "civ": 32,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Militia upgrades",
       "locations": [],
       "name": "C-Bonus, Free Militia upgrades",
@@ -9367,6 +9994,7 @@
       "civ": 32,
       "cost": {},
       "effects": [[5, 109, -1, 106, 0.5], [5, 618, -1, 106, 0.5], [5, 619, -1, 106, 0.5], [5, 620, -1, 106, 0.5], [5, 621, -1, 106, 0.5], [5, 71, -1, 106, 0.5], [5, 614, -1, 106, 0.5], [5, 615, -1, 106, 0.5], [5, 616, -1, 106, 0.5], [5, 617, -1, 106, 0.5], [5, 141, -1, 106, 0.5], [5, 481, -1, 106, 0.5], [5, 482, -1, 106, 0.5], [5, 483, -1, 106, 0.5], [5, 484, -1, 106, 0.5], [5, 142, -1, 106, 0.5], [5, 611, -1, 106, 0.5], [5, 612, -1, 106, 0.5], [5, 613, -1, 106, 0.5], [5, 597, -1, 106, 0.5]],
+      "icon": -1,
       "internalName": "C-Bonus, TC Cost 1/2 Stone",
       "locations": [],
       "name": "C-Bonus, TC Cost 1/2 Stone",
@@ -9377,6 +10005,7 @@
       "civ": 32,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Enable Krepost",
       "locations": [],
       "name": "C-Bonus, Enable Krepost",
@@ -9387,6 +10016,7 @@
       "civ": 33,
       "cost": {},
       "effects": [[1, 211, 1, -1, 0.25], [1, 212, 1, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, Elevation Bonus",
       "locations": [],
       "name": "C-Bonus, Elevation Bonus",
@@ -9397,6 +10027,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +100 food per TC",
       "locations": [],
       "name": "C-Bonus, +100 food per TC",
@@ -9407,6 +10038,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Free Parthian Tactics",
       "locations": [],
       "name": "C-Bonus, Free Parthian Tactics",
@@ -9417,6 +10049,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Relic +1 cav attack 1",
       "locations": [],
       "name": "C-Bonus, Relic +1 cav attack 1",
@@ -9431,6 +10064,7 @@
         "wood": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Citadels",
       "locations": [
         {
@@ -9447,6 +10081,7 @@
       "civ": 21,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, start with eagle",
       "locations": [],
       "name": "C-Bonus, start with eagle",
@@ -9457,6 +10092,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Relic +1 cav attack 2",
       "locations": [],
       "name": "C-Bonus, Relic +1 cav attack 2",
@@ -9467,6 +10103,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Relic +1 cav attack 3",
       "locations": [],
       "name": "C-Bonus, Relic +1 cav attack 3",
@@ -9477,6 +10114,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Relic +1 cav attack 4",
       "locations": [],
       "name": "C-Bonus, Relic +1 cav attack 4",
@@ -9487,6 +10125,7 @@
       "civ": 33,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Flaming Camel (make avail)",
       "locations": [],
       "name": "Flaming Camel (make avail)",
@@ -9497,6 +10136,7 @@
       "civ": 33,
       "cost": {},
       "effects": [[6, 216, 0, -1, 1.57], [5, 590, -1, 13, 0.637], [5, 592, -1, 13, 0.637], [5, 1891, -1, 13, 0.637], [5, 1892, -1, 13, 0.637]],
+      "icon": -1,
       "internalName": "C-Bonus, Sheep +50% food",
       "locations": [],
       "name": "C-Bonus, Sheep +50% food",
@@ -9507,6 +10147,7 @@
       "civ": 34,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Upgrade Rams in Castle",
       "locations": [],
       "name": "Upgrade Rams in Castle",
@@ -9517,6 +10158,7 @@
       "civ": 34,
       "cost": {},
       "effects": [[1, 218, -1, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Feudal TC",
       "locations": [],
       "name": "C-Bonus, Feudal TC",
@@ -9527,6 +10169,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirms Pikes 10% faster",
       "locations": [],
       "name": "C-Bonus, Skirms Pikes 10% faster",
@@ -9537,6 +10180,7 @@
       "civ": 34,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry +5% speed Age2",
       "locations": [],
       "name": "C-Bonus, Cavalry +5% speed Age2",
@@ -9547,6 +10191,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Upgrade Rams",
       "locations": [],
       "name": "Upgrade Rams",
@@ -9557,6 +10202,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Steppe Lancer (make avail)",
       "locations": [],
       "name": "Steppe Lancer (make avail)",
@@ -9571,6 +10217,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 123,
       "internalName": "Elite Steppe Lancer",
       "locations": [
         {
@@ -9587,6 +10234,7 @@
       "civ": 23,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Slavic team bonus",
       "locations": [],
       "name": "Slavic team bonus",
@@ -9597,6 +10245,7 @@
       "civ": 34,
       "cost": {},
       "effects": [[5, 621, -1, 101, 1.8], [5, 617, -1, 101, 1.8], [5, 484, -1, 101, 1.8], [5, 597, -1, 101, 1.8]],
+      "icon": 0,
       "internalName": "Change TC constr time1",
       "locations": [],
       "name": "Change TC constr time1",
@@ -9607,6 +10256,7 @@
       "civ": 34,
       "cost": {},
       "effects": [[5, 621, -1, 101, 0.5556], [5, 617, -1, 101, 0.5556], [5, 484, -1, 101, 0.5556], [5, 597, -1, 101, 0.5556]],
+      "icon": 0,
       "internalName": "Change TC constr time2",
       "locations": [],
       "name": "Change TC constr time2",
@@ -9617,6 +10267,7 @@
       "civ": 34,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry +5% speed Age3",
       "locations": [],
       "name": "C-Bonus, Cavalry +5% speed Age3",
@@ -9627,6 +10278,7 @@
       "civ": 34,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry +5% speed Age4",
       "locations": [],
       "name": "C-Bonus, Cavalry +5% speed Age4",
@@ -9637,6 +10289,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[5, -1, 6, 100, 0.9375]],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry Cost -20%",
       "locations": [],
       "name": "C-Bonus, Infantry Cost -20%",
@@ -9647,6 +10300,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[5, -1, 6, 100, 0.9465]],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry Cost -25%",
       "locations": [],
       "name": "C-Bonus, Infantry Cost -25%",
@@ -9657,6 +10311,7 @@
       "civ": 3,
       "cost": {},
       "effects": [[5, -1, 6, 100, 0.9286]],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry Cost -30%",
       "locations": [],
       "name": "C-Bonus, Infantry Cost -30%",
@@ -9670,6 +10325,7 @@
         "food": 100
       },
       "effects": [],
+      "icon": 63,
       "internalName": "Scale Mail Armor",
       "locations": [
         {
@@ -9690,6 +10346,7 @@
         "gold": 225
       },
       "effects": [],
+      "icon": 21,
       "internalName": "Blast Furnace",
       "locations": [
         {
@@ -9706,6 +10363,7 @@
       "civ": 36,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Coustillier (make avail)",
       "locations": [],
       "name": "Coustillier (make avail)",
@@ -9720,6 +10378,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Coustillier",
       "locations": [
         {
@@ -9736,6 +10395,7 @@
       "civ": 37,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Serjeant (make avail)",
       "locations": [],
       "name": "Serjeant (make avail)",
@@ -9750,6 +10410,7 @@
         "gold": 675
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Serjeant",
       "locations": [
         {
@@ -9774,6 +10435,7 @@
         "gold": 300
       },
       "effects": [[1, 236, -1, -1, 2], [1, 33, 0, -1, 14]],
+      "icon": 33,
       "internalName": "Burgundian Vineyards",
       "locations": [
         {
@@ -9794,6 +10456,7 @@
         "gold": 150
       },
       "effects": [[1, 33, 0, -1, 55]],
+      "icon": 107,
       "internalName": "Flemish Revolution",
       "locations": [
         {
@@ -9814,6 +10477,7 @@
         "gold": 300
       },
       "effects": [[1, 33, 0, -1, 54], [1, 234, 0, -1, 5], [1, 178, 1, -1, 4], [1, 179, 1, -1, 4]],
+      "icon": 33,
       "internalName": "First Crusade",
       "locations": [
         {
@@ -9834,6 +10498,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Hauberk",
       "locations": [
         {
@@ -9854,6 +10519,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 22,
       "internalName": "Chain Mail Armor",
       "locations": [
         {
@@ -9870,6 +10536,7 @@
       "civ": 36,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Gunpowder units +25% attack",
       "locations": [],
       "name": "C-Bonus, Gunpowder units +25% attack",
@@ -9884,6 +10551,7 @@
         "gold": 150
       },
       "effects": [],
+      "icon": 64,
       "internalName": "Plate Mail Armor",
       "locations": [
         {
@@ -9900,6 +10568,7 @@
       "civ": 37,
       "cost": {},
       "effects": [[5, 82, -1, 101, 0.6667], [5, 621, -1, 101, 0.5], [5, 617, -1, 101, 0.5], [5, 484, -1, 101, 0.5], [5, 597, -1, 101, 0.5], [5, -1, 27, 101, 0.6667], [5, -1, 39, 101, 0.6667], [5, -1, 52, 101, 0.6667]],
+      "icon": -1,
       "internalName": "C-Bonus, Fast Castle and TC",
       "locations": [],
       "name": "C-Bonus, Fast Castle and TC",
@@ -9910,6 +10579,7 @@
       "civ": 37,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bonus damage resistance",
       "locations": [],
       "name": "C-Bonus, Bonus damage resistance",
@@ -9920,6 +10590,7 @@
       "civ": 37,
       "cost": {},
       "effects": [[6, 69, -1, -1, 2.25]],
+      "icon": -1,
       "internalName": "C-Bonus, Farms extra food",
       "locations": [],
       "name": "C-Bonus, Farms extra food",
@@ -9930,6 +10601,7 @@
       "civ": 36,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Flemish Militia (make avail)",
       "locations": [],
       "name": "Flemish Militia (make avail)",
@@ -9940,6 +10612,7 @@
       "civ": 37,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Enable Donjon",
       "locations": [],
       "name": "C-Bonus, Enable Donjon",
@@ -9950,6 +10623,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Obuch (make avail)",
       "locations": [],
       "name": "Obuch (make avail)",
@@ -9964,6 +10638,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Obuch",
       "locations": [
         {
@@ -9980,6 +10655,7 @@
       "civ": 39,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Hussite Wagon (make avail)",
       "locations": [],
       "name": "Hussite Wagon (make avail)",
@@ -9994,6 +10670,7 @@
         "wood": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Hussite Wagon",
       "locations": [
         {
@@ -10014,6 +10691,7 @@
         "gold": 300
       },
       "effects": [[5, 38, -1, 105, 0.4], [5, 283, -1, 105, 0.4], [5, 569, -1, 105, 0.4], [5, 1813, -1, 105, 0.4]],
+      "icon": 33,
       "internalName": "Szlachta Privileges",
       "locations": [
         {
@@ -10034,6 +10712,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Lechitic Legacy",
       "locations": [
         {
@@ -10054,6 +10733,7 @@
         "gold": 300
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Wagenburg Tactics",
       "locations": [
         {
@@ -10074,6 +10754,7 @@
         "gold": 450
       },
       "effects": [[0, 125, -1, 105, 0], [0, 125, -1, 103, 100]],
+      "icon": 107,
       "internalName": "Hussite Reforms",
       "locations": [
         {
@@ -10094,6 +10775,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 125,
       "internalName": "Winged Hussar",
       "locations": [
         {
@@ -10114,6 +10796,7 @@
         "gold": 800
       },
       "effects": [],
+      "icon": 126,
       "internalName": "Houfnice",
       "locations": [
         {
@@ -10130,6 +10813,7 @@
       "civ": 35,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Winged Hussar (Lithuanians)",
       "locations": [],
       "name": "Winged Hussar (Lithuanians)",
@@ -10140,6 +10824,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Winged Hussar (Poles)",
       "locations": [],
       "name": "Winged Hussar (Poles)",
@@ -10152,6 +10837,7 @@
         "food": 1
       },
       "effects": [],
+      "icon": -1,
       "internalName": "Winged Hussar (L. post-imperial)",
       "locations": [],
       "name": "Winged Hussar (L. post-imperial)",
@@ -10164,6 +10850,7 @@
         "food": 1
       },
       "effects": [],
+      "icon": -1,
       "internalName": "Winged Hussar (P. post-imperial)",
       "locations": [],
       "name": "Winged Hussar (P. post-imperial)",
@@ -10174,6 +10861,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager regeneration",
       "locations": [],
       "name": "C-Bonus, Villager regeneration",
@@ -10184,6 +10872,7 @@
       "civ": 38,
       "cost": {},
       "effects": [[1, 237, 0, 36, 0.1], [1, 238, 0, -1, 0], [1, 239, 0, -1, 68]],
+      "icon": -1,
       "internalName": "C-Bonus, Enable Folwark",
       "locations": [],
       "name": "Folwark",
@@ -10194,6 +10883,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Folwark Age2 upgrade",
       "locations": [],
       "name": "Folwark Age2 upgrade",
@@ -10204,6 +10894,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Folwark Age3 upgrade",
       "locations": [],
       "name": "Folwark Age3 upgrade",
@@ -10214,6 +10905,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Folwark Age4 upgrade",
       "locations": [],
       "name": "Folwark Age4 upgrade",
@@ -10227,6 +10919,7 @@
         "food": 75
       },
       "effects": [],
+      "icon": 69,
       "internalName": "Town Watch",
       "locations": [
         {
@@ -10247,6 +10940,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 65,
       "internalName": "Plate Barding Armor",
       "locations": [
         {
@@ -10263,6 +10957,7 @@
       "civ": 39,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Bonus damage increase",
       "locations": [],
       "name": "C-Bonus, Bonus damage increase",
@@ -10273,6 +10968,7 @@
       "civ": 39,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager Sanctity",
       "locations": [],
       "name": "C-Bonus, Villager Sanctity",
@@ -10283,6 +10979,7 @@
       "civ": 39,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager Fervor",
       "locations": [],
       "name": "C-Bonus, Villager Fervor",
@@ -10293,6 +10990,7 @@
       "civ": 38,
       "cost": {},
       "effects": [[1, 241, -1, -1, 33.3333], [1, 33, 0, -1, 13]],
+      "icon": -1,
       "internalName": "C-Bonus, Stone Miners generate gold",
       "locations": [],
       "name": "C-Bonus, Stone Miners generate gold",
@@ -10303,6 +11001,7 @@
       "civ": 39,
       "cost": {},
       "effects": [[4, 103, -1, 104, -100], [4, 105, -1, 104, -100], [4, 18, -1, 104, -100], [4, 19, -1, 104, -100], [4, 209, -1, 104, -100], [4, 210, -1, 104, -100]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheap buildings",
       "locations": [],
       "name": "C-Bonus, Cheap buildings",
@@ -10313,6 +11012,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager regeneration age2",
       "locations": [],
       "name": "C-Bonus, Villager regeneration age2",
@@ -10326,6 +11026,7 @@
         "food": 150
       },
       "effects": [],
+      "icon": 66,
       "internalName": "Scale Barding Armor",
       "locations": [
         {
@@ -10342,6 +11043,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager regeneration age3",
       "locations": [],
       "name": "C-Bonus, Villager regeneration age3",
@@ -10352,6 +11054,7 @@
       "civ": 38,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Villager regeneration age4",
       "locations": [],
       "name": "C-Bonus, Villager regeneration age4",
@@ -10366,6 +11069,7 @@
         "gold": 150
       },
       "effects": [],
+      "icon": 23,
       "internalName": "Chain Barding Armor",
       "locations": [
         {
@@ -10382,6 +11086,7 @@
       "civ": 40,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Urumi Swordsman (make avail)",
       "locations": [],
       "name": "Urumi Swordsman (make avail)",
@@ -10396,6 +11101,7 @@
         "gold": 450
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Urumi Swordsman",
       "locations": [
         {
@@ -10412,6 +11118,7 @@
       "civ": 41,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Ratha (make avail)",
       "locations": [],
       "name": "Ratha (make avail)",
@@ -10426,6 +11133,7 @@
         "wood": 800
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Ratha",
       "locations": [
         {
@@ -10442,6 +11150,7 @@
       "civ": 42,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Chakram Thrower (make avail)",
       "locations": [],
       "name": "Chakram Thrower (make avail)",
@@ -10456,6 +11165,7 @@
         "gold": 650
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Chakram Thrower",
       "locations": [
         {
@@ -10476,6 +11186,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Medical Corps",
       "locations": [
         {
@@ -10496,6 +11207,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Wootz Steel",
       "locations": [
         {
@@ -10516,6 +11228,7 @@
         "wood": 375
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Paiks",
       "locations": [
         {
@@ -10536,6 +11249,7 @@
         "wood": 800
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Mahayana",
       "locations": [
         {
@@ -10556,6 +11270,7 @@
         "gold": 450
       },
       "effects": [[5, -1, 0, 103, 0.75], [5, -1, 35, 103, 0.75], [5, -1, 6, 103, 0.75], [5, -1, 36, 103, 0.75], [5, -1, 47, 103, 0.75], [5, -1, 12, 103, 0.75], [5, -1, 44, 103, 0.75], [5, -1, 23, 103, 0.75]],
+      "icon": 33,
       "internalName": "Kshatriyas",
       "locations": [
         {
@@ -10576,6 +11291,7 @@
         "gold": 700
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Frontier Guards",
       "locations": [
         {
@@ -10592,6 +11308,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Armored Elephant (make avail)",
       "locations": [],
       "name": "Armored Elephant (make avail)",
@@ -10605,6 +11322,7 @@
         "food": 850
       },
       "effects": [],
+      "icon": 128,
       "internalName": "Elite Armored Elephant",
       "locations": [
         {
@@ -10621,6 +11339,7 @@
       "civ": 20,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Ghulam (make avail)",
       "locations": [],
       "name": "Ghulam (make avail)",
@@ -10631,6 +11350,7 @@
       "civ": 14,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Missionary (avail)",
       "locations": [],
       "name": "Missionary (avail)",
@@ -10645,6 +11365,7 @@
         "gold": 575
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Ghulam",
       "locations": [
         {
@@ -10661,6 +11382,7 @@
       "civ": 40,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Thirisadai (make avail)",
       "locations": [],
       "name": "Thirisadai (make avail)",
@@ -10671,6 +11393,7 @@
       "civ": 42,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Shrivamsha Rider (make avail)",
       "locations": [],
       "name": "Shrivamsha Rider (make avail)",
@@ -10685,6 +11408,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Shrivamsha Rider",
       "locations": [
         {
@@ -10701,6 +11425,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[4, -1, 21, 14, 15], [4, 56, -1, 14, 15], [4, 57, -1, 14, 15], [4, 2333, -1, 14, 15], [4, 2334, -1, 14, 15]],
+      "icon": -1,
       "internalName": "C-Bonus, Fish carry",
       "locations": [],
       "name": "C-Bonus, Fish carry",
@@ -10711,6 +11436,7 @@
       "civ": 40,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Skirm and EA faster attack",
       "locations": [],
       "name": "C-Bonus, Skirm and EA faster attack",
@@ -10721,6 +11447,7 @@
       "civ": 41,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Elephant resistance",
       "locations": [],
       "name": "C-Bonus, Elephant resistance",
@@ -10731,6 +11458,7 @@
       "civ": 41,
       "cost": {},
       "effects": [[1, 234, 0, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers in age2",
       "locations": [],
       "name": "C-Bonus, Villagers in age2",
@@ -10741,6 +11469,7 @@
       "civ": 41,
       "cost": {},
       "effects": [[1, 234, 0, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers in age3",
       "locations": [],
       "name": "C-Bonus, Villagers in age3",
@@ -10751,6 +11480,7 @@
       "civ": 41,
       "cost": {},
       "effects": [[1, 234, 0, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers in age4",
       "locations": [],
       "name": "C-Bonus, Villagers in age4",
@@ -10761,6 +11491,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Hand Cannoneer",
       "locations": [],
       "name": "Hand Cannon",
@@ -10771,6 +11502,7 @@
       "civ": 41,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Ships regenerate",
       "locations": [],
       "name": "C-Bonus, Ships regenerate",
@@ -10781,6 +11513,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[1, 1, 1, -1, 200]],
+      "icon": -1,
       "internalName": "C-Bonus, +200w in age2",
       "locations": [],
       "name": "C-Bonus, +200w in age2",
@@ -10791,6 +11524,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[1, 1, 1, -1, 200]],
+      "icon": -1,
       "internalName": "C-Bonus, +200w in age3",
       "locations": [],
       "name": "C-Bonus, +200w in age3",
@@ -10801,6 +11535,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[1, 1, 1, -1, 200]],
+      "icon": -1,
       "internalName": "C-Bonus, +200w in age4",
       "locations": [],
       "name": "C-Bonus, +200w in age4",
@@ -10811,6 +11546,7 @@
       "civ": 42,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +20% Cav bonus damage",
       "locations": [],
       "name": "C-Bonus, +20% Cav bonus damage",
@@ -10821,6 +11557,7 @@
       "civ": 42,
       "cost": {},
       "effects": [[1, 254, 0, -1, 15]],
+      "icon": -1,
       "internalName": "C-Bonus, Herdables garrison",
       "locations": [],
       "name": "C-Bonus, Herdables garrison",
@@ -10831,6 +11568,7 @@
       "civ": 42,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Start w/ 2 bushes",
       "locations": [],
       "name": "C-Bonus, Start w/ 2 bushes",
@@ -10841,6 +11579,7 @@
       "civ": 42,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +30% Cav bonus damage",
       "locations": [],
       "name": "C-Bonus, +30% Cav bonus damage",
@@ -10851,6 +11590,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Upgrade Camel Scouts to Riders",
       "locations": [],
       "name": "Upgrade Camel Scouts to Riders",
@@ -10861,6 +11601,7 @@
       "civ": 31,
       "cost": {},
       "effects": [[6, 266, -1, -1, 1.2]],
+      "icon": -1,
       "internalName": "Paper Money + Double-Bit Axe",
       "locations": [],
       "name": "Paper Money + Double-Bit Axe",
@@ -10871,6 +11612,7 @@
       "civ": 31,
       "cost": {},
       "effects": [[6, 266, -1, -1, 1.2]],
+      "icon": -1,
       "internalName": "Paper Money + Bow Saw",
       "locations": [],
       "name": "Paper Money + Bow Saw",
@@ -10881,6 +11623,7 @@
       "civ": 31,
       "cost": {},
       "effects": [[6, 266, -1, -1, 1.1]],
+      "icon": -1,
       "internalName": "Paper Money + Two-Man Saw",
       "locations": [],
       "name": "Paper Money + Two-Man Saw",
@@ -10891,6 +11634,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Spearman (make avail)",
       "locations": [],
       "name": "Spearman (make avail)",
@@ -10901,6 +11645,7 @@
       "civ": 41,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Monk armor",
       "locations": [],
       "name": "C-Bonus, Monk armor",
@@ -10911,6 +11656,7 @@
       "civ": 25,
       "cost": {},
       "effects": [[1, 0, 1, -1, 100], [1, 3, 1, -1, 100]],
+      "icon": -1,
       "internalName": "C-Bonus, +100f, +100g GS",
       "locations": [],
       "name": "C-Bonus, +100f, +100g GS",
@@ -10921,6 +11667,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[1, 1, 1, -1, 200]],
+      "icon": -1,
       "internalName": "C-Bonus, +200w GS",
       "locations": [],
       "name": "C-Bonus, +200w GS",
@@ -10931,6 +11678,7 @@
       "civ": 41,
       "cost": {},
       "effects": [[1, 234, 0, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, +2vill GS",
       "locations": [],
       "name": "C-Bonus, +2vill GS",
@@ -10941,6 +11689,7 @@
       "civ": 42,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, +40% Cav bonus damage",
       "locations": [],
       "name": "C-Bonus, +40% Cav bonus damage",
@@ -10955,6 +11704,7 @@
         "gold": 100
       },
       "effects": [],
+      "icon": 116,
       "internalName": "Gambesons",
       "locations": [
         {
@@ -10971,6 +11721,7 @@
       "civ": 40,
       "cost": {},
       "effects": [[5, -1, 13, 104, 0.6667], [5, -1, 51, 104, 0.6667], [5, -1, 54, 104, 0.6667], [5, -1, 55, 104, 0.6667]],
+      "icon": -1,
       "internalName": "C-Bonus, Siege wood discount",
       "locations": [],
       "name": "C-Bonus, Siege wood discount",
@@ -10981,6 +11732,7 @@
       "civ": 41,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry vs Skirm",
       "locations": [],
       "name": "C-Bonus, Cavalry vs Skirm",
@@ -10991,6 +11743,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Centurion (make avail)",
       "locations": [],
       "name": "Centurion (make avail)",
@@ -11005,6 +11758,7 @@
         "gold": 900
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Centurion",
       "locations": [
         {
@@ -11025,6 +11779,7 @@
         "wood": 400
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Ballistas",
       "locations": [
         {
@@ -11045,6 +11800,7 @@
         "gold": 800
       },
       "effects": [[5, 38, -1, 101, 0.6667], [5, 283, -1, 101, 0.6667], [5, 569, -1, 101, 0.6667], [5, 1813, -1, 101, 0.6667], [5, 74, -1, 101, 0.6667], [5, 75, -1, 101, 0.6667], [5, 77, -1, 101, 0.6667], [5, 473, -1, 101, 0.6667], [5, 567, -1, 101, 0.6667], [5, 1793, -1, 101, 0.6667], [5, 1790, -1, 101, 0.6667], [5, 1792, -1, 101, 0.6667]],
+      "icon": 107,
       "internalName": "Comitatenses",
       "locations": [
         {
@@ -11065,6 +11821,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 129,
       "internalName": "Legionary",
       "locations": [
         {
@@ -11081,6 +11838,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Dromon (make avail)",
       "locations": [],
       "name": "Dromon (make avail)",
@@ -11091,6 +11849,7 @@
       "civ": 43,
       "cost": {},
       "effects": [[5, -1, 4, 13, 1.05], [5, 214, -1, 13, 1.0381], [5, 259, -1, 13, 1.0381], [5, 50, -1, 13, 1.05], [5, 1187, -1, 13, 1.05]],
+      "icon": -1,
       "internalName": "C-Bonus, Villagers work faster",
       "locations": [],
       "name": "C-Bonus, Villagers work faster",
@@ -11101,6 +11860,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Navy armor",
       "locations": [],
       "name": "C-Bonus, Navy armor",
@@ -11111,6 +11871,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Scale Mail",
       "locations": [],
       "name": "C-Bonus, Double Scale Mail",
@@ -11121,6 +11882,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Chain Mail",
       "locations": [],
       "name": "C-Bonus, Double Chain Mail",
@@ -11131,6 +11893,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Plate Mail",
       "locations": [],
       "name": "C-Bonus, Double Plate Mail",
@@ -11141,6 +11904,7 @@
       "civ": 43,
       "cost": {},
       "effects": [[5, 279, -1, 105, 0.5], [5, 542, -1, 105, 0.5]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheaper scorpions",
       "locations": [],
       "name": "C-Bonus, Cheaper scorpions",
@@ -11151,6 +11915,7 @@
       "civ": 43,
       "cost": {},
       "effects": [],
+      "icon": 0,
       "internalName": "[FTT] Disable militia upgrades",
       "locations": [],
       "name": "[FTT] Disable militia upgrades",
@@ -11161,6 +11926,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry +10% speed",
       "locations": [],
       "name": "C-Bonus, Infantry +10% speed",
@@ -11171,6 +11937,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry +15% speed",
       "locations": [],
       "name": "C-Bonus, Infantry +15% speed",
@@ -11181,6 +11948,7 @@
       "civ": 13,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Infantry +20% speed",
       "locations": [],
       "name": "C-Bonus, Infantry +20% speed",
@@ -11191,6 +11959,7 @@
       "civ": 19,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Archers +1/+1 armor",
       "locations": [],
       "name": "C-Bonus, Archers +1/+1 armor",
@@ -11205,6 +11974,7 @@
         "gold": 500
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Pirotecnia",
       "locations": [
         {
@@ -11221,6 +11991,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Hulk (make avail)",
       "locations": [],
       "name": "Hulk (make avail)",
@@ -11232,6 +12003,7 @@
       "civs": ["Armenians", "Aztecs", "Bengalis", "Berbers", "Bohemians", "Bulgarians", "Burgundians", "Burmese", "Byzantines", "Celts", "Chinese", "Cumans", "Dravidians", "Ethiopians", "Franks", "Goths", "Gurjaras", "Hindustanis", "Incas", "Italians", "Japanese", "Jurchens", "Khitans", "Khmer", "Koreans", "Magyars", "Malay", "Malians", "Mapuche", "Mayans", "Muisca", "Persians", "Poles", "Portuguese", "Saracens", "Saxons", "Shu", "Sicilians", "Slavs", "Spanish", "Tatars", "Teutons", "Turks", "Varangians", "Vietnamese", "Vikings", "Wei", "Wu"],
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Carrack",
       "locations": [],
       "name": "Carrack",
@@ -11246,6 +12018,7 @@
         "wood": 25
       },
       "effects": [],
+      "icon": 139,
       "internalName": "Demolition Ship",
       "locations": [
         {
@@ -11266,6 +12039,7 @@
         "wood": 100
       },
       "effects": [[5, -1, 21, 13, 1.1], [4, -1, 21, 14, 5]],
+      "icon": 140,
       "internalName": "Fishing Lines",
       "locations": [
         {
@@ -11286,6 +12060,7 @@
         "wood": 200
       },
       "effects": [[5, -1, 2, 13, 1.1]],
+      "icon": 141,
       "internalName": "Carvel Hull",
       "locations": [
         {
@@ -11306,6 +12081,7 @@
         "wood": 100
       },
       "effects": [[5, -1, 2, 13, 1.1]],
+      "icon": 142,
       "internalName": "Clinker Construction",
       "locations": [
         {
@@ -11326,6 +12102,7 @@
         "gold": 175
       },
       "effects": [],
+      "icon": 40,
       "internalName": "Carvel Hull",
       "locations": [
         {
@@ -11346,6 +12123,7 @@
         "gold": 325
       },
       "effects": [],
+      "icon": 143,
       "internalName": "Clinker Construction",
       "locations": [
         {
@@ -11362,6 +12140,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Galleon",
       "locations": [],
       "name": "Galleon",
@@ -11372,6 +12151,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Catapult Galleon (make avail)",
       "locations": [],
       "name": "Catapult Galleon (make avail)",
@@ -11382,6 +12162,7 @@
       "civ": 44,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Composite Bowman (make avail)",
       "locations": [],
       "name": "Composite Bowman (make avail)",
@@ -11396,6 +12177,7 @@
         "wood": 600
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Composite Bowman",
       "locations": [
         {
@@ -11412,6 +12194,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Monaspa (make avail)",
       "locations": [],
       "name": "Monaspa (make avail)",
@@ -11426,6 +12209,7 @@
         "gold": 700
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Monaspa",
       "locations": [
         {
@@ -11446,6 +12230,7 @@
         "gold": 400
       },
       "effects": [[5, 1811, -1, 13, 2], [5, 1826, -1, 13, 2], [5, 1827, -1, 13, 2]],
+      "icon": 107,
       "internalName": "Fereters",
       "locations": [
         {
@@ -11466,6 +12251,7 @@
         "wood": 350
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Cilician Fleet",
       "locations": [
         {
@@ -11486,6 +12272,7 @@
         "gold": 200
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Svan Towers",
       "locations": [
         {
@@ -11506,6 +12293,7 @@
         "gold": 250
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Aznauri Cavalry",
       "locations": [
         {
@@ -11522,6 +12310,7 @@
       "civ": 45,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Start w/ mule cart",
       "locations": [],
       "name": "C-Bonus, Start w/ mule cart",
@@ -11532,6 +12321,7 @@
       "civ": 45,
       "cost": {},
       "effects": [[1, 272, 1, -1, 0], [1, 273, 1, -1, -0.15]],
+      "icon": -1,
       "internalName": "C-Bonus, Elevation Bonus Defense",
       "locations": [],
       "name": "C-Bonus, Elevation Bonus Defense",
@@ -11546,6 +12336,7 @@
         "wood": 300
       },
       "effects": [],
+      "icon": 25,
       "internalName": "Ballistics",
       "locations": [
         {
@@ -11562,6 +12353,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fortified Church (Georgians)",
       "locations": [],
       "name": "Fortified Church (Georgians)",
@@ -11572,6 +12364,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mule Cart (make avail)",
       "locations": [],
       "name": "Mule Cart (make avail)",
@@ -11582,6 +12375,7 @@
       "civ": 45,
       "cost": {},
       "effects": [[1, 33, 0, -1, 9]],
+      "icon": -1,
       "internalName": "C-Bonus, Fortified Church area effect",
       "locations": [],
       "name": "C-Bonus, Fortified Church area effect",
@@ -11592,6 +12386,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry regeneration age2",
       "locations": [],
       "name": "C-Bonus, Cavalry regeneration age2",
@@ -11602,6 +12397,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry regeneration age3",
       "locations": [],
       "name": "C-Bonus, Cavalry regeneration age3",
@@ -11612,6 +12408,7 @@
       "civ": 45,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Cavalry regeneration age4",
       "locations": [],
       "name": "C-Bonus, Cavalry regeneration age4",
@@ -11622,6 +12419,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Scorpion",
       "locations": [],
       "name": "Scorpion",
@@ -11632,6 +12430,7 @@
       "civ": 44,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Mule Cart (make avail)",
       "locations": [],
       "name": "Mule Cart (make avail)",
@@ -11642,6 +12441,7 @@
       "civ": 44,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fortified Church (Armenians)",
       "locations": [],
       "name": "Fortified Church (Armenians)",
@@ -11652,6 +12452,7 @@
       "civ": 44,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Warrior Priest (make avail)",
       "locations": [],
       "name": "Warrior Priest (make avail)",
@@ -11662,6 +12463,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Free Relic",
       "locations": [],
       "name": "C-Bonus, Free Relic",
@@ -11672,6 +12474,7 @@
       "civ": 10,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus: free Hussars",
       "locations": [],
       "name": "C-Bonus: free Hussars",
@@ -11682,6 +12485,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[1, 234, 0, -1, 1], [1, 283, 0, -1, 1], [1, 283, 0, -1, 0]],
+      "icon": -1,
       "internalName": "C-Bonus, Free Relic2",
       "locations": [],
       "name": "C-Bonus, Free Relic2",
@@ -11692,6 +12496,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 1808, -1, 100, 0.75]],
+      "icon": -1,
       "internalName": "C-Bonus, Cheaper Mule Cart",
       "locations": [],
       "name": "C-Bonus, Cheaper Mule Cart",
@@ -11702,6 +12507,7 @@
       "civ": 44,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Navy +1 projectile",
       "locations": [],
       "name": "C-Bonus, Navy +1 projectile",
@@ -11715,6 +12521,7 @@
         "food": 300
       },
       "effects": [],
+      "icon": 27,
       "internalName": "Capped Ram",
       "locations": [
         {
@@ -11731,6 +12538,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 218, -1, 13, 1.0667], [5, 123, -1, 13, 1.0667]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Double-Bit Axe",
       "locations": [],
       "name": "C-Bonus, +% Double-Bit Axe",
@@ -11741,6 +12549,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 218, -1, 13, 1.0667], [5, 123, -1, 13, 1.0667]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Bow Saw",
       "locations": [],
       "name": "C-Bonus, +% Bow Saw",
@@ -11751,6 +12560,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 218, -1, 13, 1.0364], [5, 123, -1, 13, 1.0364]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Two-Man Saw",
       "locations": [],
       "name": "C-Bonus, +% Two-Man Saw",
@@ -11761,6 +12571,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 581, -1, 13, 1.0522], [5, 579, -1, 13, 1.0522]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Gold Mining",
       "locations": [],
       "name": "C-Bonus, +% Gold Mining",
@@ -11771,6 +12582,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 581, -1, 13, 1.0522], [5, 579, -1, 13, 1.0522]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Gold Shaft Mining",
       "locations": [],
       "name": "C-Bonus, +% Gold Shaft Mining",
@@ -11781,6 +12593,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 124, -1, 13, 1.0522], [5, 220, -1, 13, 1.0522]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Stone Mining",
       "locations": [],
       "name": "C-Bonus, +% Stone Mining",
@@ -11791,6 +12604,7 @@
       "civ": 44,
       "cost": {},
       "effects": [[5, 124, -1, 13, 1.0522], [5, 220, -1, 13, 1.0522]],
+      "icon": -1,
       "internalName": "C-Bonus, +% Stone Shaft Mining",
       "locations": [],
       "name": "C-Bonus, +% Stone Shaft Mining",
@@ -11801,6 +12615,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Rocket Cart (make avail)",
       "locations": [],
       "name": "Rocket Cart (make avail)",
@@ -11815,6 +12630,7 @@
         "wood": 230
       },
       "effects": [],
+      "icon": 28,
       "internalName": "Elite Skirmisher",
       "locations": [
         {
@@ -11835,6 +12651,7 @@
         "wood": 800
       },
       "effects": [],
+      "icon": 133,
       "internalName": "Heavy Rocket Cart",
       "locations": [
         {
@@ -11851,6 +12668,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Fire Lancer (make avail)",
       "locations": [],
       "name": "Fire Lancer (make avail)",
@@ -11865,6 +12683,7 @@
         "gold": 400
       },
       "effects": [],
+      "icon": 134,
       "internalName": "Elite Fire Lancer",
       "locations": [
         {
@@ -11881,6 +12700,7 @@
       "civ": 6,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Fire Lancer/Ship speed Castle",
       "locations": [],
       "name": "C-Bonus, Fire Lancer/Ship speed Castle",
@@ -11891,6 +12711,7 @@
       "civ": 6,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Fire Lancer/Ship speed Imp",
       "locations": [],
       "name": "C-Bonus, Fire Lancer/Ship speed Imp",
@@ -11901,6 +12722,7 @@
       "civ": -1,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Skirmisher (make avail)",
       "locations": [],
       "name": "Skirmisher (make avail)",
@@ -11911,6 +12733,7 @@
       "civ": 52,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Iron Pagoda (make avail)",
       "locations": [],
       "name": "Iron Pagoda (make avail)",
@@ -11925,6 +12748,7 @@
         "gold": 550
       },
       "effects": [],
+      "icon": 105,
       "internalName": "Elite Iron Pagoda",
       "locations": [
         {
@@ -11941,6 +12765,7 @@
       "civ": 52,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "Grenadier (make avail)",
       "locations": [],
       "name": "Grenadier (make avail)",
@@ -11951,6 +12776,7 @@
       "civ": 52,
       "cost": {},
       "effects": [[1, 292, 0, -1, 1]],
+      "icon": -1,
       "internalName": "C-Bonus, Animals don't decay",
       "locations": [],
       "name": "C-Bonus, Animals don't decay",
@@ -11961,6 +12787,7 @@
       "civ": 52,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, cav & Fire Lancer +25% attack",
       "locations": [],
       "name": "C-Bonus, cav & Fire Lancer +25% attack",
@@ -11971,6 +12798,7 @@
       "civ": 52,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, SIege and Defensive techs",
       "locations": [],
       "name": "C-Bonus, SIege and Defensive techs",
@@ -11985,6 +12813,7 @@
         "wood": 250
       },
       "effects": [],
+      "icon": 33,
       "internalName": "Fortifed Bastions",
       "locations": [
         {
@@ -12005,6 +12834,7 @@
         "gold": 600
       },
       "effects": [],
+      "icon": 107,
       "internalName": "Thunderclap Bombs",
       "locations": [
         {
@@ -12021,6 +12851,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Forging",
       "locations": [],
       "name": "C-Bonus, Double Forging",
@@ -12031,6 +12862,7 @@
       "civ": 53,
       "cost": {},
       "effects": [],
+      "icon": -1,
       "internalName": "C-Bonus, Double Iron Casting",
       "locations": [],
       "name": "C-Bonus, Double Iron Casting",
