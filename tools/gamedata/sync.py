@@ -9,23 +9,35 @@ Everything the game data cannot tell (name mappings, exceptions, meaning of spec
 values) comes from config.json, see README.md.
 """
 import json
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable, Optional
 
-from jsonedit import Doc
+from jsonedit import Doc, render
 
 ROOT = Path(__file__).resolve().parents[2]
+# Costs and effects at the last tech tree update, see write_techtree_baseline()
+TECHTREE_BASELINE = Path(__file__).resolve().parent / 'techtree-baseline.json'
 SRC = ROOT / 'src'
 IMG = SRC / 'img'
+CIV_RANKING_JS = 'civ-ranking.js'  # relative to SRC
 
 COST_RESOURCES = ('food', 'wood', 'gold', 'stone')
 FLOAT_TOLERANCE = 0.002
 
 # Engine IDs, see the effect format in extract.py
 EFFECT_RESOURCE_MODIFY = 1
+EFFECT_RESOURCE_TYPES = {1, 6, 11, 16}  # modify / multiply, 10+ are the team bonus variants
 EFFECT_ATTRIBUTE_MULTIPLY = {5, 15}  # 15 is the team bonus variant
+EFFECT_ATTRIBUTE_ADD = {4, 14}
+EFFECT_ATTRIBUTE_SET = {0, 10}
+EFFECT_TEAM_TYPES = {10, 14, 15}  # the attribute effects above that also apply to allies
 ATTRIBUTE_WORK_RATE, ATTRIBUTE_TRAIN_TIME = 13, 101
+ATTRIBUTE_COST = 100  # all resources of the cost at once
+ATTRIBUTE_COST_RESOURCES = {103: 'food', 104: 'wood', 105: 'gold', 106: 'stone'}
+AGE_BY_TECH = {101: 2, 102: 3, 103: 4}
+AGE_NAMES = {1: 'Dark', 2: 'Feudal', 3: 'Castle', 4: 'Imperial'}
 UNIT_CLASS_CIVILIAN = 4
 UNIT_TYPE_CREATABLE = 70  # trainable units, as opposed to buildings, projectiles etc.
 AGE_TECHS = {101, 102, 103, 104}
@@ -38,16 +50,26 @@ ECONOMY_FIELDS = ['trainTime']
 STAT_FIELDS = ['hp', 'mAtk', 'pAtk', 'mDef', 'pDef', 'range', 'minimumRange', 'speed', 'rateOfFire',
                'accuracy', 'projSpeed', 'blastRadius', 'lineOfSight', 'garrison', 'ageReq']
 UPGRADE_EFFECT_FIELDS = ['hp', 'mAtk', 'pAtk', 'mDef', 'pDef', 'range', 'speed', 'lineOfSight', 'rateOfFire']
-# unitsShow.json: the unique unit group starts with trebuchet and petard, the unique units follow alphabetically
-UNIQUE_GROUP_FIXED_ENTRIES = 2
 
 
 @dataclass
 class Finding:
-    kind: str  # 'diff' (project differs from the game), 'new' (missing in the project) or 'info'
+    # 'diff' (project differs from the game), 'new' (missing in the project), 'info' or 'ranking'
+    # (a tech tree change the maintainer has to rate)
+    kind: str
     where: str
     message: str
     apply: Optional[Callable] = field(default=None, repr=False)
+
+
+@dataclass
+class VarietyCandidate:
+    """A unitVariety.json entry derived from the game data, see Sync.variety_candidates()."""
+    section: str  # 'civs' or 'upgrades'
+    key: str
+    values: dict
+    owner: tuple  # the game source: ('tech', tech ID), (civ, 'civ') or (civ, 'team')
+    tech_ids: list
 
 
 def values_match(a, b):
@@ -69,10 +91,16 @@ def load_json(path):
 class Sync:
     def __init__(self, snapshot, config, stats=False):
         """`stats` also checks combat stats, which only the unmaintained tech tree pages use."""
+        # Without these fields check_variety() would remove the bonuses they hold
+        if any('techTreeBonus' not in civ or 'teamTechs' not in civ for civ in snapshot['civs'].values()):
+            raise SystemExit('snapshot.json was written by an older version of extract.py. Run "update" or "extract" first.')
         self.snapshot, self.config, self.stats = snapshot, config, stats
         # Project unit name -> game ID for names that cannot be found by the game name
         self.pinned_units = {**config['units'], **config['renames']}
         self.units = {int(k): v for k, v in snapshot['units'].items()}
+        for unit_id, civs in config['unitCivs'].items():
+            if int(unit_id) in self.units:
+                self.units[int(unit_id)]['civs'] = civs
         self.techs = {int(k): v for k, v in snapshot['techs'].items()}
         self.civ_count = snapshot['meta']['civCount']
         self.findings = []
@@ -189,6 +217,25 @@ class Sync:
     def gatherer_group_by_unit(self):
         """Villager task unit ID -> key in config.json "gatherers"."""
         return {unit_id: key for key, group in self.config['gatherers'].items() for unit_id in group['units']}
+
+    def resource_types(self):
+        """Project resource name -> what it yields ('food', 'wood', 'gold', 'stone').
+
+        order.json has one group per yield; the villager gather rates in data.json tell which one.
+        """
+        gathering = self.data.root['units'].find('name', 'villager')['gathering'].value()
+        types = {}
+        for group in self.order.root.value():
+            names = [item['name'] for item in group]
+            types.update(dict.fromkeys(names, next(gathering[n]['res'] for n in names if n in gathering)))
+        return types
+
+    def special_targets(self, special):
+        """Project resources a config.json "specialResources" bonus of kind "ecoBonus" applies to: the
+        resources of the listed "gatherers", or all resources of the yield "res" except the listed ones."""
+        if 'gatherers' in special:
+            return [r for group in special['gatherers'] for r in self.config['gatherers'][group]['resources']]
+        return [r for r, res in self.resource_types().items() if res == special['res'] and r not in special['except']]
 
     def project_values(self, unit):
         """A snapshot unit in the field names of data.json.
@@ -340,47 +387,330 @@ class Sync:
                 self.add('info', 'config.json gatherers', f'unknown gatherer in the game: {unit["name"]} '
                          f'(ID {unit_id}, rate {unit["workRate"]}) - new resource? Add it to config.json "gatherers"')
 
-    def train_speed_factor(self, tech, unit):
-        """Training speed multiplier (>1 = faster) a tech gives a unit, as unitVariety.json stores it.
+    def check_resources(self):
+        """Compare the resources in order.json with config.json "gatherers": civ bonuses on a villager
+        task only reach the resources listed there, so a missing one would silently get no bonus."""
+        assigned = {r for group in self.config['gatherers'].values() for r in group['resources']}
+        project = set(self.resource_types())
+        for resource in sorted(project - assigned - set(self.derived.root.keys()) - set(self.config['otherResources'])):
+            self.add('info', f'order.json {resource}', 'not assigned to a villager task. Add it to the right group '
+                     'in config.json "gatherers", or to "otherResources" if no villager gathers it')
+        for resource in sorted((assigned | set(self.config['otherResources'])) - project):
+            self.add('info', f'config.json {resource}', 'not in order.json (renamed or removed?)')
 
-        Techs either shorten the train time of the unit or raise the work rate of the building
-        that trains it (Kasbah). `unit` needs its ID under 'id'. Returns None if the tech does neither.
+    def building_at(self, building_id, age):
+        """The variant of a building in an age. Most buildings are replaced by a new unit in each
+        age (Dock 45 -> 133 -> 47 -> 51), and some bonuses give each variant its own value (Persians)."""
+        variant, variant_age = building_id, 1
+        for target, tech_id in self.units.get(building_id, {}).get('upgradesTo', []):
+            target_age = AGE_BY_TECH.get(tech_id)
+            if target_age and variant_age < target_age <= age:
+                variant, variant_age = target, target_age
+        return variant
+
+    def training_values(self, effects, unit, age):
+        """unitVariety.json values for what `effects` do to training `unit` (needs its ID under 'id') in `age`.
+
+        Train time becomes a speed factor (>1 = faster). It also covers techs that raise the work rate
+        of a building that trains the unit (Kasbah); if the unit has several, the fastest one counts,
+        since one tech often speeds up all of them (Conscription). Cost multipliers become the share
+        saved (costPercent), added or set amounts the amount added. Returns {} if the effects do neither.
         """
-        factor = None
-        locations = {location['location'] for location in unit.get('trainLocations', [])[:1]}
-        for effect_type, unit_id, unit_class, attribute, value in tech['effects']:
-            if effect_type not in EFFECT_ATTRIBUTE_MULTIPLY or not value:
+        speed, factors, amounts = 1, {}, {}
+        base_cost = unit.get('cost', {})
+        work_rates = {self.building_at(location['location'], age): 1 for location in unit.get('trainLocations', [])}
+        for effect_type, unit_id, unit_class, attribute, value in effects:
+            multiply = effect_type in EFFECT_ATTRIBUTE_MULTIPLY
+            if multiply and attribute == ATTRIBUTE_WORK_RATE and unit_id in work_rates:
+                work_rates[unit_id] *= value
+            if not (unit_id == unit['id'] or (unit_id == -1 and unit_class == unit['class'])):
                 continue
-            hits_unit = unit_id == unit['id'] or (unit_id == -1 and unit_class == unit['class'])
-            if attribute == ATTRIBUTE_TRAIN_TIME and hits_unit:
-                factor = (factor or 1) / value
-            elif attribute == ATTRIBUTE_WORK_RATE and unit_id in locations:
-                factor = (factor or 1) * value
-        return factor
+            if multiply and attribute == ATTRIBUTE_TRAIN_TIME and value:
+                speed /= value
+            resources = COST_RESOURCES if attribute == ATTRIBUTE_COST else [ATTRIBUTE_COST_RESOURCES.get(attribute)]
+            for resource in filter(None, resources):
+                if multiply and base_cost.get(resource):
+                    factors[resource] = factors.get(resource, 1) * value
+                elif effect_type in EFFECT_ATTRIBUTE_ADD:
+                    amounts[resource] = amounts.get(resource, 0) + value
+                elif effect_type in EFFECT_ATTRIBUTE_SET:
+                    amounts[resource] = amounts.get(resource, 0) + value - base_cost.get(resource, 0)
+        speed *= max(work_rates.values(), default=1)
+        values = {}
+        if abs(speed - 1) > 0.001:
+            values.update(trainTime=round(speed, 2), trainTimePercent=True)
+        # The calculator cannot combine both kinds in one entry; no tech does that so far
+        shares = {r: round(1 - f, 2) for r, f in factors.items() if abs(f - 1) > 0.001}
+        if shares:
+            values.update(cost=shares, costPercent=True)
+        elif any(amounts.values()):
+            values['cost'] = {r: clean_number(a) for r, a in amounts.items() if a}
+        return values
+
+    @staticmethod
+    def tech_age(tech):
+        return max((AGE_BY_TECH[t] for t in tech['requiredTechs'] if t in AGE_BY_TECH), default=1)
+
+    def variety_candidates(self, unit_id):
+        """The unitVariety.json entries the game data gives a unit line.
+
+        - researchable techs: "upgrades", named like the tech,
+        - team bonuses: "upgrades", "<Civ> Team Bonus" (they help every civ),
+        - civ bonuses (bonus techs and the civ's tech tree effect): "civs", "<Civ> Civ Bonus", or one
+          "<Civ> - <Age> Age" entry per age with the values up to that age if they change with the ages.
+        Techs and civ bonuses only count for civs that can have the unit; techs of other civs still
+        count with their team effects (Kasbah). Units without civs in the tech trees (buildings) and
+        units a civ gives its team (Genitour) count for every civ, as do techs without civs (ages).
+        Techs in config.json "ignoreTechs" are left out.
+        """
+        all_civs = set(self.snapshot['civs'])
+        line = [unit_id, *self.upgrade_chain(unit_id)]
+        line_civs = set().union(*(self.units[i].get('civs', []) for i in line))
+        team_techs = {t for info in self.snapshot['civs'].values() for t in info['teamTechs']}
+        if not line_civs or any(team_techs & set(self.units[i].get('enabledBy', [])) for i in line):
+            line_civs = all_civs
+        # Copies of the unit with the same name are trained elsewhere (Serjeant in the castle), and
+        # techs that speed up those buildings count as well
+        name = self.units[unit_id]['name'].lower()
+        locations = [location for copy_id in self.unit_ids_by_name.get(name, [unit_id])
+                     if copy_id == unit_id or 'civs' in self.units[copy_id]
+                     for location in self.units[copy_id].get('trainLocations', [])]
+        unit = dict(self.units[unit_id], id=unit_id, trainLocations=locations)
+        ignored = set(self.config['ignoreTechs'])
+        first_age = unit.get('ageReq', 1)
+        candidates = []
+        for tech_id, tech in sorted(self.techs.items()):
+            if not self.is_researchable(tech_id) or tech_id in ignored:
+                continue
+            effects = tech['effects']
+            if not line_civs & set(tech.get('civs', all_civs)):
+                effects = [e for e in effects if e[0] in EFFECT_TEAM_TYPES]
+            values = self.training_values(effects, unit, max(first_age, tech.get('ageReq', 1)))
+            if values:
+                candidates.append(VarietyCandidate('upgrades', tech['name'], values, ('tech', tech['name'].lower()),
+                                                   [tech_id]))
+        for civ, info in sorted(self.snapshot['civs'].items()):
+            values = self.training_values(info['teamBonus'], unit, first_age)
+            if values:
+                candidates.append(VarietyCandidate('upgrades', f'{civ} Team Bonus', values, (civ, 'team'), []))
+            if civ not in line_civs:
+                continue
+            # (age, effects, tech ID); the tech tree effect has no tech
+            sources = [(1, info['techTreeBonus'], None)] + [
+                (self.tech_age(self.techs[t]), self.techs[t]['effects'], t) for t in info['bonusTechs'] if t not in ignored]
+            sources = [s for s in sources if any(self.training_values(s[1], unit, age) for age in range(first_age, 5))]
+            per_age, previous = [], {}
+            for age in range(first_age, 5):
+                values = self.training_values([e for a, effects, _ in sources if a <= age for e in effects], unit, age)
+                if values and values != previous:
+                    per_age.append((age, values))
+                previous = values
+            # Each candidate names all techs of the bonus: ignoring only some of them leaves wrong values
+            tech_ids = [t for _, _, t in sources if t is not None]
+            if len(per_age) == 1 and per_age[0][0] == first_age and all(a <= first_age for a, _, _ in sources):
+                candidates.append(VarietyCandidate('civs', f'{civ} Civ Bonus', per_age[0][1], (civ, 'civ'), tech_ids))
+            else:
+                candidates += [VarietyCandidate('civs', f'{civ} - {AGE_NAMES[age]} Age', values, (civ, 'civ'), tech_ids)
+                               for age, values in per_age]
+        return candidates
+
+    def variety_owner(self, section, key):
+        """The game source of a unitVariety.json key, as in VarietyCandidate.owner, or None.
+
+        Civ and team bonus keys may be hand-written ("Aztec Civ Bonus", "Vikings - Feudal/Castle Age",
+        "Gurjara Team Bonus"), so they are matched by the civ name at their start.
+        """
+        lower = key.lower()
+        civ = max((c for c in self.snapshot['civs'] if lower.startswith(c.lower().rstrip('s'))), key=len, default=None)
+        if section == 'upgrades' and civ and 'team' in lower:
+            return civ, 'team'
+        if section == 'civs':
+            return (civ, 'civ') if civ else None
+        if any(self.is_researchable(t) for t in self.tech_ids_by_name.get(lower, [])):
+            return 'tech', lower
+        return None
+
+    @staticmethod
+    def cost_after(base, change):
+        """Cost after a unitVariety.json cost change, as the calculator computes it.
+
+        Numbers between 0 and 1 are the share saved, other numbers an amount added. Texts like "+0.40"
+        add a share of the cost in "baseResource" (Detinets: stone turns into wood).
+        """
+        cost = dict(base)
+        for resource in COST_RESOURCES:
+            value = change.get(resource)
+            before = base.get(resource, 0)
+            if isinstance(value, str):
+                cost[resource] = before + base.get(change.get('baseResource', resource), 0) * float(value)
+            elif value:
+                cost[resource] = before * (1 - value) if 0 < value < 1 else before + value
+        return cost
+
+    def same_training(self, values, expected, unit):
+        """Whether project values have the same effect as the game values (the notation may differ)."""
+        if values.get('trainTimePercent'):
+            speed = values['trainTime']
+        else:
+            speed = unit['trainTime'] / values['trainTime'] if values.get('trainTime') else 1
+        # The file stores the factor with 2 decimals
+        if abs(speed - expected.get('trainTime', 1)) > 0.011:
+            return False
+        project = self.cost_after(unit.get('cost', {}), values.get('cost', {}))
+        game = self.cost_after(unit.get('cost', {}), expected.get('cost', {}))
+        return all(abs(project.get(r, 0) - game.get(r, 0)) < 1 for r in COST_RESOURCES)
+
+    def replace_variety(self, section, old, new):
+        """Replace the keys of `old` in a unitVariety.json section node with `new`, where the first old key was."""
+        content = self.variety.object_content(section)
+        items = list(content.items())
+        position = next((i for i, (k, _) in enumerate(items) if k in old), len(items))
+        items = ([(k, v) for k, v in items[:position] if k not in old] + list(new.items())
+                 + [(k, v) for k, v in items[position:] if k not in old])
+        content.clear()
+        content.update(items)
+
+    def tier_values(self, unit_id, tier_id):
+        """unitVariety.json values of an upgrade tier: its train time and, since the calculator adds the
+        cost to the base unit's cost, the cost difference."""
+        base, tier = self.units[unit_id].get('cost', {}), self.units[tier_id].get('cost', {})
+        values = {'trainTime': self.units[tier_id].get('trainTime')}
+        cost = {r: tier.get(r, 0) - base.get(r, 0) for r in COST_RESOURCES if tier.get(r, 0) != base.get(r, 0)}
+        if cost:
+            values['cost'] = cost
+        return values
+
+    def elite_tiers(self, unit_id):
+        """Upgrade tiers of a line that train in another time or for another cost than the tier before them.
+
+        The tier before is the deepest unit of the line that upgrades into it: the Archer also upgrades
+        directly to the Arbalester, but the tier before it is the Crossbowman. Units of another class are
+        conversions, not tiers (Flemish Revolution turns villagers into militia).
+        """
+        line = [unit_id, *self.upgrade_chain(unit_id)]
+        sources = {u: [t for t, _ in self.units[u].get('upgradesTo', []) if t in line] for u in line}
+        depth = dict.fromkeys(line, 0)
+        for _ in line:
+            for source, targets in sources.items():
+                for target in targets:
+                    depth[target] = max(depth[target], min(depth[source] + 1, len(line)))
+        tiers = []
+        for tier_id in line[1:]:
+            before = max((u for u in line if tier_id in sources[u]), key=depth.get)
+            tier, previous = self.units[tier_id], self.units[before]
+            if tier['class'] == self.units[unit_id]['class'] and (
+                    tier.get('trainTime') != previous.get('trainTime') or tier.get('cost') != previous.get('cost')):
+                tiers.append(tier_id)
+        return tiers
+
+    def tier_entry(self, unit_id, tier_id):
+        """unitVariety.json entry of an upgrade tier with its icon, which is queued for icons.create()."""
+        tech_names = {n['name'].value() for n in self.data.root['upgrades'].children()
+                      if not (n.get('classChange') and n['classChange'].value())}
+        img = self.units[tier_id]['name'].lower()
+        if img in tech_names:
+            self.add('info', f'src/img/{img}.webp', f'belongs to the tech "{img}"; unit icon is named "{img} unit.webp"')
+            img += ' unit'
+        self.new_images.append({'file': img, 'kind': self.category(tier_id), 'unit': tier_id})
+        return {**self.tier_values(unit_id, tier_id), 'img': img}
+
+    def add_tier(self, section, name, entry):
+        """Insert a tier entry after the existing tiers (entries with "img") of a unitVariety.json section."""
+        content = self.variety.object_content(section)
+        items = list(content.items())
+        position = max((i + 1 for i, (_, v) in enumerate(items) if isinstance(v, dict) and 'img' in v), default=0)
+        items.insert(position, (name, entry))
+        content.clear()
+        content.update(items)
 
     def check_variety(self):
+        """Compare each unitVariety.json entry with variety_candidates() and elite_tiers().
+
+        Entries are grouped by their game source (a tech, a civ's bonus, a team bonus); a group that
+        differs from the game is replaced as a whole, so renamed, outdated or obsolete keys go away.
+        Elite tiers are found by their name or their icon ("Castle Age" with the icon "eagle warrior"),
+        checked for train time and cost, and added if missing. Keys in config.json "manualVariety" have
+        no game source and are left alone.
+        """
         for key, entry in self.variety.root.items():
+            manual = set(self.config['manualVariety'].get(key, []))
             unit_id = self.find_unit_id(key)
-            if unit_id is None or 'upgrades' not in entry:
+            if unit_id is None:
+                self.add('info', f'unitVariety.json {key}', 'no matching unit found in the game, so it is not checked '
+                         '(renamed? add it to config.json "renames", otherwise map it in "units")')
                 continue
             unit = dict(self.units[unit_id], id=unit_id)
             chain = {self.units[c]['name'].lower(): c for c in self.upgrade_chain(unit_id)}
-            for upgrade_name, upgrade in entry['upgrades'].items():
-                where = f'unitVariety.json {key}/{upgrade_name}'
-                values = upgrade.value()
-                if values.get('trainTimePercent'):
-                    tech_id = self.find_tech_id(upgrade_name.lower())
-                    factor = self.train_speed_factor(self.techs[tech_id], unit) if tech_id is not None else None
-                    # The file stores the factor with 2 decimals
-                    if factor is not None and abs(values['trainTime'] - factor) > 0.011:
-                        self.add_diff(where, 'trainTime', upgrade['trainTime'], round(factor, 2))
-                elif 'trainTime' in values and upgrade_name.lower() in chain:
-                    game_time = self.units[chain[upgrade_name.lower()]]['trainTime']
-                    if values['trainTime'] != game_time:
-                        self.add_diff(where, 'trainTime', upgrade['trainTime'], game_time)
+            found_tiers = set()
+            wanted = {'civs': {}, 'upgrades': {}}
+            for candidate in self.variety_candidates(unit_id):
+                if candidate.values.get('trainTime', 1) < 1:
+                    # Usually a malus for another building than the one the calculator shows, which
+                    # the effect does not name (Mapuche settlements)
+                    self.add('info', f'unitVariety.json {key}/{candidate.key}',
+                             f'{json.dumps(candidate.values)} slows training down, not added. Check it in the game; '
+                             f'if it only applies to another building, add {candidate.tech_ids} to config.json "ignoreTechs"')
+                    continue
+                wanted[candidate.section].setdefault(candidate.owner, {})[candidate.key] = candidate.values
+            for section_name, section in (('civs', entry['civs']), ('upgrades', entry['upgrades'])):
+                current = {}
+                for name, values in section.value().items():
+                    where = f'unitVariety.json {key}/{name}'
+                    img = values.get('img', '').removesuffix(' unit')
+                    tier_id = chain.get(name.lower(), chain.get(img))
+                    if tier_id is not None:
+                        found_tiers.add(tier_id)
+                        expected = self.tier_values(unit_id, tier_id)
+                        actual = {'trainTime': values.get('trainTime'), **({'cost': values['cost']} if 'cost' in values else {})}
+                        if actual != expected:
+                            def update(s=section, n=name, e=expected):
+                                tier = self.variety.object_content(s)[n]
+                                tier.pop('cost', None)
+                                tier.update(e)
+                            self.add('diff', where, f'{json.dumps(actual)} -> {json.dumps(expected)}', update)
+                        continue
+                    if 'img' in values:
+                        continue
+                    if name in manual:
+                        continue
+                    owner = self.variety_owner(section_name, name)
+                    if owner is None:
+                        self.add('info', where, 'no game source found. Rename it to the tech name, or add it to '
+                                 f'config.json "manualVariety" under "{key}" if it is not a tech or bonus')
+                        continue
+                    current.setdefault(owner, {})[name] = values
+                for owner in list(current) + [o for o in wanted[section_name] if o not in current]:
+                    old, new = current.get(owner, {}), wanted[section_name].get(owner, {})
+                    if old.keys() == new.keys() and all(self.same_training(old[k], new[k], unit) for k in old):
+                        continue
+                    where = f'unitVariety.json {key}/{", ".join(old or new)}'
+                    message = f'{json.dumps(old)} -> {json.dumps(new) if new else "removed"}' if old else json.dumps(new)
+                    self.add('diff' if old else 'new', where, message,
+                             lambda s=section, o=old, n=new: self.replace_variety(s, o, n))
+            for tier_id in self.elite_tiers(unit_id):
+                if tier_id not in found_tiers:
+                    tier_name = self.units[tier_id]['name']
+                    self.add('new', f'unitVariety.json {key}/{tier_name}', json.dumps(self.tier_values(unit_id, tier_id)),
+                             lambda s=entry['upgrades'], n=tier_name, u=unit_id, i=tier_id:
+                             self.add_tier(s, n, self.tier_entry(u, i)))
+
+    def check_missing_variety(self):
+        """Add unitVariety.json entries for calculator units that have none, if the game gives them
+        techs, bonuses or elite tiers. check_variety() keeps them up to date from then on."""
+        for name in dict.fromkeys(n.value() for group in self.units_show.root.children() for n in group.children()):
+            unit_id = self.find_unit_id(name)
+            if name in self.variety.root or unit_id is None:
+                continue
+            # A dry run: variety_entry() queues icon jobs and notes, which only the apply below should add
+            images, findings = len(self.new_images), len(self.findings)
+            entry = self.variety_entry(unit_id)
+            del self.new_images[images:], self.findings[findings:]
+            if entry['civs'] or entry['upgrades']:
+                self.add('new', f'unitVariety.json {name}', json.dumps(entry),
+                         lambda n=name, i=unit_id: self.variety.set_key(self.variety.root, n, self.variety_entry(i)))
 
     def civ_gather_bonuses(self, civ):
-        """The gather bonuses a civ's bonus techs give.
+        """The gather bonuses a civ's bonus techs and tech tree effect give.
 
         Returns
         - bonuses: project resource -> extra share (0.15 = +15 %), as ecoBonuses.json stores it
@@ -389,20 +719,27 @@ class Sync:
         - checkable: resources whose bonus comes from a single tech without prerequisites, so the
           value in ecoBonuses.json can be compared directly (age-dependent bonuses cannot)
         """
-        gatherer_groups = self.gatherer_group_by_unit()
+        info = self.snapshot['civs'][civ]
+        # The tech tree effect applies from the start like a bonus tech without prerequisites (Koreans)
+        sources = [{'effects': info['techTreeBonus'], 'requiredTechs': []}] + [self.techs[t] for t in info['bonusTechs']]
         bonuses, derived, labels, techs_per_group = {}, {}, [], {}
-        for tech_id in self.snapshot['civs'][civ]['bonusTechs']:
-            tech = self.techs[tech_id]
+        checkable = set()
+        for tech in sources:
             factors = {}
+            for group, gatherer in self.config['gatherers'].items():
+                factor = self.work_rate_factor(tech, gatherer['units'])
+                if factor is not None:
+                    factors[group] = factor
             for effect_type, a, b, attribute, value in tech['effects']:
-                if effect_type in EFFECT_ATTRIBUTE_MULTIPLY and attribute == ATTRIBUTE_WORK_RATE and a in gatherer_groups:
-                    factors.setdefault(gatherer_groups[a], value)
                 special = self.config['specialResources'].get(str(a))
                 if effect_type == EFFECT_RESOURCE_MODIFY and special:
                     share = round(value / 100, 3)
                     if special['kind'] == 'ecoBonus':
-                        for resource in special['resources']:
+                        targets = self.special_targets(special)
+                        for resource in targets:
                             bonuses[resource] = share
+                        if not tech['requiredTechs']:
+                            checkable |= set(targets)
                         labels.append(f'{special["label"]} +{share:.0%}')
                     else:
                         for name, source in special['resources'].items():
@@ -418,27 +755,47 @@ class Sync:
                 for resource in self.config['gatherers'][group]['resources']:
                     bonuses[resource] = round((1 + bonuses.get(resource, 0)) * factor - 1, 4)
                 labels.append(group)
-        checkable = {resource for group, techs in techs_per_group.items()
-                     if len(techs) == 1 and not techs[0]['requiredTechs']
-                     and group not in self.config['effectiveGatherRates']
-                     for resource in self.config['gatherers'][group]['resources']}
+        checkable |= {resource for group, techs in techs_per_group.items()
+                      if len(techs) == 1 and not techs[0]['requiredTechs']
+                      and group not in self.config['effectiveGatherRates']
+                      for resource in self.config['gatherers'][group]['resources']}
         return bonuses, derived, labels, checkable
 
     def check_eco_bonuses(self):
         # Keys look like "Aztecs (Farms)" or "Japanese - Dark Age"
         civ_entries = self.eco.root['civ']
         covered_civs = {key.split(' ')[0] for key in civ_entries.keys()}
+        manual = set(self.config['manualEcoBonuses'])
         existing_derived = self.derived.root
+        for key, node in civ_entries.items():
+            if node.value() and key.split(' ')[0] not in self.snapshot['civs'] and key not in manual:
+                self.add('info', f'ecoBonuses.json {key}', 'civ not found in the game (renamed or removed?)')
         for civ in sorted(self.snapshot['civs']):
             bonuses, derived, labels, checkable = self.civ_gather_bonuses(civ)
-            for key, node in civ_entries.items():
+            keys = [key for key in civ_entries.keys() if key.startswith(civ + ' ') and key not in manual]
+            for key in keys:
+                node = civ_entries[key]
+                # A bonus the game no longer has is only reported: the entry may stand for a mechanic
+                # the tool cannot see, which then belongs into config.json "manualEcoBonuses"
+                removed = [resource for resource in node.value() if resource not in bonuses]
+                if removed:
+                    self.add('info', f'ecoBonuses.json {key}', 'no gather bonus found in the game for '
+                             f'{", ".join(removed)}. Remove it if the bonus is gone, otherwise add the key '
+                             'to config.json "manualEcoBonuses"')
                 # Per-age entries hold age-dependent values that no single tech gives
-                if not key.startswith(civ + ' ') or 'Age' in key:
+                if 'Age' in key:
                     continue
                 for resource, value in node.value().items():
                     if isinstance(value, (int, float)) and resource in checkable \
                             and not values_match(value, bonuses[resource]):
                         self.add_diff(f'ecoBonuses.json {key}', resource, node[resource], bonuses[resource])
+                # New resources of a bonus (a new food resource for the Danes); with several entries
+                # per civ it is unclear which one they belong to
+                missing = [r for r in sorted(checkable) if r not in node.value() and bonuses[r] > 0]
+                if len(keys) == 1:
+                    for resource in missing:
+                        self.add('new', f'ecoBonuses.json {key}', f'{resource}: {bonuses[resource]}',
+                                 lambda n=node, r=resource, v=bonuses[resource]: self.eco.set_key(n, r, v))
             # Work rate factors below 1 make a resource last longer (Goths hunt, Tatars sheep),
             # the gather rate itself stays the same
             bonuses = {resource: value for resource, value in bonuses.items() if value > 0}
@@ -454,6 +811,32 @@ class Sync:
                 else:
                     self.add('new', f'Resource "{name}"', f'{spec["factor"]:.0%} of {spec["from"]} as {spec["res"]} '
                              f'({civ})', lambda n=name, s=spec: self.add_derived_resource(n, s))
+        for name, node in existing_derived.items():
+            civ = node['civ'].value()
+            if civ not in self.snapshot['civs'] or name not in self.civ_gather_bonuses(civ)[1]:
+                self.add('info', f'derivedGatherRates.json {name}', f'the game gives {civ} no such bonus anymore. '
+                         'Remove the resource (also from order.json) or fix config.json "specialResources"')
+
+    def check_unknown_resources(self):
+        """Report engine resources in civ bonuses and civ techs that config.json does not know yet.
+
+        New eco mechanics often come as a new engine resource whose meaning only the game executable
+        knows (Malians gold miners, Varangians gold from food), so a new ID is a hint to check them.
+        """
+        known = set(self.config['knownResources']) | {int(k) for k in self.config['specialResources']}
+        found = {}
+        for civ, info in sorted(self.snapshot['civs'].items()):
+            sources = [('tech tree', info['techTreeBonus']), ('team bonus', info['teamBonus'])]
+            sources += [(f'tech {tech_id} "{tech["name"]}"', tech['effects'])
+                        for tech_id, tech in sorted(self.techs.items()) if tech['civ'] == info['id']]
+            for source, effects in sources:
+                for effect_type, resource, *_ in effects:
+                    if effect_type in EFFECT_RESOURCE_TYPES and resource not in known:
+                        found.setdefault(resource, []).append(f'{civ} {source}')
+        for resource, sources in sorted(found.items()):
+            self.add('info', 'config.json knownResources', f'unknown engine resource {resource} in '
+                     f'{", ".join(sources)}. If it changes gathering, add it to "specialResources", '
+                     'otherwise to "knownResources"')
 
     def check_renames(self):
         """Adopt the game name for the units in config.json "renames", including their upgrades."""
@@ -473,15 +856,26 @@ class Sync:
                      lambda n=names: self.rename(n))
 
     def rename(self, names):
-        """Replace unit names in all project files (string values and object keys) and replace their icons.
+        """Replace unit names in all project files and replace their icons.
 
-        `names` maps the old lower-case name to (unit ID, game name). Only whole strings are replaced.
+        `names` maps the old lower-case name to (unit ID, game name).
+        """
+        self.rename_text({old: game_name for old, (_, game_name) in names.items()})
+        for old_name, (unit_id, game_name) in names.items():
+            if (IMG / f'{old_name}.webp').exists():
+                self.new_images.append({'file': game_name.lower(), 'kind': self.category(unit_id), 'unit': unit_id,
+                                        'replaces': old_name})
+
+    def rename_text(self, names):
+        """Replace names in all project files (string values and object keys).
+
+        `names` maps the old lower-case name to the game name. Only whole strings are replaced.
         Lower-case text stays lower-case, other text gets the game's capitalization ("Elite Longship").
         """
         def new_text(text):
             if text.lower() not in names:
                 return None
-            game_name = names[text.lower()][1]
+            game_name = names[text.lower()]
             return game_name.lower() if text == text.lower() else game_name
 
         for doc in self.docs.values():
@@ -492,17 +886,34 @@ class Sync:
                     for key in node.keys():
                         if new_text(key):
                             doc.rename_key(node, key, new_text(key))
-        for old_name, (unit_id, game_name) in names.items():
-            if (IMG / f'{old_name}.webp').exists():
-                self.new_images.append({'file': game_name.lower(), 'kind': self.category(unit_id), 'unit': unit_id,
-                                        'replaces': old_name})
 
-    def check_civs(self):
-        project_civs = set(self.data.root['civlist'].value())
-        missing = sorted(set(self.snapshot['civs']) - project_civs)
-        if missing:
-            self.add('info', 'data.json civlist', 'civs missing (rankings/tech tree are editorial, hence not '
-                     'automatic): ' + ', '.join(missing))
+    def check_tech_renames(self):
+        """Adopt the game name for the techs in config.json "techRenames", including their icons.
+
+        There is no generator for tech icons, so the icon files are renamed. If the game gave the
+        tech a new effect too (El Dorado -> Holcans), the icon still shows the old tech.
+        """
+        mentioned = {node.value() for node in self.data.root.walk() if node.kind == 'value'}
+        for old_name, tech_id in sorted(self.config['techRenames'].items()):
+            new_name = self.techs[tech_id]['name'].lower()
+            icons = [IMG / f'{old_name}{ext}' for ext in ('.webp', '.png') if (IMG / f'{old_name}{ext}').exists()]
+            if old_name not in mentioned and not icons:
+                continue  # already renamed
+
+            def rename(o=old_name, n=new_name, i=icons):
+                self.rename_text({o: self.techs[self.config['techRenames'][o]]['name']})
+                for icon in i:
+                    # replace(): an icon left over from an earlier, reverted update may already have the new name
+                    icon.replace(icon.with_name(n + icon.suffix))
+            self.add('diff', f'data.json {old_name}', f'renamed in the game: {old_name} -> {new_name}'
+                     + (', icons renamed' if icons else ''), rename)
+            self.add('info', f'src/img/{new_name}.webp', f'renamed from "{old_name}"; replace it if the tech itself '
+                     'changed. Remove the name from config.json "techRenames" once done')
+            mentions = sorted(str(path.relative_to(ROOT)) for path in SRC.rglob('*') if path.suffix in ('.js', '.html')
+                              and f'"{old_name}"' in path.read_text(encoding='utf-8', errors='ignore'))
+            if mentions:
+                self.add('info', f'renamed tech "{old_name}"', 'still mentioned in ' + ', '.join(mentions)
+                         + '; update by hand')
 
     def check_new_units(self):
         """Report trainable tech tree units that the project has neither as unit nor as upgrade."""
@@ -525,6 +936,636 @@ class Sync:
             self.add('new', f'Unit "{unit["name"]}" (ID {unit_id})',
                      f'{self.category(unit_id)}, {len(unit["civs"])} civs, cost {unit["cost"]}, {unit["trainTime"]}s',
                      lambda i=unit_id: self.add_unit(i))
+
+    # --- Tech trees of the civ ranking ---
+
+    def tech_tree_source(self, list_name, name):
+        """The game side of a data.json techTree entry: (civs that have it, buildings it is researched
+        in, IDs), or None if the game has no such unit or tech.
+
+        "units" entries are looked up among units first, "upgrades" entries among techs first (both
+        lists hold some of the other kind, e.g. unique units in "upgrades"); config.json "units" and
+        "upgrades" pin an ID. Copies with the same name are merged. Buildings are only known for techs.
+        """
+        def unit_ids():
+            if name in self.pinned_units:
+                return [self.pinned_units[name]]
+            return [i for i in self.unit_ids_by_name.get(name, []) if 'civs' in self.units[i]]
+
+        def tech_ids():
+            pinned = {**self.config['upgrades'], **self.config['techRenames']}
+            if name in pinned:
+                return [pinned[name]]
+            return [i for i in self.tech_ids_by_name.get(name, []) if 'civs' in self.techs[i]]
+
+        lookups = [('units', self.units, unit_ids), ('upgrades', self.techs, tech_ids)]
+        if list_name == 'upgrades':
+            lookups.reverse()
+        for kind, items, find in lookups:
+            ids = [i for i in find() if i in items]
+            if ids:
+                break
+        else:
+            # Unit upgrades named after the unit; tried last, since a unit's graphics upgrade
+            # with the ages would otherwise turn "lumber camp" into the Feudal Age
+            kind, items, ids = 'upgrades', self.techs, [i for i in [self.find_tech_id(name)] if i in self.techs]
+        civs = set().union(*(items[i].get('civs', []) for i in ids))
+        if not civs:
+            return None
+        buildings = {self.units[location['location']]['name'].lower()
+                     for i in ids for location in items[i].get('locations', []) if location['location'] in self.units}
+        return civs, buildings, {(kind, i) for i in ids}
+
+    def rated_by(self, civ_node, name):
+        """The ratings of a civ in data.json "ranks"/"ranksUnique" that an entry name affects."""
+        groups = self.data.root['upgradeGroups'].value()
+        unit_groups = self.data.root['unitGroups'].value()
+        relevant = self.data.root['relevantUpgrades'].value()
+        rated = []
+        for building, units in civ_node['ranks'].value().items():
+            for unit in units:
+                upgrades = relevant.get(unit, relevant.get(unit_groups.get(unit), []))
+                if (name == unit or unit_groups.get(name) == unit or name in upgrades
+                        or any(name in groups.get(u, []) for u in upgrades)):
+                    rated.append(f'{building}/{unit}')
+        rated += [f'ranksUnique/{tech}' for tech, _ in civ_node['ranksUnique'].value() if tech == name]
+        return rated
+
+    def check_techtree(self):
+        """Compare the civ ranking tech trees (data.json "civilizations" -> "techTree") with the game.
+
+        - "available" of each entry is fixed, one finding per entry with the civs that gained (+) or
+          lost (-) it,
+        - techs now researched in another building are moved there, also in "upgradeBuilding",
+        - names in config.json "removedTechs" are removed from the tech trees, "relevantUpgrades" and
+          "upgradeBuilding"; other mentions in src/ are only reported,
+        - units and techs of a tech tree building that no entry stands for, and missing civs, are reported.
+        The changes are also listed per civ under "Rankings to review" (see ranking_notes()): the
+        ratings are editorial, so only the maintainer can update them.
+        """
+        removed = set(self.config['removedTechs'])
+        civ_nodes = {node['name'].value(): node for node in self.data.root['civilizations'].children()}
+        flips, moves, unknown, removals, renamed = {}, {}, set(), {}, {}
+        changes = []  # (civ, building, name, bullet text) for the rankings, see ranking_notes()
+        covered = set()
+        for civ, civ_node in civ_nodes.items():
+            if civ not in self.snapshot['civs']:
+                self.add('info', f'data.json civilizations/{civ}', 'civ not found in the game (renamed or removed?)')
+                continue
+            tree = civ_node['techTree']
+            for building, building_node in tree.items():
+                for list_name in ('units', 'upgrades'):
+                    list_node = building_node[list_name]
+                    for index, entry in enumerate(list_node.children()):
+                        name, available = entry['name'].value(), entry['available'].value()
+                        if name in removed:
+                            removals.setdefault(name, []).append((list_node, index, entry['available']))
+                            if available:
+                                changes.append((civ, building, name, f'lost {name}'))
+                            continue
+                        source = self.tech_tree_source(list_name, name)
+                        if source is None:
+                            unknown.add((building, name))
+                            continue
+                        civs, buildings, ids = source
+                        covered |= ids
+                        # A name mapped in config.json "upgrades" is a deliberate choice, no note needed
+                        for kind, item_id in ids:
+                            if (kind == 'upgrades' and name not in self.config['upgrades']
+                                    and name not in self.config['techRenames']
+                                    and self.techs[item_id]['name'].lower() != name):
+                                renamed[name] = self.techs[item_id]['name']
+                        game_available = civ in civs
+                        if game_available != available:
+                            changes.append((civ, building, name, f'{"gained" if game_available else "lost"} {name}'))
+                        targets = sorted(b for b in buildings if b in tree.keys())
+                        if buildings and building not in buildings and targets:
+                            moves.setdefault((building, name, targets[0]), []).append(
+                                (list_node, index, tree[targets[0]][list_name], game_available))
+                        elif game_available != available:
+                            flips.setdefault((building, name), []).append((civ, entry['available'], game_available))
+
+        for (building, name), items in sorted(flips.items()):
+            self.add('diff', f'data.json techTree {building}/{name}',
+                     ', '.join(('+' if value else '-') + civ for civ, _, value in items),
+                     lambda i=items: [self.data.replace(node, value) for _, node, value in i])
+        for (building, name, target), items in sorted(moves.items()):
+            def move(n=name, i=items, t=target):
+                for list_node, index, target_node, value in i:
+                    self.data.remove(list_node, index)
+                    self.data.append(target_node, {'name': n, 'available': value})
+                building_map = self.data.root['upgradeBuilding']
+                if n in building_map:
+                    self.data.replace(building_map[n], t)
+            self.add('diff', f'data.json techTree {building}/{name}', f'researched in the {target} now, moved there', move)
+        for building, name in sorted(unknown):
+            self.add('info', f'data.json techTree {building}/{name}', 'not found in the game (renamed? map it in '
+                     'config.json "units" or "upgrades"; removed? add it to "removedTechs")')
+        for name, game_name in sorted(renamed.items()):
+            self.add('info', f'data.json techTree {name}', f'called "{game_name}" in the game')
+        self.check_removed_techs(removals)
+        missing_changes, added = self.check_missing_techtree_entries(civ_nodes, covered)
+        changes += missing_changes
+        changes += self.baseline_changes(civ_nodes)
+        layout, names = self.rating_layout(civ_nodes)
+        changes += self.check_ratings(civ_nodes, layout, names)
+        changes += self.check_unique_ratings(civ_nodes)
+        self.ranking_notes(civ_nodes, changes)
+        self.check_missing_civs(civ_nodes, added, layout, names)
+        self.check_icons()
+
+    def check_missing_civs(self, civ_nodes, added, layout, names):
+        """Add the civs the project lacks, and report civs without ratings.
+
+        A new civ gets the tech tree of the most common building layout, with its own availability,
+        the rating names of its units and unique techs without ratings (see rating_layout()), no
+        bonus texts, and its emblem as civ icon. The entries keep the template's
+        order: civ-ranking.js reads the blacksmith upgrades by position. `added` are the entries
+        check_missing_techtree_entries() adds in the same run.
+        """
+        layouts = Counter(tuple(node['techTree'].keys()) for node in civ_nodes.values())
+        template = next(node for node in civ_nodes.values()
+                        if tuple(node['techTree'].keys()) == layouts.most_common(1)[0][0])['techTree'].value()
+        civ_names = sorted(civ_nodes)
+        for civ in sorted(set(self.snapshot['civs']) - set(civ_nodes)):
+            tree = self.new_civ_tech_tree(civ, template, added)
+            ranks = {building: {name: [] for name in rated} for building, rated in self.expected_ratings(civ, layout, names).items()}
+            unique = [[self.techs[t]['name'].lower(), []] for t in self.unique_techs(civ)]
+            entry = {'name': civ, 'techTree': tree, 'bonusDesc': [], 'ranksUnique': unique, 'ranks': ranks}
+            index = sum(name < civ for name in civ_names)  # the list is sorted by name
+
+            def add(e=entry, i=index, c=civ):
+                self.data.append(self.data.root['civilizations'], e, i)
+                for units in e['ranks'].values():
+                    for name in units:
+                        self.queue_icon('units', name)
+                for tech, _ in e['ranksUnique']:
+                    self.queue_icon('upgrades', tech)
+                if not (IMG / f'civicon-{c.lower()}.webp').exists():
+                    self.new_images.append({'file': f'civicon-{c.lower()}', 'kind': 'civ',
+                                            'civ': self.snapshot['civs'][c]['internalName']})
+            self.add('new', f'data.json civilizations/{civ}', 'civ added with its tech tree and icon', add)
+        for civ, node in sorted(civ_nodes.items()):
+            if not any(r for units in node['ranks'].value().values() for r in units.values()):
+                self.add('info', f'data.json civilizations/{civ}', 'no ratings yet: rate "ranks", set the units of '
+                         '"ranksUnique" and write "bonusDesc"')
+
+    def new_civ_tech_tree(self, civ, template, added):
+        """Tech tree of a new civ: the template's entries with the civ's availability (see check_missing_civs)."""
+        renames = {old: self.techs[i]['name'].lower() for old, i in self.config['techRenames'].items()}
+        tree = {building: {'units': [], 'upgrades': []} for building in template}
+        moved = []
+        for building, lists in template.items():
+            for list_name in ('units', 'upgrades'):
+                for entry in lists[list_name]:
+                    source = self.tech_tree_source(list_name, entry['name'])
+                    # Removed techs (no source) stay unavailable until check_removed_techs() drops them everywhere
+                    available = bool(source) and civ in source[0]
+                    item = {'name': renames.get(entry['name'], entry['name']), 'available': available}
+                    targets = sorted(b for b in (source[1] if source else []) if b in tree)
+                    if source and source[1] and building not in source[1] and targets:
+                        moved.append((targets[0], list_name, item))
+                    else:
+                        tree[building][list_name].append(item)
+        for building, list_name, name in [(b, l, i['name']) for b, l, i in moved] + added:
+            if building in tree and not any(e['name'] == name for e in tree[building][list_name]):
+                source = self.tech_tree_source(list_name, name)
+                tree[building][list_name].append({'name': name, 'available': bool(source) and civ in source[0]})
+        return tree
+
+    def ranking_notes(self, civ_nodes, changes):
+        """Add the tech tree changes as "Rankings to review" findings.
+
+        A civ lists the changes that touch one of its ratings (see rated_by()), a building it is
+        rated in or its bonuses (building None), so naval changes do not hide the relevant ones.
+        Changes most civs share (by config.json "genericShare") are listed once instead of in every
+        civ, unless they touch a civ's ratings.
+        """
+        rated_changes = {}
+        for civ, building, name, text in changes:
+            rated = self.rated_by(civ_nodes[civ], name)
+            if rated or building is None or building in civ_nodes[civ]['ranks'].keys():
+                rated_changes.setdefault(text, []).append((civ, rated))
+        project_civs = len(set(civ_nodes) & set(self.snapshot['civs']))
+        most, per_civ = [], {}
+        for text, items in rated_changes.items():
+            if len(items) / project_civs > self.config['genericShare']:
+                most.append(f'{text} ({len(items)} civs)')
+                items = [(civ, rated) for civ, rated in items if rated]
+            for civ, _ in items:
+                per_civ.setdefault(civ, []).append(text)
+        order = ('gained', 'lost', 'effect change', 'cost increase', 'cost decrease', 'cost change', 'review rating',
+                 'removed rating', 'new rating', 'new unique tech', 'removed unique tech')
+        # One change per line; the report prints the message after "<where>:"
+        for where, notes in ([('Most civs', most)] if most else []) + sorted(per_civ.items()):
+            notes = sorted(notes, key=lambda n: (next(i for i, o in enumerate(order) if n.startswith(o)), n))
+            self.add('ranking', where, ''.join(f'\n    - {note}' for note in notes))
+
+    # --- Ratings of the civ ranking ---
+
+    def unit_ids_named(self, name):
+        """Game IDs of a unit by its project name: the config.json mapping or all copies in a tech tree."""
+        if name in self.pinned_units:
+            return [self.pinned_units[name]]
+        return [i for i in self.unit_ids_by_name.get(name, []) if 'civs' in self.units[i]]
+
+    def is_tier_step(self, unit_id, target):
+        """Whether an upgrade is a tier of a unit line; conversions of villagers (Flemish Militia) are not."""
+        classes = {self.units[unit_id]['class'], self.units[target]['class']}
+        return len(classes) == 1 or UNIT_CLASS_CIVILIAN not in classes
+
+    def rating_line(self, name):
+        """First unit of the line a rating name belongs to, or the name itself for keys without a unit ("defenses")."""
+        ids = self.unit_ids_named(name)
+        if not ids:
+            return name
+        unit_id, seen = ids[0], set()
+        while unit_id in self.upgrade_parent and unit_id not in seen:
+            seen.add(unit_id)
+            parent = self.upgrade_parent[unit_id][0]
+            if not self.is_tier_step(parent, unit_id):
+                break
+            unit_id = parent
+        return unit_id
+
+    def line_tiers(self, start):
+        """Unit ID -> tier in the line of `start`: the longest upgrade path to it, so branches that
+        replace a tier (Winged Hussar, Legionary) end up as top tiers."""
+        line = [start] + [u for u in self.upgrade_chain(start)]
+        depth = {start: 0}
+        for _ in line:
+            for unit_id in list(depth):
+                for target, _ in self.units[unit_id].get('upgradesTo', []):
+                    if target in self.units and self.is_tier_step(unit_id, target):
+                        depth[target] = max(depth.get(target, 0), depth[unit_id] + 1)
+        return depth
+
+    def rating_layout(self, civ_nodes):
+        """What the ratings cover, as template for every civ.
+
+        Returns building -> rated lines (first unit ID) and keys without a unit ("defenses") in the
+        order the civs list them, and unit ID -> the name the ratings use for it. Lines no civ rates
+        yet are added for the buildings they are trained in, unless config.json "unratedUnits" names
+        them: they are new in the game (Mounted Crossbowman) and need a rating.
+        """
+        layout, names, civ_counts, key_counts = {}, {}, Counter(), Counter()
+        for node in civ_nodes.values():
+            for building, units in node['ranks'].value().items():
+                entries = layout.setdefault(building, [])
+                civ_counts[building] += 1
+                for key in units:
+                    for unit_id in self.unit_ids_named(key):
+                        names.setdefault(unit_id, key)
+                    entry = self.rating_line(key)
+                    key_counts[building, entry] += 1
+                    if entry not in entries:
+                        entries.append(entry)
+        # Keys without a unit go to every civ only if every civ has them ("defenses")
+        for building, entries in layout.items():
+            entries[:] = [e for e in entries if not isinstance(e, str) or key_counts[building, e] == civ_counts[building]]
+        rated = {entry for entries in layout.values() for entry in entries}
+        unrated = {self.rating_line(name) for name in self.config['unratedUnits']}
+        for unit_id, unit in sorted(self.units.items()):
+            if ('civs' not in unit or unit['type'] != UNIT_TYPE_CREATABLE or str(unit_id) in self.config['unitCivs']
+                    or self.rating_line(unit['name'].lower()) != unit_id or unit_id in rated | unrated):
+                continue
+            for location in unit.get('trainLocations', []):
+                building = self.units.get(location['location'], {}).get('name', '').lower()
+                if building in layout and unit_id not in layout[building]:
+                    layout[building].append(unit_id)
+        return layout, names
+
+    def expected_ratings(self, civ, layout, names):
+        """building -> rating names a civ gets: per line of the layout its top available tier, and the keys without a unit."""
+        expected = {}
+        for building, entries in layout.items():
+            for entry in entries:
+                if isinstance(entry, str):
+                    expected.setdefault(building, []).append(entry)
+                    continue
+                available = [(depth, unit_id) for unit_id, depth in self.line_tiers(entry).items()
+                             if civ in self.units[unit_id].get('civs', [])]
+                if available:
+                    top = max(available)[1]
+                    expected.setdefault(building, []).append(names.get(top, self.units[top]['name'].lower()))
+        return expected
+
+    def check_ratings(self, civ_nodes, layout, names):
+        """Keep the "ranks" of each rated civ in line with its units; the ratings themselves are editorial.
+
+        - A rated unit the civ no longer has keeps its entry and ratings, flagged for review with the
+          tier it has now or the unrated units of that building that may replace it (Onager ->
+          Rocket Cart). Once they are rated, the entry is removed.
+        - A rated line the civ lost without an unrated unit in that building loses its entry.
+        - Lines the civ has but does not rate get an entry without ratings. Civs without any ratings
+          (new civs) get all of them, without a note per entry.
+        Returns the changes for ranking_notes().
+        """
+        all_changes = []
+        for civ, node in sorted(civ_nodes.items()):
+            if civ not in self.snapshot['civs']:
+                continue
+            changes = []
+            expected = self.expected_ratings(civ, layout, names)
+            ranks = node['ranks']
+            for building, units_node in ranks.items():
+                wanted = {self.rating_line(name): name for name in expected.get(building, [])}
+                lines = {self.rating_line(key) for key in units_node.keys()}
+                new = [name for line, name in wanted.items() if line not in lines]
+                # Units of the building without ratings may replace a unit the civ lost
+                replacements = new + [key for key, values in units_node.items() if not values.value()]
+                removed = []
+                for key, values in units_node.items():
+                    line = self.rating_line(key)
+                    if isinstance(line, str) or civ in set().union(
+                            *(self.units[i].get('civs', []) for i in self.unit_ids_named(key))):
+                        continue
+                    if line in wanted:
+                        changes.append((civ, None, key, f'review rating: {key} {values.value()} no longer available, '
+                                                         f'now {wanted[line]}'))
+                    elif replacements:
+                        changes.append((civ, None, key, f'review rating: {key} {values.value()} no longer available, '
+                                                         f'replaced by {" / ".join(replacements)}?'))
+                    else:
+                        removed.append(key)
+                        changes.append((civ, None, key, f'removed rating: {key} {values.value()} ({building})'))
+                for key in removed:
+                    self.add('diff', f'data.json ranks {civ}/{building}/{key}', 'no longer available, rating removed',
+                             lambda n=units_node, k=key: self.data.remove(n, k))
+                for name in new:
+                    changes.append((civ, None, name, f'new rating: {name} ({building})'))
+                    self.add('new', f'data.json ranks {civ}/{building}/{name}', 'added without rating',
+                             lambda n=units_node, k=name: self.add_rating(n, k))
+            for building in [b for b in expected if b not in ranks.keys()]:
+                for name in expected[building]:
+                    changes.append((civ, None, name, f'new rating: {name} ({building})'))
+                self.add('new', f'data.json ranks {civ}/{building}', f'added without ratings: {", ".join(expected[building])}',
+                         lambda n=ranks, b=building, k=expected[building]: self.add_rating(n, k, b))
+            if any(values for units in ranks.value().values() for values in units.values()):
+                all_changes += changes
+        return all_changes
+
+    def add_rating(self, node, names, building=None):
+        """Add rating names without ratings to a "ranks" building node, or the building to "ranks", and queue their icons."""
+        names = [names] if isinstance(names, str) else names
+        if building:
+            self.data.set_key(node, building, {name: [] for name in names})
+        else:
+            for name in names:
+                self.data.set_key(node, name, [])
+        for name in names:
+            self.queue_icon('units', name)
+
+    def unique_techs(self, civ):
+        """Tech IDs of a civ's unique techs: castle techs only this civ has, without the elite upgrade of its unique unit."""
+        elite = {tech for unit_id in self.snapshot['civs'][civ]['uniqueUnits']
+                 for _, tech in self.units.get(unit_id, {}).get('upgradesTo', [])}
+        return [tech_id for tech_id, tech in sorted(self.techs.items()) if tech.get('civs') == [civ] and tech_id not in elite
+                and any(self.units.get(l['location'], {}).get('name', '').lower() == 'castle' for l in tech.get('locations', []))]
+
+    def check_unique_ratings(self, civ_nodes):
+        """Keep "ranksUnique" in line with the civs' unique techs. Which units a unique tech affects
+        is editorial: new ones get none and are flagged, since they may change the civ's rating.
+        Returns the changes for ranking_notes()."""
+        changes = []
+        removed = set(self.config['removedTechs'])
+        for civ, node in sorted(civ_nodes.items()):
+            if civ not in self.snapshot['civs']:
+                continue
+            pairs, have = node['ranksUnique'], set()
+            rated = any(values for units in node['ranks'].value().values() for values in units.values())
+            for index, pair in enumerate(pairs.children()):
+                name, affected = pair[0].value(), pair[1].value()
+                source = None if name in removed else self.tech_tree_source('upgrades', name)
+                if source and civ in source[0]:
+                    have |= {i for _, i in source[2]}
+                    continue
+                changes.append((civ, None, name, f'removed unique tech: {name} (affected {", ".join(affected) or "nothing"})'))
+                self.add('diff', f'data.json ranksUnique {civ}/{name}', 'no longer a unique tech of the civ, removed',
+                         lambda n=pairs, i=index: self.data.remove(n, i))
+            for tech_id in self.unique_techs(civ):
+                if tech_id in have:
+                    continue
+                name = self.techs[tech_id]['name'].lower()
+                if rated:
+                    changes.append((civ, None, name, f'new unique tech: {name} - may change the rating, set the units it affects'))
+                self.add('new', f'data.json ranksUnique {civ}/{name}', 'added without affected units',
+                         lambda n=pairs, k=name: (self.data.append(n, [k, []]), self.queue_icon('upgrades', k)))
+        return changes
+
+    def check_icons(self):
+        """Queue icons the civ ranking shows but src/img lacks: rated units, unique techs and the overview."""
+        names = {('units', key) for node in self.data.root['civilizations'].children() for units in node['ranks'].value().values()
+                 for key in units}
+        names |= {('upgrades', tech) for node in self.data.root['civilizations'].children()
+                  for tech, _ in node['ranksUnique'].value()}
+        names |= {('upgrades', item if isinstance(item, str) else item['name'])
+                  for group in self.data.root['overviewUpgrades'].value() for item in group}
+        for list_name, name in sorted(names):
+            if not (IMG / f'{name}.webp').exists() and self.tech_tree_source(list_name, name):
+                self.add('new', f'src/img/{name}.webp', 'icon missing', lambda l=list_name, n=name: self.queue_icon(l, n))
+
+    def queue_icon(self, list_name, name):
+        """Queue the icon of a rated unit or a tech for icons.create(), unless it exists."""
+        source = self.tech_tree_source(list_name, name)
+        if (IMG / f'{name}.webp').exists() or not source:
+            return
+        kind, item_id = sorted(source[2])[0]
+        if kind == 'units':
+            self.new_images.append({'file': name, 'kind': self.category(item_id), 'unit': item_id})
+        elif 'icon' in self.techs[item_id]:
+            category = 'unique' if len(self.techs[item_id].get('civs', [])) == 1 else 'generic'
+            self.new_images.append({'file': name, 'kind': 'tech', 'category': category,
+                                    'icon': self.techs[item_id]['icon'], 'label': self.techs[item_id]['name']})
+        else:
+            self.add('info', f'src/img/{name}.webp', 'snapshot.json has no tech icons yet: run "techtree:update"')
+
+    # --- Effect and cost changes since the last tech tree update ---
+
+    def write_techtree_baseline(self):
+        """Save the costs and effects baseline_changes() compares with; techtree:update calls it after patching.
+
+        Only what the snapshot holds is kept: costs, and the economic effects (see extract.py), not
+        combat stats.
+        """
+        civs = self.snapshot['civs']
+        bonus_techs = {t for info in civs.values() for t in info['bonusTechs']}
+        baseline = {
+            'buildId': self.snapshot['meta']['buildId'],
+            'units': {str(i): {'name': u['name'], 'cost': u.get('cost', {})} for i, u in self.units.items() if 'civs' in u},
+            'techs': {str(i): {'name': t['name'], 'cost': t.get('cost', {}), 'effects': t['effects']}
+                      for i, t in self.techs.items() if 'civs' in t or i in bonus_techs},
+            'civs': {civ: {'techTreeBonus': info['techTreeBonus'], 'teamBonus': info['teamBonus']} for civ, info in civs.items()},
+        }
+        TECHTREE_BASELINE.write_text(render(baseline, '  ', sort_keys=True) + '\n', encoding='utf-8')
+
+    def baseline_changes(self, civ_nodes):
+        """Effect and cost changes since techtree-baseline.json, as (civ, building, name, text) changes."""
+        if not TECHTREE_BASELINE.exists():
+            self.add('info', TECHTREE_BASELINE.name, 'missing: techtree:update writes it; effect and cost changes '
+                     'are listed from the update after that on')
+            return []
+        baseline = json.loads(TECHTREE_BASELINE.read_text(encoding='utf-8'))
+        civs = set(civ_nodes) & set(self.snapshot['civs'])
+        bonus_owner = {t: civ for civ, info in self.snapshot['civs'].items() for t in info['bonusTechs']}
+        changes = []
+        for section, items, locations_key in (('units', self.units, 'trainLocations'), ('techs', self.techs, 'locations')):
+            for item_id, old in baseline[section].items():
+                item = items.get(int(item_id))
+                if item is None:
+                    continue
+                owners = civs & set(item.get('civs', [bonus_owner.get(int(item_id))]))
+                locations = [self.units[l['location']]['name'].lower() for l in item.get(locations_key, [])
+                             if l['location'] in self.units]
+                # Civ bonuses are researched nowhere; they always concern the civ (building None)
+                building = locations[0] if locations else None
+                # Bonus techs have internal names ("C-Bonus, Gold productivity")
+                owner = bonus_owner.get(int(item_id)) if section == 'techs' and 'civs' not in item else None
+                name = f'{owner} civ bonus'.lower() if owner else item['name'].lower()
+                texts = []
+                if section == 'techs' and old['effects'] != item['effects']:
+                    texts.append(f'effect change: {name} - {self.describe_effect_change(old["effects"], item["effects"])}')
+                if old['cost'] != item.get('cost', {}):
+                    before, after = sum(old['cost'].values()), sum(item.get('cost', {}).values())
+                    kind = 'cost increase' if after > before else 'cost decrease' if after < before else 'cost change'
+                    texts.append(f'{kind}: {name} - {self.format_cost(old["cost"])} -> {self.format_cost(item.get("cost", {}))}')
+                changes += [(civ, building, name, text) for civ in sorted(owners) for text in texts]
+        for civ in sorted(civs):
+            old, info = baseline['civs'].get(civ), self.snapshot['civs'][civ]
+            for key, label in (('techTreeBonus', 'civ bonus'), ('teamBonus', 'team bonus')):
+                if old and old[key] != info[key]:
+                    changes.append((civ, None, f'{civ} {label}', f'effect change: {civ} {label} - '
+                                    + self.describe_effect_change(old[key], info[key])))
+        return changes
+
+    @staticmethod
+    def format_cost(cost):
+        """"35f 40g"; the letters are the first letters of the resources."""
+        return ' '.join(f'{cost[r]}{r[0]}' for r in ('food', 'wood', 'gold', 'stone') if cost.get(r)) or 'free'
+
+    def describe_effect_change(self, old, new):
+        """Readable difference of two effect lists ([type, a, b, c, d], see extract.py)."""
+        attributes = {13: 'work rate', 14: 'carry capacity', 100: 'cost', 101: 'train time', 103: 'food cost',
+                      104: 'wood cost', 105: 'gold cost', 106: 'stone cost'}
+        operations = {0: '=', 4: '+', 5: '*'}  # set, add, multiply; +10 are the team bonus variants
+
+        def label(key):
+            kind, a, b, c = key
+            if kind in EFFECT_RESOURCE_TYPES:
+                special = self.config['specialResources'].get(str(int(a)), {})
+                return f'{special.get("label", "resource")} (resource {int(a)})'
+            target = self.units[int(a)]['name'].lower() if int(a) in self.units else f'unit {int(a)}' if a >= 0 else f'class {int(b)}'
+            return f'{target} {attributes.get(int(c), f"attribute {int(c)}")}'
+
+        def value(key, v):
+            if v is None:
+                return 'none'
+            return f'{operations.get(key[0] % 10, "")}{clean_number(v)}' if key[0] not in EFFECT_RESOURCE_TYPES else f'{clean_number(v)}'
+
+        old_values = {tuple(e[:4]): e[4] for e in old}
+        new_values = {tuple(e[:4]): e[4] for e in new}
+        parts = [f'{label(k)} {value(k, old_values.get(k))} -> {value(k, new_values.get(k))}'
+                 for k in sorted(set(old_values) | set(new_values)) if old_values.get(k) != new_values.get(k)]
+        return ', '.join(parts) or 'effects reordered'
+
+    def check_removed_techs(self, removals):
+        """Remove the names in config.json "removedTechs" from data.json: list items, objects and pairs
+        named after them (tech trees, "upgrades", "relevantUpgrades", "overviewUpgrades", "ranksUnique",
+        ...) and object keys ("upgradeBuilding").
+
+        civ-ranking.js looks names of the tech trees up and fails on missing ones. As long as its
+        code names a removed tech, the tech trees only mark it unavailable; the first run after the
+        code no longer names it removes it. Other code is only reported.
+        """
+        ranking_js = (SRC / CIV_RANKING_JS).read_text(encoding='utf-8')
+        for name in sorted(self.config['removedTechs']):
+            blocked = f'"{name}"' in ranking_js
+            tree_entries = {(id(c), i) for c, i, _ in removals.get(name, [])}
+            places = [(c, k) for c, k in self.places_named(self.data.root, name) if not (blocked and (id(c), k) in tree_entries)]
+            unavailable = [node for _, _, node in removals.get(name, []) if blocked and node.value()]
+
+            def remove(p=places, a=unavailable):
+                for container, key in p:
+                    self.data.remove(container, key)
+                for node in a:
+                    self.data.replace(node, False)
+
+            if places or unavailable:
+                message = f'removed from the game: {len(places)} places in data.json'
+                if unavailable:
+                    message += f', unavailable for {len(unavailable)} civs until {CIV_RANKING_JS} no longer names it'
+                self.add('diff', f'data.json {name}', message, remove)
+            code = sorted(str(path.relative_to(ROOT)) for path in SRC.rglob('*') if path.suffix in ('.js', '.html')
+                          and f'"{name}"' in path.read_text(encoding='utf-8', errors='ignore'))
+            if code:
+                self.add('info', f'removed tech "{name}"', 'still named in ' + ', '.join(code)
+                         + '; update by hand. Remove it from config.json "removedTechs" when done')
+
+    @staticmethod
+    def places_named(node, name):
+        """(container, key) of the members under `node` that stand for `name`: the value itself, an
+        object with that "name", a pair starting with it ("ranksUnique") or an object key."""
+        for key, child in (node.items() if node.kind == 'object' else enumerate(node.children())):
+            if node.kind == 'object' and key == name:
+                yield node, key
+            elif child.kind == 'value' and child.value() == name:
+                yield node, key
+            elif child.kind == 'object' and 'name' in child and child['name'].value() == name:
+                yield node, key
+            elif child.kind == 'array' and child.members and child[0].kind == 'value' and child[0].value() == name:
+                yield node, key
+            elif child.kind != 'value':
+                yield from Sync.places_named(child, name)
+
+    def check_missing_techtree_entries(self, civ_nodes, covered):
+        """Add game units and techs of a tech tree building that no techTree entry stands for.
+
+        Covered are the entries' units with their upgrades and techs; techs that only enable a unit
+        stand for the unit. Units from config.json "unitCivs" are left out: no tech tree shows them.
+        The new entries go to every civ that has the building, with its availability; the page shows
+        only what "ranks" and civ-ranking.js name, so they need no icon. Civs the project lacks count
+        too, so their unique units and techs are added in the same run as the civs themselves.
+        Returns the (civ, building, name, 'gained <name>') changes and the added (building, list, name).
+        """
+        covered = set(covered)
+        for kind, item_id in list(covered):
+            if kind == 'units':
+                covered |= {('units', u) for u in self.upgrade_chain(item_id)}
+        enabling = {t for unit in self.units.values() for t in unit.get('enabledBy', [])}
+        buildings = {b for node in civ_nodes.values() for b in node['techTree'].keys()}
+        project_civs = set(civ_nodes) & set(self.snapshot['civs'])
+        candidates = [('units', i, u, u.get('trainLocations', [])) for i, u in self.units.items()
+                      if u['type'] == UNIT_TYPE_CREATABLE and str(i) not in self.config['unitCivs']]
+        candidates += [('upgrades', i, t, t.get('locations', [])) for i, t in self.techs.items() if i not in enabling]
+        missing = {}  # name -> (buildings, civs, lists); a unit upgrade is both a unit and a tech
+        for list_name, item_id, item, locations in candidates:
+            civs = set(self.snapshot['civs']) & set(item.get('civs', []))
+            places = {self.units[l['location']]['name'].lower() for l in locations if l['location'] in self.units}
+            if not civs or not places & buildings or (list_name, item_id) in covered:
+                continue
+            name = item['name'].lower()
+            if any(('units', i) in covered for i in self.unit_ids_by_name.get(name, [])) or any(
+                    ('upgrades', i) in covered for i in self.tech_ids_by_name.get(name, [])):
+                continue
+            entry = missing.setdefault(name, (set(), set(), set()))
+            entry[0].update(places & buildings)
+            entry[1].update(civs)
+            entry[2].add(list_name)
+        changes, added = [], []
+        for name, (places, civs, lists) in sorted(missing.items()):
+            building = sorted(places)[0]
+            # Unit upgrades are listed as units, like the Hussar
+            list_name = 'units' if 'units' in lists else 'upgrades'
+
+            def add(n=name, b=building, l=list_name, c=civs):
+                for civ, node in civ_nodes.items():
+                    if civ in project_civs and b in node['techTree']:
+                        self.data.append(node['techTree'][b][l], {'name': n, 'available': civ in c})
+            self.add('new', f'data.json techTree {building}/{name}',
+                     f'{list_name[:-1]} for ' + (f'{len(civs)} civs' if len(civs) > 10 else ', '.join(sorted(civs))), add)
+            changes += [(civ, building, name, f'gained {name}') for civ in sorted(civs & project_civs)]
+            added.append((building, list_name, name))
+        return changes, added
 
     # --- Entries for new units and resources ---
 
@@ -583,36 +1624,15 @@ class Sync:
         return entry
 
     def variety_entry(self, unit_id):
-        """unitVariety.json entry: upgrades with their own train time or cost, plus known percentage techs."""
-        unit = dict(self.units[unit_id], id=unit_id)
-        upgrades = {}
-        tech_names = {n['name'].value() for n in self.data.root['upgrades'].children()
-                      if not (n.get('classChange') and n['classChange'].value())}
-        for target_id in self.upgrade_chain(unit_id):
-            target = self.units[target_id]
-            if target['trainTime'] != unit['trainTime'] or target['cost'] != unit['cost']:
-                img = target['name'].lower()
-                if img in tech_names:
-                    self.add('info', f'src/img/{img}.webp', f'belongs to the tech "{img}"; unit icon is named '
-                             f'"{img} unit.webp"')
-                    img += ' unit'
-                upgrade = {'trainTime': target['trainTime'], 'img': img}
-                if target['cost'] != unit['cost']:
-                    upgrade['cost'] = {r: target['cost'][r] for r in COST_RESOURCES if target['cost'].get(r)}
-                upgrades[target['name']] = upgrade
-                self.new_images.append({'file': img, 'kind': self.category(target_id), 'unit': target_id})
-        # Percentage techs (Conscription, Kasbah, ...) already used for other units, in file order
-        known_percentage_techs = {}
-        for entry in self.variety.root.value().values():
-            for name, upgrade in entry.get('upgrades', {}).items():
-                if upgrade.get('trainTimePercent'):
-                    known_percentage_techs.setdefault(name, None)
-        for name in known_percentage_techs:
-            tech_id = self.find_tech_id(name.lower())
-            factor = self.train_speed_factor(self.techs[tech_id], unit) if tech_id is not None else None
-            if factor and abs(factor - 1) > 0.001:
-                upgrades[name] = {'trainTime': round(factor, 2), 'trainTimePercent': True}
-        return {'civs': {}, 'upgrades': upgrades}
+        """unitVariety.json entry: the elite_tiers(), plus the techs and bonuses from variety_candidates()
+        (except those that slow training, check_variety() reports them)."""
+        entry = {'civs': {}, 'upgrades': {}}
+        for tier_id in self.elite_tiers(unit_id):
+            entry['upgrades'][self.units[tier_id]['name']] = self.tier_entry(unit_id, tier_id)
+        for candidate in self.variety_candidates(unit_id):
+            if candidate.values.get('trainTime', 1) >= 1:
+                entry[candidate.section][candidate.key] = candidate.values
+        return entry
 
     def add_unit(self, unit_id):
         """Add a new unit line: data.json unit and upgrades, unitVariety.json, unitsShow.json and icons."""
@@ -627,44 +1647,65 @@ class Sync:
         self.variety.set_key(self.variety.root, name, self.variety_entry(unit_id))
 
         category = self.category(unit_id)
-        unique_group = self.config['uniqueCategory']
-        if category == 'unique':
-            group_index = unique_group
-        else:
-            building = str(unit['trainLocations'][0]['location'])
-            group_index = self.config['unitsShowCategories'].get(building)
-        if group_index is not None:
-            group = self.units_show.root[group_index]
-            if group_index == unique_group:
-                names = [n.value() for n in group.children()]
-                position = next((i for i, n in enumerate(names) if i >= UNIQUE_GROUP_FIXED_ENTRIES and n > name), None)
-                self.units_show.append(group, name, position)
-            else:
-                self.units_show.append(group, name)
+        group = self.units_show_group(unit_id)
+        if group is not None:
+            # Unique units come last in each group, sorted alphabetically
+            position = None
+            if category == 'unique':
+                position = next((i for i, n in enumerate(n.value() for n in group.children())
+                                 if n > name and self.is_unique(n)), None)
+            self.units_show.append(group, name, position)
         self.new_images.append({'file': name, 'kind': category, 'unit': unit_id})
+
+    def is_unique(self, project_name):
+        unit_id = self.find_unit_id(project_name)
+        return unit_id is not None and self.category(unit_id) == 'unique'
+
+    def units_show_group(self, unit_id):
+        """The unitsShow.json group of a new unit: the one with the most units trained in the same
+        building (unique units of the castle included). None if no group fits."""
+        building = self.units[unit_id]['trainLocations'][0]['location']
+
+        def fits(project_name):
+            other = self.find_unit_id(project_name)
+            locations = self.units[other].get('trainLocations', []) if other is not None else []
+            return bool(locations) and locations[0]['location'] == building
+        counts = [(sum(map(fits, (n.value() for n in group.children()))), group)
+                  for group in self.units_show.root.children()]
+        count, group = max(counts, key=lambda c: c[0])
+        return group if count else None
 
     def add_derived_resource(self, name, spec):
         """Add a resource like "gold from hunter" to derivedGatherRates.json and order.json, with icon."""
         self.derived.set_key(self.derived.root, name, spec)
         # order.json groups the resources by what they yield (food, wood, gold, stone)
-        group = next(i for i, g in enumerate(self.order.root.children())
-                     if any(item['name'].value().startswith(spec['res']) for item in g.children()))
-        self.order.append(self.order.root[group], {'name': name, 'show': False})
+        types = self.resource_types()
+        group = next(g for g in self.order.root.children() if types[g[0]['name'].value()] == spec['res'])
+        self.order.append(group, {'name': name, 'show': False})
         self.new_images.append({'file': name, 'kind': 'resource', 'source': spec['from'], 'res': spec['res'],
                                 'civ': self.snapshot['civs'][spec['civ']]['internalName']})
 
     # --- Entry points ---
 
-    def run(self):
+    def run(self, techtree=False):
+        """Run the checks. `techtree` runs only check_techtree(): the civ ranking tech trees go with
+        ratings only the maintainer can give, so they are never updated together with the rest."""
+        if techtree:
+            self.check_tech_renames()
+            self.check_techtree()
+            return self.findings
         self.check_renames()
         self.check_units()
         self.check_upgrades()
         self.check_gathering()
+        self.check_resources()
         self.check_variety()
+        self.check_missing_variety()
         self.check_eco_bonuses()
+        self.check_unknown_resources()
         self.check_new_units()
-        self.check_civs()
-        if self.unknown_classes:
+        # Armor classes are only compared with --stats
+        if self.stats and self.unknown_classes:
             self.add('info', 'data.json armorClasses', 'classes without a name in the project are ignored: '
                      + ', '.join(map(str, sorted(self.unknown_classes))))
         return self.findings

@@ -31,5 +31,12 @@ app.use('/wood-calc.html', (req, res) => {
 app.use(express.static(dir))
 
 const port = process.env.PORT || 5000
-server.listen(port)
-console.log(`AOE2: DE tools app listening on port ${port}`)
+server.listen(port, () => {
+  const url = `http://localhost:${port}`
+  console.log(`AOE2: DE tools app listening on ${url}`)
+  // Only for local use ("npm run dev"); the hosted app must not open a browser
+  if (process.argv.includes('--open')) {
+    const command = { win32: `start "" "${url}"`, darwin: `open "${url}"` }[process.platform] || `xdg-open "${url}"`
+    require('child_process').exec(command)
+  }
+})
