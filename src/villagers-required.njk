@@ -14,6 +14,16 @@
     <div id="container">
       <div class="navbar">
         <div class="navbar-wrapper">
+          <a class="nav-item" href="/villagers-required/list-ui/">
+            <div class="item-wrapper">
+                <svg class="item-icon" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="0.75" stroke-linecap="round" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="1"/>
+                  <path d="M3.5 7.5h17M8.5 3.5v17"/>
+                  <path d="M5 10.5h2M10.5 10.5h8M5 13.5h2M10.5 13.5h6M5 16.5h2M10.5 16.5h7"/>
+                </svg>
+                <div class="item-label">List UI</div>
+            </div>
+          </a>
           <h1 class="nav-title">Number of Villagers Required to Sustain Constant Unit Production</h1>
           <a class="nav-item" href="/civ-ranking/">
             <div class="item-wrapper">
@@ -33,52 +43,52 @@
         <h2>Choose economic bonuses</h2>
         <div id="econ-civ-bonus">
           <select id="econ-civ-select" name="civ bonuses">
-            {% for name, value in ecoBonuses.civ %}
+            {%- for name, value in ecoBonuses.civ %}
               <option value="{{name}}" data-json="{{value | dump}}">{{name}}</option>
-            {% endfor %}
+            {%- endfor %}
           </select>
           <div>
-            {% for name, value in ecoBonuses.team %}
-              <label>
-                <span>
+            {%- for name, value in ecoBonuses.team %}
+              <div>
+                <div>
                   {{ name }}
                 </span>
                 <input type="checkbox" x-upgrade-resources="civilization" data-json="{{value | dump}}" name="{{name}}" />
-              </label>
-            {% endfor %}
+              </div>
+            {%- endfor %}
           </div>
         </div>
         <h2>Click to toggle resource display</h2>
         <div id="choose-res">
-          {% for orderItem in order %}
-            {% for item in orderItem %}
-              {% set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
+          {%- for orderItem in order %}
+            {%- for item in orderItem %}
+              {%- set capacity = ["carry-capacity=", gatherRates[item.name].carryCapacity] | join %}
               <div class='res-show-img {{ "showing-img" if item.show }}' resource='{{item.name}}' title='{{item.name}}' res-per-sec-base="{{gatherRates[item.name].gatherRate}}" res-per-sec="{{gatherRates[item.name].gatherRate}}" res-type="{{gatherRates[item.name].res}}" {{capacity if gatherRates[item.name].carryCapacity }}>
                 <img src='/img/{{gatherRates[item.name].img or item.name }}.webp' class='icon-big'>
                 <div sec='{{gatherRates[item.name].gatherRate}}' min='{{gatherRates[item.name].gatherRate * 60}}'>{{(gatherRates[item.name].gatherRate).toFixed(2)}} - {{(gatherRates[item.name].gatherRate * 60).toFixed(1)}}</div>
               </div>
-            {% endfor %}
-          {% endfor %}
+            {%- endfor %}
+          {%- endfor %}
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
           <h2 style="margin: 0;">Click to toggle unit display</h2>
           <input type="text" id="unit-search" placeholder="Search units..." style="padding: 8px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; min-width: 200px;">
         </div>
         <div id="choose-units">
-          {% for category in unitsShow %}
+          {%- for category in unitsShow %}
             <div class='unit-show-category'>
-            {% for unit in category %}
-              {% for dataUnit in dataset.units %}
-                {% if dataUnit.name == unit %}
-                  {% set food = ['x-food=', dataUnit.cost.food ] | join %}
-                  {% set wood = ['x-wood=', dataUnit.cost.wood] | join %}
-                  {% set gold = ['x-gold=', dataUnit.cost.gold] | join %}
-                  {% set stone = ['x-stone=', dataUnit.cost.stone] | join %}
+            {%- for unit in category %}
+              {%- for dataUnit in dataset.units %}
+                {%- if dataUnit.name == unit %}
+                  {%- set food = ['x-food=', dataUnit.cost.food ] | join %}
+                  {%- set wood = ['x-wood=', dataUnit.cost.wood] | join %}
+                  {%- set gold = ['x-gold=', dataUnit.cost.gold] | join %}
+                  {%- set stone = ['x-stone=', dataUnit.cost.stone] | join %}
 
-                  {% set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
-                  {% set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
-                  {% set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
-                  {% set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
+                  {%- set basefood = ['x-base-food=', dataUnit.cost.food ] | join %}
+                  {%- set basewood = ['x-base-wood=', dataUnit.cost.wood] | join %}
+                  {%- set basegold = ['x-base-gold=', dataUnit.cost.gold] | join %}
+                  {%- set basestone = ['x-base-stone=', dataUnit.cost.stone] | join %}
 
                   <div class='unit-show-img' unit='{{unit}}' title='{{unit}}'
                        x-train-time='{{dataUnit.trainTime}}' x-base-train-time='{{dataUnit.trainTime}}'
@@ -86,28 +96,28 @@
                        {{ basefood if dataUnit.cost.food is not undefined}} {{ basewood if dataUnit.cost.wood is not undefined }} {{ basegold if dataUnit.cost.gold is not undefined }} {{ basestone if dataUnit.cost.stone is not undefined }}>
                     <img src="/img/{{unit}}.webp" alt="{{unit}}" />
                   </div>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endfor %}
             </div>
-          {% endfor %}
+          {%- endfor %}
         </div>
         <div id="vil-totals">
           <h2>Villager totals for all unit selections</h2>
           <div class="res-totals">
             <div id="resources-cont-box" class="resources-cont">
 
-                  {% for orderItem in order %}
-                    {% if loop.index == 1 %}
+                  {%- for orderItem in order %}
+                    {%- if loop.index == 1 %}
                       <div class="res-row" x-row-type="food" style="display: none;">
-                    {% elif loop.index == 2 %}
+                    {%- elif loop.index == 2 %}
                         <div class="res-row" x-row-type="wood" style="display: none;">
-                    {% elif loop.index == 3 %}
+                    {%- elif loop.index == 3 %}
                         <div class="res-row" x-row-type="gold" style="display: none;">
-                    {% elif loop.index == 4 %}
+                    {%- elif loop.index == 4 %}
                         <div class="res-row" x-row-type="stone" style="display: none;">
-                    {% endif %}
-                    {% for item in orderItem %}
+                    {%- endif %}
+                    {%- for item in orderItem %}
                     <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
                       <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                       <div class="resource-num" title="0">
@@ -116,13 +126,13 @@
                         </div>
                       </div>
                     </div>
-                    {% endfor %}
+                    {%- endfor %}
                     </div>
-                  {% endfor %}
+                  {%- endfor %}
             </div>
 
             <div id="unit-totals-box" class="unit-totals">
-            {% for unit in dataset.units %}
+            {%- for unit in dataset.units %}
                 <div class="unit-class" x-unit="{{unit.name}}" style="display: none;">
                   <div class="resource-num" title="1x {{unit.name}}" x-count="1">
                     <div>
@@ -131,61 +141,61 @@
                   </div>
                   <img src="/img/{{unit.name}}.webp" alt="{{unit.name}}" />
                 </div>
-            {% endfor %}
+            {%- endfor %}
             </div>
           </div>
           <div id="gather-rates">
-            {% for unit in dataset.units %}
+            {%- for unit in dataset.units %}
               <div class="unit-container" title="{{unit.name}}" x-unit="{{unit.name}}" style="display: none;">
                 <div class="unit">
-                  {% if unit.cost.food is not undefined %}
-                    {% if unit.cost.food %}
+                  {%- if unit.cost.food is not undefined %}
+                    {%- if unit.cost.food %}
                     <div class="res-cont" title="food">
-                    {% else %}
+                    {%- else %}
                     <div class="res-cont" title="food" style="display: none;">
-                    {% endif %}
+                    {%- endif %}
                       <img src="/img/food-icon.webp" alt="food" />
                       <div>
                         {{unit.cost.food}}
                       </div>
                     </div>
-                  {% endif %}
-                  {% if unit.cost.wood is not undefined %}
-                    {% if unit.cost.wood %}
+                  {%- endif %}
+                  {%- if unit.cost.wood is not undefined %}
+                    {%- if unit.cost.wood %}
                     <div class="res-cont" title="wood">
-                    {% else %}
+                    {%- else %}
                     <div class="res-cont" title="wood" style="display: none;">
-                    {% endif %}
+                    {%- endif %}
                       <img src="/img/wood-icon.webp" alt="wood" />
                       <div>
                         {{unit.cost.wood}}
                       </div>
                     </div>
-                  {% endif %}
-                  {% if unit.cost.gold is not undefined %}
-                    {% if unit.cost.gold %}
+                  {%- endif %}
+                  {%- if unit.cost.gold is not undefined %}
+                    {%- if unit.cost.gold %}
                     <div class="res-cont" title="gold">
-                    {% else %}
+                    {%- else %}
                     <div class="res-cont" title="gold" style="display: none;">
-                    {% endif %}
+                    {%- endif %}
                       <img src="/img/gold-icon.webp" alt="gold" />
                       <div>
                         {{unit.cost.gold}}
                       </div>
                     </div>
-                  {% endif %}
-                  {% if unit.cost.stone is not undefined %}
-                    {% if unit.cost.stone %}
+                  {%- endif %}
+                  {%- if unit.cost.stone is not undefined %}
+                    {%- if unit.cost.stone %}
                     <div class="res-cont" title="stone">
-                    {% else %}
+                    {%- else %}
                     <div class="res-cont" title="stone" style="display: none;">
-                    {% endif %}
+                    {%- endif %}
                       <img src="/img/stone-icon.webp" alt="stone" />
                       <div>
                         {{unit.cost.stone}}
                       </div>
                     </div>
-                  {% endif %}
+                  {%- endif %}
                   <div class="time-cont">
                     <img src="/img/hourglass-icon.webp">
                     <div>{{unit.trainTime}}</div>
@@ -196,49 +206,49 @@
                         Civilization
                         <select unit-option="civilization" >
                           <option>Generic</option>
-                        {% for key, obj  in unitVariety %}
-                          {% if unit.name == key and obj.civs %}
-                              {% for civKey, civObj  in obj.civs %}
-                                {% if civObj.trainTime %}
-                                {% set trainTime = ['x-opt-train-time=', civObj.trainTime ] | join %}
-                                {% else %}
-                                {% set trainTime = null %}
-                                {% endif %}
+                        {%- for key, obj  in unitVariety %}
+                          {%- if unit.name == key and obj.civs %}
+                              {%- for civKey, civObj  in obj.civs %}
+                                {%- if civObj.trainTime %}
+                                {%- set trainTime = ['x-opt-train-time=', civObj.trainTime ] | join %}
+                                {%- else %}
+                                {%- set trainTime = null %}
+                                {%- endif %}
 
-                                {% if civObj.trainTimePercent %}
-                                {% set percent = ['x-opt-train-time-percent=', civObj.trainTimePercent ] | join %}
-                                {% else %}
-                                {% set percent = null %}
-                                {% endif %}
+                                {%- if civObj.trainTimePercent %}
+                                {%- set percent = ['x-opt-train-time-percent=', civObj.trainTimePercent ] | join %}
+                                {%- else %}
+                                {%- set percent = null %}
+                                {%- endif %}
 
-                                {% if civObj.cost and civObj.cost.food is not undefined %}
-                                {% set food = ['x-opt-cost-food=', civObj.cost.food ] | join %}
-                                {% else %}
-                                {% set food = null %}
-                                {% endif %}
+                                {%- if civObj.cost and civObj.cost.food is not undefined %}
+                                {%- set food = ['x-opt-cost-food=', civObj.cost.food ] | join %}
+                                {%- else %}
+                                {%- set food = null %}
+                                {%- endif %}
 
-                                {% if civObj.cost and civObj.cost.wood is not undefined %}
-                                {% set wood = ['x-opt-cost-wood=', civObj.cost.wood ] | join %}
-                                {% else %}
-                                {% set wood = null %}
-                                {% endif %}
+                                {%- if civObj.cost and civObj.cost.wood is not undefined %}
+                                {%- set wood = ['x-opt-cost-wood=', civObj.cost.wood ] | join %}
+                                {%- else %}
+                                {%- set wood = null %}
+                                {%- endif %}
 
-                                {% if civObj.cost and civObj.cost.gold is not undefined %}
-                                {% set gold = ['x-opt-cost-gold=', civObj.cost.gold ] | join %}
-                                {% else %}
-                                {% set gold = null %}
-                                {% endif %}
+                                {%- if civObj.cost and civObj.cost.gold is not undefined %}
+                                {%- set gold = ['x-opt-cost-gold=', civObj.cost.gold ] | join %}
+                                {%- else %}
+                                {%- set gold = null %}
+                                {%- endif %}
 
-                                {% if civObj.cost and civObj.cost.stone is not undefined %}
-                                {% set stone = ['x-opt-cost-stone=', civObj.cost.stone ] | join %}
-                                {% else %}
-                                {% set stone = null %}
-                                {% endif %}
+                                {%- if civObj.cost and civObj.cost.stone is not undefined %}
+                                {%- set stone = ['x-opt-cost-stone=', civObj.cost.stone ] | join %}
+                                {%- else %}
+                                {%- set stone = null %}
+                                {%- endif %}
 
                                 <option value="{{civKey}}" {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} >{{civKey}}</option>
-                              {% endfor %}
-                          {% endif %}
-                        {% endfor %}
+                              {%- endfor %}
+                          {%- endif %}
+                        {%- endfor %}
                         </select>
                       </div>
                   </div>
@@ -250,13 +260,13 @@
                 </div>
                 <div class="res-desc-cont">
                   <div class="resource-cont">
-                  {% if unit.cost.food is not undefined %}
-                    {% if unit.cost.food %}
+                  {%- if unit.cost.food is not undefined %}
+                    {%- if unit.cost.food %}
                       <div class="res-row" x-row-type="food">
-                    {% else %}
+                    {%- else %}
                       <div class="res-row" x-row-type="food" style="display: none;">
-                    {% endif %}
-                        {% for item in order[0] %}
+                    {%- endif %}
+                        {%- for item in order[0] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
                             <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
@@ -265,17 +275,17 @@
                               </div>
                             </div>
                           </div>
-                        {% endfor %}
+                        {%- endfor %}
                       </div>
-                  {% endif %}
+                  {%- endif %}
 
-                  {% if unit.cost.wood is not undefined %}
-                    {% if unit.cost.wood %}
+                  {%- if unit.cost.wood is not undefined %}
+                    {%- if unit.cost.wood %}
                       <div class="res-row" x-row-type="wood">
-                    {% else %}
+                    {%- else %}
                       <div class="res-row" x-row-type="wood" style="display: none;">
-                    {% endif %}
-                        {% for item in order[1] %}
+                    {%- endif %}
+                        {%- for item in order[1] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
                             <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
@@ -284,17 +294,17 @@
                               </div>
                             </div>
                           </div>
-                        {% endfor %}
+                        {%- endfor %}
                       </div>
-                  {% endif %}
+                  {%- endif %}
 
-                  {% if unit.cost.gold is not undefined %}
-                    {% if unit.cost.gold %}
+                  {%- if unit.cost.gold is not undefined %}
+                    {%- if unit.cost.gold %}
                       <div class="res-row" x-row-type="gold">
-                    {% else %}
+                    {%- else %}
                       <div class="res-row" x-row-type="gold" style="display: none;">
-                    {% endif %}
-                        {% for item in order[2] %}
+                    {%- endif %}
+                        {%- for item in order[2] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
                             <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
@@ -303,17 +313,17 @@
                               </div>
                             </div>
                           </div>
-                        {% endfor %}
+                        {%- endfor %}
                       </div>
-                  {% endif %}
+                  {%- endif %}
 
-                  {% if unit.cost.stone is not undefined %}
-                    {% if unit.cost.stone %}
+                  {%- if unit.cost.stone is not undefined %}
+                    {%- if unit.cost.stone %}
                       <div class="res-row" x-row-type="stone">
-                    {% else %}
+                    {%- else %}
                       <div class="res-row" x-row-type="stone" style="display: none;">
-                    {% endif %}
-                        {% for item in order[3] %}
+                    {%- endif %}
+                        {%- for item in order[3] %}
                           <div class="resource" type-resource="{{item.name}}" style="{{ "display: none;" if not item.show }}" >
                             <img src='/img/{{gatherRates[item.name].img or item.name}}.webp' class='icon-big' alt="{{gatherRates[item.name].img or item.name}}">
                             <div class="resource-num" title="0">
@@ -322,56 +332,56 @@
                               </div>
                             </div>
                           </div>
-                        {% endfor %}
+                        {%- endfor %}
                       </div>
-                  {% endif %}
+                  {%- endif %}
                   </div>
                   <div class="upgrades-cont">
-                        {% for key, obj  in unitVariety %}
-                          {% if unit.name == key and obj.upgrades %}
-                              {% for upKey, upObj  in obj.upgrades %}
+                        {%- for key, obj  in unitVariety %}
+                          {%- if unit.name == key and obj.upgrades %}
+                              {%- for upKey, upObj  in obj.upgrades %}
 
-                                {% if upObj.trainTime %}
-                                {% set trainTime = ['x-train-time=', upObj.trainTime ] | join %}
-                                {% else %}
-                                {% set trainTime = null %}
-                                {% endif %}
+                                {%- if upObj.trainTime %}
+                                {%- set trainTime = ['x-train-time=', upObj.trainTime ] | join %}
+                                {%- else %}
+                                {%- set trainTime = null %}
+                                {%- endif %}
 
-                                {% if upObj.trainTimePercent %}
-                                {% set percent = ['x-train-time-percent=', upObj.trainTimePercent ] | join %}
-                                {% else %}
-                                {% set percent = null %}
-                                {% endif %}
+                                {%- if upObj.trainTimePercent %}
+                                {%- set percent = ['x-train-time-percent=', upObj.trainTimePercent ] | join %}
+                                {%- else %}
+                                {%- set percent = null %}
+                                {%- endif %}
 
-                                {% if upObj.cost and upObj.cost.food is not undefined %}
-                                {% set food = ['x-cost-food=', upObj.cost.food ] | join %}
-                                {% else %}
-                                {% set food = null %}
-                                {% endif %}
+                                {%- if upObj.cost and upObj.cost.food is not undefined %}
+                                {%- set food = ['x-cost-food=', upObj.cost.food ] | join %}
+                                {%- else %}
+                                {%- set food = null %}
+                                {%- endif %}
 
-                                {% if upObj.cost and upObj.cost.wood is not undefined %}
-                                {% set wood = ['x-cost-wood=', upObj.cost.wood ] | join %}
-                                {% else %}
-                                {% set wood = null %}
-                                {% endif %}
+                                {%- if upObj.cost and upObj.cost.wood is not undefined %}
+                                {%- set wood = ['x-cost-wood=', upObj.cost.wood ] | join %}
+                                {%- else %}
+                                {%- set wood = null %}
+                                {%- endif %}
 
-                                {% if upObj.cost and upObj.cost.gold is not undefined %}
-                                {% set gold = ['x-cost-gold=', upObj.cost.gold ] | join %}
-                                {% else %}
-                                {% set gold = null %}
-                                {% endif %}
+                                {%- if upObj.cost and upObj.cost.gold is not undefined %}
+                                {%- set gold = ['x-cost-gold=', upObj.cost.gold ] | join %}
+                                {%- else %}
+                                {%- set gold = null %}
+                                {%- endif %}
 
-                                {% if upObj.cost and upObj.cost.stone is not undefined %}
-                                {% set stone = ['x-cost-stone=', upObj.cost.stone ] | join %}
-                                {% else %}
-                                {% set stone = null %}
-                                {% endif %}
+                                {%- if upObj.cost and upObj.cost.stone is not undefined %}
+                                {%- set stone = ['x-cost-stone=', upObj.cost.stone ] | join %}
+                                {%- else %}
+                                {%- set stone = null %}
+                                {%- endif %}
 
-                                {% if upObj.cost and upObj.cost.baseResource is not undefined %}
-                                {% set baseResource = ['x-cost-base-resource=', upObj.cost.baseResource ] | join %}
-                                {% else %}
-                                {% set baseResource = null %}
-                                {% endif %}
+                                {%- if upObj.cost and upObj.cost.baseResource is not undefined %}
+                                {%- set baseResource = ['x-cost-base-resource=', upObj.cost.baseResource ] | join %}
+                                {%- else %}
+                                {%- set baseResource = null %}
+                                {%- endif %}
 
                                 <label>
                                   <span>
@@ -379,14 +389,14 @@
                                   </span>
                                   <!-- we need to replace the spaces with dashes otherwise it will split the string by space. eg. "eagle" scout=""  -->
                                   <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} {{baseResource}} />
-                                </label>
-                              {% endfor %}
-                          {% endif %}
-                        {% endfor %}
+                                </div>
+                              {%- endfor %}
+                          {%- endif %}
+                        {%- endfor %}
                   </div>
                 </div>
               </div>
-            {% endfor %}
+            {%- endfor %}
           </div>
         </div>
         

@@ -21,8 +21,7 @@
     {"name": "fish trap", "show": false},
     {"name": "fish trap gillnets", "show": false},
     {"name": "feitoria food", "show": false},
-    {"name": "relic food", "show": false},
-    {"name": "gurjara mill", "show": false}
+    {"name": "relic food", "show": false}
   ],
   [
     {"name": "lumberjack", "show": true},
