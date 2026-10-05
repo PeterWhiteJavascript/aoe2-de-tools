@@ -1,0 +1,82 @@
+{
+  "units": {
+    "villager": 83,
+    "trade cart": 128,
+    "trebuchet": 331,
+    "trebuchet unpacked": 42,
+    "war chariot": 1962,
+    "ratha": 1759,
+    "house": 70,
+    "lumber camp": 562,
+    "mining camp": 584,
+    "mill": 68,
+    "folwark": 1711,
+    "mule cart": 1808,
+    "dock": 45,
+    "barracks": 12,
+    "fortified church": 1806,
+    "palisade wall": 72,
+    "palisade gate": 792,
+    "outpost": 598,
+    "pasture": 1889,
+    "town center": 621,
+    "serjeant": 1660,
+    "spearman": 93,
+    "konnik": 1225
+  },
+  "renames": {"longboat": 250},
+  "upgrades": {},
+  "ignoreFields": {
+    "monk": ["rateOfFire"],
+    "missionary": ["rateOfFire"],
+    "warrior priest": ["rateOfFire"],
+    "town center": ["ageReq"]
+  },
+  "skipNewUnits": [1954, 1966, 1978],
+  "gatherers": {
+    "farmer": {"units": [259, 214], "resources": ["farmer", "farm heavy plow", "wheelbarrow", "wheelbarrow heavy plow", "hand cart"]},
+    "herder": {"units": [1892, 1891], "resources": ["herder", "pasture wheelbarrow", "pasture hand cart"]},
+    "fisherman": {"units": [56, 57], "resources": ["fisherman"]},
+    "hunter": {"units": [122, 216], "resources": ["hunter"]},
+    "shepherd": {"units": [592, 590], "resources": ["shepherd"]},
+    "forager": {"units": [120, 354], "resources": ["forager"]},
+    "lumberjack": {"units": [123, 218], "resources": ["lumberjack", "double-bit axe", "bow saw", "two-man saw"]},
+    "gold miner": {"units": [579, 581], "resources": ["gold miner", "gold mining", "gold shaft mining"]},
+    "stone miner": {"units": [124, 220], "resources": ["stone miner", "stone mining", "stone shaft mining"]},
+    "oyster gatherer": {"units": [2333, 2334], "resources": ["oyster gatherer"]}
+  },
+  "notGatherers": [156, 222],
+  "effectiveGatherRates": ["farmer", "herder", "pasture wheelbarrow", "pasture hand cart"],
+  "specialResources": {
+    "241": {
+      "kind": "derived",
+      "res": "gold",
+      "resources": {"gold from stone": "stone miner", "gold from stone mining": "stone mining",
+        "gold from stone shaft": "stone shaft mining"}
+    },
+    "267": {
+      "kind": "derived",
+      "res": "wood",
+      "resources": {"wood from berries": "forager"}
+    },
+    "298": {
+      "kind": "derived",
+      "res": "gold",
+      "resources": {"gold from shepherd": "shepherd", "gold from hunter": "hunter",
+        "gold from fishing ship shore": "fishing ship shore", "gold from fishing ship deep": "fishing ship deep",
+        "gold from fish trap": {"from": "fish trap", "scale": 0.5,
+          "note": "tested in game: 100 food from a fish trap or deepfish = 5 gold (5 %), 100 food from sheep = 10 gold (10 %)"}}
+    },
+    "299": {
+      "kind": "ecoBonus",
+      "label": "Food drop-off",
+      "resources": ["farmer", "farm heavy plow", "wheelbarrow", "wheelbarrow heavy plow", "hand cart", "herder",
+        "pasture wheelbarrow", "pasture hand cart", "hunter", "shepherd", "forager", "fisherman",
+        "fishing ship shore", "fishing ship deep", "fishing ship shore fishing lines",
+        "fishing ship deep fishing lines", "fishing ship shore gillnets", "fishing ship deep gillnets"]
+    }
+  },
+  "unitsShowCategories": {"12": 1, "87": 2, "101": 3, "104": 4, "49": 5, "82": 6, "45": 7},
+  "uniqueCategory": 6,
+  "genericShare": 0.8
+}

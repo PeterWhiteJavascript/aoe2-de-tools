@@ -12,13 +12,15 @@
   "contributors": [],
   "dependencies": {
     "compression": "^1.8.1",
-    "express": "4.22.2"
+    "express": "5.2.1"
   },
   "scripts": {
     "prestart": "npm run build",
     "start": "node app.js",
     "prebuild": "rm -rf public",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "gamedata:verify": "python tools/gamedata/gamedata.py verify",
+    "gamedata:update": "python tools/gamedata/gamedata.py update"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",

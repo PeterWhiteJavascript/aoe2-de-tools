@@ -1,5 +1,5 @@
 node_modules/
 nbproject/
 public/
-
+__pycache__/
 own_notes.md
