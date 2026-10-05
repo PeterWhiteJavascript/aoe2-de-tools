@@ -1,126 +1,287 @@
 # Game data sync (gamedata)
 
-Checks the project data against the real AoE2:DE game data and applies changes:
-costs, training and research times, gather rates, eco bonuses, new units, new
-resources and their icons (webp).
+Checks the project data in `src/` against the AoE2:DE game data and applies changes: costs, train and
+research times, gather rates, eco bonuses, new units and resources with their icons, and the civ tech
+trees of the civ ranking.
 
 ## After a game patch
 
 ```shell
 pip install -r tools/gamedata/requirements.txt   # once
-python tools/gamedata/gamedata.py update          # or: npm run gamedata:update
-git diff                                          # review the changes
+npm run gamedata:extract                        
+npm run gamedata:verify                         # optional, preview all changes
+npm run gamedata:update                         # apply changes
+git diff                                        # review
 ```
 
 | Command   | Effect |
 |-----------|--------|
 | `extract` | reads the game and writes `snapshot.json` |
 | `verify`  | compares the project with `snapshot.json`, changes nothing (exit code 1 on differences) |
-| `patch`   | fixes differences, adds new things, creates missing icons |
+| `patch`   | applies differences and new entries, creates missing icons |
 | `update`  | `extract` + `patch` |
 
-Options: `--game <path>` (default: the Steam library in which app 813780 is installed),
-`--stats` (additionally check combat stats such as hp, attack and armor, which the villager calculator does not need).
+Options:
 
-`snapshot.json` is checked in. Its diff shows what a game patch changed.
+  - `--game <path>` (default: the Steam library with app 813780), 
+  - `--stats` (also check combat stats, which the villager calculator does not use),
+  - `--techtree` (check only the civ ranking tech trees, see below).
+
+`snapshot.json` is checked in; its diff shows what a game patch changed.
 
 ## Data sources
 
-- `resources/_common/dat/empires2_x2_p1.dat` holds the game data and is read with [genieutils-py](https://github.com/SiegeEngineers/genieutils-py).
-- `resources/_common/dat/futuravailableunits.json`: tech tree per civ (availability, age).
+Paths in the game installation:
+
+- `resources/_common/dat/empires2_x2_p1.dat`: game data
+- `resources/_common/dat/CivTechTrees/<CIV>.json`: tech tree per civ as shown in the game (availability, age).
 - `resources/_common/dat/civilizations.json`: civ names.
 - `resources/en/strings/key-value/key-value-strings-utf8.txt`: display names.
 - `widgetui/textures/menu/techtree/normal`: tech tree frames.
-- `resources/_common/wpfg/resources/uniticons` (PNG) and `widgetui/textures/ingame/units` (DDS): unit portraits.
-- `widgetui/textures/menu/civs`: civ emblems.
+- `widgetui/textures/ingame/tech` (DDS): tech icons (icon generation).
+- `widgetui/textures/ingame/units` (DDS): unit portraits. Their alpha channel masks the player color.
+- `resources/_common/palettes/spritecolors.json`: player colors (icon generation).
+- `widgetui/textures/menu/civs`: civ emblems (civ icons, resource icons).
 - `widgetui/textures/ingame/icons`: resource symbols.
-- `resources/_common/fonts/georgiab.ttf`: font for the unit names.
-
-## Rules
-
-- **Values** come from the Gaia copy of a unit. All civ copies are identical; civ differences arise via techs.
-- **Upgrades** in `data.json` are only checked if they have `effects.gatherRate` (eco techs such as Double-Bit Axe or Gold Mining). The villager calculator reads nothing else from them.
-- **Unit upgrades of new units** are named like the target unit ("war galley", "fire ship"). Cost and time come from the researchable tech behind them, even if it affects several lines ("Medium Warships", "Heavy Warships").
-- **Category** of new units (frame color, placement in `unitsShow.json`):
-  - *unique* if unlocked via a civ-specific tech or available to only one civ,
-  - *generic* for more than 80 % of the civs (`genericShare`),
-  - *regional* otherwise.
-- **unitVariety** of new units: elite tiers with a different time or cost (with `img`) plus all percentage techs the project already knows (Conscription, Kasbah, Perfusion, Shipwright ...), provided they affect the unit.
-- **Eco bonuses** of new civs are detected from gather rate multipliers. Factors below 1 are ignored: they make a resource last longer (Goths hunt, Tatars sheep) and do not change the gather rate.
-  Engine resources with special meaning are listed in `config.json` under `specialResources`:
-  - 241 = gold from stone (Poles),
-  - 267 = wood from berries (Portuguese),
-  - 298 = gold from food (Varangians),
-  - 299 = food bonus on drop-off (Danes).
-- **Derived resources** (a share of a gathered resource as another resource) live in `src/data/derivedGatherRates.json`. `src/_data/gatherRates.js` computes them from the source rate, new ones are also added to `order.json` with an icon.
-- **Renamed units** get the game name everywhere in `src/` (also their upgrades, e.g. "elite longboat" →
-  "elite longship"), and their icons are recreated under the new name. See `renames` below.
-- Editorial data (civ rankings, tech tree pages, civ bonus texts) is left untouched; missing civs are only reported.
+- `resources/_common/fonts/georgiab.ttf`: font for the unit names (icon generation)
 
 ## Code overview
 
 | File | Purpose |
 |------|---------|
-| `gamedata.py` | command line entry point, prints the findings |
-| `extract.py` | reads the game files and writes `snapshot.json`; the only module that touches the game installation besides `icons.py` |
-| `sync.py` | compares `src/` with `snapshot.json`; each `check_*` method records findings, fixable ones carry an `apply` function that `patch` runs |
-| `jsonedit.py` | edits the project JSON files in place so their hand formatting and the git diff stay small |
-| `icons.py` | creates the webp icons for new units and resources from the game textures |
+| `gamedata.py` | command line, prints the findings |
+| `extract.py` | reads the game files (`.dat` via [genieutils-py](https://github.com/SiegeEngineers/genieutils-py), tech trees, strings) into `snapshot.json` |
+| `sync.py` | compares `src/` with the snapshot; each `check_*` method records findings, fixable ones carry an `apply` function that `patch` runs |
+| `jsonedit.py` | edits the project JSON files in place, keeping their formatting |
+| `icons.py` | creates webp icons from the game textures |
+| `patch_icons.py` | optional: regenerates all existing unit icons so they share the style of `icons.py` |
+| `ranking_editor.py`, `ranking_editor.html` | local editor for the ratings and unit tooltips of the civ ranking (see below) |
+| `todo_rankings.py` | reads and writes the review rounds in `TODO_RANKINGS.txt` |
 
-`verify` and `patch` only read `snapshot.json`, so they work without the game installed (except for
-creating icons). To test a change to the tool, run `verify` before and after it and compare the output;
-for changes to `patch`, run it on a copy of the repository.
+`verify` and `patch` only read the snapshot and work without the game installed, except for creating icons.
+To test a change to the tool, compare the `verify` output before and after; run `patch` on a copy of the repository.
+
+## Rules
+
+Details are in the docstrings of the `check_*` methods in `sync.py`.
+
+- **Unit values** come from the Gaia copy of a unit; civ differences come from techs. Only `trainTime` and `cost` are checked without `--stats`.
+- **Eco techs** in `data.json` "upgrades" are checked if they have `effects.gatherRate`; the calculator reads nothing else from them.
+- **Villager gather rates** are compared with the work rate of the task units in `gatherers`.
+- **unitVariety.json** is derived from every tech and bonus that changes train time or cost of a unit line:
+  - techs go to `upgrades` under the tech name, team bonuses as "<Civ> Team Bonus", civ bonuses to `civs` as "<Civ> Civ Bonus" or "<Civ> - <Age> Age",
+  - a group of keys with the same game source is replaced as a whole if it differs; values are compared by effect, not notation,
+  - elite tiers with another time or cost than the tier before go to `upgrades` with `img`; `cost` is the difference to the base unit, because the calculator adds it,
+  - units in `unitsShow.json` without an entry get one,
+  - keys without a game source and bonuses that slow training are only reported.
+- **Eco bonuses** come from the work rate multipliers of a civ's bonus techs and tech tree effect, and from `specialResources`. Factors below 1 are ignored. Values are compared only for bonuses from a single tech without prerequisites; removed bonuses are only reported. The `team` section is not checked.
+- **Resources** in `order.json` are checked against `gatherers` in both directions, so a new resource cannot silently miss its civ bonuses.
+- **New units** get a `data.json` entry with their upgrades, a `unitVariety.json` entry, an icon and a place in the `unitsShow.json` group with the most units from the same building.
+- **Renamed units** listed in `renames` get the game name everywhere in `src/`, including their upgrades and icons.
+- **Civ tech trees** (`data.json` "civilizations" → "techTree", used by the civ ranking) follow the in-game tech tree. Only `--techtree` checks them, see below.
+- Editorial data (civ ratings, tech tree pages, bonus texts) is not touched.
+
+## Civ ranking tech trees
+
+The civ ranking rates each civ by its tech tree. The ratings (the numbers in "ranks", the units in "ranksUnique",
+"bonusDesc" in `data.json`) are editorial, so the tech trees are updated separately, by whoever reviews the
+ratings afterwards. The tool keeps everything else in line with the game, including which units and unique techs
+a civ has entries for; it never changes a rating.
+
+```shell
+npm run techtree:verify                         # optional, preview
+npm run techtree:update                         # extract + patch the tech trees, write TODO_RANKINGS.txt,
+                                                # rebuild public/ for the local site
+```
+
+`techtree:update` writes `TODO_RANKINGS.txt` to the repository root (git-ignored, rewritten by every update)
+before it patches, and opens it. It lists the tech tree changes, what to update by hand, and per civ the changes
+that touch its ratings, a building it is rated in or its bonuses ("Rankings to review"; changes most civs share by
+`genericShare` are listed once). `techtree:verify` only prints the same list, so the file stays until the next update.
+"Rankings to review" keeps the notes of earlier updates as rounds of their own (see "Reviewing the ratings").
+
+```
+Britons:
+  - gained mounted crossbowman
+  - lost cavalry archer
+  - review rating: heavy cavalry archer [2, 1.5] no longer available, replaced by heavy mounted crossbowman?
+  - new rating: heavy mounted crossbowman (archery range)
+Chinese:
+  - cost increase: fire lancer - 35f 40g -> 45w 45g
+Malians:
+  - effect change: malians civ bonus - Gold Miners (resource 276) 15 -> 10
+```
+
+Effect and cost changes are compared with `techtree-baseline.json` (checked in), which `techtree:update` writes
+after patching: they show what changed since the last tech tree update, no matter when `gamedata:update` ran.
+Without the file, e.g. on the first run, they are missing. Only economic effects are compared (work rate, carry
+capacity, cost, train time and the engine resources of `specialResources`), as the snapshot holds no other
+effects; changes of combat stats (hp, attack, armor, range, speed) do not show up.
+
+- `available` is fixed per entry; the finding lists the civs that gained (+) or lost (-) it.
+- Techs researched in another building now are moved there, also in "upgradeBuilding".
+- Units and techs of a tech tree building no entry stands for are added to every civ with that building.
+- Names in `removedTechs` are removed from `data.json` wherever they stand: tech trees, "upgrades",
+  "relevantUpgrades", "upgradeBuilding", "overviewUpgrades", "ranksUnique", unit tech lists. While the code of
+  `civ-ranking.js` still names one, its tech tree entries only become unavailable, since the page fails on names
+  missing in a tech tree. Mentions in other code are only reported.
+- Techs in `techRenames` get the game name everywhere in `src/`; their icon files are renamed, since there is no
+  generator for tech icons. If the game gave the tech a new effect too, replace the icon by hand.
+- Civs missing in the project are added: the tech tree of the most common building layout with the civ's
+  availability, the entries of "ranks" and "ranksUnique" without ratings (see below), no "bonusDesc", and the
+  game's civ emblem as `civicon-<civ>.webp`. The page shows them right away; until they have ratings,
+  `TODO_RANKINGS.txt` lists them under "By hand".
+- **"ranks"**: every civ has an entry for each unit line any civ rates, in the building it is rated in, named
+  after the highest tier the civ has (longest upgrade path, so Winged Hussar and Legionary count as top tiers).
+  Entries without a unit ("defenses") go to a civ only if every civ has them. Lines no civ rates yet are new units
+  and get entries too, unless `unratedUnits` names them (Petard). Per civ:
+  - a line it has but does not rate gets an entry without ratings,
+  - a rated unit it no longer has keeps its entry and ratings and is flagged for review, with the tier it has now
+    or the unrated units of that building that may replace it (Onager → Rocket Cart); once those are rated, the
+    old entry is removed,
+  - a rated line it lost without such a replacement loses its entry.
+- **"ranksUnique"**: the civ's unique techs (castle techs only the civ has, without the elite upgrade of its unique
+  unit). Techs it no longer has are removed, new ones are added without affected units and flagged, since they may
+  change the civ's rating.
+- **"overviewUpgrades"** is the selection of techs the page lists per civ ("relevant for 1v1 Arabia"). It is
+  editorial: removed techs leave it, new ones are not added. An entry `{"name": ..., "requires": <unit>}` shows only
+  for civs with that unit (Cranequins needs the Mounted Crossbowman).
+- Icons the page needs (rated units, unique techs, overview, civs) are created if missing: units and techs as tech
+  tree tiles, civs from their emblem.
+
+### Reviewing the ratings
+
+```shell
+npm run ranking:edit
+```
+
+Starts a local server (`http://localhost:8765/`, `--port` to change it, `--no-browser` to not open it) with an
+editor for "ranks", "ranksUnique" and "bonusDesc" of every civ, next to the civ's open review notes ("Civs"), and
+for the techs the unit tooltips show ("Unit upgrades", see below). It needs no packages besides Python. It is a
+maintainer tool: the website build only takes `src/`, so neither the editor nor the review notes are published.
+
+**Review notes across sessions and patches.** The editor shows the "Rankings to review" of `TODO_RANKINGS.txt`
+grouped by review round, named after the game build (`build 25464371`). Ticked off notes are stored in the browser
+(`localStorage`), so the review can be spread over several sessions. When a patch arrives before a round is
+finished, `techtree:update` adds the new round in front and keeps the earlier ones; the editor marks them as
+"earlier round". A note an earlier round lists already is not added again, and a second update for the same build
+only adds what is new. Reviewed rounds may be deleted from the file by hand, but need not be. A note the saved
+ratings already cover (a "new rating" with ratings, a "review rating" entry that is gone, a "new unique tech" with
+affected units) is marked "looks resolved"; ticking it off stays with the maintainer.
+
+**Editing.**
+
+- Ratings are edited per age (Dark to Imperial) with the letters of "rankConversion"; `data.json` stores them up to
+  the Imperial Age, so they must not have gaps. The building rating is the average, as on the page.
+- Rows are flagged when the civ does not have the unit in its tech tree or the entry has no ratings yet. Hovering a
+  note marks the rows it names, selecting it scrolls to them; only its checkbox ticks it off.
+- Selecting a unit name compares its ratings across all civs and lists the civs that have the unit without rating it.
+- Unique techs the page cannot find in the civ's tech tree (it would fail on them) are listed as problems; gaps in
+  ratings block saving.
+- "Save" writes one civ via `jsonedit.py`: only the changed values change in `data.json`. If the civ was changed in
+  `data.json` since the editor loaded it (e.g. by `techtree:update`), saving is refused; "Revert" loads it again.
+- New buildings and units are added at the end of their civ's entry in `data.json`, except for a civ without any
+  entries.
+
+**Unit upgrades.** Hovering a unit on the civ ranking page shows its "relevantUpgrades", then the civ's unique
+techs that affect it. These lists are kept by hand: the snapshot holds no combat effects to derive them from, and
+they are a choice anyway. The view lists the rated units without a list first; `techtree:update` adds new units to
+"ranks", not here.
+
+- A unit's list is ordered by drag and drop (or Alt+Up/Down). Techs and upgrade groups come from a searchable list
+  filtered by building. A unit without a list can copy the list of another unit, or share it: sharing writes the
+  rating keys to "unitGroups", which the page also uses to match unique techs, so those then have to name the
+  shared unit.
+- Upgrade groups ("meleeAttack": forging, iron casting, blast furnace) take one place in a list: the tooltip shows
+  the highest tier the civ has, or the first one greyed out. Their techs are ordered lowest tier first. They rarely
+  change, only when the game adds a tech series. The unit comparison uses them too, so a group is only deleted when
+  nothing uses it. The upgrade groups of unit lines ("militia") belong to the unit comparison and are not shown.
+- The page looks every tech up in the tech tree building "upgradeBuilding" names and fails on a civ that lacks it.
+  The list therefore offers the techs of "upgradeBuilding" and the ones every civ has in the same building outside
+  the castle (marked "new"; saving adds them to "upgradeBuilding"). Unique techs come from "ranksUnique".
+- A preview shows the tooltip per civ. "Save" writes all unit upgrade edits at once, refused like a civ when
+  `data.json` changed meanwhile.
 
 ## config.json
 
-`config.json` holds everything the tool cannot derive from the game data by itself: name mappings,
-exceptions and the meaning of special engine values. It only needs to change when `verify` reports
-a note that points to it, or when a patch introduces a new kind of mechanic.
-
-Game IDs can be looked up in `snapshot.json` (search for the English name; `units` and `techs`
-are keyed by ID). Units that exist in several copies (Gaia, per civ, hero) have several IDs; use the
-one with a `civs` list.
+Holds what neither the game data nor the project contains: name mappings, exceptions and the meaning of
+engine values. It only changes when `verify` points to it. Game IDs are in `snapshot.json`; for units with
+several copies use the ID with a `civs` list.
 
 | Key | Purpose |
 |-----|---------|
-| `units` | project name → unit ID, if the name in `data.json` is ambiguous or differs from the game name |
-| `renames` | old project name → unit ID, for units that were renamed in the game; `patch` renames them in the project, afterwards the entry can be removed |
-| `upgrades` | project name → tech ID, if an eco tech in `data.json` cannot be found by its name |
-| `ignoreFields` | fields that are not compared for a unit (e.g. monks: `rateOfFire` is the conversion time there) |
-| `skipNewUnits` | unit IDs that are never adopted as new units (heroes, campaign units) |
-| `gatherers` | villager task units in the game (male and female ID) → resources in the project that use their work rate |
-| `notGatherers` | unit IDs with a work rate that are not gatherers (repairers), so they are not reported as unknown |
-| `effectiveGatherRates` | resources the project tracks as effective rates including walking time (farms, pastures); they are not compared with the pure work rate |
-| `specialResources` | engine resource ID → meaning, for civ bonuses that are not a gather rate multiplier (see below) |
-| `unitsShowCategories` | building ID → group index in `src/data/unitsShow.json` where new units trained there are listed |
-| `uniqueCategory` | group index in `unitsShow.json` for unique units |
-| `genericShare` | share of civs above which a new unit counts as *generic* instead of *regional* |
+| `units` | project name → unit ID, if the name is ambiguous or differs from the game |
+| `renames` | old project name → unit ID of a unit renamed in the game; can be removed after `patch` |
+| `unitCivs` | unit ID → civs that can train it, for units no tech tree shows (Xolotl Warrior: trained in a converted Stable) |
+| `upgrades` | project name → tech ID, if a tech cannot be found by name |
+| `techRenames` | old project name → tech ID of a tech renamed in the game; can be removed after `techtree:update` |
+| `unratedUnits` | names of unit lines the civ ranking never rates (Petard); others get entries in "ranks" |
+| `removedTechs` | project names of techs removed from the game; can be removed once nothing mentions them |
+| `ignoreFields` | fields not compared for a unit, because they mean something else there |
+| `skipNewUnits` | unit IDs never adopted as new units (heroes, campaign units) |
+| `ignoreTechs` | tech IDs that affect another building than the calculator shows; list all techs of a bonus |
+| `manualVariety` | unit → `unitVariety` keys maintained by hand |
+| `gatherers` | villager task unit IDs (male, female) → project resources using their work rate |
+| `notGatherers` | unit IDs with a work rate that do not gather |
+| `effectiveGatherRates` | resources stored as effective rates including walking; not compared with the work rate |
+| `otherResources` | resources in `order.json` no villager gathers |
+| `specialResources` | engine resource ID → meaning, see below |
+| `knownResources` | engine resource IDs that do not affect gathering |
+| `manualEcoBonuses` | `ecoBonuses.json` keys maintained by hand |
+| `genericShare` | share of civs above which a new unit is *generic* instead of *regional* |
 
-### Handling notes from `verify`
+After changing `units` or `upgrades`, run `update`: the mappings also decide what `extract` writes.
 
-| Note | What to do |
-|------|------------|
-| `units/<name>: no matching unit found in the game` | If the unit was renamed in the game, add `"<name>": <ID>` to `renames`, otherwise to `units`. |
-| `units/<name>: ambiguous [...]` | Check the IDs in `snapshot.json` and pin the right one in `units`. |
-| `upgrades/<name>: not in any tech tree of the game` | The eco tech was renamed or removed. Map it in `upgrades` or remove the effect from `data.json`. |
-| `config.json gatherers: unknown gatherer in the game` | New villager task. Add it to `gatherers` with the resources that should use its rate, or to `notGatherers`. |
-| difference in a field that means something else for a unit | Add the field to `ignoreFields` for that unit. |
-| new unit that should not appear in the calculator | Add its ID to `skipNewUnits`. |
+### Notes from `verify`
 
-After changing `config.json`, run `verify` again. Mappings in `units` and `upgrades` also decide what
-`extract` writes to `snapshot.json`, so run `update` (or `extract`) if a mapping points to an ID that is
-not yet in the snapshot.
+| Note | Action |
+|------|--------|
+| `units/<name>: no matching unit` (also `unitVariety.json <unit>`) | add the ID to `renames` if renamed, else to `units` |
+| `units/<name>: ambiguous` | pin the right ID in `units` |
+| `upgrades/<name>: not in any tech tree` | map it in `upgrades` or remove the effect |
+| `unknown gatherer in the game` | add it to `gatherers` or `notGatherers` |
+| field differs that means something else | add it to `ignoreFields` |
+| unwanted new unit | add its ID to `skipNewUnits` |
+| `slows training down` | if it applies to another building, add the tech IDs to `ignoreTechs` |
+| `no game source found` | rename the key to the tech name, or add it to `manualVariety` |
+| `no gather bonus found in the game` | remove the entry, or add it to `manualEcoBonuses` |
+| `no such bonus anymore` (derived resource) | remove it from `derivedGatherRates.json` and `order.json`, or fix `specialResources` |
+| `not assigned to a villager task` | add it to its task in `gatherers`, or to `otherResources` |
+| `not in order.json` | update `gatherers` or `otherResources` |
+| `unknown engine resource` | add it to `specialResources` if it affects gathering, else to `knownResources` |
+| `techTree <building>/<name>: not found in the game` | map it in `units` or `upgrades` if renamed, else add it to `removedTechs` |
+| `techTree <name>: called "..." in the game` | nothing; rename the entry and its icon by hand if wanted |
+| `removed tech "<name>": still named in ...` | update the code by hand, then remove the name from `removedTechs` |
+| `civilizations/<civ>: no ratings yet` | rate its "ranks", set the units of its "ranksUnique", write its "bonusDesc" |
+| unwanted entry in "ranks" for a new unit line | add the line's first unit to `unratedUnits` |
 
 ### Special resources
 
-Some civ bonuses are stored as engine resources instead of work rate multipliers. `verify` does not detect
-new ones by itself; they show up as a civ bonus that is missing in the calculator. To add one, find the
-resource ID in the civ's bonus tech in `snapshot.json` (`effects` entries of type 1:
-`[1, resource, mode, -1, value]`) and add an entry:
+Most eco bonuses make villagers work faster, which the tool reads from the game data. Some bonuses
+work differently: the game stores them as a number on an engine "resource" (e.g. Malians: resource 276
+= 10), and only the game executable knows what that number does. `specialResources` tells the tool.
 
-- `"kind": "derived"`: a share of a gathered resource is also credited as another resource (Poles: gold from stone). `res` is the credited resource, `resources` maps the new project resource to its source resource. The share is `value / 100`. If the game applies a different share to a single source, write it as `{"from": "<source>", "scale": <factor>, "note": "<how it was tested>"}` instead of the plain source name (Varangians: fish traps only get half of the 10 %). New entries are written to `src/data/derivedGatherRates.json` and `order.json` and get an icon.
-- `"kind": "ecoBonus"`: a percentage bonus on the listed project resources, written to `ecoBonuses.json` with `label` as the bonus name.
+When `verify` reports an unknown engine resource, look at the listed tech in `snapshot.json`. Its effect
+`[1, <resource ID>, <mode>, -1, <value>]` holds the value; `value / 100` is the share. Test the effect in
+the game once, then add one of two kinds:
 
-Verify the share in the game once. The `.dat` only holds the value; which sources it applies to and
-how is decided by the game executable and is not documented in the game files. The civ descriptions do
-not give percentages either.
+**`ecoBonus`**: villagers of some tasks gather faster. Written to `ecoBonuses.json`.
+
+```json
+"276": {"kind": "ecoBonus", "label": "Gold Miners", "gatherers": ["gold miner", "oyster gatherer"]}
+```
+
+`gatherers` names keys of `gatherers`. Alternatively `"res": "food", "except": [...]` applies the bonus
+to all food resources except the listed ones.
+
+**`derived`**: gathering one resource also yields another one (Poles get gold when mining stone). Each
+pair becomes a new resource in `derivedGatherRates.json` and `order.json`, with an icon.
+
+```json
+"241": {"kind": "derived", "res": "gold", "resources": {"gold from stone": "stone miner"}}
+```
+
+`resources` maps the new resource to the resource it comes from. If the game uses a different share for
+one source, write `{"from": "<source>", "scale": <factor>, "note": "<how it was tested>"}` instead of the name.
+
+`verify` does not notice when a game patch gives a known resource ID a new meaning.
