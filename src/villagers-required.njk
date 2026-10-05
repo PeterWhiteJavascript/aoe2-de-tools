@@ -49,12 +49,12 @@
           </select>
           <div>
             {%- for name, value in ecoBonuses.team %}
-              <div>
-                <div>
+              <label>
+                <span>
                   {{ name }}
                 </span>
                 <input type="checkbox" x-upgrade-resources="civilization" data-json="{{value | dump}}" name="{{name}}" />
-              </div>
+              </label>
             {%- endfor %}
           </div>
         </div>
@@ -389,7 +389,7 @@
                                   </span>
                                   <!-- we need to replace the spaces with dashes otherwise it will split the string by space. eg. "eagle" scout=""  -->
                                   <input type="checkbox" x-upgrade-unit="{{unit.name}}" {{ 'x-img-swap=' + (upObj.img | replace(" ", "-")) if upObj.img else null  }} {{trainTime}} {{percent}} {{food}} {{wood}} {{gold}} {{stone}} {{baseResource}} />
-                                </div>
+                                </label>
                               {%- endfor %}
                           {%- endif %}
                         {%- endfor %}
