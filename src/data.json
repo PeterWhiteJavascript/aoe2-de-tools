@@ -25155,7 +25155,7 @@
             "bonusDesc": [
                 "The Romans are and infantry and scorpion focused civs with many bonuses for each of these units. Their villagers also work 5% faster which gives them a slight edge for any strategy that they want to go for.",
                 "Scorpions have a reduced gold cost to 30, minimum range reduced to 1, and the ballistas tech which makes them fire 33% faster",
-                "Romans infantry units benefit double from armor upgrades making their castle age long swordsmen have +4/+4 armor with both armor techs researched. This is balanced by lacking supplies and gambesons.",
+                "Romans infantry units benefit double from armor upgrades making their castle age long swordsmen have +4/+4 armor with both armor techs researched. This is balanced by lacking gambesons and arson.",
                 "In addition to this armor bonus, instead of upgrading to two-handed swordsmen, the Romans upgrade their long swordsmen to legionaries which are stronger than champions and have an attack bonus against infantry.",
                 "The unique unit from the castle is the centurion which gives and aura that increases the stat of militia line units."
             ],
@@ -27248,7 +27248,7 @@
             },
             "bonusDesc": [
                 "Slav farmers work 15% faster. This gives them the fastest collecting farmers in the game.",
-                "Slavs also get supplies and gambesons for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors",
+                "Slavs also get arson and gambesons for free, so they can more easily add infantry if they need to. One common situation is to add long swordsmen is against eagle warriors",
                 "Their siege workshop units are discounted by 15% which really pushes them towards a siege and halberdier unit composition.",
                 "Military buildings provide an extra 5 population space. This is like getting a free house, which is worth 25 wood plus the villager build time. You can think of this as roughly a 35-40 wood discount on military buildings.",
                 "Druzhina gives all infantry an area of effect attack. This makes their champions and halberdiers powerful in large-scale battles.",
@@ -31688,7 +31688,7 @@
             "armorClasses": [[1, 0]],
             "bonus": [[21, 0]],
             "damageTechs": ["meleeAttack", "infantryDefense", "arson"],
-            "otherTechs": ["supplies", "gambesons", "squires", "faith", "heresy", "conscription"],
+            "otherTechs": ["gambesons", "squires", "faith", "heresy", "conscription"],
             "uniqueDamageTechs": ["garland wars", "chieftains", "bagains"],
             "uniqueOtherTechs": ["perfusion", "druzhina", "forced levy", "comitatenses"],
             "trainTime": 21
@@ -36112,7 +36112,7 @@
     "relevantUpgrades": {
         "villager": ["loom", "villagerMovement", "villagerWood", "horse collar", "villagerGold", "villagerStone", "sappers"],
         "flemish militia": ["squires", "arson", "meleeAttack", "infantryDefense"],
-        "champion": ["squires", "gambesons", "supplies", "arson", "meleeAttack", "infantryDefense"],
+        "champion": ["squires", "gambesons", "arson", "meleeAttack", "infantryDefense"],
         "legionary": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "halberdier": ["squires", "arson", "meleeAttack", "infantryDefense"],
         "elite fire lancer": ["squires", "gambesons", "arson", "meleeAttack", "infantryDefense"],
@@ -39887,7 +39887,7 @@
         }
     ],
     "overviewUpgrades": [
-        ["squires", "supplies", "gambesons", "arson"],
+        ["squires", "gambesons", "arson"],
         ["thumb ring", "parthian tactics", {"name": "cranequins", "requires": "mounted crossbowman"}],
         ["bloodlines", "husbandry"],
         ["sanctity", "redemption", "block printing", "illumination", "fervor", "atonement", "theocracy", "heresy", "faith", "herbal medicine"],
