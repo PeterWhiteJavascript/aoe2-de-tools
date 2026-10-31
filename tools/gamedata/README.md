@@ -8,9 +8,9 @@ trees of the civ ranking.
 
 ```shell
 pip install -r tools/gamedata/requirements.txt   # once
-npm run gamedata:extract                        
+npm run gamedata:extract
 npm run gamedata:verify                         # optional, preview all changes
-npm run gamedata:update                         # apply changes
+npm run gamedata:update                         # apply changes and format managed JSON
 git diff                                        # review
 ```
 
@@ -23,11 +23,23 @@ git diff                                        # review
 
 Options:
 
-  - `--game <path>` (default: the Steam library with app 813780), 
+  - `--game <path>` (default: the Steam library with app 813780),
   - `--stats` (also check combat stats, which the villager calculator does not use),
   - `--techtree` (check only the civ ranking tech trees, see below).
 
 `snapshot.json` is checked in; its diff shows what a game patch changed.
+
+## Formatting managed JSON
+
+`npm run gamedata:update` and `npm run techtree:update` automatically format the JSON files managed by the
+importer after a successful update. Formatting can also be run independently:
+
+```shell
+npm run format:gamedata
+```
+
+The list of managed JSON files is intentionally defined by the `format:gamedata` script in `package.json`.
+It currently contains only `src/data.json`; add newly managed JSON files there as needed.
 
 ## Data sources
 
