@@ -30,14 +30,40 @@ $.getJSON('/data.json', function(data) {
     function civHasUnit(civ, unitName){
         return Object.values(civ.techTree).some((b) => b.units.some((u) => u.name === unitName && u.available));
     }
+    let warnedMissingHoverUpgrades = new Set();
+    function findCivUpgrade(civ, upgradeName){
+        let configuredBuilding = data.upgradeBuilding[upgradeName];
+        if(configuredBuilding){
+            let buildingName = processName(configuredBuilding, civ.name);
+            let building = civ.techTree[buildingName];
+            let upgrade = building && Array.isArray(building.upgrades)
+                ? finder(building.upgrades, upgradeName)
+                : undefined;
+            if(upgrade) return upgrade;
+        }
+
+        for(let building of Object.values(civ.techTree)){
+            if(!Array.isArray(building.upgrades)) continue;
+            let upgrade = finder(building.upgrades, upgradeName);
+            if(upgrade) return upgrade;
+        }
+
+        if(!warnedMissingHoverUpgrades.has(upgradeName)){
+            console.warn('Civilization ranking could not find upgrade "'+upgradeName+'" in the tech tree.');
+            warnedMissingHoverUpgrades.add(upgradeName);
+        }
+        return undefined;
+    }
     
     let upgradeGroup = data.unitGroups;
     let relevantUpgrades = data.relevantUpgrades;
     
-    data.civilizations.forEach((civ, i) => {
-        $("#civ-conts").append("<div class='civ-cont' civid='"+i+"'><img src='/img/civicon-"+(civ.name.toLowerCase())+".webp'><div>"+civ.name+"</div></div>");
-        
-    });
+    data.civilizations
+        .map((civ, i) => ({civ, i}))
+        .sort((a, b) => a.civ.name.localeCompare(b.civ.name))
+        .forEach(({civ, i}) => {
+            $("#civ-conts").append("<div class='civ-cont' civid='"+i+"'><img src='/img/civicon-"+(civ.name.toLowerCase())+".webp'><div>"+civ.name+"</div></div>");
+        });
     
     $(".civ-cont").click((e) => {
         $(".selected-civ").removeClass("selected-civ");
@@ -87,7 +113,7 @@ $.getJSON('/data.json', function(data) {
                     ranks.unshift(" ");
                     rankValues.unshift("medium");
                 }
-                let unitdiv = $("<div class='unit-div' unit='"+unit+"'></div>");
+                let unitdiv = $("<div class='unit-div'></div>").attr("unit", unit);
                 unitdiv.append("<div class='unit'>"+"<img src='/img/"+unit+".webp'>"+"</div>");
                 
                 ranks.forEach((r, k) => {
@@ -117,15 +143,12 @@ $.getJSON('/data.json', function(data) {
                     relevant.forEach((u) => {
                         let up = u;
                         let locked = false;
-                        console.log(u)
                         if(data.upgradeGroups[u]){
                             let changed = false;
                             //Get the best upgrade this civ has in the group.
                             for(let i = 0; i < data.upgradeGroups[u].length; i++){
-                                let buildingName = data.upgradeBuilding[data.upgradeGroups[u][i]];
-                                //console.log(buildingName, civ.techTree, data.upgradeGroups[u][i])
-                                buildingName = processName(buildingName, civ.name);
-                                if(finder(civ.techTree[buildingName].upgrades, data.upgradeGroups[u][i]).available){
+                                let upgrade = findCivUpgrade(civ, data.upgradeGroups[u][i]);
+                                if(upgrade && upgrade.available){
                                     up = data.upgradeGroups[u][i];
                                     changed = true;
                                 }
@@ -135,10 +158,9 @@ $.getJSON('/data.json', function(data) {
                                 locked = true;
                             }
                         } else {
-                            let name = data.upgradeBuilding[up]
-                            name = processName(name, civ.name);
-                            locked = !finder(civ.techTree[name].upgrades, up).available;
-                            
+                            let upgrade = findCivUpgrade(civ, up);
+                            if(!upgrade) return;
+                            locked = !upgrade.available;
                         }
                         let img = $("<div class='relevant-img'><img src='/img/"+up+".webp'></div>");
                         if(locked) img.addClass("upgrade-locked");

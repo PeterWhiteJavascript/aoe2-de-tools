@@ -5,18 +5,29 @@ $.getJSON('/data.json', function(data) {
         baseUnit, //Current units' base stats
         currentUnit; //The current unit's modified stats 
     let upgradesSelected = []; //Save this so that when upgrading a unit class, the ups persist
+    function createUnitOption(name, first){
+        let option = $("<option></option>").text(name);
+        if(first) option.attr("first", first);
+        return option;
+    }
+    function createUpgradeIcon(name, classes, group){
+        let icon = $("<div></div>").addClass(classes).attr("upgrade", name);
+        if(group) icon.attr("group", group);
+        icon.append($("<img>").attr("src", "/img/"+name+".webp"));
+        return icon;
+    }
     for(let i=0; i<data.units.length; i++){
         let unit = data.units[i];
-        unitSelect.append("<option>"+unit.name+"</option>");
+        unitSelect.append(createUnitOption(unit.name));
         let group = data.upgradeGroups[unit.name];
         if(group){
             for(let j=0;j<group.length;j++){
-                unitSelect.append("<option first='"+unit.name+"'>"+group[j]+"</option>");
+                unitSelect.append(createUnitOption(group[j], unit.name));
             }
         }
         //If there's an elite upgrade
         if(data.upgrades.find(u => u.name === "elite "+unit.name)){
-            unitSelect.append("<option first='"+unit.name+"'>elite "+unit.name+"</option>");
+            unitSelect.append(createUnitOption("elite "+unit.name, unit.name));
         }
     }
     $(".card").prepend(unitSelect);
@@ -69,7 +80,7 @@ $.getJSON('/data.json', function(data) {
         $(".card-middle").children(".upgrades").empty();
         
         //Add unit upgrades (maa, long swordsman, etc...)
-        $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+unitBase+"'><img src='/img/"+unitBase+".webp'></div>");
+        $(".card-middle").children(".unit-upgrades").append(createUpgradeIcon(unitBase, "up-img unit-up unselected"));
         if(unitName === unitBase){
             $(".card-middle").children(".unit-upgrades").children("div:eq(0)").toggleClass("unselected");
         }
@@ -79,11 +90,11 @@ $.getJSON('/data.json', function(data) {
             for(let j = 0; j < data.upgradeGroups[unitBase].length; j++){
                 //if it's not this unit itself
                 if(data.upgradeGroups[unitBase][j] !== unitName){
-                    $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+data.upgradeGroups[unitBase][j]+"'><img src='/img/"+data.upgradeGroups[unitBase][j]+".webp'></div>");
+                    $(".card-middle").children(".unit-upgrades").append(createUpgradeIcon(data.upgradeGroups[unitBase][j], "up-img unit-up unselected"));
                 } 
                 //mark all previous upgrades as selected
                 else {
-                    $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+data.upgradeGroups[unitBase][j]+"'><img src='/img/"+data.upgradeGroups[unitBase][j]+".webp'></div>");
+                    $(".card-middle").children(".unit-upgrades").append(createUpgradeIcon(data.upgradeGroups[unitBase][j], "up-img unit-up unselected"));
                     $(".card-middle").children(".unit-upgrades").children("div").toggleClass("unselected");
                 }
             }
@@ -92,7 +103,7 @@ $.getJSON('/data.json', function(data) {
         else {
             let elite = getUpgradeData("elite "+unitName);
             if(elite){
-                $(".card-middle").children(".unit-upgrades").append("<div class='up-img unit-up unselected' upgrade='"+elite.name+"'><img src='/img/"+elite.name+".webp'></div>");
+                $(".card-middle").children(".unit-upgrades").append(createUpgradeIcon(elite.name, "up-img unit-up unselected"));
             }
             if(unitName !== unitBase){
                 $(".card-middle").children(".unit-upgrades").children("div").toggleClass("unselected");
@@ -105,11 +116,11 @@ $.getJSON('/data.json', function(data) {
             if(data.upgradeGroups[u]){
                 let groupDiv = $("<div class='upgrade-group'></div>");
                 for(let j = 0; j < data.upgradeGroups[u].length; j++){
-                    groupDiv.append("<div class='up-img unselected' group='"+u+"' upgrade='"+data.upgradeGroups[u][j]+"'><img src='/img/"+data.upgradeGroups[u][j]+".webp'></div>");
+                    groupDiv.append(createUpgradeIcon(data.upgradeGroups[u][j], "up-img unselected", u));
                 }
                 $(".card-middle").children(".upgrades").append(groupDiv);
             } else if(u !== "heresy" && u !== "faith" && u !== "ballistics"){ //exclude faith/heresy/ballistics
-                $(".card-middle").children(".upgrades").append("<div class='up-img unselected' upgrade='"+u+"'><img src='/img/"+u+".webp'></div>");
+                $(".card-middle").children(".upgrades").append(createUpgradeIcon(u, "up-img unselected"));
             }
         }
 
@@ -128,7 +139,7 @@ $.getJSON('/data.json', function(data) {
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(1)").children("div").text(d.range);
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(2)").children("div").text(d.frameDelay);
             $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(3)").children("div").text(Math.min(Number(d.accuracy).toFixed(2), 1));
-            $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(4)").children("div").text(d.projSpeed);
+            $(".unit-stats").children("div:nth-child(3)").children("div:nth-child(4)").children("div").text(d.projSpeed ?? "—");
         } else{
             $(".range-attr").hide();
         }
@@ -503,7 +514,9 @@ $.getJSON('/data.json', function(data) {
         if(upgradesSelected.length){
             for(let i = 0; i < upgradesSelected.length; i++){
                 let up = $(upgradesSelected[i]).attr("upgrade");
-                $($("[upgrade='"+up+"']")[0]).toggleClass("unselected");
+                $("[upgrade]").filter(function(){
+                    return $(this).attr("upgrade") === up;
+                }).first().toggleClass("unselected");
                 applyUpgrade(up, false);
             }
             upgradesSelected = [];
