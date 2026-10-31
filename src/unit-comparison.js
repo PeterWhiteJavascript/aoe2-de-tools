@@ -31,6 +31,7 @@ $(function () {
 
     let unitGrid = data.unitGrid
     let upgradeGroups = data.upgradeGroups
+    let warnedMissingUpgrades = new Set()
     //Stores the attack/defender stats.
     let combats = []
 
@@ -538,12 +539,27 @@ $(function () {
       for (let i = 0; i < data.techs.length; i++) {
         let upgradeData = finder(upgrades, data.techs[i])
         if (!upgradeData) {
-          upgradeData = upgradeGroups[data.techs[i]]
-          let group = []
-          for (let j = 0; j < upgradeData.length; j++) {
-            group.push(finder(upgrades, upgradeData[j]))
+          let upgradeGroup = upgradeGroups[data.techs[i]]
+          if (!Array.isArray(upgradeGroup)) {
+            if (!warnedMissingUpgrades.has(data.techs[i])) {
+              console.warn(
+                'Unit comparison skipped unmodeled upgrade "' +
+                  data.techs[i] +
+                  '" for "' +
+                  data.name +
+                  '"'
+              )
+              warnedMissingUpgrades.add(data.techs[i])
+            }
+            continue
           }
-          techData.push(group)
+
+          let group = []
+          for (let j = 0; j < upgradeGroup.length; j++) {
+            let groupUpgrade = finder(upgrades, upgradeGroup[j])
+            if (groupUpgrade) group.push(groupUpgrade)
+          }
+          if (group.length) techData.push(group)
         } else {
           techData.push([upgradeData])
         }

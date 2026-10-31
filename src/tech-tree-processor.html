@@ -10,7 +10,6 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="/js/shared.js"></script>
         <script>
             /*
@@ -54,10 +53,11 @@ and open the template in the editor.
                 //Use the upgrade groups to get all units
                 gData.units.map((unit) => {
                     //Make sure it's not a building
-                    if(!unit.armorClasses.find((c) => c[0] === 11)){
+                    let armorClasses = Array.isArray(unit.armorClasses) ? unit.armorClasses : [];
+                    if(!armorClasses.some((c) => Array.isArray(c) ? c[0] === 11 : c === 11)){
                         allUnits[unit.name] = true;
                         //Figure out if it has upgrades which can be added to the units.
-                        let tech = unit.damageTechs[0];
+                        let tech = Array.isArray(unit.damageTechs) ? unit.damageTechs[0] : undefined;
                         if(tech){
                             if(tech === "heavy " + unit.name) allUnits["heavy " + unit.name] = true;
                             if(tech === "elite " + unit.name) allUnits["elite " + unit.name] = true ;
